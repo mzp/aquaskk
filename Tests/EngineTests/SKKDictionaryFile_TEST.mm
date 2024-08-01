@@ -30,7 +30,7 @@
 
     file.Load("dict.file");
 
-    assert(file.OkuriAri() == okuriAri && file.OkuriNasi() == okuriNasi);
+    XCTAssert(file.OkuriAri() == okuriAri && file.OkuriNasi() == okuriNasi);
 }
 
 @end

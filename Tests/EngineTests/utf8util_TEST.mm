@@ -13,11 +13,11 @@
 
     std::string str = "ABCいろは日本語ＡＢＣ";
 
-    assert(utf8::length(str) == 12);
-    assert(utf8::left(str, -6) == "ABCいろは");
-    assert(utf8::right(str, -6) == "日本語ＡＢＣ");
-    assert(utf8::common_prefix("1漢字2", "1漢字3") == "1漢字");
-    assert(utf8::common_prefix("いろは", "あいう") == "");
+    XCTAssert(utf8::length(str) == 12);
+    XCTAssert(utf8::left(str, -6) == "ABCいろは");
+    XCTAssert(utf8::right(str, -6) == "日本語ＡＢＣ");
+    XCTAssert(utf8::common_prefix("1漢字2", "1漢字3") == "1漢字");
+    XCTAssert(utf8::common_prefix("いろは", "あいう") == "");
 }
 
 @end

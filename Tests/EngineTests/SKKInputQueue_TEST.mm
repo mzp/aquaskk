@@ -44,26 +44,26 @@ public:
     SKKInputQueue queue(&observer);
 
     queue.AddChar('a');
-    assert(observer.Test("あ", ""));
+    XCTAssert(observer.Test("あ", ""));
 
     observer.Clear();
     queue.AddChar('k');
-    assert(observer.Test("", "k"));
+    XCTAssert(observer.Test("", "k"));
     queue.AddChar('y');
-    assert(observer.Test("", "ky"));
+    XCTAssert(observer.Test("", "ky"));
     queue.RemoveChar();
-    assert(observer.Test("", "k"));
+    XCTAssert(observer.Test("", "k"));
     queue.AddChar('i');
-    assert(observer.Test("き", ""));
+    XCTAssert(observer.Test("き", ""));
 
     observer.Clear();
     queue.AddChar('n');
-    assert(observer.Test("", "n"));
+    XCTAssert(observer.Test("", "n"));
     queue.Terminate();
-    assert(observer.Test("ん", ""));
+    XCTAssert(observer.Test("ん", ""));
 
     queue.AddChar('n');
-    assert(queue.CanConvert('i'));
+    XCTAssert(queue.CanConvert('i'));
 
     queue.Terminate();
     observer.Clear();
@@ -71,7 +71,7 @@ public:
     queue.AddChar('w');
     queue.AddChar('s');
     queue.AddChar('a');
-    assert(observer.Test("おさ", ""));
+    XCTAssert(observer.Test("おさ", ""));
 }
 
 @end

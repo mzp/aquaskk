@@ -155,43 +155,43 @@ void spawn_server(void*(*server)(void* param)) {
     proxy.Initialize("127.0.0.1:33333");
 
     proxy.Find(SKKEntry("よi", "い"), suite);
-    assert(suite.IsEmpty());
+    XCTAssert(suite.IsEmpty());
 
     // 正常系テスト
     proxy.Initialize("127.0.0.1:23000");
 
     proxy.Find(SKKEntry("よi", "い"), suite);
-    assert(suite.ToString() == "/良/好/酔/善/");
+    XCTAssert(suite.ToString() == "/良/好/酔/善/");
 
     suite.Clear();
     proxy.Find(SKKEntry("NOT-EXIST", "i"), suite);
-    assert(suite.IsEmpty());
+    XCTAssert(suite.IsEmpty());
 
     proxy.Find(SKKEntry("かんじ"), suite);
-    assert(suite.ToString() == "/漢字/寛治/官寺/");
+    XCTAssert(suite.ToString() == "/漢字/寛治/官寺/");
 
     suite.Clear();
     
     proxy.Find(SKKEntry("NOT-EXIST"), suite);
-    assert(suite.IsEmpty());
+    XCTAssert(suite.IsEmpty());
 
     // だんまりサーバーテスト
     proxy.Initialize("127.0.0.1:33000");
 
     proxy.Find(SKKEntry("かんじ"), suite);
-    assert(suite.IsEmpty());
+    XCTAssert(suite.IsEmpty());
 
     // おかしなサーバーテスト
     proxy.Initialize("127.0.0.1:43000");
 
     proxy.Find(SKKEntry("かんじ"), suite);
-    assert(suite.IsEmpty());
+    XCTAssert(suite.IsEmpty());
 
     // 自殺サーバーテスト
     proxy.Initialize("127.0.0.1:53000");
 
     proxy.Find(SKKEntry("かんじ"), suite);
-    assert(suite.IsEmpty());
+    XCTAssert(suite.IsEmpty());
 }
 
 @end

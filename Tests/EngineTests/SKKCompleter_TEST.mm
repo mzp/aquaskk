@@ -44,20 +44,20 @@ public:
 
     buddy.SetQuery("ほかん");
 
-    assert(completer.Execute() && buddy.Entry() == "ほかん1");
+    XCTAssert(completer.Execute() && buddy.Entry() == "ほかん1");
 
     completer.Next();
     completer.Next();
 
-    assert(buddy.Entry() == "ほかん3");
+    XCTAssert(buddy.Entry() == "ほかん3");
 
     backend.Register(SKKEntry("とぐるほかん"), SKKCandidate());
 
     buddy.SetQuery("とぐる");
-    assert(completer.Execute() && buddy.Entry() == "とぐるほかん");
+    XCTAssert(completer.Execute() && buddy.Entry() == "とぐるほかん");
 
     backend.Remove(SKKEntry("とぐるほかん"), SKKCandidate());
-    assert(!completer.Execute());
+    XCTAssert(!completer.Execute());
 }
 
 @end

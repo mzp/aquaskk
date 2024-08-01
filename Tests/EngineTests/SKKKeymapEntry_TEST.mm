@@ -15,55 +15,55 @@
     int key;
 
     entry = SKKKeymapEntry("Unknown", "a");
-    assert(!(entry >> key));
+    XCTAssert(!(entry >> key));
 
     entry = SKKKeymapEntry("SKK_JMODE", "a");
     entry >> key;
-    assert(key == SKKKeyState::CharCode('a', false));
-    assert(entry.Symbol() == SKK_JMODE);
-    assert(!(entry >> key));
+    XCTAssert(key == SKKKeyState::CharCode('a', false));
+    XCTAssert(entry.Symbol() == SKK_JMODE);
+    XCTAssert(!(entry >> key));
 
     entry = SKKKeymapEntry("SKK_JMODE", "keycode::0x0a");
     entry >> key;
-    assert(key == SKKKeyState::KeyCode(0x0a, false));
+    XCTAssert(key == SKKKeyState::KeyCode(0x0a, false));
 
     entry = SKKKeymapEntry("SKK_ENTER", "hex::0x03");
     entry >> key;
-    assert(key == SKKKeyState::CharCode(0x03, false));
+    XCTAssert(key == SKKKeyState::CharCode(0x03, false));
 
     entry = SKKKeymapEntry("SKK_ENTER", "ctrl::m");
     entry >> key;
-    assert(key == SKKKeyState::CharCode('m', SKKKeyState::CTRL));
+    XCTAssert(key == SKKKeyState::CharCode('m', SKKKeyState::CTRL));
 
     entry = SKKKeymapEntry("Direct", "group::a,c,d-f");
-    assert(!entry.IsNot());
-    assert(!entry.IsEvent());
-    assert(entry.Symbol() == Direct);
+    XCTAssert(!entry.IsNot());
+    XCTAssert(!entry.IsEvent());
+    XCTAssert(entry.Symbol() == Direct);
     entry >> key;
-    assert(key == SKKKeyState::CharCode('a', false));
+    XCTAssert(key == SKKKeyState::CharCode('a', false));
     entry >> key;
-    assert(key == SKKKeyState::CharCode('c', false));
+    XCTAssert(key == SKKKeyState::CharCode('c', false));
     entry >> key;
-    assert(key == SKKKeyState::CharCode('d', false));
+    XCTAssert(key == SKKKeyState::CharCode('d', false));
     entry >> key;
-    assert(key == SKKKeyState::CharCode('e', false));
+    XCTAssert(key == SKKKeyState::CharCode('e', false));
     entry >> key;
-    assert(key == SKKKeyState::CharCode('f', false));
+    XCTAssert(key == SKKKeyState::CharCode('f', false));
 
     entry = SKKKeymapEntry("NotDirect", "group::a,c,d-f");
-    assert(entry.IsNot());
-    assert(!entry.IsEvent());
-    assert(entry.Symbol() == Direct);
+    XCTAssert(entry.IsNot());
+    XCTAssert(!entry.IsEvent());
+    XCTAssert(entry.Symbol() == Direct);
     entry >> key;
-    assert(key == SKKKeyState::CharCode('a', false));
+    XCTAssert(key == SKKKeyState::CharCode('a', false));
     entry >> key;
-    assert(key == SKKKeyState::CharCode('c', false));
+    XCTAssert(key == SKKKeyState::CharCode('c', false));
     entry >> key;
-    assert(key == SKKKeyState::CharCode('d', false));
+    XCTAssert(key == SKKKeyState::CharCode('d', false));
     entry >> key;
-    assert(key == SKKKeyState::CharCode('e', false));
+    XCTAssert(key == SKKKeyState::CharCode('e', false));
     entry >> key;
-    assert(key == SKKKeyState::CharCode('f', false));
+    XCTAssert(key == SKKKeyState::CharCode('f', false));
 }
 
 @end

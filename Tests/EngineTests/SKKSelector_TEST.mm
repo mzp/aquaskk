@@ -45,7 +45,7 @@ public:
     path = [bundle pathForResource:@"skk-jisyo" ofType:@"utf8"].UTF8String;
     SKKBackEnd::theInstance().Initialize(path, dicts);
 
-    assert(selector.Execute(3) && buddy.Current().ToString() == "漢字");
+    XCTAssert(selector.Execute(3) && buddy.Current().ToString() == "漢字");
 }
 
 @end

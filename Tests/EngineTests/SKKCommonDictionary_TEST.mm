@@ -7,19 +7,19 @@ void test(SKKBaseDictionary& dict) {
     SKKCandidateSuite suite;
 
     dict.Find(SKKEntry("NOT_EXIST", "d"), suite);
-    assert(suite.IsEmpty());
+    XCTAssert(suite.IsEmpty());
 
     dict.Find(SKKEntry("よi", "い"), suite);
-    assert(suite.ToString() == "/良/好/酔/善/");
+    XCTAssert(suite.ToString() == "/良/好/酔/善/");
 
     suite.Clear();
     dict.Find(SKKEntry("NOT_EXIST"), suite);
-    assert(suite.IsEmpty());
+    XCTAssert(suite.IsEmpty());
 
     dict.Find(SKKEntry("かんじ"), suite);
-    assert(suite.ToString() == "/漢字/寛治/官寺/");
+    XCTAssert(suite.ToString() == "/漢字/寛治/官寺/");
 
-    assert(dict.ReverseLookup("漢字") == "かんじ");
+    XCTAssert(dict.ReverseLookup("漢字") == "かんじ");
 }
 
 @interface SKKCommonDictionaryTests: XCTestCase

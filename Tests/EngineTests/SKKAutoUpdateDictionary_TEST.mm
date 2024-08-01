@@ -29,10 +29,10 @@
     stat(path1, &st1);
     stat(path2, &st2);
 
-    assert(st1.st_size == st2.st_size);
+    XCTAssert(st1.st_size == st2.st_size);
 
-    assert(dict1.ReverseLookup("逆") == "ぎゃく");
-    assert(dict2.ReverseLookup("逆") == "ぎゃく");
+    XCTAssert(dict1.ReverseLookup("逆") == "ぎゃく");
+    XCTAssert(dict2.ReverseLookup("逆") == "ぎゃく");
 }
 
 @end

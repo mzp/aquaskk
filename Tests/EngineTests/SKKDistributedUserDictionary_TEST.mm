@@ -76,15 +76,15 @@ public:
     dict.Initialize("127.0.0.1:10789");
 
     dict.Find(SKKEntry("かんじ"), suite);
-    assert(suite.IsEmpty());
+    XCTAssert(suite.IsEmpty());
 
-    assert(dict.ReverseLookup("not found") == "");
+    XCTAssert(dict.ReverseLookup("not found") == "");
 
     helper.Initialize("かんじ");
 
     dict.Complete(helper);
 
-    assert(helper.Result().empty());
+    XCTAssert(helper.Result().empty());
 
     dict.Register(SKKEntry("かんじ"), SKKCandidate("漢字"));
 

@@ -25,12 +25,12 @@
 
     selector.Initialize(container, 3);
 
-    assert(!selector.IsEmpty() && !selector.Prev() && selector.Current().ToString() == "候補4");
+    XCTAssert(!selector.IsEmpty() && !selector.Prev() && selector.Current().ToString() == "候補4");
 
     selector.CursorRight();
     selector.CursorRight();
 
-    assert(selector.Current().ToString() == "候補6");
+    XCTAssert(selector.Current().ToString() == "候補6");
 }
 
 @end

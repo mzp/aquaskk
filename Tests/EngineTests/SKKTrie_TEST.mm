@@ -66,7 +66,7 @@ public:
 
     helper.Initialize("a");
     root.Traverse(helper);
-    assert(helper.Dump() == "output=a,intermediate=,queue=,original=a");
+    XCTAssert(helper.Dump() == "output=a,intermediate=,queue=,original=a");
 
     root.Add("a", SKKTrie("あ", "ア", "ｱ", ""));
     root.Add("kya", SKKTrie("きゃ", "キャ", "ｷｬ", ""));
@@ -77,39 +77,39 @@ public:
 
     helper.Initialize("m");
     root.Traverse(helper);
-    assert(helper.Dump() == "output=m,intermediate=,queue=,original=m");
+    XCTAssert(helper.Dump() == "output=m,intermediate=,queue=,original=m");
 
     helper.Initialize("a");
     root.Traverse(helper);
-    assert(helper.Dump() == "output=あ,intermediate=,queue=,original=a");
+    XCTAssert(helper.Dump() == "output=あ,intermediate=,queue=,original=a");
 
     helper.Initialize("kya");
     root.Traverse(helper);
-    assert(helper.Dump() == "output=きゃ,intermediate=,queue=,original=kya");
+    XCTAssert(helper.Dump() == "output=きゃ,intermediate=,queue=,original=kya");
 
     helper.Initialize("ki");
     root.Traverse(helper);
-    assert(helper.Dump() == "output=,intermediate=,queue=i,original=ki");
+    XCTAssert(helper.Dump() == "output=,intermediate=,queue=i,original=ki");
 
     helper.Initialize("ky");
     root.Traverse(helper);
-    assert(helper.Dump() == "output=,intermediate=,queue=ky,original=ky");
+    XCTAssert(helper.Dump() == "output=,intermediate=,queue=ky,original=ky");
 
     helper.Initialize("n");
     root.Traverse(helper);
-    assert(helper.Dump() == "output=,intermediate=ん,queue=n,original=n");
+    XCTAssert(helper.Dump() == "output=,intermediate=ん,queue=n,original=n");
 
     helper.Initialize("ng");
     root.Traverse(helper);
-    assert(helper.Dump() == "output=ん,intermediate=,queue=g,original=ng");
+    XCTAssert(helper.Dump() == "output=ん,intermediate=,queue=g,original=ng");
 
     helper.Initialize("nn");
     root.Traverse(helper);
-    assert(helper.Dump() == "output=ん,intermediate=,queue=,original=nn");
+    XCTAssert(helper.Dump() == "output=ん,intermediate=,queue=,original=nn");
 
     helper.Initialize("xx");
     root.Traverse(helper);
-    assert(helper.Dump() == "output=っ,intermediate=,queue=,original=xx");
+    XCTAssert(helper.Dump() == "output=っ,intermediate=,queue=,original=xx");
 }
 
 @end

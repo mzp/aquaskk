@@ -14,7 +14,7 @@ int main() {
 
     SKKCandidateSuite suite;
     dict->Find(SKKEntry("かんじ"), suite);
-    assert(suite.ToString() == "/漢字/寛治/官寺/");
+    XCTAssert(suite.ToString() == "/漢字/寛治/官寺/");
 
     return 0;
 }

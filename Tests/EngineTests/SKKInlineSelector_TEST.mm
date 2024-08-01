@@ -17,10 +17,10 @@
 
     selector.Initialize(container, 3);
 
-    assert(!selector.IsEmpty() && !selector.Prev() && selector.Current().ToString() == "候補1");
-    assert(selector.Next() && selector.Current().ToString() == "候補2");
-    assert(selector.Next() && !selector.Next() && selector.Current().ToString() == "候補3");
-    assert(selector.Prev() && selector.Current().ToString() == "候補2");
+    XCTAssert(!selector.IsEmpty() && !selector.Prev() && selector.Current().ToString() == "候補1");
+    XCTAssert(selector.Next() && selector.Current().ToString() == "候補2");
+    XCTAssert(selector.Next() && !selector.Next() && selector.Current().ToString() == "候補3");
+    XCTAssert(selector.Prev() && selector.Current().ToString() == "候補2");
 }
 
 @end

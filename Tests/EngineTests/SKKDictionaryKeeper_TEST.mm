@@ -43,12 +43,12 @@ public:
 
     keeper.Initialize(&loader);
 
-    assert(keeper.ReverseLookup("官寺") == "かんじ");
+    XCTAssert(keeper.ReverseLookup("官寺") == "かんじ");
 
     helper.Initialize("か");
     keeper.Complete(helper);
 
-    assert(helper.Result()[0] == "かんじ");
+    XCTAssert(helper.Result()[0] == "かんじ");
 }
 
 @end

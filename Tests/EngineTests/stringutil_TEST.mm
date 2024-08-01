@@ -16,31 +16,31 @@
 
     splitter.split("a,b,c,d");
 
-    assert(splitter >> str && str == "a");
-    assert(splitter >> str && str == "b");
-    assert(splitter >> str && str == "c");
-    assert(splitter >> str && str == "d");
-    assert(!(splitter >> str));
+    XCTAssert(splitter >> str && str == "a");
+    XCTAssert(splitter >> str && str == "b");
+    XCTAssert(splitter >> str && str == "c");
+    XCTAssert(splitter >> str && str == "d");
+    XCTAssert(!(splitter >> str));
 
     splitter.split("abc::def::ghi", "::");
 
-    assert(splitter >> str && str == "abc");
-    assert(splitter >> str && str == "def");
-    assert(splitter >> str && str == "ghi");
-    assert(!(splitter >> str));
+    XCTAssert(splitter >> str && str == "abc");
+    XCTAssert(splitter >> str && str == "def");
+    XCTAssert(splitter >> str && str == "ghi");
+    XCTAssert(!(splitter >> str));
 
     splitter.split("::abc:,def:,ghi::", "::");
-    assert(splitter >> str && str == "abc:,def:,ghi");
-    assert(!(splitter >> str));
+    XCTAssert(splitter >> str && str == "abc:,def:,ghi");
+    XCTAssert(!(splitter >> str));
 
     splitter.split("abc def", " ");
-    assert(splitter >> str && str == "abc");
-    assert(splitter >> str && str == "def");
-    assert(!(splitter >> str));
+    XCTAssert(splitter >> str && str == "abc");
+    XCTAssert(splitter >> str && str == "def");
+    XCTAssert(!(splitter >> str));
 
     str = "begin%20%20first%2second%0third20%end";
     string::translate(str, "%20", " ");
-    assert(str == "begin  first%2second%0third20%end");
+    XCTAssert(str == "begin  first%2second%0third20%end");
 
     std::vector<std::string> a;
 
@@ -49,15 +49,15 @@
     a.push_back("ghi");
     a.push_back("jkl");
 
-    assert(string::join(a) == "abc def ghi jkl");
-    assert(string::join(a, "/") == "abc/def/ghi/jkl");
+    XCTAssert(string::join(a) == "abc def ghi jkl");
+    XCTAssert(string::join(a, "/") == "abc/def/ghi/jkl");
 
     splitter.split("abc 123 3.14");
     int ivalue;
     double dvalue;
-    assert(splitter >> str && str == "abc");
-    assert(splitter >> ivalue && ivalue == 123);
-    assert(splitter >> dvalue && dvalue == 3.14);
+    XCTAssert(splitter >> str && str == "abc");
+    XCTAssert(splitter >> ivalue && ivalue == 123);
+    XCTAssert(splitter >> dvalue && dvalue == 3.14);
 }
 
 @end
