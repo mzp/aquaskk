@@ -85,7 +85,7 @@ PRODUCT_BUNDLE_IDENTIFIER = org.codefirst.aquaskk.$(TARGET_NAME:rfc1034identifie
 PRODUCT_NAME = $(TARGET_NAME:c99extidentifier)
 SDKROOT = auto
 SKIP_INSTALL = YES
-SUPPORTED_PLATFORMS = iphoneos iphonesimulator macosx xros xrsimulator
+SUPPORTED_PLATFORMS = macosx
 SWIFT_ACTIVE_COMPILATION_CONDITIONS[config=Debug] = DEBUG $(inherited)
 SWIFT_COMPILATION_MODE[config=Release] = wholemodule
 SWIFT_EMIT_LOC_STRINGS = YES

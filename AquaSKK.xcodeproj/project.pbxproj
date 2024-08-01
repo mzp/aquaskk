@@ -700,12 +700,12 @@
 			isa = PBXGroup;
 			children = (
 				13D7561B2C5A905E006144F2 /* AquaSKK.xcconfig */,
-				135C3DBF2C5B3FEC00661AE3 /* Server.xcconfig */,
-				13931D0E2C5B4C6B00B11EEE /* EngineTesting.xcconfig */,
 				13D7561C2C5A9113006144F2 /* Debug.xcconfig */,
-				1307C2672C5B48D600B089B6 /* PreferenecesApp.xcconfig */,
+				13931D0E2C5B4C6B00B11EEE /* EngineTesting.xcconfig */,
 				13931D0C2C5B49C200B11EEE /* PreferencesAppTesting.xcconfig */,
+				1307C2672C5B48D600B089B6 /* PreferenecesApp.xcconfig */,
 				13931D0D2C5B4B5000B11EEE /* PreferenecsAppUITesting.xcconfig */,
+				135C3DBF2C5B3FEC00661AE3 /* Server.xcconfig */,
 			);
 			path = Config;
 			sourceTree = "<group>";
