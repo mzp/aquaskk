@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "B786D572-B0E3-468A-BD60-EBD61B455D57",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:AquaSKK.xcodeproj",
+        "identifier" : "1307C2522C5B47DA00B089B6",
+        "name" : "AquaSKK-PreferencesUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

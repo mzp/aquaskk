@@ -1,5 +1,5 @@
 //
-//  macOS.xcconfig
+//  PreferencesAppTest.xcconfig
 //  AquaSKK
 //
 //  Created by mzp on 7/31/24.
@@ -10,4 +10,4 @@
 
 SDKROOT = macosx
 
-OTHER_LDFLAGS = -framework Foundation -framework AppKit -framework QuartzCore -framework InputMethodKit -framework AquaSKKEngine
+BUNDLE_LOADER = $(TEST_HOST)

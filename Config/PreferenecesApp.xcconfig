@@ -1,0 +1,15 @@
+//
+//  PreferenecesApp.xcconfig
+//  AquaSKK
+//
+//  Created by mzp on 7/31/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+CODE_SIGN_ENTITLEMENTS = AquaSKK-Preferences/AquaSKK_Preferences.entitlements
+
+DEVELOPMENT_ASSET_PATHS = "AquaSKK-Preferences/Preview Content"
+
+REGISTER_APP_GROUPS = YES

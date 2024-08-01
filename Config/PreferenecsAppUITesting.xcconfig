@@ -1,0 +1,13 @@
+//
+//  PreferenecsAppUITesting.xcconfig
+//  AquaSKK
+//
+//  Created by mzp on 7/31/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+SDKROOT = macosx
+
+TEST_TARGET_NAME = AquaSKK-Preferences
