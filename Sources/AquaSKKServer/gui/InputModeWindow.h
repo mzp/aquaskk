@@ -25,6 +25,7 @@
 
 #include "SKKInputMode.h"
 #include <QuartzCore/QuartzCore.h>
+#import <AppKit/AppKit.h>
 
 @interface InputModeWindow : NSObject {
     NSWindow* window_;

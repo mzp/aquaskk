@@ -23,6 +23,9 @@
 #ifndef AnnotationWindow_h
 #define AnnotationWindow_h
 
+#import <Foundation/Foundation.h>
+#import <AppKit/AppKit.h>
+
 @class AnnotationView;
 
 @interface AnnotationWindow : NSObject {

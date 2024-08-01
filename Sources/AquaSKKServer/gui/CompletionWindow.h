@@ -23,6 +23,9 @@
 #ifndef CompletionWindow_h
 #define CompletionWindow_h
 
+#import <Foundation/Foundation.h>
+#import <AppKit/AppKit.h>
+
 @class CompletionView;
 
 @interface CompletionWindow : NSObject {

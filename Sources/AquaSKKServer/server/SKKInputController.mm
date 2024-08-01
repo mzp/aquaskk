@@ -380,6 +380,7 @@
     return [[BlacklistApps sharedManager] isInsertEmptyString:bundle];
 }
 
+# pragma clang diagnostic ignored "-Wreturn-type"
 // AquaSKKの制御外で入力モードが変更されることがあるので、
 // SKKの状態もそれにあわせて変更する。
 //
@@ -399,6 +400,7 @@
         return system;
     }
 }
+# pragma clang diagnostic pop
 
 - (void)cancelKeyEventForASCII {
     // Ctrl-L を強制挿入することで、アプリケーション側のキー処理を無効化する

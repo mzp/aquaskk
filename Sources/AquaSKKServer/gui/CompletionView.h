@@ -23,6 +23,10 @@
 #ifndef CompletionView_h
 #define CompletionView_h
 
+#import <Foundation/Foundation.h>
+#import <AppKit/AppKit.h>
+
+
 @interface CompletionView : NSView {
     NSAttributedString* completion_;
     NSColor* strokeColor_;

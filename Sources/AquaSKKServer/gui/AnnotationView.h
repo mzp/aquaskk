@@ -23,6 +23,9 @@
 #ifndef AnnotationView_h
 #define AnnotationView_h
 
+#import <Foundation/Foundation.h>
+#import <AppKit/AppKit.h>
+
 @interface AnnotationView : NSView {
     NSTextView* textView_;
     NSColor* strokeColor_;

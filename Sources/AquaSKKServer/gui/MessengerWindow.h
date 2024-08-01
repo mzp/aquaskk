@@ -24,6 +24,7 @@
 #define MessengerWindow_h
 
 #import <Foundation/Foundation.h>
+#import <AppKit/AppKit.h>
 
 @class MessengerView;
 
