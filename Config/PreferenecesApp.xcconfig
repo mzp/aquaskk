@@ -12,3 +12,5 @@ CODE_SIGN_ENTITLEMENTS = Sources/AquaSKK-Preferences/AquaSKK_Preferences.entitle
 DEVELOPMENT_ASSET_PATHS = "Sources/AquaSKK-Preferences/Preview Content"
 
 REGISTER_APP_GROUPS = YES
+
+OTHER_LDFLAGS = -framework AquaSKKEngine -framework AquaSKKServer -framework Carbon

@@ -1,14 +1,14 @@
 //
-//  AquaSKK_PreferencesApp.swift
-//  AquaSKK-Preferences
+//  AquaSKKApp.swift
+//  AquaSKK
 //
 //  Created by mzp on 7/31/24.
 //
 
 import SwiftUI
 
-// TODO: @main
-struct AquaSKK_PreferencesApp: App {
+// @main
+struct AquaSKKApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

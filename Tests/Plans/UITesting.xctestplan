@@ -15,6 +15,13 @@
     {
       "target" : {
         "containerPath" : "container:AquaSKK.xcodeproj",
+        "identifier" : "137D058E2C5B5A83009AC591",
+        "name" : "AquaSKKUITests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:AquaSKK.xcodeproj",
         "identifier" : "1307C2522C5B47DA00B089B6",
         "name" : "AquaSKK-PreferencesUITests"
       }

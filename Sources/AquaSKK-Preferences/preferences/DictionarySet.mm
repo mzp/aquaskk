@@ -35,7 +35,9 @@ static NSString* DictionaryRowsType = @"DictionaryRowsType";
 
     while(NSNotFound != idx) {
 	if(idx >= insertIndex) {
+# pragma clang diagnostic ignored "-Wshorten-64-to-32"
 	    removeIndex = idx + aboveInsertIndexCount;
+# pragma clang diagnostic pop
 	    aboveInsertIndexCount += 1;
 	} else {
 	    removeIndex = idx;
@@ -93,7 +95,9 @@ static NSString* DictionaryRowsType = @"DictionaryRowsType";
 
     [panel setDirectoryURL:dirurl];
     [panel beginSheetModalForWindow:prefView completionHandler:^(NSInteger result) {
+# pragma clang diagnostic ignored "-Wdeprecated-declarations"
         if(result == NSOKButton) {
+# pragma clang diagnostic pop
             [[self selection] setValue:[[panel URL] path]
                                 forKey:SKKDictionarySetKeys::location];
         }

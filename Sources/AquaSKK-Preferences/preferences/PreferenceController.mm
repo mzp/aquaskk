@@ -120,7 +120,9 @@ namespace {
     [self reloadServer];
 }
 
+# pragma clang diagnostic ignored "-Wdeprecated-implementations"
 - (void)changeFont:(id)sender {
+# pragma clang diagnostic pop
     [candidateWindowFont_ release];
     candidateWindowFont_ = [[sender convertFont:[NSFont systemFontOfSize:14]] retain];
 
@@ -141,7 +143,9 @@ namespace {
 }
 
 - (void)keyboardLayoutDidChange:(id)sender {
+# pragma clang diagnostic ignored "-Wshorten-64-to-32"
     int index = [layoutPopUp_ indexOfSelectedItem];
+# pragma clang diagnostic pop
     NSString* selectedLayout = [layoutNames_ objectAtIndex:index];
 
     if(selectedLayout) {
@@ -158,7 +162,9 @@ namespace {
 
     [panel setDirectoryURL:dirurl];
     [panel beginSheetModalForWindow:prefWindow_ completionHandler:^(NSInteger result) {
+# pragma clang diagnostic ignored "-Wdeprecated-declarations"
         if(result == NSOKButton) {
+# pragma clang diagnostic pop
             [preferences_ setObject:[[panel URL] path]
                              forKey:SKKUserDefaultKeys::user_dictionary_path];
         }
@@ -198,7 +204,9 @@ static NSInteger compareInputSource(id obj1, id obj2, void *context) {
 - (NSMenuItem*)menuItemWithInputSource:(TISInputSourceRef)inputSource imageSize:(NSSize)size {
     NSString* title = (NSString*)TISGetInputSourceProperty(inputSource, kTISPropertyLocalizedName);
     IconRef iconref = (IconRef)TISGetInputSourceProperty(inputSource, kTISPropertyIconRef);
+# pragma clang diagnostic ignored "-Wdeprecated-declarations"
     NSImage* image = [[NSImage alloc] initWithIconRef:iconref];
+# pragma clang diagnostic pop
     [image setSize:size];
 
     NSMenuItem* item = [[NSMenuItem alloc] initWithTitle:title
