@@ -675,11 +675,8 @@
 			children = (
 				1307C2342C5B471300B089B6 /* AquaSKKServerTests.xctest */,
 				1307C2392C5B47D800B089B6 /* AquaSKK_Preferences.app */,
-				1307C23A2C5B47D800B089B6 /* AquaSKK-Preferences */,
 				1307C2492C5B47DA00B089B6 /* AquaSKK_PreferencesTests.xctest */,
-				1307C24C2C5B47DA00B089B6 /* AquaSKK-PreferencesTests */,
 				1307C2532C5B47DA00B089B6 /* AquaSKK_PreferencesUITests.xctest */,
-				1307C2562C5B47DA00B089B6 /* AquaSKK-PreferencesUITests */,
 				1307C2642C5B48B500B089B6 /* AquaSKKEngine.framework */,
 				1307C2652C5B48B500B089B6 /* AquaSKKEngineTests.xctest */,
 				1307C2662C5B48B500B089B6 /* EngineTests.xctest */,
@@ -713,6 +710,8 @@
 		1344F4992C5B282200D8C850 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				1307C24C2C5B47DA00B089B6 /* AquaSKK-PreferencesTests */,
+				1307C2562C5B47DA00B089B6 /* AquaSKK-PreferencesUITests */,
 				13931D102C5B4CC000B11EEE /* Plans */,
 				1344F4942C5A92D300D8C850 /* AquaSKKEngineTests */,
 				135C3D662C5B3E9D00661AE3 /* AquaSKKServerTests */,
@@ -726,6 +725,7 @@
 			children = (
 				135C3D5F2C5B3E9600661AE3 /* AquaSKKServer */,
 				13D756182C5A9049006144F2 /* AquaSKKEngine */,
+				1307C23A2C5B47D800B089B6 /* AquaSKK-Preferences */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
