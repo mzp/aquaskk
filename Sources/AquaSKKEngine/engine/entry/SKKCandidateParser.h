@@ -104,9 +104,11 @@ public:
 
 	reset();
 
+# pragma clang diagnostic ignored "-Wdeprecated-declarations"
 	std::for_each(str.begin(), str.end(),
 		      std::bind1st(std::mem_fun(&SKKCandidateParser::invoke), this));
     }
+# pragma clang diagnostic pop
 
     const SKKCandidateContainer& Candidates() const {
 	return candidates_;

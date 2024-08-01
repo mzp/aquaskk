@@ -36,12 +36,14 @@
 - (id)initWithFont:(NSFont*)font {
     if(self = [super init]) {
 	entry_ = [[NSMutableAttributedString alloc] init];
+
+# pragma clang diagnostic ignored "-Wincompatible-pointer-types"
 	attributes_ = [[NSDictionary dictionaryWithObjectsAndKeys:
                     font, NSFontAttributeName,
                     [NSColor labelColor], NSForegroundColorAttributeName,
                     nil]
                    retain];
-
+# pragma clang diagnostic pop
 	NSAttributedString* tmpstr = [[NSAttributedString alloc]
 					 initWithString:[NSString stringWithUTF8String:" A  漢字 "]
 					 attributes:attributes_];
@@ -72,8 +74,10 @@
       [entry_ addAttribute:NSBackgroundColorAttributeName
         value:[NSColor controlAccentColor] range:NSMakeRange(0, 3)];
     } else {
+# pragma clang diagnostic ignored "-Wdeprecated-declarations"
       [entry_ addAttribute:NSBackgroundColorAttributeName
         value:[NSColor selectedMenuItemColor] range:NSMakeRange(0, 3)];
+# pragma clang diagnostic pop
     }
 
     // ラベルの文字色

@@ -670,6 +670,24 @@
 			path = "AquaSKK-PreferencesUITests";
 			sourceTree = "<group>";
 		};
+		1320D90B2C5B4E5C002DE997 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1307C2342C5B471300B089B6 /* AquaSKKServerTests.xctest */,
+				1307C2392C5B47D800B089B6 /* AquaSKK_Preferences.app */,
+				1307C23A2C5B47D800B089B6 /* AquaSKK-Preferences */,
+				1307C2492C5B47DA00B089B6 /* AquaSKK_PreferencesTests.xctest */,
+				1307C24C2C5B47DA00B089B6 /* AquaSKK-PreferencesTests */,
+				1307C2532C5B47DA00B089B6 /* AquaSKK_PreferencesUITests.xctest */,
+				1307C2562C5B47DA00B089B6 /* AquaSKK-PreferencesUITests */,
+				1307C2642C5B48B500B089B6 /* AquaSKKEngine.framework */,
+				1307C2652C5B48B500B089B6 /* AquaSKKEngineTests.xctest */,
+				1307C2662C5B48B500B089B6 /* EngineTests.xctest */,
+				1307C2332C5B471300B089B6 /* AquaSKKServer.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		1344F4942C5A92D300D8C850 /* AquaSKKEngineTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1097,17 +1115,7 @@
 				1344F4972C5B27DB00D8C850 /* Config */,
 				1344F49B2C5B284C00D8C850 /* Sources */,
 				1344F4992C5B282200D8C850 /* Tests */,
-				1307C2332C5B471300B089B6 /* AquaSKKServer.framework */,
-				1307C2342C5B471300B089B6 /* AquaSKKServerTests.xctest */,
-				1307C2392C5B47D800B089B6 /* AquaSKK_Preferences.app */,
-				1307C23A2C5B47D800B089B6 /* AquaSKK-Preferences */,
-				1307C2492C5B47DA00B089B6 /* AquaSKK_PreferencesTests.xctest */,
-				1307C24C2C5B47DA00B089B6 /* AquaSKK-PreferencesTests */,
-				1307C2532C5B47DA00B089B6 /* AquaSKK_PreferencesUITests.xctest */,
-				1307C2562C5B47DA00B089B6 /* AquaSKK-PreferencesUITests */,
-				1307C2642C5B48B500B089B6 /* AquaSKKEngine.framework */,
-				1307C2652C5B48B500B089B6 /* AquaSKKEngineTests.xctest */,
-				1307C2662C5B48B500B089B6 /* EngineTests.xctest */,
+				1320D90B2C5B4E5C002DE997 /* Products */,
 			);
 			sourceTree = "<group>";
 		};

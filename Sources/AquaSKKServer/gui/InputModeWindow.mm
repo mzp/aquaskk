@@ -39,10 +39,13 @@
 
 - (id)init {
     if(self = [super init]) {
+
+# pragma clang diagnostic ignored "-Wdeprecated-declarations"
         window_ = [[NSWindow alloc] initWithContentRect:NSZeroRect
                                     styleMask:NSBorderlessWindowMask
                                     backing:NSBackingStoreBuffered
                                     defer:YES];
+# pragma clang diagnostic pop
         [window_ setBackgroundColor:[NSColor clearColor]];
         [window_ setOpaque:NO];
         [window_ setIgnoresMouseEvents:YES];

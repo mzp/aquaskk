@@ -31,7 +31,9 @@
 #include <memory>
 
 class SKKDictionaryKeeper : public SKKDictionaryLoaderObserver {
+# pragma clang diagnostic ignored "-Wdeprecated-declarations"
     std::auto_ptr<pthread::timer> timer_;
+# pragma clang diagnostic pop
     pthread::condition condition_;
     SKKDictionaryFile file_;
     bool loaded_;

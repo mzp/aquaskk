@@ -122,7 +122,9 @@ static std::string ConvertType3(const std::string& src) {
 	return "〇";
     }
 
+# pragma clang diagnostic ignored "-Wshorten-64-to-32"
     for(unsigned i = src.find_first_not_of("0"); i < src.size(); ++ i) {
+# pragma clang diagnostic pop
 	switch(src[i]) {
 	case '2':
 	    result += "二";

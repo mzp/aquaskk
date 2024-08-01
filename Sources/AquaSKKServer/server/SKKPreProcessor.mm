@@ -49,7 +49,7 @@ SKKEvent SKKPreProcessor::Execute(const NSEvent* event) {
     int charcode = charstr ? *[charstr UTF8String] : 0;
     int keycode = [event keyCode];
     int mods = 0;
-
+# pragma clang diagnostic ignored "-Wdeprecated-declarations"
     if([event modifierFlags] & NSShiftKeyMask) {
 	if(std::isgraph(dispchar)) { // 空白類を除いた英数字記号
 	    charcode = dispchar;
@@ -79,6 +79,7 @@ SKKEvent SKKPreProcessor::Execute(const NSEvent* event) {
     if([event modifierFlags] & NSAlphaShiftKeyMask) {
         result.option |= CapsLock;
     }
+# pragma clang diagnostic pop
 
 #ifdef SKK_DEBUG
     NSLog(@"%@", [event description]);

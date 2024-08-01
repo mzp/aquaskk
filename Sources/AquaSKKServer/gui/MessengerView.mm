@@ -66,6 +66,7 @@
 }
 
 - (void)drawRect:(NSRect)rect {
+# pragma clang diagnostic ignored "-Wdeprecated-declarations"
     NSRect frame = [self messageRect];
 
     [[NSColor controlColor] setFill];
@@ -80,6 +81,7 @@
 
     [icon_ drawAtPoint:pt fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
     [message_ drawAtPoint:NSMakePoint(pt.x + [icon_ size].width + 2, 4) withAttributes:attributes_];
+# pragma clang diagnostic pop
 }
 
 @end

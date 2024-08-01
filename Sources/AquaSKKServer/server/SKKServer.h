@@ -29,7 +29,9 @@
 
 @interface SKKServer : NSObject <SKKSupervisor> {
     IMKServer* imkserver_;
+# pragma clang diagnostic ignored "-Wdeprecated-declarations"
     NSConnection* connection_;
+# pragma clang diagnostic pop
     class skkserv* skkserv_;
 }
 

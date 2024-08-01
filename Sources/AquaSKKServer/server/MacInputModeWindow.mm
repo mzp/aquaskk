@@ -38,7 +38,10 @@ namespace {
     }
 
     int ActiveProcessID() {
+# pragma clang diagnostic ignored "-Wdeprecated-declarations"
         NSDictionary* info = [[NSWorkspace sharedWorkspace] activeApplication];
+# pragma clang diagnostic pop
+
         NSNumber* pid = [info objectForKey:@"NSApplicationProcessIdentifier"];
 
         return [pid intValue];
@@ -98,8 +101,10 @@ namespace {
     CGRectContainer list = CreateWindowBoundsListOf(ActiveProcessID());
 
     // カーソル位置がウィンドウ矩形に含まれていなければ無視する
+# pragma clang diagnostic ignored "-Wshorten-64-to-32"
     int count = std::count_if(list.begin(), list.end(),
                               std::bind2nd(std::ptr_fun(CGRectContainsPoint), cursor));
+# pragma clang diagnostic pop
     if(!count) {
         return;
     }

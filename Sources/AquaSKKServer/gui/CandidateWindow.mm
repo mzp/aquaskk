@@ -35,10 +35,12 @@
     self = [super init];
     if(self) {
         view_ = [[CandidateView alloc] initWithFrame:NSZeroRect];
+# pragma clang diagnostic ignored "-Wdeprecated-declarations"
         window_ = [[NSWindow alloc] initWithContentRect:NSZeroRect
                                     styleMask:NSBorderlessWindowMask
                                     backing:NSBackingStoreBuffered
                                     defer:YES];
+# pragma clang diagnostic pop
         [window_ setIgnoresMouseEvents:YES];
         [window_ setContentView:view_];
         labels_ = @"";
@@ -91,7 +93,9 @@
     if(result.location == NSNotFound) {
 	return -1;
     } else {
+# pragma clang diagnostic ignored "-Wshorten-64-to-32"
 	return result.location;
+# pragma clang diagnostic pop
     }
 }
 

@@ -79,7 +79,9 @@ int SKKCompleter::minPosition() const {
 }
 
 int SKKCompleter::maxPosition() const {
+# pragma clang diagnostic ignored "-Wshorten-64-to-32"
     return completions_.size() - 1;
+# pragma clang diagnostic pop
 }
 
 void SKKCompleter::notify() {

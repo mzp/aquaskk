@@ -116,14 +116,16 @@ namespace jconv {
 	    if(pos == std::string::npos) return remain;
 
 	    str.replace(pos, from_.size(), to_);
-
+# pragma clang diagnostic ignored "-Wshorten-64-to-32"
 	    return this->operator()(str, remain - from_.size(), pos + to_.size());
+# pragma clang diagnostic pop
 	}
     };
 
     static void kana_convert(kana_member target, kana_member replacement, std::string& str) {
+# pragma clang diagnostic ignored "-Wshorten-64-to-32"
 	unsigned remain = str.size();
-
+# pragma clang diagnostic pop
 	for(kana** tbl = kana_tables; *tbl != 0; ++ tbl) {
 	    for(kana* ptr = *tbl; remain && ptr->hirakana; ++ ptr) {
 		remain = translate(ptr->*target, ptr->*replacement)(str, remain);

@@ -70,8 +70,9 @@ bool MacConfig::DeleteOkuriWhenQuit() {
 
 int MacConfig::integerConfig(NSString* key) {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-
+# pragma clang diagnostic ignored "-Wshorten-64-to-32"
     return [defaults integerForKey:key];
+# pragma clang diagnostic pop
 }
 
 bool MacConfig::boolConfig(NSString* key) {

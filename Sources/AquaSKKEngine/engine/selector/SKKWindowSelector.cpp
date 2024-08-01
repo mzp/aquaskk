@@ -114,7 +114,11 @@ bool SKKWindowSelector::Select(char label) {
 }
 
 void SKKWindowSelector::Show() {
+# pragma clang diagnostic ignored "-Wshorten-64-to-32"
     window_->Update(view_.begin(), view_.end(), cursor_pos_, page_pos_ + 1, pages_.size());
+# pragma clang diagnostic pop
+
+
     window_->Show();
 }
 

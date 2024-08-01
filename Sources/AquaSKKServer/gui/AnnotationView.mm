@@ -45,7 +45,9 @@
         [self initializeStyle];
         [self initializeView];
 
+# pragma clang diagnostic ignored "-Wdeprecated-declarations"
         strokeColor_ = [[NSColor windowFrameColor] retain];
+# pragma clang diagnostic pop
 
         definitiveHeader_ = [self newHeader:@"意味・語源"];
         annotationHeader_ = [self newHeader:@"SKK 辞書の註釈"];

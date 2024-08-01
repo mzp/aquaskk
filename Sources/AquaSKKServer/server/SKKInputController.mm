@@ -292,7 +292,9 @@
     [[alert window] setLevel:kCGPopUpMenuWindowLevel];
     [[alert window] setTitle:@"AquaSKK"];
 
+# pragma clang diagnostic ignored "-Wnonnull"
     [alert beginSheetModalForWindow:0 modalDelegate:self didEndSelector:0 contextInfo:0];
+# pragma clang diagnostic pop
 
     NSPasteboard* pb = [NSPasteboard generalPasteboard];
 

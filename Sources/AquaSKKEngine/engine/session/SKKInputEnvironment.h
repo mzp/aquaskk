@@ -33,7 +33,9 @@ class SKKInputEnvironment {
     SKKInputContext* context_;
     SKKInputSessionParameter* param_;
     SKKInputModeSelector selector_;
+# pragma clang diagnostic ignored "-Wdeprecated-declarations"
     std::auto_ptr<SKKBaseEditor> bottom_;
+# pragma clang diagnostic pop
 
 public:
     SKKInputEnvironment(SKKInputContext* context,

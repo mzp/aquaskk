@@ -330,7 +330,9 @@ namespace pthread {
                 }
             }
 
+# pragma clang diagnostic ignored "-Wshorten-64-to-32"
             idle_threads_ = pool_.size();
+# pragma clang diagnostic pop
         }
 
         ~pool() {
