@@ -245,6 +245,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1307C22F2C5B45D700B089B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 13D368112C5A81290083CAE3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13D7560A2C5A9043006144F2;
+			remoteInfo = AquaSKKEngine;
+		};
 		1344F48E2C5A92CE00D8C850 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 13D368112C5A81290083CAE3 /* Project object */;
@@ -269,6 +276,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1307C2332C5B471300B089B6 /* AquaSKKServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AquaSKKServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1307C2342C5B471300B089B6 /* AquaSKKServerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AquaSKKServerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1344F4932C5A92D300D8C850 /* AquaSKKEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKKEngineTests.swift; sourceTree = "<group>"; };
 		1344F4962C5B27CF00D8C850 /* All.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = All.xctestplan; path = Tests/All.xctestplan; sourceTree = SOURCE_ROOT; };
 		1344F49C2C5B28FC00D8C850 /* SKKAnnotator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKAnnotator.h; sourceTree = "<group>"; };
@@ -518,11 +527,9 @@
 		135C3D912C5B3F1D00661AE3 /* SKKServerProxy.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKServerProxy.mm; sourceTree = "<group>"; };
 		135C3D922C5B3F1D00661AE3 /* SKKSupervisor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKSupervisor.h; sourceTree = "<group>"; };
 		135C3DBF2C5B3FEC00661AE3 /* macOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = macOS.xcconfig; sourceTree = "<group>"; };
-		135C3DC02C5B401C00661AE3 /* AquaSKKServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AquaSKKServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		135C3DC12C5B401E00661AE3 /* AquaSKKServerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AquaSKKServerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		135C3DC22C5B40AE00661AE3 /* AquaSKKEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AquaSKKEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		135C3DC32C5B40AE00661AE3 /* AquaSKKEngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AquaSKKEngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		135C3DC42C5B40AE00661AE3 /* EngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		135C3DC22C5B40AE00661AE3 /* AquaSKKEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AquaSKKEngine.framework; path = /Users/mzp/ghq/github.com/codefirst/aquaskk/build/Debug/AquaSKKEngine.framework; sourceTree = "<absolute>"; };
+		135C3DC32C5B40AE00661AE3 /* AquaSKKEngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = AquaSKKEngineTests.xctest; path = /Users/mzp/ghq/github.com/codefirst/aquaskk/build/Debug/AquaSKKEngineTests.xctest; sourceTree = "<absolute>"; };
+		135C3DC42C5B40AE00661AE3 /* EngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = EngineTests.xctest; path = /Users/mzp/ghq/github.com/codefirst/aquaskk/build/Debug/EngineTests.xctest; sourceTree = "<absolute>"; };
 		13D756162C5A9049006144F2 /* AquaSKKEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKEngine.h; sourceTree = "<group>"; };
 		13D756172C5A9049006144F2 /* AquaSKKEngine.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKEngine.docc; sourceTree = "<group>"; };
 		13D7561B2C5A905E006144F2 /* AquaSKK.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AquaSKK.xcconfig; sourceTree = "<group>"; };
@@ -982,11 +989,8 @@
 				1344F4972C5B27DB00D8C850 /* Config */,
 				1344F49B2C5B284C00D8C850 /* Sources */,
 				1344F4992C5B282200D8C850 /* Tests */,
-				135C3DC02C5B401C00661AE3 /* AquaSKKServer.framework */,
-				135C3DC12C5B401E00661AE3 /* AquaSKKServerTests.xctest */,
-				135C3DC22C5B40AE00661AE3 /* AquaSKKEngine.framework */,
-				135C3DC32C5B40AE00661AE3 /* AquaSKKEngineTests.xctest */,
-				135C3DC42C5B40AE00661AE3 /* EngineTests.xctest */,
+				1307C2332C5B471300B089B6 /* AquaSKKServer.framework */,
+				1307C2342C5B471300B089B6 /* AquaSKKServerTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1231,12 +1235,13 @@
 			buildRules = (
 			);
 			dependencies = (
+				1307C2302C5B45D700B089B6 /* PBXTargetDependency */,
 			);
 			name = AquaSKKServer;
 			packageProductDependencies = (
 			);
 			productName = AquaSKKServer;
-			productReference = 135C3DC02C5B401C00661AE3 /* AquaSKKServer.framework */;
+			productReference = 1307C2332C5B471300B089B6 /* AquaSKKServer.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		135C3D4D2C5B3E8F00661AE3 /* AquaSKKServerTests */ = {
@@ -1256,7 +1261,7 @@
 			packageProductDependencies = (
 			);
 			productName = AquaSKKServerTests;
-			productReference = 135C3DC12C5B401E00661AE3 /* AquaSKKServerTests.xctest */;
+			productReference = 1307C2342C5B471300B089B6 /* AquaSKKServerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		13D7560A2C5A9043006144F2 /* AquaSKKEngine */ = {
@@ -1521,6 +1526,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1307C2302C5B45D700B089B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13D7560A2C5A9043006144F2 /* AquaSKKEngine */;
+			targetProxy = 1307C22F2C5B45D700B089B6 /* PBXContainerItemProxy */;
+		};
 		1344F48F2C5A92CE00D8C850 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 13D7560A2C5A9043006144F2 /* AquaSKKEngine */;

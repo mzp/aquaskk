@@ -10,4 +10,4 @@
 
 SDKROOT = macosx
 
-OTHER_LDFLAGS = -framework Foundation -framework AppKit -framework QuartzCore -framework InputMethodKit
+OTHER_LDFLAGS = -framework Foundation -framework AppKit -framework QuartzCore -framework InputMethodKit -framework AquaSKKEngine
