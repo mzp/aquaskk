@@ -2,7 +2,7 @@
 
   MacOS X implementation of the SKK input method.
 
-  Copyright (C) 2008 Tomotaka SUWA <t.suwa@mac.com>
+  Copyright (C) 2009 Tomotaka SUWA <t.suwa@mac.com>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -20,15 +20,30 @@
 
 */
 
-#include "MacClipboard.h"
+#ifndef MacConfig_h
+#define MacConfig_h
 
-const std::string MacClipboard::PasteString() {
-    NSPasteboard* pasteboard = [NSPasteboard generalPasteboard];
+#import <Foundation/Foundation.h>
 
-    if([[pasteboard types] containsObject:NSStringPboardType] == YES) {
-        NSString* str = [pasteboard stringForType:NSStringPboardType];
-        return [str UTF8String];
-    }
+#include "SKKConfig.h"
 
-    return "";
-}
+class MacConfig : public SKKConfig {
+    int integerConfig(NSString* key);
+    bool boolConfig(NSString* key);
+
+public:
+    MacConfig();
+
+    virtual bool FixIntermediateConversion();
+    virtual bool EnableDynamicCompletion();
+    virtual int DynamicCompletionRange();
+    virtual bool EnableAnnotation();
+    virtual bool DisplayShortestMatchOfKanaConversions();
+    virtual bool SuppressNewlineOnCommit();
+    virtual int MaxCountOfInlineCandidates();
+    virtual bool HandleRecursiveEntryAsOkuri();
+    virtual bool InlineBackSpaceImpliesCommit();
+    virtual bool DeleteOkuriWhenQuit();
+};
+
+#endif

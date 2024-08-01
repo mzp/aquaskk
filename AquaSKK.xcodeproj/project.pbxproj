@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1344F48D2C5A92CE00D8C850 /* AquaSKKEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13D7560B2C5A9043006144F2 /* AquaSKKEngine.framework */; };
 		1344F4952C5A92D300D8C850 /* AquaSKKEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4932C5A92D300D8C850 /* AquaSKKEngineTests.swift */; };
 		1344F55E2C5B28FC00D8C850 /* SKKProxyDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4C82C5B28FC00D8C850 /* SKKProxyDictionary.h */; };
 		1344F55F2C5B28FC00D8C850 /* SKKClipboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F49E2C5B28FC00D8C850 /* SKKClipboard.h */; };
@@ -132,7 +131,74 @@
 		1344F60D2C5B28FC00D8C850 /* SKKCandidate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4E12C5B28FC00D8C850 /* SKKCandidate.cpp */; };
 		1344F60E2C5B28FC00D8C850 /* SKKEntry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4E52C5B28FC00D8C850 /* SKKEntry.cpp */; };
 		1344F6102C5B28FC00D8C850 /* SKKCandidateEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4CE2C5B28FC00D8C850 /* SKKCandidateEditor.cpp */; };
-		1344F6192C5B2C9500D8C850 /* AquaSKKEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13D7560B2C5A9043006144F2 /* AquaSKKEngine.framework */; };
+		134A0D272C5B430B003EACF0 /* CompletionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D1C2C5B430B003EACF0 /* CompletionView.h */; };
+		134A0D282C5B430B003EACF0 /* CompletionWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D1E2C5B430B003EACF0 /* CompletionWindow.h */; };
+		134A0D292C5B430B003EACF0 /* MessengerWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D242C5B430B003EACF0 /* MessengerWindow.h */; };
+		134A0D2A2C5B430B003EACF0 /* CandidateCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D142C5B430B003EACF0 /* CandidateCell.h */; };
+		134A0D2B2C5B430B003EACF0 /* CandidatePageIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D162C5B430B003EACF0 /* CandidatePageIndicator.h */; };
+		134A0D2C2C5B430B003EACF0 /* AnnotationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D102C5B430B003EACF0 /* AnnotationView.h */; };
+		134A0D2D2C5B430B003EACF0 /* CandidateView.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D182C5B430B003EACF0 /* CandidateView.h */; };
+		134A0D2E2C5B430B003EACF0 /* AnnotationWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D122C5B430B003EACF0 /* AnnotationWindow.h */; };
+		134A0D2F2C5B430B003EACF0 /* MessengerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D222C5B430B003EACF0 /* MessengerView.h */; };
+		134A0D302C5B430B003EACF0 /* InputModeWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D202C5B430B003EACF0 /* InputModeWindow.h */; };
+		134A0D312C5B430B003EACF0 /* CandidateWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D1A2C5B430B003EACF0 /* CandidateWindow.h */; };
+		134A0D322C5B430B003EACF0 /* AnnotationWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D132C5B430B003EACF0 /* AnnotationWindow.mm */; };
+		134A0D332C5B430B003EACF0 /* CandidateView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D192C5B430B003EACF0 /* CandidateView.mm */; };
+		134A0D342C5B430B003EACF0 /* CompletionWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D1F2C5B430B003EACF0 /* CompletionWindow.mm */; };
+		134A0D352C5B430B003EACF0 /* MessengerWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D252C5B430B003EACF0 /* MessengerWindow.mm */; };
+		134A0D362C5B430B003EACF0 /* CompletionView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D1D2C5B430B003EACF0 /* CompletionView.mm */; };
+		134A0D372C5B430B003EACF0 /* AnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D112C5B430B003EACF0 /* AnnotationView.mm */; };
+		134A0D382C5B430B003EACF0 /* CandidateWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D1B2C5B430B003EACF0 /* CandidateWindow.mm */; };
+		134A0D392C5B430B003EACF0 /* CandidateCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D152C5B430B003EACF0 /* CandidateCell.mm */; };
+		134A0D3A2C5B430B003EACF0 /* InputModeWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D212C5B430B003EACF0 /* InputModeWindow.mm */; };
+		134A0D3B2C5B430B003EACF0 /* MessengerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D232C5B430B003EACF0 /* MessengerView.mm */; };
+		134A0D3C2C5B430B003EACF0 /* CandidatePageIndicator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D172C5B430B003EACF0 /* CandidatePageIndicator.mm */; };
+		135C3D602C5B3E9600661AE3 /* AquaSKKServer.docc in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D5E2C5B3E9600661AE3 /* AquaSKKServer.docc */; };
+		135C3D612C5B3E9600661AE3 /* AquaSKKServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D5D2C5B3E9600661AE3 /* AquaSKKServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135C3D672C5B3E9D00661AE3 /* AquaSKKServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D652C5B3E9D00661AE3 /* AquaSKKServerTests.swift */; };
+		135C3D942C5B3F1D00661AE3 /* SKKConstVars.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D832C5B3F1D00661AE3 /* SKKConstVars.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		135C3D952C5B3F1D00661AE3 /* SKKServerProxy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D912C5B3F1D00661AE3 /* SKKServerProxy.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		135C3D962C5B3F1D00661AE3 /* MacClipboard.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D6F2C5B3F1D00661AE3 /* MacClipboard.mm */; };
+		135C3D972C5B3F1D00661AE3 /* MacConfig.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D712C5B3F1D00661AE3 /* MacConfig.mm */; };
+		135C3D982C5B3F1D00661AE3 /* MacCandidateWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D6D2C5B3F1D00661AE3 /* MacCandidateWindow.mm */; };
+		135C3D992C5B3F1D00661AE3 /* MacKotoeriDictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D7D2C5B3F1D00661AE3 /* MacKotoeriDictionary.cpp */; };
+		135C3D9A2C5B3F1D00661AE3 /* MacDynamicCompletor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D732C5B3F1D00661AE3 /* MacDynamicCompletor.mm */; };
+		135C3D9B2C5B3F1D00661AE3 /* SKKPreProcessor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D8B2C5B3F1D00661AE3 /* SKKPreProcessor.mm */; };
+		135C3D9C2C5B3F1D00661AE3 /* SKKInputMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D872C5B3F1D00661AE3 /* SKKInputMenu.mm */; };
+		135C3D9D2C5B3F1D00661AE3 /* SKKInputController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D852C5B3F1D00661AE3 /* SKKInputController.mm */; };
+		135C3D9E2C5B3F1D00661AE3 /* MacFrontEnd.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D752C5B3F1D00661AE3 /* MacFrontEnd.mm */; };
+		135C3D9F2C5B3F1D00661AE3 /* MacInputSessionParameter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D7B2C5B3F1D00661AE3 /* MacInputSessionParameter.mm */; };
+		135C3DA02C5B3F1D00661AE3 /* MacMessenger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D7F2C5B3F1D00661AE3 /* MacMessenger.mm */; };
+		135C3DA12C5B3F1D00661AE3 /* BlacklistApps.m in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D692C5B3F1D00661AE3 /* BlacklistApps.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		135C3DA22C5B3F1D00661AE3 /* SKKPythonRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D8D2C5B3F1D00661AE3 /* SKKPythonRunner.cpp */; };
+		135C3DA32C5B3F1D00661AE3 /* SKKLayoutManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D892C5B3F1D00661AE3 /* SKKLayoutManager.mm */; };
+		135C3DA42C5B3F1D00661AE3 /* MacInputModeWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D792C5B3F1D00661AE3 /* MacInputModeWindow.mm */; };
+		135C3DA52C5B3F1D00661AE3 /* SKKServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D8F2C5B3F1D00661AE3 /* SKKServer.mm */; };
+		135C3DA62C5B3F1D00661AE3 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D802C5B3F1D00661AE3 /* main.mm */; };
+		135C3DA72C5B3F1D00661AE3 /* MacAnnotator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D6B2C5B3F1D00661AE3 /* MacAnnotator.mm */; };
+		135C3DA82C5B3F1D00661AE3 /* MacInputModeMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D772C5B3F1D00661AE3 /* MacInputModeMenu.mm */; };
+		135C3DA92C5B3F1D00661AE3 /* MacInputSessionParameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D7A2C5B3F1D00661AE3 /* MacInputSessionParameter.h */; };
+		135C3DAA2C5B3F1D00661AE3 /* ObjCUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D812C5B3F1D00661AE3 /* ObjCUtil.h */; };
+		135C3DAB2C5B3F1D00661AE3 /* MacClipboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D6E2C5B3F1D00661AE3 /* MacClipboard.h */; };
+		135C3DAC2C5B3F1D00661AE3 /* MacKotoeriDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D7C2C5B3F1D00661AE3 /* MacKotoeriDictionary.h */; };
+		135C3DAD2C5B3F1D00661AE3 /* MacConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D702C5B3F1D00661AE3 /* MacConfig.h */; };
+		135C3DAE2C5B3F1D00661AE3 /* SKKSupervisor.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D922C5B3F1D00661AE3 /* SKKSupervisor.h */; };
+		135C3DAF2C5B3F1D00661AE3 /* SKKInputMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D862C5B3F1D00661AE3 /* SKKInputMenu.h */; };
+		135C3DB02C5B3F1D00661AE3 /* MacInputModeMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D762C5B3F1D00661AE3 /* MacInputModeMenu.h */; };
+		135C3DB12C5B3F1D00661AE3 /* SKKServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D8E2C5B3F1D00661AE3 /* SKKServer.h */; };
+		135C3DB22C5B3F1D00661AE3 /* SKKServerProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D902C5B3F1D00661AE3 /* SKKServerProxy.h */; };
+		135C3DB32C5B3F1D00661AE3 /* MacMessenger.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D7E2C5B3F1D00661AE3 /* MacMessenger.h */; };
+		135C3DB42C5B3F1D00661AE3 /* MacAnnotator.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D6A2C5B3F1D00661AE3 /* MacAnnotator.h */; };
+		135C3DB52C5B3F1D00661AE3 /* SKKLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D882C5B3F1D00661AE3 /* SKKLayoutManager.h */; };
+		135C3DB62C5B3F1D00661AE3 /* SKKPythonRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D8C2C5B3F1D00661AE3 /* SKKPythonRunner.h */; };
+		135C3DB72C5B3F1D00661AE3 /* MacCandidateWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D6C2C5B3F1D00661AE3 /* MacCandidateWindow.h */; };
+		135C3DB82C5B3F1D00661AE3 /* SKKInputController.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D842C5B3F1D00661AE3 /* SKKInputController.h */; };
+		135C3DB92C5B3F1D00661AE3 /* MacInputModeWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D782C5B3F1D00661AE3 /* MacInputModeWindow.h */; };
+		135C3DBA2C5B3F1D00661AE3 /* BlacklistApps.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D682C5B3F1D00661AE3 /* BlacklistApps.h */; };
+		135C3DBB2C5B3F1D00661AE3 /* MacDynamicCompletor.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D722C5B3F1D00661AE3 /* MacDynamicCompletor.h */; };
+		135C3DBC2C5B3F1D00661AE3 /* SKKConstVars.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D822C5B3F1D00661AE3 /* SKKConstVars.h */; };
+		135C3DBD2C5B3F1D00661AE3 /* MacFrontEnd.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D742C5B3F1D00661AE3 /* MacFrontEnd.h */; };
+		135C3DBE2C5B3F1D00661AE3 /* SKKPreProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D8A2C5B3F1D00661AE3 /* SKKPreProcessor.h */; };
 		13D756192C5A9049006144F2 /* AquaSKKEngine.docc in Sources */ = {isa = PBXBuildFile; fileRef = 13D756172C5A9049006144F2 /* AquaSKKEngine.docc */; };
 		13D7561A2C5A9049006144F2 /* AquaSKKEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 13D756162C5A9049006144F2 /* AquaSKKEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13EDDCCA2C5B2D520062A0DA /* stringutil_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5452C5B28FC00D8C850 /* stringutil_TEST.mm */; };
@@ -193,10 +259,16 @@
 			remoteGlobalIDString = 13D7560A2C5A9043006144F2;
 			remoteInfo = AquaSKKEngine;
 		};
+		135C3D502C5B3E8F00661AE3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 13D368112C5A81290083CAE3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 135C3D442C5B3E8F00661AE3;
+			remoteInfo = AquaSKKServer;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1344F4892C5A92CE00D8C850 /* AquaSKKEngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AquaSKKEngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1344F4932C5A92D300D8C850 /* AquaSKKEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKKEngineTests.swift; sourceTree = "<group>"; };
 		1344F4962C5B27CF00D8C850 /* All.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = All.xctestplan; path = Tests/All.xctestplan; sourceTree = SOURCE_ROOT; };
 		1344F49C2C5B28FC00D8C850 /* SKKAnnotator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKAnnotator.h; sourceTree = "<group>"; };
@@ -377,8 +449,80 @@
 		1344F5592C5B28FC00D8C850 /* stringutil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stringutil.h; sourceTree = "<group>"; };
 		1344F55A2C5B28FC00D8C850 /* subrange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = subrange.h; sourceTree = "<group>"; };
 		1344F55B2C5B28FC00D8C850 /* utf8util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utf8util.h; sourceTree = "<group>"; };
-		1344F6152C5B2C9500D8C850 /* EngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		13D7560B2C5A9043006144F2 /* AquaSKKEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AquaSKKEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		134A0D102C5B430B003EACF0 /* AnnotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnnotationView.h; sourceTree = "<group>"; };
+		134A0D112C5B430B003EACF0 /* AnnotationView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AnnotationView.mm; sourceTree = "<group>"; };
+		134A0D122C5B430B003EACF0 /* AnnotationWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnnotationWindow.h; sourceTree = "<group>"; };
+		134A0D132C5B430B003EACF0 /* AnnotationWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AnnotationWindow.mm; sourceTree = "<group>"; };
+		134A0D142C5B430B003EACF0 /* CandidateCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CandidateCell.h; sourceTree = "<group>"; };
+		134A0D152C5B430B003EACF0 /* CandidateCell.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CandidateCell.mm; sourceTree = "<group>"; };
+		134A0D162C5B430B003EACF0 /* CandidatePageIndicator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CandidatePageIndicator.h; sourceTree = "<group>"; };
+		134A0D172C5B430B003EACF0 /* CandidatePageIndicator.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CandidatePageIndicator.mm; sourceTree = "<group>"; };
+		134A0D182C5B430B003EACF0 /* CandidateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CandidateView.h; sourceTree = "<group>"; };
+		134A0D192C5B430B003EACF0 /* CandidateView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CandidateView.mm; sourceTree = "<group>"; };
+		134A0D1A2C5B430B003EACF0 /* CandidateWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CandidateWindow.h; sourceTree = "<group>"; };
+		134A0D1B2C5B430B003EACF0 /* CandidateWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CandidateWindow.mm; sourceTree = "<group>"; };
+		134A0D1C2C5B430B003EACF0 /* CompletionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompletionView.h; sourceTree = "<group>"; };
+		134A0D1D2C5B430B003EACF0 /* CompletionView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CompletionView.mm; sourceTree = "<group>"; };
+		134A0D1E2C5B430B003EACF0 /* CompletionWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompletionWindow.h; sourceTree = "<group>"; };
+		134A0D1F2C5B430B003EACF0 /* CompletionWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CompletionWindow.mm; sourceTree = "<group>"; };
+		134A0D202C5B430B003EACF0 /* InputModeWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputModeWindow.h; sourceTree = "<group>"; };
+		134A0D212C5B430B003EACF0 /* InputModeWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = InputModeWindow.mm; sourceTree = "<group>"; };
+		134A0D222C5B430B003EACF0 /* MessengerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessengerView.h; sourceTree = "<group>"; };
+		134A0D232C5B430B003EACF0 /* MessengerView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MessengerView.mm; sourceTree = "<group>"; };
+		134A0D242C5B430B003EACF0 /* MessengerWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessengerWindow.h; sourceTree = "<group>"; };
+		134A0D252C5B430B003EACF0 /* MessengerWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MessengerWindow.mm; sourceTree = "<group>"; };
+		135C3D5D2C5B3E9600661AE3 /* AquaSKKServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKServer.h; sourceTree = "<group>"; };
+		135C3D5E2C5B3E9600661AE3 /* AquaSKKServer.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKServer.docc; sourceTree = "<group>"; };
+		135C3D652C5B3E9D00661AE3 /* AquaSKKServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKKServerTests.swift; sourceTree = "<group>"; };
+		135C3D682C5B3F1D00661AE3 /* BlacklistApps.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlacklistApps.h; sourceTree = "<group>"; };
+		135C3D692C5B3F1D00661AE3 /* BlacklistApps.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlacklistApps.m; sourceTree = "<group>"; };
+		135C3D6A2C5B3F1D00661AE3 /* MacAnnotator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacAnnotator.h; sourceTree = "<group>"; };
+		135C3D6B2C5B3F1D00661AE3 /* MacAnnotator.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MacAnnotator.mm; sourceTree = "<group>"; };
+		135C3D6C2C5B3F1D00661AE3 /* MacCandidateWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacCandidateWindow.h; sourceTree = "<group>"; };
+		135C3D6D2C5B3F1D00661AE3 /* MacCandidateWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MacCandidateWindow.mm; sourceTree = "<group>"; };
+		135C3D6E2C5B3F1D00661AE3 /* MacClipboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacClipboard.h; sourceTree = "<group>"; };
+		135C3D6F2C5B3F1D00661AE3 /* MacClipboard.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MacClipboard.mm; sourceTree = "<group>"; };
+		135C3D702C5B3F1D00661AE3 /* MacConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacConfig.h; sourceTree = "<group>"; };
+		135C3D712C5B3F1D00661AE3 /* MacConfig.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MacConfig.mm; sourceTree = "<group>"; };
+		135C3D722C5B3F1D00661AE3 /* MacDynamicCompletor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacDynamicCompletor.h; sourceTree = "<group>"; };
+		135C3D732C5B3F1D00661AE3 /* MacDynamicCompletor.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MacDynamicCompletor.mm; sourceTree = "<group>"; };
+		135C3D742C5B3F1D00661AE3 /* MacFrontEnd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacFrontEnd.h; sourceTree = "<group>"; };
+		135C3D752C5B3F1D00661AE3 /* MacFrontEnd.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MacFrontEnd.mm; sourceTree = "<group>"; };
+		135C3D762C5B3F1D00661AE3 /* MacInputModeMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacInputModeMenu.h; sourceTree = "<group>"; };
+		135C3D772C5B3F1D00661AE3 /* MacInputModeMenu.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MacInputModeMenu.mm; sourceTree = "<group>"; };
+		135C3D782C5B3F1D00661AE3 /* MacInputModeWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacInputModeWindow.h; sourceTree = "<group>"; };
+		135C3D792C5B3F1D00661AE3 /* MacInputModeWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MacInputModeWindow.mm; sourceTree = "<group>"; };
+		135C3D7A2C5B3F1D00661AE3 /* MacInputSessionParameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacInputSessionParameter.h; sourceTree = "<group>"; };
+		135C3D7B2C5B3F1D00661AE3 /* MacInputSessionParameter.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MacInputSessionParameter.mm; sourceTree = "<group>"; };
+		135C3D7C2C5B3F1D00661AE3 /* MacKotoeriDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacKotoeriDictionary.h; sourceTree = "<group>"; };
+		135C3D7D2C5B3F1D00661AE3 /* MacKotoeriDictionary.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MacKotoeriDictionary.cpp; sourceTree = "<group>"; };
+		135C3D7E2C5B3F1D00661AE3 /* MacMessenger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacMessenger.h; sourceTree = "<group>"; };
+		135C3D7F2C5B3F1D00661AE3 /* MacMessenger.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MacMessenger.mm; sourceTree = "<group>"; };
+		135C3D802C5B3F1D00661AE3 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		135C3D812C5B3F1D00661AE3 /* ObjCUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCUtil.h; sourceTree = "<group>"; };
+		135C3D822C5B3F1D00661AE3 /* SKKConstVars.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKConstVars.h; sourceTree = "<group>"; };
+		135C3D832C5B3F1D00661AE3 /* SKKConstVars.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKConstVars.mm; sourceTree = "<group>"; };
+		135C3D842C5B3F1D00661AE3 /* SKKInputController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKInputController.h; sourceTree = "<group>"; };
+		135C3D852C5B3F1D00661AE3 /* SKKInputController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKInputController.mm; sourceTree = "<group>"; };
+		135C3D862C5B3F1D00661AE3 /* SKKInputMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKInputMenu.h; sourceTree = "<group>"; };
+		135C3D872C5B3F1D00661AE3 /* SKKInputMenu.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKInputMenu.mm; sourceTree = "<group>"; };
+		135C3D882C5B3F1D00661AE3 /* SKKLayoutManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKLayoutManager.h; sourceTree = "<group>"; };
+		135C3D892C5B3F1D00661AE3 /* SKKLayoutManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKLayoutManager.mm; sourceTree = "<group>"; };
+		135C3D8A2C5B3F1D00661AE3 /* SKKPreProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKPreProcessor.h; sourceTree = "<group>"; };
+		135C3D8B2C5B3F1D00661AE3 /* SKKPreProcessor.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKPreProcessor.mm; sourceTree = "<group>"; };
+		135C3D8C2C5B3F1D00661AE3 /* SKKPythonRunner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKPythonRunner.h; sourceTree = "<group>"; };
+		135C3D8D2C5B3F1D00661AE3 /* SKKPythonRunner.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKPythonRunner.cpp; sourceTree = "<group>"; };
+		135C3D8E2C5B3F1D00661AE3 /* SKKServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKServer.h; sourceTree = "<group>"; };
+		135C3D8F2C5B3F1D00661AE3 /* SKKServer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKServer.mm; sourceTree = "<group>"; };
+		135C3D902C5B3F1D00661AE3 /* SKKServerProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKServerProxy.h; sourceTree = "<group>"; };
+		135C3D912C5B3F1D00661AE3 /* SKKServerProxy.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKServerProxy.mm; sourceTree = "<group>"; };
+		135C3D922C5B3F1D00661AE3 /* SKKSupervisor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKSupervisor.h; sourceTree = "<group>"; };
+		135C3DBF2C5B3FEC00661AE3 /* macOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = macOS.xcconfig; sourceTree = "<group>"; };
+		135C3DC02C5B401C00661AE3 /* AquaSKKServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AquaSKKServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		135C3DC12C5B401E00661AE3 /* AquaSKKServerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AquaSKKServerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		135C3DC22C5B40AE00661AE3 /* AquaSKKEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AquaSKKEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		135C3DC32C5B40AE00661AE3 /* AquaSKKEngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AquaSKKEngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		135C3DC42C5B40AE00661AE3 /* EngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13D756162C5A9049006144F2 /* AquaSKKEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKEngine.h; sourceTree = "<group>"; };
 		13D756172C5A9049006144F2 /* AquaSKKEngine.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKEngine.docc; sourceTree = "<group>"; };
 		13D7561B2C5A905E006144F2 /* AquaSKK.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AquaSKK.xcconfig; sourceTree = "<group>"; };
@@ -390,7 +534,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1344F48D2C5A92CE00D8C850 /* AquaSKKEngine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,7 +541,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1344F6192C5B2C9500D8C850 /* AquaSKKEngine.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		135C3D422C5B3E8F00661AE3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		135C3D4B2C5B3E8F00661AE3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +580,7 @@
 			isa = PBXGroup;
 			children = (
 				13D7561B2C5A905E006144F2 /* AquaSKK.xcconfig */,
+				135C3DBF2C5B3FEC00661AE3 /* macOS.xcconfig */,
 				13D7561C2C5A9113006144F2 /* Debug.xcconfig */,
 			);
 			path = Config;
@@ -434,6 +591,7 @@
 			children = (
 				1344F4962C5B27CF00D8C850 /* All.xctestplan */,
 				1344F4942C5A92D300D8C850 /* AquaSKKEngineTests */,
+				135C3D662C5B3E9D00661AE3 /* AquaSKKServerTests */,
 				1344F6202C5B2C9C00D8C850 /* EngineTests */,
 			);
 			path = Tests;
@@ -442,6 +600,7 @@
 		1344F49B2C5B284C00D8C850 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				135C3D5F2C5B3E9600661AE3 /* AquaSKKServer */,
 				13D756182C5A9049006144F2 /* AquaSKKEngine */,
 			);
 			path = Sources;
@@ -719,24 +878,116 @@
 			path = EngineTests;
 			sourceTree = "<group>";
 		};
+		134A0D262C5B430B003EACF0 /* gui */ = {
+			isa = PBXGroup;
+			children = (
+				134A0D102C5B430B003EACF0 /* AnnotationView.h */,
+				134A0D112C5B430B003EACF0 /* AnnotationView.mm */,
+				134A0D122C5B430B003EACF0 /* AnnotationWindow.h */,
+				134A0D132C5B430B003EACF0 /* AnnotationWindow.mm */,
+				134A0D142C5B430B003EACF0 /* CandidateCell.h */,
+				134A0D152C5B430B003EACF0 /* CandidateCell.mm */,
+				134A0D162C5B430B003EACF0 /* CandidatePageIndicator.h */,
+				134A0D172C5B430B003EACF0 /* CandidatePageIndicator.mm */,
+				134A0D182C5B430B003EACF0 /* CandidateView.h */,
+				134A0D192C5B430B003EACF0 /* CandidateView.mm */,
+				134A0D1A2C5B430B003EACF0 /* CandidateWindow.h */,
+				134A0D1B2C5B430B003EACF0 /* CandidateWindow.mm */,
+				134A0D1C2C5B430B003EACF0 /* CompletionView.h */,
+				134A0D1D2C5B430B003EACF0 /* CompletionView.mm */,
+				134A0D1E2C5B430B003EACF0 /* CompletionWindow.h */,
+				134A0D1F2C5B430B003EACF0 /* CompletionWindow.mm */,
+				134A0D202C5B430B003EACF0 /* InputModeWindow.h */,
+				134A0D212C5B430B003EACF0 /* InputModeWindow.mm */,
+				134A0D222C5B430B003EACF0 /* MessengerView.h */,
+				134A0D232C5B430B003EACF0 /* MessengerView.mm */,
+				134A0D242C5B430B003EACF0 /* MessengerWindow.h */,
+				134A0D252C5B430B003EACF0 /* MessengerWindow.mm */,
+			);
+			path = gui;
+			sourceTree = "<group>";
+		};
+		135C3D5F2C5B3E9600661AE3 /* AquaSKKServer */ = {
+			isa = PBXGroup;
+			children = (
+				135C3D5D2C5B3E9600661AE3 /* AquaSKKServer.h */,
+				134A0D262C5B430B003EACF0 /* gui */,
+				135C3D932C5B3F1D00661AE3 /* server */,
+				135C3D5E2C5B3E9600661AE3 /* AquaSKKServer.docc */,
+			);
+			path = AquaSKKServer;
+			sourceTree = "<group>";
+		};
+		135C3D662C5B3E9D00661AE3 /* AquaSKKServerTests */ = {
+			isa = PBXGroup;
+			children = (
+				135C3D652C5B3E9D00661AE3 /* AquaSKKServerTests.swift */,
+			);
+			path = AquaSKKServerTests;
+			sourceTree = "<group>";
+		};
+		135C3D932C5B3F1D00661AE3 /* server */ = {
+			isa = PBXGroup;
+			children = (
+				135C3D682C5B3F1D00661AE3 /* BlacklistApps.h */,
+				135C3D692C5B3F1D00661AE3 /* BlacklistApps.m */,
+				135C3D6A2C5B3F1D00661AE3 /* MacAnnotator.h */,
+				135C3D6B2C5B3F1D00661AE3 /* MacAnnotator.mm */,
+				135C3D6C2C5B3F1D00661AE3 /* MacCandidateWindow.h */,
+				135C3D6D2C5B3F1D00661AE3 /* MacCandidateWindow.mm */,
+				135C3D6E2C5B3F1D00661AE3 /* MacClipboard.h */,
+				135C3D6F2C5B3F1D00661AE3 /* MacClipboard.mm */,
+				135C3D702C5B3F1D00661AE3 /* MacConfig.h */,
+				135C3D712C5B3F1D00661AE3 /* MacConfig.mm */,
+				135C3D722C5B3F1D00661AE3 /* MacDynamicCompletor.h */,
+				135C3D732C5B3F1D00661AE3 /* MacDynamicCompletor.mm */,
+				135C3D742C5B3F1D00661AE3 /* MacFrontEnd.h */,
+				135C3D752C5B3F1D00661AE3 /* MacFrontEnd.mm */,
+				135C3D762C5B3F1D00661AE3 /* MacInputModeMenu.h */,
+				135C3D772C5B3F1D00661AE3 /* MacInputModeMenu.mm */,
+				135C3D782C5B3F1D00661AE3 /* MacInputModeWindow.h */,
+				135C3D792C5B3F1D00661AE3 /* MacInputModeWindow.mm */,
+				135C3D7A2C5B3F1D00661AE3 /* MacInputSessionParameter.h */,
+				135C3D7B2C5B3F1D00661AE3 /* MacInputSessionParameter.mm */,
+				135C3D7C2C5B3F1D00661AE3 /* MacKotoeriDictionary.h */,
+				135C3D7D2C5B3F1D00661AE3 /* MacKotoeriDictionary.cpp */,
+				135C3D7E2C5B3F1D00661AE3 /* MacMessenger.h */,
+				135C3D7F2C5B3F1D00661AE3 /* MacMessenger.mm */,
+				135C3D802C5B3F1D00661AE3 /* main.mm */,
+				135C3D812C5B3F1D00661AE3 /* ObjCUtil.h */,
+				135C3D822C5B3F1D00661AE3 /* SKKConstVars.h */,
+				135C3D832C5B3F1D00661AE3 /* SKKConstVars.mm */,
+				135C3D842C5B3F1D00661AE3 /* SKKInputController.h */,
+				135C3D852C5B3F1D00661AE3 /* SKKInputController.mm */,
+				135C3D862C5B3F1D00661AE3 /* SKKInputMenu.h */,
+				135C3D872C5B3F1D00661AE3 /* SKKInputMenu.mm */,
+				135C3D882C5B3F1D00661AE3 /* SKKLayoutManager.h */,
+				135C3D892C5B3F1D00661AE3 /* SKKLayoutManager.mm */,
+				135C3D8A2C5B3F1D00661AE3 /* SKKPreProcessor.h */,
+				135C3D8B2C5B3F1D00661AE3 /* SKKPreProcessor.mm */,
+				135C3D8C2C5B3F1D00661AE3 /* SKKPythonRunner.h */,
+				135C3D8D2C5B3F1D00661AE3 /* SKKPythonRunner.cpp */,
+				135C3D8E2C5B3F1D00661AE3 /* SKKServer.h */,
+				135C3D8F2C5B3F1D00661AE3 /* SKKServer.mm */,
+				135C3D902C5B3F1D00661AE3 /* SKKServerProxy.h */,
+				135C3D912C5B3F1D00661AE3 /* SKKServerProxy.mm */,
+				135C3D922C5B3F1D00661AE3 /* SKKSupervisor.h */,
+			);
+			path = server;
+			sourceTree = "<group>";
+		};
 		13D368102C5A81290083CAE3 = {
 			isa = PBXGroup;
 			children = (
 				1344F4972C5B27DB00D8C850 /* Config */,
-				13D7560C2C5A9043006144F2 /* Products */,
 				1344F49B2C5B284C00D8C850 /* Sources */,
 				1344F4992C5B282200D8C850 /* Tests */,
+				135C3DC02C5B401C00661AE3 /* AquaSKKServer.framework */,
+				135C3DC12C5B401E00661AE3 /* AquaSKKServerTests.xctest */,
+				135C3DC22C5B40AE00661AE3 /* AquaSKKEngine.framework */,
+				135C3DC32C5B40AE00661AE3 /* AquaSKKEngineTests.xctest */,
+				135C3DC42C5B40AE00661AE3 /* EngineTests.xctest */,
 			);
-			sourceTree = "<group>";
-		};
-		13D7560C2C5A9043006144F2 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				13D7560B2C5A9043006144F2 /* AquaSKKEngine.framework */,
-				1344F4892C5A92CE00D8C850 /* AquaSKKEngineTests.xctest */,
-				1344F6152C5B2C9500D8C850 /* EngineTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		13D756182C5A9049006144F2 /* AquaSKKEngine */ = {
@@ -792,6 +1043,47 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		135C3D402C5B3E8F00661AE3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				135C3DA92C5B3F1D00661AE3 /* MacInputSessionParameter.h in Headers */,
+				135C3DAA2C5B3F1D00661AE3 /* ObjCUtil.h in Headers */,
+				135C3DAB2C5B3F1D00661AE3 /* MacClipboard.h in Headers */,
+				135C3DAC2C5B3F1D00661AE3 /* MacKotoeriDictionary.h in Headers */,
+				135C3DAD2C5B3F1D00661AE3 /* MacConfig.h in Headers */,
+				135C3DAE2C5B3F1D00661AE3 /* SKKSupervisor.h in Headers */,
+				135C3DAF2C5B3F1D00661AE3 /* SKKInputMenu.h in Headers */,
+				135C3DB02C5B3F1D00661AE3 /* MacInputModeMenu.h in Headers */,
+				135C3DB12C5B3F1D00661AE3 /* SKKServer.h in Headers */,
+				134A0D272C5B430B003EACF0 /* CompletionView.h in Headers */,
+				134A0D282C5B430B003EACF0 /* CompletionWindow.h in Headers */,
+				134A0D292C5B430B003EACF0 /* MessengerWindow.h in Headers */,
+				134A0D2A2C5B430B003EACF0 /* CandidateCell.h in Headers */,
+				134A0D2B2C5B430B003EACF0 /* CandidatePageIndicator.h in Headers */,
+				134A0D2C2C5B430B003EACF0 /* AnnotationView.h in Headers */,
+				134A0D2D2C5B430B003EACF0 /* CandidateView.h in Headers */,
+				134A0D2E2C5B430B003EACF0 /* AnnotationWindow.h in Headers */,
+				134A0D2F2C5B430B003EACF0 /* MessengerView.h in Headers */,
+				134A0D302C5B430B003EACF0 /* InputModeWindow.h in Headers */,
+				134A0D312C5B430B003EACF0 /* CandidateWindow.h in Headers */,
+				135C3DB22C5B3F1D00661AE3 /* SKKServerProxy.h in Headers */,
+				135C3DB32C5B3F1D00661AE3 /* MacMessenger.h in Headers */,
+				135C3DB42C5B3F1D00661AE3 /* MacAnnotator.h in Headers */,
+				135C3DB52C5B3F1D00661AE3 /* SKKLayoutManager.h in Headers */,
+				135C3DB62C5B3F1D00661AE3 /* SKKPythonRunner.h in Headers */,
+				135C3DB72C5B3F1D00661AE3 /* MacCandidateWindow.h in Headers */,
+				135C3DB82C5B3F1D00661AE3 /* SKKInputController.h in Headers */,
+				135C3DB92C5B3F1D00661AE3 /* MacInputModeWindow.h in Headers */,
+				135C3DBA2C5B3F1D00661AE3 /* BlacklistApps.h in Headers */,
+				135C3DBB2C5B3F1D00661AE3 /* MacDynamicCompletor.h in Headers */,
+				135C3DBC2C5B3F1D00661AE3 /* SKKConstVars.h in Headers */,
+				135C3DBD2C5B3F1D00661AE3 /* MacFrontEnd.h in Headers */,
+				135C3DBE2C5B3F1D00661AE3 /* SKKPreProcessor.h in Headers */,
+				135C3D612C5B3E9600661AE3 /* AquaSKKServer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		13D756062C5A9043006144F2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -904,7 +1196,7 @@
 			packageProductDependencies = (
 			);
 			productName = AquaSKKEngineTests;
-			productReference = 1344F4892C5A92CE00D8C850 /* AquaSKKEngineTests.xctest */;
+			productReference = 135C3DC32C5B40AE00661AE3 /* AquaSKKEngineTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		1344F6142C5B2C9500D8C850 /* EngineTests */ = {
@@ -924,7 +1216,47 @@
 			packageProductDependencies = (
 			);
 			productName = EngineTests;
-			productReference = 1344F6152C5B2C9500D8C850 /* EngineTests.xctest */;
+			productReference = 135C3DC42C5B40AE00661AE3 /* EngineTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		135C3D442C5B3E8F00661AE3 /* AquaSKKServer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 135C3D572C5B3E8F00661AE3 /* Build configuration list for PBXNativeTarget "AquaSKKServer" */;
+			buildPhases = (
+				135C3D402C5B3E8F00661AE3 /* Headers */,
+				135C3D412C5B3E8F00661AE3 /* Sources */,
+				135C3D422C5B3E8F00661AE3 /* Frameworks */,
+				135C3D432C5B3E8F00661AE3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AquaSKKServer;
+			packageProductDependencies = (
+			);
+			productName = AquaSKKServer;
+			productReference = 135C3DC02C5B401C00661AE3 /* AquaSKKServer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		135C3D4D2C5B3E8F00661AE3 /* AquaSKKServerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 135C3D5A2C5B3E8F00661AE3 /* Build configuration list for PBXNativeTarget "AquaSKKServerTests" */;
+			buildPhases = (
+				135C3D4A2C5B3E8F00661AE3 /* Sources */,
+				135C3D4B2C5B3E8F00661AE3 /* Frameworks */,
+				135C3D4C2C5B3E8F00661AE3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				135C3D512C5B3E8F00661AE3 /* PBXTargetDependency */,
+			);
+			name = AquaSKKServerTests;
+			packageProductDependencies = (
+			);
+			productName = AquaSKKServerTests;
+			productReference = 135C3DC12C5B401E00661AE3 /* AquaSKKServerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		13D7560A2C5A9043006144F2 /* AquaSKKEngine */ = {
@@ -944,7 +1276,7 @@
 			packageProductDependencies = (
 			);
 			productName = AquaSKKEngine;
-			productReference = 13D7560B2C5A9043006144F2 /* AquaSKKEngine.framework */;
+			productReference = 135C3DC22C5B40AE00661AE3 /* AquaSKKEngine.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -963,6 +1295,12 @@
 					1344F6142C5B2C9500D8C850 = {
 						CreatedOnToolsVersion = 16.0;
 					};
+					135C3D442C5B3E8F00661AE3 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					135C3D4D2C5B3E8F00661AE3 = {
+						CreatedOnToolsVersion = 16.0;
+					};
 					13D7560A2C5A9043006144F2 = {
 						CreatedOnToolsVersion = 16.0;
 					};
@@ -977,13 +1315,15 @@
 				Base,
 			);
 			mainGroup = 13D368102C5A81290083CAE3;
-			productRefGroup = 13D7560C2C5A9043006144F2 /* Products */;
+			productRefGroup = 13D368102C5A81290083CAE3;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				13D7560A2C5A9043006144F2 /* AquaSKKEngine */,
 				1344F4882C5A92CE00D8C850 /* AquaSKKEngineTests */,
 				1344F6142C5B2C9500D8C850 /* EngineTests */,
+				135C3D442C5B3E8F00661AE3 /* AquaSKKServer */,
+				135C3D4D2C5B3E8F00661AE3 /* AquaSKKServerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1012,6 +1352,20 @@
 				13EDDCDB2C5B31E20062A0DA /* test.dat in Resources */,
 				13EDDCCF2C5B308C0062A0DA /* skk.jisyo in Resources */,
 				13EDDCD02C5B308C0062A0DA /* skk-jisyo.utf8 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		135C3D432C5B3E8F00661AE3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		135C3D4C2C5B3E8F00661AE3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1066,6 +1420,54 @@
 				13EDDCF12C5B395B0062A0DA /* SKKSelector_TEST.mm in Sources */,
 				13EDDCF22C5B395B0062A0DA /* SKKInputQueue_TEST.mm in Sources */,
 				13EDDCF32C5B395B0062A0DA /* SKKInputSession_TEST.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		135C3D412C5B3E8F00661AE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				135C3D942C5B3F1D00661AE3 /* SKKConstVars.mm in Sources */,
+				135C3D952C5B3F1D00661AE3 /* SKKServerProxy.mm in Sources */,
+				135C3D962C5B3F1D00661AE3 /* MacClipboard.mm in Sources */,
+				135C3D972C5B3F1D00661AE3 /* MacConfig.mm in Sources */,
+				134A0D322C5B430B003EACF0 /* AnnotationWindow.mm in Sources */,
+				134A0D332C5B430B003EACF0 /* CandidateView.mm in Sources */,
+				134A0D342C5B430B003EACF0 /* CompletionWindow.mm in Sources */,
+				134A0D352C5B430B003EACF0 /* MessengerWindow.mm in Sources */,
+				134A0D362C5B430B003EACF0 /* CompletionView.mm in Sources */,
+				134A0D372C5B430B003EACF0 /* AnnotationView.mm in Sources */,
+				134A0D382C5B430B003EACF0 /* CandidateWindow.mm in Sources */,
+				134A0D392C5B430B003EACF0 /* CandidateCell.mm in Sources */,
+				134A0D3A2C5B430B003EACF0 /* InputModeWindow.mm in Sources */,
+				134A0D3B2C5B430B003EACF0 /* MessengerView.mm in Sources */,
+				134A0D3C2C5B430B003EACF0 /* CandidatePageIndicator.mm in Sources */,
+				135C3D982C5B3F1D00661AE3 /* MacCandidateWindow.mm in Sources */,
+				135C3D992C5B3F1D00661AE3 /* MacKotoeriDictionary.cpp in Sources */,
+				135C3D9A2C5B3F1D00661AE3 /* MacDynamicCompletor.mm in Sources */,
+				135C3D9B2C5B3F1D00661AE3 /* SKKPreProcessor.mm in Sources */,
+				135C3D9C2C5B3F1D00661AE3 /* SKKInputMenu.mm in Sources */,
+				135C3D9D2C5B3F1D00661AE3 /* SKKInputController.mm in Sources */,
+				135C3D9E2C5B3F1D00661AE3 /* MacFrontEnd.mm in Sources */,
+				135C3D9F2C5B3F1D00661AE3 /* MacInputSessionParameter.mm in Sources */,
+				135C3DA02C5B3F1D00661AE3 /* MacMessenger.mm in Sources */,
+				135C3DA12C5B3F1D00661AE3 /* BlacklistApps.m in Sources */,
+				135C3DA22C5B3F1D00661AE3 /* SKKPythonRunner.cpp in Sources */,
+				135C3DA32C5B3F1D00661AE3 /* SKKLayoutManager.mm in Sources */,
+				135C3DA42C5B3F1D00661AE3 /* MacInputModeWindow.mm in Sources */,
+				135C3DA52C5B3F1D00661AE3 /* SKKServer.mm in Sources */,
+				135C3DA62C5B3F1D00661AE3 /* main.mm in Sources */,
+				135C3DA72C5B3F1D00661AE3 /* MacAnnotator.mm in Sources */,
+				135C3DA82C5B3F1D00661AE3 /* MacInputModeMenu.mm in Sources */,
+				135C3D602C5B3E9600661AE3 /* AquaSKKServer.docc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		135C3D4A2C5B3E8F00661AE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				135C3D672C5B3E9D00661AE3 /* AquaSKKServerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1129,6 +1531,11 @@
 			target = 13D7560A2C5A9043006144F2 /* AquaSKKEngine */;
 			targetProxy = 1344F61A2C5B2C9500D8C850 /* PBXContainerItemProxy */;
 		};
+		135C3D512C5B3E8F00661AE3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 135C3D442C5B3E8F00661AE3 /* AquaSKKServer */;
+			targetProxy = 135C3D502C5B3E8F00661AE3 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -1152,6 +1559,34 @@
 		};
 		1344F61E2C5B2C9500D8C850 /* Release */ = {
 			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		135C3D582C5B3E8F00661AE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 135C3DBF2C5B3FEC00661AE3 /* macOS.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		135C3D592C5B3E8F00661AE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 135C3DBF2C5B3FEC00661AE3 /* macOS.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		135C3D5B2C5B3E8F00661AE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 135C3DBF2C5B3FEC00661AE3 /* macOS.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		135C3D5C2C5B3E8F00661AE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 135C3DBF2C5B3FEC00661AE3 /* macOS.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
@@ -1199,6 +1634,24 @@
 			buildConfigurations = (
 				1344F61D2C5B2C9500D8C850 /* Debug */,
 				1344F61E2C5B2C9500D8C850 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		135C3D572C5B3E8F00661AE3 /* Build configuration list for PBXNativeTarget "AquaSKKServer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				135C3D582C5B3E8F00661AE3 /* Debug */,
+				135C3D592C5B3E8F00661AE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		135C3D5A2C5B3E8F00661AE3 /* Build configuration list for PBXNativeTarget "AquaSKKServerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				135C3D5B2C5B3E8F00661AE3 /* Debug */,
+				135C3D5C2C5B3E8F00661AE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

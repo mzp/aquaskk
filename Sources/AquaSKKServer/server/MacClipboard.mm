@@ -1,8 +1,8 @@
-/* -*- C++ -*-
+/* -*- ObjC -*-
 
   MacOS X implementation of the SKK input method.
 
-  Copyright (C) 2010 Tomotaka SUWA <tomotaka.suwa@gmail.com>
+  Copyright (C) 2008 Tomotaka SUWA <t.suwa@mac.com>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -20,16 +20,18 @@
 
 */
 
-#include "SKKPythonRunner.h"
-#include <Python.h>
-#include <cstdlib>
+#import <Foundation/Foundation.h>
+#import <AppKit/AppKit.h>
 
-void SKKPythonRunner::Run(const char* path) {
-    FILE* fp = fopen(path, "r");
+#include "MacClipboard.h"
 
-    Py_Initialize();
-    PyRun_SimpleFile(fp, path);
-    Py_Finalize();
+const std::string MacClipboard::PasteString() {
+    NSPasteboard* pasteboard = [NSPasteboard generalPasteboard];
 
-    fclose(fp);
+    if([[pasteboard types] containsObject:NSStringPboardType] == YES) {
+        NSString* str = [pasteboard stringForType:NSStringPboardType];
+        return [str UTF8String];
+    }
+
+    return "";
 }

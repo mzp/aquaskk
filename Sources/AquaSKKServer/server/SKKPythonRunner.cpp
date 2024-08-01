@@ -1,8 +1,8 @@
-/* -*- ObjC -*-
+/* -*- C++ -*-
 
   MacOS X implementation of the SKK input method.
 
-  Copyright (C) 2008 Tomotaka SUWA <t.suwa@mac.com>
+  Copyright (C) 2010 Tomotaka SUWA <tomotaka.suwa@gmail.com>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -19,22 +19,21 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 */
+// TODO: Unmanaged file
+#if 0
 
-#ifndef MessengerWindow_h
-#define MessengerWindow_h
+#include "SKKPythonRunner.h"
+#include <Python.h>
+#include <cstdlib>
 
-@class MessengerView;
+void SKKPythonRunner::Run(const char* path) {
+    FILE* fp = fopen(path, "r");
 
-@interface MessengerWindow : NSObject {
-    NSWindow* window_;
-    MessengerView* view_;
+    Py_Initialize();
+    PyRun_SimpleFile(fp, path);
+    Py_Finalize();
+
+    fclose(fp);
 }
 
-+ (MessengerWindow*)sharedWindow;
-- (void)showMessage:(NSString*)message at:(NSPoint)topleft level:(int)level;
-- (void)hide;
-
-@end
-
 #endif
-

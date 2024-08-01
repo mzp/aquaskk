@@ -20,18 +20,15 @@
 
 */
 
-#ifndef MessengerView_h
-#define MessengerView_h
+#ifndef SKKServerProxy_h
+#define SKKServerProxy_h
 
-@interface MessengerView : NSView {
-    NSDictionary* attributes_;
-    NSImage* icon_;
-    NSString* message_;
+#import <Foundation/Foundation.h>
+#include "SKKSupervisor.h"
+
+@interface SKKServerProxy : NSObject <SKKSupervisor> {
+    id proxy_;
 }
-
-- (void)setMessage:(NSString*)message;
-
 @end
 
 #endif
-

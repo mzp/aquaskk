@@ -2,7 +2,7 @@
 
   MacOS X implementation of the SKK input method.
 
-  Copyright (C) 2009 Tomotaka SUWA <t.suwa@mac.com>
+  Copyright (C) 2008 Tomotaka SUWA <t.suwa@mac.com>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -20,28 +20,23 @@
 
 */
 
-#ifndef MacConfig_h
-#define MacConfig_h
+#ifndef MessengerWindow_h
+#define MessengerWindow_h
 
-#include "SKKConfig.h"
+#import <Foundation/Foundation.h>
 
-class MacConfig : public SKKConfig {
-    int integerConfig(NSString* key);
-    bool boolConfig(NSString* key);
+@class MessengerView;
 
-public:
-    MacConfig();
+@interface MessengerWindow : NSObject {
+    NSWindow* window_;
+    MessengerView* view_;
+}
 
-    virtual bool FixIntermediateConversion();
-    virtual bool EnableDynamicCompletion();
-    virtual int DynamicCompletionRange();
-    virtual bool EnableAnnotation();
-    virtual bool DisplayShortestMatchOfKanaConversions();
-    virtual bool SuppressNewlineOnCommit();
-    virtual int MaxCountOfInlineCandidates();
-    virtual bool HandleRecursiveEntryAsOkuri();
-    virtual bool InlineBackSpaceImpliesCommit();
-    virtual bool DeleteOkuriWhenQuit();
-};
++ (MessengerWindow*)sharedWindow;
+- (void)showMessage:(NSString*)message at:(NSPoint)topleft level:(int)level;
+- (void)hide;
+
+@end
 
 #endif
+
