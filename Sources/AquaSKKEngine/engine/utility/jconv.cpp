@@ -226,7 +226,10 @@ namespace jconv {
 
     void jisx0208_latin_to_ascii(const std::string& from, std::string& to) {
 	to = from;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshorten-64-to-32"
 	unsigned remain = to.size();
+#pragma clang diagnostic pop
 	for(latin* ptr = latin_table; remain && ptr->ascii; ++ ptr) {
 	    remain = translate(ptr->jisx0208_latin, ptr->ascii)(to, remain);
 	}

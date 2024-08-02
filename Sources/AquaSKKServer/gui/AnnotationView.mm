@@ -130,7 +130,10 @@
 
     NSScrollView* scrollView = [[NSScrollView alloc] initWithFrame:frame];
     [scrollView setHasVerticalScroller:YES];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [[scrollView verticalScroller] setControlSize:NSSmallControlSize];
+#pragma clang diagnostic pop
 
     textView_ = [[NSTextView alloc] initWithFrame:[[scrollView contentView] frame]];
     [textView_ setEditable:NO];

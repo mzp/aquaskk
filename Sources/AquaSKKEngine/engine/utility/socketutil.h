@@ -347,7 +347,10 @@ namespace socket {
             setg(eback(), eback(), eback());
 
             // fill buffer
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshorten-64-to-32"
             int length = ::recv(fd_, gptr(), BUFFER_SIZE, 0);
+#pragma clang diagnostic pop
             if(length == 0 || length == -1) return traits_type::eof();
 
             setg(eback(), gptr(), gptr() + length);
@@ -600,7 +603,10 @@ namespace socket {
             timeval tv;
 
             tv.tv_sec = seconds;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshorten-64-to-32"
             tv.tv_usec = micro_seconds;
+            #pragma clang diagnostic pop
 
             return select(&tv);
         }

@@ -11,7 +11,10 @@ public:
     virtual void Setup(SKKCandidateIterator begin,
                        SKKCandidateIterator end,
                        std::vector<int>& pages) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshorten-64-to-32"
 	pages.push_back(end - begin);
+#pragma clang diagnostic pop
     }
 
     virtual void Update(SKKCandidateIterator begin,

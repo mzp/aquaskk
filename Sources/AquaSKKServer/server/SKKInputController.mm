@@ -233,7 +233,10 @@
 
             if(items[i].state == @selector(directMode)) {
                 NSWorkspace* workspace = [NSWorkspace sharedWorkspace];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
                 NSString* path = [workspace absolutePathForAppBundleWithIdentifier:[client_ bundleIdentifier]];
+#pragma clang diagnostic pop
                 NSString* name = [[NSFileManager defaultManager] displayNameAtPath:path];
                 [item setTitle:[NSString stringWithFormat:@"“%@” では直接入力", name]];
             }
@@ -249,8 +252,10 @@
 - (void)showPreferences:(id)sender {
     NSString* path = [NSString stringWithFormat:@"%@/AquaSKKPreferences.app",
                                [[NSBundle mainBundle] sharedSupportPath]];
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [[NSWorkspace sharedWorkspace] launchApplication:path];
+#pragma clang diagnostic pop
 }
 
 - (void)togglePrivateMode:(id)sender {
@@ -287,21 +292,27 @@
     [alert addButtonWithTitle:@"OK"];
     [alert setMessageText:@"デバッグ情報"];
     [alert setInformativeText:info];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [alert setAlertStyle:NSInformationalAlertStyle];
     [alert setIcon:[NSImage imageNamed:NSImageNameInfo]];
     [[alert window] setLevel:kCGPopUpMenuWindowLevel];
     [[alert window] setTitle:@"AquaSKK"];
+#pragma clang diagnostic pop
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wnonnull"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [alert beginSheetModalForWindow:0 modalDelegate:self didEndSelector:0 contextInfo:0];
 #pragma clang diagnostic pop
 
     NSPasteboard* pb = [NSPasteboard generalPasteboard];
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [pb declareTypes:[NSArray arrayWithObjects:NSStringPboardType, nil] owner:self];
     [pb setString:info forType:NSStringPboardType];
-
+#pragma clang diagnostic pop
     [info release];
 }
 
@@ -423,7 +434,10 @@
 
 - (NSBundle*)currentBundle {
     NSWorkspace* workspace = [NSWorkspace sharedWorkspace];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     NSString* path = [workspace absolutePathForAppBundleWithIdentifier:[client_ bundleIdentifier]];
+#pragma clang diagnostic pop
     return [NSBundle bundleWithPath:path];
 }
 

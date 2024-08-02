@@ -33,7 +33,10 @@ namespace {
     static const int MAX_SAVE_INTERVAL = 60 * 5;
 
     // SKKDictionaryEntry と文字列を比較するファンクタ
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     class CompareUserDictionaryEntry: public std::unary_function<SKKDictionaryEntry, bool> {
+#pragma clang diagnostic pop
         const std::string str_;
 
     public:
@@ -121,9 +124,11 @@ void SKKLocalUserDictionary::Find(const SKKEntry& entry, SKKCandidateSuite& resu
         suite.Parse(fetch(entry, file_.OkuriNasi()));
         
         SKKCandidateContainer& candidates = suite.Candidates();
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         std::for_each(candidates.begin(), candidates.end(),
                       std::mem_fun_ref(&SKKCandidate::Decode));
+#pragma clang diagnostic pop
     }
 
     result.Add(suite);

@@ -123,7 +123,10 @@ void MacCandidateWindow::reloadUserDefaults() {
     NSFont* font = [NSFont fontWithName:fontName size:fontSize] ?: [NSFont labelFontOfSize:fontSize];
 
     NSString* labels = [defaults stringForKey:SKKUserDefaultKeys::candidate_window_labels];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshorten-64-to-32"
     cellCount_ = [labels length];
+#pragma clang diagnostic pop
 
     putUpward_ = [defaults boolForKey:SKKUserDefaultKeys::put_candidate_window_upward] == YES;
 

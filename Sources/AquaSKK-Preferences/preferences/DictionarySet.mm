@@ -36,13 +36,12 @@ static NSString* DictionaryRowsType = @"DictionaryRowsType";
     while(NSNotFound != idx) {
 	if(idx >= insertIndex) {
 #pragma clang diagnostic push
-#pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wshorten-64-to-32"
 	    removeIndex = idx + aboveInsertIndexCount;
-#pragma clang diagnostic pop
 	    aboveInsertIndexCount += 1;
 	} else {
 	    removeIndex = idx;
+#pragma clang diagnostic pop
 	    insertIndex -= 1;
 	}
 
@@ -109,7 +108,6 @@ static NSString* DictionaryRowsType = @"DictionaryRowsType";
 
 - (BOOL)tableView:(NSTableView*)tv writeRowsWithIndexes:(NSIndexSet*)rowIndexes toPasteboard:(NSPasteboard*)pboard {
     NSArray* typesArray = [NSArray arrayWithObjects:DictionaryRowsType, nil];
-    completionHandler:^(NSInteger result) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:rowIndexes];
@@ -151,8 +149,10 @@ static NSString* DictionaryRowsType = @"DictionaryRowsType";
 
     NSPasteboard* pboard = [info draggingPasteboard];
     NSData* rowData = [pboard dataForType:DictionaryRowsType];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     NSIndexSet* rowIndexes = [NSKeyedUnarchiver unarchiveObjectWithData:rowData];
-
+#pragma clang diagnostic pop
     [self moveObjectsInArrangedObjectsFromIndexes:rowIndexes toIndex:row];
 
     int rowsAbove = [self rowsAboveRow:row inIndexSet:rowIndexes];

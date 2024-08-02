@@ -177,7 +177,10 @@ public:
     }
 
     void Remove(const SKKCandidate& candidate) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         RemoveIf(std::bind1st(std::equal_to<SKKCandidate>(), candidate));
+#pragma clang diagnostic pop
     }
 
     template <typename Predicate>

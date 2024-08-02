@@ -50,7 +50,10 @@
     XCTAssert(suite.ToString() == "/候補1;アノテーション/候補2;アノテーション/[おくり/候補1;アノテーション/候補2/]/");
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 struct pred : public std::unary_function<SKKCandidate, bool> {
+#pragma clang diagnostic pop
     bool operator()(const SKKCandidate& candidate) const {
         const std::string& str = candidate.Word();
 

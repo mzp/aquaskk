@@ -35,7 +35,10 @@ class SKKConfig;
 class SKKEvent;
 
 class SKKInputSession {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     std::auto_ptr<SKKInputSessionParameter> param_;
+#pragma clang diagnostic pop
     std::vector<SKKRecursiveEditor*> stack_;
     SKKInputModeListenerCollection listeners_;
     SKKInputContext context_;

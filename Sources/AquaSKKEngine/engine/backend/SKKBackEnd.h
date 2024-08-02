@@ -35,7 +35,10 @@ class SKKBaseDictionary;
 class SKKUserDictionary;
 
 class SKKBackEnd {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     std::auto_ptr<SKKUserDictionary> userdict_;
+#pragma clang diagnostic pop
     std::vector<SKKBaseDictionary*> dicts_;
     SKKDictionaryKeyContainer actives_;
     SKKDictionaryCache cache_;

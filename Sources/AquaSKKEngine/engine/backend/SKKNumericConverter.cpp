@@ -125,7 +125,6 @@ static std::string ConvertType3(const std::string& src) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wshorten-64-to-32"
     for(unsigned i = src.find_first_not_of("0"); i < src.size(); ++ i) {
-#pragma clang diagnostic pop
 	switch(src[i]) {
 	case '2':
 	    result += "二";
@@ -242,6 +241,7 @@ static std::string ConvertType5(const std::string& src) {
 	    if (previous_size < result.size()){
 	        result += unit1[(distance - 1) / 4];
 	        previous_size = result.size();
+#pragma clang diagnostic pop
 	    }
 	} else {
 	    // 十の位以上

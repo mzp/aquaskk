@@ -217,7 +217,6 @@
 		1371A74F2C5B5D0300E06348 /* DictionarySet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74D2C5B5D0300E06348 /* DictionarySet.plist */; };
 		1371A7502C5B5D0300E06348 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74E2C5B5D0300E06348 /* UserDefaults.plist */; };
 		1371A7512C5B5D0300E06348 /* BlacklistApps.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74C2C5B5D0300E06348 /* BlacklistApps.plist */; };
-		1371A7532C5B5D2100E06348 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1371A7522C5B5D2100E06348 /* Preferences.xib */; };
 		1371A77C2C5B5D3E00E06348 /* AquaSKK-Jisx0208Latin.png in Resources */ = {isa = PBXBuildFile; fileRef = 1371A76A2C5B5D3E00E06348 /* AquaSKK-Jisx0208Latin.png */; };
 		1371A77D2C5B5D3E00E06348 /* act.rule in Resources */ = {isa = PBXBuildFile; fileRef = 1371A7552C5B5D3E00E06348 /* act.rule */; };
 		1371A77E2C5B5D3E00E06348 /* AquaSKK-Hirakana.png in Resources */ = {isa = PBXBuildFile; fileRef = 1371A7642C5B5D3E00E06348 /* AquaSKK-Hirakana.png */; };
@@ -1925,7 +1924,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1307C2432C5B47DA00B089B6 /* Preview Assets.xcassets in Resources */,
-				1371A7532C5B5D2100E06348 /* Preferences.xib in Resources */,
 				1307C2402C5B47DA00B089B6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2321,7 +2319,7 @@
 			baseConfigurationReference = 13931D0C2C5B49C200B11EEE /* PreferencesAppTesting.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AquaSKK.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AquaSKK";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AquaSKK_Preferences.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AquaSKK_Preferences";
 			};
 			name = Debug;
 		};
@@ -2330,7 +2328,7 @@
 			baseConfigurationReference = 13931D0C2C5B49C200B11EEE /* PreferencesAppTesting.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AquaSKK.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AquaSKK";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AquaSKK_Preferences.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AquaSKK_Preferences";
 			};
 			name = Release;
 		};
@@ -2352,7 +2350,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13931D0E2C5B4C6B00B11EEE /* EngineTesting.xcconfig */;
 			buildSettings = {
-				OTHER_MODULE_VERIFIER_FLAGS = "$(OTHER_CLANG_MODULES_VERIFIER_FLAGS) -fmodules-cache-path=/Users/mzp/tmp";
 			};
 			name = Debug;
 		};
@@ -2360,7 +2357,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13931D0E2C5B4C6B00B11EEE /* EngineTesting.xcconfig */;
 			buildSettings = {
-				OTHER_MODULE_VERIFIER_FLAGS = "$(OTHER_CLANG_MODULES_VERIFIER_FLAGS) -fmodules-cache-path=/Users/mzp/tmp";
 			};
 			name = Release;
 		};

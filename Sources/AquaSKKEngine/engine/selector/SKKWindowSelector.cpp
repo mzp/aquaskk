@@ -138,7 +138,10 @@ int SKKWindowSelector::minPage() const {
 }
 
 int SKKWindowSelector::maxPage() const {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshorten-64-to-32"
     return pages_.size() - 1;
+#pragma clang diagnostic pop
 }
 
 int SKKWindowSelector::minPosition() const {

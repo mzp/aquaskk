@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-// @main
+@main
 struct AquaSKKApp: App {
     var body: some Scene {
         WindowGroup {

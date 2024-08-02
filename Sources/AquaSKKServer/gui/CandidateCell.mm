@@ -121,11 +121,13 @@
     } else {
         [[[NSColor blackColor] colorWithAlphaComponent:0.1] setFill];
     }
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     NSRectFillUsingOperation(focus, NSCompositeSourceOver);
 
     [[NSColor windowFrameColor] setStroke];
     [NSBezierPath strokeRect:focus];
-
+#pragma clang diagnostic pop
     [[NSGraphicsContext currentContext] setShouldAntialias:YES];
 }
 

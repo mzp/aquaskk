@@ -72,7 +72,10 @@ void SKKDictionaryKeeper::Initialize(SKKDictionaryLoader* loader) {
     loader->Connect(this);
 
     timeout_ = loader->Timeout();
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     timer_ = std::auto_ptr<pthread::timer>(new pthread::timer(loader, loader->Interval()));
+#pragma clang diagnostic pop
 }
 
 std::string SKKDictionaryKeeper::FindOkuriAri(const std::string& query) {
@@ -116,9 +119,11 @@ void SKKDictionaryKeeper::Complete(SKKCompletionHelper& helper) {
 
     SKKDictionaryEntryContainer& container = file_.OkuriNasi();
     std::string query = eucj_from_utf8(helper.Entry());
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshorten-64-to-32"
     EntryRange range = std::equal_range(container.begin(), container.end(),
                                         query, CompareFunctor(query.size()));
-
+#pragma clang diagnostic pop
     for(SKKDictionaryEntryIterator iter = range.first; iter != range.second; ++ iter) {
         std::string completion = utf8_from_eucj(iter->first);
 

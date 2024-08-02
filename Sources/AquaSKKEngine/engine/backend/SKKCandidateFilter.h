@@ -27,7 +27,10 @@
 #include <functional>
 
 // skk-ignore-dic-word 対応
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 struct SKKIgnoreDicWord : public std::unary_function<SKKCandidate, bool> {
+#pragma clang diagnostic pop
     bool operator()(const SKKCandidate& candidate) const {
         const std::string& str = candidate.Word();
 

@@ -153,7 +153,10 @@ static void terminate(int) {
     flag = [defaults boolForKey:SKKUserDefaultKeys::enable_private_mode] == YES;
     SKKBackEnd::theInstance().EnablePrivateMode(flag);
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshorten-64-to-32"
     int length = [defaults integerForKey:SKKUserDefaultKeys::minimum_completion_length];
+#pragma clang diagnostic pop
     SKKBackEnd::theInstance().SetMinimumCompletionLength(length);
 }
 
@@ -301,8 +304,10 @@ static void terminate(int) {
 }
 
 - (void)prepareConnection {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     connection_ = [[NSConnection alloc] init];
-
+#pragma clang diagnostic pop
     [connection_ registerName:SKKSupervisorConnectionName];
     [connection_ setRootObject:self];
     [connection_ runInNewThread];

@@ -58,9 +58,15 @@ SKKInputModeSelector::operator SKKInputMode() const {
 // ------------------------------------------------------------
 
 void SKKInputModeSelector::SKKWidgetShow() {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     std::for_each(listeners_->begin(), listeners_->end(), std::mem_fun(&SKKWidget::Show));
+#pragma clang diagnostic pop
 }
 
 void SKKInputModeSelector::SKKWidgetHide() {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     std::for_each(listeners_->begin(), listeners_->end(), std::mem_fun(&SKKWidget::Hide));
+#pragma clang diagnostic pop
 }

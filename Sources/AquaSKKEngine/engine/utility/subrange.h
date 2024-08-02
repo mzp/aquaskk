@@ -81,7 +81,10 @@ public:
 	adjust(container, pos, length);
     }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshorten-64-to-32"
     size_type size() const { return end() - begin(); }
+#pragma clang diagnostic pop
     bool empty() const { return begin() == end(); }
 
     Iter begin() { return begin_; }

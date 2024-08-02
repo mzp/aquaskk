@@ -108,7 +108,10 @@ int SKKHttpDictionaryLoader::file_size(const std::string& path) const {
     struct stat st;
 
     if(stat(path.c_str(), &st) == 0) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshorten-64-to-32"
         return st.st_size;
+#pragma clang diagnostic pop
     }
 
     return 0;
