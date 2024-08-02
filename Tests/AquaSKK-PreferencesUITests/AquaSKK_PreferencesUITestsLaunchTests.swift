@@ -8,7 +8,6 @@
 import XCTest
 
 final class AquaSKK_PreferencesUITestsLaunchTests: XCTestCase {
-
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }
