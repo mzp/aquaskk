@@ -16,7 +16,6 @@
 		1307C25A2C5B47DA00B089B6 /* AquaSKK_PreferencesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1307C2592C5B47DA00B089B6 /* AquaSKK_PreferencesUITestsLaunchTests.swift */; };
 		1310827E2C5B5BDB00C186BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1310827D2C5B5BDB00C186BE /* Images.xcassets */; };
 		131082802C5B5BEC00C186BE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1310827F2C5B5BEC00C186BE /* InfoPlist.strings */; };
-		131082822C5B5BFC00C186BE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 131082812C5B5BFC00C186BE /* Info.plist */; };
 		13185CC22C5B57DF001CF24D /* SubRuleDescriptions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13185CC02C5B57DF001CF24D /* SubRuleDescriptions.cpp */; };
 		13185CC32C5B57DF001CF24D /* BlacklistApps.m in Sources */ = {isa = PBXBuildFile; fileRef = 13185CB52C5B57DF001CF24D /* BlacklistApps.m */; };
 		13185CC42C5B57DF001CF24D /* PreferenceController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13185CBE2C5B57DF001CF24D /* PreferenceController.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -702,8 +701,12 @@
 		137D05A22C5B5AFC009AC591 /* AquaSKK_PreferencesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AquaSKK_PreferencesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		137D05A32C5B5AFC009AC591 /* AquaSKKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AquaSKKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		137D05A42C5B5AFC009AC591 /* AquaSKKUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AquaSKKUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		138F45102C5CA19D000B03FC /* Engine.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Engine.xcconfig; sourceTree = "<group>"; };
+		138F45112C5CA1B6000B03FC /* ServerTesting.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ServerTesting.xcconfig; sourceTree = "<group>"; };
+		138F45122C5CA1D7000B03FC /* AquaSKKTesting.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AquaSKKTesting.xcconfig; sourceTree = "<group>"; };
+		138F45132C5CA1F2000B03FC /* AquaSKKTestingUI.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AquaSKKTestingUI.xcconfig; sourceTree = "<group>"; };
 		13931D0C2C5B49C200B11EEE /* PreferencesAppTesting.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PreferencesAppTesting.xcconfig; sourceTree = "<group>"; };
-		13931D0D2C5B4B5000B11EEE /* PreferenecsAppUITesting.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PreferenecsAppUITesting.xcconfig; sourceTree = "<group>"; };
+		13931D0D2C5B4B5000B11EEE /* PreferenecsAppTestingUI.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PreferenecsAppTestingUI.xcconfig; sourceTree = "<group>"; };
 		13931D0E2C5B4C6B00B11EEE /* EngineTesting.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = EngineTesting.xcconfig; sourceTree = "<group>"; };
 		13931D0F2C5B4C9D00B11EEE /* UITesting.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UITesting.xctestplan; sourceTree = "<group>"; };
 		13D756162C5A9049006144F2 /* AquaSKKEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKEngine.h; sourceTree = "<group>"; };
@@ -879,12 +882,16 @@
 			children = (
 				13D7561B2C5A905E006144F2 /* All.xcconfig */,
 				137D05A02C5B5AFB009AC591 /* AquaSKK.xcconfig */,
+				138F45132C5CA1F2000B03FC /* AquaSKKTestingUI.xcconfig */,
+				138F45122C5CA1D7000B03FC /* AquaSKKTesting.xcconfig */,
 				13D7561C2C5A9113006144F2 /* Debug.xcconfig */,
+				138F45102C5CA19D000B03FC /* Engine.xcconfig */,
 				13931D0E2C5B4C6B00B11EEE /* EngineTesting.xcconfig */,
 				13931D0C2C5B49C200B11EEE /* PreferencesAppTesting.xcconfig */,
 				1307C2672C5B48D600B089B6 /* PreferenecesApp.xcconfig */,
-				13931D0D2C5B4B5000B11EEE /* PreferenecsAppUITesting.xcconfig */,
+				13931D0D2C5B4B5000B11EEE /* PreferenecsAppTestingUI.xcconfig */,
 				135C3DBF2C5B3FEC00661AE3 /* Server.xcconfig */,
+				138F45112C5CA1B6000B03FC /* ServerTesting.xcconfig */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -2020,7 +2027,6 @@
 				1371A79D2C5B5D3E00E06348 /* Mini-Katakana.tiff in Resources */,
 				1371A79E2C5B5D3E00E06348 /* AquaSKK-Jisx0208Latin@2x.png in Resources */,
 				1371A79F2C5B5D3E00E06348 /* period.rule in Resources */,
-				131082822C5B5BFC00C186BE /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2326,26 +2332,28 @@
 		};
 		1307C2622C5B47DA00B089B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13931D0D2C5B4B5000B11EEE /* PreferenecsAppUITesting.xcconfig */;
+			baseConfigurationReference = 13931D0D2C5B4B5000B11EEE /* PreferenecsAppTestingUI.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		1307C2632C5B47DA00B089B6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13931D0D2C5B4B5000B11EEE /* PreferenecsAppUITesting.xcconfig */;
+			baseConfigurationReference = 13931D0D2C5B4B5000B11EEE /* PreferenecsAppTestingUI.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
 		};
 		1344F4912C5A92CE00D8C850 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13931D0E2C5B4C6B00B11EEE /* EngineTesting.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		1344F4922C5A92CE00D8C850 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13931D0E2C5B4C6B00B11EEE /* EngineTesting.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
@@ -2380,14 +2388,14 @@
 		};
 		135C3D5B2C5B3E8F00661AE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 135C3DBF2C5B3FEC00661AE3 /* Server.xcconfig */;
+			baseConfigurationReference = 138F45112C5CA1B6000B03FC /* ServerTesting.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		135C3D5C2C5B3E8F00661AE3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 135C3DBF2C5B3FEC00661AE3 /* Server.xcconfig */;
+			baseConfigurationReference = 138F45112C5CA1B6000B03FC /* ServerTesting.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
@@ -2408,6 +2416,7 @@
 		};
 		137D059B2C5B5A83009AC591 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 138F45122C5CA1D7000B03FC /* AquaSKKTesting.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AquaSKK.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AquaSKK";
@@ -2416,6 +2425,7 @@
 		};
 		137D059C2C5B5A83009AC591 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 138F45122C5CA1D7000B03FC /* AquaSKKTesting.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AquaSKK.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AquaSKK";
@@ -2424,12 +2434,14 @@
 		};
 		137D059E2C5B5A83009AC591 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 138F45132C5CA1F2000B03FC /* AquaSKKTestingUI.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		137D059F2C5B5A83009AC591 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 138F45132C5CA1F2000B03FC /* AquaSKKTestingUI.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
@@ -2450,12 +2462,14 @@
 		};
 		13D756122C5A9043006144F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 138F45102C5CA19D000B03FC /* Engine.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		13D756132C5A9043006144F2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 138F45102C5CA19D000B03FC /* Engine.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
