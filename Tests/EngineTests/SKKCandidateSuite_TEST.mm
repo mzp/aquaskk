@@ -1,4 +1,4 @@
-#include "SKKCandidateSuite.h"
+#import <AquaSKKEngine/SKKCandidateSuite.h>
 #include <cassert>
 #include <iostream>
 

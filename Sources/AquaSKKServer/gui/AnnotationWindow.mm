@@ -34,12 +34,13 @@
     self = [super init];
     if(self) {
         view_ = [[AnnotationView alloc] init];
-# pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         window_ = [[NSWindow alloc] initWithContentRect:[view_ frame]
                                     styleMask:NSBorderlessWindowMask
                                     backing:NSBackingStoreBuffered
                                     defer:YES];
-# pragma clang diagnostic pop
+#pragma clang diagnostic pop
         [window_ setContentView:view_];
     }
     return self;

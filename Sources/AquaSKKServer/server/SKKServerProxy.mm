@@ -26,11 +26,12 @@
 
 - (id)init {
     self = [super init];
-# pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     proxy_ = [[NSConnection
                   rootProxyForConnectionWithRegisteredName:SKKSupervisorConnectionName
                   host:nil] retain];
-# pragma clang diagnostic pop
+#pragma clang diagnostic pop
     [proxy_ setProtocolForProxy:@protocol(SKKSupervisor)];
 
     return self;

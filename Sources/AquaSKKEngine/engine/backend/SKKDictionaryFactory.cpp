@@ -21,8 +21,8 @@
 */
 
 #include <iostream>
-#include "SKKDictionaryFactory.h"
-#include "SKKBaseDictionary.h"
+#import <AquaSKKEngine/SKKDictionaryFactory.h>
+#import <AquaSKKEngine/SKKBaseDictionary.h>
 
 // Null 辞書
 class SKKNullDictionary : public SKKBaseDictionary {

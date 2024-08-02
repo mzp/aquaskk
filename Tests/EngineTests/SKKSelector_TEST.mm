@@ -1,9 +1,9 @@
 #include <cassert>
-#include "SKKSelector.h"
-#include "SKKCandidateWindow.h"
-#include "SKKBackEnd.h"
-#include "SKKCommonDictionary.h"
-#include "SKKDictionaryFactory.h"
+#import <AquaSKKEngine/SKKSelector.h>
+#import <AquaSKKEngine/SKKCandidateWindow.h>
+#import <AquaSKKEngine/SKKBackEnd.h>
+#import <AquaSKKEngine/SKKCommonDictionary.h>
+#import <AquaSKKEngine/SKKDictionaryFactory.h>
 
 #include "MockFrontEnd.h"
 #include "MockCandidateWindow.h"

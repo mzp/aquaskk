@@ -20,9 +20,9 @@
 
 */
 
-#include "SKKEntryRemoveEditor.h"
-#include "SKKInputContext.h"
-#include "SKKBackEnd.h"
+#import <AquaSKKEngine/SKKEntryRemoveEditor.h>
+#import <AquaSKKEngine/SKKInputContext.h>
+#import <AquaSKKEngine/SKKBackEnd.h>
 
 SKKEntryRemoveEditor::SKKEntryRemoveEditor(SKKInputContext* context)
     : SKKBaseEditor(context) {}

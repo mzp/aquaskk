@@ -322,14 +322,16 @@ namespace socket {
         }
 
         virtual int sync() {
-# pragma clang diagnostic ignored "-Wshorten-64-to-32"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshorten-64-to-32"
             int remain = pptr() - pbase();
-# pragma clang diagnostic pop
+#pragma clang diagnostic pop
             int offset = 0;
-# pragma clang diagnostic ignored "-Wshorten-64-to-32"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshorten-64-to-32"
             while(0 < remain) {
-# pragma clang diagnostic pop
                 int result = ::send(fd_, pbase() + offset, remain, 0);
+#pragma clang diagnostic pop
                 if(result == -1) return -1;
 
                 remain -= result;
@@ -519,9 +521,10 @@ namespace socket {
 
         void reset() {
             FD_ZERO(&impl_);
-# pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
             std::for_each(set_.begin(), set_.end(), std::bind1st(std::mem_fun(&fdset::setup), this));
-# pragma clang diagnostic pop
+#pragma clang diagnostic pop
         }
 
         operator fd_set*() {

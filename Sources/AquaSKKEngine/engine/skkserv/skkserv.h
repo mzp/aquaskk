@@ -22,7 +22,7 @@
 */
 
 #include <pthread.h>
-#include "socketutil.h"
+#import <AquaSKKEngine/socketutil.h>
 
 class skkserv {
     pthread_t thread_;

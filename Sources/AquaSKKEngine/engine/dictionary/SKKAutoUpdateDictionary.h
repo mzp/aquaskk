@@ -23,8 +23,8 @@
 #ifndef SKKAutoUpdateDictionary_h
 #define SKKAutoUpdateDictionary_h
 
-#include "SKKDictionaryTemplate.h"
-#include "SKKHttpDictionaryLoader.h"
+#import <AquaSKKEngine/SKKDictionaryTemplate.h>
+#import <AquaSKKEngine/SKKHttpDictionaryLoader.h>
 
 // SKK 自動更新辞書
 

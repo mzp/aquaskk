@@ -20,7 +20,7 @@
 
 */
 
-#include "SKKDictionaryFile.h"
+#import <AquaSKKEngine/SKKDictionaryFile.h>
 #include <iostream>
 #include <fstream>
 #include <algorithm>

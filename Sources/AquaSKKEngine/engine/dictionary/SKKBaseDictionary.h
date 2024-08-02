@@ -26,9 +26,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "SKKEntry.h"
-#include "SKKCandidateSuite.h"
-#include "SKKCompletionHelper.h"
+#import <AquaSKKEngine/SKKEntry.h>
+#import <AquaSKKEngine/SKKCandidateSuite.h>
+#import <AquaSKKEngine/SKKCompletionHelper.h>
 
 // ======================================================================
 // 抽象辞書クラス(文字列は UTF-8)

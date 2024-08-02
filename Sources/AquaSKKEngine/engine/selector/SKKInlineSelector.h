@@ -23,7 +23,7 @@
 #ifndef SKKInlineSelector_h
 #define SKKInlineSelector_h
 
-#include "SKKBaseSelector.h"
+#import <AquaSKKEngine/SKKBaseSelector.h>
 
 class SKKInlineSelector : public SKKBaseSelector {
     Range range_;

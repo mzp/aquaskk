@@ -43,9 +43,10 @@ class subrange {
     Iter end_;
 
     void adjust(Container& container, size_type pos, size_type length) {
-# pragma clang diagnostic ignored "-Wshorten-64-to-32"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshorten-64-to-32"
 	unsigned size = container.size();
-# pragma clang diagnostic pop
+#pragma clang diagnostic pop
 
 	if(pos < size) {
 	    begin_ = container.begin() + pos;

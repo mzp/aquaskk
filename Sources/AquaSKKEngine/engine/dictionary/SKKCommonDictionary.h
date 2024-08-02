@@ -24,8 +24,8 @@
 #ifndef SKKCommonDictionary_h
 #define SKKCommonDictionary_h
 
-#include "SKKDictionaryTemplate.h"
-#include "SKKLocalDictionaryLoader.h"
+#import <AquaSKKEngine/SKKDictionaryTemplate.h>
+#import <AquaSKKEngine/SKKLocalDictionaryLoader.h>
 
 // SKK 共有辞書
 

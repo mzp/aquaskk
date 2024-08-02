@@ -3,7 +3,7 @@
 #ifndef MockMessenger_h
 #define MockMessenger_h
 
-#include "SKKMessenger.h"
+#import <AquaSKKEngine/SKKMessenger.h>
 
 class MockMessenger : public SKKMessenger {
     virtual void SendMessage(const std::string& msg) {}

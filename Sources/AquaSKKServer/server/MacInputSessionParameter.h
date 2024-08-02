@@ -23,12 +23,13 @@
 #ifndef MacInputSessionParameter_h
 #define MacInputSessionParameter_h
 
-#include "SKKInputSessionParameter.h"
+#import <AquaSKKEngine/SKKInputSessionParameter.h>
 #include "SKKLayoutManager.h"
 #include <memory>
 
 class MacInputSessionParameter : public SKKInputSessionParameter {
-# pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     std::auto_ptr<SKKConfig> config_;
     std::auto_ptr<SKKFrontEnd> frontend_;
     std::auto_ptr<SKKMessenger> messenger_;
@@ -36,7 +37,7 @@ class MacInputSessionParameter : public SKKInputSessionParameter {
     std::auto_ptr<SKKCandidateWindow> candidateWindow_;
     std::auto_ptr<SKKAnnotator> annotator_;
     std::auto_ptr<SKKDynamicCompletor> completor_;
-# pragma clang diagnostic pop
+#pragma clang diagnostic pop
 
 
 public:

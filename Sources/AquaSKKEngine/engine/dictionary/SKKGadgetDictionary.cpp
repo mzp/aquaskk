@@ -24,9 +24,9 @@
 #include <algorithm>
 #include <ctime>
 #include "calculator.h"
-#include "SKKCandidate.h"
-#include "SKKCandidateSuite.h"
-#include "SKKGadgetDictionary.h"
+#import <AquaSKKEngine/SKKCandidate.h>
+#import <AquaSKKEngine/SKKCandidateSuite.h>
+#import <AquaSKKEngine/SKKGadgetDictionary.h>
 
 namespace {
     // ======================================================================

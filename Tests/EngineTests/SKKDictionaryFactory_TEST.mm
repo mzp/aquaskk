@@ -1,7 +1,7 @@
 #include <cassert>
-#include "SKKDictionaryFactory.h"
-#include "SKKBaseDictionary.h"
-#include "SKKCommonDictionary.h"
+#import <AquaSKKEngine/SKKDictionaryFactory.h>
+#import <AquaSKKEngine/SKKBaseDictionary.h>
+#import <AquaSKKEngine/SKKCommonDictionary.h>
 
 #import <XCTest/XCTest.h>
 

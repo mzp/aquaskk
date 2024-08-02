@@ -24,8 +24,8 @@
 #define SKKInputModeListener_h
 
 #include <vector>
-#include "SKKInputMode.h"
-#include "SKKWidget.h"
+#import <AquaSKKEngine/SKKInputMode.h>
+#import <AquaSKKEngine/SKKWidget.h>
 
 class SKKInputModeListener : public SKKWidget {
 public:

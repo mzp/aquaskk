@@ -24,8 +24,8 @@
 #define SKKCandidateWindow_h
 
 #include <vector>
-#include "SKKWidget.h"
-#include "SKKCandidate.h"
+#import <AquaSKKEngine/SKKWidget.h>
+#import <AquaSKKEngine/SKKCandidate.h>
 
 class SKKCandidateWindow : public SKKWidget {
 public:

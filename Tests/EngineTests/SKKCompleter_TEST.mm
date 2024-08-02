@@ -1,6 +1,6 @@
 #include <cassert>
-#include "SKKCompleter.h"
-#include "SKKBackEnd.h"
+#import <AquaSKKEngine/SKKCompleter.h>
+#import <AquaSKKEngine/SKKBackEnd.h>
 #import <XCTest/XCTest.h>
 
 class TestBuddy : public SKKCompleterBuddy {

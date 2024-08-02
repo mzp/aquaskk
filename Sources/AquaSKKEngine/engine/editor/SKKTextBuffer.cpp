@@ -20,7 +20,7 @@
 
 */
 
-#include "SKKTextBuffer.h"
+#import <AquaSKKEngine/SKKTextBuffer.h>
 #include "utf8util.h"
 
 SKKTextBuffer::SKKTextBuffer() : cursor_(0) {}

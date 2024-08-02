@@ -1,7 +1,7 @@
-#include "SKKInputSession.h"
-#include "SKKKeymap.h"
+#import <AquaSKKEngine/SKKInputSession.h>
+#import <AquaSKKEngine/SKKKeymap.h>
 #include "SKKRomanKanaConverter.h"
-#include "SKKBackEnd.h"
+#import <AquaSKKEngine/SKKBackEnd.h>
 
 #include "MockInputSessionParameter.h"
 #include "TestData.h"

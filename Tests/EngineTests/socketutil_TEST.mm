@@ -1,4 +1,4 @@
-#include "socketutil.h"
+#import <AquaSKKEngine/socketutil.h>
 #import <XCTest/XCTest.h>
 
 @interface SocketUtilTests: XCTestCase

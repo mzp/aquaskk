@@ -2,7 +2,7 @@
 #define MockFrontEnd_h
 
 #include "SKKFrontEnd.h"
-#include "SKKInputModeListener.h"
+#import <AquaSKKEngine/SKKInputModeListener.h>
 #include "TestResult.h"
 #include <sstream>
 

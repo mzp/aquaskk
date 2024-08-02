@@ -1,4 +1,4 @@
-#include "SKKDictionaryLoader.h"
+#import <AquaSKKEngine/SKKDictionaryLoader.h>
 #include <iostream>
 
 #import <XCTest/XCTest.h>

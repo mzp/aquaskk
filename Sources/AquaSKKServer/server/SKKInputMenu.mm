@@ -21,7 +21,7 @@
 */
 
 #include "SKKInputMenu.h"
-#include "SKKEvent.h"
+#import <AquaSKKEngine/SKKEvent.h>
 
 @implementation SKKInputMenu
 

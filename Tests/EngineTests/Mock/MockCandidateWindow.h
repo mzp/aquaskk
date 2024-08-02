@@ -1,7 +1,7 @@
 #ifndef MockCandidateWindow_h
 #define MockCandidateWindow_h
 
-#include "SKKCandidateWindow.h"
+#import <AquaSKKEngine/SKKCandidateWindow.h>
 
 class MockCandidateWindow : public SKKCandidateWindow {
     virtual void SKKWidgetShow() {}

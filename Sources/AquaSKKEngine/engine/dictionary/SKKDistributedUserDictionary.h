@@ -23,8 +23,8 @@
 #ifndef SKKDistributedUserDictionary_h
 #define SKKDistributedUserDictionary_h
 
-#include "SKKUserDictionary.h"
-#include "socketutil.h"
+#import <AquaSKKEngine/SKKUserDictionary.h>
+#import <AquaSKKEngine/socketutil.h>
 
 class SKKDistributedUserDictionary : public SKKUserDictionary {
     net::socket::tcpstream server_;

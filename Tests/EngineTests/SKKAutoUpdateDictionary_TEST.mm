@@ -1,6 +1,6 @@
 #include <cassert>
 #include <sys/stat.h>
-#include "SKKAutoUpdateDictionary.h"
+#import <AquaSKKEngine/SKKAutoUpdateDictionary.h>
 
 #import <XCTest/XCTest.h>
 

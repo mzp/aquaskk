@@ -23,9 +23,9 @@
 #ifndef SKKInputSession_h
 #define SKKInputSession_h
 
-#include "SKKInputModeListener.h"
-#include "SKKInputContext.h"
-#include "SKKStateMachine.h"
+#import <AquaSKKEngine/SKKInputModeListener.h>
+#import <AquaSKKEngine/SKKInputContext.h>
+#import <AquaSKKEngine/SKKStateMachine.h>
 #include <vector>
 
 class SKKInputSessionParameter;

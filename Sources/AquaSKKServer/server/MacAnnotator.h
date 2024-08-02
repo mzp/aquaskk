@@ -23,7 +23,7 @@
 #ifndef MacAnnotator_h
 #define MacAnnotator_h
 
-#include "SKKAnnotator.h"
+#import <AquaSKKEngine/SKKAnnotator.h>
 #include "SKKLayoutManager.h"
 
 @class AnnotationWindow;

@@ -1,6 +1,6 @@
 #include <cassert>
 #include <iostream>
-#include "SKKLocalUserDictionary.h"
+#import <AquaSKKEngine/SKKLocalUserDictionary.h>
 #include "MockCompletionHelper.h"
 
 #import <XCTest/XCTest.h>

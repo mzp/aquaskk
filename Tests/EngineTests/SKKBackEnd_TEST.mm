@@ -1,8 +1,8 @@
 #include <cassert>
 #include <iostream>
-#include "SKKBackEnd.h"
-#include "SKKDictionaryFactory.h"
-#include "SKKCommonDictionary.h"
+#import <AquaSKKEngine/SKKBackEnd.h>
+#import <AquaSKKEngine/SKKDictionaryFactory.h>
+#import <AquaSKKEngine/SKKCommonDictionary.h>
 
 #import <XCTest/XCTest.h>
 

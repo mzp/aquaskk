@@ -23,11 +23,11 @@
 #ifndef SKKSelector_h
 #define SKKSelector_h
 
-#include "SKKInlineSelector.h"
-#include "SKKWindowSelector.h"
-#include "SKKEntry.h"
-#include "SKKCandidateSuite.h"
-#include "subrange.h"
+#import <AquaSKKEngine/SKKInlineSelector.h>
+#import <AquaSKKEngine/SKKWindowSelector.h>
+#import <AquaSKKEngine/SKKEntry.h>
+#import <AquaSKKEngine/SKKCandidateSuite.h>
+#import <AquaSKKEngine/subrange.h>
 
 // SKKSelector の相棒クラス
 struct SKKSelectorBuddy {

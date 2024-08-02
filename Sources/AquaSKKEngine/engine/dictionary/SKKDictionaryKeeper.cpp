@@ -20,8 +20,8 @@
 
 */
 
-#include "SKKDictionaryKeeper.h"
-#include "SKKCandidateParser.h"
+#import <AquaSKKEngine/SKKDictionaryKeeper.h>
+#import <AquaSKKEngine/SKKCandidateParser.h>
 #include "jconv.h"
 #include "utf8util.h"
 

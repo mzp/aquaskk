@@ -1,7 +1,7 @@
 #include <cassert>
 #include <errno.h>
-#include "SKKProxyDictionary.h"
-#include "SKKCommonDictionary.h"
+#import <AquaSKKEngine/SKKProxyDictionary.h>
+#import <AquaSKKEngine/SKKCommonDictionary.h>
 #include "jconv.h"
 #import <XCTest/XCTest.h>
 

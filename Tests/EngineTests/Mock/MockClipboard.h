@@ -3,7 +3,7 @@
 #ifndef MockClipboard_h
 #define MockClipboard_h
 
-#include "SKKClipboard.h"
+#import <AquaSKKEngine/SKKClipboard.h>
 
 class MockClipboard : public SKKClipboard {
     std::string str_;

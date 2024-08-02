@@ -23,7 +23,7 @@
 #ifndef SKKOkuriHint_h
 #define SKKOkuriHint_h
 
-#include "SKKCandidate.h"
+#import <AquaSKKEngine/SKKCandidate.h>
 
 // 送りヒントは「かな」と「変換候補」のペアで管理する
 typedef std::pair<std::string, SKKCandidateContainer> SKKOkuriHint;

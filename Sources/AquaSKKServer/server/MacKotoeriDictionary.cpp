@@ -27,7 +27,7 @@
 #include <iostream>
 #include <vector>
 #include <Carbon/Carbon.h>
-#include "SKKCandidate.h"
+#import <AquaSKKEngine/SKKCandidate.h>
 #include "MacKotoeriDictionary.h"
 
 #if MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_6

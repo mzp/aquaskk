@@ -23,8 +23,8 @@
 #ifndef SKKDictionaryLoader_h
 #define SKKDictionaryLoader_h
 
-#include "SKKDictionaryFile.h"
-#include "pthreadutil.h"
+#import <AquaSKKEngine/SKKDictionaryFile.h>
+#import <AquaSKKEngine/pthreadutil.h>
 
 class SKKDictionaryLoaderObserver {
 public:

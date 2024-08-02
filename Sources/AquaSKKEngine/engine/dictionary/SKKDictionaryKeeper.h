@@ -23,17 +23,19 @@
 #ifndef SKKDictionaryKeeper_h
 #define SKKDictionaryKeeper_h
 
-#include "SKKDictionaryFile.h"
-#include "SKKDictionaryLoader.h"
-#include "SKKCompletionHelper.h"
-#include "pthreadutil.h"
+#import <AquaSKKEngine/SKKDictionaryFile.h>
+#import <AquaSKKEngine/SKKDictionaryLoader.h>
+#import <AquaSKKEngine/SKKCompletionHelper.h>
+#import <AquaSKKEngine/pthreadutil.h>
 #include <vector>
 #include <memory>
 
 class SKKDictionaryKeeper : public SKKDictionaryLoaderObserver {
-# pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic push
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     std::auto_ptr<pthread::timer> timer_;
-# pragma clang diagnostic pop
+#pragma clang diagnostic pop
     pthread::condition condition_;
     SKKDictionaryFile file_;
     bool loaded_;

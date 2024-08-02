@@ -3,7 +3,7 @@
 #ifndef MockInputSessionParameter_h
 #define MockInputSessionParameter_h
 
-#include "SKKInputSessionParameter.h"
+#import <AquaSKKEngine/SKKInputSessionParameter.h>
 #include "MockConfig.h"
 #include "MockFrontEnd.h"
 #include "MockMessenger.h"

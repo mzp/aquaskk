@@ -23,8 +23,8 @@
 #ifndef SKKLocalUserDictionary_h
 #define SKKLocalUserDictionary_h
 
-#include "SKKUserDictionary.h"
-#include "SKKDictionaryFile.h"
+#import <AquaSKKEngine/SKKUserDictionary.h>
+#import <AquaSKKEngine/SKKDictionaryFile.h>
 #include <vector>
 #include <ctime>
 

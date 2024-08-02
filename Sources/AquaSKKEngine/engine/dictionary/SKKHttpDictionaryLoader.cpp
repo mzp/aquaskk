@@ -20,7 +20,7 @@
 
 */
 
-#include "SKKHttpDictionaryLoader.h"
+#import <AquaSKKEngine/SKKHttpDictionaryLoader.h>
 #include <fstream>
 #include <sys/stat.h>
 

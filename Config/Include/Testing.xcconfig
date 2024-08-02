@@ -1,5 +1,5 @@
 //
-//  Engine.xcconfig
+//  Testing.xcconfig
 //  AquaSKK
 //
 //  Created by mzp on 8/1/24.
@@ -7,8 +7,3 @@
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
-
-
-ENABLE_MODULE_VERIFIER = YES
-MODULE_VERIFIER_SUPPORTED_LANGUAGES = objective-c++
-MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = gnu++11

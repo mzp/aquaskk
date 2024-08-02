@@ -23,7 +23,7 @@
 #ifndef SKKOkuriEditor_h
 #define SKKOkuriEditor_h
 
-#include "SKKBaseEditor.h"
+#import <AquaSKKEngine/SKKBaseEditor.h>
 
 class SKKOkuriListener {
 public:

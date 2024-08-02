@@ -23,7 +23,7 @@
 #ifndef SKKLocalDictionaryLoader_h
 #define SKKLocalDictionaryLoader_h
 
-#include "SKKDictionaryLoader.h"
+#import <AquaSKKEngine/SKKDictionaryLoader.h>
 #include <ctime>
 #include <sys/stat.h>
 

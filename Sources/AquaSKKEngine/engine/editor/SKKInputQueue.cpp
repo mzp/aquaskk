@@ -20,7 +20,7 @@
 
 */
 
-#include "SKKInputQueue.h"
+#import <AquaSKKEngine/SKKInputQueue.h>
 #include "SKKRomanKanaConverter.h"
 #include "jconv.h"
 #include <cassert>

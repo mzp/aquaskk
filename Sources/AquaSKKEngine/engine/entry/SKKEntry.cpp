@@ -20,7 +20,7 @@
 
 */
 
-#include "SKKEntry.h"
+#import <AquaSKKEngine/SKKEntry.h>
 #include "jconv.h"
 
 SKKEntry::SKKEntry() {}
@@ -34,9 +34,10 @@ void SKKEntry::SetEntry(const std::string& entry) {
     normal_entry_ = entry;
 
     if(!normal_entry_.empty()) {
-# pragma clang diagnostic ignored "-Wshorten-64-to-32"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshorten-64-to-32"
         unsigned last_index = normal_entry_.size() - 1;
-# pragma clang diagnostic pop
+#pragma clang diagnostic pop
         // 見出し語末尾の prefix を取り除く(ex. "かk" → "か")
         if(normal_entry_.find_last_of(prefix_) == last_index) {
             normal_entry_.erase(last_index);

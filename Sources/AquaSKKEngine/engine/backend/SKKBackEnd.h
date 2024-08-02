@@ -23,10 +23,10 @@
 #ifndef	SKKBackEnd_h
 #define SKKBackEnd_h
 
-#include "SKKCandidateSuite.h"
-#include "SKKDictionaryKey.h"
-#include "SKKDictionaryCache.h"
-#include "SKKEntry.h"
+#import <AquaSKKEngine/SKKCandidateSuite.h>
+#import <AquaSKKEngine/SKKDictionaryKey.h>
+#import <AquaSKKEngine/SKKDictionaryCache.h>
+#import <AquaSKKEngine/SKKEntry.h>
 #include <string>
 #include <vector>
 #include <memory>

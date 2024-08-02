@@ -20,8 +20,8 @@
 
 */
 
-#include "SKKSelector.h"
-#include "SKKBackEnd.h"
+#import <AquaSKKEngine/SKKSelector.h>
+#import <AquaSKKEngine/SKKBackEnd.h>
 
 SKKSelector::SKKSelector(SKKSelectorBuddy* buddy, SKKCandidateWindow* window)
     : buddy_(buddy), selector_(0), windowSelector_(window) {}

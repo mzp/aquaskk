@@ -53,9 +53,10 @@
     int margin = [CandidateView cellSpacing];
 
     NSPoint offset = NSMakePoint(margin, margin);
-# pragma clang diagnostic ignored "-Wshorten-64-to-32"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshorten-64-to-32"
     int cellCount = [labels_ length];
-# pragma clang diagnostic pop
+#pragma clang diagnostic pop
     for(unsigned index = 0; index < [candidateCells_ count]; ++ index) {
         CandidateCell* cell = [candidateCells_ objectAtIndex:index];
         NSSize maxSize = [cell size];
@@ -73,9 +74,10 @@
 
     [indicator_ drawAtPoint:NSMakePoint([self bounds].size.width - [indicator_ size].width - margin, margin)];
 
-# pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [[NSColor windowFrameColor] set];
-# pragma clang diagnostic pop
+#pragma clang diagnostic pop
     NSFrameRect([self frame]);
 }
 

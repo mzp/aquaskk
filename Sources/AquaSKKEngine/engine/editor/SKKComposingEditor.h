@@ -23,8 +23,8 @@
 #ifndef SKKComposingEditor_h
 #define SKKComposingEditor_h
 
-#include "SKKBaseEditor.h"
-#include "SKKTextBuffer.h"
+#import <AquaSKKEngine/SKKBaseEditor.h>
+#import <AquaSKKEngine/SKKTextBuffer.h>
 
 class SKKComposingEditor : public SKKBaseEditor {
     SKKTextBuffer composing_;

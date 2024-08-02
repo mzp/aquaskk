@@ -23,7 +23,7 @@
 #ifndef MacClipboard_h
 #define MacClipboard_h
 
-#include "SKKClipboard.h"
+#import <AquaSKKEngine/SKKClipboard.h>
 
 class MacClipboard : public SKKClipboard {
 public:

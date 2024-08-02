@@ -1,5 +1,5 @@
 #include <cassert>
-#include "SKKInlineSelector.h"
+#import <AquaSKKEngine/SKKInlineSelector.h>
 #import <XCTest/XCTest.h>
 
 @interface SKKInlineSelectorTests: XCTestCase

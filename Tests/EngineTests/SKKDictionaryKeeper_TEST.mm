@@ -1,5 +1,5 @@
 #include <cassert>
-#include "SKKDictionaryKeeper.h"
+#import <AquaSKKEngine/SKKDictionaryKeeper.h>
 #include "MockCompletionHelper.h"
 
 #import <XCTest/XCTest.h>

@@ -3,7 +3,7 @@
 #ifndef MockDynamicCompletor_h
 #define MockDynamicCompletor_h
 
-#include "SKKDynamicCompletor.h"
+#import <AquaSKKEngine/SKKDynamicCompletor.h>
 
 class MockDynamicCompletor : public SKKDynamicCompletor {
     virtual void SKKWidgetShow() {}

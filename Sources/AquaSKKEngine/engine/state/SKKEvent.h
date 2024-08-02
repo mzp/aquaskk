@@ -24,7 +24,7 @@
 #define SKKEvent_h
 
 #include <sstream>
-#include "GenericStateMachine.h"
+#include <AquaSKKEngine/GenericStateMachine.h>
 
 // キー入力イベント
 enum {

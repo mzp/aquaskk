@@ -1,6 +1,6 @@
 #include <cassert>
 #include <iostream>
-#include "SKKInputQueue.h"
+#import <AquaSKKEngine/SKKInputQueue.h>
 #include "SKKRomanKanaConverter.h"
 #import <XCTest/XCTest.h>
 

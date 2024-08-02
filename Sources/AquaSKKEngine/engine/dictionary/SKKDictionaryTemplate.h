@@ -23,8 +23,8 @@
 #ifndef SKKDictionaryTemplate_h
 #define SKKDictionaryTemplate_h
 
-#include "SKKBaseDictionary.h"
-#include "SKKDictionaryKeeper.h"
+#import <AquaSKKEngine/SKKBaseDictionary.h>
+#import <AquaSKKEngine/SKKDictionaryKeeper.h>
 
 // 標準的な SKK 辞書実装用のテンプレート
 

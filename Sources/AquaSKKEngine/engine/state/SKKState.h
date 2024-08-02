@@ -23,12 +23,12 @@
 #ifndef SKKState_h
 #define SKKState_h
 
-#include "GenericStateMachine.h"
-#include "SKKInputEnvironment.h"
-#include "SKKInputMode.h"
-#include "SKKEvent.h"
-#include "SKKCompleter.h"
-#include "SKKSelector.h"
+#import <AquaSKKEngine/GenericStateMachine.h>
+#import <AquaSKKEngine/SKKInputEnvironment.h>
+#import <AquaSKKEngine/SKKInputMode.h>
+#import <AquaSKKEngine/SKKEvent.h>
+#import <AquaSKKEngine/SKKCompleter.h>
+#import <AquaSKKEngine/SKKSelector.h>
 
 using namespace statemachinecxx_sourceforge_jp;
 

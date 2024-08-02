@@ -3,7 +3,7 @@
 #ifndef MockAnnotator_h
 #define MockAnnotator_h
 
-#include "SKKAnnotator.h"
+#import <AquaSKKEngine/SKKAnnotator.h>
 
 class MockAnnotator : public SKKAnnotator {
     virtual void SKKWidgetShow() {}

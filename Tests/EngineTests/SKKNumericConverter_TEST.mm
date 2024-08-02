@@ -1,5 +1,5 @@
-#include "SKKNumericConverter.h"
-#include "SKKCandidate.h"
+#import <AquaSKKEngine/SKKNumericConverter.h>
+#import <AquaSKKEngine/SKKCandidate.h>
 #include <iostream>
 #include <cassert>
 #import <XCTest/XCTest.h>

@@ -23,7 +23,7 @@
 #ifndef SKKInputMenu_h
 #define SKKInputMenu_h
 
-#include "SKKInputMode.h"
+#import <AquaSKKEngine/SKKInputMode.h>
 #include <InputMethodKit/InputMethodKit.h>
 
 @interface SKKInputMenu : NSObject {

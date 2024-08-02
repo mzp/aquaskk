@@ -20,8 +20,8 @@
 
 */
 
-#include "SKKNumericConverter.h"
-#include "SKKCandidate.h"
+#import <AquaSKKEngine/SKKNumericConverter.h>
+#import <AquaSKKEngine/SKKCandidate.h>
 
 // ======================================================================
 // 数値変換を実装するユーティリティ関数
@@ -122,9 +122,10 @@ static std::string ConvertType3(const std::string& src) {
 	return "〇";
     }
 
-# pragma clang diagnostic ignored "-Wshorten-64-to-32"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshorten-64-to-32"
     for(unsigned i = src.find_first_not_of("0"); i < src.size(); ++ i) {
-# pragma clang diagnostic pop
+#pragma clang diagnostic pop
 	switch(src[i]) {
 	case '2':
 	    result += "二";

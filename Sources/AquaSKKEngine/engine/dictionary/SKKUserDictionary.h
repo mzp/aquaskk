@@ -24,7 +24,7 @@
 #ifndef SKKUserDictionary_h
 #define SKKUserDictionary_h
 
-#include "SKKBaseDictionary.h"
+#import <AquaSKKEngine/SKKBaseDictionary.h>
 
 class SKKUserDictionary: public SKKBaseDictionary {
 public:

@@ -24,7 +24,7 @@
 #define SKKDictionaryCache_h
 
 #include <map>
-#include "SKKDictionaryKey.h"
+#import <AquaSKKEngine/SKKDictionaryKey.h>
 
 class SKKBaseDictionary;
 

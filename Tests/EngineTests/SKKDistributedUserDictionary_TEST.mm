@@ -1,6 +1,6 @@
-#include "SKKDistributedUserDictionary.h"
-#include "pthreadutil.h"
-#include "socketutil.h"
+#import <AquaSKKEngine/SKKDistributedUserDictionary.h>
+#import <AquaSKKEngine/pthreadutil.h>
+#import <AquaSKKEngine/socketutil.h>
 #include "stringutil.h"
 #include "MockCompletionHelper.h"
 #import <XCTest/XCTest.h>

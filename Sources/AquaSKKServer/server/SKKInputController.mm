@@ -23,8 +23,8 @@
 #include "BlacklistApps.h"
 #include "SKKInputController.h"
 #include "SKKLayoutManager.h"
-#include "SKKInputSession.h"
-#include "SKKBackEnd.h"
+#import <AquaSKKEngine/SKKInputSession.h>
+#import <AquaSKKEngine/SKKBackEnd.h>
 
 #include "SKKPreProcessor.h"
 #include "SKKConstVars.h"
@@ -292,9 +292,10 @@
     [[alert window] setLevel:kCGPopUpMenuWindowLevel];
     [[alert window] setTitle:@"AquaSKK"];
 
-# pragma clang diagnostic ignored "-Wnonnull"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnonnull"
     [alert beginSheetModalForWindow:0 modalDelegate:self didEndSelector:0 contextInfo:0];
-# pragma clang diagnostic pop
+#pragma clang diagnostic pop
 
     NSPasteboard* pb = [NSPasteboard generalPasteboard];
 
@@ -382,7 +383,8 @@
     return [[BlacklistApps sharedManager] isInsertEmptyString:bundle];
 }
 
-# pragma clang diagnostic ignored "-Wreturn-type"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wreturn-type"
 // AquaSKKの制御外で入力モードが変更されることがあるので、
 // SKKの状態もそれにあわせて変更する。
 //
@@ -402,7 +404,7 @@
         return system;
     }
 }
-# pragma clang diagnostic pop
+#pragma clang diagnostic pop
 
 - (void)cancelKeyEventForASCII {
     // Ctrl-L を強制挿入することで、アプリケーション側のキー処理を無効化する

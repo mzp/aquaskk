@@ -22,11 +22,11 @@
 
 #include <iostream>
 #include <set>
-#include "SKKBackEnd.h"
-#include "SKKLocalUserDictionary.h"
-#include "SKKCandidateSuite.h"
-#include "SKKNumericConverter.h"
-#include "SKKCandidateFilter.h"
+#import <AquaSKKEngine/SKKBackEnd.h>
+#import <AquaSKKEngine/SKKLocalUserDictionary.h>
+#import <AquaSKKEngine/SKKCandidateSuite.h>
+#import <AquaSKKEngine/SKKNumericConverter.h>
+#import <AquaSKKEngine/SKKCandidateFilter.h>
 #include "utf8util.h"
 
 namespace {

@@ -23,8 +23,8 @@
 #ifndef SKKProxyDictionary_h
 #define SKKProxyDictionary_h
 
-#include "SKKBaseDictionary.h"
-#include "socketutil.h"
+#import <AquaSKKEngine/SKKBaseDictionary.h>
+#import <AquaSKKEngine/socketutil.h>
 
 // 外部 skkserv 辞書
 class SKKProxyDictionary: public SKKBaseDictionary {

@@ -23,9 +23,9 @@
 #ifndef SKKRegisterFilter_h
 #define SKKRegisterFilter_h
 
-#include "SKKBaseEditor.h"
-#include "SKKEntry.h"
-#include "SKKTextBuffer.h"
+#import <AquaSKKEngine/SKKBaseEditor.h>
+#import <AquaSKKEngine/SKKEntry.h>
+#import <AquaSKKEngine/SKKTextBuffer.h>
 
 class SKKRegisterEditor : public SKKBaseEditor {
     std::string prompt_;

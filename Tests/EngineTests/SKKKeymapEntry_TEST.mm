@@ -1,8 +1,8 @@
 #include <cassert>
 #include <iostream>
-#include "SKKEvent.h"
-#include "SKKKeyState.h"
-#include "SKKKeymapEntry.h"
+#import <AquaSKKEngine/SKKEvent.h>
+#import <AquaSKKEngine/SKKKeyState.h>
+#import <AquaSKKEngine/SKKKeymapEntry.h>
 #import <XCTest/XCTest.h>
 
 @interface SKKKeymapEntryTests: XCTestCase

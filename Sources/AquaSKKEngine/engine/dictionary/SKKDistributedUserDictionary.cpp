@@ -20,8 +20,8 @@
 
 */
 
-#include "SKKDistributedUserDictionary.h"
-#include "SKKCandidateSuite.h"
+#import <AquaSKKEngine/SKKDistributedUserDictionary.h>
+#import <AquaSKKEngine/SKKCandidateSuite.h>
 #include "utf8util.h"
 #include "stringutil.h"
 #include <iostream>

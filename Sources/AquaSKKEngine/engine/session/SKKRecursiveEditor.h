@@ -23,9 +23,9 @@
 #ifndef SKKRecursiveEditor_h
 #define SKKRecursiveEditor_h
 
-#include "SKKInputEnvironment.h"
-#include "SKKInputEngine.h"
-#include "SKKStateMachine.h"
+#import <AquaSKKEngine/SKKInputEnvironment.h>
+#import <AquaSKKEngine/SKKInputEngine.h>
+#import <AquaSKKEngine/SKKStateMachine.h>
 #include <memory>
 
 class SKKWidget;

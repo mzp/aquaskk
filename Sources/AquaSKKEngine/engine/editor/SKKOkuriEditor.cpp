@@ -20,8 +20,8 @@
 
 */
 
-#include "SKKOkuriEditor.h"
-#include "SKKInputContext.h"
+#import <AquaSKKEngine/SKKOkuriEditor.h>
+#import <AquaSKKEngine/SKKInputContext.h>
 #include "utf8util.h"
 #include <iostream>
 #include <cctype>

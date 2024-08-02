@@ -20,9 +20,9 @@
 
 */
 
-#include "SKKCandidateEditor.h"
-#include "SKKInputContext.h"
-#include "SKKBackEnd.h"
+#import <AquaSKKEngine/SKKCandidateEditor.h>
+#import <AquaSKKEngine/SKKInputContext.h>
+#import <AquaSKKEngine/SKKBackEnd.h>
 
 SKKCandidateEditor::SKKCandidateEditor(SKKInputContext* context)
     : SKKBaseEditor(context) {}

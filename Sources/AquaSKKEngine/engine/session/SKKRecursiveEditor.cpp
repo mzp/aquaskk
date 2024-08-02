@@ -20,14 +20,14 @@
 
 */
 
-#include "SKKRecursiveEditor.h"
-#include "SKKInputSessionParameter.h"
-#include "SKKInputContext.h"
-#include "SKKConfig.h"
-#include "SKKAnnotator.h"
-#include "SKKCandidateWindow.h"
-#include "SKKDynamicCompletor.h"
-#include "SKKBackEnd.h"
+#import <AquaSKKEngine/SKKRecursiveEditor.h>
+#import <AquaSKKEngine/SKKInputSessionParameter.h>
+#import <AquaSKKEngine/SKKInputContext.h>
+#import <AquaSKKEngine/SKKConfig.h>
+#import <AquaSKKEngine/SKKAnnotator.h>
+#import <AquaSKKEngine/SKKCandidateWindow.h>
+#import <AquaSKKEngine/SKKDynamicCompletor.h>
+#import <AquaSKKEngine/SKKBackEnd.h>
 #include "utf8util.h"
 
 SKKRecursiveEditor::SKKRecursiveEditor(SKKInputEnvironment* env)

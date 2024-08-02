@@ -20,7 +20,7 @@
 
 */
 
-#include "SKKInputModeSelector.h"
+#import <AquaSKKEngine/SKKInputModeSelector.h>
 #include <algorithm>
 #include <functional>
 
@@ -32,10 +32,11 @@ SKKInputModeSelector::SKKInputModeSelector(SKKInputModeListenerCollection* liste
 void SKKInputModeSelector::Select(SKKInputMode mode) {
     needsUpdate_ = mode_ != mode;
     mode_ = mode;
-# pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     std::for_each(listeners_->begin(), listeners_->end(),
                   std::bind2nd(std::mem_fun(&SKKInputModeListener::SelectInputMode), mode_));
-# pragma clang diagnostic pop
+#pragma clang diagnostic pop
 }
 
 void SKKInputModeSelector::Notify() {

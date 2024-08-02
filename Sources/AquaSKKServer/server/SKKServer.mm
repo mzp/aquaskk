@@ -24,18 +24,18 @@
 #include "SKKServer.h"
 #include "SKKPreProcessor.h"
 #include "SKKRomanKanaConverter.h"
-#include "SKKBackEnd.h"
-#include "SKKCommonDictionary.h"
-#include "SKKAutoUpdateDictionary.h"
-#include "SKKProxyDictionary.h"
-#include "SKKGadgetDictionary.h"
-#include "SKKLocalUserDictionary.h"
-#include "SKKDistributedUserDictionary.h"
-#include "SKKDictionaryFactory.h"
+#import <AquaSKKEngine/SKKBackEnd.h>
+#import <AquaSKKEngine/SKKCommonDictionary.h>
+#import <AquaSKKEngine/SKKAutoUpdateDictionary.h>
+#import <AquaSKKEngine/SKKProxyDictionary.h>
+#import <AquaSKKEngine/SKKGadgetDictionary.h>
+#import <AquaSKKEngine/SKKLocalUserDictionary.h>
+#import <AquaSKKEngine/SKKDistributedUserDictionary.h>
+#import <AquaSKKEngine/SKKDictionaryFactory.h>
 #include "SKKConstVars.h"
 // #include "SKKPythonRunner.h"
 #include "MacKotoeriDictionary.h"
-#include "skkserv.h"
+#import <AquaSKKEngine/skkserv.h>
 #include "InputModeWindow.h"
 
 #include <signal.h>

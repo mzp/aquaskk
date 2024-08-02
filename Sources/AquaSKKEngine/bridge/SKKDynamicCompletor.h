@@ -23,7 +23,7 @@
 #ifndef SKKDynamicCompletor_h
 #define SKKDynamicCompletor_h
 
-#include "SKKWidget.h"
+#import <AquaSKKEngine/SKKWidget.h>
 #include <string>
 
 class SKKDynamicCompletor : public SKKWidget {

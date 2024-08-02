@@ -23,7 +23,7 @@
 #ifndef MacCandidateWindowMacOSX_h
 #define MacCandidateWindowMacOSX_h
 
-#include "SKKCandidateWindow.h"
+#import <AquaSKKEngine/SKKCandidateWindow.h>
 #include "SKKLayoutManager.h"
 
 @class CandidateWindow;

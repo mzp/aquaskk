@@ -23,9 +23,9 @@
 #ifndef SKKEntryRemoveEditor_h
 #define SKKEntryRemoveEditor_h
 
-#include "SKKBaseEditor.h"
-#include "SKKEntry.h"
-#include "SKKCandidate.h"
+#import <AquaSKKEngine/SKKBaseEditor.h>
+#import <AquaSKKEngine/SKKEntry.h>
+#import <AquaSKKEngine/SKKCandidate.h>
 
 class SKKEntryRemoveEditor : public SKKBaseEditor {
     std::string input_;

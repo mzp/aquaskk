@@ -3,7 +3,7 @@
 #ifndef TestData_h
 #define TestData_h
 
-#include "SKKKeyState.h"
+#import <AquaSKKEngine/SKKKeyState.h>
 #include "TestEvent.h"
 #include "TestResult.h"
 #include "stringutil.h"

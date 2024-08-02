@@ -24,7 +24,7 @@
 #define SKKPreProcessor_h
 
 #include <AppKit/AppKit.h>
-#include "SKKKeymap.h"
+#import <AquaSKKEngine/SKKKeymap.h>
 
 // キー入力前処理クラス
 class SKKPreProcessor {

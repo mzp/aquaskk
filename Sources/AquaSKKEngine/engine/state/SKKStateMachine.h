@@ -23,7 +23,7 @@
 #ifndef SKKStateMachine_h
 #define SKKStateMachine_h
 
-#include "SKKState.h"
+#import <AquaSKKEngine/SKKState.h>
 
 #ifndef	SKK_DEBUG
 typedef GenericStateMachine<SKKState> SKKStateMachine;

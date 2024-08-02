@@ -23,7 +23,7 @@
 #ifndef	SKKCandidateSuite_h
 #define SKKCandidateSuite_h
 
-#include "SKKCandidateParser.h"
+#import <AquaSKKEngine/SKKCandidateParser.h>
 
 // 送りヒントの比較は「かな」部分のみ
 class CompareOkuriHint {

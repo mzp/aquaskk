@@ -23,9 +23,9 @@
 #ifndef SKKCandidateEditor_h
 #define SKKCandidateEditor_h
 
-#include "SKKBaseEditor.h"
-#include "SKKEntry.h"
-#include "SKKCandidate.h"
+#import <AquaSKKEngine/SKKBaseEditor.h>
+#import <AquaSKKEngine/SKKEntry.h>
+#import <AquaSKKEngine/SKKCandidate.h>
 
 class SKKCandidateEditor : public SKKBaseEditor {
     SKKEntry entry_;

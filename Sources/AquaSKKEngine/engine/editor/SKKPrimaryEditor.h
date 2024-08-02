@@ -23,7 +23,7 @@
 #ifndef SKKPrimaryEditor_h
 #define SKKPrimaryEditor_h
 
-#include "SKKBaseEditor.h"
+#import <AquaSKKEngine/SKKBaseEditor.h>
 
 class SKKPrimaryEditor : public SKKBaseEditor {
 public:

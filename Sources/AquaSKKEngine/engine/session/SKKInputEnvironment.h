@@ -23,19 +23,20 @@
 #ifndef SKKInputEnvironment_h
 #define SKKInputEnvironment_h
 
-#include "SKKInputContext.h"
-#include "SKKInputSessionParameter.h"
-#include "SKKInputModeSelector.h"
-#include "SKKBaseEditor.h"
+#import <AquaSKKEngine/SKKInputContext.h>
+#import <AquaSKKEngine/SKKInputSessionParameter.h>
+#import <AquaSKKEngine/SKKInputModeSelector.h>
+#import <AquaSKKEngine/SKKBaseEditor.h>
 #include <memory>
 
 class SKKInputEnvironment {
     SKKInputContext* context_;
     SKKInputSessionParameter* param_;
     SKKInputModeSelector selector_;
-# pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     std::auto_ptr<SKKBaseEditor> bottom_;
-# pragma clang diagnostic pop
+#pragma clang diagnostic pop
 
 public:
     SKKInputEnvironment(SKKInputContext* context,

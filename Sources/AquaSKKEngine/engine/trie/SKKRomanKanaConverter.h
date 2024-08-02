@@ -25,7 +25,7 @@
 
 #include <string>
 #include "SKKTrie.h"
-#include "SKKInputMode.h"
+#import <AquaSKKEngine/SKKInputMode.h>
 
 // 変換結果
 struct SKKRomanKanaConversionResult {

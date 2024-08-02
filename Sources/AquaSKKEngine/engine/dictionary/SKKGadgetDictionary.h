@@ -24,7 +24,7 @@
 #define SKKGadgetDictionary_h
 
 #include <map>
-#include "SKKBaseDictionary.h"
+#import <AquaSKKEngine/SKKBaseDictionary.h>
 
 // ======================================================================
 // プログラム実行変換辞書クラス

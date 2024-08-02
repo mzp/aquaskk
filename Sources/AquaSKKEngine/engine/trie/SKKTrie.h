@@ -22,7 +22,7 @@
 
 #include <string>
 #include <map>
-#include "SKKInputMode.h"
+#import <AquaSKKEngine/SKKInputMode.h>
 
 #ifndef SKKTrie_h
 #define SKKTrie_h

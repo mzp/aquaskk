@@ -20,10 +20,10 @@
 
 */
 
-#include "SKKState.h"
-#include "SKKMessenger.h"
-#include "SKKConfig.h"
-#include "SKKInputEngine.h"
+#import <AquaSKKEngine/SKKState.h>
+#import <AquaSKKEngine/SKKMessenger.h>
+#import <AquaSKKEngine/SKKConfig.h>
+#import <AquaSKKEngine/SKKInputEngine.h>
 #include <cctype>
 
 namespace {

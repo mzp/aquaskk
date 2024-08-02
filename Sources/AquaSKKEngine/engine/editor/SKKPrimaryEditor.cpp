@@ -20,8 +20,8 @@
 
 */
 
-#include "SKKPrimaryEditor.h"
-#include "SKKInputContext.h"
+#import <AquaSKKEngine/SKKPrimaryEditor.h>
+#import <AquaSKKEngine/SKKInputContext.h>
 
 SKKPrimaryEditor::SKKPrimaryEditor(SKKInputContext* context)
     : SKKBaseEditor(context) {}

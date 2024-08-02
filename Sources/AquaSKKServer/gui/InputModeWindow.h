@@ -23,7 +23,7 @@
 #ifndef InputModeWindow_h
 #define InputModeWindow_h
 
-#include "SKKInputMode.h"
+#import <AquaSKKEngine/SKKInputMode.h>
 #include <QuartzCore/QuartzCore.h>
 #import <AppKit/AppKit.h>
 

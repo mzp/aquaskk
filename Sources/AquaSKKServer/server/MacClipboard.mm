@@ -27,11 +27,12 @@
 
 const std::string MacClipboard::PasteString() {
     NSPasteboard* pasteboard = [NSPasteboard generalPasteboard];
-# pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     if([[pasteboard types] containsObject:NSStringPboardType] == YES) {
         NSString* str = [pasteboard stringForType:NSStringPboardType];
         return [str UTF8String];
     }
-# pragma clang diagnostic pop
+#pragma clang diagnostic pop
     return "";
 }

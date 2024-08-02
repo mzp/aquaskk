@@ -20,9 +20,9 @@
 
 */
 
-#include "SKKDictionaryCache.h"
-#include "SKKDictionaryFactory.h"
-#include "SKKBaseDictionary.h"
+#import <AquaSKKEngine/SKKDictionaryCache.h>
+#import <AquaSKKEngine/SKKDictionaryFactory.h>
+#import <AquaSKKEngine/SKKBaseDictionary.h>
 
 namespace {
     struct DeleteDictionary {

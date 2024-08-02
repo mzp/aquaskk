@@ -1,5 +1,5 @@
 #include <iostream>
-#include "SKKGadgetDictionary.h"
+#import <AquaSKKEngine/SKKGadgetDictionary.h>
 #import <XCTest/XCTest.h>
 
 @interface SKKGadgetDictionaryTests: XCTestCase

@@ -1,6 +1,6 @@
 #include <cassert>
-#include "SKKWindowSelector.h"
-#include "SKKCandidateWindow.h"
+#import <AquaSKKEngine/SKKWindowSelector.h>
+#import <AquaSKKEngine/SKKCandidateWindow.h>
 
 #include "MockCandidateWindow.h"
 

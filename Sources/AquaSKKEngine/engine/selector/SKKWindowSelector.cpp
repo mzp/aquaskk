@@ -20,8 +20,8 @@
 
 */
 
-#include "SKKWindowSelector.h"
-#include "SKKCandidateWindow.h"
+#import <AquaSKKEngine/SKKWindowSelector.h>
+#import <AquaSKKEngine/SKKCandidateWindow.h>
 #include <cassert>
 
 SKKWindowSelector::SKKWindowSelector(SKKCandidateWindow* window) : window_(window) {}
@@ -114,9 +114,10 @@ bool SKKWindowSelector::Select(char label) {
 }
 
 void SKKWindowSelector::Show() {
-# pragma clang diagnostic ignored "-Wshorten-64-to-32"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshorten-64-to-32"
     window_->Update(view_.begin(), view_.end(), cursor_pos_, page_pos_ + 1, pages_.size());
-# pragma clang diagnostic pop
+#pragma clang diagnostic pop
 
 
     window_->Show();

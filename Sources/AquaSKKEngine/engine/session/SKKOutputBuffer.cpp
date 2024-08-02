@@ -20,7 +20,7 @@
 
 */
 
-#include "SKKOutputBuffer.h"
+#import <AquaSKKEngine/SKKOutputBuffer.h>
 #include "SKKFrontEnd.h"
 #include "utf8util.h"
 

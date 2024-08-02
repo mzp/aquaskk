@@ -35,9 +35,10 @@
     self = [super initWithFrame:NSMakeRect(0, 0, 0, 0)];
     if(self) {
         completion_ = nil;
-# pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         strokeColor_ = [[NSColor controlShadowColor] retain];
-# pragma clang diagnostic pop
+#pragma clang diagnostic pop
         backgroundColor_ = [[NSColor colorWithDeviceRed:1.0 green:1.0 blue:0.94 alpha:1.0] retain];
 
         guide_ = [self newGuideWithString:@"  TAB で補完  "];

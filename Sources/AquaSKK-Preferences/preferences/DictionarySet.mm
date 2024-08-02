@@ -35,9 +35,11 @@ static NSString* DictionaryRowsType = @"DictionaryRowsType";
 
     while(NSNotFound != idx) {
 	if(idx >= insertIndex) {
-# pragma clang diagnostic ignored "-Wshorten-64-to-32"
+#pragma clang diagnostic push
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshorten-64-to-32"
 	    removeIndex = idx + aboveInsertIndexCount;
-# pragma clang diagnostic pop
+#pragma clang diagnostic pop
 	    aboveInsertIndexCount += 1;
 	} else {
 	    removeIndex = idx;
@@ -95,9 +97,10 @@ static NSString* DictionaryRowsType = @"DictionaryRowsType";
 
     [panel setDirectoryURL:dirurl];
     [panel beginSheetModalForWindow:prefView completionHandler:^(NSInteger result) {
-# pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         if(result == NSOKButton) {
-# pragma clang diagnostic pop
+#pragma clang diagnostic pop
             [[self selection] setValue:[[panel URL] path]
                                 forKey:SKKDictionarySetKeys::location];
         }
@@ -106,8 +109,11 @@ static NSString* DictionaryRowsType = @"DictionaryRowsType";
 
 - (BOOL)tableView:(NSTableView*)tv writeRowsWithIndexes:(NSIndexSet*)rowIndexes toPasteboard:(NSPasteboard*)pboard {
     NSArray* typesArray = [NSArray arrayWithObjects:DictionaryRowsType, nil];
+    completionHandler:^(NSInteger result) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:rowIndexes];
-
+#pragma clang diagnostic pop
     [pboard declareTypes:typesArray owner:self];
     [pboard setData:data forType:DictionaryRowsType];
 

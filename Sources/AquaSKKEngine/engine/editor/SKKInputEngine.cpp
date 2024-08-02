@@ -20,11 +20,11 @@
 
 */
 
-#include "SKKInputEngine.h"
-#include "SKKInputContext.h"
-#include "SKKConfig.h"
-#include "SKKClipboard.h"
-#include "SKKBackEnd.h"
+#import <AquaSKKEngine/SKKInputEngine.h>
+#import <AquaSKKEngine/SKKInputContext.h>
+#import <AquaSKKEngine/SKKConfig.h>
+#import <AquaSKKEngine/SKKClipboard.h>
+#import <AquaSKKEngine/SKKBackEnd.h>
 #include <iostream>
 #include <cctype>
 

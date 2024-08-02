@@ -20,8 +20,8 @@
 
 */
 
-#include "SKKCompleter.h"
-#include "SKKBackEnd.h"
+#import <AquaSKKEngine/SKKCompleter.h>
+#import <AquaSKKEngine/SKKBackEnd.h>
 
 SKKCompleter::SKKCompleter(SKKCompleterBuddy* buddy) : buddy_(buddy) {}
 
@@ -79,9 +79,10 @@ int SKKCompleter::minPosition() const {
 }
 
 int SKKCompleter::maxPosition() const {
-# pragma clang diagnostic ignored "-Wshorten-64-to-32"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshorten-64-to-32"
     return completions_.size() - 1;
-# pragma clang diagnostic pop
+#pragma clang diagnostic pop
 }
 
 void SKKCompleter::notify() {

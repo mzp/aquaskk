@@ -23,91 +23,91 @@
 		13185CC62C5B57DF001CF24D /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13185CBA2C5B57DF001CF24D /* main.mm */; };
 		13185CC72C5B57DF001CF24D /* DictionaryTypeTransformer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13185CB92C5B57DF001CF24D /* DictionaryTypeTransformer.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		13185CC82C5B57DF001CF24D /* PathFormatter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13185CBC2C5B57DF001CF24D /* PathFormatter.mm */; };
-		1344F4952C5A92D300D8C850 /* AquaSKKEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4932C5A92D300D8C850 /* AquaSKKEngineTests.swift */; };
-		1344F55E2C5B28FC00D8C850 /* SKKProxyDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4C82C5B28FC00D8C850 /* SKKProxyDictionary.h */; };
-		1344F55F2C5B28FC00D8C850 /* SKKClipboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F49E2C5B28FC00D8C850 /* SKKClipboard.h */; };
-		1344F5642C5B28FC00D8C850 /* SKKRegisterEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4DB2C5B28FC00D8C850 /* SKKRegisterEditor.h */; };
-		1344F5652C5B28FC00D8C850 /* SKKComposingEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4CF2C5B28FC00D8C850 /* SKKComposingEditor.h */; };
+		1344F4952C5A92D300D8C850 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4932C5A92D300D8C850 /* CalculatorTests.swift */; };
+		1344F55E2C5B28FC00D8C850 /* SKKProxyDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4C82C5B28FC00D8C850 /* SKKProxyDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F55F2C5B28FC00D8C850 /* SKKClipboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F49E2C5B28FC00D8C850 /* SKKClipboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5642C5B28FC00D8C850 /* SKKRegisterEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4DB2C5B28FC00D8C850 /* SKKRegisterEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5652C5B28FC00D8C850 /* SKKComposingEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4CF2C5B28FC00D8C850 /* SKKComposingEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5672C5B28FC00D8C850 /* jconv_ucs2eucj-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5562C5B28FC00D8C850 /* jconv_ucs2eucj-inl.h */; };
-		1344F5682C5B28FC00D8C850 /* SKKStateMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F50F2C5B28FC00D8C850 /* SKKStateMachine.h */; };
-		1344F5692C5B28FC00D8C850 /* SKKPrimaryEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4D92C5B28FC00D8C850 /* SKKPrimaryEditor.h */; };
-		1344F56A2C5B28FC00D8C850 /* SKKConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F49F2C5B28FC00D8C850 /* SKKConfig.h */; };
-		1344F56B2C5B28FC00D8C850 /* SKKUserDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4CA2C5B28FC00D8C850 /* SKKUserDictionary.h */; };
-		1344F56C2C5B28FC00D8C850 /* SKKDictionaryTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4BE2C5B28FC00D8C850 /* SKKDictionaryTemplate.h */; };
+		1344F5682C5B28FC00D8C850 /* SKKStateMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F50F2C5B28FC00D8C850 /* SKKStateMachine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5692C5B28FC00D8C850 /* SKKPrimaryEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4D92C5B28FC00D8C850 /* SKKPrimaryEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F56A2C5B28FC00D8C850 /* SKKConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F49F2C5B28FC00D8C850 /* SKKConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F56B2C5B28FC00D8C850 /* SKKUserDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4CA2C5B28FC00D8C850 /* SKKUserDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F56C2C5B28FC00D8C850 /* SKKDictionaryTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4BE2C5B28FC00D8C850 /* SKKDictionaryTemplate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F56D2C5B28FC00D8C850 /* SKKTrie.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F54E2C5B28FC00D8C850 /* SKKTrie.h */; };
-		1344F56E2C5B28FC00D8C850 /* SKKInputQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4D52C5B28FC00D8C850 /* SKKInputQueue.h */; };
-		1344F56F2C5B28FC00D8C850 /* SKKOutputBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4FE2C5B28FC00D8C850 /* SKKOutputBuffer.h */; };
-		1344F5702C5B28FC00D8C850 /* subrange.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F55A2C5B28FC00D8C850 /* subrange.h */; };
-		1344F5712C5B28FC00D8C850 /* SKKTextBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4DD2C5B28FC00D8C850 /* SKKTextBuffer.h */; };
+		1344F56E2C5B28FC00D8C850 /* SKKInputQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4D52C5B28FC00D8C850 /* SKKInputQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F56F2C5B28FC00D8C850 /* SKKOutputBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4FE2C5B28FC00D8C850 /* SKKOutputBuffer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5702C5B28FC00D8C850 /* subrange.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F55A2C5B28FC00D8C850 /* subrange.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5712C5B28FC00D8C850 /* SKKTextBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4DD2C5B28FC00D8C850 /* SKKTextBuffer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5722C5B28FC00D8C850 /* SKKRomanKanaConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F54C2C5B28FC00D8C850 /* SKKRomanKanaConverter.h */; };
-		1344F5732C5B28FC00D8C850 /* SKKRegistration.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5022C5B28FC00D8C850 /* SKKRegistration.h */; };
-		1344F5752C5B28FC00D8C850 /* SKKFrontEnd.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4A12C5B28FC00D8C850 /* SKKFrontEnd.h */; };
-		1344F5762C5B28FC00D8C850 /* SKKAnnotator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F49C2C5B28FC00D8C850 /* SKKAnnotator.h */; };
-		1344F5772C5B28FC00D8C850 /* SKKWindowSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4F32C5B28FC00D8C850 /* SKKWindowSelector.h */; };
-		1344F5782C5B28FC00D8C850 /* SKKOkuriHint.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4E62C5B28FC00D8C850 /* SKKOkuriHint.h */; };
-		1344F5792C5B28FC00D8C850 /* calculator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5512C5B28FC00D8C850 /* calculator.h */; };
-		1344F57A2C5B28FC00D8C850 /* SKKLocalUserDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4C62C5B28FC00D8C850 /* SKKLocalUserDictionary.h */; };
-		1344F57B2C5B28FC00D8C850 /* SKKCandidateSuite.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4E32C5B28FC00D8C850 /* SKKCandidateSuite.h */; };
-		1344F57C2C5B28FC00D8C850 /* SKKDictionaryKeeper.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4BB2C5B28FC00D8C850 /* SKKDictionaryKeeper.h */; };
-		1344F57D2C5B28FC00D8C850 /* SKKBaseDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4B62C5B28FC00D8C850 /* SKKBaseDictionary.h */; };
-		1344F57E2C5B28FC00D8C850 /* SKKInputModeSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4FA2C5B28FC00D8C850 /* SKKInputModeSelector.h */; };
-		1344F57F2C5B28FC00D8C850 /* SKKInputSessionParameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4A32C5B28FC00D8C850 /* SKKInputSessionParameter.h */; };
-		1344F5802C5B28FC00D8C850 /* SKKInputContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4F62C5B28FC00D8C850 /* SKKInputContext.h */; };
-		1344F5812C5B28FC00D8C850 /* SKKOkuriEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4D72C5B28FC00D8C850 /* SKKOkuriEditor.h */; };
-		1344F5822C5B28FC00D8C850 /* SKKDictionaryLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4BD2C5B28FC00D8C850 /* SKKDictionaryLoader.h */; };
+		1344F5732C5B28FC00D8C850 /* SKKRegistration.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5022C5B28FC00D8C850 /* SKKRegistration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5752C5B28FC00D8C850 /* SKKFrontEnd.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4A12C5B28FC00D8C850 /* SKKFrontEnd.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5762C5B28FC00D8C850 /* SKKAnnotator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F49C2C5B28FC00D8C850 /* SKKAnnotator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5772C5B28FC00D8C850 /* SKKWindowSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4F32C5B28FC00D8C850 /* SKKWindowSelector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5782C5B28FC00D8C850 /* SKKOkuriHint.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4E62C5B28FC00D8C850 /* SKKOkuriHint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5792C5B28FC00D8C850 /* calculator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5512C5B28FC00D8C850 /* calculator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F57A2C5B28FC00D8C850 /* SKKLocalUserDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4C62C5B28FC00D8C850 /* SKKLocalUserDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F57B2C5B28FC00D8C850 /* SKKCandidateSuite.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4E32C5B28FC00D8C850 /* SKKCandidateSuite.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F57C2C5B28FC00D8C850 /* SKKDictionaryKeeper.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4BB2C5B28FC00D8C850 /* SKKDictionaryKeeper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F57D2C5B28FC00D8C850 /* SKKBaseDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4B62C5B28FC00D8C850 /* SKKBaseDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F57E2C5B28FC00D8C850 /* SKKInputModeSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4FA2C5B28FC00D8C850 /* SKKInputModeSelector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F57F2C5B28FC00D8C850 /* SKKInputSessionParameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4A32C5B28FC00D8C850 /* SKKInputSessionParameter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5802C5B28FC00D8C850 /* SKKInputContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4F62C5B28FC00D8C850 /* SKKInputContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5812C5B28FC00D8C850 /* SKKOkuriEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4D72C5B28FC00D8C850 /* SKKOkuriEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5822C5B28FC00D8C850 /* SKKDictionaryLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4BD2C5B28FC00D8C850 /* SKKDictionaryLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5832C5B28FC00D8C850 /* SKKStateComposing-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F50D2C5B28FC00D8C850 /* SKKStateComposing-inl.h */; };
-		1344F5842C5B28FC00D8C850 /* SKKState.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F50B2C5B28FC00D8C850 /* SKKState.h */; };
-		1344F5852C5B28FC00D8C850 /* SKKDistributedUserDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4BF2C5B28FC00D8C850 /* SKKDistributedUserDictionary.h */; };
+		1344F5842C5B28FC00D8C850 /* SKKState.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F50B2C5B28FC00D8C850 /* SKKState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5852C5B28FC00D8C850 /* SKKDistributedUserDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4BF2C5B28FC00D8C850 /* SKKDistributedUserDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5862C5B28FC00D8C850 /* SKKStateRecursiveRegister-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5112C5B28FC00D8C850 /* SKKStateRecursiveRegister-inl.h */; };
-		1344F5872C5B28FC00D8C850 /* SKKLocalDictionaryLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4C52C5B28FC00D8C850 /* SKKLocalDictionaryLoader.h */; };
-		1344F5892C5B28FC00D8C850 /* SKKCandidateEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4CD2C5B28FC00D8C850 /* SKKCandidateEditor.h */; };
-		1344F58A2C5B28FC00D8C850 /* SKKNumericConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4AF2C5B28FC00D8C850 /* SKKNumericConverter.h */; };
-		1344F58B2C5B28FC00D8C850 /* SKKInputSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4FC2C5B28FC00D8C850 /* SKKInputSession.h */; };
+		1344F5872C5B28FC00D8C850 /* SKKLocalDictionaryLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4C52C5B28FC00D8C850 /* SKKLocalDictionaryLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5892C5B28FC00D8C850 /* SKKCandidateEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4CD2C5B28FC00D8C850 /* SKKCandidateEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F58A2C5B28FC00D8C850 /* SKKNumericConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4AF2C5B28FC00D8C850 /* SKKNumericConverter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F58B2C5B28FC00D8C850 /* SKKInputSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4FC2C5B28FC00D8C850 /* SKKInputSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F58D2C5B28FC00D8C850 /* SKKStatePrimary-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5102C5B28FC00D8C850 /* SKKStatePrimary-inl.h */; };
-		1344F58E2C5B28FC00D8C850 /* SKKCandidateParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4E22C5B28FC00D8C850 /* SKKCandidateParser.h */; };
-		1344F58F2C5B28FC00D8C850 /* SKKUndoContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5032C5B28FC00D8C850 /* SKKUndoContext.h */; };
-		1344F5902C5B28FC00D8C850 /* SKKMessenger.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4A42C5B28FC00D8C850 /* SKKMessenger.h */; };
-		1344F5912C5B28FC00D8C850 /* SKKDictionaryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4AA2C5B28FC00D8C850 /* SKKDictionaryCache.h */; };
-		1344F5922C5B28FC00D8C850 /* SKKHttpDictionaryLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4C32C5B28FC00D8C850 /* SKKHttpDictionaryLoader.h */; };
-		1344F5932C5B28FC00D8C850 /* SKKInputModeListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4A22C5B28FC00D8C850 /* SKKInputModeListener.h */; };
-		1344F5942C5B28FC00D8C850 /* SKKCommonDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4B72C5B28FC00D8C850 /* SKKCommonDictionary.h */; };
-		1344F5952C5B28FC00D8C850 /* socketutil.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5582C5B28FC00D8C850 /* socketutil.h */; };
+		1344F58E2C5B28FC00D8C850 /* SKKCandidateParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4E22C5B28FC00D8C850 /* SKKCandidateParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F58F2C5B28FC00D8C850 /* SKKUndoContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5032C5B28FC00D8C850 /* SKKUndoContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5902C5B28FC00D8C850 /* SKKMessenger.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4A42C5B28FC00D8C850 /* SKKMessenger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5912C5B28FC00D8C850 /* SKKDictionaryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4AA2C5B28FC00D8C850 /* SKKDictionaryCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5922C5B28FC00D8C850 /* SKKHttpDictionaryLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4C32C5B28FC00D8C850 /* SKKHttpDictionaryLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5932C5B28FC00D8C850 /* SKKInputModeListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4A22C5B28FC00D8C850 /* SKKInputModeListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5942C5B28FC00D8C850 /* SKKCommonDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4B72C5B28FC00D8C850 /* SKKCommonDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5952C5B28FC00D8C850 /* socketutil.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5582C5B28FC00D8C850 /* socketutil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5962C5B28FC00D8C850 /* SKKStateEntryRemove-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F50E2C5B28FC00D8C850 /* SKKStateEntryRemove-inl.h */; };
-		1344F5972C5B28FC00D8C850 /* SKKDynamicCompletor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4A02C5B28FC00D8C850 /* SKKDynamicCompletor.h */; };
+		1344F5972C5B28FC00D8C850 /* SKKDynamicCompletor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4A02C5B28FC00D8C850 /* SKKDynamicCompletor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5982C5B28FC00D8C850 /* jconv_eucj2ucs-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5552C5B28FC00D8C850 /* jconv_eucj2ucs-inl.h */; };
-		1344F5992C5B28FC00D8C850 /* SKKBaseEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4CC2C5B28FC00D8C850 /* SKKBaseEditor.h */; };
-		1344F59A2C5B28FC00D8C850 /* pthreadutil.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5572C5B28FC00D8C850 /* pthreadutil.h */; };
-		1344F59B2C5B28FC00D8C850 /* SKKBaseSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4EE2C5B28FC00D8C850 /* SKKBaseSelector.h */; };
-		1344F59C2C5B28FC00D8C850 /* SKKDictionaryFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4AC2C5B28FC00D8C850 /* SKKDictionaryFactory.h */; };
-		1344F59D2C5B28FC00D8C850 /* SKKRecursiveEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5002C5B28FC00D8C850 /* SKKRecursiveEditor.h */; };
+		1344F5992C5B28FC00D8C850 /* SKKBaseEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4CC2C5B28FC00D8C850 /* SKKBaseEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F59A2C5B28FC00D8C850 /* pthreadutil.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5572C5B28FC00D8C850 /* pthreadutil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F59B2C5B28FC00D8C850 /* SKKBaseSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4EE2C5B28FC00D8C850 /* SKKBaseSelector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F59C2C5B28FC00D8C850 /* SKKDictionaryFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4AC2C5B28FC00D8C850 /* SKKDictionaryFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F59D2C5B28FC00D8C850 /* SKKRecursiveEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5002C5B28FC00D8C850 /* SKKRecursiveEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F59E2C5B28FC00D8C850 /* utf8util.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F55B2C5B28FC00D8C850 /* utf8util.h */; };
-		1344F59F2C5B28FC00D8C850 /* SKKGadgetDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4C12C5B28FC00D8C850 /* SKKGadgetDictionary.h */; };
-		1344F5A02C5B28FC00D8C850 /* SKKEntryRemoveEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4D12C5B28FC00D8C850 /* SKKEntryRemoveEditor.h */; };
-		1344F5A12C5B28FC00D8C850 /* SKKAutoUpdateDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4B52C5B28FC00D8C850 /* SKKAutoUpdateDictionary.h */; };
-		1344F5A22C5B28FC00D8C850 /* SKKWidget.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4A52C5B28FC00D8C850 /* SKKWidget.h */; };
-		1344F5A42C5B28FC00D8C850 /* SKKBackEnd.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4A72C5B28FC00D8C850 /* SKKBackEnd.h */; };
-		1344F5A52C5B28FC00D8C850 /* SKKSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4F12C5B28FC00D8C850 /* SKKSelector.h */; };
-		1344F5A62C5B28FC00D8C850 /* GenericStateMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5092C5B28FC00D8C850 /* GenericStateMachine.h */; };
-		1344F5A72C5B28FC00D8C850 /* skkserv.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5062C5B28FC00D8C850 /* skkserv.h */; };
-		1344F5A82C5B28FC00D8C850 /* SKKCandidateFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4A92C5B28FC00D8C850 /* SKKCandidateFilter.h */; };
-		1344F5A92C5B28FC00D8C850 /* SKKCompletionHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4B82C5B28FC00D8C850 /* SKKCompletionHelper.h */; };
-		1344F5AA2C5B28FC00D8C850 /* SKKCandidate.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4E02C5B28FC00D8C850 /* SKKCandidate.h */; };
-		1344F5AC2C5B28FC00D8C850 /* SKKInlineSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4EF2C5B28FC00D8C850 /* SKKInlineSelector.h */; };
-		1344F5AD2C5B28FC00D8C850 /* SKKKeymapEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4EA2C5B28FC00D8C850 /* SKKKeymapEntry.h */; };
-		1344F5AE2C5B28FC00D8C850 /* SKKKeyState.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4EC2C5B28FC00D8C850 /* SKKKeyState.h */; };
+		1344F59F2C5B28FC00D8C850 /* SKKGadgetDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4C12C5B28FC00D8C850 /* SKKGadgetDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5A02C5B28FC00D8C850 /* SKKEntryRemoveEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4D12C5B28FC00D8C850 /* SKKEntryRemoveEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5A12C5B28FC00D8C850 /* SKKAutoUpdateDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4B52C5B28FC00D8C850 /* SKKAutoUpdateDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5A22C5B28FC00D8C850 /* SKKWidget.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4A52C5B28FC00D8C850 /* SKKWidget.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5A42C5B28FC00D8C850 /* SKKBackEnd.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4A72C5B28FC00D8C850 /* SKKBackEnd.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5A52C5B28FC00D8C850 /* SKKSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4F12C5B28FC00D8C850 /* SKKSelector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5A62C5B28FC00D8C850 /* GenericStateMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5092C5B28FC00D8C850 /* GenericStateMachine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5A72C5B28FC00D8C850 /* skkserv.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5062C5B28FC00D8C850 /* skkserv.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5A82C5B28FC00D8C850 /* SKKCandidateFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4A92C5B28FC00D8C850 /* SKKCandidateFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5A92C5B28FC00D8C850 /* SKKCompletionHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4B82C5B28FC00D8C850 /* SKKCompletionHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5AA2C5B28FC00D8C850 /* SKKCandidate.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4E02C5B28FC00D8C850 /* SKKCandidate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5AC2C5B28FC00D8C850 /* SKKInlineSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4EF2C5B28FC00D8C850 /* SKKInlineSelector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5AD2C5B28FC00D8C850 /* SKKKeymapEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4EA2C5B28FC00D8C850 /* SKKKeymapEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5AE2C5B28FC00D8C850 /* SKKKeyState.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4EC2C5B28FC00D8C850 /* SKKKeyState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5AF2C5B28FC00D8C850 /* stringutil.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5592C5B28FC00D8C850 /* stringutil.h */; };
-		1344F5B02C5B28FC00D8C850 /* SKKInputEnvironment.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4F72C5B28FC00D8C850 /* SKKInputEnvironment.h */; };
-		1344F5B12C5B28FC00D8C850 /* SKKInputMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4F92C5B28FC00D8C850 /* SKKInputMode.h */; };
-		1344F5B32C5B28FC00D8C850 /* SKKEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F50A2C5B28FC00D8C850 /* SKKEvent.h */; };
+		1344F5B02C5B28FC00D8C850 /* SKKInputEnvironment.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4F72C5B28FC00D8C850 /* SKKInputEnvironment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5B12C5B28FC00D8C850 /* SKKInputMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4F92C5B28FC00D8C850 /* SKKInputMode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5B32C5B28FC00D8C850 /* SKKEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F50A2C5B28FC00D8C850 /* SKKEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5B42C5B28FC00D8C850 /* jconv_body-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5542C5B28FC00D8C850 /* jconv_body-inl.h */; };
-		1344F5B52C5B28FC00D8C850 /* SKKEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4E42C5B28FC00D8C850 /* SKKEntry.h */; };
+		1344F5B52C5B28FC00D8C850 /* SKKEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4E42C5B28FC00D8C850 /* SKKEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5B62C5B28FC00D8C850 /* jconv.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5522C5B28FC00D8C850 /* jconv.h */; };
-		1344F5B72C5B28FC00D8C850 /* SKKCandidateWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F49D2C5B28FC00D8C850 /* SKKCandidateWindow.h */; };
-		1344F5B82C5B28FC00D8C850 /* SKKDictionaryFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4B92C5B28FC00D8C850 /* SKKDictionaryFile.h */; };
-		1344F5BA2C5B28FC00D8C850 /* SKKKeymap.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4E82C5B28FC00D8C850 /* SKKKeymap.h */; };
-		1344F5BB2C5B28FC00D8C850 /* SKKInputEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4D32C5B28FC00D8C850 /* SKKInputEngine.h */; };
-		1344F5BC2C5B28FC00D8C850 /* SKKDictionaryKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4AE2C5B28FC00D8C850 /* SKKDictionaryKey.h */; };
-		1344F5BE2C5B28FC00D8C850 /* SKKCompleter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4B22C5B28FC00D8C850 /* SKKCompleter.h */; };
+		1344F5B72C5B28FC00D8C850 /* SKKCandidateWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F49D2C5B28FC00D8C850 /* SKKCandidateWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5B82C5B28FC00D8C850 /* SKKDictionaryFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4B92C5B28FC00D8C850 /* SKKDictionaryFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5BA2C5B28FC00D8C850 /* SKKKeymap.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4E82C5B28FC00D8C850 /* SKKKeymap.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5BB2C5B28FC00D8C850 /* SKKInputEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4D32C5B28FC00D8C850 /* SKKInputEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5BC2C5B28FC00D8C850 /* SKKDictionaryKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4AE2C5B28FC00D8C850 /* SKKDictionaryKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1344F5BE2C5B28FC00D8C850 /* SKKCompleter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4B22C5B28FC00D8C850 /* SKKCompleter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5CB2C5B28FC00D8C850 /* SKKTrie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F54F2C5B28FC00D8C850 /* SKKTrie.cpp */; };
 		1344F5CF2C5B28FC00D8C850 /* SKKInputEnvironment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4F82C5B28FC00D8C850 /* SKKInputEnvironment.cpp */; };
 		1344F5D02C5B28FC00D8C850 /* SKKHttpDictionaryLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4C42C5B28FC00D8C850 /* SKKHttpDictionaryLoader.cpp */; };
@@ -398,7 +398,7 @@
 		13185CBE2C5B57DF001CF24D /* PreferenceController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PreferenceController.mm; sourceTree = "<group>"; };
 		13185CBF2C5B57DF001CF24D /* SubRuleDescriptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubRuleDescriptions.h; sourceTree = "<group>"; };
 		13185CC02C5B57DF001CF24D /* SubRuleDescriptions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SubRuleDescriptions.cpp; sourceTree = "<group>"; };
-		1344F4932C5A92D300D8C850 /* AquaSKKEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKKEngineTests.swift; sourceTree = "<group>"; };
+		1344F4932C5A92D300D8C850 /* CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTests.swift; sourceTree = "<group>"; };
 		1344F49C2C5B28FC00D8C850 /* SKKAnnotator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKAnnotator.h; sourceTree = "<group>"; };
 		1344F49D2C5B28FC00D8C850 /* SKKCandidateWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKCandidateWindow.h; sourceTree = "<group>"; };
 		1344F49E2C5B28FC00D8C850 /* SKKClipboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKClipboard.h; sourceTree = "<group>"; };
@@ -705,6 +705,8 @@
 		138F45112C5CA1B6000B03FC /* ServerTesting.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ServerTesting.xcconfig; sourceTree = "<group>"; };
 		138F45122C5CA1D7000B03FC /* AquaSKKTesting.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AquaSKKTesting.xcconfig; sourceTree = "<group>"; };
 		138F45132C5CA1F2000B03FC /* AquaSKKTestingUI.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AquaSKKTestingUI.xcconfig; sourceTree = "<group>"; };
+		138F45142C5CA2C7000B03FC /* Swift.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Swift.xctestplan; sourceTree = "<group>"; };
+		138F45162C5CA2F8000B03FC /* Testing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Testing.xcconfig; sourceTree = "<group>"; };
 		13931D0C2C5B49C200B11EEE /* PreferencesAppTesting.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PreferencesAppTesting.xcconfig; sourceTree = "<group>"; };
 		13931D0D2C5B4B5000B11EEE /* PreferenecsAppTestingUI.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PreferenecsAppTestingUI.xcconfig; sourceTree = "<group>"; };
 		13931D0E2C5B4C6B00B11EEE /* EngineTesting.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = EngineTesting.xcconfig; sourceTree = "<group>"; };
@@ -872,7 +874,7 @@
 		1344F4942C5A92D300D8C850 /* AquaSKKEngineTests */ = {
 			isa = PBXGroup;
 			children = (
-				1344F4932C5A92D300D8C850 /* AquaSKKEngineTests.swift */,
+				1344F4932C5A92D300D8C850 /* CalculatorTests.swift */,
 			);
 			path = AquaSKKEngineTests;
 			sourceTree = "<group>";
@@ -880,6 +882,7 @@
 		1344F4972C5B27DB00D8C850 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				138F45152C5CA2F1000B03FC /* Include */,
 				13D7561B2C5A905E006144F2 /* All.xcconfig */,
 				137D05A02C5B5AFB009AC591 /* AquaSKK.xcconfig */,
 				138F45132C5CA1F2000B03FC /* AquaSKKTestingUI.xcconfig */,
@@ -1245,7 +1248,6 @@
 		135C3D932C5B3F1D00661AE3 /* server */ = {
 			isa = PBXGroup;
 			children = (
-				13E77E992C5BE3460096013B /* IMK */,
 				135C3D682C5B3F1D00661AE3 /* BlacklistApps.h */,
 				135C3D692C5B3F1D00661AE3 /* BlacklistApps.m */,
 				135C3D6A2C5B3F1D00661AE3 /* MacAnnotator.h */,
@@ -1412,11 +1414,20 @@
 			path = AquaSKKUITests;
 			sourceTree = "<group>";
 		};
+		138F45152C5CA2F1000B03FC /* Include */ = {
+			isa = PBXGroup;
+			children = (
+				138F45162C5CA2F8000B03FC /* Testing.xcconfig */,
+			);
+			path = Include;
+			sourceTree = "<group>";
+		};
 		13931D102C5B4CC000B11EEE /* Plans */ = {
 			isa = PBXGroup;
 			children = (
 				13931D0F2C5B4C9D00B11EEE /* UITesting.xctestplan */,
 				1379C0172C5B4CF900AACFDF /* UnitTesting.xctestplan */,
+				138F45142C5CA2C7000B03FC /* Swift.xctestplan */,
 			);
 			path = Plans;
 			sourceTree = "<group>";
@@ -1444,13 +1455,6 @@
 				13D756172C5A9049006144F2 /* AquaSKKEngine.docc */,
 			);
 			path = AquaSKKEngine;
-			sourceTree = "<group>";
-		};
-		13E77E992C5BE3460096013B /* IMK */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = IMK;
 			sourceTree = "<group>";
 		};
 		13EDDCD12C5B319B0062A0DA /* Resources */ = {
@@ -2091,7 +2095,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1344F4952C5A92D300D8C850 /* AquaSKKEngineTests.swift in Sources */,
+				1344F4952C5A92D300D8C850 /* CalculatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2348,6 +2352,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13931D0E2C5B4C6B00B11EEE /* EngineTesting.xcconfig */;
 			buildSettings = {
+				OTHER_MODULE_VERIFIER_FLAGS = "$(OTHER_CLANG_MODULES_VERIFIER_FLAGS) -fmodules-cache-path=/Users/mzp/tmp";
 			};
 			name = Debug;
 		};
@@ -2355,6 +2360,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13931D0E2C5B4C6B00B11EEE /* EngineTesting.xcconfig */;
 			buildSettings = {
+				OTHER_MODULE_VERIFIER_FLAGS = "$(OTHER_CLANG_MODULES_VERIFIER_FLAGS) -fmodules-cache-path=/Users/mzp/tmp";
 			};
 			name = Release;
 		};

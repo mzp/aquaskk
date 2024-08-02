@@ -23,8 +23,8 @@
 #ifndef SKKHttpDictionaryLoader_h
 #define SKKHttpDictionaryLoader_h
 
-#include "SKKDictionaryLoader.h"
-#include "socketutil.h"
+#import <AquaSKKEngine/SKKDictionaryLoader.h>
+#import <AquaSKKEngine/socketutil.h>
 
 class SKKHttpDictionaryLoader : public SKKDictionaryLoader {
     net::socket::endpoint remote_;

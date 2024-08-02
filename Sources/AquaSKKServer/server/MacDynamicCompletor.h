@@ -23,7 +23,7 @@
 #ifndef MacDynamicCompletor_h
 #define MacDynamicCompletor_h
 
-#include "SKKDynamicCompletor.h"
+#import <AquaSKKEngine/SKKDynamicCompletor.h>
 #include "SKKLayoutManager.h"
 
 @class CompletionWindow;

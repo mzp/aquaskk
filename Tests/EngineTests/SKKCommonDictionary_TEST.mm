@@ -1,5 +1,5 @@
 #include <cassert>
-#include "SKKCommonDictionary.h"
+#import <AquaSKKEngine/SKKCommonDictionary.h>
 
 #import <XCTest/XCTest.h>
 

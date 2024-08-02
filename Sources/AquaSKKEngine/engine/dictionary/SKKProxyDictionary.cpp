@@ -21,7 +21,7 @@
 */
 
 #include <sstream>
-#include "SKKProxyDictionary.h"
+#import <AquaSKKEngine/SKKProxyDictionary.h>
 #include "jconv.h"
 
 SKKProxyDictionary::SKKProxyDictionary() : active_(false) {}
