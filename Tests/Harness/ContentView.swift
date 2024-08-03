@@ -20,7 +20,9 @@ struct ContentView: View {
                             SupervisorMonitor(supervisor: server).padding(.top, 10)
                         }
                         Spacer()
-                    }.padding()
+                    }
+                    .formStyle(.grouped)
+                    .padding()
             }
         }
     }

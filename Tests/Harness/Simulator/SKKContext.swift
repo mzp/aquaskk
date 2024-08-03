@@ -10,22 +10,21 @@ import Foundation
 import OSLog
 import SwiftUI
 
+private let signposter = OSSignposter(subsystem: "org.codefirst.AquaSKK.Harness", category: "Context")
+private let logger = Logger(subsystem: "org.codefirst.AquaSKK.Harness", category: "Context")
+
 enum SKKContext {
     struct Server: View {
         var server: SKKServer
         var content: (SKKServer) -> any View
 
-        let signposter = OSSignposter(subsystem: "org.codefirst.AquaSKK.Harness", category: "Server")
-        let logger = Logger(subsystem: "org.codefirst.AquaSKK.Harness", category: "Server")
-
         init(content: @escaping (SKKServer) -> any View) {
             server = SKKServer()
             self.content = content
-            logger.info("start")
-            let id = signposter.makeSignpostID()
-            let state = signposter.beginInterval("start", id: id)
-            server._start()
-            signposter.endInterval("start", state)
+            signposter.withIntervalSignpost("server start") {
+                logger.info("server start")
+                server._start()
+            }
         }
 
         var body: some View {

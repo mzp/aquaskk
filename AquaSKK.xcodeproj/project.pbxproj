@@ -246,6 +246,7 @@
 		135C3DBC2C5B3F1D00661AE3 /* SKKConstVars.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D822C5B3F1D00661AE3 /* SKKConstVars.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DBD2C5B3F1D00661AE3 /* MacFrontEnd.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D742C5B3F1D00661AE3 /* MacFrontEnd.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DBE2C5B3F1D00661AE3 /* SKKPreProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D8A2C5B3F1D00661AE3 /* SKKPreProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135EEB972C5EE3E100758672 /* SKKAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135EEB962C5EE3E100758672 /* SKKAdapter.swift */; };
 		1371A74F2C5B5D0300E06348 /* DictionarySet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74D2C5B5D0300E06348 /* DictionarySet.plist */; };
 		1371A7502C5B5D0300E06348 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74E2C5B5D0300E06348 /* UserDefaults.plist */; };
 		1371A7512C5B5D0300E06348 /* BlacklistApps.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74C2C5B5D0300E06348 /* BlacklistApps.plist */; };
@@ -681,6 +682,7 @@
 		135C3D912C5B3F1D00661AE3 /* SKKServerProxy.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKServerProxy.mm; sourceTree = "<group>"; };
 		135C3D922C5B3F1D00661AE3 /* SKKSupervisor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKSupervisor.h; sourceTree = "<group>"; };
 		135C3DBF2C5B3FEC00661AE3 /* IM.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = IM.xcconfig; sourceTree = "<group>"; };
+		135EEB962C5EE3E100758672 /* SKKAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKAdapter.swift; sourceTree = "<group>"; };
 		1371A74C2C5B5D0300E06348 /* BlacklistApps.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BlacklistApps.plist; sourceTree = "<group>"; };
 		1371A74D2C5B5D0300E06348 /* DictionarySet.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DictionarySet.plist; sourceTree = "<group>"; };
 		1371A74E2C5B5D0300E06348 /* UserDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
@@ -1421,12 +1423,12 @@
 		1352C9DE2C5DF8160056261D /* Harness */ = {
 			isa = PBXGroup;
 			children = (
-				1347C2032C5E1A9800414DE2 /* Support files */,
-				1352C9D92C5DF8160056261D /* Preview Content */,
 				13EB86612C5E9FA000B47DCD /* Simulator */,
 				13EB86622C5EA7CB00B47DCD /* Monitor */,
 				1352C9DB2C5DF8160056261D /* ContentView.swift */,
 				1352C9DD2C5DF8160056261D /* HarnessApp.swift */,
+				1347C2032C5E1A9800414DE2 /* Support files */,
+				1352C9D92C5DF8160056261D /* Preview Content */,
 			);
 			path = Harness;
 			sourceTree = "<group>";
@@ -1670,6 +1672,7 @@
 			children = (
 				1352C9E42C5DF9510056261D /* SKKContext.swift */,
 				1347C2002C5E12A500414DE2 /* SKKTextView.swift */,
+				135EEB962C5EE3E100758672 /* SKKAdapter.swift */,
 			);
 			path = Simulator;
 			sourceTree = "<group>";
@@ -2352,6 +2355,7 @@
 				1352C9E12C5DF8160056261D /* ContentView.swift in Sources */,
 				1347C2012C5E12A500414DE2 /* SKKTextView.swift in Sources */,
 				1352C9E52C5DF9510056261D /* SKKContext.swift in Sources */,
+				135EEB972C5EE3E100758672 /* SKKAdapter.swift in Sources */,
 				13EB86642C5EA7DD00B47DCD /* SupervisorMonitor.swift in Sources */,
 				1352C9E22C5DF8160056261D /* HarnessApp.swift in Sources */,
 			);
