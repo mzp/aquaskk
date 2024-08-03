@@ -10,7 +10,7 @@
 
 #include "./Include/Cpp.xcconfig"
 
-CODE_SIGN_ENTITLEMENTS = Tests/Harness/Harness.entitlements
+CODE_SIGN_ENTITLEMENTS = Tests/Harness/Support files/Harness.entitlements
 DEVELOPMENT_ASSET_PATHS = "Tests/Harness/Preview Content"
 
 OTHER_LDFLAGS = -framework AquaSKKIM

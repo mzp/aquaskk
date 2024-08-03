@@ -55,7 +55,7 @@
 - (id)initWithServer:(id)server delegate:(id)delegate client:(id)client {
     self = [super initWithServer:server delegate:delegate client:client];
     if(self) {
-        [self setClient:client];
+        [self _setClient:client];
     }
 
     return self;

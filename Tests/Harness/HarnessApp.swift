@@ -12,6 +12,7 @@ struct HarnessApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .navigationTitle("AquaSKK Harness")
         }
     }
 }

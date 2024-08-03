@@ -200,7 +200,7 @@
 		1352C9E02C5DF8160056261D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1352C9DA2C5DF8160056261D /* Assets.xcassets */; };
 		1352C9E12C5DF8160056261D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1352C9DB2C5DF8160056261D /* ContentView.swift */; };
 		1352C9E22C5DF8160056261D /* HarnessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1352C9DD2C5DF8160056261D /* HarnessApp.swift */; };
-		1352C9E52C5DF9510056261D /* SKKController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1352C9E42C5DF9510056261D /* SKKController.swift */; };
+		1352C9E52C5DF9510056261D /* SKKContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1352C9E42C5DF9510056261D /* SKKContext.swift */; };
 		135C3D602C5B3E9600661AE3 /* AquaSKKIM.docc in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D5E2C5B3E9600661AE3 /* AquaSKKIM.docc */; };
 		135C3D612C5B3E9600661AE3 /* AquaSKKIM.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D5D2C5B3E9600661AE3 /* AquaSKKIM.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3D672C5B3E9D00661AE3 /* AquaSKKServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D652C5B3E9D00661AE3 /* AquaSKKServerTests.swift */; };
@@ -296,6 +296,7 @@
 		13D756192C5A9049006144F2 /* AquaSKKCore.docc in Sources */ = {isa = PBXBuildFile; fileRef = 13D756172C5A9049006144F2 /* AquaSKKCore.docc */; };
 		13D7561A2C5A9049006144F2 /* AquaSKKCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 13D756162C5A9049006144F2 /* AquaSKKCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13E77E9A2C5BE3920096013B /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D802C5B3F1D00661AE3 /* main.mm */; };
+		13EB86642C5EA7DD00B47DCD /* SupervisorMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EB86632C5EA7DD00B47DCD /* SupervisorMonitor.swift */; };
 		13EDDCCA2C5B2D520062A0DA /* stringutil_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5452C5B28FC00D8C850 /* stringutil_TEST.mm */; };
 		13EDDCCB2C5B2E500062A0DA /* utf8util_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F54A2C5B28FC00D8C850 /* utf8util_TEST.mm */; };
 		13EDDCCC2C5B2ED70062A0DA /* SKKWindowSelector_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5432C5B28FC00D8C850 /* SKKWindowSelector_TEST.mm */; };
@@ -632,7 +633,7 @@
 		1352C9DC2C5DF8160056261D /* Harness.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Harness.entitlements; sourceTree = "<group>"; };
 		1352C9DD2C5DF8160056261D /* HarnessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarnessApp.swift; sourceTree = "<group>"; };
 		1352C9E32C5DF8330056261D /* Harness.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Harness.xcconfig; sourceTree = "<group>"; };
-		1352C9E42C5DF9510056261D /* SKKController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKController.swift; sourceTree = "<group>"; };
+		1352C9E42C5DF9510056261D /* SKKContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKContext.swift; sourceTree = "<group>"; };
 		135C3D5D2C5B3E9600661AE3 /* AquaSKKIM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKIM.h; sourceTree = "<group>"; };
 		135C3D5E2C5B3E9600661AE3 /* AquaSKKIM.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKIM.docc; sourceTree = "<group>"; };
 		135C3D652C5B3E9D00661AE3 /* AquaSKKServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKKServerTests.swift; sourceTree = "<group>"; };
@@ -751,6 +752,7 @@
 		13D756172C5A9049006144F2 /* AquaSKKCore.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKCore.docc; sourceTree = "<group>"; };
 		13D7561B2C5A905E006144F2 /* All.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = All.xcconfig; sourceTree = "<group>"; };
 		13D7561C2C5A9113006144F2 /* All-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "All-Debug.xcconfig"; sourceTree = "<group>"; };
+		13EB86632C5EA7DD00B47DCD /* SupervisorMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupervisorMonitor.swift; sourceTree = "<group>"; };
 		13EEA1882C5DCFAF00642930 /* IM.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = IM.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1350,12 +1352,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		1347C2032C5E1A9800414DE2 /* Resources */ = {
+		1347C2032C5E1A9800414DE2 /* Support files */ = {
 			isa = PBXGroup;
 			children = (
 				1347C2042C5E1AA400414DE2 /* Essestial */,
+				1352C9DA2C5DF8160056261D /* Assets.xcassets */,
+				1352C9DC2C5DF8160056261D /* Harness.entitlements */,
 			);
-			path = Resources;
+			path = "Support files";
 			sourceTree = "<group>";
 		};
 		1347C2042C5E1AA400414DE2 /* Essestial */ = {
@@ -1417,14 +1421,12 @@
 		1352C9DE2C5DF8160056261D /* Harness */ = {
 			isa = PBXGroup;
 			children = (
-				1347C2032C5E1A9800414DE2 /* Resources */,
+				1347C2032C5E1A9800414DE2 /* Support files */,
 				1352C9D92C5DF8160056261D /* Preview Content */,
-				1352C9DA2C5DF8160056261D /* Assets.xcassets */,
+				13EB86612C5E9FA000B47DCD /* Simulator */,
+				13EB86622C5EA7CB00B47DCD /* Monitor */,
 				1352C9DB2C5DF8160056261D /* ContentView.swift */,
-				1352C9E42C5DF9510056261D /* SKKController.swift */,
-				1352C9DC2C5DF8160056261D /* Harness.entitlements */,
 				1352C9DD2C5DF8160056261D /* HarnessApp.swift */,
-				1347C2002C5E12A500414DE2 /* SKKTextView.swift */,
 			);
 			path = Harness;
 			sourceTree = "<group>";
@@ -1661,6 +1663,23 @@
 				13D756172C5A9049006144F2 /* AquaSKKCore.docc */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		13EB86612C5E9FA000B47DCD /* Simulator */ = {
+			isa = PBXGroup;
+			children = (
+				1352C9E42C5DF9510056261D /* SKKContext.swift */,
+				1347C2002C5E12A500414DE2 /* SKKTextView.swift */,
+			);
+			path = Simulator;
+			sourceTree = "<group>";
+		};
+		13EB86622C5EA7CB00B47DCD /* Monitor */ = {
+			isa = PBXGroup;
+			children = (
+				13EB86632C5EA7DD00B47DCD /* SupervisorMonitor.swift */,
+			);
+			path = Monitor;
 			sourceTree = "<group>";
 		};
 		13EDDCF42C5B3CD20062A0DA /* bridge */ = {
@@ -2072,6 +2091,7 @@
 					};
 					13D7560A2C5A9043006144F2 = {
 						CreatedOnToolsVersion = 16.0;
+						LastSwiftMigration = 1600;
 					};
 				};
 			};
@@ -2331,7 +2351,8 @@
 			files = (
 				1352C9E12C5DF8160056261D /* ContentView.swift in Sources */,
 				1347C2012C5E12A500414DE2 /* SKKTextView.swift in Sources */,
-				1352C9E52C5DF9510056261D /* SKKController.swift in Sources */,
+				1352C9E52C5DF9510056261D /* SKKContext.swift in Sources */,
+				13EB86642C5EA7DD00B47DCD /* SupervisorMonitor.swift in Sources */,
 				1352C9E22C5DF8160056261D /* HarnessApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2671,6 +2692,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 138F45102C5CA19D000B03FC /* Core.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 			};
 			name = Testing;
 		};
@@ -2763,6 +2788,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 138F45102C5CA19D000B03FC /* Core.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -2770,6 +2799,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 138F45102C5CA19D000B03FC /* Core.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};

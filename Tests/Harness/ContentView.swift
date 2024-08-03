@@ -10,23 +10,17 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            SKKServerView { server in
-                EmptyView()
-            }
-            SKKInputControllerView { controller in
-                VStack {
-                    SKKTextView(controller: controller)
-                    HStack {
-                        Button("Activate") {
-                            controller.activateServer(nil)
+        SKKContext.Server { server in
+            SKKContext.InputController(server: server) { controller in
+                    Form {
+                        Section {
+                            SKKTextView(controller: controller).frame(height: 40)
                         }
-                        Button("Deactivate") {
-                            controller.deactivateServer(nil)
+                        Section("Server") {
+                            SupervisorMonitor(supervisor: server).padding(.top, 10)
                         }
-                    }
-
-                }
+                        Spacer()
+                    }.padding()
             }
         }
     }
