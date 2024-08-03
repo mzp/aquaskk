@@ -10,6 +10,10 @@ import Testing
 
 struct AquaSKKServerTests {
     @Test func example() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
+        let typer = await Typer()
+        await typer.type(text: "aiueo")
+        #expect(await typer.text == "あいうえお")
+        #expect(await typer.markedText == "")
+        await typer.close()
     }
 }

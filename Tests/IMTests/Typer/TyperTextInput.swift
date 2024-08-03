@@ -1,25 +1,35 @@
 //
-//  SKKAdapter.swift
+//  MockTextInput.swift
 //  Harness
 //
 //  Created by mzp on 8/3/24.
 //
 
 import Foundation
-import AppKit
 import InputMethodKit
-import OSLog
 
-private let logger = Logger(subsystem: "org.codefirst.AquaSKK.Harness", category: "Adapter")
+class TyperTextInput: NSObject {
+    var text: String = ""
+    var markedText: String = ""
 
-class SKKAdapter: NSObject, IMKTextInput {
-    let inputClient: NSTextInputClient
-    init(inputClient: NSTextInputClient) {
-        self.inputClient = inputClient
+    var _selectedRange: NSRange = NSRange(location: 0, length: 0)
+    var _markedRange: NSRange = NSRange(location: 0, length: 0)
+}
+
+extension TyperTextInput: IMKTextInput {
+    func selectedRange() -> NSRange {
+        return _selectedRange
+    }
+    
+    func markedRange() -> NSRange {
+        return _markedRange
     }
 
     func insertText(_ string: Any, replacementRange: NSRange) {
-        inputClient.insertText(string, replacementRange: replacementRange)
+        // TODO: Use replacementRange
+        // TODO: Update selectedRange
+        markedText.removeAll()
+        text.append(string as! String)
     }
 
     func setMarkedText(
@@ -27,32 +37,23 @@ class SKKAdapter: NSObject, IMKTextInput {
         selectionRange: NSRange,
         replacementRange: NSRange
     ) {
-        inputClient
-            .setMarkedText(
-                string ?? "",
-                selectedRange: selectionRange,
-                replacementRange: replacementRange
-            )
-    }
-
-    func selectedRange() -> NSRange {
-        inputClient.selectedRange()
-    }
-
-    func markedRange() -> NSRange {
-        inputClient.markedRange()
+        // TODO: Use replacementRange
+        // TODO: Update markedTextRange
+        markedText = string as! String
     }
 
     func attributedSubstring(from range: NSRange) -> NSAttributedString! {
-        inputClient.attributedSubstring(forProposedRange: range, actualRange: nil)
+        let string = (text as NSString).substring(with: range)
+        return NSAttributedString(string: string)
     }
 
     func length() -> Int {
-        inputClient.attributedString?().length ?? 0
+        text.count
     }
 
     func characterIndex(for point: NSPoint, tracking _: IMKLocationToOffsetMappingMode, inMarkedRange _: UnsafeMutablePointer<ObjCBool>!) -> Int {
-        inputClient.characterIndex(for: point)
+        // TODO: Implement
+        return 0
     }
 
     func attributes(forCharacterIndex _: Int, lineHeightRectangle _: UnsafeMutablePointer<NSRect>!) -> [AnyHashable: Any]! {
@@ -60,15 +61,14 @@ class SKKAdapter: NSObject, IMKTextInput {
     }
 
     func validAttributesForMarkedText() -> [Any]! {
-        inputClient.validAttributesForMarkedText()
+        []
     }
 
     func overrideKeyboard(withKeyboardNamed keyboardUniqueName: String!) {
-        logger.info("\(#function): \(keyboardUniqueName)")
     }
 
     func selectMode(_ modeIdentifier: String!) {
-        logger.info("\(#function): \(modeIdentifier)")
+
     }
 
     func supportsUnicode() -> Bool {
@@ -84,7 +84,6 @@ class SKKAdapter: NSObject, IMKTextInput {
     }
 
     func supportsProperty(_ property: TSMDocumentPropertyTag) -> Bool {
-        logger.warning("\(#function): \(property)")
         return true
     }
 
@@ -93,14 +92,11 @@ class SKKAdapter: NSObject, IMKTextInput {
     }
 
     func string(from range: NSRange, actualRange: NSRangePointer!) -> String! {
-        inputClient
-            .attributedSubstring(
-                forProposedRange: range,
-                actualRange: actualRange
-            )?.string
+        (text as NSString).substring(with: range)
     }
 
     func firstRect(forCharacterRange aRange: NSRange, actualRange: NSRangePointer!) -> NSRect {
-        inputClient.firstRect(forCharacterRange: aRange, actualRange: actualRange)
+        .zero
     }
 }
+
