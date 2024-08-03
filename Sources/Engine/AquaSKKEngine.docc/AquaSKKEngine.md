@@ -4,6 +4,6 @@ SKKの変換処理を行なうエンジン。FoundationやCocoa等のmacOS SDK�
 
 ## Overview
 
-## History
+## Changelog
 
 `src/bridge` と `src/engine` から移行。

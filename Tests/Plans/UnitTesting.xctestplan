@@ -22,13 +22,6 @@
     {
       "target" : {
         "containerPath" : "container:AquaSKK.xcodeproj",
-        "identifier" : "1344F4882C5A92CE00D8C850",
-        "name" : "AquaSKKEngineTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:AquaSKK.xcodeproj",
         "identifier" : "135C3D4D2C5B3E8F00661AE3",
         "name" : "AquaSKKServerTests"
       }

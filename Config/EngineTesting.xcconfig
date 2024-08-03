@@ -8,6 +8,7 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-OTHER_LDFLAGS = -framework AquaSKKEngine
+#include "./Engine.xcconfig"
+#include "./Include/Testing.xcconfig"
 
-SWIFT_OBJC_INTEROP_MODE = objcxx
+OTHER_LDFLAGS = -framework AquaSKKEngine
