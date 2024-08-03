@@ -1530,11 +1530,11 @@
 		13931D102C5B4CC000B11EEE /* Plans */ = {
 			isa = PBXGroup;
 			children = (
-				13931D0F2C5B4C9D00B11EEE /* Preferences.xctestplan */,
+				138B31932C5DD3AB006424E0 /* All.xctestplan */,
 				1379C0172C5B4CF900AACFDF /* App.xctestplan */,
 				13CEB8272C5DBE050052B7ED /* Core.xctestplan */,
 				13EEA1882C5DCFAF00642930 /* IM.xctestplan */,
-				138B31932C5DD3AB006424E0 /* All.xctestplan */,
+				13931D0F2C5B4C9D00B11EEE /* Preferences.xctestplan */,
 			);
 			path = Plans;
 			sourceTree = "<group>";
