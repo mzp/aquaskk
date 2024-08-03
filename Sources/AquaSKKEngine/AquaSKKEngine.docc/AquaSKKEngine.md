@@ -1,13 +1,9 @@
 # ``AquaSKKEngine``
 
-<!--@START_MENU_TOKEN@-->Summary<!--@END_MENU_TOKEN@-->
+SKKの変換処理を行なうエンジン。FoundationやCocoa等のmacOS SDKに依存しない。
 
 ## Overview
 
-<!--@START_MENU_TOKEN@-->Text<!--@END_MENU_TOKEN@-->
+## History
 
-## Topics
-
-### <!--@START_MENU_TOKEN@-->Group<!--@END_MENU_TOKEN@-->
-
-- <!--@START_MENU_TOKEN@-->``Symbol``<!--@END_MENU_TOKEN@-->
+`src/bridge` と `src/engine` から移行。

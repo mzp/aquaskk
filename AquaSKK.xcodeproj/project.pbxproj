@@ -23,6 +23,8 @@
 		13185CC62C5B57DF001CF24D /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13185CBA2C5B57DF001CF24D /* main.mm */; };
 		13185CC72C5B57DF001CF24D /* DictionaryTypeTransformer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13185CB92C5B57DF001CF24D /* DictionaryTypeTransformer.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		13185CC82C5B57DF001CF24D /* PathFormatter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13185CBC2C5B57DF001CF24D /* PathFormatter.mm */; };
+		132B777A2C5DB89E00EEC2A5 /* pthreadutil_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 132B77782C5DB89E00EEC2A5 /* pthreadutil_TEST.mm */; };
+		132B777B2C5DB89E00EEC2A5 /* calculator_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 132B77772C5DB89E00EEC2A5 /* calculator_TEST.mm */; };
 		1344F4952C5A92D300D8C850 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4932C5A92D300D8C850 /* CalculatorTests.swift */; };
 		1344F55E2C5B28FC00D8C850 /* SKKProxyDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4C82C5B28FC00D8C850 /* SKKProxyDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F55F2C5B28FC00D8C850 /* SKKClipboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F49E2C5B28FC00D8C850 /* SKKClipboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -147,6 +149,19 @@
 		1344F60D2C5B28FC00D8C850 /* SKKCandidate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4E12C5B28FC00D8C850 /* SKKCandidate.cpp */; };
 		1344F60E2C5B28FC00D8C850 /* SKKEntry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4E52C5B28FC00D8C850 /* SKKEntry.cpp */; };
 		1344F6102C5B28FC00D8C850 /* SKKCandidateEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4CE2C5B28FC00D8C850 /* SKKCandidateEditor.cpp */; };
+		1347782E2C5DB940007B1DFB /* SKKTrie_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1347782D2C5DB940007B1DFB /* SKKTrie_TEST.mm */; };
+		134778592C5DB98F007B1DFB /* period.rule in Resources */ = {isa = PBXBuildFile; fileRef = 1347784F2C5DB98F007B1DFB /* period.rule */; };
+		1347785A2C5DB98F007B1DFB /* SKK-JISYO.S2 in Resources */ = {isa = PBXBuildFile; fileRef = 134778532C5DB98F007B1DFB /* SKK-JISYO.S2 */; };
+		1347785B2C5DB98F007B1DFB /* kana-rule.conf in Resources */ = {isa = PBXBuildFile; fileRef = 1347784C2C5DB98F007B1DFB /* kana-rule.conf */; };
+		1347785C2C5DB98F007B1DFB /* skk-jisyo.utf8 in Resources */ = {isa = PBXBuildFile; fileRef = 134778512C5DB98F007B1DFB /* skk-jisyo.utf8 */; };
+		1347785D2C5DB98F007B1DFB /* test.dat in Resources */ = {isa = PBXBuildFile; fileRef = 134778562C5DB98F007B1DFB /* test.dat */; };
+		1347785E2C5DB98F007B1DFB /* dict.file in Resources */ = {isa = PBXBuildFile; fileRef = 1347784B2C5DB98F007B1DFB /* dict.file */; };
+		1347785F2C5DB98F007B1DFB /* keymap_patch.conf in Resources */ = {isa = PBXBuildFile; fileRef = 1347784E2C5DB98F007B1DFB /* keymap_patch.conf */; };
+		134778602C5DB98F007B1DFB /* keymap.conf in Resources */ = {isa = PBXBuildFile; fileRef = 1347784D2C5DB98F007B1DFB /* keymap.conf */; };
+		134778612C5DB98F007B1DFB /* SKK-JISYO.TEST.UTF8 in Resources */ = {isa = PBXBuildFile; fileRef = 134778552C5DB98F007B1DFB /* SKK-JISYO.TEST.UTF8 */; };
+		134778622C5DB98F007B1DFB /* skk.jisyo in Resources */ = {isa = PBXBuildFile; fileRef = 134778502C5DB98F007B1DFB /* skk.jisyo */; };
+		134778632C5DB98F007B1DFB /* SKK-JISYO.S1 in Resources */ = {isa = PBXBuildFile; fileRef = 134778522C5DB98F007B1DFB /* SKK-JISYO.S1 */; };
+		134778642C5DB98F007B1DFB /* SKK-JISYO.TEST in Resources */ = {isa = PBXBuildFile; fileRef = 134778542C5DB98F007B1DFB /* SKK-JISYO.TEST */; };
 		134A0D272C5B430B003EACF0 /* CompletionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D1C2C5B430B003EACF0 /* CompletionView.h */; };
 		134A0D282C5B430B003EACF0 /* CompletionWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D1E2C5B430B003EACF0 /* CompletionWindow.h */; };
 		134A0D292C5B430B003EACF0 /* MessengerWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D242C5B430B003EACF0 /* MessengerWindow.h */; };
@@ -267,21 +282,6 @@
 		13EDDCCB2C5B2E500062A0DA /* utf8util_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F54A2C5B28FC00D8C850 /* utf8util_TEST.mm */; };
 		13EDDCCC2C5B2ED70062A0DA /* SKKWindowSelector_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5432C5B28FC00D8C850 /* SKKWindowSelector_TEST.mm */; };
 		13EDDCCD2C5B2F450062A0DA /* SKKUserDictionary_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5422C5B28FC00D8C850 /* SKKUserDictionary_TEST.mm */; };
-		13EDDCCE2C5B2FBF0062A0DA /* SKKTrie_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5412C5B28FC00D8C850 /* SKKTrie_TEST.mm */; };
-		13EDDCCF2C5B308C0062A0DA /* skk.jisyo in Resources */ = {isa = PBXBuildFile; fileRef = 1344F5252C5B28FC00D8C850 /* skk.jisyo */; };
-		13EDDCD02C5B308C0062A0DA /* skk-jisyo.utf8 in Resources */ = {isa = PBXBuildFile; fileRef = 1344F5262C5B28FC00D8C850 /* skk-jisyo.utf8 */; };
-		13EDDCD22C5B31E20062A0DA /* dict.file in Resources */ = {isa = PBXBuildFile; fileRef = 1344F5142C5B28FC00D8C850 /* dict.file */; };
-		13EDDCD32C5B31E20062A0DA /* kana-rule.conf in Resources */ = {isa = PBXBuildFile; fileRef = 1344F5152C5B28FC00D8C850 /* kana-rule.conf */; };
-		13EDDCD42C5B31E20062A0DA /* keymap.conf in Resources */ = {isa = PBXBuildFile; fileRef = 1344F5162C5B28FC00D8C850 /* keymap.conf */; };
-		13EDDCD52C5B31E20062A0DA /* keymap_patch.conf in Resources */ = {isa = PBXBuildFile; fileRef = 1344F5172C5B28FC00D8C850 /* keymap_patch.conf */; };
-		13EDDCD62C5B31E20062A0DA /* period.rule in Resources */ = {isa = PBXBuildFile; fileRef = 1344F5232C5B28FC00D8C850 /* period.rule */; };
-		13EDDCD72C5B31E20062A0DA /* SKK-JISYO.S1 in Resources */ = {isa = PBXBuildFile; fileRef = 1344F5272C5B28FC00D8C850 /* SKK-JISYO.S1 */; };
-		13EDDCD82C5B31E20062A0DA /* SKK-JISYO.S2 in Resources */ = {isa = PBXBuildFile; fileRef = 1344F5282C5B28FC00D8C850 /* SKK-JISYO.S2 */; };
-		13EDDCD92C5B31E20062A0DA /* SKK-JISYO.TEST in Resources */ = {isa = PBXBuildFile; fileRef = 1344F5292C5B28FC00D8C850 /* SKK-JISYO.TEST */; };
-		13EDDCDA2C5B31E20062A0DA /* SKK-JISYO.TEST.UTF8 in Resources */ = {isa = PBXBuildFile; fileRef = 1344F52A2C5B28FC00D8C850 /* SKK-JISYO.TEST.UTF8 */; };
-		13EDDCDB2C5B31E20062A0DA /* test.dat in Resources */ = {isa = PBXBuildFile; fileRef = 1344F5462C5B28FC00D8C850 /* test.dat */; };
-		13EDDCDC2C5B323B0062A0DA /* calculator_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5132C5B28FC00D8C850 /* calculator_TEST.mm */; };
-		13EDDCDD2C5B32490062A0DA /* pthreadutil_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5242C5B28FC00D8C850 /* pthreadutil_TEST.mm */; };
 		13EDDCDE2C5B32A20062A0DA /* SKKAutoUpdateDictionary_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F52B2C5B28FC00D8C850 /* SKKAutoUpdateDictionary_TEST.mm */; };
 		13EDDCDF2C5B33600062A0DA /* SKKBackEnd_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F52C2C5B28FC00D8C850 /* SKKBackEnd_TEST.mm */; };
 		13EDDCE02C5B34BA0062A0DA /* SKKCandidate_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F52D2C5B28FC00D8C850 /* SKKCandidate_TEST.mm */; };
@@ -397,6 +397,8 @@
 		13185CBE2C5B57DF001CF24D /* PreferenceController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PreferenceController.mm; sourceTree = "<group>"; };
 		13185CBF2C5B57DF001CF24D /* SubRuleDescriptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubRuleDescriptions.h; sourceTree = "<group>"; };
 		13185CC02C5B57DF001CF24D /* SubRuleDescriptions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SubRuleDescriptions.cpp; sourceTree = "<group>"; };
+		132B77772C5DB89E00EEC2A5 /* calculator_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = calculator_TEST.mm; sourceTree = "<group>"; };
+		132B77782C5DB89E00EEC2A5 /* pthreadutil_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = pthreadutil_TEST.mm; sourceTree = "<group>"; };
 		133A55152C5DA7910047E911 /* main.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = main.yml; sourceTree = "<group>"; };
 		133A55182C5DA7910047E911 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		133A55192C5DA7910047E911 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
@@ -510,11 +512,6 @@
 		1344F50F2C5B28FC00D8C850 /* SKKStateMachine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKStateMachine.h; sourceTree = "<group>"; };
 		1344F5102C5B28FC00D8C850 /* SKKStatePrimary-inl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SKKStatePrimary-inl.h"; sourceTree = "<group>"; };
 		1344F5112C5B28FC00D8C850 /* SKKStateRecursiveRegister-inl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SKKStateRecursiveRegister-inl.h"; sourceTree = "<group>"; };
-		1344F5132C5B28FC00D8C850 /* calculator_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = calculator_TEST.mm; sourceTree = "<group>"; };
-		1344F5142C5B28FC00D8C850 /* dict.file */ = {isa = PBXFileReference; lastKnownFileType = text; path = dict.file; sourceTree = "<group>"; };
-		1344F5152C5B28FC00D8C850 /* kana-rule.conf */ = {isa = PBXFileReference; lastKnownFileType = text; path = "kana-rule.conf"; sourceTree = "<group>"; };
-		1344F5162C5B28FC00D8C850 /* keymap.conf */ = {isa = PBXFileReference; lastKnownFileType = text; path = keymap.conf; sourceTree = "<group>"; };
-		1344F5172C5B28FC00D8C850 /* keymap_patch.conf */ = {isa = PBXFileReference; lastKnownFileType = text; path = keymap_patch.conf; sourceTree = "<group>"; };
 		1344F5192C5B28FC00D8C850 /* MockAnnotator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockAnnotator.h; sourceTree = "<group>"; };
 		1344F51A2C5B28FC00D8C850 /* MockCandidateWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockCandidateWindow.h; sourceTree = "<group>"; };
 		1344F51B2C5B28FC00D8C850 /* MockClipboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockClipboard.h; sourceTree = "<group>"; };
@@ -525,14 +522,6 @@
 		1344F5202C5B28FC00D8C850 /* MockInputSessionParameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockInputSessionParameter.h; sourceTree = "<group>"; };
 		1344F5212C5B28FC00D8C850 /* MockMessenger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockMessenger.h; sourceTree = "<group>"; };
 		1344F5222C5B28FC00D8C850 /* MockRegistrationObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockRegistrationObserver.h; sourceTree = "<group>"; };
-		1344F5232C5B28FC00D8C850 /* period.rule */ = {isa = PBXFileReference; lastKnownFileType = text; path = period.rule; sourceTree = "<group>"; };
-		1344F5242C5B28FC00D8C850 /* pthreadutil_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = pthreadutil_TEST.mm; sourceTree = "<group>"; };
-		1344F5252C5B28FC00D8C850 /* skk.jisyo */ = {isa = PBXFileReference; lastKnownFileType = text; path = skk.jisyo; sourceTree = "<group>"; };
-		1344F5262C5B28FC00D8C850 /* skk-jisyo.utf8 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "skk-jisyo.utf8"; sourceTree = "<group>"; };
-		1344F5272C5B28FC00D8C850 /* SKK-JISYO.S1 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "SKK-JISYO.S1"; sourceTree = "<group>"; };
-		1344F5282C5B28FC00D8C850 /* SKK-JISYO.S2 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "SKK-JISYO.S2"; sourceTree = "<group>"; };
-		1344F5292C5B28FC00D8C850 /* SKK-JISYO.TEST */ = {isa = PBXFileReference; lastKnownFileType = text; path = "SKK-JISYO.TEST"; sourceTree = "<group>"; };
-		1344F52A2C5B28FC00D8C850 /* SKK-JISYO.TEST.UTF8 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "SKK-JISYO.TEST.UTF8"; sourceTree = "<group>"; };
 		1344F52B2C5B28FC00D8C850 /* SKKAutoUpdateDictionary_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKAutoUpdateDictionary_TEST.mm; sourceTree = "<group>"; };
 		1344F52C2C5B28FC00D8C850 /* SKKBackEnd_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKBackEnd_TEST.mm; sourceTree = "<group>"; };
 		1344F52D2C5B28FC00D8C850 /* SKKCandidate_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKCandidate_TEST.mm; sourceTree = "<group>"; };
@@ -555,12 +544,10 @@
 		1344F53E2C5B28FC00D8C850 /* SKKProxyDictionary_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKProxyDictionary_TEST.mm; sourceTree = "<group>"; };
 		1344F53F2C5B28FC00D8C850 /* SKKRomanKanaConverter_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKRomanKanaConverter_TEST.mm; sourceTree = "<group>"; };
 		1344F5402C5B28FC00D8C850 /* SKKSelector_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKSelector_TEST.mm; sourceTree = "<group>"; };
-		1344F5412C5B28FC00D8C850 /* SKKTrie_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKTrie_TEST.mm; sourceTree = "<group>"; };
 		1344F5422C5B28FC00D8C850 /* SKKUserDictionary_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKUserDictionary_TEST.mm; sourceTree = "<group>"; };
 		1344F5432C5B28FC00D8C850 /* SKKWindowSelector_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKWindowSelector_TEST.mm; sourceTree = "<group>"; };
 		1344F5442C5B28FC00D8C850 /* socketutil_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = socketutil_TEST.mm; sourceTree = "<group>"; };
 		1344F5452C5B28FC00D8C850 /* stringutil_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = stringutil_TEST.mm; sourceTree = "<group>"; };
-		1344F5462C5B28FC00D8C850 /* test.dat */ = {isa = PBXFileReference; lastKnownFileType = text; path = test.dat; sourceTree = "<group>"; };
 		1344F5472C5B28FC00D8C850 /* TestData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestData.h; sourceTree = "<group>"; };
 		1344F5482C5B28FC00D8C850 /* TestEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestEvent.h; sourceTree = "<group>"; };
 		1344F5492C5B28FC00D8C850 /* TestResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestResult.h; sourceTree = "<group>"; };
@@ -580,6 +567,19 @@
 		1344F5592C5B28FC00D8C850 /* stringutil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stringutil.h; sourceTree = "<group>"; };
 		1344F55A2C5B28FC00D8C850 /* subrange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = subrange.h; sourceTree = "<group>"; };
 		1344F55B2C5B28FC00D8C850 /* utf8util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utf8util.h; sourceTree = "<group>"; };
+		1347782D2C5DB940007B1DFB /* SKKTrie_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKTrie_TEST.mm; sourceTree = "<group>"; };
+		1347784B2C5DB98F007B1DFB /* dict.file */ = {isa = PBXFileReference; lastKnownFileType = text; path = dict.file; sourceTree = "<group>"; };
+		1347784C2C5DB98F007B1DFB /* kana-rule.conf */ = {isa = PBXFileReference; lastKnownFileType = text; path = "kana-rule.conf"; sourceTree = "<group>"; };
+		1347784D2C5DB98F007B1DFB /* keymap.conf */ = {isa = PBXFileReference; lastKnownFileType = text; path = keymap.conf; sourceTree = "<group>"; };
+		1347784E2C5DB98F007B1DFB /* keymap_patch.conf */ = {isa = PBXFileReference; lastKnownFileType = text; path = keymap_patch.conf; sourceTree = "<group>"; };
+		1347784F2C5DB98F007B1DFB /* period.rule */ = {isa = PBXFileReference; lastKnownFileType = text; path = period.rule; sourceTree = "<group>"; };
+		134778502C5DB98F007B1DFB /* skk.jisyo */ = {isa = PBXFileReference; lastKnownFileType = text; path = skk.jisyo; sourceTree = "<group>"; };
+		134778512C5DB98F007B1DFB /* skk-jisyo.utf8 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "skk-jisyo.utf8"; sourceTree = "<group>"; };
+		134778522C5DB98F007B1DFB /* SKK-JISYO.S1 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "SKK-JISYO.S1"; sourceTree = "<group>"; };
+		134778532C5DB98F007B1DFB /* SKK-JISYO.S2 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "SKK-JISYO.S2"; sourceTree = "<group>"; };
+		134778542C5DB98F007B1DFB /* SKK-JISYO.TEST */ = {isa = PBXFileReference; lastKnownFileType = text; path = "SKK-JISYO.TEST"; sourceTree = "<group>"; };
+		134778552C5DB98F007B1DFB /* SKK-JISYO.TEST.UTF8 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "SKK-JISYO.TEST.UTF8"; sourceTree = "<group>"; };
+		134778562C5DB98F007B1DFB /* test.dat */ = {isa = PBXFileReference; lastKnownFileType = text; path = test.dat; sourceTree = "<group>"; };
 		134A0D102C5B430B003EACF0 /* AnnotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnnotationView.h; sourceTree = "<group>"; };
 		134A0D112C5B430B003EACF0 /* AnnotationView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AnnotationView.mm; sourceTree = "<group>"; };
 		134A0D122C5B430B003EACF0 /* AnnotationWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnnotationWindow.h; sourceTree = "<group>"; };
@@ -878,6 +878,48 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		132B77792C5DB89E00EEC2A5 /* utility */ = {
+			isa = PBXGroup;
+			children = (
+				132B77772C5DB89E00EEC2A5 /* calculator_TEST.mm */,
+				132B77782C5DB89E00EEC2A5 /* pthreadutil_TEST.mm */,
+				1344F5442C5B28FC00D8C850 /* socketutil_TEST.mm */,
+				1344F5452C5B28FC00D8C850 /* stringutil_TEST.mm */,
+				1344F54A2C5B28FC00D8C850 /* utf8util_TEST.mm */,
+			);
+			path = utility;
+			sourceTree = "<group>";
+		};
+		132B777C2C5DB8C700EEC2A5 /* tries */ = {
+			isa = PBXGroup;
+			children = (
+				1344F53F2C5B28FC00D8C850 /* SKKRomanKanaConverter_TEST.mm */,
+				1347782D2C5DB940007B1DFB /* SKKTrie_TEST.mm */,
+			);
+			path = tries;
+			sourceTree = "<group>";
+		};
+		132B777D2C5DB8EB00EEC2A5 /* entry */ = {
+			isa = PBXGroup;
+			children = (
+				1344F52D2C5B28FC00D8C850 /* SKKCandidate_TEST.mm */,
+				1344F52E2C5B28FC00D8C850 /* SKKCandidateParser_TEST.mm */,
+				1344F52F2C5B28FC00D8C850 /* SKKCandidateSuite_TEST.mm */,
+			);
+			path = entry;
+			sourceTree = "<group>";
+		};
+		132B777E2C5DB90B00EEC2A5 /* session */ = {
+			isa = PBXGroup;
+			children = (
+				1344F53A2C5B28FC00D8C850 /* SKKInputSession_TEST.mm */,
+				1344F5482C5B28FC00D8C850 /* TestEvent.h */,
+				1344F5492C5B28FC00D8C850 /* TestResult.h */,
+				1344F5472C5B28FC00D8C850 /* TestData.h */,
+			);
+			path = session;
+			sourceTree = "<group>";
+		};
 		133A55162C5DA7910047E911 /* workflows */ = {
 			isa = PBXGroup;
 			children = (
@@ -892,6 +934,59 @@
 				133A55162C5DA7910047E911 /* workflows */,
 			);
 			path = .github;
+			sourceTree = "<group>";
+		};
+		133A551F2C5DB8240047E911 /* dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				1344F52B2C5B28FC00D8C850 /* SKKAutoUpdateDictionary_TEST.mm */,
+				1344F5302C5B28FC00D8C850 /* SKKCommonDictionary_TEST.mm */,
+				1344F5322C5B28FC00D8C850 /* SKKDictionaryFactory_TEST.mm */,
+				1344F5332C5B28FC00D8C850 /* SKKDictionaryFile_TEST.mm */,
+				1344F5342C5B28FC00D8C850 /* SKKDictionaryKeeper_TEST.mm */,
+				1344F5352C5B28FC00D8C850 /* SKKDictionaryLoader_TEST.mm */,
+				1344F5362C5B28FC00D8C850 /* SKKDistributedUserDictionary_TEST.mm */,
+				1344F5372C5B28FC00D8C850 /* SKKGadgetDictionary_TEST.mm */,
+				1344F53E2C5B28FC00D8C850 /* SKKProxyDictionary_TEST.mm */,
+				1344F5422C5B28FC00D8C850 /* SKKUserDictionary_TEST.mm */,
+			);
+			path = dictionary;
+			sourceTree = "<group>";
+		};
+		133A55202C5DB8390047E911 /* completer */ = {
+			isa = PBXGroup;
+			children = (
+				1344F5312C5B28FC00D8C850 /* SKKCompleter_TEST.mm */,
+			);
+			path = completer;
+			sourceTree = "<group>";
+		};
+		133A55212C5DB8430047E911 /* backend */ = {
+			isa = PBXGroup;
+			children = (
+				1344F52C2C5B28FC00D8C850 /* SKKBackEnd_TEST.mm */,
+				1344F53D2C5B28FC00D8C850 /* SKKNumericConverter_TEST.mm */,
+			);
+			path = backend;
+			sourceTree = "<group>";
+		};
+		133A55222C5DB8580047E911 /* keymap */ = {
+			isa = PBXGroup;
+			children = (
+				1344F53B2C5B28FC00D8C850 /* SKKKeymap_TEST.mm */,
+				1344F53C2C5B28FC00D8C850 /* SKKKeymapEntry_TEST.mm */,
+			);
+			path = keymap;
+			sourceTree = "<group>";
+		};
+		133A55232C5DB85C0047E911 /* selector */ = {
+			isa = PBXGroup;
+			children = (
+				1344F5402C5B28FC00D8C850 /* SKKSelector_TEST.mm */,
+				1344F5432C5B28FC00D8C850 /* SKKWindowSelector_TEST.mm */,
+				1344F5382C5B28FC00D8C850 /* SKKInlineSelector_TEST.mm */,
+			);
+			path = selector;
 			sourceTree = "<group>";
 		};
 		1344F4942C5A92D300D8C850 /* AquaSKKEngineTests */ = {
@@ -1184,40 +1279,47 @@
 		1344F6202C5B2C9C00D8C850 /* EngineTests */ = {
 			isa = PBXGroup;
 			children = (
-				13EDDCF42C5B3CD20062A0DA /* Mock */,
-				13EDDCD12C5B319B0062A0DA /* Resources */,
-				1344F5132C5B28FC00D8C850 /* calculator_TEST.mm */,
-				1344F5242C5B28FC00D8C850 /* pthreadutil_TEST.mm */,
-				1344F52B2C5B28FC00D8C850 /* SKKAutoUpdateDictionary_TEST.mm */,
-				1344F52C2C5B28FC00D8C850 /* SKKBackEnd_TEST.mm */,
-				1344F52D2C5B28FC00D8C850 /* SKKCandidate_TEST.mm */,
-				1344F52E2C5B28FC00D8C850 /* SKKCandidateParser_TEST.mm */,
-				1344F52F2C5B28FC00D8C850 /* SKKCandidateSuite_TEST.mm */,
-				1344F5302C5B28FC00D8C850 /* SKKCommonDictionary_TEST.mm */,
-				1344F5312C5B28FC00D8C850 /* SKKCompleter_TEST.mm */,
-				1344F5322C5B28FC00D8C850 /* SKKDictionaryFactory_TEST.mm */,
-				1344F5332C5B28FC00D8C850 /* SKKDictionaryFile_TEST.mm */,
-				1344F5342C5B28FC00D8C850 /* SKKDictionaryKeeper_TEST.mm */,
-				1344F5352C5B28FC00D8C850 /* SKKDictionaryLoader_TEST.mm */,
-				1344F5362C5B28FC00D8C850 /* SKKDistributedUserDictionary_TEST.mm */,
-				1344F5372C5B28FC00D8C850 /* SKKGadgetDictionary_TEST.mm */,
-				1344F5382C5B28FC00D8C850 /* SKKInlineSelector_TEST.mm */,
-				1344F5392C5B28FC00D8C850 /* SKKInputQueue_TEST.mm */,
-				1344F53A2C5B28FC00D8C850 /* SKKInputSession_TEST.mm */,
-				1344F53B2C5B28FC00D8C850 /* SKKKeymap_TEST.mm */,
-				1344F53C2C5B28FC00D8C850 /* SKKKeymapEntry_TEST.mm */,
-				1344F53D2C5B28FC00D8C850 /* SKKNumericConverter_TEST.mm */,
-				1344F53E2C5B28FC00D8C850 /* SKKProxyDictionary_TEST.mm */,
-				1344F53F2C5B28FC00D8C850 /* SKKRomanKanaConverter_TEST.mm */,
-				1344F5402C5B28FC00D8C850 /* SKKSelector_TEST.mm */,
-				1344F5412C5B28FC00D8C850 /* SKKTrie_TEST.mm */,
-				1344F5422C5B28FC00D8C850 /* SKKUserDictionary_TEST.mm */,
-				1344F5432C5B28FC00D8C850 /* SKKWindowSelector_TEST.mm */,
-				1344F5442C5B28FC00D8C850 /* socketutil_TEST.mm */,
-				1344F5452C5B28FC00D8C850 /* stringutil_TEST.mm */,
-				1344F54A2C5B28FC00D8C850 /* utf8util_TEST.mm */,
+				133A55212C5DB8430047E911 /* backend */,
+				13EDDCF42C5B3CD20062A0DA /* bridge */,
+				133A55202C5DB8390047E911 /* completer */,
+				133A551F2C5DB8240047E911 /* dictionary */,
+				1347782F2C5DB95A007B1DFB /* editor */,
+				132B777D2C5DB8EB00EEC2A5 /* entry */,
+				133A55222C5DB8580047E911 /* keymap */,
+				133A55232C5DB85C0047E911 /* selector */,
+				132B777E2C5DB90B00EEC2A5 /* session */,
+				132B777C2C5DB8C700EEC2A5 /* tries */,
+				132B77792C5DB89E00EEC2A5 /* utility */,
+				134778572C5DB98F007B1DFB /* Resources */,
 			);
 			path = EngineTests;
+			sourceTree = "<group>";
+		};
+		1347782F2C5DB95A007B1DFB /* editor */ = {
+			isa = PBXGroup;
+			children = (
+				1344F5392C5B28FC00D8C850 /* SKKInputQueue_TEST.mm */,
+			);
+			path = editor;
+			sourceTree = "<group>";
+		};
+		134778572C5DB98F007B1DFB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1347784B2C5DB98F007B1DFB /* dict.file */,
+				1347784C2C5DB98F007B1DFB /* kana-rule.conf */,
+				1347784D2C5DB98F007B1DFB /* keymap.conf */,
+				1347784E2C5DB98F007B1DFB /* keymap_patch.conf */,
+				1347784F2C5DB98F007B1DFB /* period.rule */,
+				134778502C5DB98F007B1DFB /* skk.jisyo */,
+				134778512C5DB98F007B1DFB /* skk-jisyo.utf8 */,
+				134778522C5DB98F007B1DFB /* SKK-JISYO.S1 */,
+				134778532C5DB98F007B1DFB /* SKK-JISYO.S2 */,
+				134778542C5DB98F007B1DFB /* SKK-JISYO.TEST */,
+				134778552C5DB98F007B1DFB /* SKK-JISYO.TEST.UTF8 */,
+				134778562C5DB98F007B1DFB /* test.dat */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		134A0D262C5B430B003EACF0 /* gui */ = {
@@ -1480,26 +1582,7 @@
 			path = AquaSKKEngine;
 			sourceTree = "<group>";
 		};
-		13EDDCD12C5B319B0062A0DA /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				1344F5142C5B28FC00D8C850 /* dict.file */,
-				1344F5152C5B28FC00D8C850 /* kana-rule.conf */,
-				1344F5162C5B28FC00D8C850 /* keymap.conf */,
-				1344F5172C5B28FC00D8C850 /* keymap_patch.conf */,
-				1344F5232C5B28FC00D8C850 /* period.rule */,
-				1344F5252C5B28FC00D8C850 /* skk.jisyo */,
-				1344F5262C5B28FC00D8C850 /* skk-jisyo.utf8 */,
-				1344F5272C5B28FC00D8C850 /* SKK-JISYO.S1 */,
-				1344F5282C5B28FC00D8C850 /* SKK-JISYO.S2 */,
-				1344F5292C5B28FC00D8C850 /* SKK-JISYO.TEST */,
-				1344F52A2C5B28FC00D8C850 /* SKK-JISYO.TEST.UTF8 */,
-				1344F5462C5B28FC00D8C850 /* test.dat */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		13EDDCF42C5B3CD20062A0DA /* Mock */ = {
+		13EDDCF42C5B3CD20062A0DA /* bridge */ = {
 			isa = PBXGroup;
 			children = (
 				1344F5192C5B28FC00D8C850 /* MockAnnotator.h */,
@@ -1512,11 +1595,8 @@
 				1344F5202C5B28FC00D8C850 /* MockInputSessionParameter.h */,
 				1344F5212C5B28FC00D8C850 /* MockMessenger.h */,
 				1344F5222C5B28FC00D8C850 /* MockRegistrationObserver.h */,
-				1344F5472C5B28FC00D8C850 /* TestData.h */,
-				1344F5482C5B28FC00D8C850 /* TestEvent.h */,
-				1344F5492C5B28FC00D8C850 /* TestResult.h */,
 			);
-			path = Mock;
+			path = bridge;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1977,18 +2057,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13EDDCD22C5B31E20062A0DA /* dict.file in Resources */,
-				13EDDCD32C5B31E20062A0DA /* kana-rule.conf in Resources */,
-				13EDDCD42C5B31E20062A0DA /* keymap.conf in Resources */,
-				13EDDCD52C5B31E20062A0DA /* keymap_patch.conf in Resources */,
-				13EDDCD62C5B31E20062A0DA /* period.rule in Resources */,
-				13EDDCD72C5B31E20062A0DA /* SKK-JISYO.S1 in Resources */,
-				13EDDCD82C5B31E20062A0DA /* SKK-JISYO.S2 in Resources */,
-				13EDDCD92C5B31E20062A0DA /* SKK-JISYO.TEST in Resources */,
-				13EDDCDA2C5B31E20062A0DA /* SKK-JISYO.TEST.UTF8 in Resources */,
-				13EDDCDB2C5B31E20062A0DA /* test.dat in Resources */,
-				13EDDCCF2C5B308C0062A0DA /* skk.jisyo in Resources */,
-				13EDDCD02C5B308C0062A0DA /* skk-jisyo.utf8 in Resources */,
+				134778592C5DB98F007B1DFB /* period.rule in Resources */,
+				1347785A2C5DB98F007B1DFB /* SKK-JISYO.S2 in Resources */,
+				1347785B2C5DB98F007B1DFB /* kana-rule.conf in Resources */,
+				1347785C2C5DB98F007B1DFB /* skk-jisyo.utf8 in Resources */,
+				1347785D2C5DB98F007B1DFB /* test.dat in Resources */,
+				1347785E2C5DB98F007B1DFB /* dict.file in Resources */,
+				1347785F2C5DB98F007B1DFB /* keymap_patch.conf in Resources */,
+				134778602C5DB98F007B1DFB /* keymap.conf in Resources */,
+				134778612C5DB98F007B1DFB /* SKK-JISYO.TEST.UTF8 in Resources */,
+				134778622C5DB98F007B1DFB /* skk.jisyo in Resources */,
+				134778632C5DB98F007B1DFB /* SKK-JISYO.S1 in Resources */,
+				134778642C5DB98F007B1DFB /* SKK-JISYO.TEST in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2127,16 +2207,14 @@
 			files = (
 				13EDDCDF2C5B33600062A0DA /* SKKBackEnd_TEST.mm in Sources */,
 				13EDDCE02C5B34BA0062A0DA /* SKKCandidate_TEST.mm in Sources */,
-				13EDDCDD2C5B32490062A0DA /* pthreadutil_TEST.mm in Sources */,
-				13EDDCDC2C5B323B0062A0DA /* calculator_TEST.mm in Sources */,
 				13EDDCCB2C5B2E500062A0DA /* utf8util_TEST.mm in Sources */,
 				13EDDCE22C5B351B0062A0DA /* SKKCandidateSuite_TEST.mm in Sources */,
 				13EDDCE62C5B38820062A0DA /* SKKDictionaryFile_TEST.mm in Sources */,
-				13EDDCCE2C5B2FBF0062A0DA /* SKKTrie_TEST.mm in Sources */,
 				13EDDCDE2C5B32A20062A0DA /* SKKAutoUpdateDictionary_TEST.mm in Sources */,
 				13EDDCCA2C5B2D520062A0DA /* stringutil_TEST.mm in Sources */,
 				13EDDCE42C5B37830062A0DA /* SKKCompleter_TEST.mm in Sources */,
 				13EDDCE72C5B38AF0062A0DA /* SKKDictionaryKeeper_TEST.mm in Sources */,
+				1347782E2C5DB940007B1DFB /* SKKTrie_TEST.mm in Sources */,
 				13EDDCE52C5B37DC0062A0DA /* SKKDictionaryFactory_TEST.mm in Sources */,
 				13EDDCE12C5B350D0062A0DA /* SKKCandidateParser_TEST.mm in Sources */,
 				13EDDCE32C5B35C90062A0DA /* SKKCommonDictionary_TEST.mm in Sources */,
@@ -2144,6 +2222,8 @@
 				13EDDCCD2C5B2F450062A0DA /* SKKUserDictionary_TEST.mm in Sources */,
 				13EDDCE82C5B395B0062A0DA /* SKKInlineSelector_TEST.mm in Sources */,
 				13EDDCE92C5B395B0062A0DA /* SKKProxyDictionary_TEST.mm in Sources */,
+				132B777A2C5DB89E00EEC2A5 /* pthreadutil_TEST.mm in Sources */,
+				132B777B2C5DB89E00EEC2A5 /* calculator_TEST.mm in Sources */,
 				13EDDCEA2C5B395B0062A0DA /* SKKNumericConverter_TEST.mm in Sources */,
 				13EDDCEB2C5B395B0062A0DA /* SKKDistributedUserDictionary_TEST.mm in Sources */,
 				13EDDCEC2C5B395B0062A0DA /* SKKKeymap_TEST.mm in Sources */,
