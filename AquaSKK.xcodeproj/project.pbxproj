@@ -696,11 +696,12 @@
 		137D05A22C5B5AFC009AC591 /* PreferencesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PreferencesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		137D05A32C5B5AFC009AC591 /* AquaSKKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AquaSKKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		137D05A42C5B5AFC009AC591 /* AquaSKKUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AquaSKKUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		138B31932C5DD3AB006424E0 /* All.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = All.xctestplan; path = Tests/Plans/All.xctestplan; sourceTree = SOURCE_ROOT; };
+		138B319F2C5DD40C006424E0 /* All-Testing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "All-Testing.xcconfig"; sourceTree = "<group>"; };
 		138F45102C5CA19D000B03FC /* Core.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Core.xcconfig; sourceTree = "<group>"; };
 		138F45112C5CA1B6000B03FC /* IMTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = IMTests.xcconfig; sourceTree = "<group>"; };
 		138F45122C5CA1D7000B03FC /* AppTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppTests.xcconfig; sourceTree = "<group>"; };
 		138F45132C5CA1F2000B03FC /* AppUITests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppUITests.xcconfig; sourceTree = "<group>"; };
-		138F45162C5CA2F8000B03FC /* Testing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Testing.xcconfig; sourceTree = "<group>"; };
 		13931D0C2C5B49C200B11EEE /* PreferenecesTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PreferenecesTests.xcconfig; sourceTree = "<group>"; };
 		13931D0D2C5B4B5000B11EEE /* PreferenecesUITests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PreferenecesUITests.xcconfig; sourceTree = "<group>"; };
 		13931D0E2C5B4C6B00B11EEE /* CoreTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CoreTests.xcconfig; sourceTree = "<group>"; };
@@ -982,6 +983,7 @@
 				138F45152C5CA2F1000B03FC /* Include */,
 				13D7561B2C5A905E006144F2 /* All.xcconfig */,
 				13D7561C2C5A9113006144F2 /* All-Debug.xcconfig */,
+				138B319F2C5DD40C006424E0 /* All-Testing.xcconfig */,
 				137D05A02C5B5AFB009AC591 /* App.xcconfig */,
 				138F45132C5CA1F2000B03FC /* AppUITests.xcconfig */,
 				138F45122C5CA1D7000B03FC /* AppTests.xcconfig */,
@@ -1520,7 +1522,6 @@
 		138F45152C5CA2F1000B03FC /* Include */ = {
 			isa = PBXGroup;
 			children = (
-				138F45162C5CA2F8000B03FC /* Testing.xcconfig */,
 				13CEB8292C5DC48E0052B7ED /* Cpp.xcconfig */,
 			);
 			path = Include;
@@ -1533,6 +1534,7 @@
 				1379C0172C5B4CF900AACFDF /* App.xctestplan */,
 				13CEB8272C5DBE050052B7ED /* Core.xctestplan */,
 				13EEA1882C5DCFAF00642930 /* IM.xctestplan */,
+				138B31932C5DD3AB006424E0 /* All.xctestplan */,
 			);
 			path = Plans;
 			sourceTree = "<group>";
@@ -2475,6 +2477,87 @@
 			};
 			name = Release;
 		};
+		138B31942C5DD3F6006424E0 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 138B319F2C5DD40C006424E0 /* All-Testing.xcconfig */;
+			buildSettings = {
+			};
+			name = Testing;
+		};
+		138B31952C5DD3F6006424E0 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 138F45102C5CA19D000B03FC /* Core.xcconfig */;
+			buildSettings = {
+			};
+			name = Testing;
+		};
+		138B31962C5DD3F6006424E0 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13931D0E2C5B4C6B00B11EEE /* CoreTests.xcconfig */;
+			buildSettings = {
+			};
+			name = Testing;
+		};
+		138B31972C5DD3F6006424E0 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 135C3DBF2C5B3FEC00661AE3 /* IM.xcconfig */;
+			buildSettings = {
+			};
+			name = Testing;
+		};
+		138B31982C5DD3F6006424E0 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 138F45112C5CA1B6000B03FC /* IMTests.xcconfig */;
+			buildSettings = {
+			};
+			name = Testing;
+		};
+		138B31992C5DD3F6006424E0 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1307C2672C5B48D600B089B6 /* Prefereneces.xcconfig */;
+			buildSettings = {
+			};
+			name = Testing;
+		};
+		138B319A2C5DD3F6006424E0 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13931D0C2C5B49C200B11EEE /* PreferenecesTests.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Preferences.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Preferences";
+			};
+			name = Testing;
+		};
+		138B319B2C5DD3F6006424E0 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13931D0D2C5B4B5000B11EEE /* PreferenecesUITests.xcconfig */;
+			buildSettings = {
+			};
+			name = Testing;
+		};
+		138B319C2C5DD3F6006424E0 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 137D05A02C5B5AFB009AC591 /* App.xcconfig */;
+			buildSettings = {
+			};
+			name = Testing;
+		};
+		138B319D2C5DD3F6006424E0 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 138F45122C5CA1D7000B03FC /* AppTests.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AquaSKK.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AquaSKK";
+			};
+			name = Testing;
+		};
+		138B319E2C5DD3F6006424E0 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 138F45132C5CA1F2000B03FC /* AppUITests.xcconfig */;
+			buildSettings = {
+			};
+			name = Testing;
+		};
 		13D368152C5A81290083CAE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13D7561C2C5A9113006144F2 /* All-Debug.xcconfig */;
@@ -2510,6 +2593,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1307C25C2C5B47DA00B089B6 /* Debug */,
+				138B31992C5DD3F6006424E0 /* Testing */,
 				1307C25D2C5B47DA00B089B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -2519,6 +2603,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1307C25F2C5B47DA00B089B6 /* Debug */,
+				138B319A2C5DD3F6006424E0 /* Testing */,
 				1307C2602C5B47DA00B089B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -2528,6 +2613,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1307C2622C5B47DA00B089B6 /* Debug */,
+				138B319B2C5DD3F6006424E0 /* Testing */,
 				1307C2632C5B47DA00B089B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -2537,6 +2623,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1344F61D2C5B2C9500D8C850 /* Debug */,
+				138B31962C5DD3F6006424E0 /* Testing */,
 				1344F61E2C5B2C9500D8C850 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -2546,6 +2633,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				135C3D582C5B3E8F00661AE3 /* Debug */,
+				138B31972C5DD3F6006424E0 /* Testing */,
 				135C3D592C5B3E8F00661AE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -2555,6 +2643,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				135C3D5B2C5B3E8F00661AE3 /* Debug */,
+				138B31982C5DD3F6006424E0 /* Testing */,
 				135C3D5C2C5B3E8F00661AE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -2564,6 +2653,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				137D05982C5B5A83009AC591 /* Debug */,
+				138B319C2C5DD3F6006424E0 /* Testing */,
 				137D05992C5B5A83009AC591 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -2573,6 +2663,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				137D059B2C5B5A83009AC591 /* Debug */,
+				138B319D2C5DD3F6006424E0 /* Testing */,
 				137D059C2C5B5A83009AC591 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -2582,6 +2673,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				137D059E2C5B5A83009AC591 /* Debug */,
+				138B319E2C5DD3F6006424E0 /* Testing */,
 				137D059F2C5B5A83009AC591 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -2591,6 +2683,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13D368152C5A81290083CAE3 /* Debug */,
+				138B31942C5DD3F6006424E0 /* Testing */,
 				13D368162C5A81290083CAE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -2600,6 +2693,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13D756122C5A9043006144F2 /* Debug */,
+				138B31952C5DD3F6006424E0 /* Testing */,
 				13D756132C5A9043006144F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

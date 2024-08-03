@@ -9,6 +9,5 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 #include "./Core.xcconfig"
-#include "./Include/Testing.xcconfig"
 
 OTHER_LDFLAGS = -framework AquaSKKCore

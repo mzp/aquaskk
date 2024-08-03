@@ -15,5 +15,5 @@ REGISTER_APP_GROUPS = YES
 
 OTHER_LDFLAGS = -framework AquaSKKCore -framework AquaSKKIM -framework Carbon
 
-GENERATE_INFOPLIST_FILE = NO
-INFOPLIST_FILE = Sources/App/Info.plist
+// GENERATE_INFOPLIST_FILE = NO
+// INFOPLIST_FILE = Sources/App/Info.plist

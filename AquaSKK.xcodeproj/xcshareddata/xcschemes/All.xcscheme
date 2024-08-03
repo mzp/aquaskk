@@ -35,46 +35,59 @@
                ReferencedContainer = "container:AquaSKK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "13D7560A2C5A9043006144F2"
+               BuildableName = "AquaSKKCore.framework"
+               BlueprintName = "AquaSKKCore"
+               ReferencedContainer = "container:AquaSKK.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "135C3D442C5B3E8F00661AE3"
+               BuildableName = "AquaSKKIM.framework"
+               BlueprintName = "AquaSKKIM"
+               ReferencedContainer = "container:AquaSKK.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Testing"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:Tests/Plans/App.xctestplan"
-            default = "YES">
-         </TestPlanReference>
-         <TestPlanReference
             reference = "container:Tests/Plans/Preferences.xctestplan">
          </TestPlanReference>
+         <TestPlanReference
+            reference = "container:Tests/Plans/App.xctestplan">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:Tests/Plans/IM.xctestplan">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:Tests/Plans/Core.xctestplan">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:Tests/Plans/All.xctestplan"
+            default = "YES">
+         </TestPlanReference>
       </TestPlans>
-      <Testables>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "137D058E2C5B5A83009AC591"
-               BuildableName = "AquaSKKUITests.xctest"
-               BlueprintName = "AquaSKKUITests"
-               ReferencedContainer = "container:AquaSKK.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "137D05842C5B5A83009AC591"
-               BuildableName = "AquaSKKTests.xctest"
-               BlueprintName = "AquaSKKTests"
-               ReferencedContainer = "container:AquaSKK.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
