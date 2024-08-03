@@ -5,7 +5,7 @@
 //  Created by mzp on 7/31/24.
 //
 
-@testable import AquaSKK_Preferences
+@testable import Preferences
 import Testing
 
 struct AquaSKK_PreferencesTests {
