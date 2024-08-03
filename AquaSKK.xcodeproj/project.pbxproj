@@ -400,6 +400,7 @@
 		133A55152C5DA7910047E911 /* main.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = main.yml; sourceTree = "<group>"; };
 		133A55182C5DA7910047E911 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		133A55192C5DA7910047E911 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
+		133A551A2C5DB0790047E911 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1344F4932C5A92D300D8C850 /* CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTests.swift; sourceTree = "<group>"; };
 		1344F49C2C5B28FC00D8C850 /* SKKAnnotator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKAnnotator.h; sourceTree = "<group>"; };
 		1344F49D2C5B28FC00D8C850 /* SKKCandidateWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKCandidateWindow.h; sourceTree = "<group>"; };
@@ -1457,6 +1458,7 @@
 		13D368102C5A81290083CAE3 = {
 			isa = PBXGroup;
 			children = (
+				133A551A2C5DB0790047E911 /* README.md */,
 				1344F4972C5B27DB00D8C850 /* Config */,
 				1344F49B2C5B284C00D8C850 /* Sources */,
 				1344F4992C5B282200D8C850 /* Tests */,
