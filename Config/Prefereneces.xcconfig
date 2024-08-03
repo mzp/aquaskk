@@ -13,4 +13,4 @@ DEVELOPMENT_ASSET_PATHS = "Sources/Preferences/Preview Content"
 
 REGISTER_APP_GROUPS = YES
 
-OTHER_LDFLAGS = -framework AquaSKKEngine -framework AquaSKKInputMethod -framework Carbon
+OTHER_LDFLAGS = -framework AquaSKKCore -framework AquaSKKIM -framework Carbon
