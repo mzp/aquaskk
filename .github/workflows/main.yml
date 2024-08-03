@@ -10,3 +10,9 @@ jobs:
       - run: sudo xcode-select -s /Applications/Xcode_16_beta_4.app
       - run: swiftformat --lint .
       - run: set -o pipefail && xcrun xcodebuild -scheme All test -destination "platform=macOS" | xcpretty
+  Builds:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo xcode-select -s /Applications/Xcode_16_beta_4.app
+      - run: set -o pipefail && xcrun xcodebuild -scheme All build -destination "platform=macOS" | xcpretty
