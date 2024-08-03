@@ -115,7 +115,13 @@ FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 
 #pragma mark - utility
 
+#import <AquaSKKEngine/SKKRomanKanaConverter.h>
+#import <AquaSKKEngine/SKKTrie.h>
+
+#pragma mark - utility
+
 #import <AquaSKKEngine/calculator.h>
 #import <AquaSKKEngine/pthreadutil.h>
 #import <AquaSKKEngine/socketutil.h>
 #import <AquaSKKEngine/subrange.h>
+#import <AquaSKKEngine/utf8util.h>

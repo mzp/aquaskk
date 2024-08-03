@@ -35,12 +35,12 @@
 		1344F56A2C5B28FC00D8C850 /* SKKConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F49F2C5B28FC00D8C850 /* SKKConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F56B2C5B28FC00D8C850 /* SKKUserDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4CA2C5B28FC00D8C850 /* SKKUserDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F56C2C5B28FC00D8C850 /* SKKDictionaryTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4BE2C5B28FC00D8C850 /* SKKDictionaryTemplate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1344F56D2C5B28FC00D8C850 /* SKKTrie.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F54E2C5B28FC00D8C850 /* SKKTrie.h */; };
+		1344F56D2C5B28FC00D8C850 /* SKKTrie.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F54E2C5B28FC00D8C850 /* SKKTrie.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F56E2C5B28FC00D8C850 /* SKKInputQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4D52C5B28FC00D8C850 /* SKKInputQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F56F2C5B28FC00D8C850 /* SKKOutputBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4FE2C5B28FC00D8C850 /* SKKOutputBuffer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5702C5B28FC00D8C850 /* subrange.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F55A2C5B28FC00D8C850 /* subrange.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5712C5B28FC00D8C850 /* SKKTextBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4DD2C5B28FC00D8C850 /* SKKTextBuffer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1344F5722C5B28FC00D8C850 /* SKKRomanKanaConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F54C2C5B28FC00D8C850 /* SKKRomanKanaConverter.h */; };
+		1344F5722C5B28FC00D8C850 /* SKKRomanKanaConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F54C2C5B28FC00D8C850 /* SKKRomanKanaConverter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5732C5B28FC00D8C850 /* SKKRegistration.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5022C5B28FC00D8C850 /* SKKRegistration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5752C5B28FC00D8C850 /* SKKFrontEnd.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4A12C5B28FC00D8C850 /* SKKFrontEnd.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5762C5B28FC00D8C850 /* SKKAnnotator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F49C2C5B28FC00D8C850 /* SKKAnnotator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -81,7 +81,7 @@
 		1344F59B2C5B28FC00D8C850 /* SKKBaseSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4EE2C5B28FC00D8C850 /* SKKBaseSelector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F59C2C5B28FC00D8C850 /* SKKDictionaryFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4AC2C5B28FC00D8C850 /* SKKDictionaryFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F59D2C5B28FC00D8C850 /* SKKRecursiveEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5002C5B28FC00D8C850 /* SKKRecursiveEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1344F59E2C5B28FC00D8C850 /* utf8util.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F55B2C5B28FC00D8C850 /* utf8util.h */; };
+		1344F59E2C5B28FC00D8C850 /* utf8util.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F55B2C5B28FC00D8C850 /* utf8util.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F59F2C5B28FC00D8C850 /* SKKGadgetDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4C12C5B28FC00D8C850 /* SKKGadgetDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5A02C5B28FC00D8C850 /* SKKEntryRemoveEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4D12C5B28FC00D8C850 /* SKKEntryRemoveEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5A12C5B28FC00D8C850 /* SKKAutoUpdateDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4B52C5B28FC00D8C850 /* SKKAutoUpdateDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -161,17 +161,17 @@
 		134778622C5DB98F007B1DFB /* skk.jisyo in Resources */ = {isa = PBXBuildFile; fileRef = 134778502C5DB98F007B1DFB /* skk.jisyo */; };
 		134778632C5DB98F007B1DFB /* SKK-JISYO.S1 in Resources */ = {isa = PBXBuildFile; fileRef = 134778522C5DB98F007B1DFB /* SKK-JISYO.S1 */; };
 		134778642C5DB98F007B1DFB /* SKK-JISYO.TEST in Resources */ = {isa = PBXBuildFile; fileRef = 134778542C5DB98F007B1DFB /* SKK-JISYO.TEST */; };
-		134A0D272C5B430B003EACF0 /* CompletionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D1C2C5B430B003EACF0 /* CompletionView.h */; };
-		134A0D282C5B430B003EACF0 /* CompletionWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D1E2C5B430B003EACF0 /* CompletionWindow.h */; };
-		134A0D292C5B430B003EACF0 /* MessengerWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D242C5B430B003EACF0 /* MessengerWindow.h */; };
-		134A0D2A2C5B430B003EACF0 /* CandidateCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D142C5B430B003EACF0 /* CandidateCell.h */; };
-		134A0D2B2C5B430B003EACF0 /* CandidatePageIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D162C5B430B003EACF0 /* CandidatePageIndicator.h */; };
-		134A0D2C2C5B430B003EACF0 /* AnnotationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D102C5B430B003EACF0 /* AnnotationView.h */; };
-		134A0D2D2C5B430B003EACF0 /* CandidateView.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D182C5B430B003EACF0 /* CandidateView.h */; };
-		134A0D2E2C5B430B003EACF0 /* AnnotationWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D122C5B430B003EACF0 /* AnnotationWindow.h */; };
-		134A0D2F2C5B430B003EACF0 /* MessengerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D222C5B430B003EACF0 /* MessengerView.h */; };
-		134A0D302C5B430B003EACF0 /* InputModeWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D202C5B430B003EACF0 /* InputModeWindow.h */; };
-		134A0D312C5B430B003EACF0 /* CandidateWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D1A2C5B430B003EACF0 /* CandidateWindow.h */; };
+		134A0D272C5B430B003EACF0 /* CompletionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D1C2C5B430B003EACF0 /* CompletionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		134A0D282C5B430B003EACF0 /* CompletionWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D1E2C5B430B003EACF0 /* CompletionWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		134A0D292C5B430B003EACF0 /* MessengerWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D242C5B430B003EACF0 /* MessengerWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		134A0D2A2C5B430B003EACF0 /* CandidateCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D142C5B430B003EACF0 /* CandidateCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		134A0D2B2C5B430B003EACF0 /* CandidatePageIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D162C5B430B003EACF0 /* CandidatePageIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		134A0D2C2C5B430B003EACF0 /* AnnotationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D102C5B430B003EACF0 /* AnnotationView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		134A0D2D2C5B430B003EACF0 /* CandidateView.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D182C5B430B003EACF0 /* CandidateView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		134A0D2E2C5B430B003EACF0 /* AnnotationWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D122C5B430B003EACF0 /* AnnotationWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		134A0D2F2C5B430B003EACF0 /* MessengerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D222C5B430B003EACF0 /* MessengerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		134A0D302C5B430B003EACF0 /* InputModeWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D202C5B430B003EACF0 /* InputModeWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		134A0D312C5B430B003EACF0 /* CandidateWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D1A2C5B430B003EACF0 /* CandidateWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		134A0D322C5B430B003EACF0 /* AnnotationWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D132C5B430B003EACF0 /* AnnotationWindow.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		134A0D332C5B430B003EACF0 /* CandidateView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D192C5B430B003EACF0 /* CandidateView.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		134A0D342C5B430B003EACF0 /* CompletionWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D1F2C5B430B003EACF0 /* CompletionWindow.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -183,8 +183,8 @@
 		134A0D3A2C5B430B003EACF0 /* InputModeWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D212C5B430B003EACF0 /* InputModeWindow.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		134A0D3B2C5B430B003EACF0 /* MessengerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D232C5B430B003EACF0 /* MessengerView.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		134A0D3C2C5B430B003EACF0 /* CandidatePageIndicator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D172C5B430B003EACF0 /* CandidatePageIndicator.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		135C3D602C5B3E9600661AE3 /* AquaSKKServer.docc in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D5E2C5B3E9600661AE3 /* AquaSKKServer.docc */; };
-		135C3D612C5B3E9600661AE3 /* AquaSKKServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D5D2C5B3E9600661AE3 /* AquaSKKServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135C3D602C5B3E9600661AE3 /* AquaSKKInputMethod.docc in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D5E2C5B3E9600661AE3 /* AquaSKKInputMethod.docc */; };
+		135C3D612C5B3E9600661AE3 /* AquaSKKInputMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D5D2C5B3E9600661AE3 /* AquaSKKInputMethod.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3D672C5B3E9D00661AE3 /* AquaSKKServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D652C5B3E9D00661AE3 /* AquaSKKServerTests.swift */; };
 		135C3D942C5B3F1D00661AE3 /* SKKConstVars.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D832C5B3F1D00661AE3 /* SKKConstVars.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		135C3D952C5B3F1D00661AE3 /* SKKServerProxy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D912C5B3F1D00661AE3 /* SKKServerProxy.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -206,28 +206,28 @@
 		135C3DA52C5B3F1D00661AE3 /* SKKServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D8F2C5B3F1D00661AE3 /* SKKServer.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		135C3DA72C5B3F1D00661AE3 /* MacAnnotator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D6B2C5B3F1D00661AE3 /* MacAnnotator.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		135C3DA82C5B3F1D00661AE3 /* MacInputModeMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D772C5B3F1D00661AE3 /* MacInputModeMenu.mm */; };
-		135C3DA92C5B3F1D00661AE3 /* MacInputSessionParameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D7A2C5B3F1D00661AE3 /* MacInputSessionParameter.h */; };
+		135C3DA92C5B3F1D00661AE3 /* MacInputSessionParameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D7A2C5B3F1D00661AE3 /* MacInputSessionParameter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DAA2C5B3F1D00661AE3 /* ObjCUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D812C5B3F1D00661AE3 /* ObjCUtil.h */; };
-		135C3DAB2C5B3F1D00661AE3 /* MacClipboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D6E2C5B3F1D00661AE3 /* MacClipboard.h */; };
-		135C3DAC2C5B3F1D00661AE3 /* MacKotoeriDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D7C2C5B3F1D00661AE3 /* MacKotoeriDictionary.h */; };
-		135C3DAD2C5B3F1D00661AE3 /* MacConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D702C5B3F1D00661AE3 /* MacConfig.h */; };
-		135C3DAE2C5B3F1D00661AE3 /* SKKSupervisor.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D922C5B3F1D00661AE3 /* SKKSupervisor.h */; };
-		135C3DAF2C5B3F1D00661AE3 /* SKKInputMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D862C5B3F1D00661AE3 /* SKKInputMenu.h */; };
-		135C3DB02C5B3F1D00661AE3 /* MacInputModeMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D762C5B3F1D00661AE3 /* MacInputModeMenu.h */; };
-		135C3DB12C5B3F1D00661AE3 /* SKKServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D8E2C5B3F1D00661AE3 /* SKKServer.h */; };
-		135C3DB22C5B3F1D00661AE3 /* SKKServerProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D902C5B3F1D00661AE3 /* SKKServerProxy.h */; };
-		135C3DB32C5B3F1D00661AE3 /* MacMessenger.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D7E2C5B3F1D00661AE3 /* MacMessenger.h */; };
-		135C3DB42C5B3F1D00661AE3 /* MacAnnotator.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D6A2C5B3F1D00661AE3 /* MacAnnotator.h */; };
-		135C3DB52C5B3F1D00661AE3 /* SKKLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D882C5B3F1D00661AE3 /* SKKLayoutManager.h */; };
-		135C3DB62C5B3F1D00661AE3 /* SKKPythonRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D8C2C5B3F1D00661AE3 /* SKKPythonRunner.h */; };
-		135C3DB72C5B3F1D00661AE3 /* MacCandidateWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D6C2C5B3F1D00661AE3 /* MacCandidateWindow.h */; };
-		135C3DB82C5B3F1D00661AE3 /* SKKInputController.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D842C5B3F1D00661AE3 /* SKKInputController.h */; };
-		135C3DB92C5B3F1D00661AE3 /* MacInputModeWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D782C5B3F1D00661AE3 /* MacInputModeWindow.h */; };
-		135C3DBA2C5B3F1D00661AE3 /* BlacklistApps.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D682C5B3F1D00661AE3 /* BlacklistApps.h */; };
-		135C3DBB2C5B3F1D00661AE3 /* MacDynamicCompletor.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D722C5B3F1D00661AE3 /* MacDynamicCompletor.h */; };
-		135C3DBC2C5B3F1D00661AE3 /* SKKConstVars.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D822C5B3F1D00661AE3 /* SKKConstVars.h */; };
-		135C3DBD2C5B3F1D00661AE3 /* MacFrontEnd.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D742C5B3F1D00661AE3 /* MacFrontEnd.h */; };
-		135C3DBE2C5B3F1D00661AE3 /* SKKPreProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D8A2C5B3F1D00661AE3 /* SKKPreProcessor.h */; };
+		135C3DAB2C5B3F1D00661AE3 /* MacClipboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D6E2C5B3F1D00661AE3 /* MacClipboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135C3DAC2C5B3F1D00661AE3 /* MacKotoeriDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D7C2C5B3F1D00661AE3 /* MacKotoeriDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135C3DAD2C5B3F1D00661AE3 /* MacConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D702C5B3F1D00661AE3 /* MacConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135C3DAE2C5B3F1D00661AE3 /* SKKSupervisor.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D922C5B3F1D00661AE3 /* SKKSupervisor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135C3DAF2C5B3F1D00661AE3 /* SKKInputMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D862C5B3F1D00661AE3 /* SKKInputMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135C3DB02C5B3F1D00661AE3 /* MacInputModeMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D762C5B3F1D00661AE3 /* MacInputModeMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135C3DB12C5B3F1D00661AE3 /* SKKServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D8E2C5B3F1D00661AE3 /* SKKServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135C3DB22C5B3F1D00661AE3 /* SKKServerProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D902C5B3F1D00661AE3 /* SKKServerProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135C3DB32C5B3F1D00661AE3 /* MacMessenger.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D7E2C5B3F1D00661AE3 /* MacMessenger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135C3DB42C5B3F1D00661AE3 /* MacAnnotator.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D6A2C5B3F1D00661AE3 /* MacAnnotator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135C3DB52C5B3F1D00661AE3 /* SKKLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D882C5B3F1D00661AE3 /* SKKLayoutManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135C3DB62C5B3F1D00661AE3 /* SKKPythonRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D8C2C5B3F1D00661AE3 /* SKKPythonRunner.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135C3DB72C5B3F1D00661AE3 /* MacCandidateWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D6C2C5B3F1D00661AE3 /* MacCandidateWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135C3DB82C5B3F1D00661AE3 /* SKKInputController.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D842C5B3F1D00661AE3 /* SKKInputController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135C3DB92C5B3F1D00661AE3 /* MacInputModeWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D782C5B3F1D00661AE3 /* MacInputModeWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135C3DBA2C5B3F1D00661AE3 /* BlacklistApps.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D682C5B3F1D00661AE3 /* BlacklistApps.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135C3DBB2C5B3F1D00661AE3 /* MacDynamicCompletor.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D722C5B3F1D00661AE3 /* MacDynamicCompletor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135C3DBC2C5B3F1D00661AE3 /* SKKConstVars.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D822C5B3F1D00661AE3 /* SKKConstVars.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135C3DBD2C5B3F1D00661AE3 /* MacFrontEnd.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D742C5B3F1D00661AE3 /* MacFrontEnd.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135C3DBE2C5B3F1D00661AE3 /* SKKPreProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D8A2C5B3F1D00661AE3 /* SKKPreProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1371A74F2C5B5D0300E06348 /* DictionarySet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74D2C5B5D0300E06348 /* DictionarySet.plist */; };
 		1371A7502C5B5D0300E06348 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74E2C5B5D0300E06348 /* UserDefaults.plist */; };
 		1371A7512C5B5D0300E06348 /* BlacklistApps.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74C2C5B5D0300E06348 /* BlacklistApps.plist */; };
@@ -359,8 +359,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1307C2332C5B471300B089B6 /* AquaSKKServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AquaSKKServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1307C2342C5B471300B089B6 /* AquaSKKServerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AquaSKKServerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1307C2332C5B471300B089B6 /* AquaSKKInputMethod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AquaSKKInputMethod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1307C2342C5B471300B089B6 /* InputMethodTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InputMethodTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1307C2392C5B47D800B089B6 /* AquaSKK_Preferences.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AquaSKK_Preferences.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1307C23B2C5B47D800B089B6 /* AquaSKK_PreferencesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKK_PreferencesApp.swift; sourceTree = "<group>"; };
 		1307C23D2C5B47D800B089B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -594,8 +594,8 @@
 		134A0D232C5B430B003EACF0 /* MessengerView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MessengerView.mm; sourceTree = "<group>"; };
 		134A0D242C5B430B003EACF0 /* MessengerWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessengerWindow.h; sourceTree = "<group>"; };
 		134A0D252C5B430B003EACF0 /* MessengerWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MessengerWindow.mm; sourceTree = "<group>"; };
-		135C3D5D2C5B3E9600661AE3 /* AquaSKKServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKServer.h; sourceTree = "<group>"; };
-		135C3D5E2C5B3E9600661AE3 /* AquaSKKServer.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKServer.docc; sourceTree = "<group>"; };
+		135C3D5D2C5B3E9600661AE3 /* AquaSKKInputMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKInputMethod.h; sourceTree = "<group>"; };
+		135C3D5E2C5B3E9600661AE3 /* AquaSKKInputMethod.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKInputMethod.docc; sourceTree = "<group>"; };
 		135C3D652C5B3E9D00661AE3 /* AquaSKKServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKKServerTests.swift; sourceTree = "<group>"; };
 		135C3D682C5B3F1D00661AE3 /* BlacklistApps.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlacklistApps.h; sourceTree = "<group>"; };
 		135C3D692C5B3F1D00661AE3 /* BlacklistApps.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlacklistApps.m; sourceTree = "<group>"; };
@@ -640,7 +640,7 @@
 		135C3D902C5B3F1D00661AE3 /* SKKServerProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKServerProxy.h; sourceTree = "<group>"; };
 		135C3D912C5B3F1D00661AE3 /* SKKServerProxy.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKServerProxy.mm; sourceTree = "<group>"; };
 		135C3D922C5B3F1D00661AE3 /* SKKSupervisor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKSupervisor.h; sourceTree = "<group>"; };
-		135C3DBF2C5B3FEC00661AE3 /* Server.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Server.xcconfig; sourceTree = "<group>"; };
+		135C3DBF2C5B3FEC00661AE3 /* InputMethod.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = InputMethod.xcconfig; sourceTree = "<group>"; };
 		1371A74C2C5B5D0300E06348 /* BlacklistApps.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BlacklistApps.plist; sourceTree = "<group>"; };
 		1371A74D2C5B5D0300E06348 /* DictionarySet.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DictionarySet.plist; sourceTree = "<group>"; };
 		1371A74E2C5B5D0300E06348 /* UserDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
@@ -697,16 +697,17 @@
 		137D05A32C5B5AFC009AC591 /* AquaSKKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AquaSKKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		137D05A42C5B5AFC009AC591 /* AquaSKKUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AquaSKKUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		138F45102C5CA19D000B03FC /* Engine.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Engine.xcconfig; sourceTree = "<group>"; };
-		138F45112C5CA1B6000B03FC /* ServerTesting.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ServerTesting.xcconfig; sourceTree = "<group>"; };
+		138F45112C5CA1B6000B03FC /* InputMethodTesting.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = InputMethodTesting.xcconfig; sourceTree = "<group>"; };
 		138F45122C5CA1D7000B03FC /* AquaSKKTesting.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AquaSKKTesting.xcconfig; sourceTree = "<group>"; };
 		138F45132C5CA1F2000B03FC /* AquaSKKTestingUI.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AquaSKKTestingUI.xcconfig; sourceTree = "<group>"; };
-		138F45142C5CA2C7000B03FC /* Swift.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Swift.xctestplan; sourceTree = "<group>"; };
 		138F45162C5CA2F8000B03FC /* Testing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Testing.xcconfig; sourceTree = "<group>"; };
 		13931D0C2C5B49C200B11EEE /* PreferencesAppTesting.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PreferencesAppTesting.xcconfig; sourceTree = "<group>"; };
 		13931D0D2C5B4B5000B11EEE /* PreferenecsAppTestingUI.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PreferenecsAppTestingUI.xcconfig; sourceTree = "<group>"; };
 		13931D0E2C5B4C6B00B11EEE /* EngineTesting.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = EngineTesting.xcconfig; sourceTree = "<group>"; };
 		13931D0F2C5B4C9D00B11EEE /* UITesting.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UITesting.xctestplan; sourceTree = "<group>"; };
-		13CEB8272C5DBE050052B7ED /* Engine.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = Engine.xctestplan; path = Tests/Plans/Engine.xctestplan; sourceTree = "<group>"; };
+		13CEB8272C5DBE050052B7ED /* Engine.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Engine.xctestplan; sourceTree = "<group>"; };
+		13CEB8292C5DC48E0052B7ED /* Cpp.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Cpp.xcconfig; sourceTree = "<group>"; };
+		13CEB82A2C5DC77A0052B7ED /* InputMethod.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = InputMethod.xctestplan; sourceTree = "<group>"; };
 		13D756162C5A9049006144F2 /* AquaSKKEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKEngine.h; sourceTree = "<group>"; };
 		13D756172C5A9049006144F2 /* AquaSKKEngine.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKEngine.docc; sourceTree = "<group>"; };
 		13D7561B2C5A905E006144F2 /* All.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = All.xcconfig; sourceTree = "<group>"; };
@@ -849,11 +850,11 @@
 		1320D90B2C5B4E5C002DE997 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1307C2342C5B471300B089B6 /* AquaSKKServerTests.xctest */,
+				1307C2342C5B471300B089B6 /* InputMethodTests.xctest */,
 				1307C2392C5B47D800B089B6 /* AquaSKK_Preferences.app */,
 				1307C2642C5B48B500B089B6 /* AquaSKKEngine.framework */,
 				1307C2662C5B48B500B089B6 /* EngineTests.xctest */,
-				1307C2332C5B471300B089B6 /* AquaSKKServer.framework */,
+				1307C2332C5B471300B089B6 /* AquaSKKInputMethod.framework */,
 				137D05752C5B5A81009AC591 /* AquaSKK.app */,
 				137D05A12C5B5AFC009AC591 /* AquaSKK_PreferencesTests.xctest */,
 				137D05A22C5B5AFC009AC591 /* AquaSKK_PreferencesUITests.xctest */,
@@ -975,13 +976,6 @@
 			path = selector;
 			sourceTree = "<group>";
 		};
-		1344F4942C5A92D300D8C850 /* AquaSKKEngineTests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AquaSKKEngineTests;
-			sourceTree = "<group>";
-		};
 		1344F4972C5B27DB00D8C850 /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -996,8 +990,8 @@
 				13931D0C2C5B49C200B11EEE /* PreferencesAppTesting.xcconfig */,
 				1307C2672C5B48D600B089B6 /* PreferenecesApp.xcconfig */,
 				13931D0D2C5B4B5000B11EEE /* PreferenecsAppTestingUI.xcconfig */,
-				135C3DBF2C5B3FEC00661AE3 /* Server.xcconfig */,
-				138F45112C5CA1B6000B03FC /* ServerTesting.xcconfig */,
+				135C3DBF2C5B3FEC00661AE3 /* InputMethod.xcconfig */,
+				138F45112C5CA1B6000B03FC /* InputMethodTesting.xcconfig */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -1007,8 +1001,7 @@
 			children = (
 				1307C24C2C5B47DA00B089B6 /* AquaSKK-PreferencesTests */,
 				1307C2562C5B47DA00B089B6 /* AquaSKK-PreferencesUITests */,
-				1344F4942C5A92D300D8C850 /* AquaSKKEngineTests */,
-				135C3D662C5B3E9D00661AE3 /* AquaSKKServerTests */,
+				135C3D662C5B3E9D00661AE3 /* InputMethodTests */,
 				137D05882C5B5A83009AC591 /* AquaSKKTests */,
 				137D05922C5B5A83009AC591 /* AquaSKKUITests */,
 				1344F6202C5B2C9C00D8C850 /* EngineTests */,
@@ -1021,7 +1014,7 @@
 			isa = PBXGroup;
 			children = (
 				1307C23A2C5B47D800B089B6 /* AquaSKK-Preferences */,
-				135C3D5F2C5B3E9600661AE3 /* AquaSKKServer */,
+				135C3D5F2C5B3E9600661AE3 /* InputMethod */,
 				137D05762C5B5A81009AC591 /* AquaSKK */,
 				13D756182C5A9049006144F2 /* Engine */,
 			);
@@ -1336,23 +1329,23 @@
 			path = gui;
 			sourceTree = "<group>";
 		};
-		135C3D5F2C5B3E9600661AE3 /* AquaSKKServer */ = {
+		135C3D5F2C5B3E9600661AE3 /* InputMethod */ = {
 			isa = PBXGroup;
 			children = (
-				135C3D5D2C5B3E9600661AE3 /* AquaSKKServer.h */,
+				135C3D5D2C5B3E9600661AE3 /* AquaSKKInputMethod.h */,
 				134A0D262C5B430B003EACF0 /* gui */,
 				135C3D932C5B3F1D00661AE3 /* server */,
-				135C3D5E2C5B3E9600661AE3 /* AquaSKKServer.docc */,
+				135C3D5E2C5B3E9600661AE3 /* AquaSKKInputMethod.docc */,
 			);
-			path = AquaSKKServer;
+			path = InputMethod;
 			sourceTree = "<group>";
 		};
-		135C3D662C5B3E9D00661AE3 /* AquaSKKServerTests */ = {
+		135C3D662C5B3E9D00661AE3 /* InputMethodTests */ = {
 			isa = PBXGroup;
 			children = (
 				135C3D652C5B3E9D00661AE3 /* AquaSKKServerTests.swift */,
 			);
-			path = AquaSKKServerTests;
+			path = InputMethodTests;
 			sourceTree = "<group>";
 		};
 		135C3D932C5B3F1D00661AE3 /* server */ = {
@@ -1528,6 +1521,7 @@
 			isa = PBXGroup;
 			children = (
 				138F45162C5CA2F8000B03FC /* Testing.xcconfig */,
+				13CEB8292C5DC48E0052B7ED /* Cpp.xcconfig */,
 			);
 			path = Include;
 			sourceTree = "<group>";
@@ -1537,7 +1531,8 @@
 			children = (
 				13931D0F2C5B4C9D00B11EEE /* UITesting.xctestplan */,
 				1379C0172C5B4CF900AACFDF /* UnitTesting.xctestplan */,
-				138F45142C5CA2C7000B03FC /* Swift.xctestplan */,
+				13CEB8272C5DBE050052B7ED /* Engine.xctestplan */,
+				13CEB82A2C5DC77A0052B7ED /* InputMethod.xctestplan */,
 			);
 			path = Plans;
 			sourceTree = "<group>";
@@ -1545,7 +1540,6 @@
 		13D368102C5A81290083CAE3 = {
 			isa = PBXGroup;
 			children = (
-				13CEB8272C5DBE050052B7ED /* Engine.xctestplan */,
 				133A551A2C5DB0790047E911 /* README.md */,
 				1344F4972C5B27DB00D8C850 /* Config */,
 				1344F49B2C5B284C00D8C850 /* Sources */,
@@ -1625,7 +1619,7 @@
 				135C3DBC2C5B3F1D00661AE3 /* SKKConstVars.h in Headers */,
 				135C3DBD2C5B3F1D00661AE3 /* MacFrontEnd.h in Headers */,
 				135C3DBE2C5B3F1D00661AE3 /* SKKPreProcessor.h in Headers */,
-				135C3D612C5B3E9600661AE3 /* AquaSKKServer.h in Headers */,
+				135C3D612C5B3E9600661AE3 /* AquaSKKInputMethod.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1797,9 +1791,9 @@
 			productReference = 1307C2662C5B48B500B089B6 /* EngineTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		135C3D442C5B3E8F00661AE3 /* AquaSKKServer */ = {
+		135C3D442C5B3E8F00661AE3 /* AquaSKKInputMethod */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 135C3D572C5B3E8F00661AE3 /* Build configuration list for PBXNativeTarget "AquaSKKServer" */;
+			buildConfigurationList = 135C3D572C5B3E8F00661AE3 /* Build configuration list for PBXNativeTarget "AquaSKKInputMethod" */;
 			buildPhases = (
 				135C3D402C5B3E8F00661AE3 /* Headers */,
 				135C3D412C5B3E8F00661AE3 /* Sources */,
@@ -1810,16 +1804,16 @@
 			);
 			dependencies = (
 			);
-			name = AquaSKKServer;
+			name = AquaSKKInputMethod;
 			packageProductDependencies = (
 			);
 			productName = AquaSKKServer;
-			productReference = 1307C2332C5B471300B089B6 /* AquaSKKServer.framework */;
+			productReference = 1307C2332C5B471300B089B6 /* AquaSKKInputMethod.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		135C3D4D2C5B3E8F00661AE3 /* AquaSKKServerTests */ = {
+		135C3D4D2C5B3E8F00661AE3 /* InputMethodTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 135C3D5A2C5B3E8F00661AE3 /* Build configuration list for PBXNativeTarget "AquaSKKServerTests" */;
+			buildConfigurationList = 135C3D5A2C5B3E8F00661AE3 /* Build configuration list for PBXNativeTarget "InputMethodTests" */;
 			buildPhases = (
 				135C3D4A2C5B3E8F00661AE3 /* Sources */,
 				135C3D4B2C5B3E8F00661AE3 /* Frameworks */,
@@ -1830,11 +1824,11 @@
 			dependencies = (
 				135C3D512C5B3E8F00661AE3 /* PBXTargetDependency */,
 			);
-			name = AquaSKKServerTests;
+			name = InputMethodTests;
 			packageProductDependencies = (
 			);
 			productName = AquaSKKServerTests;
-			productReference = 1307C2342C5B471300B089B6 /* AquaSKKServerTests.xctest */;
+			productReference = 1307C2342C5B471300B089B6 /* InputMethodTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		137D05742C5B5A81009AC591 /* AquaSKK */ = {
@@ -1972,8 +1966,8 @@
 			targets = (
 				13D7560A2C5A9043006144F2 /* AquaSKKEngine */,
 				1344F6142C5B2C9500D8C850 /* EngineTests */,
-				135C3D442C5B3E8F00661AE3 /* AquaSKKServer */,
-				135C3D4D2C5B3E8F00661AE3 /* AquaSKKServerTests */,
+				135C3D442C5B3E8F00661AE3 /* AquaSKKInputMethod */,
+				135C3D4D2C5B3E8F00661AE3 /* InputMethodTests */,
 				1307C2382C5B47D800B089B6 /* AquaSKK-Preferences */,
 				1307C2482C5B47DA00B089B6 /* AquaSKK-PreferencesTests */,
 				1307C2522C5B47DA00B089B6 /* AquaSKK-PreferencesUITests */,
@@ -2220,7 +2214,7 @@
 				135C3DA52C5B3F1D00661AE3 /* SKKServer.mm in Sources */,
 				135C3DA72C5B3F1D00661AE3 /* MacAnnotator.mm in Sources */,
 				135C3DA82C5B3F1D00661AE3 /* MacInputModeMenu.mm in Sources */,
-				135C3D602C5B3E9600661AE3 /* AquaSKKServer.docc in Sources */,
+				135C3D602C5B3E9600661AE3 /* AquaSKKInputMethod.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2326,7 +2320,7 @@
 		};
 		135C3D512C5B3E8F00661AE3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 135C3D442C5B3E8F00661AE3 /* AquaSKKServer */;
+			target = 135C3D442C5B3E8F00661AE3 /* AquaSKKInputMethod */;
 			targetProxy = 135C3D502C5B3E8F00661AE3 /* PBXContainerItemProxy */;
 		};
 		137D05872C5B5A83009AC591 /* PBXTargetDependency */ = {
@@ -2409,28 +2403,28 @@
 		};
 		135C3D582C5B3E8F00661AE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 135C3DBF2C5B3FEC00661AE3 /* Server.xcconfig */;
+			baseConfigurationReference = 135C3DBF2C5B3FEC00661AE3 /* InputMethod.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		135C3D592C5B3E8F00661AE3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 135C3DBF2C5B3FEC00661AE3 /* Server.xcconfig */;
+			baseConfigurationReference = 135C3DBF2C5B3FEC00661AE3 /* InputMethod.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
 		};
 		135C3D5B2C5B3E8F00661AE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 138F45112C5CA1B6000B03FC /* ServerTesting.xcconfig */;
+			baseConfigurationReference = 138F45112C5CA1B6000B03FC /* InputMethodTesting.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		135C3D5C2C5B3E8F00661AE3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 138F45112C5CA1B6000B03FC /* ServerTesting.xcconfig */;
+			baseConfigurationReference = 138F45112C5CA1B6000B03FC /* InputMethodTesting.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
@@ -2548,7 +2542,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		135C3D572C5B3E8F00661AE3 /* Build configuration list for PBXNativeTarget "AquaSKKServer" */ = {
+		135C3D572C5B3E8F00661AE3 /* Build configuration list for PBXNativeTarget "AquaSKKInputMethod" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				135C3D582C5B3E8F00661AE3 /* Debug */,
@@ -2557,7 +2551,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		135C3D5A2C5B3E8F00661AE3 /* Build configuration list for PBXNativeTarget "AquaSKKServerTests" */ = {
+		135C3D5A2C5B3E8F00661AE3 /* Build configuration list for PBXNativeTarget "InputMethodTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				135C3D5B2C5B3E8F00661AE3 /* Debug */,

@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "B5AEBDCA-4346-4D31-A783-DB077E64F655",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:AquaSKK.xcodeproj",
+        "identifier" : "135C3D4D2C5B3E8F00661AE3",
+        "name" : "InputMethodTests"
+      }
+    }
+  ],
+  "version" : 1
+}

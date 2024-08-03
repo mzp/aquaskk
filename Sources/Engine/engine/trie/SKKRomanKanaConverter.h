@@ -24,7 +24,7 @@
 #define SKKRomanKanaConverter_h
 
 #include <string>
-#include "SKKTrie.h"
+#import <AquaSKKEngine/SKKTrie.h>
 #import <AquaSKKEngine/SKKInputMode.h>
 
 // 変換結果
