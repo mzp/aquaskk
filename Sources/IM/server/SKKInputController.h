@@ -43,6 +43,9 @@ class MacInputModeWindow;
     SKKInputSession* session_;
     MacInputModeWindow* modeIcon_;
 }
+
+// TODO: Mark as testing only
+- (nonnull instancetype)initWithClient:(nonnull id<IMKTextInput, NSObject>)client;
 @end
 
 #endif

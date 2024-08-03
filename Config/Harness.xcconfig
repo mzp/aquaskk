@@ -1,0 +1,16 @@
+//
+//  Harness.xcconfig
+//  AquaSKK
+//
+//  Created by mzp on 8/2/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "./Include/Cpp.xcconfig"
+
+CODE_SIGN_ENTITLEMENTS = Tests/Harness/Harness.entitlements
+DEVELOPMENT_ASSET_PATHS = "Tests/Harness/Preview Content"
+
+OTHER_LDFLAGS = -framework AquaSKKIM

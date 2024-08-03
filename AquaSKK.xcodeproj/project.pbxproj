@@ -183,6 +183,11 @@
 		134A0D3A2C5B430B003EACF0 /* InputModeWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D212C5B430B003EACF0 /* InputModeWindow.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		134A0D3B2C5B430B003EACF0 /* MessengerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D232C5B430B003EACF0 /* MessengerView.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		134A0D3C2C5B430B003EACF0 /* CandidatePageIndicator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D172C5B430B003EACF0 /* CandidatePageIndicator.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1352C9DF2C5DF8160056261D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1352C9D82C5DF8160056261D /* Preview Assets.xcassets */; };
+		1352C9E02C5DF8160056261D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1352C9DA2C5DF8160056261D /* Assets.xcassets */; };
+		1352C9E12C5DF8160056261D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1352C9DB2C5DF8160056261D /* ContentView.swift */; };
+		1352C9E22C5DF8160056261D /* HarnessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1352C9DD2C5DF8160056261D /* HarnessApp.swift */; };
+		1352C9E52C5DF9510056261D /* IMBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1352C9E42C5DF9510056261D /* IMBridge.swift */; };
 		135C3D602C5B3E9600661AE3 /* AquaSKKIM.docc in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D5E2C5B3E9600661AE3 /* AquaSKKIM.docc */; };
 		135C3D612C5B3E9600661AE3 /* AquaSKKIM.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D5D2C5B3E9600661AE3 /* AquaSKKIM.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3D672C5B3E9D00661AE3 /* AquaSKKServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D652C5B3E9D00661AE3 /* AquaSKKServerTests.swift */; };
@@ -594,6 +599,14 @@
 		134A0D232C5B430B003EACF0 /* MessengerView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MessengerView.mm; sourceTree = "<group>"; };
 		134A0D242C5B430B003EACF0 /* MessengerWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessengerWindow.h; sourceTree = "<group>"; };
 		134A0D252C5B430B003EACF0 /* MessengerWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MessengerWindow.mm; sourceTree = "<group>"; };
+		1352C9C82C5DF80D0056261D /* Harness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Harness.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1352C9D82C5DF8160056261D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1352C9DA2C5DF8160056261D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1352C9DB2C5DF8160056261D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1352C9DC2C5DF8160056261D /* Harness.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Harness.entitlements; sourceTree = "<group>"; };
+		1352C9DD2C5DF8160056261D /* HarnessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarnessApp.swift; sourceTree = "<group>"; };
+		1352C9E32C5DF8330056261D /* Harness.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Harness.xcconfig; sourceTree = "<group>"; };
+		1352C9E42C5DF9510056261D /* IMBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMBridge.swift; sourceTree = "<group>"; };
 		135C3D5D2C5B3E9600661AE3 /* AquaSKKIM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKIM.h; sourceTree = "<group>"; };
 		135C3D5E2C5B3E9600661AE3 /* AquaSKKIM.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKIM.docc; sourceTree = "<group>"; };
 		135C3D652C5B3E9D00661AE3 /* AquaSKKServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKKServerTests.swift; sourceTree = "<group>"; };
@@ -738,6 +751,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		1344F6122C5B2C9500D8C850 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1352C9C52C5DF80D0056261D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -994,6 +1014,7 @@
 				13931D0D2C5B4B5000B11EEE /* PreferenecesUITests.xcconfig */,
 				135C3DBF2C5B3FEC00661AE3 /* IM.xcconfig */,
 				138F45112C5CA1B6000B03FC /* IMTests.xcconfig */,
+				1352C9E32C5DF8330056261D /* Harness.xcconfig */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -1007,6 +1028,7 @@
 				135C3D662C5B3E9D00661AE3 /* IMTests */,
 				1307C24C2C5B47DA00B089B6 /* PreferencesTests */,
 				1307C2562C5B47DA00B089B6 /* PreferencesUITests */,
+				1352C9DE2C5DF8160056261D /* Harness */,
 				13931D102C5B4CC000B11EEE /* Plans */,
 			);
 			path = Tests;
@@ -1331,6 +1353,27 @@
 			path = gui;
 			sourceTree = "<group>";
 		};
+		1352C9D92C5DF8160056261D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1352C9D82C5DF8160056261D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1352C9DE2C5DF8160056261D /* Harness */ = {
+			isa = PBXGroup;
+			children = (
+				1352C9D92C5DF8160056261D /* Preview Content */,
+				1352C9DA2C5DF8160056261D /* Assets.xcassets */,
+				1352C9DB2C5DF8160056261D /* ContentView.swift */,
+				1352C9E42C5DF9510056261D /* IMBridge.swift */,
+				1352C9DC2C5DF8160056261D /* Harness.entitlements */,
+				1352C9DD2C5DF8160056261D /* HarnessApp.swift */,
+			);
+			path = Harness;
+			sourceTree = "<group>";
+		};
 		135C3D5F2C5B3E9600661AE3 /* IM */ = {
 			isa = PBXGroup;
 			children = (
@@ -1550,6 +1593,7 @@
 				133A55182C5DA7910047E911 /* .swift-version */,
 				133A55192C5DA7910047E911 /* .swiftformat */,
 				1320D90B2C5B4E5C002DE997 /* Products */,
+				1352C9C82C5DF80D0056261D /* Harness.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1793,6 +1837,25 @@
 			productReference = 1307C2662C5B48B500B089B6 /* CoreTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		1352C9C72C5DF80D0056261D /* Harness */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1352C9D72C5DF80E0056261D /* Build configuration list for PBXNativeTarget "Harness" */;
+			buildPhases = (
+				1352C9C42C5DF80D0056261D /* Sources */,
+				1352C9C52C5DF80D0056261D /* Frameworks */,
+				1352C9C62C5DF80D0056261D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Harness;
+			packageProductDependencies = (
+			);
+			productName = Harness;
+			productReference = 1352C9C82C5DF80D0056261D /* Harness.app */;
+			productType = "com.apple.product-type.application";
+		};
 		135C3D442C5B3E8F00661AE3 /* AquaSKKIM */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 135C3D572C5B3E8F00661AE3 /* Build configuration list for PBXNativeTarget "AquaSKKIM" */;
@@ -1931,6 +1994,9 @@
 					1344F6142C5B2C9500D8C850 = {
 						CreatedOnToolsVersion = 16.0;
 					};
+					1352C9C72C5DF80D0056261D = {
+						CreatedOnToolsVersion = 16.0;
+					};
 					135C3D442C5B3E8F00661AE3 = {
 						CreatedOnToolsVersion = 16.0;
 					};
@@ -1976,6 +2042,7 @@
 				137D05742C5B5A81009AC591 /* AquaSKK */,
 				137D05842C5B5A83009AC591 /* AquaSKKTests */,
 				137D058E2C5B5A83009AC591 /* AquaSKKUITests */,
+				1352C9C72C5DF80D0056261D /* Harness */,
 			);
 		};
 /* End PBXProject section */
@@ -2020,6 +2087,15 @@
 				134778622C5DB98F007B1DFB /* skk.jisyo in Resources */,
 				134778632C5DB98F007B1DFB /* SKK-JISYO.S1 in Resources */,
 				134778642C5DB98F007B1DFB /* SKK-JISYO.TEST in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1352C9C62C5DF80D0056261D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1352C9DF2C5DF8160056261D /* Preview Assets.xcassets in Resources */,
+				1352C9E02C5DF8160056261D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2178,6 +2254,16 @@
 				13EDDCF12C5B395B0062A0DA /* SKKSelector_TEST.mm in Sources */,
 				13EDDCF22C5B395B0062A0DA /* SKKInputQueue_TEST.mm in Sources */,
 				13EDDCF32C5B395B0062A0DA /* SKKInputSession_TEST.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1352C9C42C5DF80D0056261D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1352C9E12C5DF8160056261D /* ContentView.swift in Sources */,
+				1352C9E52C5DF9510056261D /* IMBridge.swift in Sources */,
+				1352C9E22C5DF8160056261D /* HarnessApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2399,6 +2485,27 @@
 		1344F61E2C5B2C9500D8C850 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13931D0E2C5B4C6B00B11EEE /* CoreTests.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		1352C9D42C5DF80E0056261D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1352C9E32C5DF8330056261D /* Harness.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		1352C9D52C5DF80E0056261D /* Testing */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1352C9E32C5DF8330056261D /* Harness.xcconfig */;
+			buildSettings = {
+			};
+			name = Testing;
+		};
+		1352C9D62C5DF80E0056261D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1352C9E32C5DF8330056261D /* Harness.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
@@ -2625,6 +2732,16 @@
 				1344F61D2C5B2C9500D8C850 /* Debug */,
 				138B31962C5DD3F6006424E0 /* Testing */,
 				1344F61E2C5B2C9500D8C850 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1352C9D72C5DF80E0056261D /* Build configuration list for PBXNativeTarget "Harness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1352C9D42C5DF80E0056261D /* Debug */,
+				1352C9D52C5DF80E0056261D /* Testing */,
+				1352C9D62C5DF80E0056261D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

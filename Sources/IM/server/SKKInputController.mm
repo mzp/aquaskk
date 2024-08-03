@@ -52,24 +52,38 @@
 
 @implementation SKKInputController
 
-- (id)initWithServer:(id)server delegate:(id)delegate client:(id)client {
-    self = [super initWithServer:server delegate:delegate client:client];
+- (instancetype)initWithClient:(id)client
+{
+    self = [super init];
     if(self) {
-        client_ = [client retain];
-        context_ = [[NSTextInputContext alloc] initWithClient:client];
-        activated_ = NO;
-        proxy_ = [[SKKServerProxy alloc] init];
-        menu_ = [[SKKInputMenu alloc] initWithClient:client];
-
-        layout_ = new SKKLayoutManager(client_);
-        session_ = new SKKInputSession(new MacInputSessionParameter(client_, layout_));
-        modeIcon_ = new MacInputModeWindow(layout_);
-
-        session_->AddInputModeListener(new MacInputModeMenu(menu_));
-        session_->AddInputModeListener(modeIcon_);
+        [self commonInit:client];
     }
 
     return self;
+}
+
+- (id)initWithServer:(id)server delegate:(id)delegate client:(id)client {
+    self = [super initWithServer:server delegate:delegate client:client];
+    if(self) {
+        [self commonInit:client];
+    }
+
+    return self;
+}
+
+- (void)commonInit:(id)client {
+    client_ = [client retain];
+    context_ = [[NSTextInputContext alloc] initWithClient:client];
+    activated_ = NO;
+    proxy_ = [[SKKServerProxy alloc] init];
+    menu_ = [[SKKInputMenu alloc] initWithClient:client];
+
+    layout_ = new SKKLayoutManager(client_);
+    session_ = new SKKInputSession(new MacInputSessionParameter(client_, layout_));
+    modeIcon_ = new MacInputModeWindow(layout_);
+
+    session_->AddInputModeListener(new MacInputModeMenu(menu_));
+    session_->AddInputModeListener(modeIcon_);
 }
 
 - (void)dealloc {
