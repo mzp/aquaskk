@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "71807D6D-CF2A-410B-BF9A-CE07DD1B586E",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:AquaSKK.xcodeproj",
+        "identifier" : "137D05842C5B5A83009AC591",
+        "name" : "AquaSKKTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:AquaSKK.xcodeproj",
+        "identifier" : "137D058E2C5B5A83009AC591",
+        "name" : "AquaSKKUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
