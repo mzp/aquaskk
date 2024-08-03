@@ -45,7 +45,7 @@ class MacInputModeWindow;
 }
 
 // TODO: Mark as testing only
-- (nonnull instancetype)initWithClient:(nonnull id<IMKTextInput, NSObject>)client;
+- (void)_setClient:(id)client;
 @end
 
 #endif

@@ -36,6 +36,9 @@
     class skkserv* skkserv_;
 }
 
+// TODO: Mark testing only
+- (void)_start;
+
 @end
 
 #endif

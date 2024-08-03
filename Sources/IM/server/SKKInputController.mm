@@ -52,26 +52,16 @@
 
 @implementation SKKInputController
 
-- (instancetype)initWithClient:(id)client
-{
-    self = [super init];
-    if(self) {
-        [self commonInit:client];
-    }
-
-    return self;
-}
-
 - (id)initWithServer:(id)server delegate:(id)delegate client:(id)client {
     self = [super initWithServer:server delegate:delegate client:client];
     if(self) {
-        [self commonInit:client];
+        [self setClient:client];
     }
 
     return self;
 }
 
-- (void)commonInit:(id)client {
+- (void)_setClient:(id)client {
     client_ = [client retain];
     context_ = [[NSTextInputContext alloc] initWithClient:client];
     activated_ = NO;

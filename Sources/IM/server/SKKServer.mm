@@ -99,6 +99,12 @@ static void terminate(int) {
 @implementation SKKServer
 
 - (void)awakeFromNib {
+    [self _start];
+
+    imkserver_ = [self newIMKServer];
+}
+
+- (void)_start {
     skkserv_ = 0;
 
     [self prepareSignalHandler];
@@ -107,7 +113,6 @@ static void terminate(int) {
     [self prepareUserDefaults];
     [self prepareDictionary];
     [self prepareBlacklistApps];
-    imkserver_ = [self newIMKServer];
 
     [self reloadBlacklistApps];
     [self reloadDictionarySet];
