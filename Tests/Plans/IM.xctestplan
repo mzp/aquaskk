@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "DC266334-47D2-472C-A233-C1D4F5CD3B3C",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:AquaSKK.xcodeproj",
+        "identifier" : "135C3D4D2C5B3E8F00661AE3",
+        "name" : "IMTests"
+      }
+    }
+  ],
+  "version" : 1
+}

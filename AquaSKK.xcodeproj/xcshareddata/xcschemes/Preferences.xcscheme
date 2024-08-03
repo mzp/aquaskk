@@ -15,20 +15,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "137D05742C5B5A81009AC591"
-               BuildableName = "AquaSKK.app"
-               BlueprintName = "AquaSKK"
-               ReferencedContainer = "container:AquaSKK.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "1307C2382C5B47D800B089B6"
                BuildableName = "Preferences.app"
                BlueprintName = "Preferences"
@@ -44,37 +30,9 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:Tests/Plans/App.xctestplan"
-            default = "YES">
-         </TestPlanReference>
-         <TestPlanReference
             reference = "container:Tests/Plans/Preferences.xctestplan">
          </TestPlanReference>
       </TestPlans>
-      <Testables>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "137D058E2C5B5A83009AC591"
-               BuildableName = "AquaSKKUITests.xctest"
-               BlueprintName = "AquaSKKUITests"
-               ReferencedContainer = "container:AquaSKK.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "137D05842C5B5A83009AC591"
-               BuildableName = "AquaSKKTests.xctest"
-               BlueprintName = "AquaSKKTests"
-               ReferencedContainer = "container:AquaSKK.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -85,14 +43,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
-      allowLocationSimulation = "YES">
+      allowLocationSimulation = "YES"
+      internalIOSLaunchStyle = "2">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "137D05742C5B5A81009AC591"
-            BuildableName = "AquaSKK.app"
-            BlueprintName = "AquaSKK"
+            BlueprintIdentifier = "1307C2382C5B47D800B089B6"
+            BuildableName = "Preferences.app"
+            BlueprintName = "Preferences"
             ReferencedContainer = "container:AquaSKK.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -107,9 +66,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "137D05742C5B5A81009AC591"
-            BuildableName = "AquaSKK.app"
-            BlueprintName = "AquaSKK"
+            BlueprintIdentifier = "1307C2382C5B47D800B089B6"
+            BuildableName = "Preferences.app"
+            BlueprintName = "Preferences"
             ReferencedContainer = "container:AquaSKK.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
