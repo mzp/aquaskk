@@ -293,12 +293,10 @@
 		13B7BE832C5EFCEF00F6BEF8 /* SKKStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE822C5EFCEF00F6BEF8 /* SKKStateStore.swift */; };
 		13B7BE852C5EFD7000F6BEF8 /* StateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE842C5EFD7000F6BEF8 /* StateMonitor.swift */; };
 		13B7BE882C5F1E9100F6BEF8 /* SKKServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE872C5F1E9100F6BEF8 /* SKKServerTests.swift */; };
-		13B7BE892C5F1E9100F6BEF8 /* SKKServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE872C5F1E9100F6BEF8 /* SKKServerTests.swift */; };
 		13B7BE912C5F229D00F6BEF8 /* SKKInputController_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B7BE902C5F228300F6BEF8 /* SKKInputController_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		13B7BE952C5F236700F6BEF8 /* AquaSKKIM_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B7BE942C5F236700F6BEF8 /* AquaSKKIM_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		13B7BE972C5F245000F6BEF8 /* SKKServer_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B7BE962C5F245000F6BEF8 /* SKKServer_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		13B7BE992C5F282D00F6BEF8 /* ModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE982C5F282D00F6BEF8 /* ModeTests.swift */; };
-		13B7BE9A2C5F282D00F6BEF8 /* ModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE982C5F282D00F6BEF8 /* ModeTests.swift */; };
 		13B7BEC52C5F5CF900F6BEF8 /* AquaSKKService.docc in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BEC42C5F5CF900F6BEF8 /* AquaSKKService.docc */; };
 		13B7BED22C5F5CF900F6BEF8 /* AquaSKKServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BED12C5F5CF900F6BEF8 /* AquaSKKServiceTests.swift */; };
 		13B7BED32C5F5CF900F6BEF8 /* AquaSKKService.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B7BEC32C5F5CF900F6BEF8 /* AquaSKKService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -2565,7 +2563,6 @@
 			files = (
 				13EDDCDF2C5B33600062A0DA /* SKKBackEnd_TEST.mm in Sources */,
 				13EDDCE02C5B34BA0062A0DA /* SKKCandidate_TEST.mm in Sources */,
-				13B7BE9A2C5F282D00F6BEF8 /* ModeTests.swift in Sources */,
 				13EDDCCB2C5B2E500062A0DA /* utf8util_TEST.mm in Sources */,
 				13EDDCE22C5B351B0062A0DA /* SKKCandidateSuite_TEST.mm in Sources */,
 				13EDDCE62C5B38820062A0DA /* SKKDictionaryFile_TEST.mm in Sources */,
@@ -2581,7 +2578,6 @@
 				13EDDCCC2C5B2ED70062A0DA /* SKKWindowSelector_TEST.mm in Sources */,
 				13EDDCCD2C5B2F450062A0DA /* SKKUserDictionary_TEST.mm in Sources */,
 				13EDDCE82C5B395B0062A0DA /* SKKInlineSelector_TEST.mm in Sources */,
-				13B7BE892C5F1E9100F6BEF8 /* SKKServerTests.swift in Sources */,
 				13EDDCE92C5B395B0062A0DA /* SKKProxyDictionary_TEST.mm in Sources */,
 				132B777A2C5DB89E00EEC2A5 /* pthreadutil_TEST.mm in Sources */,
 				132B777B2C5DB89E00EEC2A5 /* calculator_TEST.mm in Sources */,
