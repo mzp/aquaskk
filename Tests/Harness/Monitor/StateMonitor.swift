@@ -23,4 +23,3 @@ struct StateMonitor: View {
 #Preview {
     StateMonitor(store: SKKStateStore())
 }
-

@@ -57,7 +57,6 @@ actor Typer {
         client.modeIdentifier
     }
 
-
     private static let server: SKKServer = {
         let serevr = SKKServer()
         server._start()
@@ -74,7 +73,6 @@ actor Typer {
 
         self.client = client
         self.controller = controller
-
 
         controller.activateServer(nil)
     }

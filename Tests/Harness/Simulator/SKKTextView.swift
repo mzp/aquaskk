@@ -56,7 +56,7 @@ struct SKKTextView: NSViewRepresentable {
         return view
     }
 
-    func updateNSView(_ textView: SKKTextViewAppKit, context _: Context) {
+    func updateNSView(_: SKKTextViewAppKit, context _: Context) {
 //        textView.setup(controller: controller, stateStore: stateStore)
     }
 }

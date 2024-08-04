@@ -13,7 +13,6 @@ struct ContentView: View {
         SKKContext.Server { server in
             SKKContext.InputController(server: server) { controller, stateStore in
                 Form {
-
                     SKKTextView(controller: controller, stateStore: stateStore).frame(height: 40)
                         .padding(10)
 

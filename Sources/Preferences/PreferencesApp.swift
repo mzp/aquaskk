@@ -1,5 +1,5 @@
 //
-//  AquaSKK_PreferencesApp.swift
+//  PreferencesApp.swift
 //  AquaSKK-Preferences
 //
 //  Created by mzp on 7/31/24.

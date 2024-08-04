@@ -71,7 +71,7 @@ class SKKTextInputAppKit: NSObject, IMKTextInput {
     }
 
     func selectMode(_ modeIdentifier: String!) {
-        self.stateStore.modeIdentifier = modeIdentifier
+        stateStore.modeIdentifier = modeIdentifier
     }
 
     func supportsUnicode() -> Bool {

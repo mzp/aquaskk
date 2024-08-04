@@ -41,7 +41,7 @@ enum SKKContext {
         init(server: SKKServer, content: @escaping (SKKInputController, SKKStateStore) -> any View) {
             self.server = server
             inputController = SKKInputController()
-            self.stateStore = SKKStateStore()
+            stateStore = SKKStateStore()
             self.content = content
         }
 

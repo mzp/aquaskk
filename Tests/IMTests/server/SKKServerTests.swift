@@ -5,11 +5,10 @@
 //  Created by mzp on 8/3/24.
 //
 
-import Testing
 import AquaSKKIM_Private
+import Testing
 
 struct SKKServerTests {
-
     @Test func componentFiles() async throws {
         let server = SKKServer()
 
@@ -19,5 +18,4 @@ struct SKKServerTests {
         let kanaRule = server.path(forResource: "kana-rule.conf")
         #expect(kanaRule == "/Library/Input Methods/AquaSKK.app/Contents/Resources/kana-rule.conf")
     }
-
 }

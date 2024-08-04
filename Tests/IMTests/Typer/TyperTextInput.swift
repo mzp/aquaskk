@@ -11,7 +11,7 @@ import InputMethodKit
 class TyperTextInput: NSObject {
     var text: String = ""
     var markedText: String = ""
-    var modeIdentifier: String? 
+    var modeIdentifier: String?
 
     var _selectedRange: NSRange = .init(location: 0, length: 0)
     var _markedRange: NSRange = .init(location: 0, length: 0)
