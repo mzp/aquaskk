@@ -20,7 +20,7 @@
 
 */
 
-#import <AquaSKKIM/SKKServerProxy.h>
+#import <AquaSKKService/SKKServerProxy.h>
 
 @implementation SKKServerProxy
 

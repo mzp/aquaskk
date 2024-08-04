@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct AquaSKK_PreferencesApp: App {
+struct PreferencesApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

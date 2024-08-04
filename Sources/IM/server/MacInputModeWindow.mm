@@ -22,7 +22,7 @@
 
 #import <AquaSKKIM/MacInputModeWindow.h>
 #import <AquaSKKCore/SKKFrontEnd.h>
-#import <AquaSKKIM/SKKConstVars.h>
+#import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKIM/SKKLayoutManager.h>
 #import <AquaSKKIM/InputModeWindow.h>
 #include <iostream>

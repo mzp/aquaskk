@@ -32,7 +32,7 @@
 #import <AquaSKKCore/SKKLocalUserDictionary.h>
 #import <AquaSKKCore/SKKDistributedUserDictionary.h>
 #import <AquaSKKCore/SKKDictionaryFactory.h>
-#import <AquaSKKIM/SKKConstVars.h>
+#import <AquaSKKService/SKKConstVars.h>
 // #import <AquaSKKIM/SKKPythonRunner.h>
 #import <AquaSKKIM/MacKotoeriDictionary.h>
 #import <AquaSKKCore/skkserv.h>

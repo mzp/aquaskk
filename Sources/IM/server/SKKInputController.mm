@@ -27,8 +27,7 @@
 #import <AquaSKKCore/SKKBackEnd.h>
 
 #import <AquaSKKIM/SKKPreProcessor.h>
-#import <AquaSKKIM/SKKConstVars.h>
-
+#import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKIM/MacInputSessionParameter.h>
 #import <AquaSKKIM/MacInputModeMenu.h>
 #import <AquaSKKIM/MacInputModeWindow.h>

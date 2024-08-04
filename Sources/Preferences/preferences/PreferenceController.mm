@@ -23,8 +23,10 @@
 #include "PreferenceController.h"
 #include "DictionaryTypeTransformer.h" 
 #include "SubRuleDescriptions.h"
-#include "SKKServerProxy.h"
-#include "SKKConstVars.h"
+#import <AquaSKKService/SKKServerProxy.h>
+#import <AquaSKKService/SKKConstVars.h>
+
+
 #include <Carbon/Carbon.h>
 
 namespace {

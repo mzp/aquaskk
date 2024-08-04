@@ -23,7 +23,7 @@
 #import <AquaSKKIM/MacAnnotator.h>
 #import <AquaSKKIM/AnnotationWindow.h>
 #import <AquaSKKIM/CandidateWindow.h>
-#import <AquaSKKIM/SKKConstVars.h>
+#import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKCore/utf8util.h>
 
 #include <InputMethodKit/InputMethodKit.h>

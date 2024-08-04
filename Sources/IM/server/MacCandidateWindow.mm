@@ -24,7 +24,7 @@
 #import <AquaSKKIM/CandidateWindow.h>
 #import <AquaSKKIM/CandidateView.h>
 #import <AquaSKKIM/CandidateCell.h>
-#import <AquaSKKIM/SKKConstVars.h>
+#import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKCore/utf8util.h>
 
 #include <InputMethodKit/InputMethodKit.h>

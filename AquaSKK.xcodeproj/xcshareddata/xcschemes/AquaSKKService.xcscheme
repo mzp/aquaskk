@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1307C2382C5B47D800B089B6"
-               BuildableName = "Preferences.app"
-               BlueprintName = "Preferences"
+               BlueprintIdentifier = "13B7BEC02C5F5CF900F6BEF8"
+               BuildableName = "AquaSKKService.framework"
+               BlueprintName = "AquaSKKService"
                ReferencedContainer = "container:AquaSKK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -30,23 +30,9 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:Tests/Plans/Preferences.xctestplan"
-            default = "YES">
+            reference = "container:Tests/Plans/Service.xctestplan">
          </TestPlanReference>
       </TestPlans>
-      <Testables>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "13B7BEC92C5F5CF900F6BEF8"
-               BuildableName = "AquaSKKServiceTests.xctest"
-               BlueprintName = "AquaSKKServiceTests"
-               ReferencedContainer = "container:AquaSKK.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -58,17 +44,7 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
-      internalIOSLaunchStyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1307C2382C5B47D800B089B6"
-            BuildableName = "Preferences.app"
-            BlueprintName = "Preferences"
-            ReferencedContainer = "container:AquaSKK.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
+      internalIOSLaunchStyle = "3">
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -76,16 +52,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1307C2382C5B47D800B089B6"
-            BuildableName = "Preferences.app"
-            BlueprintName = "Preferences"
+            BlueprintIdentifier = "13B7BEC02C5F5CF900F6BEF8"
+            BuildableName = "AquaSKKService.framework"
+            BlueprintName = "AquaSKKService"
             ReferencedContainer = "container:AquaSKK.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

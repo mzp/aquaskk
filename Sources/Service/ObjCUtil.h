@@ -1,4 +1,4 @@
-/* -*- ObjC -*-
+/* -*- C++ -*-
 
   MacOS X implementation of the SKK input method.
 
@@ -20,15 +20,24 @@
 
 */
 
-#ifndef SKKServerProxy_h
-#define SKKServerProxy_h
+#ifndef ObjCUtil_h
+#define ObjCUtil_h
 
-#import <Foundation/Foundation.h>
-#import <AquaSKKIM/SKKSupervisor.h>
+#include <Foundation/Foundation.h>
 
-@interface SKKServerProxy : NSObject <SKKSupervisor> {
-    id proxy_;
+namespace ObjC {
+    class RAIIPool {
+        NSAutoreleasePool* pool_;
+
+    public:
+        RAIIPool() {
+            pool_ = [[NSAutoreleasePool alloc] init];
+        }
+
+        ~RAIIPool() {
+            if(pool_) [pool_ release];
+        }
+    };
 }
-@end
 
 #endif

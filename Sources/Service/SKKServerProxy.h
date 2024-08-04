@@ -20,31 +20,15 @@
 
 */
 
-#import <AquaSKKIM/MacMessenger.h>
-#import <AquaSKKIM/MessengerWindow.h>
-#import <AquaSKKService/SKKConstVars.h>
-#import <AquaSKKCore/SKKFrontEnd.h>
-#include "ObjCUtil.h"
+#ifndef SKKServerProxy_h
+#define SKKServerProxy_h
 
-MacMessenger::MacMessenger(SKKLayoutManager* layout) : layout_(layout) {}
+#import <Foundation/Foundation.h>
+#import <AquaSKKService/SKKSupervisor.h>
 
-void MacMessenger::SendMessage(const std::string& msg) {
-    ObjC::RAIIPool pool;
-
-    MessengerWindow* window = [MessengerWindow sharedWindow];
-
-    NSString* str = [NSString stringWithUTF8String:msg.c_str()];
-    NSPoint topleft = layout_->InputOrigin();
-
-    topleft.y -= 2;
-
-    [window showMessage:str at:topleft level:layout_->WindowLevel()];
+@interface SKKServerProxy : NSObject <SKKSupervisor> {
+    id proxy_;
 }
+@end
 
-void MacMessenger::Beep() {
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-
-    if([defaults boolForKey:SKKUserDefaultKeys::beep_on_registration] == YES) {
-        NSBeep();
-    }
-}
+#endif
