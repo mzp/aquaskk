@@ -2302,7 +2302,6 @@
 					};
 					135C3D4D2C5B3E8F00661AE3 = {
 						CreatedOnToolsVersion = 16.0;
-						TestTargetID = 1352C9C72C5DF80D0056261D;
 					};
 					137D05742C5B5A81009AC591 = {
 						CreatedOnToolsVersion = 16.0;
@@ -2932,8 +2931,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 138F45112C5CA1B6000B03FC /* IMTests.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Harness.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Harness";
 			};
 			name = Debug;
 		};
@@ -2941,8 +2938,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 138F45112C5CA1B6000B03FC /* IMTests.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Harness.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Harness";
 			};
 			name = Release;
 		};
@@ -3032,8 +3027,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 138F45112C5CA1B6000B03FC /* IMTests.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Harness.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Harness";
 			};
 			name = Testing;
 		};
