@@ -203,7 +203,7 @@
 		1352C9E52C5DF9510056261D /* SKKContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1352C9E42C5DF9510056261D /* SKKContext.swift */; };
 		135C3D602C5B3E9600661AE3 /* AquaSKKIM.docc in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D5E2C5B3E9600661AE3 /* AquaSKKIM.docc */; };
 		135C3D612C5B3E9600661AE3 /* AquaSKKIM.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D5D2C5B3E9600661AE3 /* AquaSKKIM.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		135C3D672C5B3E9D00661AE3 /* IMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D652C5B3E9D00661AE3 /* IMTests.swift */; };
+		135C3D672C5B3E9D00661AE3 /* InputTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D652C5B3E9D00661AE3 /* InputTests.swift */; };
 		135C3D942C5B3F1D00661AE3 /* SKKConstVars.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D832C5B3F1D00661AE3 /* SKKConstVars.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		135C3D952C5B3F1D00661AE3 /* SKKServerProxy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D912C5B3F1D00661AE3 /* SKKServerProxy.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		135C3D962C5B3F1D00661AE3 /* MacClipboard.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D6F2C5B3F1D00661AE3 /* MacClipboard.mm */; };
@@ -377,6 +377,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 137D05742C5B5A81009AC591;
 			remoteInfo = AquaSKK;
+		};
+		13B7BE802C5EFB2A00F6BEF8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 13D368112C5A81290083CAE3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 135C3D442C5B3E8F00661AE3;
+			remoteInfo = AquaSKKIM;
 		};
 		13E77E5E2C5B5FC00096013B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -646,7 +653,7 @@
 		1352C9E42C5DF9510056261D /* SKKContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKContext.swift; sourceTree = "<group>"; };
 		135C3D5D2C5B3E9600661AE3 /* AquaSKKIM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKIM.h; sourceTree = "<group>"; };
 		135C3D5E2C5B3E9600661AE3 /* AquaSKKIM.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKIM.docc; sourceTree = "<group>"; };
-		135C3D652C5B3E9D00661AE3 /* IMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMTests.swift; sourceTree = "<group>"; };
+		135C3D652C5B3E9D00661AE3 /* InputTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTests.swift; sourceTree = "<group>"; };
 		135C3D682C5B3F1D00661AE3 /* BlacklistApps.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlacklistApps.h; sourceTree = "<group>"; };
 		135C3D692C5B3F1D00661AE3 /* BlacklistApps.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlacklistApps.m; sourceTree = "<group>"; };
 		135C3D6A2C5B3F1D00661AE3 /* MacAnnotator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacAnnotator.h; sourceTree = "<group>"; };
@@ -1458,7 +1465,7 @@
 		135C3D662C5B3E9D00661AE3 /* IMTests */ = {
 			isa = PBXGroup;
 			children = (
-				135C3D652C5B3E9D00661AE3 /* IMTests.swift */,
+				135C3D652C5B3E9D00661AE3 /* InputTests.swift */,
 				135EEBA02C5EEA5100758672 /* Typer */,
 			);
 			path = IMTests;
@@ -1946,6 +1953,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				13B7BE812C5EFB2A00F6BEF8 /* PBXTargetDependency */,
 			);
 			name = Harness;
 			packageProductDependencies = (
@@ -2428,7 +2436,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				135EEB9E2C5EEA4900758672 /* Typer.swift in Sources */,
-				135C3D672C5B3E9D00661AE3 /* IMTests.swift in Sources */,
+				135C3D672C5B3E9D00661AE3 /* InputTests.swift in Sources */,
 				135EEB9B2C5EE6AB00758672 /* TyperTextInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2544,6 +2552,11 @@
 			isa = PBXTargetDependency;
 			target = 137D05742C5B5A81009AC591 /* AquaSKK */;
 			targetProxy = 137D05902C5B5A83009AC591 /* PBXContainerItemProxy */;
+		};
+		13B7BE812C5EFB2A00F6BEF8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 135C3D442C5B3E8F00661AE3 /* AquaSKKIM */;
+			targetProxy = 13B7BE802C5EFB2A00F6BEF8 /* PBXContainerItemProxy */;
 		};
 		13E77E5F2C5B5FC00096013B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

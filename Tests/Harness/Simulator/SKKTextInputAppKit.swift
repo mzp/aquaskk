@@ -1,12 +1,12 @@
 //
-//  SKKAdapter.swift
+//  SKKTextInputAppKit.swift
 //  Harness
 //
 //  Created by mzp on 8/3/24.
 //
 
-import Foundation
 import AppKit
+import Foundation
 import InputMethodKit
 import OSLog
 

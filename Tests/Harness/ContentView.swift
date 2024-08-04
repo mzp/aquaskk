@@ -12,17 +12,17 @@ struct ContentView: View {
     var body: some View {
         SKKContext.Server { server in
             SKKContext.InputController(server: server) { controller in
-                    Form {
-                        Section {
-                            SKKTextView(controller: controller).frame(height: 40)
-                        }
-                        Section("Server") {
-                            SupervisorMonitor(supervisor: server).padding(.top, 10)
-                        }
-                        Spacer()
+                Form {
+                    Section {
+                        SKKTextView(controller: controller).frame(height: 40)
                     }
-                    .formStyle(.grouped)
-                    .padding()
+                    Section("SKK Server") {
+                        SupervisorMonitor(supervisor: server).padding(.top, 10)
+                    }
+                    Spacer()
+                }
+                .formStyle(.grouped)
+                .padding()
             }
         }
     }

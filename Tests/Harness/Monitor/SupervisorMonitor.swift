@@ -49,17 +49,16 @@ struct SupervisorMonitor: View {
 
         var id: Int { type }
     }
+
     var dictionaryType: [DictionaryType] {
         let types = supervisor.createDictionaryTypes() ?? []
-        return types.map({ dictionary in
+        return types.map { dictionary in
             let type = dictionary["type"] as! Int
             let name = dictionary["name"] as! String
             return DictionaryType(type: type, name: name)
-        }).sorted(by: {  $0.type < $1.type })
-
+        }.sorted(by: { $0.type < $1.type })
     }
 }
-
 
 class SupervisorForPreview: SKKSupervisor {
     func reloadBlacklistApps() {}

@@ -1,5 +1,5 @@
 //
-//  MockTextInput.swift
+//  TyperTextInput.swift
 //  Harness
 //
 //  Created by mzp on 8/3/24.
@@ -12,20 +12,20 @@ class TyperTextInput: NSObject {
     var text: String = ""
     var markedText: String = ""
 
-    var _selectedRange: NSRange = NSRange(location: 0, length: 0)
-    var _markedRange: NSRange = NSRange(location: 0, length: 0)
+    var _selectedRange: NSRange = .init(location: 0, length: 0)
+    var _markedRange: NSRange = .init(location: 0, length: 0)
 }
 
 extension TyperTextInput: IMKTextInput {
     func selectedRange() -> NSRange {
         return _selectedRange
     }
-    
+
     func markedRange() -> NSRange {
         return _markedRange
     }
 
-    func insertText(_ string: Any, replacementRange: NSRange) {
+    func insertText(_ string: Any, replacementRange _: NSRange) {
         // TODO: Use replacementRange
         // TODO: Update selectedRange
         markedText.removeAll()
@@ -34,8 +34,8 @@ extension TyperTextInput: IMKTextInput {
 
     func setMarkedText(
         _ string: Any?,
-        selectionRange: NSRange,
-        replacementRange: NSRange
+        selectionRange _: NSRange,
+        replacementRange _: NSRange
     ) {
         // TODO: Use replacementRange
         // TODO: Update markedTextRange
@@ -51,7 +51,7 @@ extension TyperTextInput: IMKTextInput {
         text.count
     }
 
-    func characterIndex(for point: NSPoint, tracking _: IMKLocationToOffsetMappingMode, inMarkedRange _: UnsafeMutablePointer<ObjCBool>!) -> Int {
+    func characterIndex(for _: NSPoint, tracking _: IMKLocationToOffsetMappingMode, inMarkedRange _: UnsafeMutablePointer<ObjCBool>!) -> Int {
         // TODO: Implement
         return 0
     }
@@ -64,12 +64,9 @@ extension TyperTextInput: IMKTextInput {
         []
     }
 
-    func overrideKeyboard(withKeyboardNamed keyboardUniqueName: String!) {
-    }
+    func overrideKeyboard(withKeyboardNamed _: String!) {}
 
-    func selectMode(_ modeIdentifier: String!) {
-
-    }
+    func selectMode(_: String!) {}
 
     func supportsUnicode() -> Bool {
         true
@@ -83,7 +80,7 @@ extension TyperTextInput: IMKTextInput {
         0
     }
 
-    func supportsProperty(_ property: TSMDocumentPropertyTag) -> Bool {
+    func supportsProperty(_: TSMDocumentPropertyTag) -> Bool {
         return true
     }
 
@@ -91,12 +88,11 @@ extension TyperTextInput: IMKTextInput {
         "org.codefirst.AquaSKK.client"
     }
 
-    func string(from range: NSRange, actualRange: NSRangePointer!) -> String! {
+    func string(from range: NSRange, actualRange _: NSRangePointer!) -> String! {
         (text as NSString).substring(with: range)
     }
 
-    func firstRect(forCharacterRange aRange: NSRange, actualRange: NSRangePointer!) -> NSRect {
+    func firstRect(forCharacterRange _: NSRange, actualRange _: NSRangePointer!) -> NSRect {
         .zero
     }
 }
-

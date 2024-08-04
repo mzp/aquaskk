@@ -5,8 +5,8 @@
 //  Created by mzp on 8/3/24.
 //
 
-import Foundation
 import AquaSKKIM
+import Foundation
 
 struct TyperEvent: Sendable {
     var characters: String
@@ -32,29 +32,35 @@ struct TyperEvent: Sendable {
 
     init(
         characters: String,
-         charactersIgnoringModifiers: String? = nil,
-         keyCode: UInt16 = 20,
-         modifiers: NSEvent.ModifierFlags = []
+        charactersIgnoringModifiers: String? = nil,
+        keyCode: UInt16 = 20,
+        modifiers: NSEvent.ModifierFlags = []
     ) {
         self.characters = characters
         self.charactersIgnoringModifiers = charactersIgnoringModifiers ?? characters
         self.keyCode = keyCode
         self.modifiers = modifiers
-        self.timestapm = Date().timeIntervalSince1970
+        timestapm = Date().timeIntervalSince1970
     }
 }
 
 actor Typer {
+    @MainActor var text: String {
+        client.text
+    }
 
-    static let server: SKKServer = {
-        let serevr  = SKKServer()
+    @MainActor var markedText: String {
+        client.markedText
+    }
+
+    private static let server: SKKServer = {
+        let serevr = SKKServer()
         server._start()
         return server
     }()
 
-    @MainActor var client: TyperTextInput?
-
-    @MainActor var controller: SKKInputController?
+    @MainActor private var client: TyperTextInput
+    @MainActor private var controller: SKKInputController?
 
     @MainActor init() {
         let client = TyperTextInput()
@@ -66,12 +72,7 @@ actor Typer {
     }
 
     @MainActor func close() {
-        client = nil
         controller = nil
-    }
-
-    @MainActor private func handle(event: TyperEvent) {
-        controller?.handle(event.nsEvent, client: client)
     }
 
     func type(text: String) async {
@@ -81,13 +82,7 @@ actor Typer {
         }
     }
 
-    @MainActor
-    var text: String {
-        client?.text ?? ""
-    }
-
-    @MainActor
-    var markedText: String {
-        client?.markedText ?? ""
+    @MainActor private func handle(event: TyperEvent) {
+        controller?.handle(event.nsEvent, client: client)
     }
 }

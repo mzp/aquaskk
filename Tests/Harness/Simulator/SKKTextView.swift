@@ -20,7 +20,7 @@ class SKKTextViewAppKit: NSTextView {
 
     var controller: SKKInputController? {
         didSet {
-            self.controller?._setClient(client)
+            controller?._setClient(client)
             logger.info("\(self): Connected to \(self.controller)")
         }
     }
@@ -46,6 +46,9 @@ struct SKKTextView: NSViewRepresentable {
         let view = SKKTextViewAppKit()
         view.controller = controller
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.textContainerInset = NSSize(width: 10, height: 10)
+        view.font = NSFont.systemFont(ofSize: 16)
+        view.string = "Try me"
         return view
     }
 
