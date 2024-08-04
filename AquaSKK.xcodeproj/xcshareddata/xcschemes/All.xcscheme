@@ -72,20 +72,26 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:Tests/Plans/Preferences.xctestplan">
+            reference = "container:Config/Plans/App.xctestplan">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:Tests/Plans/App.xctestplan">
+            reference = "container:Config/Plans/Typer.xctestplan">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:Tests/Plans/IM.xctestplan">
+            reference = "container:Config/Plans/Service.xctestplan">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:Tests/Plans/Core.xctestplan">
-         </TestPlanReference>
-         <TestPlanReference
-            reference = "container:Tests/Plans/All.xctestplan"
+            reference = "container:Config/Plans/All.xctestplan"
             default = "YES">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:Config/Plans/Core.xctestplan">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:Config/Plans/IM.xctestplan">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:Config/Plans/Preferences.xctestplan">
          </TestPlanReference>
       </TestPlans>
       <Testables>
