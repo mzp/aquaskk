@@ -6,7 +6,7 @@
 //
 
 import AppKit
-import AquaSKKIM
+import AquaSKKIM_Private
 import Foundation
 import InputMethodKit
 import OSLog

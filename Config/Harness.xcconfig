@@ -14,3 +14,5 @@ CODE_SIGN_ENTITLEMENTS = Tests/Harness/Support files/Harness.entitlements
 DEVELOPMENT_ASSET_PATHS = "Tests/Harness/Preview Content"
 
 OTHER_LDFLAGS = -framework AquaSKKIM
+
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon

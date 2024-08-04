@@ -44,8 +44,6 @@ class MacInputModeWindow;
     MacInputModeWindow* modeIcon_;
 }
 
-// TODO: Mark as testing only
-- (void)_setClient:(id)client;
 @end
 
 #endif
