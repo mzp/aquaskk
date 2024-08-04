@@ -7,3 +7,4 @@
 
 #import <AquaSKKIM/AquaSKKIM.h>
 #import <AquaSKKIM/SKKServer_Private.h>
+#import <AquaSKKIM/SKKInputController_Private.h>

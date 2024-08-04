@@ -11,6 +11,7 @@ import InputMethodKit
 class TyperTextInput: NSObject {
     var text: String = ""
     var markedText: String = ""
+    var modeIdentifier: String? 
 
     var _selectedRange: NSRange = .init(location: 0, length: 0)
     var _markedRange: NSRange = .init(location: 0, length: 0)
@@ -66,7 +67,9 @@ extension TyperTextInput: IMKTextInput {
 
     func overrideKeyboard(withKeyboardNamed _: String!) {}
 
-    func selectMode(_: String!) {}
+    func selectMode(_ modeIdentifier: String!) {
+        self.modeIdentifier = modeIdentifier
+    }
 
     func supportsUnicode() -> Bool {
         true

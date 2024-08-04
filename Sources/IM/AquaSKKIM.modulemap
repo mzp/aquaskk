@@ -5,8 +5,8 @@
 //  Created by mzp on 8/3/24.
 //
 
-module AquaSKKIM_Private {
-    header "SKKServer_Private.h"
+module AquaSKKIM {
+    umbrella "Headers"
 
     export *
 }

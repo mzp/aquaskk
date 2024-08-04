@@ -14,9 +14,13 @@ struct StateMonitor: View {
         Form {
             LabeledContent("Mode") {
                 Text(store.modeIdentifier)
+                    .textSelection(.enabled)
             }
         }
     }
 }
 
+#Preview {
+    StateMonitor(store: SKKStateStore())
+}
 

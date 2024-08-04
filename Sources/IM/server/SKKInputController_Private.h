@@ -12,6 +12,8 @@
 
 @interface SKKInputController(Testing)
 
+
+/// Setup InputController without IMK connection. Testing only.
 - (void)_setClient:(id)client;
 @end
 

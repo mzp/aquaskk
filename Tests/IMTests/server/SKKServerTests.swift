@@ -6,11 +6,18 @@
 //
 
 import Testing
-import AquaSKKIM
+import AquaSKKIM_Private
+
 struct SKKServerTests {
 
-    @Test func pathForResource() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
+    @Test func componentFiles() async throws {
+        let server = SKKServer()
+
+        let keymap = server.path(forResource: "keymap.conf")
+
+        #expect(keymap == "/Library/Input Methods/AquaSKK.app/Contents/Resources/keymap.conf")
+        let kanaRule = server.path(forResource: "kana-rule.conf")
+        #expect(kanaRule == "/Library/Input Methods/AquaSKK.app/Contents/Resources/kana-rule.conf")
     }
 
 }

@@ -13,7 +13,7 @@ struct InputTests {
         await typer.type(text: "aiueo")
         #expect(await typer.text == "あいうえお")
         #expect(await typer.markedText == "")
-        await typer.close()
+        await typer.deactivate()
     }
 
     @Test func katakana() async {
@@ -21,7 +21,7 @@ struct InputTests {
         await typer.type(text: "qaiueo")
         #expect(await typer.text == "アイウエオ")
         #expect(await typer.markedText == "")
-        await typer.close()
+        await typer.deactivate()
     }
 
     @Test func fullWidthLatinAlphabet() async {
@@ -29,6 +29,6 @@ struct InputTests {
         await typer.type(text: "Laiueo")
         #expect(await typer.text == "ａｉｕｅｏ")
         #expect(await typer.markedText == "")
-        await typer.close()
+        await typer.deactivate()
     }
 }

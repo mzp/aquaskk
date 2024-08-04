@@ -26,7 +26,7 @@ struct TyperEvent: Sendable {
             characters: characters,
             charactersIgnoringModifiers: charactersIgnoringModifiers,
             isARepeat: false,
-            keyCode: 0
+            keyCode: keyCode
         )!
     }
 
@@ -53,6 +53,11 @@ actor Typer {
         client.markedText
     }
 
+    @MainActor var modeIdentifier: String? {
+        client.modeIdentifier
+    }
+
+
     private static let server: SKKServer = {
         let serevr = SKKServer()
         server._start()
@@ -69,9 +74,13 @@ actor Typer {
 
         self.client = client
         self.controller = controller
+
+
+        controller.activateServer(nil)
     }
 
-    @MainActor func close() {
+    @MainActor func deactivate() {
+        controller?.deactivateServer(nil)
         controller = nil
     }
 
@@ -80,6 +89,14 @@ actor Typer {
             let event = TyperEvent(characters: String(character))
             _ = await handle(event: event)
         }
+    }
+
+    func type(character: String, keycode: UInt16) async {
+        let event = TyperEvent(
+            characters: character,
+            keyCode: keycode
+        )
+        _ = await handle(event: event)
     }
 
     @MainActor private func handle(event: TyperEvent) {
