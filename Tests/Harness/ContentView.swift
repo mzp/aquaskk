@@ -11,19 +11,22 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         SKKContext.Server { server in
-            SKKContext.InputController(server: server) { controller in
+            SKKContext.InputController(server: server) { controller, stateStore in
                 Form {
-                    Section {
-                        SKKTextView(controller: controller).frame(height: 40)
+
+                    SKKTextView(controller: controller, stateStore: stateStore).frame(height: 40)
+                        .padding(10)
+
+                    Section("Client") {
+                        StateMonitor(store: stateStore)
                     }
-                    Section("SKK Server") {
-                        SupervisorMonitor(supervisor: server).padding(.top, 10)
+                    Section("Server") {
+                        SupervisorMonitor(supervisor: server)
                     }
-                    Spacer()
                 }
-                .formStyle(.grouped)
-                .padding()
             }
+            .formStyle(.grouped)
+            .padding()
         }
     }
 }

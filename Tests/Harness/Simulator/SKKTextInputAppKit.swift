@@ -14,8 +14,11 @@ private let logger = Logger(subsystem: "org.codefirst.AquaSKK.Harness", category
 
 class SKKTextInputAppKit: NSObject, IMKTextInput {
     let inputClient: NSTextInputClient
-    init(inputClient: NSTextInputClient) {
+    var stateStore: SKKStateStore
+
+    init(inputClient: NSTextInputClient, stateStore: SKKStateStore) {
         self.inputClient = inputClient
+        self.stateStore = stateStore
     }
 
     func insertText(_ string: Any, replacementRange: NSRange) {
@@ -68,7 +71,7 @@ class SKKTextInputAppKit: NSObject, IMKTextInput {
     }
 
     func selectMode(_ modeIdentifier: String!) {
-        logger.info("\(#function): \(modeIdentifier)")
+        self.stateStore.modeIdentifier = modeIdentifier
     }
 
     func supportsUnicode() -> Bool {

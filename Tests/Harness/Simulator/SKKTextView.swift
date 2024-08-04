@@ -16,20 +16,22 @@ private let logger = Logger(subsystem: "org.codefirst.AquaSKK.Harness", category
 private let signposter = OSSignposter(subsystem: "org.codefirst.AquaSKK.Harness", category: "TextView")
 
 class SKKTextViewAppKit: NSTextView {
-    lazy var client: IMKTextInput = SKKTextInputAppKit(inputClient: self)
+    private var controller: SKKInputController?
+    private var client: IMKTextInput?
 
-    var controller: SKKInputController? {
-        didSet {
-            controller?._setClient(client)
-            logger.info("\(self): Connected to \(self.controller)")
-        }
+    func setup(controller: SKKInputController, stateStore: SKKStateStore) {
+        let client = SKKTextInputAppKit(inputClient: self, stateStore: stateStore)
+        controller._setClient(client)
+
+        self.controller = controller
+        self.client = client
     }
 
     override func keyDown(with event: NSEvent) {
         logger.info("\(#function): \(event)")
 
         var handled = false
-        if let controller = controller {
+        if let controller = controller, let client = client {
             signposter.withIntervalSignpost("event handle") {
                 handled = controller.handle(event, client: client)
             }
@@ -42,9 +44,11 @@ class SKKTextViewAppKit: NSTextView {
 
 struct SKKTextView: NSViewRepresentable {
     var controller: SKKInputController
+    var stateStore: SKKStateStore
+
     func makeNSView(context _: Context) -> SKKTextViewAppKit {
         let view = SKKTextViewAppKit()
-        view.controller = controller
+        view.setup(controller: controller, stateStore: stateStore)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.textContainerInset = NSSize(width: 10, height: 10)
         view.font = NSFont.systemFont(ofSize: 16)
@@ -53,6 +57,6 @@ struct SKKTextView: NSViewRepresentable {
     }
 
     func updateNSView(_ textView: SKKTextViewAppKit, context _: Context) {
-        textView.controller = controller
+//        textView.setup(controller: controller, stateStore: stateStore)
     }
 }
