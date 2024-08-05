@@ -10,4 +10,4 @@
 
 #include "./Include/Cpp.xcconfig"
 
-OTHER_LDFLAGS = $(inherits) -framework Foundation -framework AppKit -framework QuartzCore -framework InputMethodKit -framework AquaSKKCore
+OTHER_LDFLAGS = $(inherits)
