@@ -20,8 +20,8 @@
 
 */
 
-#import <AquaSKKIM/MessengerWindow.h>
-#import <AquaSKKIM/MessengerView.h>
+#import <AquaSKKUI/MessengerWindow.h>
+#import <AquaSKKUI/MessengerView.h>
 
 @implementation MessengerWindow
 

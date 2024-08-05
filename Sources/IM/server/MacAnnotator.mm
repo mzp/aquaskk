@@ -21,8 +21,8 @@
 */
 
 #import <AquaSKKIM/MacAnnotator.h>
-#import <AquaSKKIM/AnnotationWindow.h>
-#import <AquaSKKIM/CandidateWindow.h>
+#import <AquaSKKUI/AnnotationWindow.h>
+#import <AquaSKKUI/CandidateWindow.h>
 #import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKCore/utf8util.h>
 

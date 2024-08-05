@@ -179,28 +179,6 @@
 		1347C21A2C5E1ACE00414DE2 /* AquaSKK-Ascii@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347C2062C5E1ACE00414DE2 /* AquaSKK-Ascii@2x.png */; };
 		1347C21B2C5E1ACE00414DE2 /* AquaSKK-Hirakana@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347C2082C5E1ACE00414DE2 /* AquaSKK-Hirakana@2x.png */; };
 		1347C21C2C5E1ACE00414DE2 /* AquaSKK-Jisx0208Latin.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347C20D2C5E1ACE00414DE2 /* AquaSKK-Jisx0208Latin.png */; };
-		134A0D272C5B430B003EACF0 /* CompletionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D1C2C5B430B003EACF0 /* CompletionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		134A0D282C5B430B003EACF0 /* CompletionWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D1E2C5B430B003EACF0 /* CompletionWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		134A0D292C5B430B003EACF0 /* MessengerWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D242C5B430B003EACF0 /* MessengerWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		134A0D2A2C5B430B003EACF0 /* CandidateCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D142C5B430B003EACF0 /* CandidateCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		134A0D2B2C5B430B003EACF0 /* CandidatePageIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D162C5B430B003EACF0 /* CandidatePageIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		134A0D2C2C5B430B003EACF0 /* AnnotationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D102C5B430B003EACF0 /* AnnotationView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		134A0D2D2C5B430B003EACF0 /* CandidateView.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D182C5B430B003EACF0 /* CandidateView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		134A0D2E2C5B430B003EACF0 /* AnnotationWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D122C5B430B003EACF0 /* AnnotationWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		134A0D2F2C5B430B003EACF0 /* MessengerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D222C5B430B003EACF0 /* MessengerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		134A0D302C5B430B003EACF0 /* InputModeWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D202C5B430B003EACF0 /* InputModeWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		134A0D312C5B430B003EACF0 /* CandidateWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D1A2C5B430B003EACF0 /* CandidateWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		134A0D322C5B430B003EACF0 /* AnnotationWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D132C5B430B003EACF0 /* AnnotationWindow.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		134A0D332C5B430B003EACF0 /* CandidateView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D192C5B430B003EACF0 /* CandidateView.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		134A0D342C5B430B003EACF0 /* CompletionWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D1F2C5B430B003EACF0 /* CompletionWindow.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		134A0D352C5B430B003EACF0 /* MessengerWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D252C5B430B003EACF0 /* MessengerWindow.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		134A0D362C5B430B003EACF0 /* CompletionView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D1D2C5B430B003EACF0 /* CompletionView.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		134A0D372C5B430B003EACF0 /* AnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D112C5B430B003EACF0 /* AnnotationView.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		134A0D382C5B430B003EACF0 /* CandidateWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D1B2C5B430B003EACF0 /* CandidateWindow.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		134A0D392C5B430B003EACF0 /* CandidateCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D152C5B430B003EACF0 /* CandidateCell.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		134A0D3A2C5B430B003EACF0 /* InputModeWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D212C5B430B003EACF0 /* InputModeWindow.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		134A0D3B2C5B430B003EACF0 /* MessengerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D232C5B430B003EACF0 /* MessengerView.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		134A0D3C2C5B430B003EACF0 /* CandidatePageIndicator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D172C5B430B003EACF0 /* CandidatePageIndicator.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1352C9DF2C5DF8160056261D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1352C9D82C5DF8160056261D /* Preview Assets.xcassets */; };
 		1352C9E02C5DF8160056261D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1352C9DA2C5DF8160056261D /* Assets.xcassets */; };
 		1352C9E12C5DF8160056261D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1352C9DB2C5DF8160056261D /* ContentView.swift */; };
@@ -295,6 +273,28 @@
 		139B7B662C60F68100FE5263 /* AquaSKKUI.docc in Sources */ = {isa = PBXBuildFile; fileRef = 139B7B652C60F68100FE5263 /* AquaSKKUI.docc */; };
 		139B7B732C60F68100FE5263 /* AquaSKKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B7B722C60F68100FE5263 /* AquaSKKUITests.swift */; };
 		139B7B742C60F68100FE5263 /* AquaSKKUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 139B7B642C60F68100FE5263 /* AquaSKKUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		139B7B882C60F79500FE5263 /* MessengerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D232C5B430B003EACF0 /* MessengerView.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		139B7B892C60F79500FE5263 /* AnnotationWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D132C5B430B003EACF0 /* AnnotationWindow.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		139B7B8A2C60F79500FE5263 /* MessengerWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D252C5B430B003EACF0 /* MessengerWindow.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		139B7B8B2C60F79500FE5263 /* CandidateWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D1B2C5B430B003EACF0 /* CandidateWindow.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		139B7B8C2C60F79500FE5263 /* CandidateCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D152C5B430B003EACF0 /* CandidateCell.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		139B7B8D2C60F79500FE5263 /* CandidatePageIndicator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D172C5B430B003EACF0 /* CandidatePageIndicator.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		139B7B8E2C60F79500FE5263 /* AnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D112C5B430B003EACF0 /* AnnotationView.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		139B7B8F2C60F79500FE5263 /* CompletionWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D1F2C5B430B003EACF0 /* CompletionWindow.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		139B7B902C60F79500FE5263 /* CompletionView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D1D2C5B430B003EACF0 /* CompletionView.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		139B7B912C60F79500FE5263 /* CandidateView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D192C5B430B003EACF0 /* CandidateView.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		139B7B922C60F79500FE5263 /* InputModeWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D212C5B430B003EACF0 /* InputModeWindow.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		139B7B942C60F7A800FE5263 /* AnnotationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D102C5B430B003EACF0 /* AnnotationView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		139B7B952C60F7A800FE5263 /* AnnotationWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D122C5B430B003EACF0 /* AnnotationWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		139B7B962C60F7A800FE5263 /* CandidateWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D1A2C5B430B003EACF0 /* CandidateWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		139B7B972C60F7A800FE5263 /* CompletionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D1C2C5B430B003EACF0 /* CompletionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		139B7B982C60F7A800FE5263 /* InputModeWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D202C5B430B003EACF0 /* InputModeWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		139B7B992C60F7A800FE5263 /* CandidatePageIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D162C5B430B003EACF0 /* CandidatePageIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		139B7B9A2C60F7A800FE5263 /* MessengerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D222C5B430B003EACF0 /* MessengerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		139B7B9B2C60F7A800FE5263 /* CompletionWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D1E2C5B430B003EACF0 /* CompletionWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		139B7B9C2C60F7A800FE5263 /* MessengerWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D242C5B430B003EACF0 /* MessengerWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		139B7B9D2C60F7A800FE5263 /* CandidateView.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D182C5B430B003EACF0 /* CandidateView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		139B7B9E2C60F7A800FE5263 /* CandidateCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D142C5B430B003EACF0 /* CandidateCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13B7BE832C5EFCEF00F6BEF8 /* SKKStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE822C5EFCEF00F6BEF8 /* SKKStateStore.swift */; };
 		13B7BE852C5EFD7000F6BEF8 /* StateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE842C5EFD7000F6BEF8 /* StateMonitor.swift */; };
 		13B7BE882C5F1E9100F6BEF8 /* SKKServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE872C5F1E9100F6BEF8 /* SKKServerTests.swift */; };
@@ -449,20 +449,6 @@
 			remoteInfo = Preferences;
 		};
 		13B7BED42C5F5CF900F6BEF8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 13D368112C5A81290083CAE3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 13B7BEC02C5F5CF900F6BEF8;
-			remoteInfo = AquaSKKService;
-		};
-		13B7BEF02C5F5EBC00F6BEF8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 13D368112C5A81290083CAE3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 13D7560A2C5A9043006144F2;
-			remoteInfo = AquaSKKCore;
-		};
-		13B7BEF22C5F5EBC00F6BEF8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 13D368112C5A81290083CAE3 /* Project object */;
 			proxyType = 1;
@@ -862,17 +848,17 @@
 		13931D0D2C5B4B5000B11EEE /* PreferenecesUITests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PreferenecesUITests.xcconfig; sourceTree = "<group>"; };
 		13931D0E2C5B4C6B00B11EEE /* CoreTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CoreTests.xcconfig; sourceTree = "<group>"; };
 		139B7B582C60F61100FE5263 /* AquaSKKService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AquaSKKService.framework; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/AquaSKKService.framework; sourceTree = "<absolute>"; };
-		139B7B5B2C60F61100FE5263 /* TyperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = TyperTests.xctest; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/Harness.app/Contents/PlugIns/TyperTests.xctest; sourceTree = "<absolute>"; };
 		139B7B5C2C60F62F00FE5263 /* ServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ServiceTests.xctest; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/ServiceTests.xctest; sourceTree = "<absolute>"; };
 		139B7B642C60F68100FE5263 /* AquaSKKUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKUI.h; sourceTree = "<group>"; };
 		139B7B652C60F68100FE5263 /* AquaSKKUI.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKUI.docc; sourceTree = "<group>"; };
 		139B7B722C60F68100FE5263 /* AquaSKKUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKKUITests.swift; sourceTree = "<group>"; };
 		139B7B812C60F69E00FE5263 /* UI.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = UI.xcconfig; sourceTree = "<group>"; };
 		139B7B822C60F69E00FE5263 /* UITests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = UITests.xcconfig; sourceTree = "<group>"; };
-		139B7B842C60F6F600FE5263 /* AquaSKKUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AquaSKKUI.framework; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/AquaSKKUI.framework; sourceTree = "<absolute>"; };
-		139B7B852C60F6FA00FE5263 /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = UITests.xctest; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/Preferences.app/Contents/PlugIns/UITests.xctest; sourceTree = "<absolute>"; };
 		139B7B862C60F70B00FE5263 /* AquaSKKUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AquaSKKUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		139B7B872C60F70B00FE5263 /* UITests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		139B7B932C60F79A00FE5263 /* AquaSKKUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AquaSKKUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		139B7B9F2C60F83800FE5263 /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		139B7BA02C60F97500FE5263 /* TyperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TyperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B7BE822C5EFCEF00F6BEF8 /* SKKStateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStateStore.swift; sourceTree = "<group>"; };
 		13B7BE842C5EFD7000F6BEF8 /* StateMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMonitor.swift; sourceTree = "<group>"; };
 		13B7BE872C5F1E9100F6BEF8 /* SKKServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKServerTests.swift; sourceTree = "<group>"; };
@@ -1658,7 +1644,6 @@
 				13B7BE942C5F236700F6BEF8 /* AquaSKKIM_Private.h */,
 				13B7BE922C5F236000F6BEF8 /* AquaSKKIM.modulemap */,
 				13B7BE932C5F236000F6BEF8 /* AquaSKKIM.Private.modulemap */,
-				134A0D262C5B430B003EACF0 /* gui */,
 				135C3D932C5B3F1D00661AE3 /* server */,
 				135C3D5E2C5B3E9600661AE3 /* AquaSKKIM.docc */,
 			);
@@ -1871,6 +1856,7 @@
 			children = (
 				139B7B642C60F68100FE5263 /* AquaSKKUI.h */,
 				139B7B652C60F68100FE5263 /* AquaSKKUI.docc */,
+				134A0D262C5B430B003EACF0 /* gui */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1925,6 +1911,9 @@
 				133A55182C5DA7910047E911 /* .swift-version */,
 				133A55192C5DA7910047E911 /* .swiftformat */,
 				1320D90B2C5B4E5C002DE997 /* Products */,
+				139B7B932C60F79A00FE5263 /* AquaSKKUI.framework */,
+				139B7B9F2C60F83800FE5263 /* UITests.xctest */,
+				139B7BA02C60F97500FE5263 /* TyperTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1992,19 +1981,8 @@
 				135C3DAF2C5B3F1D00661AE3 /* SKKInputMenu.h in Headers */,
 				135C3DB02C5B3F1D00661AE3 /* MacInputModeMenu.h in Headers */,
 				135C3DB12C5B3F1D00661AE3 /* SKKServer.h in Headers */,
-				134A0D272C5B430B003EACF0 /* CompletionView.h in Headers */,
-				134A0D282C5B430B003EACF0 /* CompletionWindow.h in Headers */,
-				134A0D292C5B430B003EACF0 /* MessengerWindow.h in Headers */,
-				134A0D2A2C5B430B003EACF0 /* CandidateCell.h in Headers */,
 				13B7BE952C5F236700F6BEF8 /* AquaSKKIM_Private.h in Headers */,
-				134A0D2B2C5B430B003EACF0 /* CandidatePageIndicator.h in Headers */,
-				134A0D2C2C5B430B003EACF0 /* AnnotationView.h in Headers */,
-				134A0D2D2C5B430B003EACF0 /* CandidateView.h in Headers */,
 				13B7BE972C5F245000F6BEF8 /* SKKServer_Private.h in Headers */,
-				134A0D2E2C5B430B003EACF0 /* AnnotationWindow.h in Headers */,
-				134A0D2F2C5B430B003EACF0 /* MessengerView.h in Headers */,
-				134A0D302C5B430B003EACF0 /* InputModeWindow.h in Headers */,
-				134A0D312C5B430B003EACF0 /* CandidateWindow.h in Headers */,
 				135C3DB32C5B3F1D00661AE3 /* MacMessenger.h in Headers */,
 				135C3DB42C5B3F1D00661AE3 /* MacAnnotator.h in Headers */,
 				135C3DB52C5B3F1D00661AE3 /* SKKLayoutManager.h in Headers */,
@@ -2025,6 +2003,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				139B7B742C60F68100FE5263 /* AquaSKKUI.h in Headers */,
+				139B7B942C60F7A800FE5263 /* AnnotationView.h in Headers */,
+				139B7B952C60F7A800FE5263 /* AnnotationWindow.h in Headers */,
+				139B7B962C60F7A800FE5263 /* CandidateWindow.h in Headers */,
+				139B7B972C60F7A800FE5263 /* CompletionView.h in Headers */,
+				139B7B982C60F7A800FE5263 /* InputModeWindow.h in Headers */,
+				139B7B992C60F7A800FE5263 /* CandidatePageIndicator.h in Headers */,
+				139B7B9A2C60F7A800FE5263 /* MessengerView.h in Headers */,
+				139B7B9B2C60F7A800FE5263 /* CompletionWindow.h in Headers */,
+				139B7B9C2C60F7A800FE5263 /* MessengerWindow.h in Headers */,
+				139B7B9D2C60F7A800FE5263 /* CandidateView.h in Headers */,
+				139B7B9E2C60F7A800FE5263 /* CandidateCell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2206,7 +2195,7 @@
 			);
 			name = TyperTests;
 			productName = TyperTests;
-			productReference = 139B7B5B2C60F61100FE5263 /* TyperTests.xctest */;
+			productReference = 139B7BA02C60F97500FE5263 /* TyperTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		1344F6142C5B2C9500D8C850 /* CoreTests */ = {
@@ -2261,8 +2250,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				13B7BEF12C5F5EBC00F6BEF8 /* PBXTargetDependency */,
-				13B7BEF32C5F5EBC00F6BEF8 /* PBXTargetDependency */,
 			);
 			name = AquaSKKIM;
 			packageProductDependencies = (
@@ -2361,7 +2348,7 @@
 			);
 			name = AquaSKKUI;
 			productName = AquaSKKUI;
-			productReference = 139B7B842C60F6F600FE5263 /* AquaSKKUI.framework */;
+			productReference = 139B7B932C60F79A00FE5263 /* AquaSKKUI.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		139B7B6A2C60F68100FE5263 /* UITests */ = {
@@ -2380,7 +2367,7 @@
 			);
 			name = UITests;
 			productName = AquaSKKUITests;
-			productReference = 139B7B852C60F6FA00FE5263 /* UITests.xctest */;
+			productReference = 139B7B9F2C60F83800FE5263 /* UITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		13B7BEC02C5F5CF900F6BEF8 /* AquaSKKService */ = {
@@ -2831,17 +2818,6 @@
 			files = (
 				135C3D962C5B3F1D00661AE3 /* MacClipboard.mm in Sources */,
 				135C3D972C5B3F1D00661AE3 /* MacConfig.mm in Sources */,
-				134A0D322C5B430B003EACF0 /* AnnotationWindow.mm in Sources */,
-				134A0D332C5B430B003EACF0 /* CandidateView.mm in Sources */,
-				134A0D342C5B430B003EACF0 /* CompletionWindow.mm in Sources */,
-				134A0D352C5B430B003EACF0 /* MessengerWindow.mm in Sources */,
-				134A0D362C5B430B003EACF0 /* CompletionView.mm in Sources */,
-				134A0D372C5B430B003EACF0 /* AnnotationView.mm in Sources */,
-				134A0D382C5B430B003EACF0 /* CandidateWindow.mm in Sources */,
-				134A0D392C5B430B003EACF0 /* CandidateCell.mm in Sources */,
-				134A0D3A2C5B430B003EACF0 /* InputModeWindow.mm in Sources */,
-				134A0D3B2C5B430B003EACF0 /* MessengerView.mm in Sources */,
-				134A0D3C2C5B430B003EACF0 /* CandidatePageIndicator.mm in Sources */,
 				135C3D982C5B3F1D00661AE3 /* MacCandidateWindow.mm in Sources */,
 				135C3D992C5B3F1D00661AE3 /* MacKotoeriDictionary.cpp in Sources */,
 				135C3D9A2C5B3F1D00661AE3 /* MacDynamicCompletor.mm in Sources */,
@@ -2901,6 +2877,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				139B7B882C60F79500FE5263 /* MessengerView.mm in Sources */,
+				139B7B892C60F79500FE5263 /* AnnotationWindow.mm in Sources */,
+				139B7B8A2C60F79500FE5263 /* MessengerWindow.mm in Sources */,
+				139B7B8B2C60F79500FE5263 /* CandidateWindow.mm in Sources */,
+				139B7B8C2C60F79500FE5263 /* CandidateCell.mm in Sources */,
+				139B7B8D2C60F79500FE5263 /* CandidatePageIndicator.mm in Sources */,
+				139B7B8E2C60F79500FE5263 /* AnnotationView.mm in Sources */,
+				139B7B8F2C60F79500FE5263 /* CompletionWindow.mm in Sources */,
+				139B7B902C60F79500FE5263 /* CompletionView.mm in Sources */,
+				139B7B912C60F79500FE5263 /* CandidateView.mm in Sources */,
+				139B7B922C60F79500FE5263 /* InputModeWindow.mm in Sources */,
 				139B7B662C60F68100FE5263 /* AquaSKKUI.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3060,16 +3047,6 @@
 			isa = PBXTargetDependency;
 			target = 13B7BEC02C5F5CF900F6BEF8 /* AquaSKKService */;
 			targetProxy = 13B7BED42C5F5CF900F6BEF8 /* PBXContainerItemProxy */;
-		};
-		13B7BEF12C5F5EBC00F6BEF8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 13D7560A2C5A9043006144F2 /* AquaSKKCore */;
-			targetProxy = 13B7BEF02C5F5EBC00F6BEF8 /* PBXContainerItemProxy */;
-		};
-		13B7BEF32C5F5EBC00F6BEF8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 13B7BEC02C5F5CF900F6BEF8 /* AquaSKKService */;
-			targetProxy = 13B7BEF22C5F5EBC00F6BEF8 /* PBXContainerItemProxy */;
 		};
 		13E77E5F2C5B5FC00096013B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3358,91 +3335,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 139B7B812C60F69E00FE5263 /* UI.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = jp.mzp.AquaSKKUI;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
@@ -3450,83 +3342,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 139B7B812C60F69E00FE5263 /* UI.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = jp.mzp.AquaSKKUI;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 5.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Testing;
 		};
@@ -3534,83 +3349,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 139B7B812C60F69E00FE5263 /* UI.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = jp.mzp.AquaSKKUI;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 5.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -3618,72 +3356,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 139B7B822C60F69E00FE5263 /* UITests.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = jp.mzp.AquaSKKUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Preferences.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Preferences";
 			};
 			name = Debug;
 		};
@@ -3691,64 +3363,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 139B7B822C60F69E00FE5263 /* UITests.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = jp.mzp.AquaSKKUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Preferences.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Preferences";
 			};
 			name = Testing;
 		};
@@ -3756,64 +3370,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 139B7B822C60F69E00FE5263 /* UITests.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = jp.mzp.AquaSKKUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Preferences.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Preferences";
 			};
 			name = Release;
 		};

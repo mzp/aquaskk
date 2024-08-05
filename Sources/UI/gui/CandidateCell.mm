@@ -20,7 +20,7 @@
 
 */
 
-#import <AquaSKKIM/CandidateCell.h>
+#import <AquaSKKUI/CandidateCell.h>
 
 @implementation CandidateCell
 

@@ -13,23 +13,6 @@ FOUNDATION_EXPORT double AquaSKKIMVersionNumber;
 //! Project version string for AquaSKKServer.
 FOUNDATION_EXPORT const unsigned char AquaSKKIMVersionString[];
 
-#pragma mark - GUI
-
-#import <AquaSKKIM/AnnotationView.h>
-#import <AquaSKKIM/AnnotationWindow.h>
-#import <AquaSKKIM/CandidateCell.h>
-#import <AquaSKKIM/CandidatePageIndicator.h>
-#import <AquaSKKIM/CandidateView.h>
-#import <AquaSKKIM/CandidateWindow.h>
-#import <AquaSKKIM/CompletionView.h>
-#import <AquaSKKIM/CompletionWindow.h>
-#import <AquaSKKIM/InputModeWindow.h>
-#import <AquaSKKIM/MessengerView.h>
-#import <AquaSKKIM/MessengerWindow.h>
-
-
-#pragma mark - Server
-
 #import <AquaSKKIM/BlacklistApps.h>
 #import <AquaSKKIM/MacAnnotator.h>
 #import <AquaSKKIM/MacCandidateWindow.h>

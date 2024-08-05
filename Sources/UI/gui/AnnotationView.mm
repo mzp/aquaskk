@@ -20,7 +20,7 @@
 
 */
 
-#import <AquaSKKIM/AnnotationView.h>
+#import <AquaSKKUI/AnnotationView.h>
 
 @interface AnnotationView (Local)
 

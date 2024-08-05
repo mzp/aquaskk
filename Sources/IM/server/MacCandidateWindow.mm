@@ -21,9 +21,9 @@
 */
 
 #import <AquaSKKIM/MacCandidateWindow.h>
-#import <AquaSKKIM/CandidateWindow.h>
-#import <AquaSKKIM/CandidateView.h>
-#import <AquaSKKIM/CandidateCell.h>
+#import <AquaSKKUI/CandidateWindow.h>
+#import <AquaSKKUI/CandidateView.h>
+#import <AquaSKKUI/CandidateCell.h>
 #import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKCore/utf8util.h>
 

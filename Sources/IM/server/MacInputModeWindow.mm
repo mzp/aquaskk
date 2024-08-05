@@ -24,7 +24,7 @@
 #import <AquaSKKCore/SKKFrontEnd.h>
 #import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKIM/SKKLayoutManager.h>
-#import <AquaSKKIM/InputModeWindow.h>
+#import <AquaSKKUI/InputModeWindow.h>
 #include <iostream>
 #include <vector>
 
