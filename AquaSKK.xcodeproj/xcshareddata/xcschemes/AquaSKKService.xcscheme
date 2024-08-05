@@ -30,7 +30,11 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:Tests/Plans/Service.xctestplan">
+            reference = "container:Config/Plans/Unit.xctestplan"
+            default = "YES">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:Config/Plans/Integration.xctestplan">
          </TestPlanReference>
       </TestPlans>
    </TestAction>

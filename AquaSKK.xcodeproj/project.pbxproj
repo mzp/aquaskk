@@ -500,15 +500,12 @@
 		13185CC02C5B57DF001CF24D /* SubRuleDescriptions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SubRuleDescriptions.cpp; sourceTree = "<group>"; };
 		132B77772C5DB89E00EEC2A5 /* calculator_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = calculator_TEST.mm; sourceTree = "<group>"; };
 		132B77782C5DB89E00EEC2A5 /* pthreadutil_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = pthreadutil_TEST.mm; sourceTree = "<group>"; };
-		133834E12C60203900D73AD7 /* TyperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = TyperTests.xctest; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/Harness.app/Contents/PlugIns/TyperTests.xctest; sourceTree = "<absolute>"; };
 		133834EC2C60204900D73AD7 /* TyperTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = TyperTests.xcconfig; sourceTree = "<group>"; };
-		133834ED2C60207100D73AD7 /* Typer.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Typer.xctestplan; sourceTree = "<group>"; };
-		133834F02C6020BE00D73AD7 /* AquaSKKService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AquaSKKService.framework; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/AquaSKKService.framework; sourceTree = "<absolute>"; };
 		133834F62C6020FA00D73AD7 /* TyperTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = TyperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		133834F72C6020FA00D73AD7 /* AquaSKKService.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AquaSKKService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		133834F82C6020FA00D73AD7 /* AquaSKKServiceTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = AquaSKKServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		133834F92C60210B00D73AD7 /* AquaSKKService.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AquaSKKService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		133834FA2C60213E00D73AD7 /* AquaSKKServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AquaSKKServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		133834FA2C60213E00D73AD7 /* AquaSKKServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = AquaSKKServiceTests.xctest; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/AquaSKKServiceTests.xctest; sourceTree = "<absolute>"; };
 		133A55152C5DA7910047E911 /* main.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = main.yml; sourceTree = "<group>"; };
 		133A55182C5DA7910047E911 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		133A55192C5DA7910047E911 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
@@ -818,7 +815,6 @@
 		1371A7762C5B5D3E00E06348 /* Mini-Katakana.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "Mini-Katakana.tiff"; sourceTree = "<group>"; };
 		1371A7772C5B5D3E00E06348 /* Mini-Katakana@2x.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "Mini-Katakana@2x.tiff"; sourceTree = "<group>"; };
 		1371A7792C5B5D3E00E06348 /* karabiner.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = karabiner.xml; sourceTree = "<group>"; };
-		1379C0172C5B4CF900AACFDF /* App.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = App.xctestplan; sourceTree = "<group>"; };
 		137D05752C5B5A81009AC591 /* AquaSKK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AquaSKK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		137D05772C5B5A81009AC591 /* AquaSKKApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKKApp.swift; sourceTree = "<group>"; };
 		137D05792C5B5A81009AC591 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -833,7 +829,7 @@
 		137D05A22C5B5AFC009AC591 /* PreferencesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PreferencesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		137D05A32C5B5AFC009AC591 /* AquaSKKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AquaSKKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		137D05A42C5B5AFC009AC591 /* AquaSKKUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AquaSKKUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		138B31932C5DD3AB006424E0 /* All.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = All.xctestplan; path = Config/Plans/All.xctestplan; sourceTree = SOURCE_ROOT; };
+		138B31932C5DD3AB006424E0 /* CI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = CI.xctestplan; path = Config/Plans/CI.xctestplan; sourceTree = SOURCE_ROOT; };
 		138B319F2C5DD40C006424E0 /* All-Testing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "All-Testing.xcconfig"; sourceTree = "<group>"; };
 		138F45102C5CA19D000B03FC /* Core.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Core.xcconfig; sourceTree = "<group>"; };
 		138F45112C5CA1B6000B03FC /* IMTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = IMTests.xcconfig; sourceTree = "<group>"; };
@@ -842,7 +838,6 @@
 		13931D0C2C5B49C200B11EEE /* PreferenecesTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PreferenecesTests.xcconfig; sourceTree = "<group>"; };
 		13931D0D2C5B4B5000B11EEE /* PreferenecesUITests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PreferenecesUITests.xcconfig; sourceTree = "<group>"; };
 		13931D0E2C5B4C6B00B11EEE /* CoreTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CoreTests.xcconfig; sourceTree = "<group>"; };
-		13931D0F2C5B4C9D00B11EEE /* Preferences.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Preferences.xctestplan; sourceTree = "<group>"; };
 		13B7BE822C5EFCEF00F6BEF8 /* SKKStateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStateStore.swift; sourceTree = "<group>"; };
 		13B7BE842C5EFD7000F6BEF8 /* StateMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMonitor.swift; sourceTree = "<group>"; };
 		13B7BE872C5F1E9100F6BEF8 /* SKKServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKServerTests.swift; sourceTree = "<group>"; };
@@ -857,7 +852,6 @@
 		13B7BED12C5F5CF900F6BEF8 /* AquaSKKServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKKServiceTests.swift; sourceTree = "<group>"; };
 		13B7BEE12C5F5D1A00F6BEF8 /* Service.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Service.xcconfig; sourceTree = "<group>"; };
 		13B7BEE22C5F5D2000F6BEF8 /* ServiceTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ServiceTests.xcconfig; sourceTree = "<group>"; };
-		13B7BEE32C5F5D7900F6BEF8 /* Service.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Service.xctestplan; sourceTree = "<group>"; };
 		13B7BEE42C5F5D9F00F6BEF8 /* SKKConstVars.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKConstVars.h; sourceTree = "<group>"; };
 		13B7BEE52C5F5D9F00F6BEF8 /* SKKConstVars.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKConstVars.mm; sourceTree = "<group>"; };
 		13B7BEE82C5F5DA200F6BEF8 /* ObjCUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCUtil.h; sourceTree = "<group>"; };
@@ -865,14 +859,16 @@
 		13B7BEEB2C5F5DA700F6BEF8 /* SKKServerProxy.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKServerProxy.mm; sourceTree = "<group>"; };
 		13B7BEEC2C5F5DA700F6BEF8 /* SKKSupervisor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKSupervisor.h; sourceTree = "<group>"; };
 		13B7BEF42C5F60D600F6BEF8 /* AquaSKKService.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AquaSKKService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		13CEB8272C5DBE050052B7ED /* Core.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Core.xctestplan; sourceTree = "<group>"; };
 		13CEB8292C5DC48E0052B7ED /* Cpp.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Cpp.xcconfig; sourceTree = "<group>"; };
+		13D0C5FC2C60F36B00DCF354 /* AquaSKKService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AquaSKKService.framework; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/AquaSKKService.framework; sourceTree = "<absolute>"; };
+		13D0C5FE2C60F36B00DCF354 /* TyperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = TyperTests.xctest; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/Harness.app/Contents/PlugIns/TyperTests.xctest; sourceTree = "<absolute>"; };
+		13D0C5FF2C60F39500DCF354 /* Unit.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Unit.xctestplan; sourceTree = "<group>"; };
+		13D0C6002C60F3A700DCF354 /* Integration.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Integration.xctestplan; sourceTree = "<group>"; };
 		13D756162C5A9049006144F2 /* AquaSKKCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKCore.h; sourceTree = "<group>"; };
 		13D756172C5A9049006144F2 /* AquaSKKCore.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKCore.docc; sourceTree = "<group>"; };
 		13D7561B2C5A905E006144F2 /* All.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = All.xcconfig; sourceTree = "<group>"; };
 		13D7561C2C5A9113006144F2 /* All-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "All-Debug.xcconfig"; sourceTree = "<group>"; };
 		13EB86632C5EA7DD00B47DCD /* SupervisorMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupervisorMonitor.swift; sourceTree = "<group>"; };
-		13EEA1882C5DCFAF00642930 /* IM.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = IM.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1810,13 +1806,9 @@
 		13931D102C5B4CC000B11EEE /* Plans */ = {
 			isa = PBXGroup;
 			children = (
-				138B31932C5DD3AB006424E0 /* All.xctestplan */,
-				1379C0172C5B4CF900AACFDF /* App.xctestplan */,
-				13CEB8272C5DBE050052B7ED /* Core.xctestplan */,
-				13EEA1882C5DCFAF00642930 /* IM.xctestplan */,
-				13931D0F2C5B4C9D00B11EEE /* Preferences.xctestplan */,
-				133834ED2C60207100D73AD7 /* Typer.xctestplan */,
-				13B7BEE32C5F5D7900F6BEF8 /* Service.xctestplan */,
+				138B31932C5DD3AB006424E0 /* CI.xctestplan */,
+				13D0C5FF2C60F39500DCF354 /* Unit.xctestplan */,
+				13D0C6002C60F3A700DCF354 /* Integration.xctestplan */,
 			);
 			path = Plans;
 			sourceTree = "<group>";
@@ -1863,7 +1855,6 @@
 				133A55182C5DA7910047E911 /* .swift-version */,
 				133A55192C5DA7910047E911 /* .swiftformat */,
 				1320D90B2C5B4E5C002DE997 /* Products */,
-				133834FA2C60213E00D73AD7 /* AquaSKKServiceTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2136,7 +2127,7 @@
 			);
 			name = TyperTests;
 			productName = TyperTests;
-			productReference = 133834E12C60203900D73AD7 /* TyperTests.xctest */;
+			productReference = 13D0C5FE2C60F36B00DCF354 /* TyperTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		1344F6142C5B2C9500D8C850 /* CoreTests */ = {
@@ -2291,7 +2282,7 @@
 			);
 			name = AquaSKKService;
 			productName = AquaSKKService;
-			productReference = 133834F02C6020BE00D73AD7 /* AquaSKKService.framework */;
+			productReference = 13D0C5FC2C60F36B00DCF354 /* AquaSKKService.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		13B7BEC92C5F5CF900F6BEF8 /* AquaSKKServiceTests */ = {

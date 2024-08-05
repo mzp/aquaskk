@@ -9,7 +9,15 @@ jobs:
       - uses: actions/checkout@v4
       - run: sudo xcode-select -s /Applications/Xcode_16_beta_4.app
       - run: swiftformat --lint .
-      - run: set -o pipefail && xcrun xcodebuild -scheme All test -destination "platform=macOS" -configuration Testing | xcpretty
+      - run: set -o pipefail && xcrun xcodebuild -scheme All test -testPlan CI -configuration Testing -resultBundlePath TestResults.xcresult | xcpretty
+      - name: Upload xcresult
+        uses: actions/upload-artifact@v4
+        if: success() || failure()
+        with:
+          name: "TestResults.xcresult"
+          path: "TestResults.xcresult"
+          compression-level: 1
+
   Builds:
     runs-on: macos-latest
     steps:
