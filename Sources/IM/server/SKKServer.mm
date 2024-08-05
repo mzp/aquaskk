@@ -36,7 +36,7 @@
 // #import <AquaSKKIM/SKKPythonRunner.h>
 #import <AquaSKKIM/MacKotoeriDictionary.h>
 #import <AquaSKKCore/skkserv.h>
-#import <AquaSKKIM/InputModeWindow.h>
+#import <AquaSKKUI/InputModeWindow.h>
 
 #include <signal.h>
 

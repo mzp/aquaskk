@@ -20,7 +20,7 @@
 
 */
 
-#import <AquaSKKIM/InputModeWindow.h>
+#import <AquaSKKUI/InputModeWindow.h>
 
 @interface InputModeWindow (Local)
 - (void)prepareLayer;

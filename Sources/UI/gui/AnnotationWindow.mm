@@ -20,37 +20,33 @@
 
 */
 
-#import <AquaSKKIM/CandidateWindow.h>
-#import <AquaSKKIM/CandidateView.h>
+#import <AquaSKKUI/AnnotationWindow.h>
+#import <AquaSKKUI/AnnotationView.h>
 
-@implementation CandidateWindow
+@implementation AnnotationWindow
 
-+ (CandidateWindow*)sharedWindow {
-    static CandidateWindow* obj = [[CandidateWindow alloc] init];
-
++ (AnnotationWindow*)sharedWindow {
+    static AnnotationWindow* obj =  [[AnnotationWindow alloc] init];
     return obj;
 }
 
 - (id)init {
     self = [super init];
     if(self) {
-        view_ = [[CandidateView alloc] initWithFrame:NSZeroRect];
+        view_ = [[AnnotationView alloc] init];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        window_ = [[NSWindow alloc] initWithContentRect:NSZeroRect
+        window_ = [[NSWindow alloc] initWithContentRect:[view_ frame]
                                     styleMask:NSBorderlessWindowMask
                                     backing:NSBackingStoreBuffered
                                     defer:YES];
 #pragma clang diagnostic pop
-        [window_ setIgnoresMouseEvents:YES];
         [window_ setContentView:view_];
-        labels_ = @"";
     }
     return self;
 }
 
 - (void)dealloc {
-    [labels_ release];
     [window_ release];
     [view_ release];
 
@@ -61,48 +57,33 @@
     return window_;
 }
 
-- (void)prepareWithFont:(NSFont*)newFont labels:(NSString*)newLabels {
-    [labels_ release];
-    labels_ = [newLabels retain];
-
-    [view_ prepareWithFont:newFont labels:labels_];
-    [window_ setContentSize:[view_ contentSize]];
+- (void)setAnnotation:(NSString*)definition optional:(NSString*)annotation {
+    [view_ setAnnotation:definition optional:annotation];
 }
 
-- (void)setCandidates:(NSArray*)candidates selectedIndex:(int)cursor {
-    [view_ setCandidates:candidates selectedIndex:cursor];
-}
+- (void)activate:(id)sender {
+    [window_ orderFront:nil];
 
-- (void)setPage:(NSRange)page {
-    [view_ setPage:page];
+    [view_ setNeedsDisplay:YES];
 }
 
 - (void)showAt:(NSPoint)origin level:(int)level {
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+
+    if(![view_ hasAnnotation]) {
+        [self hide];
+        return;
+    }
+
     [window_ setFrameOrigin:origin];
     [window_ setLevel:level];
-    [window_ orderFront:nil];
+
+    [self performSelector:@selector(activate:) withObject:self afterDelay:1.0];
 }
 
 - (void)hide {
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
     [window_ orderOut:nil];
-}
-
-- (int)indexOfLabel:(char)label {
-    NSString* target = [NSString stringWithFormat:@"%c", label];
-    NSRange result = [labels_ rangeOfString:target options:NSCaseInsensitiveSearch];
-
-    if(result.location == NSNotFound) {
-	return -1;
-    } else {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wshorten-64-to-32"
-	return result.location;
-#pragma clang diagnostic pop
-    }
-}
-
-- (id)newCandidateCell {
-    return [view_ newCandidateCell];
 }
 
 @end

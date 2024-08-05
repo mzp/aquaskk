@@ -72,26 +72,14 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:Config/Plans/App.xctestplan">
+            reference = "container:Config/Plans/CI.xctestplan">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:Config/Plans/Typer.xctestplan">
+            reference = "container:Config/Plans/Integration.xctestplan">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:Config/Plans/Service.xctestplan">
-         </TestPlanReference>
-         <TestPlanReference
-            reference = "container:Config/Plans/All.xctestplan"
+            reference = "container:Config/Plans/Unit.xctestplan"
             default = "YES">
-         </TestPlanReference>
-         <TestPlanReference
-            reference = "container:Config/Plans/Core.xctestplan">
-         </TestPlanReference>
-         <TestPlanReference
-            reference = "container:Config/Plans/IM.xctestplan">
-         </TestPlanReference>
-         <TestPlanReference
-            reference = "container:Config/Plans/Preferences.xctestplan">
          </TestPlanReference>
       </TestPlans>
       <Testables>
@@ -101,8 +89,19 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B7BEC92C5F5CF900F6BEF8"
-               BuildableName = "AquaSKKServiceTests.xctest"
-               BlueprintName = "AquaSKKServiceTests"
+               BuildableName = "ServiceTests.xctest"
+               BlueprintName = "ServiceTests"
+               ReferencedContainer = "container:AquaSKK.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "139B7B6A2C60F68100FE5263"
+               BuildableName = "UITests.xctest"
+               BlueprintName = "UITests"
                ReferencedContainer = "container:AquaSKK.xcodeproj">
             </BuildableReference>
          </TestableReference>

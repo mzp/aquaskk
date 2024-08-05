@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "71807D6D-CF2A-410B-BF9A-CE07DD1B586E",
+      "id" : "889F2B91-3952-465C-8756-B6B0F7229BDF",
       "name" : "Configuration 1",
       "options" : {
 
@@ -15,15 +15,22 @@
     {
       "target" : {
         "containerPath" : "container:AquaSKK.xcodeproj",
-        "identifier" : "137D05842C5B5A83009AC591",
-        "name" : "AquaSKKTests"
+        "identifier" : "133834E02C60203900D73AD7",
+        "name" : "TyperTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:AquaSKK.xcodeproj",
+        "identifier" : "1307C2522C5B47DA00B089B6",
+        "name" : "PreferencesUITests"
       }
     },
     {
       "target" : {
         "containerPath" : "container:AquaSKK.xcodeproj",
         "identifier" : "137D058E2C5B5A83009AC591",
-        "name" : "AquaSKKUITests"
+        "name" : "AppUITests"
       }
     }
   ],

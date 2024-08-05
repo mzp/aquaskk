@@ -30,8 +30,11 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:Tests/Plans/Preferences.xctestplan"
+            reference = "container:Config/Plans/Integration.xctestplan"
             default = "YES">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:Config/Plans/Unit.xctestplan">
          </TestPlanReference>
       </TestPlans>
       <Testables>
@@ -41,8 +44,19 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B7BEC92C5F5CF900F6BEF8"
-               BuildableName = "AquaSKKServiceTests.xctest"
-               BlueprintName = "AquaSKKServiceTests"
+               BuildableName = "ServiceTests.xctest"
+               BlueprintName = "ServiceTests"
+               ReferencedContainer = "container:AquaSKK.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "139B7B6A2C60F68100FE5263"
+               BuildableName = "UITests.xctest"
+               BlueprintName = "UITests"
                ReferencedContainer = "container:AquaSKK.xcodeproj">
             </BuildableReference>
          </TestableReference>

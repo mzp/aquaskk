@@ -23,8 +23,8 @@
 #include <InputMethodKit/InputMethodKit.h>
 #import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKIM/SKKLayoutManager.h>
-#import <AquaSKKIM/CandidateWindow.h>
-#import <AquaSKKIM/AnnotationWindow.h>
+#import <AquaSKKUI/CandidateWindow.h>
+#import <AquaSKKUI/AnnotationWindow.h>
 
 SKKLayoutManager::SKKLayoutManager(id client)
     : client_(client) {}

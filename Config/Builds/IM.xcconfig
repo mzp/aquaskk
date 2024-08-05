@@ -10,7 +10,7 @@
 
 #include "./Include/Cpp.xcconfig"
 
-OTHER_LDFLAGS = $(inherits) -framework Foundation -framework AppKit -framework QuartzCore -framework InputMethodKit -framework AquaSKKCore -framework AquaSKKService
+OTHER_LDFLAGS = $(inherits) -framework AppKit -framework InputMethodKit -framework AquaSKKCore -framework AquaSKKService -framework AquaSKKUI
 
 MODULEMAP_FILE = Sources/IM/AquaSKKIM.modulemap
 MODULEMAP_PRIVATE_FILE = Sources/IM/AquaSKKIM.Private.modulemap

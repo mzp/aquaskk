@@ -20,9 +20,9 @@
 
 */
 
-#import <AquaSKKIM/CandidateView.h>
-#import <AquaSKKIM/CandidateCell.h>
-#import <AquaSKKIM/CandidatePageIndicator.h>
+#import <AquaSKKUI/CandidateView.h>
+#import <AquaSKKUI/CandidateCell.h>
+#import <AquaSKKUI/CandidatePageIndicator.h>
 
 @implementation CandidateView
 

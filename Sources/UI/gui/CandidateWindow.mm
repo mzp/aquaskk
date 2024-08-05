@@ -20,56 +20,89 @@
 
 */
 
-#import <AquaSKKIM/CompletionWindow.h>
-#import <AquaSKKIM/CompletionView.h>
+#import <AquaSKKUI/CandidateWindow.h>
+#import <AquaSKKUI/CandidateView.h>
 
-@implementation CompletionWindow
+@implementation CandidateWindow
 
-+ (CompletionWindow*)sharedWindow {
-    static CompletionWindow* obj =  [[CompletionWindow alloc] init];
++ (CandidateWindow*)sharedWindow {
+    static CandidateWindow* obj = [[CandidateWindow alloc] init];
+
     return obj;
 }
 
 - (id)init {
     self = [super init];
     if(self) {
-        view_ = [[CompletionView alloc] init];
+        view_ = [[CandidateView alloc] initWithFrame:NSZeroRect];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        window_ = [[NSWindow alloc] initWithContentRect:NSMakeRect(0, 0, 0, 0)
+        window_ = [[NSWindow alloc] initWithContentRect:NSZeroRect
                                     styleMask:NSBorderlessWindowMask
                                     backing:NSBackingStoreBuffered
                                     defer:YES];
 #pragma clang diagnostic pop
-        [window_ setBackgroundColor:[NSColor clearColor]];
-        [window_ setOpaque:NO];
         [window_ setIgnoresMouseEvents:YES];
         [window_ setContentView:view_];
+        labels_ = @"";
     }
     return self;
 }
 
 - (void)dealloc {
+    [labels_ release];
     [window_ release];
     [view_ release];
 
     [super dealloc];
 }
 
-- (void)showCompletion:(NSAttributedString*)comp at:(NSPoint)topleft level:(int)level {
-    [view_ setCompletion:comp];
+- (NSWindow*)window {
+    return window_;
+}
 
-    NSRect frame = [view_ frame];
-    frame.origin = topleft;
-    frame.origin.y -= frame.size.height;
+- (void)prepareWithFont:(NSFont*)newFont labels:(NSString*)newLabels {
+    [labels_ release];
+    labels_ = [newLabels retain];
 
-    [window_ setFrame:frame display:NO];
+    [view_ prepareWithFont:newFont labels:labels_];
+    [window_ setContentSize:[view_ contentSize]];
+}
+
+- (void)setCandidates:(NSArray*)candidates selectedIndex:(int)cursor {
+    [view_ setCandidates:candidates selectedIndex:cursor];
+}
+
+- (void)setPage:(NSRange)page {
+    [view_ setPage:page];
+}
+
+- (void)showAt:(NSPoint)origin level:(int)level {
+    [window_ setFrameOrigin:origin];
     [window_ setLevel:level];
     [window_ orderFront:nil];
 }
 
 - (void)hide {
     [window_ orderOut:nil];
+}
+
+- (int)indexOfLabel:(char)label {
+    NSString* target = [NSString stringWithFormat:@"%c", label];
+    NSRange result = [labels_ rangeOfString:target options:NSCaseInsensitiveSearch];
+
+    if(result.location == NSNotFound) {
+	return -1;
+    } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshorten-64-to-32"
+	return result.location;
+#pragma clang diagnostic pop
+    }
+}
+
+- (id)newCandidateCell {
+    return [view_ newCandidateCell];
 }
 
 @end

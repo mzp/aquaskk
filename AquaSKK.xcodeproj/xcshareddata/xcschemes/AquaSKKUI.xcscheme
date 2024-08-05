@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "137D05742C5B5A81009AC591"
-               BuildableName = "AquaSKK.app"
-               BlueprintName = "AquaSKK"
+               BlueprintIdentifier = "139B7B612C60F68100FE5263"
+               BuildableName = "AquaSKKUI.framework"
+               BlueprintName = "AquaSKKUI"
                ReferencedContainer = "container:AquaSKK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -48,17 +48,7 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
-      internalIOSLaunchStyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "137D05742C5B5A81009AC591"
-            BuildableName = "AquaSKK.app"
-            BlueprintName = "AquaSKK"
-            ReferencedContainer = "container:AquaSKK.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
+      internalIOSLaunchStyle = "3">
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -66,16 +56,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "137D05742C5B5A81009AC591"
-            BuildableName = "AquaSKK.app"
-            BlueprintName = "AquaSKK"
+            BlueprintIdentifier = "139B7B612C60F68100FE5263"
+            BuildableName = "AquaSKKUI.framework"
+            BlueprintName = "AquaSKKUI"
             ReferencedContainer = "container:AquaSKK.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

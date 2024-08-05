@@ -21,7 +21,7 @@
 */
 
 #import <AquaSKKIM/MacDynamicCompletor.h>
-#import <AquaSKKIM/CompletionWindow.h>
+#import <AquaSKKUI/CompletionWindow.h>
 
 #include <InputMethodKit/InputMethodKit.h>
 

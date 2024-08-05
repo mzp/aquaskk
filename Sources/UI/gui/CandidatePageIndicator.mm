@@ -20,7 +20,7 @@
 
 */
 
-#import <AquaSKKIM/CandidatePageIndicator.h>
+#import <AquaSKKUI/CandidatePageIndicator.h>
 
 @implementation CandidatePageIndicator
 

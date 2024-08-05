@@ -20,7 +20,7 @@
 
 */
 
-#import <AquaSKKIM/CompletionView.h>
+#import <AquaSKKUI/CompletionView.h>
 
 @interface CompletionView (Local)
 

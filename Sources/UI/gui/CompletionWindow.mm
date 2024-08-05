@@ -20,27 +20,30 @@
 
 */
 
-#import <AquaSKKIM/AnnotationWindow.h>
-#import <AquaSKKIM/AnnotationView.h>
+#import <AquaSKKUI/CompletionWindow.h>
+#import <AquaSKKUI/CompletionView.h>
 
-@implementation AnnotationWindow
+@implementation CompletionWindow
 
-+ (AnnotationWindow*)sharedWindow {
-    static AnnotationWindow* obj =  [[AnnotationWindow alloc] init];
++ (CompletionWindow*)sharedWindow {
+    static CompletionWindow* obj =  [[CompletionWindow alloc] init];
     return obj;
 }
 
 - (id)init {
     self = [super init];
     if(self) {
-        view_ = [[AnnotationView alloc] init];
+        view_ = [[CompletionView alloc] init];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        window_ = [[NSWindow alloc] initWithContentRect:[view_ frame]
+        window_ = [[NSWindow alloc] initWithContentRect:NSMakeRect(0, 0, 0, 0)
                                     styleMask:NSBorderlessWindowMask
                                     backing:NSBackingStoreBuffered
                                     defer:YES];
 #pragma clang diagnostic pop
+        [window_ setBackgroundColor:[NSColor clearColor]];
+        [window_ setOpaque:NO];
+        [window_ setIgnoresMouseEvents:YES];
         [window_ setContentView:view_];
     }
     return self;
@@ -53,36 +56,19 @@
     [super dealloc];
 }
 
-- (NSWindow*)window {
-    return window_;
-}
+- (void)showCompletion:(NSAttributedString*)comp at:(NSPoint)topleft level:(int)level {
+    [view_ setCompletion:comp];
 
-- (void)setAnnotation:(NSString*)definition optional:(NSString*)annotation {
-    [view_ setAnnotation:definition optional:annotation];
-}
+    NSRect frame = [view_ frame];
+    frame.origin = topleft;
+    frame.origin.y -= frame.size.height;
 
-- (void)activate:(id)sender {
-    [window_ orderFront:nil];
-
-    [view_ setNeedsDisplay:YES];
-}
-
-- (void)showAt:(NSPoint)origin level:(int)level {
-    [NSObject cancelPreviousPerformRequestsWithTarget:self];
-
-    if(![view_ hasAnnotation]) {
-        [self hide];
-        return;
-    }
-
-    [window_ setFrameOrigin:origin];
+    [window_ setFrame:frame display:NO];
     [window_ setLevel:level];
-
-    [self performSelector:@selector(activate:) withObject:self afterDelay:1.0];
+    [window_ orderFront:nil];
 }
 
 - (void)hide {
-    [NSObject cancelPreviousPerformRequestsWithTarget:self];
     [window_ orderOut:nil];
 }
 

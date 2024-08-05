@@ -20,7 +20,7 @@
 
 */
 
-#import <AquaSKKIM/MessengerView.h>
+#import <AquaSKKUI/MessengerView.h>
 
 @interface MessengerView (Local)
 
