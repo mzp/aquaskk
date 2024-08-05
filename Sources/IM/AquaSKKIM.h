@@ -42,12 +42,9 @@ FOUNDATION_EXPORT const unsigned char AquaSKKIMVersionString[];
 #import <AquaSKKIM/MacInputSessionParameter.h>
 #import <AquaSKKIM/MacKotoeriDictionary.h>
 #import <AquaSKKIM/MacMessenger.h>
-#import <AquaSKKIM/SKKConstVars.h>
 #import <AquaSKKIM/SKKInputController.h>
 #import <AquaSKKIM/SKKInputMenu.h>
 #import <AquaSKKIM/SKKLayoutManager.h>
 #import <AquaSKKIM/SKKPreProcessor.h>
 #import <AquaSKKIM/SKKPythonRunner.h>
 #import <AquaSKKIM/SKKServer.h>
-#import <AquaSKKIM/SKKServerProxy.h>
-#import <AquaSKKIM/SKKSupervisor.h>

@@ -21,7 +21,7 @@
 */
 
 #import <AquaSKKIM/MacConfig.h>
-#import <AquaSKKIM/SKKConstVars.h>
+#import <AquaSKKService/SKKConstVars.h>
 
 MacConfig::MacConfig() {
 }

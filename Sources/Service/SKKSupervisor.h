@@ -32,7 +32,7 @@
 - (void)reloadUserDefaults;
 - (void)reloadDictionarySet;
 - (void)reloadComponents;
-- (NSArray*)createDictionaryTypes;
+- (NSArray<NSDictionary *> *)createDictionaryTypes;
 @end
 
 #endif

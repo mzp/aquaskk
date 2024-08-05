@@ -27,8 +27,7 @@
 #import <AquaSKKCore/SKKBackEnd.h>
 
 #import <AquaSKKIM/SKKPreProcessor.h>
-#import <AquaSKKIM/SKKConstVars.h>
-
+#import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKIM/MacInputSessionParameter.h>
 #import <AquaSKKIM/MacInputModeMenu.h>
 #import <AquaSKKIM/MacInputModeWindow.h>
@@ -55,21 +54,25 @@
 - (id)initWithServer:(id)server delegate:(id)delegate client:(id)client {
     self = [super initWithServer:server delegate:delegate client:client];
     if(self) {
-        client_ = [client retain];
-        context_ = [[NSTextInputContext alloc] initWithClient:client];
-        activated_ = NO;
-        proxy_ = [[SKKServerProxy alloc] init];
-        menu_ = [[SKKInputMenu alloc] initWithClient:client];
-
-        layout_ = new SKKLayoutManager(client_);
-        session_ = new SKKInputSession(new MacInputSessionParameter(client_, layout_));
-        modeIcon_ = new MacInputModeWindow(layout_);
-
-        session_->AddInputModeListener(new MacInputModeMenu(menu_));
-        session_->AddInputModeListener(modeIcon_);
+        [self _setClient:client];
     }
 
     return self;
+}
+
+- (void)_setClient:(id)client {
+    client_ = [client retain];
+    context_ = [[NSTextInputContext alloc] initWithClient:client];
+    activated_ = NO;
+    proxy_ = [[SKKServerProxy alloc] init];
+    menu_ = [[SKKInputMenu alloc] initWithClient:client];
+
+    layout_ = new SKKLayoutManager(client_);
+    session_ = new SKKInputSession(new MacInputSessionParameter(client_, layout_));
+    modeIcon_ = new MacInputModeWindow(layout_);
+
+    session_->AddInputModeListener(new MacInputModeMenu(menu_));
+    session_->AddInputModeListener(modeIcon_);
 }
 
 - (void)dealloc {

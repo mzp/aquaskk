@@ -32,7 +32,7 @@
 #import <AquaSKKCore/SKKLocalUserDictionary.h>
 #import <AquaSKKCore/SKKDistributedUserDictionary.h>
 #import <AquaSKKCore/SKKDictionaryFactory.h>
-#import <AquaSKKIM/SKKConstVars.h>
+#import <AquaSKKService/SKKConstVars.h>
 // #import <AquaSKKIM/SKKPythonRunner.h>
 #import <AquaSKKIM/MacKotoeriDictionary.h>
 #import <AquaSKKCore/skkserv.h>
@@ -99,6 +99,12 @@ static void terminate(int) {
 @implementation SKKServer
 
 - (void)awakeFromNib {
+    [self _start];
+
+    imkserver_ = [self newIMKServer];
+}
+
+- (void)_start {
     skkserv_ = 0;
 
     [self prepareSignalHandler];
@@ -107,7 +113,6 @@ static void terminate(int) {
     [self prepareUserDefaults];
     [self prepareDictionary];
     [self prepareBlacklistApps];
-    imkserver_ = [self newIMKServer];
 
     [self reloadBlacklistApps];
     [self reloadDictionarySet];

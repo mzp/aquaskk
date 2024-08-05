@@ -21,7 +21,7 @@
 */
 
 #include <InputMethodKit/InputMethodKit.h>
-#import <AquaSKKIM/SKKConstVars.h>
+#import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKIM/SKKLayoutManager.h>
 #import <AquaSKKIM/CandidateWindow.h>
 #import <AquaSKKIM/AnnotationWindow.h>

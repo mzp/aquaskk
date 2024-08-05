@@ -20,7 +20,7 @@
 */
 
 #include "DictionaryTypeTransformer.h"
-#include "SKKConstVars.h"
+#import <AquaSKKService/SKKConstVars.h>
 
 @implementation DictionaryTypeTransformer
 

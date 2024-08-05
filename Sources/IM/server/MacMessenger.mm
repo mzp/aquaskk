@@ -22,7 +22,7 @@
 
 #import <AquaSKKIM/MacMessenger.h>
 #import <AquaSKKIM/MessengerWindow.h>
-#import <AquaSKKIM/SKKConstVars.h>
+#import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKCore/SKKFrontEnd.h>
 #include "ObjCUtil.h"
 

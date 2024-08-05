@@ -20,7 +20,7 @@
 */
 
 #include "DictionarySet.h"
-#include "SKKConstVars.h"
+#import <AquaSKKService/SKKConstVars.h>
 
 // ドラッグ & ドロップ用
 static NSString* DictionaryRowsType = @"DictionaryRowsType";

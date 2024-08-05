@@ -23,9 +23,8 @@
 #ifndef SKKInputController_h
 #define SKKInputController_h
 
+#import <AquaSKKService/AquaSKKService.h>
 #import <InputMethodKit/InputMethodKit.h>
-#import <AquaSKKIM/SKKInputMenu.h>
-#import <AquaSKKIM/SKKServerProxy.h>
 #import <AquaSKKIM/SKKInputMenu.h>
 
 class SKKLayoutManager;
@@ -43,6 +42,7 @@ class MacInputModeWindow;
     SKKInputSession* session_;
     MacInputModeWindow* modeIcon_;
 }
+
 @end
 
 #endif

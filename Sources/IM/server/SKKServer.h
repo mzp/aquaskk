@@ -25,7 +25,7 @@
 
 #include <AppKit/AppKit.h>
 #include <InputMethodKit/InputMethodKit.h>
-#import <AquaSKKIM/SKKSupervisor.h>
+#import <AquaSKKService/SKKSupervisor.h>
 
 @interface SKKServer : NSObject <SKKSupervisor> {
     IMKServer* imkserver_;
