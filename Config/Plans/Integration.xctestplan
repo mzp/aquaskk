@@ -30,7 +30,7 @@
       "target" : {
         "containerPath" : "container:AquaSKK.xcodeproj",
         "identifier" : "137D058E2C5B5A83009AC591",
-        "name" : "AquaSKKUITests"
+        "name" : "AppUITests"
       }
     }
   ],

@@ -44,8 +44,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B7BEC92C5F5CF900F6BEF8"
-               BuildableName = "AquaSKKServiceTests.xctest"
-               BlueprintName = "AquaSKKServiceTests"
+               BuildableName = "ServiceTests.xctest"
+               BlueprintName = "ServiceTests"
                ReferencedContainer = "container:AquaSKK.xcodeproj">
             </BuildableReference>
          </TestableReference>
