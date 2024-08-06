@@ -6,6 +6,7 @@
 //
 
 import AquaSKKIM
+import AquaSKKService
 import Foundation
 import OSLog
 import SwiftUI
@@ -19,7 +20,9 @@ enum SKKContext {
         var content: (SKKServer) -> any View
 
         init(content: @escaping (SKKServer) -> any View) {
-            server = SKKServer()
+            let configuration = BundleResourceConfiguration(bundle: Bundle.main)
+            server = SKKServer(configuration: configuration)
+
             self.content = content
             signposter.withIntervalSignpost("server start") {
                 logger.info("server start")

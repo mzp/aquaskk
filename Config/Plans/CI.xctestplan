@@ -23,7 +23,7 @@
       "target" : {
         "containerPath" : "container:AquaSKK.xcodeproj",
         "identifier" : "137D058E2C5B5A83009AC591",
-        "name" : "AquaSKKUITests"
+        "name" : "AppUITests"
       }
     },
     {
@@ -44,11 +44,10 @@
       "target" : {
         "containerPath" : "container:AquaSKK.xcodeproj",
         "identifier" : "13B7BEC92C5F5CF900F6BEF8",
-        "name" : "AquaSKKServiceTests"
+        "name" : "ServiceTests"
       }
     },
     {
-      "enabled" : false,
       "target" : {
         "containerPath" : "container:AquaSKK.xcodeproj",
         "identifier" : "133834E02C60203900D73AD7",
@@ -66,7 +65,7 @@
       "target" : {
         "containerPath" : "container:AquaSKK.xcodeproj",
         "identifier" : "137D05842C5B5A83009AC591",
-        "name" : "AquaSKKTests"
+        "name" : "AppTests"
       }
     }
   ],
