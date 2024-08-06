@@ -18,5 +18,5 @@ FOUNDATION_EXPORT const unsigned char AquaSKKServiceVersionString[];
 #import <AquaSKKService/SKKSupervisor.h>
 
 #pragma mark - Configuration
-#import <AquaSKKService/SKSResourceConfiguration.h>
-#import <AquaSKKService/SKSSystemResourceConfiguration.h>
+#import <AquaSKKService/AISResourceConfiguration.h>
+#import <AquaSKKService/AISSystemResourceConfiguration.h>

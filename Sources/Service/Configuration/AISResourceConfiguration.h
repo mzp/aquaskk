@@ -1,16 +1,16 @@
 //
-//  SKSResourceConfiguration.h
+//  AISResourceConfiguration.h
 //  AquaSKK
 //
 //  Created by mzp on 8/6/24.
 //
 
-#ifndef SKSResourceConfiguration_h
-#define SKSResourceConfiguration_h
+#ifndef AISResourceConfiguration_h
+#define AISResourceConfiguration_h
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol SKSResourceConfiguration
+@protocol AISResourceConfiguration
 
 - (NSString *)pathForSystemResource:(NSString *)path;
 - (NSString *)pathForUserResource:(NSString *)path;
@@ -20,4 +20,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-#endif /* SKSResourceConfiguration_h */
+#endif /* AISResourceConfiguration_h */

@@ -23,9 +23,11 @@
 #ifndef SKKServer_h
 #define SKKServer_h
 
-#include <AppKit/AppKit.h>
-#include <InputMethodKit/InputMethodKit.h>
+#import <AppKit/AppKit.h>
+#import <InputMethodKit/InputMethodKit.h>
+
 #import <AquaSKKService/SKKSupervisor.h>
+#import <AquaSKKService/AISResourceConfiguration.h>
 
 @interface SKKServer : NSObject <SKKSupervisor> {
     IMKServer* imkserver_;
@@ -34,7 +36,14 @@
     NSConnection* connection_;
 #pragma clang diagnostic pop
     class skkserv* skkserv_;
+
+    NSObject<AISResourceConfiguration> *_configuration;
 }
+
+/// Initialize with default configuration
+- (instancetype)init;
+
+- (instancetype)initWithConfiguration:(NSObject<AISResourceConfiguration> *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end
 

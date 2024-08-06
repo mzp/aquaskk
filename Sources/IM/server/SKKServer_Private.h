@@ -6,7 +6,4 @@
 /// Start SKKServer without IMK connection. Testing only.
 - (void)_start;
 
-/// Path for managed resource.
-- (NSString *)pathForResource:(NSString *)path;
-
 @end

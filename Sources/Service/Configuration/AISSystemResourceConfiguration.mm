@@ -1,14 +1,14 @@
 //
-//  SKSSystemResourceConfiguration.m
+//  AISSystemResourceConfiguration.m
 //  AquaSKKCore
 //
 //  Created by mzp on 8/6/24.
 //
 
-#import "SKSSystemResourceConfiguration.h"
+#import "AISSystemResourceConfiguration.h"
 #import <AquaSKKService/SKKConstVars.h>
 
-@implementation SKSSystemResourceConfiguration
+@implementation AISSystemResourceConfiguration
 
 - (NSString *)pathForSystemResource:(NSString *)path {
     return [NSString stringWithFormat:@"%@/%@", SKKFilePaths::SystemResourceFolder, path];

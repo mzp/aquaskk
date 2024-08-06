@@ -20,9 +20,9 @@
 
 */
 
-#import <AquaSKKIM/BlacklistApps.h>
 #import <AquaSKKIM/SKKServer.h>
-#import <AquaSKKIM/SKKPreProcessor.h>
+
+#import <AquaSKKCore/skkserv.h>
 #import <AquaSKKCore/SKKRomanKanaConverter.h>
 #import <AquaSKKCore/SKKBackEnd.h>
 #import <AquaSKKCore/SKKCommonDictionary.h>
@@ -32,10 +32,14 @@
 #import <AquaSKKCore/SKKLocalUserDictionary.h>
 #import <AquaSKKCore/SKKDistributedUserDictionary.h>
 #import <AquaSKKCore/SKKDictionaryFactory.h>
+
 #import <AquaSKKService/SKKConstVars.h>
-// #import <AquaSKKIM/SKKPythonRunner.h>
+#import <AquaSKKService/AISSystemResourceConfiguration.h>
+
+#import <AquaSKKIM/BlacklistApps.h>
+#import <AquaSKKIM/SKKPreProcessor.h>
 #import <AquaSKKIM/MacKotoeriDictionary.h>
-#import <AquaSKKCore/skkserv.h>
+
 #import <AquaSKKUI/InputModeWindow.h>
 
 #include <signal.h>
@@ -80,6 +84,7 @@ static void terminate(int) {
 }
 
 @interface SKKServer (Local)
+
 - (void)prepareSignalHandler;
 - (void)prepareDirectory;
 - (void)prepareConnection;
@@ -91,12 +96,33 @@ static void terminate(int) {
 - (void)initializeInputModeIcons;
 - (BOOL)fileExistsAtPath:(NSString*)path;
 - (void)createDirectory:(NSString*)path;
-- (NSString*)pathForSystemResource:(NSString*)path;
-- (NSString*)pathForUserResource:(NSString*)path;
-- (NSString*)pathForResource:(NSString*)path;
+
+- (NSString *)pathForSystemResource:(NSString *)path;
+- (NSString *)pathForUserResource:(NSString *)path;
+- (NSString *)pathForResource:(NSString *)path;
 @end
 
 @implementation SKKServer
+
+- (instancetype)init
+{
+    AISSystemResourceConfiguration *configuration = [[AISSystemResourceConfiguration alloc] init];
+    return [self initWithConfiguration:configuration];
+}
+
+- (instancetype)initWithConfiguration:(NSObject<AISResourceConfiguration> *)configuration
+{
+    if (self = [super init]) {
+        _configuration = [configuration retain];
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    [_configuration release];
+    [super dealloc];
+}
 
 - (void)awakeFromNib {
     [self _start];
@@ -396,22 +422,16 @@ static void terminate(int) {
     }
 }
 
-- (NSString*)pathForSystemResource:(NSString*)path {
-    return [NSString stringWithFormat:@"%@/%@", SKKFilePaths::SystemResourceFolder, path];
-}
-
-- (NSString*)pathForUserResource:(NSString*)path {
-    return [NSString stringWithFormat:@"%@/%@", SKKFilePaths::ApplicationSupportFolder, path];
-}
-
 - (NSString*)pathForResource:(NSString*)path {
-    NSString* tmp = [self pathForUserResource:path];
+    return [_configuration pathForResource:path];
+}
 
-    if([self fileExistsAtPath:tmp] == YES) {
-        return tmp;
-    } else {
-        return [self pathForSystemResource:path];
-    }
+- (NSString *)pathForUserResource:(NSString *)path {
+    return [_configuration pathForUserResource:path];
+}
+
+- (NSString *)pathForSystemResource:(NSString *)path {
+    return [_configuration pathForSystemResource:path];
 }
 
 @end
