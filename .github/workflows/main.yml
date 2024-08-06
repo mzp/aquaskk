@@ -23,4 +23,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: sudo xcode-select -s /Applications/Xcode_16_beta_4.app
-      - run: set -o pipefail && xcrun xcodebuild -scheme All build -destination "platform=macOS" | xcpretty
+      - run: set -o pipefail && xcrun xcodebuild -scheme All build -destination "platform=macOS"
