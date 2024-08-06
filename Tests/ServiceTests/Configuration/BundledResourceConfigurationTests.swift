@@ -1,13 +1,13 @@
 //
-//  SystemResourceConfigurationTests.swift
+//  BundledResourceConfigurationTests.swift
 //  CoreTests
 //
 //  Created by mzp on 8/3/24.
 //
 
 import AquaSKKService
-import Testing
 @testable import Harness
+import Testing
 
 class TestClass {}
 
@@ -28,5 +28,4 @@ struct BundledResourceConfigurationTests {
         let plist = config.path(forResource: "BundledResource.plist")
         #expect(FileManager.default.fileExists(atPath: plist))
     }
-
 }

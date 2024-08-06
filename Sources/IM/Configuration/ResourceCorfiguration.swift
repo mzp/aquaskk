@@ -1,5 +1,5 @@
 //
-//  ServerConfiguration.swift
+//  ResourceCorfiguration.swift
 //  AquaSKKCore
 //
 //  Created by mzp on 8/6/24.

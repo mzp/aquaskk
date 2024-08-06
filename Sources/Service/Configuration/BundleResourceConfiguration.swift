@@ -1,5 +1,5 @@
 //
-//  EmbeddedResourceConfiguration.swift
+//  BundleResourceConfiguration.swift
 //  AquaSKKCore
 //
 //  Created by mzp on 8/6/24.
@@ -35,5 +35,4 @@ public class BundleResourceConfiguration: NSObject, AISResourceConfiguration {
         }
         return resource
     }
-
 }
