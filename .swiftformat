@@ -1,1 +1,1 @@
---enable isEmpty
+--enable acronyms,blankLineAfterSwitchCase,blankLinesBetweenImports,blockComments,docComments,isEmpty,noExplicitOwnership,redundantProperty,sortSwitchCases,wrapConditionalBodies,wrapEnumCases,wrapMultilineConditionalAssignment,wrapSwitchCases
