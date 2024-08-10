@@ -35,6 +35,14 @@ jobs:
                   path: ${{ env.TEST_RESULTS_BUNDLE }}.zip
                   compression-level: 1
 
+            - name: Upload xcodebuild.log
+              uses: actions/upload-artifact@v4
+              if: success() || failure()
+              with:
+                  name: xcodebuild.log
+                  path: xcodebuild.log
+                  compression-level: 1
+
     Builds:
         runs-on: macos-latest
         steps:

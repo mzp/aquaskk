@@ -8,4 +8,4 @@ tasks:
             - which xcpretty
         cmds:
             - rm -rf {{.TEST_RESULTS_BUNDLE}}
-            - set -o pipefail && xcrun xcodebuild test -configuration Testing -scheme All -testPlan CI  -resultBundlePath {{.TEST_RESULTS_BUNDLE}} | xcpretty -t
+            - set -o pipefail && xcrun xcodebuild test -configuration Testing -scheme All -testPlan CI -resultBundlePath {{.TEST_RESULTS_BUNDLE}} | tee xcodebuild.log | xcpretty -t
