@@ -1,0 +1,11 @@
+version: '3'
+
+tasks:
+    test:
+        vars:
+            TEST_RESULTS_BUNDLE: '{{.TEST_RESULTS_BUNDLE | default "TestResults.xcresult"}}'
+        preconditions:
+            - which xcpretty
+        cmds:
+            - rm -rf {{.TEST_RESULTS_BUNDLE}}
+            - set -o pipefail && xcrun xcodebuild test -configuration Testing -scheme All -testPlan CI  -resultBundlePath {{.TEST_RESULTS_BUNDLE}} | xcpretty -t

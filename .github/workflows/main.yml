@@ -3,24 +3,37 @@ name: Tests
 on: [push, workflow_dispatch]
 
 jobs:
-  Tests:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: sudo xcode-select -s /Applications/Xcode_16_beta_4.app
-      - run: swiftformat --lint .
-      - run: set -o pipefail && xcrun xcodebuild -scheme All test -testPlan CI -configuration Testing -resultBundlePath TestResults.xcresult | xcpretty
-      - name: Upload xcresult
-        uses: actions/upload-artifact@v4
-        if: success() || failure()
-        with:
-          name: "TestResults.xcresult"
-          path: "TestResults.xcresult"
-          compression-level: 1
+    Tests:
+        runs-on: macos-latest
+        steps:
+            - uses: actions/checkout@v4
 
-  Builds:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: sudo xcode-select -s /Applications/Xcode_16_beta_4.app
-      - run: set -o pipefail && xcrun xcodebuild -scheme All build -destination "platform=macOS" | xcpretty
+            - name: Install Task
+                uses: arduino/setup-task@v2
+                with:
+                    version: 3.x
+                    repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+            - run: sudo xcode-select -s /Applications/Xcode_16_beta_4.app
+
+            - run: swiftformat --lint .
+
+            - name: Set current datetime as env variable
+              run: echo "TEST_RESULTS_BUNDLE=$(date +'TestResults-%Y%m%d%H%M%S.xcresult')" >> $GITHUB_ENV
+
+            - run: task test
+
+            - name: Upload xcresult
+                uses: actions/upload-artifact@v4
+                if: success() || failure()
+                with:
+                    name: ${{ env.TEST_RESULTS_BUNDLE }}
+                    path: ${{ env.TEST_RESULTS_BUNDLE }}
+                    compression-level: 1
+
+    Builds:
+        runs-on: macos-latest
+        steps:
+            - uses: actions/checkout@v4
+            - run: sudo xcode-select -s /Applications/Xcode_16_beta_4.app
+            - run: set -o pipefail && xcrun xcodebuild -scheme All build -destination "platform=macOS" | xcpretty
