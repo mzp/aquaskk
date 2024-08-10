@@ -21,14 +21,18 @@ jobs:
             - name: Set current datetime as env variable
               run: echo "TEST_RESULTS_BUNDLE=$(date +'TestResults-%Y%m%d%H%M%S.xcresult')" >> $GITHUB_ENV
 
-            - run: task test
+            - name: Run Test
+              run: task test
+
+            - name: Package xcresult
+              run: zip ${{ env.TEST_RESULTS_BUNDLE }}.zip ${{ env.TEST_RESULTS_BUNDLE }}
 
             - name: Upload xcresult
               uses: actions/upload-artifact@v4
               if: success() || failure()
               with:
                   name: ${{ env.TEST_RESULTS_BUNDLE }}
-                  path: ${{ env.TEST_RESULTS_BUNDLE }}
+                  path: ${{ env.TEST_RESULTS_BUNDLE }}.zip
                   compression-level: 1
 
     Builds:
