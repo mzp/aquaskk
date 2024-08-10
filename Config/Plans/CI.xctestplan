@@ -35,6 +35,7 @@
       }
     },
     {
+      "enabled" : false,
       "target" : {
         "containerPath" : "container:AquaSKK.xcodeproj",
         "identifier" : "1307C2482C5B47DA00B089B6",
