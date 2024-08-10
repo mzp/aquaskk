@@ -754,22 +754,21 @@
 		1371A7762C5B5D3E00E06348 /* Mini-Katakana.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "Mini-Katakana.tiff"; sourceTree = "<group>"; };
 		1371A7772C5B5D3E00E06348 /* Mini-Katakana@2x.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "Mini-Katakana@2x.tiff"; sourceTree = "<group>"; };
 		1371A7792C5B5D3E00E06348 /* karabiner.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = karabiner.xml; sourceTree = "<group>"; };
-		1377D0232C678D6A005F21AE /* AquaSKKCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AquaSKKCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1377D0242C678D6A005F21AE /* CoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1377D0252C678D6A005F21AE /* AquaSKKIM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AquaSKKIM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1377D0262C678D6A005F21AE /* IMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1377D0272C678D6A005F21AE /* Preferences.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Preferences.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1377D0282C678D6A005F21AE /* PreferencesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PreferencesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1377D0292C678D6A005F21AE /* PreferencesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PreferencesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1377D02A2C678D6A005F21AE /* AquaSKK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AquaSKK.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1377D02B2C678D6A005F21AE /* AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1377D02C2C678D6A005F21AE /* AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1377D02D2C678D6A005F21AE /* Harness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Harness.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1377D02E2C678D6A005F21AE /* AquaSKKService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AquaSKKService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1377D02F2C678D6A005F21AE /* ServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1377D0302C678D6A005F21AE /* TyperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TyperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1377D0312C678D6A005F21AE /* AquaSKKUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AquaSKKUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1377D0322C678D6A005F21AE /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1377D0242C678D6A005F21AE /* CoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = CoreTests.xctest; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/CoreTests.xctest; sourceTree = "<absolute>"; };
+		1377D0252C678D6A005F21AE /* AquaSKKIM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AquaSKKIM.framework; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/AquaSKKIM.framework; sourceTree = "<absolute>"; };
+		1377D0262C678D6A005F21AE /* IMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = IMTests.xctest; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/IMTests.xctest; sourceTree = "<absolute>"; };
+		1377D0272C678D6A005F21AE /* Preferences.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Preferences.app; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/Preferences.app; sourceTree = "<absolute>"; };
+		1377D0282C678D6A005F21AE /* PreferencesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = PreferencesTests.xctest; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/Preferences.app/Contents/PlugIns/PreferencesTests.xctest; sourceTree = "<absolute>"; };
+		1377D0292C678D6A005F21AE /* PreferencesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = PreferencesUITests.xctest; path = "/Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/PreferencesUITests-Runner.app/Contents/PlugIns/PreferencesUITests.xctest"; sourceTree = "<absolute>"; };
+		1377D02A2C678D6A005F21AE /* AquaSKK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = AquaSKK.app; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/AquaSKK.app; sourceTree = "<absolute>"; };
+		1377D02B2C678D6A005F21AE /* AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = AppTests.xctest; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/AquaSKK.app/Contents/PlugIns/AppTests.xctest; sourceTree = "<absolute>"; };
+		1377D02C2C678D6A005F21AE /* AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = AppUITests.xctest; path = "/Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/AppUITests-Runner.app/Contents/PlugIns/AppUITests.xctest"; sourceTree = "<absolute>"; };
+		1377D02D2C678D6A005F21AE /* Harness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Harness.app; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/Harness.app; sourceTree = "<absolute>"; };
+		1377D02E2C678D6A005F21AE /* AquaSKKService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AquaSKKService.framework; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/AquaSKKService.framework; sourceTree = "<absolute>"; };
+		1377D02F2C678D6A005F21AE /* ServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ServiceTests.xctest; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/ServiceTests.xctest; sourceTree = "<absolute>"; };
+		1377D0302C678D6A005F21AE /* TyperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = TyperTests.xctest; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/Harness.app/Contents/PlugIns/TyperTests.xctest; sourceTree = "<absolute>"; };
+		1377D0312C678D6A005F21AE /* AquaSKKUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AquaSKKUI.framework; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/AquaSKKUI.framework; sourceTree = "<absolute>"; };
+		1377D0322C678D6A005F21AE /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = UITests.xctest; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/UITests.xctest; sourceTree = "<absolute>"; };
 		1377D0332C678D91005F21AE /* AISJisyo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AISJisyo.h; sourceTree = "<group>"; };
 		1377D0342C678D91005F21AE /* AISJisyo.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AISJisyo.mm; sourceTree = "<group>"; };
 		1377D0352C678D91005F21AE /* AISJisyoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AISJisyoController.h; sourceTree = "<group>"; };
@@ -856,6 +855,7 @@
 		13D7561B2C5A905E006144F2 /* All.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = All.xcconfig; sourceTree = "<group>"; };
 		13D7561C2C5A9113006144F2 /* All-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "All-Debug.xcconfig"; sourceTree = "<group>"; };
 		13EB86632C5EA7DD00B47DCD /* SupervisorMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupervisorMonitor.swift; sourceTree = "<group>"; };
+		13F546C52C68164B007AE506 /* AquaSKKCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AquaSKKCore.framework; path = /Users/mzp/ghq/github.com/mzp/aquaskk/build/Debug/AquaSKKCore.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1970,25 +1970,10 @@
 				1344F4972C5B27DB00D8C850 /* Config */,
 				1344F49B2C5B284C00D8C850 /* Sources */,
 				1344F4992C5B282200D8C850 /* Tests */,
+				13F546EB2C681776007AE506 /* Products */,
 				133A55172C5DA7910047E911 /* .github */,
 				133A55182C5DA7910047E911 /* .swift-version */,
 				133A55192C5DA7910047E911 /* .swiftformat */,
-				1377D0232C678D6A005F21AE /* AquaSKKCore.framework */,
-				1377D0242C678D6A005F21AE /* CoreTests.xctest */,
-				1377D0252C678D6A005F21AE /* AquaSKKIM.framework */,
-				1377D0262C678D6A005F21AE /* IMTests.xctest */,
-				1377D0272C678D6A005F21AE /* Preferences.app */,
-				1377D0282C678D6A005F21AE /* PreferencesTests.xctest */,
-				1377D0292C678D6A005F21AE /* PreferencesUITests.xctest */,
-				1377D02A2C678D6A005F21AE /* AquaSKK.app */,
-				1377D02B2C678D6A005F21AE /* AppTests.xctest */,
-				1377D02C2C678D6A005F21AE /* AppUITests.xctest */,
-				1377D02D2C678D6A005F21AE /* Harness.app */,
-				1377D02E2C678D6A005F21AE /* AquaSKKService.framework */,
-				1377D02F2C678D6A005F21AE /* ServiceTests.xctest */,
-				1377D0302C678D6A005F21AE /* TyperTests.xctest */,
-				1377D0312C678D6A005F21AE /* AquaSKKUI.framework */,
-				1377D0322C678D6A005F21AE /* UITests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2038,6 +2023,13 @@
 				1344F5222C5B28FC00D8C850 /* MockRegistrationObserver.h */,
 			);
 			path = bridge;
+			sourceTree = "<group>";
+		};
+		13F546EB2C681776007AE506 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2493,7 +2485,7 @@
 			packageProductDependencies = (
 			);
 			productName = AquaSKKEngine;
-			productReference = 1377D0232C678D6A005F21AE /* AquaSKKCore.framework */;
+			productReference = 13F546C52C68164B007AE506 /* AquaSKKCore.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -2574,7 +2566,7 @@
 				Base,
 			);
 			mainGroup = 13D368102C5A81290083CAE3;
-			productRefGroup = 13D368102C5A81290083CAE3;
+			productRefGroup = 13F546EB2C681776007AE506 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
