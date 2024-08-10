@@ -26,7 +26,9 @@
 #define DECLARE_NSStringKey(key) NSString* key = @ #key
 
 namespace SKKUserDefaultKeys {
+    // boolean
     DECLARE_NSStringKey(suppress_newline_on_commit);
+
     DECLARE_NSStringKey(use_numeric_conversion);
     DECLARE_NSStringKey(show_input_mode_icon);
     DECLARE_NSStringKey(use_individual_input_mode);
@@ -34,42 +36,61 @@ namespace SKKUserDefaultKeys {
     DECLARE_NSStringKey(inline_backspace_implies_commit);
     DECLARE_NSStringKey(delete_okuri_when_quit);
 
+    // string
     DECLARE_NSStringKey(keyboard_layout);
 
+    // nsarray<nsstrig *>
     DECLARE_NSStringKey(sub_rules);
     DECLARE_NSStringKey(sub_keymaps);
 
+    // boolean
     DECLARE_NSStringKey(enable_extended_completion);
     DECLARE_NSStringKey(enable_dynamic_completion);
+
+    // number
     DECLARE_NSStringKey(dynamic_completion_range);
     DECLARE_NSStringKey(minimum_completion_length);
-
     DECLARE_NSStringKey(max_count_of_inline_candidates);
+
+    // string
     DECLARE_NSStringKey(candidate_window_labels);
     DECLARE_NSStringKey(candidate_window_font_name);
+
+    // number
     DECLARE_NSStringKey(candidate_window_font_size);
+    // boolean
     DECLARE_NSStringKey(put_candidate_window_upward);
+    // boolean
     DECLARE_NSStringKey(enable_annotation);
 
+    // string
     DECLARE_NSStringKey(user_dictionary_path);
 
+    // boolean
     DECLARE_NSStringKey(enable_skkserv);
     DECLARE_NSStringKey(skkserv_localonly);
+
+    // number
     DECLARE_NSStringKey(skkserv_port);
 
+    // boolean
     DECLARE_NSStringKey(enable_private_mode);
-
     DECLARE_NSStringKey(fix_intermediate_conversion);
     DECLARE_NSStringKey(display_shortest_match_of_kana_conversions);
     DECLARE_NSStringKey(handle_recursive_entry_as_okuri);
 
+    // string
     DECLARE_NSStringKey(openlab_host);
     DECLARE_NSStringKey(openlab_path);
 
+    // nsarray<nsstrig *>
     DECLARE_NSStringKey(direct_clients);
 
+    // boolean
     DECLARE_NSStringKey(enable_skkdap);
+    // string
     DECLARE_NSStringKey(skkdap_folder);
+    // number
     DECLARE_NSStringKey(skkdap_port);
 }
 
