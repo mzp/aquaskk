@@ -1094,33 +1094,6 @@
 			path = TyperTests;
 			sourceTree = "<group>";
 		};
-		133834FB2C60215000D73AD7 /* Builds */ = {
-			isa = PBXGroup;
-			children = (
-				138F45152C5CA2F1000B03FC /* Include */,
-				13D7561C2C5A9113006144F2 /* All-Debug.xcconfig */,
-				138B319F2C5DD40C006424E0 /* All-Testing.xcconfig */,
-				13D7561B2C5A905E006144F2 /* All.xcconfig */,
-				137D05A02C5B5AFB009AC591 /* App.xcconfig */,
-				138F45122C5CA1D7000B03FC /* AppTests.xcconfig */,
-				138F45132C5CA1F2000B03FC /* AppUITests.xcconfig */,
-				138F45102C5CA19D000B03FC /* Core.xcconfig */,
-				13931D0E2C5B4C6B00B11EEE /* CoreTests.xcconfig */,
-				1352C9E32C5DF8330056261D /* Harness.xcconfig */,
-				135C3DBF2C5B3FEC00661AE3 /* IM.xcconfig */,
-				138F45112C5CA1B6000B03FC /* IMTests.xcconfig */,
-				139B7B812C60F69E00FE5263 /* UI.xcconfig */,
-				139B7B822C60F69E00FE5263 /* UITests.xcconfig */,
-				1307C2672C5B48D600B089B6 /* Prefereneces.xcconfig */,
-				13931D0C2C5B49C200B11EEE /* PreferenecesTests.xcconfig */,
-				13931D0D2C5B4B5000B11EEE /* PreferenecesUITests.xcconfig */,
-				13B7BEE12C5F5D1A00F6BEF8 /* Service.xcconfig */,
-				13B7BEE22C5F5D2000F6BEF8 /* ServiceTests.xcconfig */,
-				133834EC2C60204900D73AD7 /* TyperTests.xcconfig */,
-			);
-			path = Builds;
-			sourceTree = "<group>";
-		};
 		133A55162C5DA7910047E911 /* workflows */ = {
 			isa = PBXGroup;
 			children = (
@@ -1190,12 +1163,31 @@
 			path = selector;
 			sourceTree = "<group>";
 		};
-		1344F4972C5B27DB00D8C850 /* Config */ = {
+		1344F4972C5B27DB00D8C850 /* xcconfig */ = {
 			isa = PBXGroup;
 			children = (
-				133834FB2C60215000D73AD7 /* Builds */,
+				138F45152C5CA2F1000B03FC /* Include */,
+				13D7561C2C5A9113006144F2 /* All-Debug.xcconfig */,
+				138B319F2C5DD40C006424E0 /* All-Testing.xcconfig */,
+				13D7561B2C5A905E006144F2 /* All.xcconfig */,
+				137D05A02C5B5AFB009AC591 /* App.xcconfig */,
+				138F45122C5CA1D7000B03FC /* AppTests.xcconfig */,
+				138F45132C5CA1F2000B03FC /* AppUITests.xcconfig */,
+				138F45102C5CA19D000B03FC /* Core.xcconfig */,
+				13931D0E2C5B4C6B00B11EEE /* CoreTests.xcconfig */,
+				1352C9E32C5DF8330056261D /* Harness.xcconfig */,
+				135C3DBF2C5B3FEC00661AE3 /* IM.xcconfig */,
+				138F45112C5CA1B6000B03FC /* IMTests.xcconfig */,
+				139B7B812C60F69E00FE5263 /* UI.xcconfig */,
+				139B7B822C60F69E00FE5263 /* UITests.xcconfig */,
+				1307C2672C5B48D600B089B6 /* Prefereneces.xcconfig */,
+				13931D0C2C5B49C200B11EEE /* PreferenecesTests.xcconfig */,
+				13931D0D2C5B4B5000B11EEE /* PreferenecesUITests.xcconfig */,
+				13B7BEE12C5F5D1A00F6BEF8 /* Service.xcconfig */,
+				13B7BEE22C5F5D2000F6BEF8 /* ServiceTests.xcconfig */,
+				133834EC2C60204900D73AD7 /* TyperTests.xcconfig */,
 			);
-			path = Config;
+			path = xcconfig;
 			sourceTree = "<group>";
 		};
 		1344F4992C5B282200D8C850 /* Tests */ = {
@@ -1968,7 +1960,7 @@
 			isa = PBXGroup;
 			children = (
 				133A551A2C5DB0790047E911 /* README.md */,
-				1344F4972C5B27DB00D8C850 /* Config */,
+				1344F4972C5B27DB00D8C850 /* xcconfig */,
 				1344F49B2C5B284C00D8C850 /* Sources */,
 				1344F4992C5B282200D8C850 /* Tests */,
 				13F546EB2C681776007AE506 /* Products */,

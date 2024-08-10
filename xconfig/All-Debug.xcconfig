@@ -1,0 +1,28 @@
+//
+//  Debug.xcconfig
+//  AquaSKK
+//
+//  Created by mzp on 7/31/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "./All.xcconfig"
+
+// MARK: - Debug support
+
+ENABLE_TESTABILITY = YES
+DEBUG_INFORMATION_FORMAT = dwarf
+MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE
+GCC_PREPROCESSOR_DEFINITIONS = DEBUG=1 $(inherited)
+SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG $(inherited)
+ENABLE_NS_ASSERTIONS = YES
+
+// MARK: - Compile time
+
+GCC_OPTIMIZATION_LEVEL = 0
+ONLY_ACTIVE_ARCH = YES
+SWIFT_OPTIMIZATION_LEVEL = -Onone
+GCC_DYNAMIC_NO_PIC = NO
+SWIFT_COMPILATION_MODE = incremental
