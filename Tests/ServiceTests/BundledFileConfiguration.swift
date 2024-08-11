@@ -7,6 +7,9 @@
 
 import AquaSKKService
 import Foundation
+import OSLog
+
+private let logger = Logger(subsystem: "org.codefirst.AquaSKK", category: "Test")
 
 public struct BundledFileConfiguration: FileConfiguration {
     public var systemResourcePath: String {
@@ -24,7 +27,10 @@ public struct BundledFileConfiguration: FileConfiguration {
 
         let fileManager = FileManager.default
         let path = systemResourcePath.appending("/DictionarySet.plist")
-        _ = try? fileManager.removeItem(atPath: dictionarySetPath)
-        try fileManager.copyItem(atPath: path, toPath: dictionarySetPath)
+
+        let destPath = dictionarySetPath
+        logger.info("Copy \(path) to \(destPath)")
+        _ = try? fileManager.removeItem(atPath: destPath)
+        try fileManager.copyItem(atPath: path, toPath: destPath)
     }
 }
