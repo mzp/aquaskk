@@ -9,3 +9,17 @@ tasks:
         cmds:
             - rm -rf {{.TEST_RESULTS_BUNDLE}}
             - set -o pipefail && xcrun xcodebuild test -configuration Testing -scheme All -testPlan CI -resultBundlePath {{.TEST_RESULTS_BUNDLE}} | tee xcodebuild.log | xcpretty -t
+
+
+    lint:
+        preconditions:
+            - which swiftformat
+        cmds:
+            - swiftformat --lint --verbose .
+
+    format:
+        preconditions:
+            - which swiftformat
+        cmds:
+            - 
+            - swiftformat --verbose .

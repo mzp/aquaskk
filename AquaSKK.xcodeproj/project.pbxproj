@@ -865,6 +865,9 @@
 		13D756172C5A9049006144F2 /* AquaSKKCore.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKCore.docc; sourceTree = "<group>"; };
 		13D7561B2C5A905E006144F2 /* All.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = All.xcconfig; sourceTree = "<group>"; };
 		13D7561C2C5A9113006144F2 /* All-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "All-Debug.xcconfig"; sourceTree = "<group>"; };
+		13E6605E2C6834BA000896F6 /* Taskfile.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = Taskfile.yml; sourceTree = "<group>"; };
+		13E6605F2C6852B3000896F6 /* .clang-format */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".clang-format"; sourceTree = "<group>"; };
+		13E660602C6852B3000896F6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		13EB86632C5EA7DD00B47DCD /* SupervisorMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupervisorMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1967,9 +1970,7 @@
 				1344F49B2C5B284C00D8C850 /* Sources */,
 				1344F4992C5B282200D8C850 /* Tests */,
 				13F546EB2C681776007AE506 /* Products */,
-				133A55172C5DA7910047E911 /* .github */,
-				133A55182C5DA7910047E911 /* .swift-version */,
-				133A55192C5DA7910047E911 /* .swiftformat */,
+				13E6605D2C683494000896F6 /* .config */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1982,6 +1983,19 @@
 				13D756172C5A9049006144F2 /* AquaSKKCore.docc */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		13E6605D2C683494000896F6 /* .config */ = {
+			isa = PBXGroup;
+			children = (
+				133A55172C5DA7910047E911 /* .github */,
+				133A55182C5DA7910047E911 /* .swift-version */,
+				133A55192C5DA7910047E911 /* .swiftformat */,
+				13E6605E2C6834BA000896F6 /* Taskfile.yml */,
+				13E6605F2C6852B3000896F6 /* .clang-format */,
+				13E660602C6852B3000896F6 /* .gitignore */,
+			);
+			name = .config;
 			sourceTree = "<group>";
 		};
 		13EB86612C5E9FA000B47DCD /* Simulator */ = {
