@@ -41,7 +41,7 @@ struct PreferenceStorageTests {
         defer { storage.keyboardLayout = originalLayout }
         storage.keyboardLayout = dvorakLayout
         #expect(storage.keyboardLayout == dvorakLayout)
-        #expect(PreferenceStorage().keyboardLayout == dvorakLayout)
+        #expect(try preferenceStorage().keyboardLayout == dvorakLayout)
     }
 
     @Test func userDefaultsCompatibility() throws {
@@ -49,12 +49,12 @@ struct PreferenceStorageTests {
         let originalLayout = storage.keyboardLayout
         defer { storage.keyboardLayout = originalLayout }
 
-        PreferenceStorage().keyboardLayout = dvorakLayout
+        try preferenceStorage().keyboardLayout = dvorakLayout
         let fromUserDefaults = UserDefaults.standard.string(forKey: "keyboard_layout")
         #expect(fromUserDefaults == dvorakLayout)
 
         UserDefaults.standard.setValue(abcLayout, forKey: "keyboard_layout")
-        #expect(PreferenceStorage().keyboardLayout == abcLayout)
+        #expect(try preferenceStorage().keyboardLayout == abcLayout)
     }
 
     @Test func subRules() throws {
