@@ -14,7 +14,7 @@ private let logger = Logger(subsystem: "org.codefirst.AquaSKK", category: "Test"
 /// テスト用データに簡単にアクセスするためのメソッド群を提供するクラス
 class TestingContent {
     static var shared = TestingContent()
-    private var bundle: Bundle {
+    var bundle: Bundle {
         Bundle(for: TestingContent.self)
     }
 

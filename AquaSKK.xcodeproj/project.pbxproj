@@ -22,6 +22,8 @@
 		13185CC62C5B57DF001CF24D /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13185CBA2C5B57DF001CF24D /* main.mm */; };
 		13185CC72C5B57DF001CF24D /* DictionaryTypeTransformer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13185CB92C5B57DF001CF24D /* DictionaryTypeTransformer.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		13185CC82C5B57DF001CF24D /* PathFormatter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13185CBC2C5B57DF001CF24D /* PathFormatter.mm */; };
+		1320622B2C68AB9A00FCC540 /* FileConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1320622A2C68AB9A00FCC540 /* FileConfiguration.swift */; };
+		1320622F2C68AC2C00FCC540 /* FileConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1320622E2C68AC2C00FCC540 /* FileConfigurationTests.swift */; };
 		132B777A2C5DB89E00EEC2A5 /* pthreadutil_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 132B77782C5DB89E00EEC2A5 /* pthreadutil_TEST.mm */; };
 		132B777B2C5DB89E00EEC2A5 /* calculator_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 132B77772C5DB89E00EEC2A5 /* calculator_TEST.mm */; };
 		133834F22C6020CB00D73AD7 /* ModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE982C5F282D00F6BEF8 /* ModeTests.swift */; };
@@ -450,6 +452,8 @@
 		13185CBE2C5B57DF001CF24D /* PreferenceController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PreferenceController.mm; sourceTree = "<group>"; };
 		13185CBF2C5B57DF001CF24D /* SubRuleDescriptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubRuleDescriptions.h; sourceTree = "<group>"; };
 		13185CC02C5B57DF001CF24D /* SubRuleDescriptions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SubRuleDescriptions.cpp; sourceTree = "<group>"; };
+		1320622A2C68AB9A00FCC540 /* FileConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileConfiguration.swift; sourceTree = "<group>"; };
+		1320622E2C68AC2C00FCC540 /* FileConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileConfigurationTests.swift; sourceTree = "<group>"; };
 		132B77772C5DB89E00EEC2A5 /* calculator_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = calculator_TEST.mm; sourceTree = "<group>"; };
 		132B77782C5DB89E00EEC2A5 /* pthreadutil_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = pthreadutil_TEST.mm; sourceTree = "<group>"; };
 		133834EC2C60204900D73AD7 /* TyperTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = TyperTests.xcconfig; sourceTree = "<group>"; };
@@ -1042,6 +1046,22 @@
 				13185CC02C5B57DF001CF24D /* SubRuleDescriptions.cpp */,
 			);
 			path = preferences;
+			sourceTree = "<group>";
+		};
+		132062292C68AB8E00FCC540 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				1320622A2C68AB9A00FCC540 /* FileConfiguration.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		1320622D2C68AC1800FCC540 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				1320622E2C68AC2C00FCC540 /* FileConfigurationTests.swift */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 		132B77792C5DB89E00EEC2A5 /* utility */ = {
@@ -1939,6 +1959,7 @@
 			children = (
 				13B7BEC42C5F5CF900F6BEF8 /* AquaSKKService.docc */,
 				13B7BEC32C5F5CF900F6BEF8 /* AquaSKKService.h */,
+				132062292C68AB8E00FCC540 /* Configuration */,
 				1377D0372C678D91005F21AE /* Jisyo */,
 				1377D03A2C678D91005F21AE /* Keyboard Layout */,
 				1377D03C2C678D91005F21AE /* Preferences */,
@@ -1951,6 +1972,7 @@
 		13B7BED02C5F5CF900F6BEF8 /* ServiceTests */ = {
 			isa = PBXGroup;
 			children = (
+				1320622D2C68AC1800FCC540 /* Configuration */,
 				1377D07C2C678E6D005F21AE /* Jisyo */,
 				1377D07E2C678E6D005F21AE /* Preferences */,
 				1377D0852C678E6D005F21AE /* Rules */,
@@ -3007,6 +3029,7 @@
 				1377D0562C678D91005F21AE /* AISSubRule.m in Sources */,
 				1377D0572C678D91005F21AE /* AISJisyo.mm in Sources */,
 				1377D0582C678D91005F21AE /* AISKeyboardLayout.m in Sources */,
+				1320622B2C68AB9A00FCC540 /* FileConfiguration.swift in Sources */,
 				1377D0592C678D91005F21AE /* PreferenceStorage.swift in Sources */,
 				1377D05A2C678D91005F21AE /* AISJisyoController.mm in Sources */,
 				1377D05B2C678D91005F21AE /* SKKConstVars.mm in Sources */,
@@ -3022,6 +3045,7 @@
 			files = (
 				1377D0872C678E6D005F21AE /* JisyoControllerTests.swift in Sources */,
 				1377D0882C678E6D005F21AE /* TestingContent.swift in Sources */,
+				1320622F2C68AC2C00FCC540 /* FileConfigurationTests.swift in Sources */,
 				1377D0892C678E6D005F21AE /* PreferenceStorageTests.swift in Sources */,
 				1377D08A2C678E6D005F21AE /* SubRuleDescriptionsTests.swift in Sources */,
 				1377D08B2C678E6D005F21AE /* SubRuleControllerTests.swift in Sources */,
