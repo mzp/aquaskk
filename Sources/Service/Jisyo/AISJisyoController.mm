@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import <os/log.h>
 #import <AquaSKKService/AISJisyo.h>
 #import <AquaSKKService/AISJisyoController.h>
 #import <AquaSKKService/SKKConstVars.h>
@@ -44,7 +45,13 @@ NSString *DictionaryNames[] = {
     if (self) {
         _path = path;
         self.dictionarySet = [NSMutableArray arrayWithContentsOfFile:path];
-        NSAssert(self.dictionarySet, @"can't find dictionary set plist");
+
+        if (self.dictionarySet == nil) {
+            NSString *content = [NSString stringWithContentsOfFile:path];
+            os_log_error(OS_LOG_DEFAULT, "can't load dictionary set: %@", content);
+
+            NSAssert(self.dictionarySet, @"can't find dictionary set plist");
+        }
     }
     return self;
 }
