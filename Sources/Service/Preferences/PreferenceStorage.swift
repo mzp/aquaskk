@@ -13,7 +13,9 @@ import SwiftUI
 public class PreferenceStorage: ObservableObject {
     private let configuration: FileConfiguration
 
-    public init(configuration: FileConfiguration = DefaultFileConfiguration()) {
+    public static let `default` = PreferenceStorage(configuration: DefaultFileConfiguration())
+
+    public init(configuration: FileConfiguration) {
         self.configuration = configuration
         jisyoController = JisyoController(path: configuration.dictionarySetPath)
     }

@@ -10,7 +10,7 @@ import AquaSKKService
 import SwiftUI
 
 struct OtherPreferenceForm: View {
-    @ObservedObject private var storage = PreferenceStorage()
+    @ObservedObject private var storage = PreferenceStorage.default
 
     var body: some View {
         Form {

@@ -9,7 +9,7 @@ import AquaSKKService
 import SwiftUI
 
 struct CompletionPreferenceForm: View {
-    @ObservedObject private var storage = PreferenceStorage()
+    @ObservedObject private var storage = PreferenceStorage.default
 
     var body: some View {
         Form {
