@@ -17,20 +17,30 @@ public struct BundledFileConfiguration: FileConfiguration {
         return bundle.resourcePath!
     }
 
-    public var applicationSupportPath: String {
-        NSTemporaryDirectory()
-    }
+    public var applicationSupportPath: String
 
     public var bundle: Bundle
     public init(bundle: Bundle) throws {
         self.bundle = bundle
+        // 並列実行できるよう書き込み可能なパスはユニークする
+        applicationSupportPath = NSTemporaryDirectory().appending("\(UUID().uuidString)")
+        try copy(files: ["DictionarySet.plist"])
+    }
 
+    func copy(files: [String]) throws {
         let fileManager = FileManager.default
-        let path = systemResourcePath.appending("/DictionarySet.plist")
+        try fileManager.createDirectory(atPath: applicationSupportPath, withIntermediateDirectories: true)
 
-        let destPath = dictionarySetPath
-        logger.info("Copy \(path) to \(destPath)")
-        _ = try? fileManager.removeItem(atPath: destPath)
-        try fileManager.copyItem(atPath: path, toPath: destPath)
+        let targetPath = applicationSupportPath
+        logger.info("Application Support = \(targetPath)")
+
+        for file in files {
+            let path = targetPath.appending("/\(file)")
+            _ = try? fileManager.removeItem(atPath: path)
+
+            let source = systemResourcePath.appending("/\(file)")
+
+            try fileManager.copyItem(atPath: source, toPath: path)
+        }
     }
 }
