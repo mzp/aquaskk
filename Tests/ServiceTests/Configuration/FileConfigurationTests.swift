@@ -15,12 +15,4 @@ struct FileConfigurationTests {
         #expect(config.applicationSupportPath.hasSuffix("/Library/Application Support/AquaSKK"))
         #expect(config.dictionarySetPath.hasSuffix("/Library/Application Support/AquaSKK/DictionarySet.plist"))
     }
-
-    @Test func bundle() throws {
-        let config = try BundledFileConfiguration(bundle: TestingContent.shared.bundle)
-
-        let dictionarySet = config.dictionarySetPath
-        #expect(FileManager.default.fileExists(atPath: dictionarySet) == true)
-        NSLog("\(dictionarySet)")
-    }
 }

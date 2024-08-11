@@ -24,6 +24,7 @@
 		13185CC82C5B57DF001CF24D /* PathFormatter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13185CBC2C5B57DF001CF24D /* PathFormatter.mm */; };
 		1320622B2C68AB9A00FCC540 /* FileConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1320622A2C68AB9A00FCC540 /* FileConfiguration.swift */; };
 		1320622F2C68AC2C00FCC540 /* FileConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1320622E2C68AC2C00FCC540 /* FileConfigurationTests.swift */; };
+		132062342C68B65700FCC540 /* BundledFileConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132062332C68B65700FCC540 /* BundledFileConfiguration.swift */; };
 		132B777A2C5DB89E00EEC2A5 /* pthreadutil_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 132B77782C5DB89E00EEC2A5 /* pthreadutil_TEST.mm */; };
 		132B777B2C5DB89E00EEC2A5 /* calculator_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 132B77772C5DB89E00EEC2A5 /* calculator_TEST.mm */; };
 		133834F22C6020CB00D73AD7 /* ModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE982C5F282D00F6BEF8 /* ModeTests.swift */; };
@@ -454,6 +455,7 @@
 		13185CC02C5B57DF001CF24D /* SubRuleDescriptions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SubRuleDescriptions.cpp; sourceTree = "<group>"; };
 		1320622A2C68AB9A00FCC540 /* FileConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileConfiguration.swift; sourceTree = "<group>"; };
 		1320622E2C68AC2C00FCC540 /* FileConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileConfigurationTests.swift; sourceTree = "<group>"; };
+		132062332C68B65700FCC540 /* BundledFileConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundledFileConfiguration.swift; sourceTree = "<group>"; };
 		132B77772C5DB89E00EEC2A5 /* calculator_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = calculator_TEST.mm; sourceTree = "<group>"; };
 		132B77782C5DB89E00EEC2A5 /* pthreadutil_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = pthreadutil_TEST.mm; sourceTree = "<group>"; };
 		133834EC2C60204900D73AD7 /* TyperTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = TyperTests.xcconfig; sourceTree = "<group>"; };
@@ -1977,6 +1979,7 @@
 				1377D07E2C678E6D005F21AE /* Preferences */,
 				1377D0852C678E6D005F21AE /* Rules */,
 				1377D0862C678E6D005F21AE /* TestingContent.swift */,
+				132062332C68B65700FCC540 /* BundledFileConfiguration.swift */,
 			);
 			path = ServiceTests;
 			sourceTree = "<group>";
@@ -3044,6 +3047,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1377D0872C678E6D005F21AE /* JisyoControllerTests.swift in Sources */,
+				132062342C68B65700FCC540 /* BundledFileConfiguration.swift in Sources */,
 				1377D0882C678E6D005F21AE /* TestingContent.swift in Sources */,
 				1320622F2C68AC2C00FCC540 /* FileConfigurationTests.swift in Sources */,
 				1377D0892C678E6D005F21AE /* PreferenceStorageTests.swift in Sources */,
