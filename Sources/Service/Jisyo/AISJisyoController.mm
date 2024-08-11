@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import <os/log.h>
 #import <AquaSKKService/AISJisyo.h>
 #import <AquaSKKService/AISJisyoController.h>
 #import <AquaSKKService/SKKConstVars.h>
@@ -43,7 +44,12 @@ NSString *DictionaryNames[] = {
     self = [super init];
     if (self) {
         _path = path;
-        self.dictionarySet = [NSMutableArray arrayWithContentsOfFile:path];
+        NSURL *url = [NSURL fileURLWithPath:path];
+        NSError *error = nil;
+        self.dictionarySet = [[NSMutableArray arrayWithContentsOfURL:url error:&error] mutableCopy];
+        if (error != nil) {
+            os_log_error(OS_LOG_DEFAULT, "can't load %@ set due to %@", url, error);
+        }
         NSAssert(self.dictionarySet, @"can't find dictionary set plist");
     }
     return self;

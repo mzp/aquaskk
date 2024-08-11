@@ -86,6 +86,6 @@ struct SystemJisyoPreferenceForm: View {
     SystemJisyoPreferenceForm(
         jisyo: .init(type: .common, location: "SKK-JISYO.L", enabled: true),
         selected: true,
-        storage: .init()
+        storage: .default
     )
 }

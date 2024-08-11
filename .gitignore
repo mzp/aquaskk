@@ -1,6 +1,9 @@
-/build
 .DS_Store
 
+## Tmp directory
+/DerivedData
+
+## Generated files
 *.xcresult
 xcodebuild.log
 
@@ -10,4 +13,3 @@ xcodebuild.log
 ## User settings
 xcuserdata/
 
-Products/

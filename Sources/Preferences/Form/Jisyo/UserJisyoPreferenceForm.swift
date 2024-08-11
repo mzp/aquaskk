@@ -9,7 +9,7 @@ import AquaSKKService
 import SwiftUI
 
 struct UserJisyoPreferenceForm: View {
-    @ObservedObject private var storage = PreferenceStorage()
+    @ObservedObject private var storage = PreferenceStorage.default
     @State private var isPresenting: Bool = false
 
     var body: some View {

@@ -12,8 +12,14 @@ private let abcLayout = "com.apple.keylayout.ABC"
 private let dvorakLayout = "com.apple.keylayout.Dvorak"
 
 struct PreferenceStorageTests {
-    @Test func availableKeyboardLayouts() {
-        let controller = PreferenceStorage()
+    func preferenceStorage() throws -> PreferenceStorage {
+        let bundle = TestingContent.shared.bundle
+        let configuration = try BundledFileConfiguration(bundle: bundle)
+        return PreferenceStorage(configuration: configuration)
+    }
+
+    @Test func availableKeyboardLayouts() throws {
+        let controller = try preferenceStorage()
         let layouts = controller.availableKeyboardLayouts
         #expect(!layouts.isEmpty)
 
@@ -29,36 +35,36 @@ struct PreferenceStorageTests {
         #expect(layouts[0] == sorted[0])
     }
 
-    @Test func readWritePreference() {
-        let storage = PreferenceStorage()
+    @Test func readWritePreference() throws {
+        let storage = try preferenceStorage()
         let originalLayout = storage.keyboardLayout
         defer { storage.keyboardLayout = originalLayout }
         storage.keyboardLayout = dvorakLayout
         #expect(storage.keyboardLayout == dvorakLayout)
-        #expect(PreferenceStorage().keyboardLayout == dvorakLayout)
+        #expect(try preferenceStorage().keyboardLayout == dvorakLayout)
     }
 
-    @Test func userDefaultsCompatibility() {
-        let storage = PreferenceStorage()
+    @Test func userDefaultsCompatibility() throws {
+        let storage = try preferenceStorage()
         let originalLayout = storage.keyboardLayout
         defer { storage.keyboardLayout = originalLayout }
 
-        PreferenceStorage().keyboardLayout = dvorakLayout
+        try preferenceStorage().keyboardLayout = dvorakLayout
         let fromUserDefaults = UserDefaults.standard.string(forKey: "keyboard_layout")
         #expect(fromUserDefaults == dvorakLayout)
 
         UserDefaults.standard.setValue(abcLayout, forKey: "keyboard_layout")
-        #expect(PreferenceStorage().keyboardLayout == abcLayout)
+        #expect(try preferenceStorage().keyboardLayout == abcLayout)
     }
 
-    @Test func subRules() {
-        let storage = PreferenceStorage()
+    @Test func subRules() throws {
+        let storage = try preferenceStorage()
         #expect(!storage.availableSystemSubRules.isEmpty)
         #expect(storage.availableUserSubRules.isEmpty)
     }
 
-    @Test func setEnableRule() {
-        let storage = PreferenceStorage()
+    @Test func setEnableRule() throws {
+        let storage = try preferenceStorage()
         storage.subRules = []
 
         let rule = storage.availableSystemSubRules.first!

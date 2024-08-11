@@ -11,7 +11,14 @@ import SwiftUI
 
 /// AquaSKK の設定を管理する。
 public class PreferenceStorage: ObservableObject {
-    public init() {}
+    private let configuration: FileConfiguration
+
+    public static let `default` = PreferenceStorage(configuration: DefaultFileConfiguration())
+
+    public init(configuration: FileConfiguration) {
+        self.configuration = configuration
+        jisyoController = JisyoController(path: configuration.dictionarySetPath)
+    }
 
     // デフォルト値はUserDefaults.plistに格納されておりSKKServerが初期化するので、
     // ここでは適当な初期値を与える
@@ -76,12 +83,12 @@ public class PreferenceStorage: ObservableObject {
     }
 
     public var availableSystemSubRules: [SubRule] {
-        let controller = SubRuleController(path: SKKFilePaths.SystemResourceFolder, activeRules: subRules)
+        let controller = SubRuleController(path: configuration.systemResourcePath, activeRules: subRules)
         return controller.allRules
     }
 
     public var availableUserSubRules: [SubRule] {
-        let controller = SubRuleController(path: SKKFilePaths.ApplicationSupportFolder, activeRules: subRules)
+        let controller = SubRuleController(path: configuration.applicationSupportPath, activeRules: subRules)
         return controller.allRules
     }
 
@@ -109,7 +116,7 @@ public class PreferenceStorage: ObservableObject {
 
     @AppStorage("user_dictionary_path") public var userJisyoPath: String = ""
 
-    private let jisyoController = JisyoController(path: SKKFilePaths.DictionarySet)
+    private let jisyoController: JisyoController
     public var systemJisyos: [Jisyo] {
         jisyoController.allJisyo
     }
@@ -176,7 +183,4 @@ public class PreferenceStorage: ObservableObject {
     @AppStorage("skkdap_port") public var skkdapPort: Int = 0
 
     // TODO: DECLARE_NSStringKey(direct_clients);
-    // TODO: sub_rules
-
-    // TODO: sub_keymaps
 }
