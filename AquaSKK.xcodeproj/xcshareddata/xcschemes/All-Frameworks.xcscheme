@@ -15,6 +15,48 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "135C3D442C5B3E8F00661AE3"
+               BuildableName = "AquaSKKIM.framework"
+               BlueprintName = "AquaSKKIM"
+               ReferencedContainer = "container:AquaSKK.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "139B7B612C60F68100FE5263"
+               BuildableName = "AquaSKKUI.framework"
+               BlueprintName = "AquaSKKUI"
+               ReferencedContainer = "container:AquaSKK.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "13B7BEC02C5F5CF900F6BEF8"
+               BuildableName = "AquaSKKService.framework"
+               BlueprintName = "AquaSKKService"
+               ReferencedContainer = "container:AquaSKK.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "13D7560A2C5A9043006144F2"
                BuildableName = "AquaSKKCore.framework"
                BlueprintName = "AquaSKKCore"
@@ -30,16 +72,16 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:Config/Plans/Integration.xctestplan"
+            reference = "container:Tests/Frameworks.xctestplan"
             default = "YES">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:Config/Plans/Unit.xctestplan">
+            reference = "container:Tests/Integration.xctestplan">
          </TestPlanReference>
       </TestPlans>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Testing"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -59,9 +101,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13D7560A2C5A9043006144F2"
-            BuildableName = "AquaSKKCore.framework"
-            BlueprintName = "AquaSKKCore"
+            BlueprintIdentifier = "135C3D442C5B3E8F00661AE3"
+            BuildableName = "AquaSKKIM.framework"
+            BlueprintName = "AquaSKKIM"
             ReferencedContainer = "container:AquaSKK.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

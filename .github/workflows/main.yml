@@ -3,24 +3,40 @@ name: Tests
 on: [push, workflow_dispatch]
 
 jobs:
-  Tests:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: sudo xcode-select -s /Applications/Xcode_16_beta_4.app
-      - run: swiftformat --lint .
-      - run: set -o pipefail && xcrun xcodebuild -scheme All test -testPlan CI -configuration Testing -resultBundlePath TestResults.xcresult | xcpretty
-      - name: Upload xcresult
-        uses: actions/upload-artifact@v4
-        if: success() || failure()
-        with:
-          name: "TestResults.xcresult"
-          path: "TestResults.xcresult"
-          compression-level: 1
-
-  Builds:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: sudo xcode-select -s /Applications/Xcode_16_beta_4.app
-      - run: set -o pipefail && xcrun xcodebuild -scheme All build -destination "platform=macOS" | xcpretty
+    Tests:
+        runs-on: macos-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Install Task
+              uses: arduino/setup-task@v2
+              with:
+                  version: 3.x
+                  repo-token: ${{ secrets.GITHUB_TOKEN }}
+            - run: sudo xcode-select -s /Applications/Xcode_16_beta_4.app
+            - name: Set current datetime as env variable
+              run: echo "TEST_RESULTS_BUNDLE=$(date +'TestResults-%Y%m%d%H%M%S.xcresult')" >> $GITHUB_ENV
+            - name: Run Check
+              run: task lint test
+            - name: Package xcresult
+              if: success() || failure()
+              run: zip -r ${{ env.TEST_RESULTS_BUNDLE }}.zip ${{ env.TEST_RESULTS_BUNDLE }}
+            - name: Upload xcresult
+              uses: actions/upload-artifact@v4
+              if: success() || failure()
+              with:
+                  name: ${{ env.TEST_RESULTS_BUNDLE }}
+                  path: ${{ env.TEST_RESULTS_BUNDLE }}.zip
+                  compression-level: 1
+            - name: Upload xcodebuild.log
+              uses: actions/upload-artifact@v4
+              if: success() || failure()
+              with:
+                  name: xcodebuild.log
+                  path: xcodebuild.log
+                  compression-level: 1
+    Builds:
+        runs-on: macos-latest
+        steps:
+            - uses: actions/checkout@v4
+            - run: sudo xcode-select -s /Applications/Xcode_16_beta_4.app
+            - run: set -o pipefail && xcrun xcodebuild -scheme All build -destination "platform=macOS" | xcpretty
