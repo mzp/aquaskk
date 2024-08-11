@@ -13,6 +13,7 @@ tasks:
                   -configuration Testing
                   -scheme All
                   -testPlan CI
+                  -derivedDataPath ./DerivedData
                   -resultBundlePath {{.TEST_RESULTS_BUNDLE}} |
               tee xcodebuild.log |
               xcpretty -t

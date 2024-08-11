@@ -34,6 +34,13 @@ jobs:
                   name: xcodebuild.log
                   path: xcodebuild.log
                   compression-level: 1
+            - name: Upload Builds Logs
+              uses: actions/upload-artifact@v4
+              if: success() || failure()
+              with:
+                  name: BuildLogs
+                  path: DerivedData/Logs/Build
+                  compression-level: 1
     Builds:
         runs-on: macos-latest
         steps:
