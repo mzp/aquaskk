@@ -2569,14 +2569,12 @@
 					};
 					139B7B6A2C60F68100FE5263 = {
 						CreatedOnToolsVersion = 16.0;
-						TestTargetID = 1307C2382C5B47D800B089B6;
 					};
 					13B7BEC02C5F5CF900F6BEF8 = {
 						CreatedOnToolsVersion = 16.0;
 					};
 					13B7BEC92C5F5CF900F6BEF8 = {
 						CreatedOnToolsVersion = 16.0;
-						TestTargetID = 1307C2382C5B47D800B089B6;
 					};
 					13D7560A2C5A9043006144F2 = {
 						CreatedOnToolsVersion = 16.0;

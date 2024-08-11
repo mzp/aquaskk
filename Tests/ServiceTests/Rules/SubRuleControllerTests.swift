@@ -10,10 +10,10 @@ import Testing
 
 struct SubRuleControllerTests {
     @Test func array() async throws {
-        let controller = SubRuleController(
-            path: TestingContent.resourcePath,
+        let controller = try SubRuleController(
+            path: TestingContent.shared.resourcePath,
             activeRules: [
-                TestingContent.bundle.path(forResource: "azik", ofType: "rule")!,
+                TestingContent.shared.path("azik.rule"),
             ]
         )
         let rules = controller.allRules
