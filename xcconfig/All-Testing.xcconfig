@@ -11,3 +11,4 @@
 #include "./All-Debug.xcconfig"
 
 ENABLE_MODULE_VERIFIER = NO
+OTHER_SWIFT_FLAGS = $(inherits) -no-verify-emitted-module-interface
