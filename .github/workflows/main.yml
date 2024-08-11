@@ -13,11 +13,10 @@ jobs:
                   version: 3.x
                   repo-token: ${{ secrets.GITHUB_TOKEN }}
             - run: sudo xcode-select -s /Applications/Xcode_16_beta_4.app
-            - run: swiftformat --lint .
             - name: Set current datetime as env variable
               run: echo "TEST_RESULTS_BUNDLE=$(date +'TestResults-%Y%m%d%H%M%S.xcresult')" >> $GITHUB_ENV
-            - name: Run Test
-              run: task test
+            - name: Run Check
+              run: task lint test
             - name: Package xcresult
               run: zip -r ${{ env.TEST_RESULTS_BUNDLE }}.zip ${{ env.TEST_RESULTS_BUNDLE }}
             - name: Upload xcresult
