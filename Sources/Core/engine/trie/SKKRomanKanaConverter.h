@@ -36,13 +36,13 @@ struct SKKRomanKanaConversionResult {
 
 class SKKRomanKanaConverter {
     SKKTrie root_;
-
     SKKRomanKanaConverter();
-    SKKRomanKanaConverter(const SKKRomanKanaConverter&);
-
     void load(const std::string& path, bool initialize);
 
 public:
+    // XXX: Swiftから利用するためにコピーコンストラクタは公開する
+    SKKRomanKanaConverter(const SKKRomanKanaConverter&);
+
     static SKKRomanKanaConverter& theInstance();
 
     void Initialize(const std::string& path);

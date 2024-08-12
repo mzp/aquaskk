@@ -11,9 +11,9 @@ import Testing
 struct SubRuleControllerTests {
     @Test func array() async throws {
         let controller = try SubRuleController(
-            path: TestingContent.shared.resourcePath,
+            path: ServiceTesting.shared.resourcePath,
             activeRules: [
-                TestingContent.shared.path("azik.rule"),
+                ServiceTesting.shared.path("azik.rule"),
             ]
         )
         let rules = controller.allRules

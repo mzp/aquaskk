@@ -208,6 +208,7 @@ static void terminate(int) {
     }
 
 #if 1
+    // FIXME: Typerテストはここでクラッシュする
     NSString* userDictionary = [defaults stringForKey:SKKUserDefaultKeys::user_dictionary_path];
     userDictionary = [userDictionary stringByExpandingTildeInPath];
 

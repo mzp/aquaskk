@@ -1,5 +1,5 @@
 //
-//  TestingContent.swift
+//  ServiceTesting.swift
 //  AquaSKKService
 //
 //  Created by mzp on 8/8/24.
@@ -12,10 +12,10 @@ import Testing
 private let logger = Logger(subsystem: "org.codefirst.AquaSKK", category: "Test")
 
 /// テスト用データに簡単にアクセスするためのメソッド群を提供するクラス
-class TestingContent {
-    static var shared = TestingContent()
+class ServiceTesting {
+    static var shared = ServiceTesting()
     var bundle: Bundle {
-        Bundle(for: TestingContent.self)
+        Bundle(for: ServiceTesting.self)
     }
 
     /// テスト用リソースを置いてあるディレクトリ

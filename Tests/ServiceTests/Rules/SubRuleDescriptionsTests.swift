@@ -10,7 +10,7 @@ import Testing
 
 struct SubRuleDescriptionsTests {
     func subRuleDescriptions() -> SubRuleDescriptions {
-        let path = TestingContent.shared.resourcePath
+        let path = ServiceTesting.shared.resourcePath
         return SubRuleDescriptions(path)
     }
 

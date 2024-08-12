@@ -133,6 +133,11 @@ namespace {
 // ======================================================================
 SKKRomanKanaConverter::SKKRomanKanaConverter() {}
 
+SKKRomanKanaConverter::SKKRomanKanaConverter(const SKKRomanKanaConverter& romanKana):
+root_(romanKana.root_) {
+
+}
+
 SKKRomanKanaConverter& SKKRomanKanaConverter::theInstance() {
     static SKKRomanKanaConverter obj;
     return obj;
