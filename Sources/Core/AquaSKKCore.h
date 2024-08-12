@@ -123,3 +123,7 @@ FOUNDATION_EXPORT const unsigned char AquaSKKCoreVersionString[];
 #import <AquaSKKCore/socketutil.h>
 #import <AquaSKKCore/subrange.h>
 #import <AquaSKKCore/utf8util.h>
+
+#pragma mark - Romankana
+#import <AquaSKKCore/AISRomanKanaConverter.h>
+

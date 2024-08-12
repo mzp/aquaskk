@@ -29,20 +29,24 @@ struct RomanKanaRule: Equatable, Hashable {
     }
 }
 
-struct RomanKanaResult {
-    var output: String = ""
-    var intermediate: String = ""
-    var next: String = ""
-    var converted: Bool = false
+@objc(AICRomanKanaResult) class RomanKanaResult: NSObject {
+    @objc var output: String = ""
+    @objc var intermediate: String = ""
+    @objc var next: String = ""
+    @objc var converted: Bool = false
 }
 
-class RomanKanaConverter {
+@objc(AICRomanKanaConverter)
+class RomanKanaConverter: NSObject {
     var root = Trie<RomanKanaRule>()
 
+    @objc(initWithPath:error:)
     init(path: String) throws {
+        super.init()
         try append(path: path)
     }
 
+    @objc(appendPath:error:)
     func append(path: String) throws {
         let url = URL(fileURLWithPath: path)
         let data = try Data(contentsOf: url)
@@ -78,8 +82,8 @@ class RomanKanaConverter {
     /// @param input ローマ字文字列
     /// @param state 変換結果
     /// @return 変換に成功した場合はtrue、さもなければfalse
-    func convert(_ string: String, inputMode: SKKInputMode) -> RomanKanaResult? {
-        var result = RomanKanaResult()
+    @objc(convert:inputMode:) func convert(_ string: String, inputMode: SKKInputMode) -> RomanKanaResult? {
+        let result = RomanKanaResult()
 
         let input = TrieInput(string)
         while !input.isEmpty {
