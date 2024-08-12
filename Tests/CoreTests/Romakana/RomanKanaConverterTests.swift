@@ -5,19 +5,17 @@
 //  Created by mzp on 8/12/24.
 //
 
-import AquaSKKCore
+@testable import AquaSKKCore
 import Testing
 
 struct RomanKanaConverterTests {
-    func romanKana() throws -> SKKRomanKanaConverter {
-        var romanKana = SKKRomanKanaConverter.theInstance().pointee
+    func romanKana() throws -> RomanKanaConverter {
         let path = try CoreTesting.shared.path("kana-rule.conf")
-        romanKana.Initialize(path)
-        return romanKana
+        return try RomanKanaConverter(path: path)
     }
 
     @Test func inputMode() throws {
-        var romanKana = try romanKana()
+        let romanKana = try romanKana()
         var state = SKKRomanKanaConversionResult()
         #expect(romanKana.Convert(.HirakanaInputMode, "a", &state) == true)
         #expect(state.next == "")
@@ -33,7 +31,7 @@ struct RomanKanaConverterTests {
     }
 
     @Test func convert() throws {
-        var romanKana = try romanKana()
+        let romanKana = try romanKana()
         var state = SKKRomanKanaConversionResult()
 
         romanKana.Convert(.HirakanaInputMode, "kgya", &state)
@@ -67,7 +65,7 @@ struct RomanKanaConverterTests {
     }
 
     @Test func confirm() throws {
-        var romanKana = try romanKana()
+        let romanKana = try romanKana()
         var state = SKKRomanKanaConversionResult()
 
         romanKana.Convert(.HirakanaInputMode, "kyl", &state)
@@ -84,7 +82,7 @@ struct RomanKanaConverterTests {
     }
 
     @Test func ignore() throws {
-        var romanKana = try romanKana()
+        let romanKana = try romanKana()
         var state = SKKRomanKanaConversionResult()
         romanKana.Convert(.HirakanaInputMode, "k1234gya", &state)
         #expect(state.next == "")
@@ -100,7 +98,7 @@ struct RomanKanaConverterTests {
     }
 
     @Test func symbols() throws {
-        var romanKana = try romanKana()
+        let romanKana = try romanKana()
         var state = SKKRomanKanaConversionResult()
 
         romanKana.Convert(.HirakanaInputMode, "/", &state)
@@ -125,7 +123,7 @@ struct RomanKanaConverterTests {
     }
 
     @Test func zPrefix() throws {
-        var romanKana = try romanKana()
+        let romanKana = try romanKana()
         var state = SKKRomanKanaConversionResult()
 
         romanKana.Convert(.HirakanaInputMode, "z,", &state)
@@ -142,7 +140,7 @@ struct RomanKanaConverterTests {
     }
 
     @Test func patch() throws {
-        var romanKana = try romanKana()
+        let romanKana = try romanKana()
         var state = SKKRomanKanaConversionResult()
 
         romanKana.Convert(.HirakanaInputMode, ".", &state)

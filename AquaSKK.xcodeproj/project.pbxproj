@@ -225,6 +225,9 @@
 		135C3DBD2C5B3F1D00661AE3 /* MacFrontEnd.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D742C5B3F1D00661AE3 /* MacFrontEnd.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DBE2C5B3F1D00661AE3 /* SKKPreProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D8A2C5B3F1D00661AE3 /* SKKPreProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135EEB972C5EE3E100758672 /* SKKTextInputAppKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135EEB962C5EE3E100758672 /* SKKTextInputAppKit.swift */; };
+		135FB6D92C6998E800A6480A /* RomanKanaConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135FB6D82C6998E800A6480A /* RomanKanaConverter.swift */; };
+		135FB6E12C69AA7E00A6480A /* Trie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135FB6E02C69AA7E00A6480A /* Trie.swift */; };
+		135FB6E32C69B06B00A6480A /* TriesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135FB6E22C69B06B00A6480A /* TriesTest.swift */; };
 		1371A74F2C5B5D0300E06348 /* DictionarySet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74D2C5B5D0300E06348 /* DictionarySet.plist */; };
 		1371A7502C5B5D0300E06348 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74E2C5B5D0300E06348 /* UserDefaults.plist */; };
 		1371A7512C5B5D0300E06348 /* BlacklistApps.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74C2C5B5D0300E06348 /* BlacklistApps.plist */; };
@@ -729,6 +732,9 @@
 		135EEB962C5EE3E100758672 /* SKKTextInputAppKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKTextInputAppKit.swift; sourceTree = "<group>"; };
 		135EEB9A2C5EE6AB00758672 /* TyperTextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyperTextInput.swift; sourceTree = "<group>"; };
 		135EEB9D2C5EEA4900758672 /* Typer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typer.swift; sourceTree = "<group>"; };
+		135FB6D82C6998E800A6480A /* RomanKanaConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanKanaConverter.swift; sourceTree = "<group>"; };
+		135FB6E02C69AA7E00A6480A /* Trie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trie.swift; sourceTree = "<group>"; };
+		135FB6E22C69B06B00A6480A /* TriesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriesTest.swift; sourceTree = "<group>"; };
 		1371A74C2C5B5D0300E06348 /* BlacklistApps.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BlacklistApps.plist; sourceTree = "<group>"; };
 		1371A74D2C5B5D0300E06348 /* DictionarySet.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DictionarySet.plist; sourceTree = "<group>"; };
 		1371A74E2C5B5D0300E06348 /* UserDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
@@ -1087,7 +1093,6 @@
 			isa = PBXGroup;
 			children = (
 				1344F53F2C5B28FC00D8C850 /* SKKRomanKanaConverter_TEST.mm */,
-				13A685412C69826A001BABA2 /* RomanKanaConverterTests.swift */,
 				1347782D2C5DB940007B1DFB /* SKKTrie_TEST.mm */,
 			);
 			path = tries;
@@ -1490,6 +1495,7 @@
 		1344F6202C5B2C9C00D8C850 /* CoreTests */ = {
 			isa = PBXGroup;
 			children = (
+				135FB6DD2C699F4D00A6480A /* Romakana */,
 				13A685432C698312001BABA2 /* CoreTesting.swift */,
 				133A55212C5DB8430047E911 /* backend */,
 				13EDDCF42C5B3CD20062A0DA /* bridge */,
@@ -1687,6 +1693,24 @@
 				135EEB9D2C5EEA4900758672 /* Typer.swift */,
 			);
 			path = Typer;
+			sourceTree = "<group>";
+		};
+		135FB6DA2C699E5800A6480A /* Romankana */ = {
+			isa = PBXGroup;
+			children = (
+				135FB6D82C6998E800A6480A /* RomanKanaConverter.swift */,
+				135FB6E02C69AA7E00A6480A /* Trie.swift */,
+			);
+			path = Romankana;
+			sourceTree = "<group>";
+		};
+		135FB6DD2C699F4D00A6480A /* Romakana */ = {
+			isa = PBXGroup;
+			children = (
+				13A685412C69826A001BABA2 /* RomanKanaConverterTests.swift */,
+				135FB6E22C69B06B00A6480A /* TriesTest.swift */,
+			);
+			path = Romakana;
 			sourceTree = "<group>";
 		};
 		1371A7602C5B5D3E00E06348 /* config */ = {
@@ -2008,6 +2032,7 @@
 				13D756162C5A9049006144F2 /* AquaSKKCore.h */,
 				1344F4A62C5B28FC00D8C850 /* bridge */,
 				1344F55D2C5B28FC00D8C850 /* engine */,
+				135FB6DA2C699E5800A6480A /* Romankana */,
 				13D756172C5A9049006144F2 /* AquaSKKCore.docc */,
 			);
 			path = Core;
@@ -2911,6 +2936,7 @@
 				13EDDCE32C5B35C90062A0DA /* SKKCommonDictionary_TEST.mm in Sources */,
 				13EDDCCC2C5B2ED70062A0DA /* SKKWindowSelector_TEST.mm in Sources */,
 				13EDDCCD2C5B2F450062A0DA /* SKKUserDictionary_TEST.mm in Sources */,
+				135FB6E32C69B06B00A6480A /* TriesTest.swift in Sources */,
 				13EDDCE82C5B395B0062A0DA /* SKKInlineSelector_TEST.mm in Sources */,
 				13EDDCE92C5B395B0062A0DA /* SKKProxyDictionary_TEST.mm in Sources */,
 				132B777A2C5DB89E00EEC2A5 /* pthreadutil_TEST.mm in Sources */,
@@ -3070,6 +3096,8 @@
 			files = (
 				13D756192C5A9049006144F2 /* AquaSKKCore.docc in Sources */,
 				1344F5CB2C5B28FC00D8C850 /* SKKTrie.cpp in Sources */,
+				135FB6D92C6998E800A6480A /* RomanKanaConverter.swift in Sources */,
+				135FB6E12C69AA7E00A6480A /* Trie.swift in Sources */,
 				1344F5CF2C5B28FC00D8C850 /* SKKInputEnvironment.cpp in Sources */,
 				1344F5D02C5B28FC00D8C850 /* SKKHttpDictionaryLoader.cpp in Sources */,
 				1344F5D12C5B28FC00D8C850 /* SKKPrimaryEditor.cpp in Sources */,
