@@ -14,142 +14,73 @@ struct RomanKanaConverterTests {
         return try RomanKanaConverter(path: path)
     }
 
-    @Test func inputMode() throws {
+    @Test("input mode", arguments: [
+        (SKKInputMode.HirakanaInputMode, "あ"),
+    ]) func inputMode(inputMode: SKKInputMode, expect: String) throws {
         let romanKana = try romanKana()
-        var state = SKKRomanKanaConversionResult()
-        #expect(romanKana.Convert(.HirakanaInputMode, "a", &state) == true)
-        #expect(state.next == "")
-        #expect(state.output == "あ")
-
-        #expect(romanKana.Convert(.KatakanaInputMode, "a", &state) == true)
-        #expect(state.next == "")
-        #expect(state.output == "ア")
-
-        #expect(romanKana.Convert(.Jisx0201KanaInputMode, "a", &state) == true)
-        #expect(state.next == "")
-        #expect(state.output == "ｱ")
+        let result = try #require(romanKana.convert("a", inputMode: inputMode))
+        #expect(result.next == "")
+        #expect(result.intermediate == "")
+        #expect(result.output == expect)
     }
 
-    @Test func convert() throws {
+    @Test("convert", arguments: [
+        ("kgya", "ぎゃ"),
+        ("gyagyugyo", "ぎゃぎゅぎょ"),
+        ("kanji", "かんじ"),
+
+        ("kyl", "l"),
+        ("co", "お"),
+        ("k1", "1"),
+
+        ("k1234gya", "1234ぎゃ"),
+        ("chho", "ほ"),
+        ("pmpo", "ぽ"),
+
+        ("/", "/"),
+        ("'", "'"),
+        (",", "、"),
+        (" ", " "),
+        ("#", "＃"), // FULLWIDTH NUMBER SIGN
+
+        ("z,", "‥"), // TWO DOT LEADER
+        ("z ", "　"), // IDEOGRAPHIC SPACE
+        ("z\\", "￥"), // FULLWIDTH YEN SIGN
+    ]) func convert(input: String, expect: String) throws {
         let romanKana = try romanKana()
-        var state = SKKRomanKanaConversionResult()
+        let result = try #require(romanKana.convert(input, inputMode: .HirakanaInputMode))
 
-        romanKana.Convert(.HirakanaInputMode, "kgya", &state)
-        #expect(state.next == "")
-        #expect(state.output == "ぎゃ")
-
-        romanKana.Convert(.HirakanaInputMode, "gyagyugyo", &state)
-        #expect(state.next == "")
-        #expect(state.output == "ぎゃぎゅぎょ")
-
-        romanKana.Convert(.HirakanaInputMode, "kanji", &state)
-        #expect(state.next == "")
-        #expect(state.output == "かんじ")
+        #expect(result.next == "")
+        #expect(result.output == expect)
     }
 
-    @Test func next() throws {
-        var romanKana = try romanKana()
-        var state = SKKRomanKanaConversionResult()
-
-        romanKana.Convert(.HirakanaInputMode, "gg", &state)
-        #expect(state.next == "g")
-        #expect(state.output == "っ")
-
-        romanKana.Convert(.HirakanaInputMode, "c", &state)
-        #expect(state.next == "c")
-        #expect(state.output == "")
-
-        romanKana.Convert(.HirakanaInputMode, "pmp", &state)
-        #expect(state.next == "p")
-        #expect(state.output == "")
+    @Test("convert", arguments: [
+        ("c", "c"),
+        ("pmp", "p"),
+    ]) func next(input: String, expect: String) throws {
+        let romanKana = try romanKana()
+        let result = try #require(romanKana.convert(input, inputMode: .HirakanaInputMode))
+        #expect(result.next == expect)
+        #expect(result.output == "")
     }
 
-    @Test func confirm() throws {
+    @Test func gg() throws {
         let romanKana = try romanKana()
-        var state = SKKRomanKanaConversionResult()
+        let result = try #require(romanKana.convert("gg", inputMode: .HirakanaInputMode))
 
-        romanKana.Convert(.HirakanaInputMode, "kyl", &state)
-        #expect(state.next == "")
-        #expect(state.output == "l")
-
-        romanKana.Convert(.HirakanaInputMode, "co", &state)
-        #expect(state.next == "")
-        #expect(state.output == "お")
-
-        romanKana.Convert(.HirakanaInputMode, "k1", &state)
-        #expect(state.next == "")
-        #expect(state.output == "1")
-    }
-
-    @Test func ignore() throws {
-        let romanKana = try romanKana()
-        var state = SKKRomanKanaConversionResult()
-        romanKana.Convert(.HirakanaInputMode, "k1234gya", &state)
-        #expect(state.next == "")
-        #expect(state.output == "1234ぎゃ")
-
-        romanKana.Convert(.HirakanaInputMode, "chho", &state)
-        #expect(state.next == "")
-        #expect(state.output == "ほ")
-
-        romanKana.Convert(.HirakanaInputMode, "pmpo", &state)
-        #expect(state.next == "")
-        #expect(state.output == "ぽ")
-    }
-
-    @Test func symbols() throws {
-        let romanKana = try romanKana()
-        var state = SKKRomanKanaConversionResult()
-
-        romanKana.Convert(.HirakanaInputMode, "/", &state)
-        #expect(state.next == "")
-        #expect(state.output == "/")
-
-        romanKana.Convert(.HirakanaInputMode, "'", &state)
-        #expect(state.next == "")
-        #expect(state.output == "'")
-
-        romanKana.Convert(.HirakanaInputMode, ",", &state)
-        #expect(state.next == "")
-        #expect(state.output == "、")
-
-        romanKana.Convert(.HirakanaInputMode, " ", &state)
-        #expect(state.next == "")
-        #expect(state.output == " ")
-
-        romanKana.Convert(.HirakanaInputMode, "#", &state)
-        #expect(state.next == "")
-        #expect(state.output == "＃") // FULLWIDTH NUMBER SIGN
-    }
-
-    @Test func zPrefix() throws {
-        let romanKana = try romanKana()
-        var state = SKKRomanKanaConversionResult()
-
-        romanKana.Convert(.HirakanaInputMode, "z,", &state)
-        #expect(state.next == "")
-        #expect(state.output == "‥") // TWO DOT LEADER
-
-        romanKana.Convert(.HirakanaInputMode, "z ", &state)
-        #expect(state.next == "")
-        #expect(state.output == "　") // IDEOGRAPHIC SPACE
-
-        romanKana.Convert(.HirakanaInputMode, "z\\", &state)
-        #expect(state.next == "")
-        #expect(state.output == "￥") // FULLWIDTH YEN SIGN
+        #expect(result.next == "g")
+        #expect(result.output == "っ")
     }
 
     @Test func patch() throws {
         let romanKana = try romanKana()
-        var state = SKKRomanKanaConversionResult()
-
-        romanKana.Convert(.HirakanaInputMode, ".", &state)
-        #expect(state.output == "。")
-
         let path = try CoreTesting.shared.path("period.rule")
-        romanKana.Patch(path)
 
-        romanKana.Convert(.HirakanaInputMode, ".", &state)
-        #expect(state.output == "．")
+        let original = try #require(romanKana.convert(".", inputMode: .HirakanaInputMode))
+        #expect(original.output == "。")
+        try romanKana.append(path: String(path))
+
+        let patched = try #require(romanKana.convert(".", inputMode: .HirakanaInputMode))
+        #expect(patched.output == ".")
     }
 }

@@ -15,24 +15,6 @@ enum TrieResult<T: Equatable>: Equatable {
     case intermediate(_: T? = nil)
 }
 
-// // 変換用文字
-// virtual const std::string& SKKTrieRomanString() const = 0;
-//
-// // 通知：変換結果
-// virtual void SKKTrieNotifyConverted(const SKKTrie* node) = 0;
-//
-// // 通知：未変換結果
-// virtual void SKKTrieNotifyNotConverted(char code) = 0;
-//
-// // 通知：途中結果
-// virtual void SKKTrieNotifyIntermediate(const SKKTrie* node) = 0;
-//
-// // 通知：スキップ指示
-// virtual void SKKTrieNotifySkipLength(int length) = 0;
-//
-// // 通知：データ不足
-// virtual void SKKTrieNotifyShort() = 0;
-
 class TrieInput {
     private var index: String.Index
     private var string: String
@@ -58,6 +40,10 @@ class TrieInput {
 
     func skip(_ offset: Int) {
         index = string.index(index, offsetBy: offset)
+    }
+
+    var remain: String {
+        String(string[index ..< string.endIndex])
     }
 }
 
