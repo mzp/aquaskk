@@ -28,5 +28,5 @@ tasks:
         preconditions:
             - which swiftformat
         cmds:
-            - find . -name 'AI*.m' -or -name 'AI*.mm' -or -name 'AI*.h' -exec clang-format -i \{\} \;
+            - find . -name 'AI*.m' -or -name 'AI*.mm' -or -name 'AI*.h' -or -name 'SKKRoman*' -exec clang-format -i \{\} \;
             - swiftformat --verbose .

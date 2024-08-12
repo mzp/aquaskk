@@ -177,7 +177,7 @@ State SKKState::Hirakana(const Event& event) {
 
     switch(event) {
     case ENTRY_EVENT:
-        editor_->SelectInputMode(HirakanaInputMode);
+        editor_->SelectInputMode(SKKInputMode::HirakanaInputMode);
 	return 0;
 
     case SKK_HIRAKANA_MODE:
@@ -214,7 +214,7 @@ State SKKState::Katakana(const Event& event) {
 
     switch(event) {
     case ENTRY_EVENT:
-        editor_->SelectInputMode(KatakanaInputMode);
+        editor_->SelectInputMode(SKKInputMode::KatakanaInputMode);
 	return 0;
 
     case SKK_KATAKANA_MODE:
@@ -244,7 +244,7 @@ State SKKState::Jisx0201Kana(const Event& event) {
 
     switch(event) {
     case ENTRY_EVENT:
-        editor_->SelectInputMode(Jisx0201KanaInputMode);
+        editor_->SelectInputMode(SKKInputMode::Jisx0201KanaInputMode);
 	return 0;
 
     case SKK_JISX0201KANA_MODE:
@@ -292,7 +292,7 @@ State SKKState::LatinInput(const Event& event) {
 State SKKState::Ascii(const Event& event) {
     switch(event) {
     case ENTRY_EVENT:
-        editor_->SelectInputMode(AsciiInputMode);
+        editor_->SelectInputMode(SKKInputMode::AsciiInputMode);
 	return 0;
 
     case SKK_ASCII_MODE:
@@ -310,7 +310,7 @@ State SKKState::Jisx0208Latin(const Event& event) {
 
     switch(event) {
     case ENTRY_EVENT:
-        editor_->SelectInputMode(Jisx0208LatinInputMode);
+        editor_->SelectInputMode(SKKInputMode::Jisx0208LatinInputMode);
 	return 0;
 
     case SKK_JISX0208LATIN_MODE:

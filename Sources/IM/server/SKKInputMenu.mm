@@ -32,29 +32,29 @@ namespace {
         NSString* identifier;
     } table[] = {
         // InputMode
-        { SKK_HIRAKANA_MODE, 		HirakanaInputMode,
+        { SKK_HIRAKANA_MODE, 		SKKInputMode::HirakanaInputMode,
           @"com.apple.inputmethod.Japanese.Hiragana" },
-        { SKK_KATAKANA_MODE, 		KatakanaInputMode,
+        { SKK_KATAKANA_MODE, 		SKKInputMode::KatakanaInputMode,
           @"com.apple.inputmethod.Japanese.Katakana" },
-        { SKK_JISX0201KANA_MODE,	Jisx0201KanaInputMode,
+        { SKK_JISX0201KANA_MODE,	SKKInputMode::Jisx0201KanaInputMode,
           @"com.apple.inputmethod.Japanese.HalfWidthKana" },
-        { SKK_JISX0208LATIN_MODE,	Jisx0208LatinInputMode,
+        { SKK_JISX0208LATIN_MODE,	SKKInputMode::Jisx0208LatinInputMode,
           @"com.apple.inputmethod.Japanese.FullWidthRoman" },
-        { SKK_ASCII_MODE,		AsciiInputMode,
+        { SKK_ASCII_MODE,		SKKInputMode::AsciiInputMode,
           @"com.apple.inputmethod.Roman" },
         // InputSource
-        { SKK_HIRAKANA_MODE, 		HirakanaInputMode,
+        { SKK_HIRAKANA_MODE, 		SKKInputMode::HirakanaInputMode,
           @"jp.sourceforge.inputmethod.aquaskk.Hiragana" },
-        { SKK_KATAKANA_MODE, 		KatakanaInputMode,
+        { SKK_KATAKANA_MODE, 		SKKInputMode::KatakanaInputMode,
           @"jp.sourceforge.inputmethod.aquaskk.Katakana" },
-        { SKK_JISX0201KANA_MODE,	Jisx0201KanaInputMode,
+        { SKK_JISX0201KANA_MODE,	SKKInputMode::Jisx0201KanaInputMode,
           @"jp.sourceforge.inputmethod.aquaskk.HalfWidthKana" },
-        { SKK_JISX0208LATIN_MODE,	Jisx0208LatinInputMode,
+        { SKK_JISX0208LATIN_MODE,	SKKInputMode::Jisx0208LatinInputMode,
           @"jp.sourceforge.inputmethod.aquaskk.FullWidthRoman" },
-        { SKK_ASCII_MODE,		AsciiInputMode,
+        { SKK_ASCII_MODE,		SKKInputMode::AsciiInputMode,
           @"jp.sourceforge.inputmethod.aquaskk.Ascii" },
         // Error
-        { SKK_NULL,			InvalidInputMode,
+        { SKK_NULL,			SKKInputMode::InvalidInputMode,
           0 }
     };
 
@@ -70,14 +70,14 @@ namespace {
         return table[i];
     }
 
-    static SKKInputMode unifiedInputMode__ = HirakanaInputMode;
+    static SKKInputMode unifiedInputMode__ = SKKInputMode::HirakanaInputMode;
 };
 
 - (id)initWithClient:(id)client {
     if(self = [super init]) {
         client_ = client;
         activation_ = YES;
-        currentInputMode_ = HirakanaInputMode;
+        currentInputMode_ = SKKInputMode::HirakanaInputMode;
     }
 
     return self;

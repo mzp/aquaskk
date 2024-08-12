@@ -10,7 +10,7 @@ import Testing
 
 struct JisyoControllerTests {
     func makeController() throws -> JisyoController {
-        let path = try TestingContent.shared.path("DictionarySet.plist", writable: true)
+        let path = try ServiceTesting.shared.path("DictionarySet.plist", writable: true)
         return JisyoController(path: path)
     }
 

@@ -13,7 +13,7 @@ private let dvorakLayout = "com.apple.keylayout.Dvorak"
 
 struct PreferenceStorageTests {
     func preferenceStorage() throws -> PreferenceStorage {
-        let bundle = TestingContent.shared.bundle
+        let bundle = ServiceTesting.shared.bundle
         let configuration = try BundledFileConfiguration(bundle: bundle)
         return PreferenceStorage(configuration: configuration)
     }

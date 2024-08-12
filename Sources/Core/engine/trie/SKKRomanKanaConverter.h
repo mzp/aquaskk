@@ -24,7 +24,6 @@
 #define SKKRomanKanaConverter_h
 
 #include <string>
-#import <AquaSKKCore/SKKTrie.h>
 #import <AquaSKKCore/SKKInputMode.h>
 
 // 変換結果
@@ -35,13 +34,9 @@ struct SKKRomanKanaConversionResult {
 };
 
 class SKKRomanKanaConverter {
-    SKKTrie root_;
-
+    void *impl;
     SKKRomanKanaConverter();
     SKKRomanKanaConverter(const SKKRomanKanaConverter&);
-
-    void load(const std::string& path, bool initialize);
-
 public:
     static SKKRomanKanaConverter& theInstance();
 
@@ -49,16 +44,13 @@ public:
 
     void Patch(const std::string& path);
 
-    // ローマ字かな変換
-    //
-    // 引数：
-    //  mode=入力モード
-    //	in=ローマ字文字列
-    //	result=変換結果
-    //
-    // 戻り値：
-    //	true=変換された、false=変換されなかった
-    //
+    /// ローマ字かな変換
+    ///
+    /// @param mode 入力モード
+    /// @param str ローマ字文字列
+    /// @param result 変換結果
+    ///
+    /// @return true=変換された、false=変換されなかった
     bool Convert(SKKInputMode mode, const std::string& str, SKKRomanKanaConversionResult& result);
 };
 

@@ -66,13 +66,13 @@ class TestData {
     }
 
     SKKInputMode inputMode(const std::string& mode) {
-        if(mode == "J") return HirakanaInputMode;
-        if(mode == "K") return KatakanaInputMode;
-        if(mode == "Q") return Jisx0201KanaInputMode;
-        if(mode == "A") return AsciiInputMode;
-        if(mode == "L") return Jisx0208LatinInputMode;
+        if(mode == "J") return SKKInputMode::HirakanaInputMode;
+        if(mode == "K") return SKKInputMode::KatakanaInputMode;
+        if(mode == "Q") return SKKInputMode::Jisx0201KanaInputMode;
+        if(mode == "A") return SKKInputMode::AsciiInputMode;
+        if(mode == "L") return SKKInputMode::Jisx0208LatinInputMode;
 
-        return InvalidInputMode;
+        return SKKInputMode::InvalidInputMode;
     }
 
     char charcode(const std::string& str) {

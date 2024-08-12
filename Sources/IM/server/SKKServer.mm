@@ -66,11 +66,11 @@ namespace {
         int mode;
         NSString* name;
     } InputModeIcons[] = {
-        { HirakanaInputMode,		@"AquaSKK-Hirakana" },
-        { KatakanaInputMode,		@"AquaSKK-Katakana" },
-        { Jisx0201KanaInputMode,	@"AquaSKK-Jisx0201Kana" },
-        { AsciiInputMode,		@"AquaSKK-Ascii" },
-        { Jisx0208LatinInputMode,	@"AquaSKK-Jisx0208Latin" },
+        { (int)SKKInputMode::HirakanaInputMode,		@"AquaSKK-Hirakana" },
+        { (int)SKKInputMode::KatakanaInputMode,		@"AquaSKK-Katakana" },
+        { (int)SKKInputMode::Jisx0201KanaInputMode,	@"AquaSKK-Jisx0201Kana" },
+        { (int)SKKInputMode::AsciiInputMode,		@"AquaSKK-Ascii" },
+        { (int)SKKInputMode::Jisx0208LatinInputMode,	@"AquaSKK-Jisx0208Latin" },
         { 0,				0 }
     };
 }
@@ -208,6 +208,7 @@ static void terminate(int) {
     }
 
 #if 1
+    // FIXME: Typerテストはここでクラッシュする
     NSString* userDictionary = [defaults stringForKey:SKKUserDefaultKeys::user_dictionary_path];
     userDictionary = [userDictionary stringByExpandingTildeInPath];
 

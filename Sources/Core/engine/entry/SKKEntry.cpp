@@ -74,15 +74,15 @@ std::string SKKEntry::ToggleKana(SKKInputMode mode) const {
     std::string result;
 
     switch(mode) {
-    case HirakanaInputMode:
+    case SKKInputMode::HirakanaInputMode:
 	jconv::hirakana_to_katakana(normal_entry_, result);
 	break;
 
-    case KatakanaInputMode:
+    case SKKInputMode::KatakanaInputMode:
 	jconv::katakana_to_hirakana(normal_entry_, result);
 	break;
 
-    case Jisx0201KanaInputMode:
+    case SKKInputMode::Jisx0201KanaInputMode:
 	jconv::jisx0201_kana_to_katakana(normal_entry_, result);
 	break;
 
@@ -97,19 +97,19 @@ std::string SKKEntry::ToggleJisx0201Kana(SKKInputMode mode) const {
     std::string result;
 
     switch(mode) {
-    case HirakanaInputMode:
+    case SKKInputMode::HirakanaInputMode:
 	jconv::hirakana_to_jisx0201_kana(normal_entry_, result);
 	break;
 	
-    case KatakanaInputMode:
+    case SKKInputMode::KatakanaInputMode:
 	jconv::katakana_to_jisx0201_kana(normal_entry_, result);
 	break;
 
-    case Jisx0201KanaInputMode:
+    case SKKInputMode::Jisx0201KanaInputMode:
 	jconv::jisx0201_kana_to_hirakana(normal_entry_, result);
 	break;
 
-    case AsciiInputMode:
+    case SKKInputMode::AsciiInputMode:
 	jconv::ascii_to_jisx0208_latin(normal_entry_, result);
 	break;
 
@@ -127,12 +127,12 @@ SKKEntry SKKEntry::Normalize(SKKInputMode mode) const {
     // 入力モードがカタカナ/半角カナなら、見出し語をひらかなに正規化する
     // ACT配列等では入力した文字がSKKの辞書とは一致しないので、カナから変換する。
     switch(mode) {
-    case KatakanaInputMode:
+    case SKKInputMode::KatakanaInputMode:
         jconv::katakana_to_hirakana(normal_entry_, result);
         jconv::katakana_to_roman(kana_, roman);
         break;
 
-    case Jisx0201KanaInputMode:
+    case SKKInputMode::Jisx0201KanaInputMode:
         jconv::jisx0201_kana_to_hirakana(normal_entry_, result);
         jconv::jisx0201_kana_to_roman(kana_, roman);
         break;
