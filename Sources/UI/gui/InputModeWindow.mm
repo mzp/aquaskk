@@ -51,7 +51,7 @@
         [window_ setOpaque:NO];
         [window_ setIgnoresMouseEvents:YES];
 
-        inputMode_ = HirakanaInputMode;
+        inputMode_ = SKKInputMode::HirakanaInputMode;
         modeIcons_ = 0;
 
         [self prepareLayer];
@@ -84,8 +84,8 @@
 
     [self updateFrame];
 
-    NSImage* image = [modeIcons_ objectForKey:[NSNumber numberWithInt:mode]];
-    NSBitmapImageRep* rep = [NSBitmapImageRep imageRepWithData:[image TIFFRepresentation]]; 
+    NSImage* image = [modeIcons_ objectForKey:[NSNumber numberWithInt:(int)mode]];
+    NSBitmapImageRep* rep = [NSBitmapImageRep imageRepWithData:[image TIFFRepresentation]];
 
     [self setImage:(id)[rep CGImage]];
 }
@@ -134,7 +134,7 @@
 - (void)updateFrame {
     NSRect rect = [window_ frame];
     NSSize iconSize = rect.size;
-    NSImage* icon = [modeIcons_ objectForKey:[NSNumber numberWithInt:inputMode_]];
+    NSImage* icon = [modeIcons_ objectForKey:[NSNumber numberWithInt:(int)inputMode_]];
     NSArray* reps = [icon representations];
 
     if([reps count]) {

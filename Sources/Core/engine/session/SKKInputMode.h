@@ -23,7 +23,7 @@
 #ifndef SKKInputMode_h
 #define SKKInputMode_h
 
-enum SKKInputMode {
+enum class SKKInputMode {
     HirakanaInputMode,
     KatakanaInputMode,
     Jisx0201KanaInputMode,

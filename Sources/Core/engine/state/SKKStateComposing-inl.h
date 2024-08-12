@@ -227,7 +227,7 @@ State SKKState::AsciiEntry(const Event& event) {
 
     switch(event) {
     case ENTRY_EVENT:
-        editor_->SelectInputMode(AsciiInputMode);
+        editor_->SelectInputMode(SKKInputMode::AsciiInputMode);
         return 0;
 
     case SKK_CHAR:

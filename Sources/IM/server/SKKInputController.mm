@@ -185,7 +185,7 @@
     // setValue内でメニューの更新があると、 selectInputMode -> setValueの無限ループが発生するため、
     // 更新を停止する
     [menu_ deactivation];
-    if(param.id != InvalidInputMode) {
+    if((SKKInputMode)param.id != SKKInputMode::InvalidInputMode) {
         session_->HandleEvent(param);
 
         modeIcon_->SelectInputMode([menu_ convertIdToInputMode:(NSString*)identifier]);
@@ -407,8 +407,8 @@
     SKKInputMode system = [menu_ convertIdToInputMode:context_.selectedKeyboardInputSource];
     SKKInputMode current = [menu_ currentInputMode];
 
-    // AquaSKK統合の場合、systemがInvalidInputModeになるので、そのときは無視する
-    if(system == InvalidInputMode) {
+    // AquaSKK統合の場合、systemがSKKInputMode::InvalidInputModeになるので、そのときは無視する
+    if(system == SKKInputMode::InvalidInputMode) {
         return current;
     }
 

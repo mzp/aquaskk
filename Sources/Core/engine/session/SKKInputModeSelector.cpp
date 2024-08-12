@@ -25,8 +25,8 @@
 #include <functional>
 
 SKKInputModeSelector::SKKInputModeSelector(SKKInputModeListenerCollection* listeners)
-    : SKKWidget(true), listeners_(listeners), mode_(InvalidInputMode) {
-    Select(HirakanaInputMode);
+    : SKKWidget(true), listeners_(listeners), mode_(SKKInputMode::InvalidInputMode) {
+    Select(SKKInputMode::HirakanaInputMode);
 }
 
 void SKKInputModeSelector::Select(SKKInputMode mode) {

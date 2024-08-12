@@ -26,7 +26,7 @@
 #include <cassert>
 
 SKKInputQueue::SKKInputQueue(SKKInputQueueObserver* observer)
-    : observer_(observer), mode_(HirakanaInputMode) {}
+    : observer_(observer), mode_(SKKInputMode::HirakanaInputMode) {}
 
 void SKKInputQueue::SelectInputMode(SKKInputMode mode) {
     mode_ = mode;
@@ -77,18 +77,18 @@ bool SKKInputQueue::CanConvert(char code) const {
     std::string tmp_queue(queue_);
 
     switch(mode_) {
-    case HirakanaInputMode:
-    case KatakanaInputMode:
-    case Jisx0201KanaInputMode:
+    case SKKInputMode::HirakanaInputMode:
+    case SKKInputMode::KatakanaInputMode:
+    case SKKInputMode::Jisx0201KanaInputMode:
 	// ローマ字 → かな変換
 	tmp_queue += std::tolower(code);
 	return converter.Convert(mode_, tmp_queue, result);
 
-    case Jisx0208LatinInputMode:
-    case AsciiInputMode:
+    case SKKInputMode::Jisx0208LatinInputMode:
+    case SKKInputMode::AsciiInputMode:
         break;
 
-    case InvalidInputMode:
+    case SKKInputMode::InvalidInputMode:
         assert(false);
     }
 
@@ -102,20 +102,20 @@ SKKInputQueueObserver::State SKKInputQueue::convert(char code, bool direct) {
     SKKRomanKanaConversionResult result;
     SKKInputQueueObserver::State state;
 
-    if(direct || mode_ == AsciiInputMode) {
+    if(direct || mode_ == SKKInputMode::AsciiInputMode) {
         result.output += code;
     } else {
         switch(mode_) {
-        case HirakanaInputMode:
-        case KatakanaInputMode:
-        case Jisx0201KanaInputMode:
+        case SKKInputMode::HirakanaInputMode:
+        case SKKInputMode::KatakanaInputMode:
+        case SKKInputMode::Jisx0201KanaInputMode:
             // ローマ字 → かな変換
             queue_ += std::tolower(code);
             converter.Convert(mode_, queue_, result);
             queue_ = result.next;
             break;
 
-        case Jisx0208LatinInputMode:
+        case SKKInputMode::Jisx0208LatinInputMode:
             // ASCII → 全角英数変換
             queue_ += code;
             jconv::ascii_to_jisx0208_latin(queue_, result.output);
@@ -141,18 +141,18 @@ SKKInputQueueObserver::State SKKInputQueue::terminate() {
     SKKInputQueueObserver::State state;
 
     switch(mode_) {
-    case HirakanaInputMode:
-    case KatakanaInputMode:
-    case Jisx0201KanaInputMode:
+    case SKKInputMode::HirakanaInputMode:
+    case SKKInputMode::KatakanaInputMode:
+    case SKKInputMode::Jisx0201KanaInputMode:
 	// ローマ字 → かな変換
 	converter.Convert(mode_, queue_, result);
 	break;
 
-    case Jisx0208LatinInputMode:
-    case AsciiInputMode:
+    case SKKInputMode::Jisx0208LatinInputMode:
+    case SKKInputMode::AsciiInputMode:
         break;
 
-    case InvalidInputMode:
+    case SKKInputMode::InvalidInputMode:
         assert(false);
     }
 

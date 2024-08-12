@@ -15,10 +15,10 @@ struct TestResult {
     int pos;
     bool ret;
 
-    TestResult() : mode(InvalidInputMode), pos(0), ret(true) {}
+    TestResult() : mode(SKKInputMode::InvalidInputMode), pos(0), ret(true) {}
     TestResult(const std::string& fixed,
                const std::string& marked,
-               SKKInputMode mode = InvalidInputMode,
+               SKKInputMode mode = SKKInputMode::InvalidInputMode,
                bool ret = true,
                int pos = 0)
         : fixed(fixed), marked(marked), mode(mode), pos(pos), ret(ret) {}
@@ -33,7 +33,7 @@ struct TestResult {
                   << "fixed=" << fixed << ", "
                   << "marked=" << marked << ", "
                   << "pos=" << pos << ", "
-                  << "mode=" << mode << ", "
+                  << "mode=" << (int)mode << ", "
                   << "ret=" << ret << ", "
                   << std::endl;
     }

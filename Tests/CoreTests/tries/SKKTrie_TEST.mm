@@ -36,7 +36,7 @@ class DebugHelper : public SKKTrieHelper {
     }
 
 public:
-    void Initialize(const std::string& str, SKKInputMode inputMode = HirakanaInputMode) {
+    void Initialize(const std::string& str, SKKInputMode inputMode = SKKInputMode::HirakanaInputMode) {
         mode = inputMode;
         string = original = str;
         output.clear();

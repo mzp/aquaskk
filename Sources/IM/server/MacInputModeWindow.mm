@@ -124,7 +124,7 @@ namespace {
     if(self) {
         window_ = [InputModeWindow sharedWindow];
         layout_ = layout;
-        [self changeMode:HirakanaInputMode];
+        [self changeMode:SKKInputMode::HirakanaInputMode];
     }
 
     return self;

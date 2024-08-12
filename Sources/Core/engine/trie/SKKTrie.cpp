@@ -91,17 +91,17 @@ const std::string& SKKTrie::KanaString(SKKInputMode mode) const {
     static std::string nothing;
 
     switch(mode) {
-    case HirakanaInputMode:
+    case SKKInputMode::HirakanaInputMode:
 	return hirakana_;
 
-    case KatakanaInputMode:
+    case SKKInputMode::KatakanaInputMode:
 	return katakana_;
 
-    case Jisx0201KanaInputMode:
+    case SKKInputMode::Jisx0201KanaInputMode:
 	return jisx0201kana_;
 
     default:
-	std::cerr << "SKKTrie::KanaString(): invalid mode [" << mode << "]" << std::endl;
+	std::cerr << "SKKTrie::KanaString(): invalid mode [" << (int)mode << "]" << std::endl;
 	return nothing;
     }
 }
