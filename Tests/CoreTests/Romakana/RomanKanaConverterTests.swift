@@ -81,6 +81,6 @@ struct RomanKanaConverterTests {
         try romanKana.append(path: String(path))
 
         let patched = try #require(romanKana.convert(".", inputMode: .HirakanaInputMode))
-        #expect(patched.output == ".")
+        #expect(patched.output == "．")
     }
 }

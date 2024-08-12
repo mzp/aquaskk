@@ -24,7 +24,10 @@ class TrieInput {
         self.string = string
     }
 
-    var count: Int { string.count }
+    var count: Int {
+        string.distance(from: index, to: string.endIndex)
+    }
+
     var offset: Int {
         string.distance(from: string.startIndex, to: index)
     }

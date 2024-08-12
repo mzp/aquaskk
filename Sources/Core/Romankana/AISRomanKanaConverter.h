@@ -22,11 +22,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AICRomanKanaConverter: NSObject
 
-- (instancetype)initWithPath:(NSString *)path error:(NSError *)error NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithPath:(NSString *)path error:(NSError **)error NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)init NS_UNAVAILABLE;
 
-- (void)appendPath:(NSString *)path error:(NSError *)error;
+- (void)appendPath:(NSString *)path error:(NSError **)error;
 
 - (nullable AICRomanKanaResult *)convert:(NSString *)string inputMode:(SKKInputMode)inputMode;
 @end

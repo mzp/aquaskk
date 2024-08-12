@@ -1,24 +1,20 @@
-#include <cassert>
-#include <iostream>
 #include "SKKRomanKanaConverter.h"
 #import <XCTest/XCTest.h>
+#include <cassert>
+#include <iostream>
 
-@interface SKKRomanKanaConverterTests: XCTestCase
+@interface SKKRomanKanaConverterTests : XCTestCase
 @end
 
-
-void dump(const std::string& input, const SKKRomanKanaConversionResult& result) {
-    std::cerr << "input=" << input
-              << ",next=" << result.next
-              << ",output=" << result.output
-              << ",intermediate=" << result.intermediate
-              << std::endl;
+void dump(const std::string &input, const SKKRomanKanaConversionResult &result) {
+    std::cerr << "input=" << input << ",next=" << result.next << ",output=" << result.output
+              << ",intermediate=" << result.intermediate << std::endl;
 }
 
 @implementation SKKRomanKanaConverterTests
 
 - (void)testMain {
-    auto& conv = SKKRomanKanaConverter::theInstance();
+    auto &conv = SKKRomanKanaConverter::theInstance();
 
     NSBundle *bundle = [NSBundle bundleForClass:SKKRomanKanaConverterTests.class];
     const char *path = [bundle pathForResource:@"kana-rule" ofType:@"conf"].UTF8String;

@@ -41,7 +41,6 @@
 		1344F56A2C5B28FC00D8C850 /* SKKConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F49F2C5B28FC00D8C850 /* SKKConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F56B2C5B28FC00D8C850 /* SKKUserDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4CA2C5B28FC00D8C850 /* SKKUserDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F56C2C5B28FC00D8C850 /* SKKDictionaryTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4BE2C5B28FC00D8C850 /* SKKDictionaryTemplate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1344F56D2C5B28FC00D8C850 /* SKKTrie.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F54E2C5B28FC00D8C850 /* SKKTrie.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F56E2C5B28FC00D8C850 /* SKKInputQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4D52C5B28FC00D8C850 /* SKKInputQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F56F2C5B28FC00D8C850 /* SKKOutputBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4FE2C5B28FC00D8C850 /* SKKOutputBuffer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5702C5B28FC00D8C850 /* subrange.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F55A2C5B28FC00D8C850 /* subrange.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -115,11 +114,10 @@
 		1344F5BB2C5B28FC00D8C850 /* SKKInputEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4D32C5B28FC00D8C850 /* SKKInputEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5BC2C5B28FC00D8C850 /* SKKDictionaryKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4AE2C5B28FC00D8C850 /* SKKDictionaryKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5BE2C5B28FC00D8C850 /* SKKCompleter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4B22C5B28FC00D8C850 /* SKKCompleter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1344F5CB2C5B28FC00D8C850 /* SKKTrie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F54F2C5B28FC00D8C850 /* SKKTrie.cpp */; };
 		1344F5CF2C5B28FC00D8C850 /* SKKInputEnvironment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4F82C5B28FC00D8C850 /* SKKInputEnvironment.cpp */; };
 		1344F5D02C5B28FC00D8C850 /* SKKHttpDictionaryLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4C42C5B28FC00D8C850 /* SKKHttpDictionaryLoader.cpp */; };
 		1344F5D12C5B28FC00D8C850 /* SKKPrimaryEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4DA2C5B28FC00D8C850 /* SKKPrimaryEditor.cpp */; };
-		1344F5D22C5B28FC00D8C850 /* SKKRomanKanaConverter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F54D2C5B28FC00D8C850 /* SKKRomanKanaConverter.cpp */; };
+		1344F5D22C5B28FC00D8C850 /* SKKRomanKanaConverter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F54D2C5B28FC00D8C850 /* SKKRomanKanaConverter.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1344F5D42C5B28FC00D8C850 /* SKKInputSession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4FD2C5B28FC00D8C850 /* SKKInputSession.cpp */; };
 		1344F5D92C5B28FC00D8C850 /* SKKInputModeSelector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4FB2C5B28FC00D8C850 /* SKKInputModeSelector.cpp */; };
 		1344F5DA2C5B28FC00D8C850 /* SKKWindowSelector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4F42C5B28FC00D8C850 /* SKKWindowSelector.cpp */; };
@@ -154,7 +152,6 @@
 		1344F60D2C5B28FC00D8C850 /* SKKCandidate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4E12C5B28FC00D8C850 /* SKKCandidate.cpp */; };
 		1344F60E2C5B28FC00D8C850 /* SKKEntry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4E52C5B28FC00D8C850 /* SKKEntry.cpp */; };
 		1344F6102C5B28FC00D8C850 /* SKKCandidateEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4CE2C5B28FC00D8C850 /* SKKCandidateEditor.cpp */; };
-		1347782E2C5DB940007B1DFB /* SKKTrie_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1347782D2C5DB940007B1DFB /* SKKTrie_TEST.mm */; };
 		134778592C5DB98F007B1DFB /* period.rule in Resources */ = {isa = PBXBuildFile; fileRef = 1347784F2C5DB98F007B1DFB /* period.rule */; };
 		1347785A2C5DB98F007B1DFB /* SKK-JISYO.S2 in Resources */ = {isa = PBXBuildFile; fileRef = 134778532C5DB98F007B1DFB /* SKK-JISYO.S2 */; };
 		1347785B2C5DB98F007B1DFB /* kana-rule.conf in Resources */ = {isa = PBXBuildFile; fileRef = 1347784C2C5DB98F007B1DFB /* kana-rule.conf */; };
@@ -619,9 +616,7 @@
 		1344F5492C5B28FC00D8C850 /* TestResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestResult.h; sourceTree = "<group>"; };
 		1344F54A2C5B28FC00D8C850 /* utf8util_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = utf8util_TEST.mm; sourceTree = "<group>"; };
 		1344F54C2C5B28FC00D8C850 /* SKKRomanKanaConverter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKRomanKanaConverter.h; sourceTree = "<group>"; };
-		1344F54D2C5B28FC00D8C850 /* SKKRomanKanaConverter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKRomanKanaConverter.cpp; sourceTree = "<group>"; };
-		1344F54E2C5B28FC00D8C850 /* SKKTrie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKTrie.h; sourceTree = "<group>"; };
-		1344F54F2C5B28FC00D8C850 /* SKKTrie.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKTrie.cpp; sourceTree = "<group>"; };
+		1344F54D2C5B28FC00D8C850 /* SKKRomanKanaConverter.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKRomanKanaConverter.mm; sourceTree = "<group>"; };
 		1344F5512C5B28FC00D8C850 /* calculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = calculator.h; sourceTree = "<group>"; };
 		1344F5522C5B28FC00D8C850 /* jconv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jconv.h; sourceTree = "<group>"; };
 		1344F5532C5B28FC00D8C850 /* jconv.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = jconv.cpp; sourceTree = "<group>"; };
@@ -633,7 +628,6 @@
 		1344F5592C5B28FC00D8C850 /* stringutil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stringutil.h; sourceTree = "<group>"; };
 		1344F55A2C5B28FC00D8C850 /* subrange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = subrange.h; sourceTree = "<group>"; };
 		1344F55B2C5B28FC00D8C850 /* utf8util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utf8util.h; sourceTree = "<group>"; };
-		1347782D2C5DB940007B1DFB /* SKKTrie_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKTrie_TEST.mm; sourceTree = "<group>"; };
 		1347784B2C5DB98F007B1DFB /* dict.file */ = {isa = PBXFileReference; lastKnownFileType = text; path = dict.file; sourceTree = "<group>"; };
 		1347784C2C5DB98F007B1DFB /* kana-rule.conf */ = {isa = PBXFileReference; lastKnownFileType = text; path = "kana-rule.conf"; sourceTree = "<group>"; };
 		1347784D2C5DB98F007B1DFB /* keymap.conf */ = {isa = PBXFileReference; lastKnownFileType = text; path = keymap.conf; sourceTree = "<group>"; };
@@ -1095,7 +1089,6 @@
 			isa = PBXGroup;
 			children = (
 				1344F53F2C5B28FC00D8C850 /* SKKRomanKanaConverter_TEST.mm */,
-				1347782D2C5DB940007B1DFB /* SKKTrie_TEST.mm */,
 			);
 			path = tries;
 			sourceTree = "<group>";
@@ -1450,9 +1443,7 @@
 			isa = PBXGroup;
 			children = (
 				1344F54C2C5B28FC00D8C850 /* SKKRomanKanaConverter.h */,
-				1344F54D2C5B28FC00D8C850 /* SKKRomanKanaConverter.cpp */,
-				1344F54E2C5B28FC00D8C850 /* SKKTrie.h */,
-				1344F54F2C5B28FC00D8C850 /* SKKTrie.cpp */,
+				1344F54D2C5B28FC00D8C850 /* SKKRomanKanaConverter.mm */,
 			);
 			path = trie;
 			sourceTree = "<group>";
@@ -2198,7 +2189,6 @@
 				1344F56A2C5B28FC00D8C850 /* SKKConfig.h in Headers */,
 				1344F56B2C5B28FC00D8C850 /* SKKUserDictionary.h in Headers */,
 				1344F56C2C5B28FC00D8C850 /* SKKDictionaryTemplate.h in Headers */,
-				1344F56D2C5B28FC00D8C850 /* SKKTrie.h in Headers */,
 				1344F56E2C5B28FC00D8C850 /* SKKInputQueue.h in Headers */,
 				1344F56F2C5B28FC00D8C850 /* SKKOutputBuffer.h in Headers */,
 				1344F5702C5B28FC00D8C850 /* subrange.h in Headers */,
@@ -2934,7 +2924,6 @@
 				13A685442C698312001BABA2 /* CoreTesting.swift in Sources */,
 				13EDDCE42C5B37830062A0DA /* SKKCompleter_TEST.mm in Sources */,
 				13EDDCE72C5B38AF0062A0DA /* SKKDictionaryKeeper_TEST.mm in Sources */,
-				1347782E2C5DB940007B1DFB /* SKKTrie_TEST.mm in Sources */,
 				13EDDCE52C5B37DC0062A0DA /* SKKDictionaryFactory_TEST.mm in Sources */,
 				13EDDCE12C5B350D0062A0DA /* SKKCandidateParser_TEST.mm in Sources */,
 				13EDDCE32C5B35C90062A0DA /* SKKCommonDictionary_TEST.mm in Sources */,
@@ -3099,13 +3088,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				13D756192C5A9049006144F2 /* AquaSKKCore.docc in Sources */,
-				1344F5CB2C5B28FC00D8C850 /* SKKTrie.cpp in Sources */,
 				135FB6D92C6998E800A6480A /* RomanKanaConverter.swift in Sources */,
 				135FB6E12C69AA7E00A6480A /* Trie.swift in Sources */,
 				1344F5CF2C5B28FC00D8C850 /* SKKInputEnvironment.cpp in Sources */,
 				1344F5D02C5B28FC00D8C850 /* SKKHttpDictionaryLoader.cpp in Sources */,
 				1344F5D12C5B28FC00D8C850 /* SKKPrimaryEditor.cpp in Sources */,
-				1344F5D22C5B28FC00D8C850 /* SKKRomanKanaConverter.cpp in Sources */,
+				1344F5D22C5B28FC00D8C850 /* SKKRomanKanaConverter.mm in Sources */,
 				1344F5D42C5B28FC00D8C850 /* SKKInputSession.cpp in Sources */,
 				1344F5D92C5B28FC00D8C850 /* SKKInputModeSelector.cpp in Sources */,
 				1344F5DA2C5B28FC00D8C850 /* SKKWindowSelector.cpp in Sources */,
