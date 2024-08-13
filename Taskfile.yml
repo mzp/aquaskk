@@ -39,4 +39,4 @@ tasks:
     clang-format:
         internal: true
         cmds:
-            - find {{.DIRECTORY}} -name '*.m' -print0 | xargs --null clang-format -i
+            - find {{.DIRECTORY}} -name '*.m' -or -name '*.cpp' -print0 | xargs --null clang-format -i

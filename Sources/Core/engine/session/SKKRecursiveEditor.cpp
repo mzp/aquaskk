@@ -20,24 +20,24 @@
 
 */
 
-#import <AquaSKKCore/SKKRecursiveEditor.h>
-#import <AquaSKKCore/SKKInputSessionParameter.h>
-#import <AquaSKKCore/SKKInputContext.h>
-#import <AquaSKKCore/SKKConfig.h>
-#import <AquaSKKCore/SKKAnnotator.h>
-#import <AquaSKKCore/SKKCandidateWindow.h>
-#import <AquaSKKCore/SKKDynamicCompletor.h>
-#import <AquaSKKCore/SKKBackEnd.h>
 #include "utf8util.h"
+#import <AquaSKKCore/SKKAnnotator.h>
+#import <AquaSKKCore/SKKBackEnd.h>
+#import <AquaSKKCore/SKKCandidateWindow.h>
+#import <AquaSKKCore/SKKConfig.h>
+#import <AquaSKKCore/SKKDynamicCompletor.h>
+#import <AquaSKKCore/SKKInputContext.h>
+#import <AquaSKKCore/SKKInputSessionParameter.h>
+#import <AquaSKKCore/SKKRecursiveEditor.h>
 
 SKKRecursiveEditor::SKKRecursiveEditor(SKKInputEnvironment* env)
-    : env_(env)
-    , context_(env->InputContext())
-    , config_(env->Config())
-    , annotator_(env->InputSessionParameter()->Annotator())
-    , completor_(env->InputSessionParameter()->DynamicCompletor())
-    , editor_(env)
-    , state_(SKKState(env, &editor_)) {
+    : env_(env),
+      context_(env->InputContext()),
+      config_(env->Config()),
+      annotator_(env->InputSessionParameter()->Annotator()),
+      completor_(env->InputSessionParameter()->DynamicCompletor()),
+      editor_(env),
+      state_(SKKState(env, &editor_)) {
     // initialize widgets
     widgets_.push_back(annotator_);
     widgets_.push_back(completor_);
@@ -98,9 +98,9 @@ void SKKRecursiveEditor::complete() {
                 int limit = std::min((unsigned)result.size(), range);
                 common_prefix = result[0];
 
-                for(int i = 0; i < limit; ++ i) {
+                for(int i = 0; i < limit; ++i) {
                     common_prefix = utf8::common_prefix(common_prefix, result[i]);
-            
+
                     joined += result[i];
                     joined += "\n";
                 }

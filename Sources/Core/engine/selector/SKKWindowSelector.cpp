@@ -20,11 +20,12 @@
 
 */
 
-#import <AquaSKKCore/SKKWindowSelector.h>
 #import <AquaSKKCore/SKKCandidateWindow.h>
+#import <AquaSKKCore/SKKWindowSelector.h>
 #include <cassert>
 
-SKKWindowSelector::SKKWindowSelector(SKKCandidateWindow* window) : window_(window) {}
+SKKWindowSelector::SKKWindowSelector(SKKCandidateWindow* window)
+    : window_(window) {}
 
 void SKKWindowSelector::Initialize(SKKCandidateContainer& container, unsigned inlineCount) {
     range_.set(container, inlineCount);
@@ -39,11 +40,11 @@ void SKKWindowSelector::Initialize(SKKCandidateContainer& container, unsigned in
 
 bool SKKWindowSelector::Next() {
     if(page_pos_ == maxPage()) {
-	return false;
+        return false;
     }
 
     offset_ += pages_[page_pos_];
-    ++ page_pos_;
+    ++page_pos_;
     cursor_pos_ = 0;
 
     refresh();
@@ -54,10 +55,10 @@ bool SKKWindowSelector::Next() {
 
 bool SKKWindowSelector::Prev() {
     if(page_pos_ == minPage()) {
-	return false;
+        return false;
     }
 
-    -- page_pos_;
+    --page_pos_;
     offset_ -= pages_[page_pos_];
     cursor_pos_ = 0;
 
@@ -79,15 +80,15 @@ bool SKKWindowSelector::IsEmpty() const {
 
 void SKKWindowSelector::CursorLeft() {
     if(cursor_pos_ != minPosition()) {
-	-- cursor_pos_;
-	Show();
+        --cursor_pos_;
+        Show();
     }
 }
 
 void SKKWindowSelector::CursorRight() {
     if(cursor_pos_ != maxPosition()) {
-	++ cursor_pos_;
-	Show();
+        ++cursor_pos_;
+        Show();
     }
 }
 
@@ -105,9 +106,9 @@ bool SKKWindowSelector::Select(char label) {
     int index = window_->LabelIndex(label);
 
     if(-1 < index && (unsigned)index < view_.size()) {
-	cursor_pos_ = index;
-	Show();
-	return true;
+        cursor_pos_ = index;
+        Show();
+        return true;
     }
 
     return false;
@@ -119,7 +120,6 @@ void SKKWindowSelector::Show() {
     window_->Update(view_.begin(), view_.end(), cursor_pos_, page_pos_ + 1, pages_.size());
 #pragma clang diagnostic pop
 
-
     window_->Show();
 }
 
@@ -129,7 +129,7 @@ void SKKWindowSelector::Hide() {
 
 void SKKWindowSelector::refresh() {
     if(!pages_.empty()) {
-	view_ = PageRange(range_, offset_, pages_[page_pos_]);
+        view_ = PageRange(range_, offset_, pages_[page_pos_]);
     }
 }
 

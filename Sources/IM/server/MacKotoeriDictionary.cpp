@@ -24,11 +24,11 @@
     Directory Maneger対応　2002.09.25 Shin_ichi Abe.
 */
 
-#include <iostream>
-#include <vector>
-#include <Carbon/Carbon.h>
 #import <AquaSKKCore/SKKCandidate.h>
 #import <AquaSKKIM/MacKotoeriDictionary.h>
+#include <Carbon/Carbon.h>
+#include <iostream>
+#include <vector>
 
 #if MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_6
 // ======================================================================
@@ -40,164 +40,167 @@ class KotoeriImpl {
     DCMDictionaryID id_;
 
     CFStringRef CFStringWithUTF8(const char* utf8) {
-	CFMutableStringRef cfstr = CFStringCreateMutable(0, 0);
-	CFStringAppendCString(cfstr, utf8, kCFStringEncodingUTF8);
+        CFMutableStringRef cfstr = CFStringCreateMutable(0, 0);
+        CFStringAppendCString(cfstr, utf8, kCFStringEncodingUTF8);
 
-	CFStringRef result;
-	CFIndex len = CFStringGetLength(cfstr);
-	CFIndex bufsize = len * sizeof(UInt16);
-	UInt16* buf = new UInt16[len];
+        CFStringRef result;
+        CFIndex len = CFStringGetLength(cfstr);
+        CFIndex bufsize = len * sizeof(UInt16);
+        UInt16* buf = new UInt16[len];
 
-	CFStringGetBytes(cfstr, CFRangeMake(0, len), kCFStringEncodingUnicode, 0, false,
-			 reinterpret_cast<UInt8*>(buf), bufsize, NULL);
+        CFStringGetBytes(
+            cfstr, CFRangeMake(0, len), kCFStringEncodingUnicode, 0, false, reinterpret_cast<UInt8*>(buf), bufsize,
+            NULL);
 
-	CFRelease(cfstr);
+        CFRelease(cfstr);
 
-	for(int i = 0; i < len; ++ i) {
-	    buf[i] = CFSwapInt16HostToBig(buf[i]);
-	}
+        for(int i = 0; i < len; ++i) {
+            buf[i] = CFSwapInt16HostToBig(buf[i]);
+        }
 
-	result = CFStringCreateWithBytes(0, reinterpret_cast<UInt8*>(buf), bufsize, kCFStringEncodingUnicode, false);
+        result = CFStringCreateWithBytes(0, reinterpret_cast<UInt8*>(buf), bufsize, kCFStringEncodingUnicode, false);
 
-	delete[] buf;
-	
-	return result;
+        delete[] buf;
+
+        return result;
     }
 
     std::string UTF8WithCFString(CFStringRef cfstr) {
-	int length = CFStringGetLength(cfstr);
+        int length = CFStringGetLength(cfstr);
 
-	if(length == 0) return "";
+        if(length == 0)
+            return "";
 
-	int bufsize = CFStringGetMaximumSizeForEncoding(length, kCFStringEncodingUTF8) + 1;
-	char* buf = new char[bufsize];
-	memset(buf, 0, bufsize);
-	CFStringGetCString(cfstr, buf, bufsize, kCFStringEncodingUTF8);
+        int bufsize = CFStringGetMaximumSizeForEncoding(length, kCFStringEncodingUTF8) + 1;
+        char* buf = new char[bufsize];
+        memset(buf, 0, bufsize);
+        CFStringGetCString(cfstr, buf, bufsize, kCFStringEncodingUTF8);
 
-	std::string result(buf, strlen(buf));
+        std::string result(buf, strlen(buf));
 
-	delete[] buf;
+        delete[] buf;
 
-	return result;
+        return result;
     }
 
     bool find(const std::string& key, DCMFoundRecordIterator* iterator) {
-	DCMDictionaryRef ref;
-	if(DCMOpenDictionary(id_, 0, NULL, &ref) != noErr) {
-	    std::cout << "DCMOpenDictionary() failed" << std::endl;
-	    return false;
-	}
+        DCMDictionaryRef ref;
+        if(DCMOpenDictionary(id_, 0, NULL, &ref) != noErr) {
+            std::cout << "DCMOpenDictionary() failed" << std::endl;
+            return false;
+        }
 
-	// レコードを検索
-	OSStatus status;
-	DCMFieldTag	dataFieldTagList[] = { kDCMJapaneseHyokiTag };
-	CFStringRef keydata = CFStringWithUTF8(key.c_str());
+        // レコードを検索
+        OSStatus status;
+        DCMFieldTag dataFieldTagList[] = {kDCMJapaneseHyokiTag};
+        CFStringRef keydata = CFStringWithUTF8(key.c_str());
 
-	status = DCMFindRecords(ref, // Dictionary reference
-				kDCMJapaneseYomiTag,      // key field tag
-				CFStringGetLength(keydata) * sizeof(UniChar), // key data length
-				CFStringGetCharactersPtr(keydata), // key data
-				kDCMFindMethodExactMatch, // find method
-				1,		      // number of data field
-				dataFieldTagList, // data field tag list
-				0, 0,	      // search all records
-				iterator);	      // found result
+        status = DCMFindRecords(
+            ref,                                          // Dictionary reference
+            kDCMJapaneseYomiTag,                          // key field tag
+            CFStringGetLength(keydata) * sizeof(UniChar), // key data length
+            CFStringGetCharactersPtr(keydata),            // key data
+            kDCMFindMethodExactMatch,                     // find method
+            1,                                            // number of data field
+            dataFieldTagList,                             // data field tag list
+            0, 0,                                         // search all records
+            iterator);                                    // found result
 
-	DCMCloseDictionary(ref);
-	CFRelease(keydata);
+        DCMCloseDictionary(ref);
+        CFRelease(keydata);
 
-	return (status == noErr);
+        return (status == noErr);
     }
 
 public:
     ~KotoeriImpl() {
-	if(isRegistered_) {
-	    DCMUnregisterDictionary(id_);
-	}
+        if(isRegistered_) {
+            DCMUnregisterDictionary(id_);
+        }
 
-	if(path_) {
-	    CFRelease(path_);
-	}
+        if(path_) {
+            CFRelease(path_);
+        }
     }
 
     void Initialize(const std::string& location) {
-	path_ = CFStringCreateWithCString(kCFAllocatorDefault, location.c_str(), kCFStringEncodingUTF8);
-	if(!path_) {
-	    std::cout << "KotoeriImpl: CFStringCreateCopy() failed" << std::endl;
-	    return;
-	}
+        path_ = CFStringCreateWithCString(kCFAllocatorDefault, location.c_str(), kCFStringEncodingUTF8);
+        if(!path_) {
+            std::cout << "KotoeriImpl: CFStringCreateCopy() failed" << std::endl;
+            return;
+        }
 
-	FSSpec spec;
-	FSRef fileRef;
-	CFURLRef url = CFURLCreateWithFileSystemPath(kCFAllocatorDefault, path_, kCFURLPOSIXPathStyle, false);
-	OSErr err = !noErr;
-	if(CFURLGetFSRef(url, &fileRef)) {
-	    err = FSGetCatalogInfo(&fileRef, kFSCatInfoNone, NULL, NULL, &spec, NULL);
-	}
-	if(url) CFRelease(url);
-	if(err != noErr) {
-	    return;
-	}
+        FSSpec spec;
+        FSRef fileRef;
+        CFURLRef url = CFURLCreateWithFileSystemPath(kCFAllocatorDefault, path_, kCFURLPOSIXPathStyle, false);
+        OSErr err = !noErr;
+        if(CFURLGetFSRef(url, &fileRef)) {
+            err = FSGetCatalogInfo(&fileRef, kFSCatInfoNone, NULL, NULL, &spec, NULL);
+        }
+        if(url)
+            CFRelease(url);
+        if(err != noErr) {
+            return;
+        }
 
-	if(DCMGetDictionaryIDFromFile(&spec, &id_) != noErr) {
-	    std::cout << "DCMGetDictionaryIDFromFile() failed" << std::endl;
-	    if(DCMRegisterDictionaryFile(&spec, &id_) != noErr) {
-		std::cout << "DCMRegisterDictionaryFile() failed" << std::endl;
-		return;
-	    }
-	    isRegistered_ = true;
-	}
+        if(DCMGetDictionaryIDFromFile(&spec, &id_) != noErr) {
+            std::cout << "DCMGetDictionaryIDFromFile() failed" << std::endl;
+            if(DCMRegisterDictionaryFile(&spec, &id_) != noErr) {
+                std::cout << "DCMRegisterDictionaryFile() failed" << std::endl;
+                return;
+            }
+            isRegistered_ = true;
+        }
     }
 
     void Find(const std::string& str, SKKCandidateSuite& result) {
-	OSStatus status;
+        OSStatus status;
 
-	DCMFoundRecordIterator iterator;
-	if(!find(str, &iterator)) {
-	    return;
-	}
+        DCMFoundRecordIterator iterator;
+        if(!find(str, &iterator)) {
+            return;
+        }
 
-	while(true) {
-	    ByteCount keySize;
-	    char foundKeyStr[kMaxKanjiLengthInAppleJapaneseDictionary];
-	    DCMUniqueID uniqueID;
-	    AERecord dataList;
+        while(true) {
+            ByteCount keySize;
+            char foundKeyStr[kMaxKanjiLengthInAppleJapaneseDictionary];
+            DCMUniqueID uniqueID;
+            AERecord dataList;
 
-	    // Get one record from result list
-	    status = DCMIterateFoundRecord(iterator, // found result
-					   kMaxKanjiLengthInAppleJapaneseDictionary, // key buffer size
-					   &keySize, // actual found key size
-					   foundKeyStr, // found key data
-					   &uniqueID,   // ユニークID
-					   &dataList);  // AERecordデータ
+            // Get one record from result list
+            status = DCMIterateFoundRecord(
+                iterator,                                 // found result
+                kMaxKanjiLengthInAppleJapaneseDictionary, // key buffer size
+                &keySize,                                 // actual found key size
+                foundKeyStr,                              // found key data
+                &uniqueID,                                // ユニークID
+                &dataList);                               // AERecordデータ
 
-	    if(status != noErr) break;
+            if(status != noErr)
+                break;
 
-	    DescType actualType;
-	    UInt8 dataBuffer[kMaxKanjiLengthInAppleJapaneseDictionary];
-	    Size actualSize;
+            DescType actualType;
+            UInt8 dataBuffer[kMaxKanjiLengthInAppleJapaneseDictionary];
+            Size actualSize;
 
-	    // Get one data from AERecord
-	    status = AEGetParamPtr(&dataList, 
-				   kDCMJapaneseHyokiTag,
-				   typeUnicodeText,
-				   &actualType,
-				   dataBuffer,
-				   kMaxKanjiLengthInAppleJapaneseDictionary,
-				   &actualSize);
+            // Get one data from AERecord
+            status = AEGetParamPtr(
+                &dataList, kDCMJapaneseHyokiTag, typeUnicodeText, &actualType, dataBuffer,
+                kMaxKanjiLengthInAppleJapaneseDictionary, &actualSize);
 
-	    // Dispose data AERecord
-	    AEDisposeDesc(&dataList);
+            // Dispose data AERecord
+            AEDisposeDesc(&dataList);
 
-	    if(status != noErr) break;
+            if(status != noErr)
+                break;
 
-	    CFStringRef entry = CFStringCreateWithBytes(0, dataBuffer, actualSize, kCFStringEncodingUnicode, 0);
-	    std::string tmp = UTF8WithCFString(entry);
-	    CFRelease(entry);
+            CFStringRef entry = CFStringCreateWithBytes(0, dataBuffer, actualSize, kCFStringEncodingUnicode, 0);
+            std::string tmp = UTF8WithCFString(entry);
+            CFRelease(entry);
 
             result.Add(SKKCandidate(tmp, false));
-	}
-	DCMDisposeRecordIterator(iterator);
+        }
+        DCMDisposeRecordIterator(iterator);
     }
 };
 #else
@@ -212,7 +215,8 @@ public:
 // ======================================================================
 // ことえり辞書インタフェース
 // ======================================================================
-MacKotoeriDictionary::MacKotoeriDictionary() : impl_(new KotoeriImpl()) {}
+MacKotoeriDictionary::MacKotoeriDictionary()
+    : impl_(new KotoeriImpl()) {}
 
 MacKotoeriDictionary::~MacKotoeriDictionary() {
     // auto_ptr<KotoeriImpl> のデストラクタが実体化されるタイミングを遅

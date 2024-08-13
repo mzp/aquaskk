@@ -74,11 +74,11 @@ void SKKComposingEditor::Input(SKKBaseEditor::Event event) {
     case CursorLeft:
         composing_.CursorLeft();
         break;
-        
+
     case CursorRight:
         composing_.CursorRight();
         break;
-        
+
     case CursorUp:
         composing_.CursorUp();
         break;

@@ -20,9 +20,9 @@
 
 */
 
-#import <AquaSKKCore/SKKInputQueue.h>
 #include "SKKRomanKanaConverter.h"
 #include "jconv.h"
+#import <AquaSKKCore/SKKInputQueue.h>
 #include <cassert>
 
 SKKInputQueue::SKKInputQueue(SKKInputQueueObserver* observer)
@@ -39,7 +39,8 @@ void SKKInputQueue::AddChar(char code, bool direct) {
 }
 
 void SKKInputQueue::RemoveChar() {
-    if(IsEmpty()) return;
+    if(IsEmpty())
+        return;
 
     queue_.erase(queue_.size() - 1);
 
@@ -52,7 +53,8 @@ void SKKInputQueue::RemoveChar() {
 }
 
 void SKKInputQueue::Terminate() {
-    if(IsEmpty()) return;
+    if(IsEmpty())
+        return;
 
     observer_->SKKInputQueueUpdate(terminate());
 }
@@ -80,9 +82,9 @@ bool SKKInputQueue::CanConvert(char code) const {
     case SKKInputMode::HirakanaInputMode:
     case SKKInputMode::KatakanaInputMode:
     case SKKInputMode::Jisx0201KanaInputMode:
-	// ローマ字 → かな変換
-	tmp_queue += std::tolower(code);
-	return converter.Convert(mode_, tmp_queue, result);
+        // ローマ字 → かな変換
+        tmp_queue += std::tolower(code);
+        return converter.Convert(mode_, tmp_queue, result);
 
     case SKKInputMode::Jisx0208LatinInputMode:
     case SKKInputMode::AsciiInputMode:
@@ -144,9 +146,9 @@ SKKInputQueueObserver::State SKKInputQueue::terminate() {
     case SKKInputMode::HirakanaInputMode:
     case SKKInputMode::KatakanaInputMode:
     case SKKInputMode::Jisx0201KanaInputMode:
-	// ローマ字 → かな変換
-	converter.Convert(mode_, queue_, result);
-	break;
+        // ローマ字 → かな変換
+        converter.Convert(mode_, queue_, result);
+        break;
 
     case SKKInputMode::Jisx0208LatinInputMode:
     case SKKInputMode::AsciiInputMode:

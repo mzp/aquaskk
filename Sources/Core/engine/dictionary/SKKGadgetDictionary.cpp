@@ -20,13 +20,13 @@
 
 */
 
-#include <stdexcept>
-#include <algorithm>
-#include <ctime>
 #include "calculator.h"
 #import <AquaSKKCore/SKKCandidate.h>
 #import <AquaSKKCore/SKKCandidateSuite.h>
 #import <AquaSKKCore/SKKGadgetDictionary.h>
+#include <algorithm>
+#include <ctime>
+#include <stdexcept>
 
 namespace {
     // ======================================================================
@@ -56,7 +56,7 @@ namespace {
     // 現在日付
     void today(const std::string& entry, std::vector<std::string>& result) {
         tm now = current_datetime();
-        const char* weekday[] = { "日", "月", "火", "水", "木", "金", "土" };
+        const char* weekday[] = {"日", "月", "火", "水", "木", "金", "土"};
 
         result.push_back(format_date("%Y/%m/%d(%a)", now));
         result.push_back(format_date("%Y 年 %m 月 %d 日(", now) + weekday[now.tm_wday] + ")");
@@ -74,8 +74,7 @@ namespace {
     //
     // jdate:yyyy
     //
-    void jdate(const std::string& entry, std::vector<std::string>& result) {
-    }
+    void jdate(const std::string& entry, std::vector<std::string>& result) {}
 
     // 簡易計算
     //
@@ -93,13 +92,14 @@ namespace {
         } catch(...) {
         }
     }
-}
+} // namespace
 
 // ハンドラー選択ファンクタ
 struct SKKGadgetDictionary::Match {
     std::string entry_;
 
-    Match(const std::string& entry) : entry_(entry) {}
+    Match(const std::string& entry)
+        : entry_(entry) {}
 
     bool operator()(const DispatchPair& pair) const {
         return entry_.find(pair.first) == 0;
@@ -123,11 +123,11 @@ struct SKKGadgetDictionary::Search {
 struct SKKGadgetDictionary::Comp {
     std::string entry_;
 
-    Comp(const std::string& entry) : entry_(entry) {}
+    Comp(const std::string& entry)
+        : entry_(entry) {}
 
     bool operator()(const DispatchPair& pair) const {
-        return entry_.compare(0, entry_.size(), pair.first,
-                              0, entry_.size()) == 0;
+        return entry_.compare(0, entry_.size(), pair.first, 0, entry_.size()) == 0;
     }
 };
 
@@ -135,7 +135,8 @@ struct SKKGadgetDictionary::Comp {
 struct SKKGadgetDictionary::Store {
     SKKCompletionHelper* helper_;
 
-    Store(SKKCompletionHelper& helper) : helper_(&helper) {}
+    Store(SKKCompletionHelper& helper)
+        : helper_(&helper) {}
 
     void operator()(const DispatchPair& pair) const {
         helper_->Add(pair.first);
@@ -151,16 +152,18 @@ void SKKGadgetDictionary::Initialize(const std::string& location) {
 
 void SKKGadgetDictionary::Find(const SKKEntry& entry, SKKCandidateSuite& result) {
     // 今のところ「送りあり」のサポートはなし
-    if(entry.IsOkuriAri()) return;
-    
+    if(entry.IsOkuriAri())
+        return;
+
     std::vector<std::string> tmp;
     const std::string& key = entry.EntryString();
 
     apply(Match(key), Search(key, tmp));
 
-    if(tmp.empty()) return;
+    if(tmp.empty())
+        return;
 
-    for(unsigned index = 0; index < tmp.size(); ++ index) {
+    for(unsigned index = 0; index < tmp.size(); ++index) {
         SKKCandidate cand(tmp[index]);
         cand.SetAvoidStudy();
         result.Add(cand);

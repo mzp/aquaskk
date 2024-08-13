@@ -22,8 +22,8 @@
 
 #include <AquaSKKService/SubRuleDescriptions.h>
 #include <fstream>
-#include <sstream>
 #include <iostream>
+#include <sstream>
 
 SubRuleDescriptions::SubRuleDescriptions(const char* folder) {
     std::string path(std::string(folder) + "/sub-rule.desc");
@@ -35,7 +35,7 @@ SubRuleDescriptions::SubRuleDescriptions(const char* folder) {
     }
 }
 
-std::string SubRuleDescriptions::Description(const std::string &rule_path) {
+std::string SubRuleDescriptions::Description(const std::string& rule_path) {
     if(description_.find(rule_path) != description_.end()) {
         return description_[rule_path];
     }
@@ -43,9 +43,7 @@ std::string SubRuleDescriptions::Description(const std::string &rule_path) {
     return rule_path;
 }
 
-
-
-std::string SubRuleDescriptions::Keymap(const std::string &rule_path) {
+std::string SubRuleDescriptions::Keymap(const std::string& rule_path) {
     if(keymap_.find(rule_path) != keymap_.end()) {
         return keymap_[rule_path];
     }
@@ -53,7 +51,7 @@ std::string SubRuleDescriptions::Keymap(const std::string &rule_path) {
     return std::string();
 }
 
-bool SubRuleDescriptions::HasKeymap(const std::string &rule_path) {
+bool SubRuleDescriptions::HasKeymap(const std::string& rule_path) {
     if(keymap_.find(rule_path) != keymap_.end()) {
         return true;
     }
@@ -61,12 +59,11 @@ bool SubRuleDescriptions::HasKeymap(const std::string &rule_path) {
     return false;
 }
 
-
-
 // ----------------------------------------------------------------------
 
 void SubRuleDescriptions::add(const std::string& line) {
-    if(line.empty() || line[0] == '#') return;
+    if(line.empty() || line[0] == '#')
+        return;
 
     std::istringstream buf(line);
     std::string path;

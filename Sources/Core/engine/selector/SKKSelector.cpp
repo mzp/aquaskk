@@ -20,8 +20,8 @@
 
 */
 
-#import <AquaSKKCore/SKKSelector.h>
 #import <AquaSKKCore/SKKBackEnd.h>
+#import <AquaSKKCore/SKKSelector.h>
 
 SKKSelector::SKKSelector(SKKSelectorBuddy* buddy, SKKCandidateWindow* window)
     : buddy_(buddy), selector_(0), windowSelector_(window) {}
@@ -41,13 +41,13 @@ bool SKKSelector::Execute(int inlineCount) {
     windowSelector_.Initialize(suite_.Candidates(), inlineCount);
 
     if(!suite_.IsEmpty()) {
-	if(!inlineSelector_.IsEmpty()) {
-	    selector_ = &inlineSelector_;
-	} else {
-	    selector_ = &windowSelector_;
-	}
+        if(!inlineSelector_.IsEmpty()) {
+            selector_ = &inlineSelector_;
+        } else {
+            selector_ = &windowSelector_;
+        }
 
-	notify();
+        notify();
     }
 
     return !suite_.IsEmpty();
@@ -55,10 +55,11 @@ bool SKKSelector::Execute(int inlineCount) {
 
 bool SKKSelector::Next() {
     if(!selector_->Next()) {
-	if(!IsInline() || windowSelector_.IsEmpty()) return false;
+        if(!IsInline() || windowSelector_.IsEmpty())
+            return false;
 
-	selector_ = &windowSelector_;
-	windowSelector_.Show();
+        selector_ = &windowSelector_;
+        windowSelector_.Show();
     }
 
     notify();
@@ -68,10 +69,11 @@ bool SKKSelector::Next() {
 
 bool SKKSelector::Prev() {
     if(!selector_->Prev()) {
-	if(IsInline() || inlineSelector_.IsEmpty()) return false;
+        if(IsInline() || inlineSelector_.IsEmpty())
+            return false;
 
-	selector_ = &inlineSelector_;
-	windowSelector_.Hide();
+        selector_ = &inlineSelector_;
+        windowSelector_.Hide();
     }
 
     notify();
@@ -100,30 +102,34 @@ void SKKSelector::CursorDown() {
 }
 
 bool SKKSelector::Select(char label) {
-    if(IsInline()) return false;
+    if(IsInline())
+        return false;
 
     if(windowSelector_.Select(label)) {
-	notify();
-	return true;
+        notify();
+        return true;
     }
 
     return false;
 }
 
 void SKKSelector::Show() {
-    if(IsInline()) return;
+    if(IsInline())
+        return;
 
     windowSelector_.Show();
 }
 
 void SKKSelector::Hide() {
-    if(IsInline()) return;
+    if(IsInline())
+        return;
 
     windowSelector_.Hide();
 }
 
 void SKKSelector::notify() {
-    if(suite_.IsEmpty()) return;
+    if(suite_.IsEmpty())
+        return;
 
     buddy_->SKKSelectorUpdate(selector_->Current());
 }

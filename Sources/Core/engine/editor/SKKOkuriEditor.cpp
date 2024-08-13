@@ -20,12 +20,12 @@
 
 */
 
-#import <AquaSKKCore/SKKOkuriEditor.h>
-#import <AquaSKKCore/SKKInputContext.h>
 #include "utf8util.h"
-#include <iostream>
+#import <AquaSKKCore/SKKInputContext.h>
+#import <AquaSKKCore/SKKOkuriEditor.h>
 #include <cctype>
 #include <exception>
+#include <iostream>
 
 SKKOkuriEditor::SKKOkuriEditor(SKKInputContext* context, SKKOkuriListener* listener)
     : SKKBaseEditor(context), listener_(listener) {}

@@ -20,13 +20,13 @@
 
 */
 
-#import <AquaSKKCore/SKKInputEngine.h>
-#import <AquaSKKCore/SKKInputContext.h>
-#import <AquaSKKCore/SKKConfig.h>
-#import <AquaSKKCore/SKKClipboard.h>
 #import <AquaSKKCore/SKKBackEnd.h>
-#include <iostream>
+#import <AquaSKKCore/SKKClipboard.h>
+#import <AquaSKKCore/SKKConfig.h>
+#import <AquaSKKCore/SKKInputContext.h>
+#import <AquaSKKCore/SKKInputEngine.h>
 #include <cctype>
+#include <iostream>
 
 // ----------------------------------------------------------------------
 
@@ -37,7 +37,8 @@ class SKKInputEngine::Synchronizer {
     SKKInputEngine* engine_;
 
 public:
-    Synchronizer(SKKInputEngine* engine) : engine_(engine) {
+    Synchronizer(SKKInputEngine* engine)
+        : engine_(engine) {
         // 直近の状態を SKKInputContext に反映する
         engine_->UpdateInputContext();
 
@@ -57,15 +58,15 @@ public:
 // ----------------------------------------------------------------------
 
 SKKInputEngine::SKKInputEngine(SKKInputEnvironment* env)
-    : env_(env)
-    , param_(env->InputSessionParameter())
-    , context_(env->InputContext())
-    , config_(env->Config())
-    , inputQueue_(this)
-    , composingEditor_(env->InputContext())
-    , okuriEditor_(env->InputContext(), this)
-    , candidateEditor_(env->InputContext())
-    , entryRemoveEditor_(env->InputContext()) {
+    : env_(env),
+      param_(env->InputSessionParameter()),
+      context_(env->InputContext()),
+      config_(env->Config()),
+      inputQueue_(this),
+      composingEditor_(env->InputContext()),
+      okuriEditor_(env->InputContext(), this),
+      candidateEditor_(env->InputContext()),
+      entryRemoveEditor_(env->InputContext()) {
     SetStatePrimary();
 }
 
@@ -190,7 +191,7 @@ void SKKInputEngine::Commit() {
 
     // Top のフィルターから Commit していき、最終的な単語を取得する
     std::vector<SKKBaseEditor*>::reverse_iterator iter;
-    for(iter = stack_.rbegin(); iter != stack_.rend(); ++ iter) {
+    for(iter = stack_.rbegin(); iter != stack_.rend(); ++iter) {
         (*iter)->Commit(word_);
     }
 }
@@ -215,7 +216,7 @@ void SKKInputEngine::ToggleJisx0201Kana() {
     terminate();
 
     SKKEntry& entry = context_->entry;
-    
+
     study(entry, SKKCandidate());
 
     insert(entry.ToggleJisx0201Kana(inputMode()));
@@ -225,13 +226,11 @@ void SKKInputEngine::UpdateInputContext() {
     context_->output.Clear();
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    std::for_each(stack_.begin(), stack_.end(),
-                  std::mem_fun(&SKKBaseEditor::WriteContext));
+    std::for_each(stack_.begin(), stack_.end(), std::mem_fun(&SKKBaseEditor::WriteContext));
 #pragma clang diagnostic pop
 
     // 非確定文字があれば挿入(ex. "ky" など)
-    if(config_->DisplayShortestMatchOfKanaConversions()
-       && !inputState_.intermediate.empty()) {
+    if(config_->DisplayShortestMatchOfKanaConversions() && !inputState_.intermediate.empty()) {
         context_->output.Compose(inputState_.intermediate);
     } else {
         context_->output.Compose(inputState_.queue);
@@ -294,9 +293,12 @@ void SKKInputEngine::invoke(SKKBaseEditor::Event event) {
 }
 
 void SKKInputEngine::study(const SKKEntry& entry, const SKKCandidate& candidate) {
-    if(entry.IsEmpty()) return;
-    if(entry.IsOkuriAri() && entry.OkuriString().empty()) return;
-    if(entry.IsOkuriAri() && candidate.IsEmpty()) return;
+    if(entry.IsEmpty())
+        return;
+    if(entry.IsOkuriAri() && entry.OkuriString().empty())
+        return;
+    if(entry.IsOkuriAri() && candidate.IsEmpty())
+        return;
 
     SKKBackEnd::theInstance().Register(entry, candidate);
 }

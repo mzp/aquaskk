@@ -67,8 +67,7 @@ bool SKKHttpDictionaryLoader::request(net::socket::tcpstream& http) {
     // HTTP 日付を生成する(RFC 822, updated by RFC 1123)
     //
     // 例) "Sun, 06 Nov 1994 08:49:37 GMT"
-    strftime(timestamp, sizeof(timestamp),
-             "%a, %d %b %Y %T GMT", gmtime(&st.st_mtime));
+    strftime(timestamp, sizeof(timestamp), "%a, %d %b %Y %T GMT", gmtime(&st.st_mtime));
 
     http << "GET " << url_ << " HTTP/1.1\r\n";
     http << "Host: " << remote_.node() << "\r\n";
@@ -90,7 +89,8 @@ int SKKHttpDictionaryLoader::content_length(net::socket::tcpstream& http) {
             // "HTTP/1.1 200" を期待する
             buf >> response >> response;
             if(response != "200") {
-                while(std::getline(http, response)) {}
+                while(std::getline(http, response)) {
+                }
                 break;
             }
         }
@@ -118,7 +118,8 @@ int SKKHttpDictionaryLoader::file_size(const std::string& path) const {
 }
 
 bool SKKHttpDictionaryLoader::download(net::socket::tcpstream& http, int length) {
-    if(!length) return false;
+    if(!length)
+        return false;
 
     std::string line;
     std::ofstream ofs(tmp_path_.c_str());
@@ -127,14 +128,16 @@ bool SKKHttpDictionaryLoader::download(net::socket::tcpstream& http, int length)
     while(std::getline(http, line)) {
         readed += line.size() + 1;
         ofs << line << std::endl;
-        if(readed >= length) { break; }
+        if(readed >= length) {
+            break;
+        }
     }
 
     // ダウンロードに失敗したか？
     int new_size = file_size(tmp_path_);
     if(new_size != length) {
-        std::cerr << "SKKHttpDictionaryLoader::download(): size conflict: expected="
-                  << length << ", actual=" << new_size << std::endl;
+        std::cerr << "SKKHttpDictionaryLoader::download(): size conflict: expected=" << length
+                  << ", actual=" << new_size << std::endl;
         return false;
     }
 
@@ -144,15 +147,13 @@ bool SKKHttpDictionaryLoader::download(net::socket::tcpstream& http, int length)
         const int safety_margin = 32 * 1024; // 32KB
 
         if(new_size + safety_margin < old_size) {
-            std::cerr << "SKKHttpDictionaryLoader::download(): too small: size="
-                      << new_size << std::endl;
+            std::cerr << "SKKHttpDictionaryLoader::download(): too small: size=" << new_size << std::endl;
             return false;
         }
     }
 
     if(rename(tmp_path_.c_str(), path_.c_str()) != 0) {
-        std::cerr << "SKKHttpDictionaryLoader::download(): rename failed: errno="
-                  << errno << std::endl;
+        std::cerr << "SKKHttpDictionaryLoader::download(): rename failed: errno=" << errno << std::endl;
         return false;
     }
 

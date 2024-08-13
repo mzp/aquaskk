@@ -22,18 +22,17 @@
 
 #import <AquaSKKCore/SKKCandidate.h>
 
-static std::string org_table[] = { "[",    "/",    ";",    "" };
-static std::string enc_table[] = { "[5b]", "[2f]", "[3b]", "" };
+static std::string org_table[] = {"[", "/", ";", ""};
+static std::string enc_table[] = {"[5b]", "[2f]", "[3b]", ""};
 
 static std::string translate(const std::string& str, const std::string* from, const std::string* to) {
     std::string result(str);
 
-    for(int index = 0; !from[index].empty(); ++ index) {
-	for(std::string::size_type pos = 0;
-	    (pos = result.find(from[index], pos)) != std::string::npos;
-	    pos += to[index].size()) {
-	    result.replace(pos, from[index].size(), to[index]);
-	}
+    for(int index = 0; !from[index].empty(); ++index) {
+        for(std::string::size_type pos = 0; (pos = result.find(from[index], pos)) != std::string::npos;
+            pos += to[index].size()) {
+            result.replace(pos, from[index].size(), to[index]);
+        }
     }
 
     return result;

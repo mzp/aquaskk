@@ -20,10 +20,11 @@
 
 */
 
-#import <AquaSKKCore/SKKTextBuffer.h>
 #include "utf8util.h"
+#import <AquaSKKCore/SKKTextBuffer.h>
 
-SKKTextBuffer::SKKTextBuffer() : cursor_(0) {}
+SKKTextBuffer::SKKTextBuffer()
+    : cursor_(0) {}
 
 void SKKTextBuffer::Insert(const std::string& str) {
     utf8::push(buf_, str, cursor_);
@@ -31,14 +32,14 @@ void SKKTextBuffer::Insert(const std::string& str) {
 
 void SKKTextBuffer::BackSpace() {
     if(cursor_ != minCursorPosition()) {
-	utf8::pop(buf_, cursor_);
+        utf8::pop(buf_, cursor_);
     }
 }
 
 void SKKTextBuffer::Delete() {
     if(cursor_ != maxCursorPosition()) {
-	CursorRight();
-	BackSpace();
+        CursorRight();
+        BackSpace();
     }
 }
 
@@ -49,13 +50,13 @@ void SKKTextBuffer::Clear() {
 
 void SKKTextBuffer::CursorLeft() {
     if(cursor_ != minCursorPosition()) {
-	-- cursor_;
+        --cursor_;
     }
 }
 
 void SKKTextBuffer::CursorRight() {
     if(cursor_ != maxCursorPosition()) {
-	++ cursor_;
+        ++cursor_;
     }
 }
 
@@ -93,7 +94,7 @@ std::string SKKTextBuffer::RightString() const {
 
 int SKKTextBuffer::minCursorPosition() const {
     // 今のところ毎回計算する(最適化しない)
-    return - utf8::length(buf_);
+    return -utf8::length(buf_);
 }
 
 int SKKTextBuffer::maxCursorPosition() const {

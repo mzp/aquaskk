@@ -20,15 +20,15 @@
 
 */
 
-#import <AquaSKKCore/SKKDistributedUserDictionary.h>
-#import <AquaSKKCore/SKKCandidateSuite.h>
-#include "utf8util.h"
 #include "stringutil.h"
-#include <iostream>
+#include "utf8util.h"
+#import <AquaSKKCore/SKKCandidateSuite.h>
+#import <AquaSKKCore/SKKDistributedUserDictionary.h>
 #include <cerrno>
+#include <cstdlib>
 #include <cstring>
 #include <ctime>
-#include <cstdlib>
+#include <iostream>
 
 namespace {
     class basic_request {
@@ -116,7 +116,7 @@ namespace {
             return splitter_;
         }
     };
-}
+} // namespace
 
 void SKKDistributedUserDictionary::Initialize(const std::string& path) {
     server_.close();

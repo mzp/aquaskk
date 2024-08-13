@@ -22,15 +22,10 @@
 
 #import <AquaSKKCore/SKKInputEnvironment.h>
 
-SKKInputEnvironment::SKKInputEnvironment(SKKInputContext* context,
-                                         SKKInputSessionParameter* param,
-                                         SKKInputModeListenerCollection* listeners,
-                                         SKKBaseEditor* bottom)
-    : context_(context)
-    , param_(param)
-    , selector_(listeners)
-    , bottom_(bottom)
-{}
+SKKInputEnvironment::SKKInputEnvironment(
+    SKKInputContext* context, SKKInputSessionParameter* param, SKKInputModeListenerCollection* listeners,
+    SKKBaseEditor* bottom)
+    : context_(context), param_(param), selector_(listeners), bottom_(bottom) {}
 
 SKKConfig* SKKInputEnvironment::Config() {
     return param_->Config();

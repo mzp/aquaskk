@@ -22,8 +22,8 @@
 
 #include "SubRuleDescriptions.h"
 #include <fstream>
-#include <sstream>
 #include <iostream>
+#include <sstream>
 
 SubRuleDescriptions::SubRuleDescriptions(const char* folder) {
     std::string path(std::string(folder) + "/sub-rule.desc");
@@ -54,7 +54,8 @@ const char* SubRuleDescriptions::Keymap(const char* rule_path) {
 // ----------------------------------------------------------------------
 
 void SubRuleDescriptions::add(const std::string& line) {
-    if(line.empty() || line[0] == '#') return;
+    if(line.empty() || line[0] == '#')
+        return;
 
     std::istringstream buf(line);
     std::string path;

@@ -20,8 +20,8 @@
 
 */
 
-#import <AquaSKKCore/SKKRegisterEditor.h>
 #import <AquaSKKCore/SKKInputContext.h>
+#import <AquaSKKCore/SKKRegisterEditor.h>
 
 SKKRegisterEditor::SKKRegisterEditor(SKKInputContext* context)
     : SKKBaseEditor(context), entry_(context->entry) {
@@ -56,7 +56,7 @@ void SKKRegisterEditor::Input(SKKBaseEditor::Event event) {
     case Delete:
         word_.Delete();
         break;
-        
+
     case CursorLeft:
         word_.CursorLeft();
         break;

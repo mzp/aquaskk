@@ -20,13 +20,12 @@
 
 */
 
+#import <AquaSKKCore/SKKBackEnd.h>
 #import <AquaSKKCore/SKKEntryRemoveEditor.h>
 #import <AquaSKKCore/SKKInputContext.h>
-#import <AquaSKKCore/SKKBackEnd.h>
 
 SKKEntryRemoveEditor::SKKEntryRemoveEditor(SKKInputContext* context)
     : SKKBaseEditor(context) {}
-
 
 void SKKEntryRemoveEditor::ReadContext() {
     entry_ = context()->entry;
@@ -34,8 +33,7 @@ void SKKEntryRemoveEditor::ReadContext() {
 
     input_.clear();
 
-    prompt_ = entry_.EntryString() + " /"
-        + candidate_.ToString() + "/ を削除しますか？(yes/no) ";
+    prompt_ = entry_.EntryString() + " /" + candidate_.ToString() + "/ を削除しますか？(yes/no) ";
 }
 
 void SKKEntryRemoveEditor::WriteContext() {

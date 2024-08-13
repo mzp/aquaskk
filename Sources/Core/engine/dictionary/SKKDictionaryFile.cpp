@@ -21,9 +21,9 @@
 */
 
 #import <AquaSKKCore/SKKDictionaryFile.h>
-#include <iostream>
-#include <fstream>
 #include <algorithm>
+#include <fstream>
+#include <iostream>
 #include <sys/stat.h>
 
 static std::string OKURI_ARI_MARK = ";; okuri-ari entries.";
@@ -33,20 +33,24 @@ bool SKKDictionaryFile::Load(const std::string& path) {
     okuriAri_.clear();
     okuriNasi_.clear();
 
-    if(!exist(path)) return false;
+    if(!exist(path))
+        return false;
 
     std::ifstream ifs(path.c_str());
     SKKDictionaryEntry entry;
 
     while(std::getline(ifs, entry.second)) {
-	if(OKURI_ARI_MARK.find(entry.second) != std::string::npos) break;
+        if(OKURI_ARI_MARK.find(entry.second) != std::string::npos)
+            break;
     }
 
     for(okuriAri_.clear(); fetch(ifs, entry); okuriAri_.push_back(entry)) {
-	if(OKURI_NASI_MARK.find(entry.second) != std::string::npos) break;
+        if(OKURI_NASI_MARK.find(entry.second) != std::string::npos)
+            break;
     }
 
-    for(okuriNasi_.clear(); fetch(ifs, entry); okuriNasi_.push_back(entry)) {}
+    for(okuriNasi_.clear(); fetch(ifs, entry); okuriNasi_.push_back(entry)) {
+    }
 
     return true;
 }
@@ -55,10 +59,12 @@ bool SKKDictionaryFile::Save(const std::string& path) {
     std::ofstream ofs(path.c_str());
 
     ofs << OKURI_ARI_MARK << std::endl;
-    if(!store(ofs, okuriAri_)) return false;
+    if(!store(ofs, okuriAri_))
+        return false;
 
     ofs << OKURI_NASI_MARK << std::endl;
-    if(!store(ofs, okuriNasi_)) return false;
+    if(!store(ofs, okuriNasi_))
+        return false;
 
     return true;
 }
@@ -84,8 +90,8 @@ bool SKKDictionaryFile::exist(const std::string& path) {
     struct stat st;
 
     if(stat(path.c_str(), &st) < 0 || !S_ISREG(st.st_mode)) {
-	std::cerr << "SKKDictionaryFile::open(): can't open: " << path << std::endl;
-	return false;
+        std::cerr << "SKKDictionaryFile::open(): can't open: " << path << std::endl;
+        return false;
     }
 
     return true;
@@ -93,15 +99,15 @@ bool SKKDictionaryFile::exist(const std::string& path) {
 
 bool SKKDictionaryFile::fetch(std::istream& is, SKKDictionaryEntry& entry) {
     if(is >> entry.first && is.ignore() && std::getline(is, entry.second)) {
-	return true;
+        return true;
     }
 
     return false;
 }
 
 bool SKKDictionaryFile::store(std::ostream& os, const SKKDictionaryEntryContainer& container) {
-    for(unsigned i = 0; i < container.size(); ++ i) {
-	os << container[i].first << ' ' << container[i].second << std::endl;
+    for(unsigned i = 0; i < container.size(); ++i) {
+        os << container[i].first << ' ' << container[i].second << std::endl;
     }
 
     return os.good();
