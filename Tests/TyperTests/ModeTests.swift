@@ -11,9 +11,8 @@ import Testing
 struct ModeTest {
     @Test func switchByKeyCommand() async {
         let typer = await Typer()
-        await typer.type(character: "l", keycode: 35)
-        let modeIdentifier = await typer.modeIdentifier
+        typer.type(character: "l", keycode: 35)
+        let modeIdentifier = typer.modeIdentifier
         #expect(modeIdentifier == "com.apple.inputmethod.Roman")
-        await typer.deactivate()
     }
 }

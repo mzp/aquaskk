@@ -44,29 +44,24 @@ struct TyperEvent: Sendable {
     }
 }
 
-actor Typer {
-    @MainActor var text: String {
+class Typer {
+    var text: String {
         client.text
     }
 
-    @MainActor var markedText: String {
+    var markedText: String {
         client.markedText
     }
 
-    @MainActor var modeIdentifier: String? {
+    var modeIdentifier: String? {
         client.modeIdentifier
     }
 
-    private static let server: SKKServer = {
-        let serevr = SKKServer()
-        server._start()
-        return server
-    }()
+    private var client: TyperTextInput
+    private var controller: SKKInputController?
 
-    @MainActor private var client: TyperTextInput
-    @MainActor private var controller: SKKInputController?
-
-    @MainActor init() {
+    @MainActor
+    init() {
         let client = TyperTextInput()
         let controller = SKKInputController()
         controller._setClient(client)
@@ -77,27 +72,27 @@ actor Typer {
         controller.activateServer(nil)
     }
 
-    @MainActor func deactivate() {
+    deinit {
         controller?.deactivateServer(nil)
         controller = nil
     }
 
-    func type(text: String) async {
+    func type(text: String) {
         for character in text {
             let event = TyperEvent(characters: String(character))
-            _ = await handle(event: event)
+            handle(event: event)
         }
     }
 
-    func type(character: String, keycode: UInt16) async {
+    func type(character: String, keycode: UInt16) {
         let event = TyperEvent(
             characters: character,
             keyCode: keycode
         )
-        _ = await handle(event: event)
+        handle(event: event)
     }
 
-    @MainActor private func handle(event: TyperEvent) {
+    private func handle(event: TyperEvent) {
         controller?.handle(event.nsEvent, client: client)
     }
 }

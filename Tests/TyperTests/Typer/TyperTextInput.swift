@@ -34,13 +34,17 @@ extension TyperTextInput: IMKTextInput {
     }
 
     func setMarkedText(
-        _ string: Any?,
+        _ value: Any?,
         selectionRange _: NSRange,
         replacementRange _: NSRange
     ) {
         // TODO: Use replacementRange
         // TODO: Update markedTextRange
-        markedText = string as! String
+        if let string = value as? NSString {
+            markedText = string as String
+        } else if let attributedString = value as? NSAttributedString {
+            markedText = attributedString.string
+        }
     }
 
     func attributedSubstring(from range: NSRange) -> NSAttributedString! {
