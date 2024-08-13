@@ -335,6 +335,9 @@
 		1393E3B82C6BF51700F1E633 /* AquaSKKUI.framework in Embeded Frameworks */ = {isa = PBXBuildFile; fileRef = 1373A82E2C6817BA000FE1B7 /* AquaSKKUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1393E3B92C6BF52500F1E633 /* Preferences.app in Embeded Applications */ = {isa = PBXBuildFile; fileRef = 1373A8242C6817BA000FE1B7 /* Preferences.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1393E3BB2C6BFB7D00F1E633 /* AquaSKKService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1373A82B2C6817BA000FE1B7 /* AquaSKKService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1393E3BC2C6BFBF200F1E633 /* AquaSKKCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1373A8202C6817BA000FE1B7 /* AquaSKKCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1393E3BD2C6BFBF200F1E633 /* AquaSKKIM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1373A8222C6817BA000FE1B7 /* AquaSKKIM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1393E3BE2C6BFBF200F1E633 /* AquaSKKUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1373A82E2C6817BA000FE1B7 /* AquaSKKUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		139B7B662C60F68100FE5263 /* AquaSKKUI.docc in Sources */ = {isa = PBXBuildFile; fileRef = 139B7B652C60F68100FE5263 /* AquaSKKUI.docc */; };
 		139B7B732C60F68100FE5263 /* AquaSKKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B7B722C60F68100FE5263 /* AquaSKKUITests.swift */; };
 		139B7B742C60F68100FE5263 /* AquaSKKUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 139B7B642C60F68100FE5263 /* AquaSKKUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -450,8 +453,8 @@
 			files = (
 				1393E3B52C6BF51700F1E633 /* AquaSKKCore.framework in Embeded Frameworks */,
 				1393E3B62C6BF51700F1E633 /* AquaSKKIM.framework in Embeded Frameworks */,
-				1393E3B72C6BF51700F1E633 /* AquaSKKService.framework in Embeded Frameworks */,
 				1393E3B82C6BF51700F1E633 /* AquaSKKUI.framework in Embeded Frameworks */,
+				1393E3B72C6BF51700F1E633 /* AquaSKKService.framework in Embeded Frameworks */,
 			);
 			name = "Embeded Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,6 +476,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				1393E3BC2C6BFBF200F1E633 /* AquaSKKCore.framework in Embed Frameworks */,
+				1393E3BD2C6BFBF200F1E633 /* AquaSKKIM.framework in Embed Frameworks */,
+				1393E3BE2C6BFBF200F1E633 /* AquaSKKUI.framework in Embed Frameworks */,
 				1393E3BB2C6BFB7D00F1E633 /* AquaSKKService.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
