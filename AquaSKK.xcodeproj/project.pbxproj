@@ -317,7 +317,6 @@
 		1393E32C2C6B19C300F1E633 /* SKK-JISYO.S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1393E32B2C6B19C300F1E633 /* SKK-JISYO.S.txt */; };
 		1393E32E2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393E32D2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift */; };
 		1393E3312C6B201500F1E633 /* JisyoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393E3302C6B201500F1E633 /* JisyoTests.swift */; };
-		1393E3322C6B201500F1E633 /* JisyoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393E3302C6B201500F1E633 /* JisyoTests.swift */; };
 		139B7B662C60F68100FE5263 /* AquaSKKUI.docc in Sources */ = {isa = PBXBuildFile; fileRef = 139B7B652C60F68100FE5263 /* AquaSKKUI.docc */; };
 		139B7B732C60F68100FE5263 /* AquaSKKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B7B722C60F68100FE5263 /* AquaSKKUITests.swift */; };
 		139B7B742C60F68100FE5263 /* AquaSKKUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 139B7B642C60F68100FE5263 /* AquaSKKUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -3011,7 +3010,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1393E3322C6B201500F1E633 /* JisyoTests.swift in Sources */,
 				137D058A2C5B5A83009AC591 /* AquaSKKTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

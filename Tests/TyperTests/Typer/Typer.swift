@@ -45,23 +45,10 @@ struct TyperEvent: Sendable {
 }
 
 class Typer {
-    var text: String {
-        client.text
-    }
-
-    var markedText: String {
-        client.markedText
-    }
-
-    var modeIdentifier: String? {
-        client.modeIdentifier
-    }
-
     private var client: TyperTextInput
-    private var controller: SKKInputController?
+    private var controller: SKKInputController
 
-    @MainActor
-    init() {
+    @MainActor init() {
         let client = TyperTextInput()
         let controller = SKKInputController()
         controller._setClient(client)
@@ -73,9 +60,10 @@ class Typer {
     }
 
     deinit {
-        controller?.deactivateServer(nil)
-        controller = nil
+        controller.deactivateServer(nil)
     }
+
+    // MARK: - Actions
 
     func type(text: String) {
         for character in text {
@@ -93,6 +81,20 @@ class Typer {
     }
 
     private func handle(event: TyperEvent) {
-        controller?.handle(event.nsEvent, client: client)
+        controller.handle(event.nsEvent, client: client)
+    }
+
+    // MARK: - Properties
+
+    var text: String {
+        client.text
+    }
+
+    var markedText: String {
+        client.markedText
+    }
+
+    var modeIdentifier: String? {
+        client.modeIdentifier
     }
 }
