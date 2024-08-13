@@ -17,3 +17,7 @@ OTHER_LDFLAGS = -framework AquaSKKCore -framework AquaSKKIM -framework Carbon
 
 // GENERATE_INFOPLIST_FILE = NO
 // INFOPLIST_FILE = Sources/App/Info.plist
+
+INSTALL_PATH =$(LOCAL_LIBRARY_DIR)/Input Methods
+
+SKIP_INSTALL = NO
