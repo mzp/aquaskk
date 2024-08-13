@@ -23,19 +23,16 @@
 }
 
 - (NSString *)inputSourceID {
-    return (__bridge NSString *)TISGetInputSourceProperty(
-        self.inputSourceRef, kTISPropertyInputSourceID);
+    return (__bridge NSString *)TISGetInputSourceProperty(self.inputSourceRef, kTISPropertyInputSourceID);
 }
 
 - (NSString *)localizedName {
-    return (__bridge NSString *)TISGetInputSourceProperty(
-        self.inputSourceRef, kTISPropertyLocalizedName);
+    return (__bridge NSString *)TISGetInputSourceProperty(self.inputSourceRef, kTISPropertyLocalizedName);
 }
 
 - (NSImage *)icon {
 
-    IconRef iconref = (IconRef)TISGetInputSourceProperty(self.inputSourceRef,
-                                                         kTISPropertyIconRef);
+    IconRef iconref = (IconRef)TISGetInputSourceProperty(self.inputSourceRef, kTISPropertyIconRef);
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     NSImage *image = [[NSImage alloc] initWithIconRef:iconref];
@@ -44,8 +41,7 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<AISKeyboardLayout: %p; id=%@>", self,
-                                      self.inputSourceID];
+    return [NSString stringWithFormat:@"<AISKeyboardLayout: %p; id=%@>", self, self.inputSourceID];
 }
 
 - (BOOL)isEqual:(id)other {
