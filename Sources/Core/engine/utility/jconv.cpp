@@ -36,10 +36,11 @@
 #include <algorithm>
 
 namespace jconv {
+    // clang-format off
 #include "jconv_ucs2eucj-inl.h"
 #include "jconv_eucj2ucs-inl.h"
 #include "jconv_body-inl.h"
-
+    // clang-format on
     void convert_utf8_to_eucj(const std::string& from, std::string& to) {
 	std::for_each(from.begin(), from.end(), utf8_to_eucj(to));
     }

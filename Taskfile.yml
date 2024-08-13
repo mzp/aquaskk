@@ -28,5 +28,5 @@ tasks:
         preconditions:
             - which swiftformat
         cmds:
-            - find . -name '*.m' -or -name '*.mm' -or -name '*.cpp' -or -name '*.h' | xargs clang-format -i
+            - find . -name '*.m' -or -name '*.mm' -or -name '*.cpp' -or -name '*.h' -print0 | xargs --null clang-format -i
             - swiftformat .
