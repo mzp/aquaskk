@@ -1089,6 +1089,8 @@
 			isa = PBXGroup;
 			children = (
 				1344F53F2C5B28FC00D8C850 /* SKKRomanKanaConverter_TEST.mm */,
+				13A685412C69826A001BABA2 /* RomanKanaConverterTests.swift */,
+				135FB6E22C69B06B00A6480A /* TriesTest.swift */,
 			);
 			path = tries;
 			sourceTree = "<group>";
@@ -1442,8 +1444,11 @@
 		1344F5502C5B28FC00D8C850 /* trie */ = {
 			isa = PBXGroup;
 			children = (
+				135FB6E42C69D60200A6480A /* AISRomanKanaConverter.h */,
 				1344F54C2C5B28FC00D8C850 /* SKKRomanKanaConverter.h */,
 				1344F54D2C5B28FC00D8C850 /* SKKRomanKanaConverter.mm */,
+				135FB6D82C6998E800A6480A /* RomanKanaConverter.swift */,
+				135FB6E02C69AA7E00A6480A /* Trie.swift */,
 			);
 			path = trie;
 			sourceTree = "<group>";
@@ -1488,7 +1493,6 @@
 		1344F6202C5B2C9C00D8C850 /* CoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				135FB6DD2C699F4D00A6480A /* Romakana */,
 				13A685432C698312001BABA2 /* CoreTesting.swift */,
 				133A55212C5DB8430047E911 /* backend */,
 				13EDDCF42C5B3CD20062A0DA /* bridge */,
@@ -1686,25 +1690,6 @@
 				135EEB9D2C5EEA4900758672 /* Typer.swift */,
 			);
 			path = Typer;
-			sourceTree = "<group>";
-		};
-		135FB6DA2C699E5800A6480A /* Romankana */ = {
-			isa = PBXGroup;
-			children = (
-				135FB6E42C69D60200A6480A /* AISRomanKanaConverter.h */,
-				135FB6D82C6998E800A6480A /* RomanKanaConverter.swift */,
-				135FB6E02C69AA7E00A6480A /* Trie.swift */,
-			);
-			path = Romankana;
-			sourceTree = "<group>";
-		};
-		135FB6DD2C699F4D00A6480A /* Romakana */ = {
-			isa = PBXGroup;
-			children = (
-				13A685412C69826A001BABA2 /* RomanKanaConverterTests.swift */,
-				135FB6E22C69B06B00A6480A /* TriesTest.swift */,
-			);
-			path = Romakana;
 			sourceTree = "<group>";
 		};
 		1371A7602C5B5D3E00E06348 /* config */ = {
@@ -2026,7 +2011,6 @@
 				13D756162C5A9049006144F2 /* AquaSKKCore.h */,
 				1344F4A62C5B28FC00D8C850 /* bridge */,
 				1344F55D2C5B28FC00D8C850 /* engine */,
-				135FB6DA2C699E5800A6480A /* Romankana */,
 				13D756172C5A9049006144F2 /* AquaSKKCore.docc */,
 			);
 			path = Core;
@@ -2642,22 +2626,22 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13D7560A2C5A9043006144F2 /* AquaSKKCore */,
-				1344F6142C5B2C9500D8C850 /* CoreTests */,
-				135C3D442C5B3E8F00661AE3 /* AquaSKKIM */,
-				135C3D4D2C5B3E8F00661AE3 /* IMTests */,
-				1307C2382C5B47D800B089B6 /* Preferences */,
-				1307C2482C5B47DA00B089B6 /* PreferencesTests */,
-				1307C2522C5B47DA00B089B6 /* PreferencesUITests */,
 				137D05742C5B5A81009AC591 /* AquaSKK */,
-				137D05842C5B5A83009AC591 /* AppTests */,
-				137D058E2C5B5A83009AC591 /* AppUITests */,
+				1307C2382C5B47D800B089B6 /* Preferences */,
 				1352C9C72C5DF80D0056261D /* Harness */,
+				13D7560A2C5A9043006144F2 /* AquaSKKCore */,
+				135C3D442C5B3E8F00661AE3 /* AquaSKKIM */,
 				13B7BEC02C5F5CF900F6BEF8 /* AquaSKKService */,
-				13B7BEC92C5F5CF900F6BEF8 /* ServiceTests */,
-				133834E02C60203900D73AD7 /* TyperTests */,
 				139B7B612C60F68100FE5263 /* AquaSKKUI */,
+				137D05842C5B5A83009AC591 /* AppTests */,
+				1307C2482C5B47DA00B089B6 /* PreferencesTests */,
+				133834E02C60203900D73AD7 /* TyperTests */,
+				1344F6142C5B2C9500D8C850 /* CoreTests */,
+				135C3D4D2C5B3E8F00661AE3 /* IMTests */,
+				13B7BEC92C5F5CF900F6BEF8 /* ServiceTests */,
 				139B7B6A2C60F68100FE5263 /* UITests */,
+				137D058E2C5B5A83009AC591 /* AppUITests */,
+				1307C2522C5B47DA00B089B6 /* PreferencesUITests */,
 			);
 		};
 /* End PBXProject section */
