@@ -24,16 +24,16 @@
 #define SKKServer_h
 
 #include <AppKit/AppKit.h>
-#include <InputMethodKit/InputMethodKit.h>
 #import <AquaSKKService/SKKSupervisor.h>
+#include <InputMethodKit/InputMethodKit.h>
 
 @interface SKKServer : NSObject <SKKSupervisor> {
-    IMKServer* imkserver_;
+    IMKServer *imkserver_;
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    NSConnection* connection_;
+    NSConnection *connection_;
 #pragma clang diagnostic pop
-    class skkserv* skkserv_;
+    class skkserv *skkserv_;
 }
 
 @end

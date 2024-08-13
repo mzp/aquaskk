@@ -3,10 +3,10 @@
 #ifndef TestData_h
 #define TestData_h
 
-#import <AquaSKKCore/SKKKeyState.h>
 #include "TestEvent.h"
 #include "TestResult.h"
 #include "stringutil.h"
+#import <AquaSKKCore/SKKKeyState.h>
 #include <fstream>
 #include <vector>
 
@@ -40,7 +40,7 @@ class TestData {
 
             std::string opt;
             std::string value;
-            
+
             if(sub >> opt >> value) {
                 if(opt == "sel") {
                     result.selection = value;
@@ -54,10 +54,14 @@ class TestData {
         splitter.split(key, "::");
 
         while(splitter >> str) {
-            if(str == "shift") result.mods |= SKKKeyState::SHIFT;
-            if(str == "ctrl") result.mods |= SKKKeyState::CTRL;
-            if(str == "alt") result.mods |= SKKKeyState::ALT;
-            if(str == "meta") result.mods |= SKKKeyState::META;
+            if(str == "shift")
+                result.mods |= SKKKeyState::SHIFT;
+            if(str == "ctrl")
+                result.mods |= SKKKeyState::CTRL;
+            if(str == "alt")
+                result.mods |= SKKKeyState::ALT;
+            if(str == "meta")
+                result.mods |= SKKKeyState::META;
         }
 
         result.code = charcode(str);
@@ -66,11 +70,16 @@ class TestData {
     }
 
     SKKInputMode inputMode(const std::string& mode) {
-        if(mode == "J") return SKKInputMode::HirakanaInputMode;
-        if(mode == "K") return SKKInputMode::KatakanaInputMode;
-        if(mode == "Q") return SKKInputMode::Jisx0201KanaInputMode;
-        if(mode == "A") return SKKInputMode::AsciiInputMode;
-        if(mode == "L") return SKKInputMode::Jisx0208LatinInputMode;
+        if(mode == "J")
+            return SKKInputMode::HirakanaInputMode;
+        if(mode == "K")
+            return SKKInputMode::KatakanaInputMode;
+        if(mode == "Q")
+            return SKKInputMode::Jisx0201KanaInputMode;
+        if(mode == "A")
+            return SKKInputMode::AsciiInputMode;
+        if(mode == "L")
+            return SKKInputMode::Jisx0208LatinInputMode;
 
         return SKKInputMode::InvalidInputMode;
     }
@@ -113,11 +122,16 @@ class TestData {
 
             entry.split(str, "=");
             if(entry >> key >> value) {
-                if(key == "fixed") result.fixed = value;
-                if(key == "marked") result.marked = decode(value);
-                if(key == "mode") result.mode = inputMode(value);
-                if(key == "pos") result.pos = integer(value);
-                if(key == "ret") result.ret = (integer(value) == 1);
+                if(key == "fixed")
+                    result.fixed = value;
+                if(key == "marked")
+                    result.marked = decode(value);
+                if(key == "mode")
+                    result.mode = inputMode(value);
+                if(key == "pos")
+                    result.pos = integer(value);
+                if(key == "ret")
+                    result.ret = (integer(value) == 1);
             }
         }
 
@@ -142,7 +156,7 @@ public:
         int num = 0;
 
         while(std::getline(ifs, line)) {
-            ++ num;
+            ++num;
 
             std::string event;
             std::string result;
@@ -150,8 +164,9 @@ public:
             splitter.split(line, " ");
             splitter >> event >> result;
 
-            if(event.empty() || event[0] == '#') continue;
-            
+            if(event.empty() || event[0] == '#')
+                continue;
+
             tests_.push_back(makeTestEntry(num, event, result));
         }
 
@@ -160,7 +175,7 @@ public:
 
     bool operator>>(TestEntry& entry) {
         if(current_ < tests_.size()) {
-            entry = tests_[current_ ++];
+            entry = tests_[current_++];
             return true;
         }
 

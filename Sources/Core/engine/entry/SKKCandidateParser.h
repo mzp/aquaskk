@@ -40,83 +40,83 @@ class SKKCandidateParser {
 
     // 送りヒントのパース
     void phase2(char ch) {
-	if(tmp_candidate_.empty()) {
-	    switch(ch) {
-	    case '/': case '[':
-		return;
+        if(tmp_candidate_.empty()) {
+            switch(ch) {
+            case '/':
+            case '[':
+                return;
 
-	    case ']':
-		if(!tmp_hint_.second.empty()) {
-		    hints_.push_back(tmp_hint_);
-		}
-		reset();
-		return;
-	    }
-	}
+            case ']':
+                if(!tmp_hint_.second.empty()) {
+                    hints_.push_back(tmp_hint_);
+                }
+                reset();
+                return;
+            }
+        }
 
-	if(ch == '/') {
-	    if(tmp_hint_.first.empty()) {
-		tmp_hint_.first = tmp_candidate_;
-	    } else {
-		tmp_hint_.second.push_back(tmp_candidate_);
-	    }
-	    tmp_candidate_.clear();
-	    return;
-	}
+        if(ch == '/') {
+            if(tmp_hint_.first.empty()) {
+                tmp_hint_.first = tmp_candidate_;
+            } else {
+                tmp_hint_.second.push_back(tmp_candidate_);
+            }
+            tmp_candidate_.clear();
+            return;
+        }
 
-	tmp_candidate_ += ch;
+        tmp_candidate_ += ch;
     }
 
     // 通常候補のパース
     void phase1(char ch) {
-	if(ch == '/') {
-	    if(!tmp_candidate_.empty()) {
-		candidates_.push_back(tmp_candidate_);
-		tmp_candidate_.clear();
-	    }
-	    return;
-	}
+        if(ch == '/') {
+            if(!tmp_candidate_.empty()) {
+                candidates_.push_back(tmp_candidate_);
+                tmp_candidate_.clear();
+            }
+            return;
+        }
 
-	if(ch == '[' && tmp_candidate_.empty()) {
-	    handler_ = &SKKCandidateParser::phase2;
-	    return;
-	}
+        if(ch == '[' && tmp_candidate_.empty()) {
+            handler_ = &SKKCandidateParser::phase2;
+            return;
+        }
 
-	tmp_candidate_ += ch;
+        tmp_candidate_ += ch;
     }
 
     void invoke(char ch) {
-	(this->*handler_)(ch);
+        (this->*handler_)(ch);
     }
 
     void reset() {
-	tmp_candidate_.clear();
-	tmp_hint_.first.clear();
-	tmp_hint_.second.clear();
+        tmp_candidate_.clear();
+        tmp_hint_.first.clear();
+        tmp_hint_.second.clear();
     }
 
 public:
     void Parse(const std::string& str) {
-	handler_ = &SKKCandidateParser::phase1;
+        handler_ = &SKKCandidateParser::phase1;
 
-	candidates_.clear();
-	hints_.clear();
+        candidates_.clear();
+        hints_.clear();
 
-	reset();
+        reset();
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-	std::for_each(str.begin(), str.end(),
-		      std::bind1st(std::mem_fun(&SKKCandidateParser::invoke), this));
+        std::for_each(str.begin(), str.end(), std::bind1st(std::mem_fun(&SKKCandidateParser::invoke), this));
     }
 #pragma clang diagnostic pop
 
     const SKKCandidateContainer& Candidates() const {
-	return candidates_;
+        return candidates_;
     }
 
     const SKKOkuriHintContainer& Hints() const {
-	return hints_;
+        return hints_;
     }
 };
 

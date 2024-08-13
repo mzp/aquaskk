@@ -34,8 +34,9 @@ void SKKInputModeSelector::Select(SKKInputMode mode) {
     mode_ = mode;
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    std::for_each(listeners_->begin(), listeners_->end(),
-                  std::bind2nd(std::mem_fun(&SKKInputModeListener::SelectInputMode), mode_));
+    std::for_each(
+        listeners_->begin(), listeners_->end(),
+        std::bind2nd(std::mem_fun(&SKKInputModeListener::SelectInputMode), mode_));
 #pragma clang diagnostic pop
 }
 

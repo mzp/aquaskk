@@ -23,14 +23,14 @@
 #ifndef SKKInputEngine_h
 #define SKKInputEngine_h
 
+#import <AquaSKKCore/SKKCandidateEditor.h>
+#import <AquaSKKCore/SKKCompleter.h>
+#import <AquaSKKCore/SKKComposingEditor.h>
+#import <AquaSKKCore/SKKEntryRemoveEditor.h>
 #import <AquaSKKCore/SKKInputEnvironment.h>
 #import <AquaSKKCore/SKKInputMode.h>
 #import <AquaSKKCore/SKKInputQueue.h>
-#import <AquaSKKCore/SKKComposingEditor.h>
 #import <AquaSKKCore/SKKOkuriEditor.h>
-#import <AquaSKKCore/SKKCandidateEditor.h>
-#import <AquaSKKCore/SKKEntryRemoveEditor.h>
-#import <AquaSKKCore/SKKCompleter.h>
 #import <AquaSKKCore/SKKSelector.h>
 #include <vector>
 

@@ -24,8 +24,8 @@
 #define SKKDictionaryKey_h
 
 #include <string>
-#include <vector>
 #include <utility>
+#include <vector>
 
 // ======================================================================
 // 辞書のキー(辞書の型と場所のペア)

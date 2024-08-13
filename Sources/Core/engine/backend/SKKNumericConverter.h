@@ -23,8 +23,8 @@
 #ifndef SKKNumericConverter_h
 #define SKKNumericConverter_h
 
-#include <vector>
 #include <string>
+#include <vector>
 
 class SKKCandidate;
 

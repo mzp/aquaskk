@@ -28,23 +28,23 @@
 @class SKKServerProxy;
 
 @interface PreferenceController : NSObject {
-    IBOutlet NSWindow* prefWindow_;
-    IBOutlet NSPopUpButton* layoutPopUp_;
-    IBOutlet NSButton* fontButton_;
-    IBOutlet NSObjectController* objController_;
-    IBOutlet NSArrayController* arrayController_;
-    IBOutlet NSArrayController* blacklistArrayController_;
-    IBOutlet NSTextField* version_;
-    IBOutlet NSTextField* copyright_;
-    IBOutlet NSArrayController* dictionaryTypes_;
-    IBOutlet NSArrayController* subRuleController_;
+    IBOutlet NSWindow *prefWindow_;
+    IBOutlet NSPopUpButton *layoutPopUp_;
+    IBOutlet NSButton *fontButton_;
+    IBOutlet NSObjectController *objController_;
+    IBOutlet NSArrayController *arrayController_;
+    IBOutlet NSArrayController *blacklistArrayController_;
+    IBOutlet NSTextField *version_;
+    IBOutlet NSTextField *copyright_;
+    IBOutlet NSArrayController *dictionaryTypes_;
+    IBOutlet NSArrayController *subRuleController_;
 
-    NSMutableDictionary* preferences_;
-    NSMutableArray* blacklistApps_;
-    NSMutableArray* dictionarySet_;
-    NSMutableArray* layoutNames_;
-    NSFont* candidateWindowFont_;
-    SKKServerProxy* proxy_;
+    NSMutableDictionary *preferences_;
+    NSMutableArray *blacklistApps_;
+    NSMutableArray *dictionarySet_;
+    NSMutableArray *layoutNames_;
+    NSFont *candidateWindowFont_;
+    SKKServerProxy *proxy_;
 }
 
 - (IBAction)showFontPanel:(id)sender;

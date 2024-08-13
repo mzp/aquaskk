@@ -8,6 +8,12 @@
       Copyright (C) 2001 I'O, All Rights Reserved.
       You can use, modify, distribute this table freely.
 */
+// clang-format off
+// フォーマットされて大量のスペースが挿入されると、clangが扱えるサイズを超える。
+// /Users/mzp/ghq/github.com/mzp/aquaskk/Sources/Core/engine/utility/jconv.cpp:40:10: fatal error: sorry, this include generates a translation unit too large for Clang to process.
+// 40 | #include "jconv_ucs2eucj-inl.h"
+// |          ^
+// note: 8311305B in local locations, 0B in locations loaded from AST files, for a total of 8311305B (0% of available space)
 /****** EUC_JP -> UCS2 JISX0201-KANA (0x8e??) ******/
 /* index = e2 - 0xa1 */
 static unsigned short euc_jisx0201_to_ucs2[] = {
@@ -3043,3 +3049,4 @@ static unsigned int euc_jisx0213_2_to_ucs2[][94] = {
  0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, },
 };
 
+// clang-format on

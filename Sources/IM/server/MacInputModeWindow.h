@@ -31,15 +31,15 @@ class SKKLayoutManager;
 @class SKKModeTips;
 
 class MacInputModeWindow : public SKKInputModeListener {
-    SKKModeTips* tips_;
+    SKKModeTips *tips_;
 
     bool enabled() const;
 
     virtual void SKKWidgetShow();
     virtual void SKKWidgetHide();
 
-public:
-    MacInputModeWindow(SKKLayoutManager* layout);
+  public:
+    MacInputModeWindow(SKKLayoutManager *layout);
     ~MacInputModeWindow();
 
     virtual void SelectInputMode(SKKInputMode mode);

@@ -25,10 +25,10 @@
 #define DictionaryTypeTransformer_h
 
 @interface DictionaryTypeTransformer : NSValueTransformer {
-    NSArray* dictionaryTypes_;
+    NSArray *dictionaryTypes_;
 }
 
-- (id)initWithDictionaryTypes:(NSArray*)dictionaryTypes;
+- (id)initWithDictionaryTypes:(NSArray *)dictionaryTypes;
 
 @end
 

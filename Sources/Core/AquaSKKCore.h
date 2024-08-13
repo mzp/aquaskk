@@ -26,15 +26,15 @@ FOUNDATION_EXPORT const unsigned char AquaSKKCoreVersionString[];
 
 #pragma mark - backend
 
+#import <AquaSKKCore/SKKAutoUpdateDictionary.h>
 #import <AquaSKKCore/SKKBackend.h>
+#import <AquaSKKCore/SKKBaseDictionary.h>
 #import <AquaSKKCore/SKKCandidateFilter.h>
+#import <AquaSKKCore/SKKCompleter.h>
 #import <AquaSKKCore/SKKDictionaryCache.h>
 #import <AquaSKKCore/SKKDictionaryFactory.h>
 #import <AquaSKKCore/SKKDictionaryKey.h>
 #import <AquaSKKCore/SKKNumericConverter.h>
-#import <AquaSKKCore/SKKCompleter.h>
-#import <AquaSKKCore/SKKAutoUpdateDictionary.h>
-#import <AquaSKKCore/SKKBaseDictionary.h>
 
 #pragma mark - dictionary
 
@@ -113,8 +113,8 @@ FOUNDATION_EXPORT const unsigned char AquaSKKCoreVersionString[];
 
 #pragma mark - utility
 
-#import <AquaSKKCore/SKKRomanKanaConverter.h>
 #import <AquaSKKCore/AISRomanKanaConverter.h>
+#import <AquaSKKCore/SKKRomanKanaConverter.h>
 
 #pragma mark - utility
 

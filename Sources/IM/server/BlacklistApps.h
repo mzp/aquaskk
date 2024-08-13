@@ -26,13 +26,13 @@
 #import <Foundation/Foundation.h>
 
 @interface BlacklistApps : NSObject {
-    NSArray* blacklistApps_;
+    NSArray *blacklistApps_;
 }
-- (void)load:(NSArray*)blacklistApps;
+- (void)load:(NSArray *)blacklistApps;
 - (BOOL)isInsertEmptyString:(NSBundle *)bundle;
 - (BOOL)isInsertMarkedText:(NSString *)bundleIdentifier;
 - (BOOL)isSyncInputSource:(NSBundle *)bundle;
-+ (BlacklistApps*)sharedManager;
++ (BlacklistApps *)sharedManager;
 @end
 
 #endif

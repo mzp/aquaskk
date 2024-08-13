@@ -20,21 +20,23 @@
 
 */
 
-#import <AquaSKKCore/SKKCompleter.h>
 #import <AquaSKKCore/SKKBackEnd.h>
+#import <AquaSKKCore/SKKCompleter.h>
 
-SKKCompleter::SKKCompleter(SKKCompleterBuddy* buddy) : buddy_(buddy) {}
+SKKCompleter::SKKCompleter(SKKCompleterBuddy* buddy)
+    : buddy_(buddy) {}
 
 bool SKKCompleter::Execute(int limit) {
     if(complete(limit)) {
-	notify();
+        notify();
     }
 
     return !completions_.empty();
 }
 
 bool SKKCompleter::Remove() {
-    if(completions_.empty()) return false;
+    if(completions_.empty())
+        return false;
 
     SKKBackEnd& backend = SKKBackEnd::theInstance();
 
@@ -46,20 +48,22 @@ bool SKKCompleter::Remove() {
 }
 
 void SKKCompleter::Next() {
-    if(completions_.empty()) return;
+    if(completions_.empty())
+        return;
 
-    if(maxPosition() < ++ pos_) {
-	pos_ = minPosition();
+    if(maxPosition() < ++pos_) {
+        pos_ = minPosition();
     }
 
     notify();
 }
 
 void SKKCompleter::Prev() {
-    if(completions_.empty()) return;
+    if(completions_.empty())
+        return;
 
-    if(-- pos_ < minPosition()) {
-	pos_ = maxPosition();
+    if(--pos_ < minPosition()) {
+        pos_ = maxPosition();
     }
 
     notify();

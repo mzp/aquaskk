@@ -23,22 +23,21 @@
 #ifndef AnnotationView_h
 #define AnnotationView_h
 
-#import <Foundation/Foundation.h>
 #import <AppKit/AppKit.h>
+#import <Foundation/Foundation.h>
 
 @interface AnnotationView : NSView {
-    NSTextView* textView_;
-    NSColor* strokeColor_;
-    NSMutableParagraphStyle* blockStyle_;
-    NSMutableParagraphStyle* listStyle_;
-    NSAttributedString* definitiveHeader_;
-    NSAttributedString* annotationHeader_;
+    NSTextView *textView_;
+    NSColor *strokeColor_;
+    NSMutableParagraphStyle *blockStyle_;
+    NSMutableParagraphStyle *listStyle_;
+    NSAttributedString *definitiveHeader_;
+    NSAttributedString *annotationHeader_;
 }
 
-- (void)setAnnotation:(NSString*)definition optional:(NSString*)annotation;
+- (void)setAnnotation:(NSString *)definition optional:(NSString *)annotation;
 - (BOOL)hasAnnotation;
 
 @end
 
 #endif
-

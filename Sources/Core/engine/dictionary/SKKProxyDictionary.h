@@ -27,7 +27,7 @@
 #import <AquaSKKCore/socketutil.h>
 
 // 外部 skkserv 辞書
-class SKKProxyDictionary: public SKKBaseDictionary {
+class SKKProxyDictionary : public SKKBaseDictionary {
     net::socket::endpoint remote_;
     net::socket::tcpstream session_;
     bool active_;

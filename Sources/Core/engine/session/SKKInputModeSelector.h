@@ -23,10 +23,10 @@
 #ifndef SKKInputModeSelector_h
 #define SKKInputModeSelector_h
 
-#include <vector>
-#import <AquaSKKCore/SKKWidget.h>
 #import <AquaSKKCore/SKKInputMode.h>
 #import <AquaSKKCore/SKKInputModeListener.h>
+#import <AquaSKKCore/SKKWidget.h>
+#include <vector>
 
 class SKKInputModeSelector : public SKKWidget {
     SKKInputModeListenerCollection* listeners_;

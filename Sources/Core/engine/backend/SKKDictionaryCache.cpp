@@ -20,17 +20,17 @@
 
 */
 
+#import <AquaSKKCore/SKKBaseDictionary.h>
 #import <AquaSKKCore/SKKDictionaryCache.h>
 #import <AquaSKKCore/SKKDictionaryFactory.h>
-#import <AquaSKKCore/SKKBaseDictionary.h>
 
 namespace {
     struct DeleteDictionary {
-	void operator()(const std::pair<SKKDictionaryKey, SKKBaseDictionary*>& entry) const {
-	    delete entry.second;
-	}
+        void operator()(const std::pair<SKKDictionaryKey, SKKBaseDictionary*>& entry) const {
+            delete entry.second;
+        }
     };
-}
+} // namespace
 
 SKKDictionaryCache::~SKKDictionaryCache() {
     std::for_each(cache_.begin(), cache_.end(), DeleteDictionary());
@@ -38,7 +38,7 @@ SKKDictionaryCache::~SKKDictionaryCache() {
 
 SKKBaseDictionary* SKKDictionaryCache::Get(const SKKDictionaryKey& key) {
     if(cache_.find(key) == cache_.end()) {
-	cache_[key] = SKKDictionaryFactory::theInstance().Create(key.first, key.second);
+        cache_[key] = SKKDictionaryFactory::theInstance().Create(key.first, key.second);
     }
 
     return cache_[key];
@@ -46,7 +46,7 @@ SKKBaseDictionary* SKKDictionaryCache::Get(const SKKDictionaryKey& key) {
 
 void SKKDictionaryCache::Clear(const SKKDictionaryKey& key) {
     if(cache_.find(key) != cache_.end()) {
-	delete cache_[key];
-	cache_.erase(key);
+        delete cache_[key];
+        cache_.erase(key);
     }
 }

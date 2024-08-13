@@ -29,7 +29,7 @@ State SKKState::EntryRemove(const Event& event) {
     switch(event) {
     case ENTRY_EVENT:
         editor_->SetStateEntryRemove();
-	return 0;
+        return 0;
 
     case SKK_ENTER:
         editor_->Commit();

@@ -24,10 +24,10 @@
 #define SKKState_h
 
 #import <AquaSKKCore/GenericStateMachine.h>
+#import <AquaSKKCore/SKKCompleter.h>
+#import <AquaSKKCore/SKKEvent.h>
 #import <AquaSKKCore/SKKInputEnvironment.h>
 #import <AquaSKKCore/SKKInputMode.h>
-#import <AquaSKKCore/SKKEvent.h>
-#import <AquaSKKCore/SKKCompleter.h>
 #import <AquaSKKCore/SKKSelector.h>
 
 using namespace statemachinecxx_sourceforge_jp;
@@ -51,44 +51,46 @@ public:
     SKKState(SKKInputEnvironment* env, SKKInputEngine* editor);
     SKKState(const SKKState& src);
 
-    virtual const Handler InitialState() const { return &SKKState::Primary; }
+    virtual const Handler InitialState() const {
+        return &SKKState::Primary;
+    }
 
     // level 1
     State Primary(const Event& event);
 
-        // level 2 (initial state)
-        State KanaInput(const Event& event);
+    // level 2 (initial state)
+    State KanaInput(const Event& event);
 
-	    // level 3 (sub of KanaInput)
-    	    State Hirakana(const Event& event);
-    	    State Katakana(const Event& event);
-    	    State Jisx0201Kana(const Event& event);
+    // level 3 (sub of KanaInput)
+    State Hirakana(const Event& event);
+    State Katakana(const Event& event);
+    State Jisx0201Kana(const Event& event);
 
-        // level 2 (sub of Direct)
-        State LatinInput(const Event& event);
+    // level 2 (sub of Direct)
+    State LatinInput(const Event& event);
 
-    	    // level 3 (sub of LatinInput)
-    	    State Ascii(const Event& event);
-    	    State Jisx0208Latin(const Event& event);
+    // level 3 (sub of LatinInput)
+    State Ascii(const Event& event);
+    State Jisx0208Latin(const Event& event);
 
     // level 1
     State Composing(const Event& event);
 
-	// level 2 (sub of Composing)
-	State Edit(const Event& event);
+    // level 2 (sub of Composing)
+    State Edit(const Event& event);
 
-	    // level 3 (sub of Edit)
-	    State EntryInput(const Event& event);
+    // level 3 (sub of Edit)
+    State EntryInput(const Event& event);
 
-		// lelvel 4 (sub of EntryInput)
-		State KanaEntry(const Event& event);
-		State AsciiEntry(const Event& event);
+    // lelvel 4 (sub of EntryInput)
+    State KanaEntry(const Event& event);
+    State AsciiEntry(const Event& event);
 
-	    // level 3 (sub of Edit)
-	    State EntryCompletion(const Event& event);
+    // level 3 (sub of Edit)
+    State EntryCompletion(const Event& event);
 
-	// level 2 (sub of Composing)
-	State SelectCandidate(const Event& event);
+    // level 2 (sub of Composing)
+    State SelectCandidate(const Event& event);
 
     // level 1
     State OkuriInput(const Event& event);

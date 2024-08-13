@@ -28,13 +28,13 @@ State SKKState::RecursiveRegister(const Event& event) {
     case ENTRY_EVENT:
         editor_->SetStateRegistration();
         messenger_->Beep();
-	return 0;
+        return 0;
 
     case SKK_ENTER:
-	return State::Transition(&SKKState::KanaInput);
+        return State::Transition(&SKKState::KanaInput);
 
     case SKK_CANCEL:
-	return State::DeepHistory(&SKKState::Composing);
+        return State::DeepHistory(&SKKState::Composing);
     }
 
     return &SKKState::TopState;

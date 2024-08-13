@@ -23,24 +23,24 @@
 #ifndef SKKInputController_h
 #define SKKInputController_h
 
+#import <AquaSKKIM/SKKInputMenu.h>
 #import <AquaSKKService/AquaSKKService.h>
 #import <InputMethodKit/InputMethodKit.h>
-#import <AquaSKKIM/SKKInputMenu.h>
 
 class SKKLayoutManager;
 class SKKInputSession;
 class MacInputModeWindow;
 
 @interface SKKInputController : IMKInputController {
-    id <IMKTextInput, NSObject> client_;
-    NSTextInputContext* context_;
+    id<IMKTextInput, NSObject> client_;
+    NSTextInputContext *context_;
     BOOL activated_;
 
-    SKKServerProxy* proxy_;
-    SKKInputMenu* menu_;
-    SKKLayoutManager* layout_;
-    SKKInputSession* session_;
-    MacInputModeWindow* modeIcon_;
+    SKKServerProxy *proxy_;
+    SKKInputMenu *menu_;
+    SKKLayoutManager *layout_;
+    SKKInputSession *session_;
+    MacInputModeWindow *modeIcon_;
 }
 
 @end

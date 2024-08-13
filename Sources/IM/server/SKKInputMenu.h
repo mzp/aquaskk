@@ -34,14 +34,14 @@
 
 - (id)initWithClient:(id)client;
 - (void)updateMenu:(SKKInputMode)mode;
-- (NSString*)convertInputModeToId:(SKKInputMode)mode;
-- (int)convertIdToEventId:(NSString*)identifier;
+- (NSString *)convertInputModeToId:(SKKInputMode)mode;
+- (int)convertIdToEventId:(NSString *)identifier;
 - (void)activation;
 - (void)deactivation;
-- (SKKInputMode)convertIdToInputMode:(NSString*)identifier;
+- (SKKInputMode)convertIdToInputMode:(NSString *)identifier;
 - (SKKInputMode)currentInputMode;
 - (SKKInputMode)unifiedInputMode;
 
-@end    
+@end
 
 #endif

@@ -30,19 +30,19 @@ void SKKInlineSelector::Initialize(SKKCandidateContainer& container, unsigned in
 
 bool SKKInlineSelector::Next() {
     if(IsEmpty() || pos_ == maxPosition()) {
-	return false;
+        return false;
     }
 
-    ++ pos_;
+    ++pos_;
     return true;
 }
 
 bool SKKInlineSelector::Prev() {
     if(IsEmpty() || pos_ == minPosition()) {
-	return false;
+        return false;
     }
 
-    -- pos_;
+    --pos_;
     return true;
 }
 

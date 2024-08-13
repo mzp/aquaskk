@@ -28,18 +28,18 @@
 @class CandidatePageIndicator;
 
 @interface CandidateView : NSView {
-    NSMutableArray* candidateCells_;
-    CandidatePageIndicator* indicator_;
-    NSFont* cellFont_;
-    NSString* labels_;
+    NSMutableArray *candidateCells_;
+    CandidatePageIndicator *indicator_;
+    NSFont *cellFont_;
+    NSString *labels_;
     int selected_;
 }
 
 + (unsigned)cellSpacing;
 
-- (void)prepareWithFont:(NSFont*)font labels:(NSString*)labels;
+- (void)prepareWithFont:(NSFont *)font labels:(NSString *)labels;
 - (NSSize)contentSize;
-- (void)setCandidates:(NSArray*)candidates selectedIndex:(int)cursor;
+- (void)setCandidates:(NSArray *)candidates selectedIndex:(int)cursor;
 - (void)setPage:(NSRange)page;
 - (id)newCandidateCell;
 

@@ -8,19 +8,19 @@
 #ifndef AISRomanKanaConverter_h
 #define AISRomanKanaConverter_h
 
-#import <Foundation/Foundation.h>
 #import <AquaSKKCore/SKKInputMode.h>
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AICRomanKanaResult: NSObject
-@property (nonatomic, strong) NSString *output;
-@property (nonatomic, strong) NSString *intermediate;
-@property (nonatomic, strong) NSString *next;
-@property (nonatomic, assign) BOOL converted;
+@interface AICRomanKanaResult : NSObject
+@property(nonatomic, strong) NSString *output;
+@property(nonatomic, strong) NSString *intermediate;
+@property(nonatomic, strong) NSString *next;
+@property(nonatomic, assign) BOOL converted;
 @end
 
-@interface AICRomanKanaConverter: NSObject
+@interface AICRomanKanaConverter : NSObject
 
 - (instancetype)initWithPath:(NSString *)path error:(NSError **)error NS_DESIGNATED_INITIALIZER;
 

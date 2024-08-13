@@ -20,84 +20,82 @@
 
 */
 
-#import <AquaSKKCore/SKKState.h>
-#import <AquaSKKCore/SKKMessenger.h>
 #import <AquaSKKCore/SKKConfig.h>
 #import <AquaSKKCore/SKKInputEngine.h>
+#import <AquaSKKCore/SKKMessenger.h>
+#import <AquaSKKCore/SKKState.h>
 #include <cctype>
 
 namespace {
     typedef SKKState::Event Event;
     typedef SKKState::State State;
-}
+} // namespace
 
 SKKState::SKKState(SKKInputEnvironment* env, SKKInputEngine* editor)
-    : context_(env->InputContext())
-    , messenger_(env->InputSessionParameter()->Messenger())
-    , window_(env->InputSessionParameter()->CandidateWindow())
-    , configuration_(env->InputSessionParameter()->Config())
-    , editor_(editor)
-    , completer_(editor_)
-    , selector_(editor_, window_)
-{}
+    : context_(env->InputContext()),
+      messenger_(env->InputSessionParameter()->Messenger()),
+      window_(env->InputSessionParameter()->CandidateWindow()),
+      configuration_(env->InputSessionParameter()->Config()),
+      editor_(editor),
+      completer_(editor_),
+      selector_(editor_, window_) {}
 
 SKKState::SKKState(const SKKState& src)
-    : context_(src.context_)
-    , messenger_(src.messenger_)
-    , window_(src.window_)
-    , configuration_(src.configuration_)
-    , editor_(src.editor_)
-    , completer_(editor_)
-    , selector_(editor_, window_)
-{}
+    : context_(src.context_),
+      messenger_(src.messenger_),
+      window_(src.window_),
+      configuration_(src.configuration_),
+      editor_(src.editor_),
+      completer_(editor_),
+      selector_(editor_, window_) {}
 
 void SKKState::ToString(const Handler handler, const Event& event, std::string& result) {
-    static const char* systemEvent[] = { "PROBE", "<<ENTRY>>", "<<INIT>>", "<<EXIT>>" };
+    static const char* systemEvent[] = {"PROBE", "<<ENTRY>>", "<<INIT>>", "<<EXIT>>"};
 
     static struct {
-	Handler handler;
-	const char* name;
+        Handler handler;
+        const char* name;
     } states[] = {
-#define DEFINE_State(arg)	{ &SKKState::arg, "SKKState::" #arg }
-	DEFINE_State(Primary),
-	DEFINE_State(KanaInput),
-	DEFINE_State(Hirakana),
-	DEFINE_State(Katakana),
-	DEFINE_State(Jisx0201Kana),
-	DEFINE_State(LatinInput),
-	DEFINE_State(Ascii),
-	DEFINE_State(Jisx0208Latin),
-	DEFINE_State(Composing),
-	DEFINE_State(Edit),
-	DEFINE_State(EntryInput),
-	DEFINE_State(KanaEntry),
-	DEFINE_State(OkuriInput),
-	DEFINE_State(AsciiEntry),
-	DEFINE_State(EntryCompletion),
-	DEFINE_State(SelectCandidate),
-	DEFINE_State(EntryRemove),
-	DEFINE_State(RecursiveRegister),
+#define DEFINE_State(arg) {&SKKState::arg, "SKKState::" #arg}
+        DEFINE_State(Primary),
+        DEFINE_State(KanaInput),
+        DEFINE_State(Hirakana),
+        DEFINE_State(Katakana),
+        DEFINE_State(Jisx0201Kana),
+        DEFINE_State(LatinInput),
+        DEFINE_State(Ascii),
+        DEFINE_State(Jisx0208Latin),
+        DEFINE_State(Composing),
+        DEFINE_State(Edit),
+        DEFINE_State(EntryInput),
+        DEFINE_State(KanaEntry),
+        DEFINE_State(OkuriInput),
+        DEFINE_State(AsciiEntry),
+        DEFINE_State(EntryCompletion),
+        DEFINE_State(SelectCandidate),
+        DEFINE_State(EntryRemove),
+        DEFINE_State(RecursiveRegister),
 #undef DEFINE_State
-	{ 0, 0x00 }
+        { 0, 0x00}
     };
 
     result.clear();
 
-    for(int i = 0; states[i].handler != 0; ++ i) {
-	if(handler == states[i].handler) {
-	    result += states[i].name;
-	    result += ", ";
-	    if(event.IsSystem()) {
-		result += systemEvent[abs(event)];
-	    } else {
-		result += event.Param().dump();
-	    }
-	    return;
-	}
+    for(int i = 0; states[i].handler != 0; ++i) {
+        if(handler == states[i].handler) {
+            result += states[i].name;
+            result += ", ";
+            if(event.IsSystem()) {
+                result += systemEvent[abs(event)];
+            } else {
+                result += event.Param().dump();
+            }
+            return;
+        }
     }
 }
 
-#include "SKKStatePrimary-inl.h"
 #include "SKKStateComposing-inl.h"
-#include "SKKStateRecursiveRegister-inl.h"
 #include "SKKStateEntryRemove-inl.h"
+#include "SKKStatePrimary-inl.h"
+#include "SKKStateRecursiveRegister-inl.h"

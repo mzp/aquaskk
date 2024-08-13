@@ -3,11 +3,11 @@
  * stringutil.h - string utilities
  *
  *   Copyright (c) 2009 Tomotaka SUWA, All rights reserved.
- * 
+ *
  *   Redistribution and use in source and binary forms, with or without
  *   modification, are permitted provided that the following conditions
  *   are met:
- * 
+ *
  *   1. Redistributions of source code must retain the above copyright
  *      notice, this list of conditions and the following disclaimer.
  *
@@ -32,29 +32,29 @@
  *   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef	stringutil_h
+#ifndef stringutil_h
 #define stringutil_h
 
-#include <sstream>
 #include <numeric>
+#include <sstream>
 
 namespace string {
     // 置換ユーティリティ
     static void translate(std::string& str, const std::string& from, const std::string& to) {
         std::string::size_type pos = 0;
 
-        if(from == to) return;
+        if(from == to)
+            return;
 
         while((pos = str.find(from, pos)) != std::string::npos) {
             str.replace(pos, from.size(), to);
         }
     }
 
-    template <typename T>
-    static std::string join(T& sequence, const std::string& delimiter = " ") {
+    template <typename T> static std::string join(T& sequence, const std::string& delimiter = " ") {
         std::string result;
 
-        for(typename T::iterator iter = sequence.begin(); iter != sequence.end(); ++ iter) {
+        for(typename T::iterator iter = sequence.begin(); iter != sequence.end(); ++iter) {
             result += *iter;
             result += delimiter;
         }
@@ -78,8 +78,7 @@ namespace string {
             buf_.str(str);
         }
 
-        template <typename T>
-        splitter& operator>>(T& value) {
+        template <typename T> splitter& operator>>(T& value) {
             buf_ >> value;
             return *this;
         }
@@ -89,6 +88,6 @@ namespace string {
         }
     };
 
-};
+}; // namespace string
 
 #endif

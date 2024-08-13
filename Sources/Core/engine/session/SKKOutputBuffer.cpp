@@ -20,13 +20,13 @@
 
 */
 
-#import <AquaSKKCore/SKKOutputBuffer.h>
 #include "SKKFrontEnd.h"
 #include "utf8util.h"
+#import <AquaSKKCore/SKKOutputBuffer.h>
 
 SKKOutputBuffer::SKKOutputBuffer(SKKFrontEnd* frontend)
     : frontend_(frontend) {}
-    
+
 void SKKOutputBuffer::Fix(const std::string& str) {
     frontend_->InsertString(str);
 }
@@ -66,7 +66,7 @@ void SKKOutputBuffer::Output() {
     } else {
         frontend_->ComposeString(composing_, cursor_);
     }
-    
+
     last_ = composing_;
 }
 

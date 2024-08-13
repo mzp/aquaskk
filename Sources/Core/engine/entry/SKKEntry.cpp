@@ -20,8 +20,8 @@
 
 */
 
-#import <AquaSKKCore/SKKEntry.h>
 #include "jconv.h"
+#import <AquaSKKCore/SKKEntry.h>
 
 SKKEntry::SKKEntry() {}
 
@@ -75,16 +75,16 @@ std::string SKKEntry::ToggleKana(SKKInputMode mode) const {
 
     switch(mode) {
     case SKKInputMode::HirakanaInputMode:
-	jconv::hirakana_to_katakana(normal_entry_, result);
-	break;
+        jconv::hirakana_to_katakana(normal_entry_, result);
+        break;
 
     case SKKInputMode::KatakanaInputMode:
-	jconv::katakana_to_hirakana(normal_entry_, result);
-	break;
+        jconv::katakana_to_hirakana(normal_entry_, result);
+        break;
 
     case SKKInputMode::Jisx0201KanaInputMode:
-	jconv::jisx0201_kana_to_katakana(normal_entry_, result);
-	break;
+        jconv::jisx0201_kana_to_katakana(normal_entry_, result);
+        break;
 
     default:
         break;
@@ -98,20 +98,20 @@ std::string SKKEntry::ToggleJisx0201Kana(SKKInputMode mode) const {
 
     switch(mode) {
     case SKKInputMode::HirakanaInputMode:
-	jconv::hirakana_to_jisx0201_kana(normal_entry_, result);
-	break;
-	
+        jconv::hirakana_to_jisx0201_kana(normal_entry_, result);
+        break;
+
     case SKKInputMode::KatakanaInputMode:
-	jconv::katakana_to_jisx0201_kana(normal_entry_, result);
-	break;
+        jconv::katakana_to_jisx0201_kana(normal_entry_, result);
+        break;
 
     case SKKInputMode::Jisx0201KanaInputMode:
-	jconv::jisx0201_kana_to_hirakana(normal_entry_, result);
-	break;
+        jconv::jisx0201_kana_to_hirakana(normal_entry_, result);
+        break;
 
     case SKKInputMode::AsciiInputMode:
-	jconv::ascii_to_jisx0208_latin(normal_entry_, result);
-	break;
+        jconv::ascii_to_jisx0208_latin(normal_entry_, result);
+        break;
 
     default:
         break;
@@ -145,7 +145,7 @@ SKKEntry SKKEntry::Normalize(SKKInputMode mode) const {
     entry.SetEntry(result);
 
     if(!roman.empty()) {
-        entry.SetOkuri(roman.substr(0,1), kana_);
+        entry.SetOkuri(roman.substr(0, 1), kana_);
     }
 
     return entry;
@@ -160,11 +160,8 @@ bool SKKEntry::IsOkuriAri() const {
 }
 
 bool operator==(const SKKEntry& left, const SKKEntry& right) {
-    return left.normal_entry_ == right.normal_entry_
-        && left.okuri_entry_ == right.okuri_entry_
-        && left.prefix_ == right.prefix_
-        && left.kana_ == right.kana_
-        && left.prompt_ == right.prompt_;
+    return left.normal_entry_ == right.normal_entry_ && left.okuri_entry_ == right.okuri_entry_ &&
+           left.prefix_ == right.prefix_ && left.kana_ == right.kana_ && left.prompt_ == right.prompt_;
 }
 
 // ----------------------------------------------------------------------

@@ -10,7 +10,8 @@ struct TestEvent {
     std::string selection;
     std::string yank;
 
-    TestEvent() : code(0), mods(0) {}
+    TestEvent()
+        : code(0), mods(0) {}
 };
 
 #endif

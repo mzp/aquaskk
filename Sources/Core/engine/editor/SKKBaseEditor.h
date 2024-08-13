@@ -32,9 +32,12 @@ class SKKBaseEditor {
     SKKInputContext* context_;
 
 protected:
-    SKKBaseEditor(SKKInputContext* context) : context_(context) {}
+    SKKBaseEditor(SKKInputContext* context)
+        : context_(context) {}
 
-    SKKInputContext* context() const { return context_; }
+    SKKInputContext* context() const {
+        return context_;
+    }
 
 public:
     virtual ~SKKBaseEditor() {}
@@ -56,9 +59,7 @@ public:
     // 入力処理(fixed=確定文字列, input=入力文字列, code=入力文字)
     virtual void Input(const std::string& fixed, const std::string& input, char code) {}
 
-    enum Event {
-        BackSpace, Delete, CursorLeft, CursorRight, CursorUp, CursorDown
-    };
+    enum Event { BackSpace, Delete, CursorLeft, CursorRight, CursorUp, CursorDown };
 
     // 入力処理(event=イベント)
     virtual void Input(Event event) {}

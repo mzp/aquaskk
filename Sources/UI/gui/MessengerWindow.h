@@ -23,21 +23,20 @@
 #ifndef MessengerWindow_h
 #define MessengerWindow_h
 
-#import <Foundation/Foundation.h>
 #import <AppKit/AppKit.h>
+#import <Foundation/Foundation.h>
 
 @class MessengerView;
 
 @interface MessengerWindow : NSObject {
-    NSWindow* window_;
-    MessengerView* view_;
+    NSWindow *window_;
+    MessengerView *view_;
 }
 
-+ (MessengerWindow*)sharedWindow;
-- (void)showMessage:(NSString*)message at:(NSPoint)topleft level:(int)level;
++ (MessengerWindow *)sharedWindow;
+- (void)showMessage:(NSString *)message at:(NSPoint)topleft level:(int)level;
 - (void)hide;
 
 @end
 
 #endif
-

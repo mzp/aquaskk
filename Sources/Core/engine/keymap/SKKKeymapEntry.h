@@ -23,8 +23,8 @@
 #ifndef SKKKeymapEntry_h
 #define SKKKeymapEntry_h
 
-#include <vector>
 #include <string>
+#include <vector>
 
 // キーマップパーサー
 class SKKKeymapEntry {
@@ -38,11 +38,7 @@ class SKKKeymapEntry {
     std::vector<KeyRange> keys_;
     unsigned pos_;
 
-    enum {
-	LABEL_GROUP	= (1 << 1),
-	LABEL_HEX	= (1 << 2),
-	LABEL_KEYCODE	= (1 << 3)
-    };
+    enum { LABEL_GROUP = (1 << 1), LABEL_HEX = (1 << 2), LABEL_KEYCODE = (1 << 3) };
 
     std::string setup(const std::string& str);
     void parseGroup(const std::string& str);

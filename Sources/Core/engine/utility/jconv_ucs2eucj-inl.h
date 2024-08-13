@@ -9,6 +9,7 @@
       You can use, modify, distribute this table freely.
 */
 
+// clang-format off
 /* 2-byte UTF8: [C2 XX] */
 static unsigned short utf2euc_c2[64] = {
  0x0080, 0x0081, 0x0082, 0x0083, 0x0084, 0x0085, 0x0086, 0x0087,
@@ -5626,3 +5627,4 @@ static unsigned short utf2euc_f0_aa[] = {
  0, 0
 };
 
+// clang-format on

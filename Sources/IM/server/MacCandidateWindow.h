@@ -29,25 +29,24 @@
 @class CandidateWindow;
 
 class MacCandidateWindow : public SKKCandidateWindow {
-    SKKLayoutManager* layout_;
+    SKKLayoutManager *layout_;
     bool putUpward_;
-    NSMutableArray* candidates_;
+    NSMutableArray *candidates_;
     NSRange page_;
     int cursor_;
     int cellCount_;
-    CandidateWindow* window_;
+    CandidateWindow *window_;
 
     void reloadUserDefaults();
     virtual void SKKWidgetShow();
     virtual void SKKWidgetHide();
 
-public:
-    MacCandidateWindow(SKKLayoutManager* layout);
+  public:
+    MacCandidateWindow(SKKLayoutManager *layout);
     virtual ~MacCandidateWindow();
 
-    virtual void Setup(SKKCandidateIterator begin, SKKCandidateIterator end, std::vector<int>& pages);
-    virtual void Update(SKKCandidateIterator begin, SKKCandidateIterator end,
-                        int cursor, int page_pos, int page_max);
+    virtual void Setup(SKKCandidateIterator begin, SKKCandidateIterator end, std::vector<int> &pages);
+    virtual void Update(SKKCandidateIterator begin, SKKCandidateIterator end, int cursor, int page_pos, int page_max);
     virtual int LabelIndex(char label);
 };
 

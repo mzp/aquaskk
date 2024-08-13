@@ -35,7 +35,7 @@ class SKKPreProcessor {
     SKKPreProcessor& operator=(const SKKPreProcessor&);
 
 public:
-    // シングルトン    
+    // シングルトン
     static SKKPreProcessor& theInstance();
 
     // キーマップのロード

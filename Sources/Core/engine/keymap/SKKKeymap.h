@@ -23,9 +23,9 @@
 #ifndef SKKKeymap_h
 #define SKKKeymap_h
 
+#import <AquaSKKCore/SKKEvent.h>
 #include <map>
 #include <string>
-#import <AquaSKKCore/SKKEvent.h>
 
 // キーマップ
 class SKKKeymap {

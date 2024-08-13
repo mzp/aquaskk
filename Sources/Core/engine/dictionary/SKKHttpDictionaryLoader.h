@@ -52,9 +52,13 @@ public:
     //
     virtual void Initialize(const std::string& location);
 
-    virtual int Interval() const { return 60 * 60 * 6; }
+    virtual int Interval() const {
+        return 60 * 60 * 6;
+    }
 
-    virtual int Timeout() const { return 3; }
+    virtual int Timeout() const {
+        return 3;
+    }
 };
 
 #endif

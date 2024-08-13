@@ -23,23 +23,22 @@
 #ifndef AnnotationWindow_h
 #define AnnotationWindow_h
 
-#import <Foundation/Foundation.h>
 #import <AppKit/AppKit.h>
+#import <Foundation/Foundation.h>
 
 @class AnnotationView;
 
 @interface AnnotationWindow : NSObject {
-    NSWindow* window_;
-    AnnotationView* view_;
+    NSWindow *window_;
+    AnnotationView *view_;
 }
 
-+ (AnnotationWindow*)sharedWindow;
-- (NSWindow*)window;
-- (void)setAnnotation:(NSString*)definition optional:(NSString*)annotation;
++ (AnnotationWindow *)sharedWindow;
+- (NSWindow *)window;
+- (void)setAnnotation:(NSString *)definition optional:(NSString *)annotation;
 - (void)showAt:(NSPoint)origin level:(int)level;
 - (void)hide;
 
 @end
 
 #endif
-

@@ -20,10 +20,10 @@
 
 */
 
-#import <AquaSKKCore/SKKDictionaryKeeper.h>
-#import <AquaSKKCore/SKKCandidateParser.h>
 #include "jconv.h"
 #include "utf8util.h"
+#import <AquaSKKCore/SKKCandidateParser.h>
+#import <AquaSKKCore/SKKDictionaryKeeper.h>
 
 namespace {
     // 見出し語補完用比較ファンクタ
@@ -35,7 +35,8 @@ namespace {
         }
 
     public:
-        CompareFunctor(int length) : length_(length) {}
+        CompareFunctor(int length)
+            : length_(length) {}
 
         bool operator()(const SKKDictionaryEntry& lhs, const SKKDictionaryEntry& rhs) const {
             return compare(lhs.first, rhs.first);
@@ -55,19 +56,21 @@ namespace {
         std::string candidate_;
 
     public:
-        NotInclude(const std::string& candidate) : candidate_(candidate) {}
+        NotInclude(const std::string& candidate)
+            : candidate_(candidate) {}
 
         bool operator()(const SKKDictionaryEntry& entry) const {
             return entry.second.find(candidate_) == std::string::npos;
         }
     };
-}
+} // namespace
 
 SKKDictionaryKeeper::SKKDictionaryKeeper(Encoding encoding)
     : timer_(0), loaded_(false), needs_conversion_(encoding == EUC_JP) {}
 
 void SKKDictionaryKeeper::Initialize(SKKDictionaryLoader* loader) {
-    if(timer_.get()) return;
+    if(timer_.get())
+        return;
 
     loader->Connect(this);
 
@@ -89,16 +92,17 @@ std::string SKKDictionaryKeeper::FindOkuriNasi(const std::string& query) {
 std::string SKKDictionaryKeeper::ReverseLookup(const std::string& candidate) {
     pthread::lock scope(condition_);
 
-    if(!ready()) return "";
+    if(!ready())
+        return "";
 
     SKKDictionaryEntryContainer& container = file_.OkuriNasi();
     SKKDictionaryEntryContainer entries;
     SKKCandidateParser parser;
 
-    std::remove_copy_if(container.begin(), container.end(),
-                        std::back_inserter(entries), NotInclude("/" + eucj_from_utf8(candidate)));
+    std::remove_copy_if(
+        container.begin(), container.end(), std::back_inserter(entries), NotInclude("/" + eucj_from_utf8(candidate)));
 
-    for(unsigned i = 0; i < entries.size(); ++ i) {
+    for(unsigned i = 0; i < entries.size(); ++i) {
         parser.Parse(utf8_from_eucj(entries[i].second));
         const SKKCandidateContainer& suite = parser.Candidates();
 
@@ -113,7 +117,8 @@ std::string SKKDictionaryKeeper::ReverseLookup(const std::string& candidate) {
 void SKKDictionaryKeeper::Complete(SKKCompletionHelper& helper) {
     pthread::lock scope(condition_);
 
-    if(!ready()) return;
+    if(!ready())
+        return;
 
     typedef std::pair<SKKDictionaryEntryIterator, SKKDictionaryEntryIterator> EntryRange;
 
@@ -121,15 +126,15 @@ void SKKDictionaryKeeper::Complete(SKKCompletionHelper& helper) {
     std::string query = eucj_from_utf8(helper.Entry());
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wshorten-64-to-32"
-    EntryRange range = std::equal_range(container.begin(), container.end(),
-                                        query, CompareFunctor(query.size()));
+    EntryRange range = std::equal_range(container.begin(), container.end(), query, CompareFunctor(query.size()));
 #pragma clang diagnostic pop
-    for(SKKDictionaryEntryIterator iter = range.first; iter != range.second; ++ iter) {
+    for(SKKDictionaryEntryIterator iter = range.first; iter != range.second; ++iter) {
         std::string completion = utf8_from_eucj(iter->first);
 
         helper.Add(completion);
 
-        if(!helper.CanContinue()) return;
+        if(!helper.CanContinue())
+            return;
     }
 }
 
@@ -148,16 +153,17 @@ void SKKDictionaryKeeper::SKKDictionaryLoaderUpdate(const SKKDictionaryFile& fil
 std::string SKKDictionaryKeeper::fetch(const std::string& query, SKKDictionaryEntryContainer& container) {
     pthread::lock scope(condition_);
 
-    if(!ready()) return "";
+    if(!ready())
+        return "";
 
     std::string index = eucj_from_utf8(query);
 
     if(!std::binary_search(container.begin(), container.end(), index, SKKDictionaryEntryCompare())) {
-	return "";
+        return "";
     }
 
-    SKKDictionaryEntryIterator iter = std::lower_bound(container.begin(), container.end(),
-						       index, SKKDictionaryEntryCompare());
+    SKKDictionaryEntryIterator iter =
+        std::lower_bound(container.begin(), container.end(), index, SKKDictionaryEntryCompare());
 
     return utf8_from_eucj(iter->second);
 }
@@ -165,7 +171,8 @@ std::string SKKDictionaryKeeper::fetch(const std::string& query, SKKDictionaryEn
 bool SKKDictionaryKeeper::ready() {
     // 辞書のロードが完了するまで待つ
     if(!loaded_) {
-        if(!condition_.wait(timeout_)) return false;
+        if(!condition_.wait(timeout_))
+            return false;
     }
 
     return true;

@@ -23,31 +23,33 @@
 #ifndef SKKCandidate_h
 #define SKKCandidate_h
 
-#include <string>
 #include <deque>
+#include <string>
 
 // 単一の変換候補
 class SKKCandidate {
     std::string word_;
     std::string annotation_;
-    std::string variant_;	// 数値変換用
-    bool avoid_study_;          // 動的変換は学習しない
+    std::string variant_; // 数値変換用
+    bool avoid_study_;    // 動的変換は学習しない
 
     void parse(const std::string& str) {
-	std::string::size_type pos = str.find_first_of(';');
+        std::string::size_type pos = str.find_first_of(';');
 
-	if(pos != std::string::npos) {
-	    annotation_ = str.substr(pos + 1);
-	}
+        if(pos != std::string::npos) {
+            annotation_ = str.substr(pos + 1);
+        }
 
-	word_ = str.substr(0, pos);
+        word_ = str.substr(0, pos);
     }
 
 public:
-    SKKCandidate() : avoid_study_(false) {}
+    SKKCandidate()
+        : avoid_study_(false) {}
 
-    SKKCandidate(const std::string& candidate, bool auto_parse = true) : avoid_study_(false) {
-	if(auto_parse) {
+    SKKCandidate(const std::string& candidate, bool auto_parse = true)
+        : avoid_study_(false) {
+        if(auto_parse) {
             parse(candidate);
         } else {
             word_ = candidate;
@@ -55,19 +57,19 @@ public:
     }
 
     bool IsEmpty() const {
-	return word_.empty();
+        return word_.empty();
     }
 
     const std::string& Word() const {
-	return word_;
+        return word_;
     }
 
     const std::string& Annotation() const {
-	return annotation_;
+        return annotation_;
     }
 
     const std::string& Variant() const {
-	return (variant_.empty() ? Word() : variant_);
+        return (variant_.empty() ? Word() : variant_);
     }
 
     bool AvoidStudy() const {
@@ -75,7 +77,7 @@ public:
     }
 
     void SetVariant(const std::string& str) {
-	variant_ = str;
+        variant_ = str;
     }
 
     void SetAvoidStudy() {
@@ -83,15 +85,15 @@ public:
     }
 
     std::string ToString() const {
-	return word_ + (annotation_.empty() ? "" : (";" + annotation_));
+        return word_ + (annotation_.empty() ? "" : (";" + annotation_));
     }
 
     bool operator==(const SKKCandidate& rhs) const {
-	return Variant() == rhs.Variant(); // 注釈は比較しない
+        return Variant() == rhs.Variant(); // 注釈は比較しない
     }
 
     bool operator!=(const SKKCandidate& rhs) const {
-	return !this->operator==(rhs);
+        return !this->operator==(rhs);
     }
 
     // 候補のエンコードとデコード

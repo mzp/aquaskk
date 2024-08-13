@@ -26,9 +26,9 @@
 #include <Cocoa/Cocoa.h>
 
 @interface CandidatePageIndicator : NSObject {
-    NSMutableDictionary* attributes_;
-    NSAttributedString* indicator_;
-    NSBezierPath* plate_;
+    NSMutableDictionary *attributes_;
+    NSAttributedString *indicator_;
+    NSBezierPath *plate_;
 }
 
 - (void)setPage:(NSRange)page;

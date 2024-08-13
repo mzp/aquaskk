@@ -20,19 +20,20 @@
 
 */
 
-#import <AquaSKKCore/SKKInputSession.h>
-#import <AquaSKKCore/SKKRecursiveEditor.h>
 #include "SKKFrontEnd.h"
-#import <AquaSKKCore/SKKPrimaryEditor.h>
-#import <AquaSKKCore/SKKRegisterEditor.h>
 #import <AquaSKKCore/SKKBackEnd.h>
+#import <AquaSKKCore/SKKInputSession.h>
+#import <AquaSKKCore/SKKPrimaryEditor.h>
+#import <AquaSKKCore/SKKRecursiveEditor.h>
+#import <AquaSKKCore/SKKRegisterEditor.h>
 
 namespace {
     class scoped_flag {
         bool& flag_;
 
     public:
-        scoped_flag(bool& flag) : flag_(flag) {
+        scoped_flag(bool& flag)
+            : flag_(flag) {
             flag_ = true;
         }
 
@@ -40,12 +41,10 @@ namespace {
             flag_ = false;
         }
     };
-}
+} // namespace
 
 SKKInputSession::SKKInputSession(SKKInputSessionParameter* param)
-    : param_(param)
-    , context_(param->FrontEnd())
-    , inEvent_(false) {
+    : param_(param), context_(param->FrontEnd()), inEvent_(false) {
     stack_.push_back(createEditor(new SKKPrimaryEditor(&context_)));
 }
 
@@ -65,7 +64,8 @@ void SKKInputSession::AddInputModeListener(SKKInputModeListener* listener) {
 }
 
 bool SKKInputSession::HandleEvent(const SKKEvent& event) {
-    if(inEvent_) return false;
+    if(inEvent_)
+        return false;
 
     scoped_flag on(inEvent_);
 
@@ -82,14 +82,15 @@ bool SKKInputSession::HandleEvent(const SKKEvent& event) {
 
 void SKKInputSession::Commit() {
     HandleEvent(SKKEvent(SKK_ENTER, 0));
-    
+
     if(context_.output.IsComposing()) {
         Clear();
     }
 }
 
 void SKKInputSession::Clear() {
-    if(inEvent_) return;
+    if(inEvent_)
+        return;
 
     scoped_flag on(inEvent_);
 
@@ -133,8 +134,7 @@ void SKKInputSession::endEvent() {
         if(stack_.size() != 1) {
             popEditor();
 
-            top()->Input(SKKEvent(context_.registration == SKKRegistration::Finished
-                                  ? SKK_ENTER : SKK_CANCEL, 0));
+            top()->Input(SKKEvent(context_.registration == SKKRegistration::Finished ? SKK_ENTER : SKK_CANCEL, 0));
         }
         break;
 
@@ -150,10 +150,10 @@ bool SKKInputSession::result(const SKKEvent& event) {
     }
 
     switch(event.option) {
-    case AlwaysHandled:     // 常に処理済み
+    case AlwaysHandled: // 常に処理済み
         return true;
 
-    case PseudoHandled:     // 未処理
+    case PseudoHandled: // 未処理
         return false;
 
     default:
@@ -166,8 +166,7 @@ SKKRecursiveEditor* SKKInputSession::top() {
 }
 
 SKKRecursiveEditor* SKKInputSession::createEditor(SKKBaseEditor* bottom) {
-    return new SKKRecursiveEditor(
-        new SKKInputEnvironment(&context_, param_.get(), &listeners_, bottom));
+    return new SKKRecursiveEditor(new SKKInputEnvironment(&context_, param_.get(), &listeners_, bottom));
 }
 
 void SKKInputSession::popEditor() {

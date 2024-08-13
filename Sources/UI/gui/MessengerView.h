@@ -26,14 +26,13 @@
 #import <AppKit/AppKit.h>
 
 @interface MessengerView : NSView {
-    NSDictionary* attributes_;
-    NSImage* icon_;
-    NSString* message_;
+    NSDictionary *attributes_;
+    NSImage *icon_;
+    NSString *message_;
 }
 
-- (void)setMessage:(NSString*)message;
+- (void)setMessage:(NSString *)message;
 
 @end
 
 #endif
-

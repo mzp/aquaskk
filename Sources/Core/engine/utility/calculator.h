@@ -23,29 +23,30 @@
 #ifndef calculator_h
 #define calculator_h
 
+#include <cmath>
 #include <sstream>
 #include <stdexcept>
-#include <cmath>
 
 /*
 
 expression	= term { ('+' | '-') term }
-    		;
+                ;
 
 term		= primary { ('*' | '/' | '%' ) primary }
-    		;
+                ;
 
 primary		= [ '+' | '-' ] number | '(' expression ')'
-		;
+                ;
 
 number		=  floating-point-literal
-		;
+                ;
 
 */
 
 namespace calculator {
     struct token {
-        token(char k = 0, double v = 0) : kind(k), value(v) {}
+        token(char k = 0, double v = 0)
+            : kind(k), value(v) {}
 
         char kind;
         double value;
@@ -66,12 +67,26 @@ namespace calculator {
 
             if(input_ >> result.kind) {
                 switch(result.kind) {
-                case '(': case ')': case '+': case '-': case '*': case '/': case '%':
+                case '(':
+                case ')':
+                case '+':
+                case '-':
+                case '*':
+                case '/':
+                case '%':
                     return result;
 
                 case '.':
-                case '0': case '1': case '2': case '3': case '4':
-                case '5': case '6': case '7': case '8': case '9':
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
                     input_.putback(result.kind);
                     input_ >> result.value;
                     result.kind = '#';
@@ -79,11 +94,11 @@ namespace calculator {
                     return result;
 
                 default:
-                    throw std::runtime_error("計算エラー:不正な文字です"); 
+                    throw std::runtime_error("計算エラー:不正な文字です");
                 }
             }
 
-            return result;      // EOF
+            return result; // EOF
         }
 
         void save_token(const token& token) {
@@ -164,7 +179,7 @@ namespace calculator {
             }
 
             if(token.kind == '-') {
-                return - primary();
+                return -primary();
             }
 
             if(token.kind == '+') {
@@ -183,6 +198,6 @@ namespace calculator {
             return expression();
         }
     };
-}
+} // namespace calculator
 
 #endif

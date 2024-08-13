@@ -28,5 +28,15 @@ tasks:
         preconditions:
             - which swiftformat
         cmds:
-            - find . -name 'AI*.m' -or -name 'AI*.mm' -or -name 'AI*.h' -or -name 'SKKRoman*' -exec clang-format -i \{\} \;
-            - swiftformat --verbose .
+            - task: clang-format
+              vars:
+                DIRECTORY: ./Sources
+            - task: clang-format
+              vars:
+                DIRECTORY: ./Tests
+            - swiftformat .
+
+    clang-format:
+        internal: true
+        cmds:
+            - find {{.DIRECTORY}} -name '*.m' -or -name '*.mm' -or -name '*.cpp' -or -name '*.h' -print0 | xargs --null clang-format -i

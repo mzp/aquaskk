@@ -20,7 +20,7 @@
 
 */
 
-#ifndef	SKKEntry_h
+#ifndef SKKEntry_h
 #define SKKEntry_h
 
 #import <AquaSKKCore/SKKInputMode.h>

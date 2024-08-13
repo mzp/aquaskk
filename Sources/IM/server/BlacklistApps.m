@@ -22,33 +22,33 @@
 
 #import "BlacklistApps.h"
 
-@interface BlacklistApps(Local)
-- (BOOL)isJavaApp:(NSBundle*)bunlde;
-- (BOOL)isBlacklistApp:(NSString*)bunldeIdentifier withKey:(NSString*)key;
+@interface BlacklistApps (Local)
+- (BOOL)isJavaApp:(NSBundle *)bunlde;
+- (BOOL)isBlacklistApp:(NSString *)bunldeIdentifier withKey:(NSString *)key;
 @end
 
 @implementation BlacklistApps
-static BlacklistApps* sharedData_ = nil;
+static BlacklistApps *sharedData_ = nil;
 
-- (void)load:(NSArray*)xs {
+- (void)load:(NSArray *)xs {
     id old = blacklistApps_;
     blacklistApps_ = [xs retain];
     [old release];
 }
 
 - (BOOL)isInsertEmptyString:(NSBundle *)bundle {
-    NSMutableDictionary* entry = [self getEntry:[bundle bundleIdentifier]];
-    if(entry) {
+    NSMutableDictionary *entry = [self getEntry:[bundle bundleIdentifier]];
+    if (entry) {
         return [entry[@"insertEmptyString"] boolValue];
     }
 
-    if([self isJavaApp:bundle]) {
+    if ([self isJavaApp:bundle]) {
         return YES;
     }
 
     // very special apps
-    if([[bundle bundleIdentifier] hasPrefix:@"com.microsoft.Excel"] &&
-       [[bundle objectForInfoDictionaryKey:@"CFBundleVersion"] hasPrefix:@"15."]) {
+    if ([[bundle bundleIdentifier] hasPrefix:@"com.microsoft.Excel"] &&
+        [[bundle objectForInfoDictionaryKey:@"CFBundleVersion"] hasPrefix:@"15."]) {
         return YES;
     }
 
@@ -63,38 +63,38 @@ static BlacklistApps* sharedData_ = nil;
     return [self isBlacklistApp:[bundle bundleIdentifier] withKey:@"syncInputSource"];
 }
 
-- (NSMutableDictionary*)getEntry:(NSString*)bundleIdentifier{
-    for (NSMutableDictionary* entry in blacklistApps_) {
-        if([bundleIdentifier hasPrefix: entry[@"bundleIdentifier"]]) {
+- (NSMutableDictionary *)getEntry:(NSString *)bundleIdentifier {
+    for (NSMutableDictionary *entry in blacklistApps_) {
+        if ([bundleIdentifier hasPrefix:entry[@"bundleIdentifier"]]) {
             return entry;
         }
     }
     return nil;
 }
 
-- (BOOL)isBlacklistApp:(NSString*)bundleIdentifier withKey:(NSString*)key {
-    NSMutableDictionary* entry = [self getEntry: bundleIdentifier];
+- (BOOL)isBlacklistApp:(NSString *)bundleIdentifier withKey:(NSString *)key {
+    NSMutableDictionary *entry = [self getEntry:bundleIdentifier];
 
     return [entry[key] boolValue];
 }
 
-- (BOOL)isJavaApp:(NSBundle*)bundle {
-    if([[bundle bundleIdentifier] hasPrefix:@"jp.naver.line.mac"]) {
+- (BOOL)isJavaApp:(NSBundle *)bundle {
+    if ([[bundle bundleIdentifier] hasPrefix:@"jp.naver.line.mac"]) {
         return YES;
     }
-    if([bundle objectForInfoDictionaryKey:@"Java"]) {
+    if ([bundle objectForInfoDictionaryKey:@"Java"]) {
         return YES;
     }
-    if([bundle objectForInfoDictionaryKey:@"Eclipse"]) {
+    if ([bundle objectForInfoDictionaryKey:@"Eclipse"]) {
         return YES;
     }
-    if([bundle objectForInfoDictionaryKey:@"JVMOptions"]) {
+    if ([bundle objectForInfoDictionaryKey:@"JVMOptions"]) {
         return YES;
     }
     return NO;
 }
 
-+ (BlacklistApps*)sharedManager {
++ (BlacklistApps *)sharedManager {
     if (!sharedData_) {
         sharedData_ = [[BlacklistApps alloc] init];
     }

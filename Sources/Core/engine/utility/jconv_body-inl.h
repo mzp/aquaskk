@@ -4,11 +4,11 @@
  * jconv_body-inl.h - japanese character code conversion library.
  *
  *   Copyright (c) 2006,2008 Tomotaka SUWA, All rights reserved.
- * 
+ *
  *   Redistribution and use in source and binary forms, with or without
  *   modification, are permitted provided that the following conditions
  *   are met:
- * 
+ *
  *   1. Redistributions of source code must retain the above copyright
  *      notice, this list of conditions and the following disclaimer.
  *
@@ -35,11 +35,11 @@
 
 /*
  *   Copyright (c) 2000-2003 Shiro Kawai, All rights reserved.
- * 
+ *
  *   Redistribution and use in source and binary forms, with or without
  *   modification, are permitted provided that the following conditions
  *   are met:
- * 
+ *
  *   1. Redistributions of source code must retain the above copyright
  *      notice, this list of conditions and the following disclaimer.
  *
@@ -69,7 +69,7 @@
 // ======================================================================
 
 /* Shift_JISX0213 -> EUC-JP
- * 
+ *
  * Mapping anormalities
  *
  *   0x5c, 0x7e : Shift_JISX0213 mapping table maps 0x5c to U+00A5
@@ -123,45 +123,45 @@
 void sjis_to_eucj::neutral(unsigned char c) {
     // JISX0201 Latin
     if(c <= 0x7f) {
-	output_ += c;
-	return;
+        output_ += c;
+        return;
     }
 
     // JISX0201 Kana
     if(0xa1 <= c && c <= 0xdf) {
-	output_ += 0x8e;
-	output_ += c;
-	return;
+        output_ += 0x8e;
+        output_ += c;
+        return;
     }
 
     // JISX0213
     if((0x81 <= c && c <= 0x9f) || (0xe0 <= c && c <= 0xfc)) {
-	state_ = &sjis_to_eucj::jisx0213;
-	input_.clear();
-	input_.push_back(c);
-	return;
+        state_ = &sjis_to_eucj::jisx0213;
+        input_.clear();
+        input_.push_back(c);
+        return;
     }
 
     // copyright mark
     if(c == 0xfd) {
-	output_ += 0xa9;
-	output_ += 0xa6;
-	return;
+        output_ += 0xa9;
+        output_ += 0xa6;
+        return;
     }
 
     // trademark sign.  this is not in JISX0213, but in JISX0212.
     if(c == 0xfe) {
-	output_ += 0x8f;
-	output_ += 0xa2;
-	output_ += 0xef;
-	return;
+        output_ += 0x8f;
+        output_ += 0xa2;
+        output_ += 0xef;
+        return;
     }
 
     // horizontal ellipsis.
     if(c == 0xff) {
-	output_ += 0xa1;
-	output_ += 0xc4;
-	return;
+        output_ += 0xa1;
+        output_ += 0xc4;
+        return;
     }
 
     // s1 == 0x80 or 0xa0
@@ -174,33 +174,33 @@ void sjis_to_eucj::jisx0213(unsigned char c) {
     reset();
 
     if(input_[1] < 0x40 || input_[1] == 0x7f || 0xfc < input_[1]) {
-	subst_();
-	return;
+        subst_();
+        return;
     }
 
     unsigned char e1, e2;
 
     if(input_[0] <= 0x9f) {
-	e1 = (input_[0] - 0x80) * 2 - ((input_[1] < 0x9f) ? 1 : 0) + 0xa0;
+        e1 = (input_[0] - 0x80) * 2 - ((input_[1] < 0x9f) ? 1 : 0) + 0xa0;
     } else if(input_[0] <= 0xef) {
-	e1 = (input_[0] - 0xc0) * 2 - ((input_[1] < 0x9f) ? 1 : 0) + 0xa0;
+        e1 = (input_[0] - 0xc0) * 2 - ((input_[1] < 0x9f) ? 1 : 0) + 0xa0;
     } else if(0xf5 <= input_[0]) {
-	e1 = (input_[0] - 0xf5) * 2 + 0x50 - ((input_[1] < 0x9f) ? 1 : 0) + 0xa0;
+        e1 = (input_[0] - 0xf5) * 2 + 0x50 - ((input_[1] < 0x9f) ? 1 : 0) + 0xa0;
     } else {
-	static unsigned char cvt[] = { 0x01, 0x08, 0x03, 0x04, 0x05, 0x0c, 0x0e, 0x0d, 0x0f, 0x4e };
-	e1 = cvt[(input_[0] - 0xf0) * 2 + ((input_[1] < 0x9f) ? 0 : 1)] + 0xa0;
+        static unsigned char cvt[] = {0x01, 0x08, 0x03, 0x04, 0x05, 0x0c, 0x0e, 0x0d, 0x0f, 0x4e};
+        e1 = cvt[(input_[0] - 0xf0) * 2 + ((input_[1] < 0x9f) ? 0 : 1)] + 0xa0;
     }
-        
+
     if(input_[1] < 0x7f) {
-	e2 = input_[1] - 0x3f + 0xa0;
+        e2 = input_[1] - 0x3f + 0xa0;
     } else if(input_[1] < 0x9f) {
-	e2 = input_[1] - 0x40 + 0xa0;
+        e2 = input_[1] - 0x40 + 0xa0;
     } else {
-	e2 = input_[1] - 0x9e + 0xa0;
+        e2 = input_[1] - 0x9e + 0xa0;
     }
 
     if(0xef < input_[0]) {
-	output_ += 0x8f;
+        output_ += 0x8f;
     }
 
     output_ += e1;
@@ -212,7 +212,7 @@ void sjis_to_eucj::jisx0213(unsigned char c) {
 // ======================================================================
 
 /* EUC_JISX0213 -> Shift_JIS
- * 
+ *
  * Mapping anormalities
  *
  *   0x80--0xa0 except 0x8e and 0x8f : C1 region.
@@ -232,7 +232,7 @@ void sjis_to_eucj::jisx0213(unsigned char c) {
  *   For double or trible-byte character, subsequent byte has to be in
  *   the range between 0xa1 and 0xfe inclusive.  If not, it is replaced
  *   for the substitution character.
- *   
+ *
  *   If the first byte is in the range of 0xa1--0xfe, two bytes (e1, e2)
  *   is mapped to SJIS (s1, s2) by:
  *
@@ -257,38 +257,38 @@ void sjis_to_eucj::jisx0213(unsigned char c) {
 
 void eucj_to_sjis::neutral(unsigned char c) {
     if(c <= 0x7f) {
-	output_ += c;
-	return;
+        output_ += c;
+        return;
     }
 
     if(c == 0x8e) {
-	state_ = &eucj_to_sjis::jisx0201_kana;
-	return;
+        state_ = &eucj_to_sjis::jisx0201_kana;
+        return;
     }
 
     if(c == 0x8f) {
-	state_ = &eucj_to_sjis::jisx0213_plane2;
-	input_.clear();
-	return;
+        state_ = &eucj_to_sjis::jisx0213_plane2;
+        input_.clear();
+        return;
     }
 
     if(0xa1 <= c && c <= 0xfe) {
-	state_ = &eucj_to_sjis::jisx0213_plane1;
-	input_.clear();
-	input_.push_back(c);
-	return;
+        state_ = &eucj_to_sjis::jisx0213_plane1;
+        input_.clear();
+        input_.push_back(c);
+        return;
     }
 
     output_ += subst_char;
 }
 
 void eucj_to_sjis::jisx0201_kana(unsigned char c) {
-    reset(); 
+    reset();
 
     if(c < 0xa1 || c == 0xff) {
-	output_ += subst_char;
+        output_ += subst_char;
     } else {
-	output_ += c;
+        output_ += c;
     }
 }
 
@@ -298,26 +298,26 @@ void eucj_to_sjis::jisx0213_plane1(unsigned char c) {
     reset();
 
     if(input_[1] < 0xa1 || input_[1] == 0xff) {
-	subst_();
-	return;
+        subst_();
+        return;
     }
 
     unsigned char s1, s2;
 
     if(input_[0] <= 0xde) {
-	s1 = (input_[0] - 0xa0 + 0x101) / 2;
+        s1 = (input_[0] - 0xa0 + 0x101) / 2;
     } else {
-	s1 = (input_[0] - 0xa0 + 0x181) / 2;
+        s1 = (input_[0] - 0xa0 + 0x181) / 2;
     }
 
     if(input_[0] % 2 == 0) {
-	s2 = input_[1] - 0xa0 + 0x9e;
+        s2 = input_[1] - 0xa0 + 0x9e;
     } else {
-	if(input_[1] <= 0xdf) {
-	    s2 = input_[1] - 0xa0 + 0x3f;
-	} else {
-	    s2 = input_[1] - 0xa0 + 0x40;
-	}
+        if(input_[1] <= 0xdf) {
+            s2 = input_[1] - 0xa0 + 0x3f;
+        } else {
+            s2 = input_[1] - 0xa0 + 0x40;
+        }
     }
 
     output_ += s1;
@@ -327,46 +327,42 @@ void eucj_to_sjis::jisx0213_plane1(unsigned char c) {
 void eucj_to_sjis::jisx0213_plane2(unsigned char c) {
     input_.push_back(c);
     if(input_.size() < 2) {
-	return;
+        return;
     }
 
     reset();
 
-    if(input_[0] < 0xa1 || input_[0] == 0xff ||
-       input_[1] < 0xa1 || input_[1] == 0xff) {
-	subst_();
-	return;
+    if(input_[0] < 0xa1 || input_[0] == 0xff || input_[1] < 0xa1 || input_[1] == 0xff) {
+        subst_();
+        return;
     }
 
     unsigned char s1, s2;
 
     if(0xee <= input_[0]) {
-	s1 = (input_[0] - 0xa0 + 0x19b) / 2;
+        s1 = (input_[0] - 0xa0 + 0x19b) / 2;
     } else if(0xb0 <= input_[0]) {
-	subst_();
-	return;
+        subst_();
+        return;
     } else {
-	static unsigned char cvt[] = {
-	    0xf0, 0x00, 0xf1, 0xf1, 0xf2,
-	    0x00, 0x00, 0xf0, 0x00, 0x00,
-	    0x00, 0xf2, 0xf3, 0xf3, 0xf4
-	};
+        static unsigned char cvt[] = {0xf0, 0x00, 0xf1, 0xf1, 0xf2, 0x00, 0x00, 0xf0,
+                                      0x00, 0x00, 0x00, 0xf2, 0xf3, 0xf3, 0xf4};
 
-	s1 = cvt[input_[0] - 0xa1];
-	if(s1 == 0) {
-	    subst_();
-	    return;
-	}
+        s1 = cvt[input_[0] - 0xa1];
+        if(s1 == 0) {
+            subst_();
+            return;
+        }
     }
 
     if(input_[0] % 2 == 0) {
-	s2 = input_[1] - 0xa0 + 0x9e;
+        s2 = input_[1] - 0xa0 + 0x9e;
     } else {
-	if(c < 0xdf) {
-	    s2 = input_[1] - 0xa0 + 0x3f;
-	} else {
-	    s2 = input_[1] - 0xa0 + 0x40;
-	}
+        if(c < 0xdf) {
+            s2 = input_[1] - 0xa0 + 0x3f;
+        } else {
+            s2 = input_[1] - 0xa0 + 0x40;
+        }
     }
 
     output_ += s1;
@@ -443,15 +439,15 @@ void eucj_to_sjis::jisx0213_plane2(unsigned char c) {
 
 void utf8_to_eucj::emit(unsigned short euc) {
     if(euc == 0) {
-	subst_();
-	return;
+        subst_();
+        return;
     }
 
     if(euc < 0x8000) {
-	output_ += 0x8f;
-	output_ += ((euc >> 8) + 0x80);
-	output_ += (euc & 0xff);
-	return;
+        output_ += 0x8f;
+        output_ += ((euc >> 8) + 0x80);
+        output_ += (euc & 0xff);
+        return;
     }
 
     output_ += (euc >> 8);
@@ -460,41 +456,41 @@ void utf8_to_eucj::emit(unsigned short euc) {
 
 void utf8_to_eucj::neutral(unsigned char c) {
     if(c <= 0x7f) {
-	output_ += c;
-	return;
+        output_ += c;
+        return;
     }
 
     if(c <= 0xbf) {
-	return dead_end("utf8_to_eucj::neutral(): illegal UTF8 sequence");
+        return dead_end("utf8_to_eucj::neutral(): illegal UTF8 sequence");
     }
 
     do {
-	if(c <= 0xdf) {
-	    state_ = &utf8_to_eucj::sequence_of_2_bytes;
-	    break;
-	}
+        if(c <= 0xdf) {
+            state_ = &utf8_to_eucj::sequence_of_2_bytes;
+            break;
+        }
 
-	if(c <= 0xef) {
-	    state_ = &utf8_to_eucj::sequence_of_3_bytes;
-	    break;
-	}
+        if(c <= 0xef) {
+            state_ = &utf8_to_eucj::sequence_of_3_bytes;
+            break;
+        }
 
-	if(c <= 0xf7) {
-	    state_ = &utf8_to_eucj::sequence_of_4_bytes;
-	    break;
-	}
+        if(c <= 0xf7) {
+            state_ = &utf8_to_eucj::sequence_of_4_bytes;
+            break;
+        }
 
-	if(c <= 0xfb) {
-	    state_ = &utf8_to_eucj::sequence_of_5_bytes;
-	    break;
-	}
+        if(c <= 0xfb) {
+            state_ = &utf8_to_eucj::sequence_of_5_bytes;
+            break;
+        }
 
-	if(c <= 0xfd) {
-	    state_ = &utf8_to_eucj::sequence_of_6_bytes;
-	    break;
-	}
+        if(c <= 0xfd) {
+            state_ = &utf8_to_eucj::sequence_of_6_bytes;
+            break;
+        }
 
-	return dead_end("utf8_to_eucj::neutral(): illegal UTF8 sequence");
+        return dead_end("utf8_to_eucj::neutral(): illegal UTF8 sequence");
     } while(0);
 
     // save first byte
@@ -508,95 +504,162 @@ void utf8_to_eucj::sequence_of_2_bytes(unsigned char c) {
     reset();
 
     if(input_[1] < 0x80 || 0xc0 <= input_[1]) {
-	return dead_end("utf8_to_eucj::sequence_of_2_bytes(): illegal UTF8 sequence");
+        return dead_end("utf8_to_eucj::sequence_of_2_bytes(): illegal UTF8 sequence");
     }
 
     unsigned short* etab = NULL;
 
     switch(input_[0]) {
-    case 0xc2: etab = utf2euc_c2; break;
-    case 0xc3: etab = utf2euc_c3; break;
-    case 0xc4: etab = utf2euc_c4; break;
-    case 0xc5: etab = utf2euc_c5; break;
+    case 0xc2:
+        etab = utf2euc_c2;
+        break;
+    case 0xc3:
+        etab = utf2euc_c3;
+        break;
+    case 0xc4:
+        etab = utf2euc_c4;
+        break;
+    case 0xc5:
+        etab = utf2euc_c5;
+        break;
     case 0xc6:
-	if(input_[1] == 0x93) {				// U+0193 -> euc ABA9
-	    emit(0xaba9);
-	    return;
-	} else break;
-    case 0xc7: etab = utf2euc_c7; break;
-    case 0xc9: etab = utf2euc_c9; break;
-    case 0xca: etab = utf2euc_ca; break;
-    case 0xcb: etab = utf2euc_cb; break;
-    case 0xcc: etab = utf2euc_cc; break;
+        if(input_[1] == 0x93) { // U+0193 -> euc ABA9
+            emit(0xaba9);
+            return;
+        } else
+            break;
+    case 0xc7:
+        etab = utf2euc_c7;
+        break;
+    case 0xc9:
+        etab = utf2euc_c9;
+        break;
+    case 0xca:
+        etab = utf2euc_ca;
+        break;
+    case 0xcb:
+        etab = utf2euc_cb;
+        break;
+    case 0xcc:
+        etab = utf2euc_cc;
+        break;
     case 0xcd:
-	if(input_[1] == 0xa1) {				// U+0361 -> euc ABD2
-	    emit(0xabd2);
-	    return;
-	} else break;
-    case 0xce: etab = utf2euc_ce; break;
-    case 0xcf: etab = utf2euc_cf; break;
-    case 0xd0: etab = utf2euc_d0; break;
-    case 0xd1: etab = utf2euc_d1; break;
+        if(input_[1] == 0xa1) { // U+0361 -> euc ABD2
+            emit(0xabd2);
+            return;
+        } else
+            break;
+    case 0xce:
+        etab = utf2euc_ce;
+        break;
+    case 0xcf:
+        etab = utf2euc_cf;
+        break;
+    case 0xd0:
+        etab = utf2euc_d0;
+        break;
+    case 0xd1:
+        etab = utf2euc_d1;
+        break;
     }
 
     if(etab != NULL) {
-	emit(etab[input_[1] - 0x80]);		// table lookup
+        emit(etab[input_[1] - 0x80]); // table lookup
     } else {
-	subst_();
+        subst_();
     }
 }
 
 void utf8_to_eucj::sequence_of_3_bytes(unsigned char c) {
     input_.push_back(c);
     if(input_.size() < 3) {
-	return;
+        return;
     }
 
     reset();
 
     unsigned char* tab1 = NULL;
-    unsigned short (*tab2)[64] = NULL;
+    unsigned short(*tab2)[64] = NULL;
 
     switch(input_[0]) {
-    case 0xe1:					// special case : there's only 6 chars
+    case 0xe1: // special case : there's only 6 chars
     {
-	unsigned short euc = 0;
-	switch(input_[1]) {
-	case 0xb8:
-	    switch(input_[2]) {
-	    case 0xbe: euc = 0xa8f2; break;
-	    case 0xbf: euc = 0xa8f3; break;
-	    }
-	    break;
-	case 0xbd:
-	    switch(input_[2]) {
-	    case 0xb0: euc = 0xabc6; break;
-	    case 0xb1: euc = 0xabc7; break;
-	    case 0xb2: euc = 0xabd0; break;
-	    case 0xb3: euc = 0xabd1; break;
-	    }
-	    break;
-	}
-	emit(euc);
-	return;
+        unsigned short euc = 0;
+        switch(input_[1]) {
+        case 0xb8:
+            switch(input_[2]) {
+            case 0xbe:
+                euc = 0xa8f2;
+                break;
+            case 0xbf:
+                euc = 0xa8f3;
+                break;
+            }
+            break;
+        case 0xbd:
+            switch(input_[2]) {
+            case 0xb0:
+                euc = 0xabc6;
+                break;
+            case 0xb1:
+                euc = 0xabc7;
+                break;
+            case 0xb2:
+                euc = 0xabd0;
+                break;
+            case 0xb3:
+                euc = 0xabd1;
+                break;
+            }
+            break;
+        }
+        emit(euc);
+        return;
     }
-    case 0xe2: tab1 = utf2euc_e2; tab2 = utf2euc_e2_xx; break;
-    case 0xe3: tab1 = utf2euc_e3; tab2 = utf2euc_e3_xx; break;
-    case 0xe4: tab1 = utf2euc_e4; tab2 = utf2euc_e4_xx; break;
-    case 0xe5: tab1 = utf2euc_e5; tab2 = utf2euc_e5_xx; break;
-    case 0xe6: tab1 = utf2euc_e6; tab2 = utf2euc_e6_xx; break;
-    case 0xe7: tab1 = utf2euc_e7; tab2 = utf2euc_e7_xx; break;
-    case 0xe8: tab1 = utf2euc_e8; tab2 = utf2euc_e8_xx; break;
-    case 0xe9: tab1 = utf2euc_e9; tab2 = utf2euc_e9_xx; break;
-    case 0xef: tab1 = utf2euc_ef; tab2 = utf2euc_ef_xx; break;
+    case 0xe2:
+        tab1 = utf2euc_e2;
+        tab2 = utf2euc_e2_xx;
+        break;
+    case 0xe3:
+        tab1 = utf2euc_e3;
+        tab2 = utf2euc_e3_xx;
+        break;
+    case 0xe4:
+        tab1 = utf2euc_e4;
+        tab2 = utf2euc_e4_xx;
+        break;
+    case 0xe5:
+        tab1 = utf2euc_e5;
+        tab2 = utf2euc_e5_xx;
+        break;
+    case 0xe6:
+        tab1 = utf2euc_e6;
+        tab2 = utf2euc_e6_xx;
+        break;
+    case 0xe7:
+        tab1 = utf2euc_e7;
+        tab2 = utf2euc_e7_xx;
+        break;
+    case 0xe8:
+        tab1 = utf2euc_e8;
+        tab2 = utf2euc_e8_xx;
+        break;
+    case 0xe9:
+        tab1 = utf2euc_e9;
+        tab2 = utf2euc_e9_xx;
+        break;
+    case 0xef:
+        tab1 = utf2euc_ef;
+        tab2 = utf2euc_ef_xx;
+        break;
     }
 
     if(tab1 != NULL) {
-	unsigned char ind = tab1[input_[1] - 0x80];
-	if(ind != 0) {
-	    emit(tab2[ind - 1][input_[2] - 0x80]);
-	    return;
-	}
+        unsigned char ind = tab1[input_[1] - 0x80];
+        if(ind != 0) {
+            emit(tab2[ind - 1][input_[2] - 0x80]);
+            return;
+        }
     }
 
     subst_();
@@ -605,7 +668,7 @@ void utf8_to_eucj::sequence_of_3_bytes(unsigned char c) {
 void utf8_to_eucj::sequence_of_4_bytes(unsigned char c) {
     input_.push_back(c);
     if(input_.size() < 4) {
-	return;
+        return;
     }
 
     reset();
@@ -613,32 +676,54 @@ void utf8_to_eucj::sequence_of_4_bytes(unsigned char c) {
     unsigned short* tab = NULL;
 
     if(input_[0] != 0xf0) {
-	subst_();
-	return;
+        subst_();
+        return;
     }
 
     switch(input_[1]) {
-    case 0xa0: tab = utf2euc_f0_a0; break;
-    case 0xa1: tab = utf2euc_f0_a1; break;
-    case 0xa2: tab = utf2euc_f0_a2; break;
-    case 0xa3: tab = utf2euc_f0_a3; break;
-    case 0xa4: tab = utf2euc_f0_a4; break;
-    case 0xa5: tab = utf2euc_f0_a5; break;
-    case 0xa6: tab = utf2euc_f0_a6; break;
-    case 0xa7: tab = utf2euc_f0_a7; break;
-    case 0xa8: tab = utf2euc_f0_a8; break;
-    case 0xa9: tab = utf2euc_f0_a9; break;
-    case 0xaa: tab = utf2euc_f0_aa; break;
+    case 0xa0:
+        tab = utf2euc_f0_a0;
+        break;
+    case 0xa1:
+        tab = utf2euc_f0_a1;
+        break;
+    case 0xa2:
+        tab = utf2euc_f0_a2;
+        break;
+    case 0xa3:
+        tab = utf2euc_f0_a3;
+        break;
+    case 0xa4:
+        tab = utf2euc_f0_a4;
+        break;
+    case 0xa5:
+        tab = utf2euc_f0_a5;
+        break;
+    case 0xa6:
+        tab = utf2euc_f0_a6;
+        break;
+    case 0xa7:
+        tab = utf2euc_f0_a7;
+        break;
+    case 0xa8:
+        tab = utf2euc_f0_a8;
+        break;
+    case 0xa9:
+        tab = utf2euc_f0_a9;
+        break;
+    case 0xaa:
+        tab = utf2euc_f0_aa;
+        break;
     }
 
     if(tab != NULL) {
-	unsigned short entry = input_[2] * 256 + input_[3];
-	for(int i = 0; tab[i]; i += 2) {
-	    if(tab[i] == entry) {
-		emit(tab[i + 1]);
-		return;
-	    }
-	}
+        unsigned short entry = input_[2] * 256 + input_[3];
+        for(int i = 0; tab[i]; i += 2) {
+            if(tab[i] == entry) {
+                emit(tab[i + 1]);
+                return;
+            }
+        }
     }
 
     subst_();
@@ -647,7 +732,7 @@ void utf8_to_eucj::sequence_of_4_bytes(unsigned char c) {
 void utf8_to_eucj::sequence_of_5_bytes(unsigned char c) {
     input_.push_back(c);
     if(input_.size() < 5) {
-	return;
+        return;
     }
 
     reset();
@@ -657,7 +742,7 @@ void utf8_to_eucj::sequence_of_5_bytes(unsigned char c) {
 void utf8_to_eucj::sequence_of_6_bytes(unsigned char c) {
     input_.push_back(c);
     if(input_.size() < 6) {
-	return;
+        return;
     }
 
     reset();
@@ -684,11 +769,16 @@ void utf8_to_eucj::sequence_of_6_bytes(unsigned char c) {
  */
 
 int examine_utf8_nbytes(unsigned int ucs) {
-    if(ucs <      0x80) return 1;
-    if(ucs <     0x800) return 2;
-    if(ucs <   0x10000) return 3;
-    if(ucs <  0x200000) return 4;
-    if(ucs < 0x4000000) return 5;
+    if(ucs < 0x80)
+        return 1;
+    if(ucs < 0x800)
+        return 2;
+    if(ucs < 0x10000)
+        return 3;
+    if(ucs < 0x200000)
+        return 4;
+    if(ucs < 0x4000000)
+        return 5;
 
     return 6;
 }
@@ -696,38 +786,38 @@ int examine_utf8_nbytes(unsigned int ucs) {
 void ucs4_to_utf8(unsigned int ucs, std::string& dest) {
     switch(examine_utf8_nbytes(ucs)) {
     case 1:
-	dest += ucs;
-	break;
+        dest += ucs;
+        break;
     case 2:
-	dest += (((ucs >> 6)	& 0x1f) | 0xc0);
-	dest += (((ucs)			& 0x3f) | 0x80);
-	break;
+        dest += (((ucs >> 6) & 0x1f) | 0xc0);
+        dest += (((ucs) & 0x3f) | 0x80);
+        break;
     case 3:
-	dest += (((ucs >> 12)	& 0x0f) | 0xe0);
-	dest += (((ucs >> 6)	& 0x3f) | 0x80);
-	dest += (((ucs)			& 0x3f) | 0x80);
-	break;
+        dest += (((ucs >> 12) & 0x0f) | 0xe0);
+        dest += (((ucs >> 6) & 0x3f) | 0x80);
+        dest += (((ucs) & 0x3f) | 0x80);
+        break;
     case 4:
-	dest += (((ucs >> 18)	& 0x07) | 0xf0);
-	dest += (((ucs >> 12)	& 0x3f) | 0x80);
-	dest += (((ucs >> 6)	& 0x3f) | 0x80);
-	dest += (((ucs)			& 0x3f) | 0x80);
-	break;
+        dest += (((ucs >> 18) & 0x07) | 0xf0);
+        dest += (((ucs >> 12) & 0x3f) | 0x80);
+        dest += (((ucs >> 6) & 0x3f) | 0x80);
+        dest += (((ucs) & 0x3f) | 0x80);
+        break;
     case 5:
-	dest += (((ucs >> 24)	& 0x03) | 0xf8);
-	dest += (((ucs >> 18)	& 0x3f) | 0x80);
-	dest += (((ucs >> 12)	& 0x3f) | 0x80);
-	dest += (((ucs >> 6)	& 0x3f) | 0x80);
-	dest += (((ucs)			& 0x3f) | 0x80);
-	break;
+        dest += (((ucs >> 24) & 0x03) | 0xf8);
+        dest += (((ucs >> 18) & 0x3f) | 0x80);
+        dest += (((ucs >> 12) & 0x3f) | 0x80);
+        dest += (((ucs >> 6) & 0x3f) | 0x80);
+        dest += (((ucs) & 0x3f) | 0x80);
+        break;
     case 6:
-	dest += (((ucs >> 30)	& 0x01) | 0xfc);
-	dest += (((ucs >> 24)	& 0x3f) | 0x80);
-	dest += (((ucs >> 18)	& 0x3f) | 0x80);
-	dest += (((ucs >> 12)	& 0x3f) | 0x80);
-	dest += (((ucs >> 6)	& 0x3f) | 0x80);
-	dest += (((ucs)			& 0x3f) | 0x80);
-	break;
+        dest += (((ucs >> 30) & 0x01) | 0xfc);
+        dest += (((ucs >> 24) & 0x3f) | 0x80);
+        dest += (((ucs >> 18) & 0x3f) | 0x80);
+        dest += (((ucs >> 12) & 0x3f) | 0x80);
+        dest += (((ucs >> 6) & 0x3f) | 0x80);
+        dest += (((ucs) & 0x3f) | 0x80);
+        break;
     }
 }
 
@@ -737,13 +827,13 @@ void ucs4_to_utf8(unsigned int ucs, std::string& dest) {
 
 void eucj_to_utf8::emit(unsigned int ucs) {
     if(ucs == 0) {
-	subst_();
-	return;
+        subst_();
+        return;
     }
 
     if(ucs < 0x100000) {
-	ucs4_to_utf8(ucs, output_);
-	return;
+        ucs4_to_utf8(ucs, output_);
+        return;
     }
 
     // we need two UCS characters
@@ -753,27 +843,27 @@ void eucj_to_utf8::emit(unsigned int ucs) {
 
 void eucj_to_utf8::neutral(unsigned char c) {
     if(c == 0x8e) {
-	state_ = &eucj_to_utf8::jisx0201_kana;
-	return;
+        state_ = &eucj_to_utf8::jisx0201_kana;
+        return;
     }
 
     if(c == 0x8f) {
-	state_ = &eucj_to_utf8::jisx0213_plane2;
-	input_.clear();
-	return;
+        state_ = &eucj_to_utf8::jisx0213_plane2;
+        input_.clear();
+        return;
     }
 
     // ASCII or C1 region
     if(c < 0xa0) {
-	output_ += c;
-	return;
+        output_ += c;
+        return;
     }
 
     if(0xa0 < c && c < 0xff) {
-	state_ = &eucj_to_utf8::jisx0213_plane1;
-	input_.clear();
-	input_.push_back(c);
-	return;
+        state_ = &eucj_to_utf8::jisx0213_plane1;
+        input_.clear();
+        input_.push_back(c);
+        return;
     }
 
     dead_end("eucj_to_utf8::neutral(): illegal EUC_JP sequence");
@@ -784,7 +874,7 @@ void eucj_to_utf8::jisx0201_kana(unsigned char c) {
 
     // illegal sequence
     if(c < 0xa1 || 0xdf < c) {
-	return dead_end("eucj_to_utf8::jisx0201_kana(): illegal EUC_JP sequence");
+        return dead_end("eucj_to_utf8::jisx0201_kana(): illegal EUC_JP sequence");
     }
 
     emit(0xff61 + (c - 0xa1));
@@ -797,7 +887,7 @@ void eucj_to_utf8::jisx0213_plane1(unsigned char c) {
 
     // illegal sequence
     if(input_[1] < 0xa1 || 0xfe < input_[1]) {
-	return dead_end("eucj_to_utf8::jisx0213_plane1(): illegal EUC_JP sequence");
+        return dead_end("eucj_to_utf8::jisx0213_plane1(): illegal EUC_JP sequence");
     }
 
     unsigned int ucs = euc_jisx0213_1_to_ucs2[input_[0] - 0xa1][input_[1] - 0xa1];
@@ -807,21 +897,20 @@ void eucj_to_utf8::jisx0213_plane1(unsigned char c) {
 void eucj_to_utf8::jisx0213_plane2(unsigned char c) {
     input_.push_back(c);
     if(input_.size() < 2) {
-	return;
+        return;
     }
 
     reset();
 
     // illegal sequence
-    if(input_[0] < 0xa1 || 0xfe < input_[0] ||
-       input_[1] < 0xa1 || 0xfe < input_[1]) {
-	return dead_end("eucj_to_utf8::jisx0213_plane2(): illegal EUC_JP sequence");
+    if(input_[0] < 0xa1 || 0xfe < input_[0] || input_[1] < 0xa1 || 0xfe < input_[1]) {
+        return dead_end("eucj_to_utf8::jisx0213_plane2(): illegal EUC_JP sequence");
     }
 
     int index = euc_jisx0213_2_index[input_[0] - 0xa1];
     if(index < 0) {
-	subst_();
-	return;
+        subst_();
+        return;
     }
 
     unsigned int ucs = euc_jisx0213_2_to_ucs2[index][input_[1] - 0xa1];
@@ -861,27 +950,27 @@ void eucj_to_utf8::jisx0213_plane2(unsigned char c) {
  *  <ESC> $ ( C   (KS X 1001:1992) unsupported
  *  <ESC> . A     (ISO8859-1:1998) unsupported
  *  <ESC> . F     (ISO8859-7:1998) unsupported
- * 
+ *
  * JIS8 kana is allowed.
  */
 
 void iso2022jp_to_eucj::neutral(unsigned char c) {
     if(c == 0x1b) {
-	state_ = &iso2022jp_to_eucj::escape_sequence;
-	input_.clear();
-	return;
+        state_ = &iso2022jp_to_eucj::escape_sequence;
+        input_.clear();
+        return;
     }
 
     if(c < 0x20 || c == '\n' || c == '\r') {
-	output_ += c;
-	return;
+        output_ += c;
+        return;
     }
 
     // JIS8 kana
     if(0xa1 <= c && c <= 0xdf) {
-	output_ += 0x8e;
-	output_ += c;
-	return;
+        output_ += 0x8e;
+        output_ += c;
+        return;
     }
 
     // invoke sub state
@@ -891,57 +980,83 @@ void iso2022jp_to_eucj::neutral(unsigned char c) {
 void iso2022jp_to_eucj::escape_sequence(unsigned char c) {
     input_.push_back(c);
     if(input_.size() < 2) {
-	return;
+        return;
     }
 
     switch(input_[0]) {
     case '(':
-	switch(input_[1]) {
-	case 'B': sub_state_ = &iso2022jp_to_eucj::us_ascii; break;
-	case 'J': sub_state_ = &iso2022jp_to_eucj::jisx0201_roman; break;
-	case 'H': sub_state_ = &iso2022jp_to_eucj::jisx0201_roman; break;
-	case 'I': sub_state_ = &iso2022jp_to_eucj::jisx0201_kana; break;
-	default:							// illegal
-	    return dead_end("iso2022jp_to_eucj::escape(): invalid escape sequence");
-	}
-	break;
+        switch(input_[1]) {
+        case 'B':
+            sub_state_ = &iso2022jp_to_eucj::us_ascii;
+            break;
+        case 'J':
+            sub_state_ = &iso2022jp_to_eucj::jisx0201_roman;
+            break;
+        case 'H':
+            sub_state_ = &iso2022jp_to_eucj::jisx0201_roman;
+            break;
+        case 'I':
+            sub_state_ = &iso2022jp_to_eucj::jisx0201_kana;
+            break;
+        default: // illegal
+            return dead_end("iso2022jp_to_eucj::escape(): invalid escape sequence");
+        }
+        break;
     case '$':
-	switch(input_[1]) {
-	case '@': sub_state_ = &iso2022jp_to_eucj::jisx0208_1978; break;
-	case 'B': sub_state_ = &iso2022jp_to_eucj::jisx0213_plane1; break;
-	case 'A': sub_state_ = &iso2022jp_to_eucj::unknown; break;
-	case '(':
-	    if(input_.size() < 3) return;
+        switch(input_[1]) {
+        case '@':
+            sub_state_ = &iso2022jp_to_eucj::jisx0208_1978;
+            break;
+        case 'B':
+            sub_state_ = &iso2022jp_to_eucj::jisx0213_plane1;
+            break;
+        case 'A':
+            sub_state_ = &iso2022jp_to_eucj::unknown;
+            break;
+        case '(':
+            if(input_.size() < 3)
+                return;
 
-	    switch(input_[2]) {
-	    case 'D': sub_state_ = &iso2022jp_to_eucj::jisx0212; break;
-	    case 'O': sub_state_ = &iso2022jp_to_eucj::jisx0213_plane1; break;
-	    case 'P': sub_state_ = &iso2022jp_to_eucj::jisx0213_plane2; break;
-	    case 'C': sub_state_ = &iso2022jp_to_eucj::unknown; break;
-	    default:						// illegal
-		return dead_end("iso2022jp_to_eucj::escape(): invalid escape sequence");
-	    }
-	}
-	break;
+            switch(input_[2]) {
+            case 'D':
+                sub_state_ = &iso2022jp_to_eucj::jisx0212;
+                break;
+            case 'O':
+                sub_state_ = &iso2022jp_to_eucj::jisx0213_plane1;
+                break;
+            case 'P':
+                sub_state_ = &iso2022jp_to_eucj::jisx0213_plane2;
+                break;
+            case 'C':
+                sub_state_ = &iso2022jp_to_eucj::unknown;
+                break;
+            default: // illegal
+                return dead_end("iso2022jp_to_eucj::escape(): invalid escape sequence");
+            }
+        }
+        break;
     case '&':
-	if(input_.size() < 5) return;
+        if(input_.size() < 5)
+            return;
 
-	if(input_[1] == '@' && input_[2] == 0x1b && input_[3] == '$' && input_[4] == 'B') {
-	    sub_state_ = &iso2022jp_to_eucj::jisx0213_plane1;
-	} else {
-	    return dead_end("iso2022jp_to_eucj::escape(): invalid escape sequence");
-	}
-	break;
+        if(input_[1] == '@' && input_[2] == 0x1b && input_[3] == '$' && input_[4] == 'B') {
+            sub_state_ = &iso2022jp_to_eucj::jisx0213_plane1;
+        } else {
+            return dead_end("iso2022jp_to_eucj::escape(): invalid escape sequence");
+        }
+        break;
     case '.':
-	switch(input_[1]) {
-	case 'A':							// fallthrough
-	case 'F': sub_state_ = &iso2022jp_to_eucj::unknown; break;
-	default:							// illegal
-	    return dead_end("iso2022jp_to_eucj::escape(): invalid escape sequence");
-	}
-	break;
-    default:								// illegal
-	return dead_end("iso2022jp_to_eucj::escape(): invalid escape sequence");
+        switch(input_[1]) {
+        case 'A': // fallthrough
+        case 'F':
+            sub_state_ = &iso2022jp_to_eucj::unknown;
+            break;
+        default: // illegal
+            return dead_end("iso2022jp_to_eucj::escape(): invalid escape sequence");
+        }
+        break;
+    default: // illegal
+        return dead_end("iso2022jp_to_eucj::escape(): invalid escape sequence");
     }
 
     input_.clear();
@@ -979,9 +1094,9 @@ void iso2022jp_to_eucj::jisx0213_plane1(unsigned char c) {
     input_.push_back(c);
 
     if(input_.size() == 2) {
-	output_ += (input_[0] + 0x80);
-	output_ += (input_[1] + 0x80);
-	input_.clear();
+        output_ += (input_[0] + 0x80);
+        output_ += (input_[1] + 0x80);
+        input_.clear();
     }
 }
 
@@ -989,10 +1104,10 @@ void iso2022jp_to_eucj::jisx0213_plane2(unsigned char c) {
     input_.push_back(c);
 
     if(input_.size() == 2) {
-	output_ += 0x8f;
-	output_ += (input_[0] + 0x80);
-	output_ += (input_[1] + 0x80);
-	input_.clear();
+        output_ += 0x8f;
+        output_ += (input_[0] + 0x80);
+        output_ += (input_[1] + 0x80);
+        input_.clear();
     }
 }
 
@@ -1011,23 +1126,23 @@ void iso2022jp_to_eucj::unknown(unsigned char /* c */) {
 
 void eucj_to_iso2022jp::neutral(unsigned char c) {
     if(c < 0x80) {
-	us_ascii(c);
-	return;
+        us_ascii(c);
+        return;
     }
 
     if(c == 0x8e) {
-	jisx0201_kana(c);
-	return;
+        jisx0201_kana(c);
+        return;
     }
 
     if(c == 0x8f) {
-	state_ = &eucj_to_iso2022jp::guess;
-	return;
+        state_ = &eucj_to_iso2022jp::guess;
+        return;
     }
 
     if(0xa0 < c && c < 0xff) {
-	jisx0213_plane1(c);
-	return;
+        jisx0213_plane1(c);
+        return;
     }
 
     dead_end("eucj_to_iso2022jp::neutral(): invalid sequence");
@@ -1036,32 +1151,31 @@ void eucj_to_iso2022jp::neutral(unsigned char c) {
 void eucj_to_iso2022jp::guess(unsigned char c) {
     input_.push_back(c);
     if(input_.size() < 2) {
-	return;
+        return;
     }
 
-    if(0xa0 < input_[0] && input_[0] < 0xff &&
-       0xa0 < input_[1] && input_[1] < 0xff) {
-	handler tmp_state = &eucj_to_iso2022jp::jisx0212;
-	switch(input_[0]) {
-	case 0xa1:
-	case 0xa3:
-	case 0xa4:
-	case 0xa5:
-	case 0xa8:
-	case 0xac:
-	case 0xad:
-	case 0xae:
-	case 0xaf:
-	    tmp_state = &eucj_to_iso2022jp::jisx0213_plane2;
-	    break;
-	}
-	if(0xee <= input_[0]) {
-	    tmp_state = &eucj_to_iso2022jp::jisx0213_plane2;
-	}
+    if(0xa0 < input_[0] && input_[0] < 0xff && 0xa0 < input_[1] && input_[1] < 0xff) {
+        handler tmp_state = &eucj_to_iso2022jp::jisx0212;
+        switch(input_[0]) {
+        case 0xa1:
+        case 0xa3:
+        case 0xa4:
+        case 0xa5:
+        case 0xa8:
+        case 0xac:
+        case 0xad:
+        case 0xae:
+        case 0xaf:
+            tmp_state = &eucj_to_iso2022jp::jisx0213_plane2;
+            break;
+        }
+        if(0xee <= input_[0]) {
+            tmp_state = &eucj_to_iso2022jp::jisx0213_plane2;
+        }
 
-	input_.pop_back();				// oops!
+        input_.pop_back(); // oops!
 
-	(this->*tmp_state)(c);
+        (this->*tmp_state)(c);
     }
 
     reset();
@@ -1069,8 +1183,8 @@ void eucj_to_iso2022jp::guess(unsigned char c) {
 
 void eucj_to_iso2022jp::us_ascii(unsigned char c) {
     if(sub_state_ != &eucj_to_iso2022jp::us_ascii) {
-	sub_state_ = &eucj_to_iso2022jp::us_ascii;
-	output_ += "\033(B";
+        sub_state_ = &eucj_to_iso2022jp::us_ascii;
+        output_ += "\033(B";
     }
 
     output_ += c;
@@ -1078,56 +1192,56 @@ void eucj_to_iso2022jp::us_ascii(unsigned char c) {
 
 void eucj_to_iso2022jp::jisx0201_kana(unsigned char c) {
     if(sub_state_ != &eucj_to_iso2022jp::jisx0201_kana) {
-	sub_state_ = &eucj_to_iso2022jp::jisx0201_kana;
-	output_ += "\033(I";
+        sub_state_ = &eucj_to_iso2022jp::jisx0201_kana;
+        output_ += "\033(I";
     }
 
     input_.push_back(c);
     if(input_.size() == 2) {
-	output_ += input_[1];
-	input_.clear();
+        output_ += input_[1];
+        input_.clear();
     }
 }
 
 void eucj_to_iso2022jp::jisx0212(unsigned char c) {
     if(sub_state_ != &eucj_to_iso2022jp::jisx0212) {
-	sub_state_ = &eucj_to_iso2022jp::jisx0212;
-	output_ += "\033$(D";
+        sub_state_ = &eucj_to_iso2022jp::jisx0212;
+        output_ += "\033$(D";
     }
 
     input_.push_back(c);
     if(input_.size() == 2) {
-	output_ += (input_[0] - 0x80);
-	output_ += (input_[1] - 0x80);
-	input_.clear();
+        output_ += (input_[0] - 0x80);
+        output_ += (input_[1] - 0x80);
+        input_.clear();
     }
 }
 
 void eucj_to_iso2022jp::jisx0213_plane1(unsigned char c) {
     if(sub_state_ != &eucj_to_iso2022jp::jisx0213_plane1) {
-	sub_state_ = &eucj_to_iso2022jp::jisx0213_plane1;
-	output_ += "\033$B";
+        sub_state_ = &eucj_to_iso2022jp::jisx0213_plane1;
+        output_ += "\033$B";
     }
 
     input_.push_back(c);
     if(input_.size() == 2) {
-	output_ += (input_[0] - 0x80);
-	output_ += (input_[1] - 0x80);
-	input_.clear();
+        output_ += (input_[0] - 0x80);
+        output_ += (input_[1] - 0x80);
+        input_.clear();
     }
 }
 
 void eucj_to_iso2022jp::jisx0213_plane2(unsigned char c) {
     if(sub_state_ != &eucj_to_iso2022jp::jisx0213_plane2) {
-	sub_state_ = &eucj_to_iso2022jp::jisx0213_plane2;
-	output_ += "\033$(P";
+        sub_state_ = &eucj_to_iso2022jp::jisx0213_plane2;
+        output_ += "\033$(P";
     }
 
     input_.push_back(c);
     if(input_.size() == 2) {
-	output_ += (input_[0] - 0x80);
-	output_ += (input_[1] - 0x80);
-	input_.clear();
+        output_ += (input_[0] - 0x80);
+        output_ += (input_[1] - 0x80);
+        input_.clear();
     }
 }
 

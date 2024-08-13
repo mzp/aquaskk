@@ -37,27 +37,22 @@ class SKKKeyState {
 
     SKKKeyState();
     SKKKeyState(int charcode, int keycode, short mods) {
-	state_ = (mods << 16) | ((0xff & keycode) << 8) | (0xff & charcode);
+        state_ = (mods << 16) | ((0xff & keycode) << 8) | (0xff & charcode);
     }
 
 public:
-    enum Modifier {
-	SHIFT	= (1 << 1),
-	CTRL	= (1 << 2),
-	ALT	= (1 << 3),
-	META	= (1 << 4)
-    };
+    enum Modifier { SHIFT = (1 << 1), CTRL = (1 << 2), ALT = (1 << 3), META = (1 << 4) };
 
     static SKKKeyState KeyCode(int code, int mods) {
-	return SKKKeyState(0, code, mods);
+        return SKKKeyState(0, code, mods);
     }
 
     static SKKKeyState CharCode(int code, int mods) {
-	return SKKKeyState(code, 0, mods);
+        return SKKKeyState(code, 0, mods);
     }
 
     operator int() const {
-	return state_;
+        return state_;
     }
 };
 

@@ -27,73 +27,73 @@
 
 // UserDefaults 用のキー
 namespace SKKUserDefaultKeys {
-    extern NSString* suppress_newline_on_commit;
-    extern NSString* use_numeric_conversion;
-    extern NSString* show_input_mode_icon;
-    extern NSString* use_individual_input_mode;
-    extern NSString* beep_on_registration;
-    extern NSString* inline_backspace_implies_commit;
-    extern NSString* delete_okuri_when_quit;
+    extern NSString *suppress_newline_on_commit;
+    extern NSString *use_numeric_conversion;
+    extern NSString *show_input_mode_icon;
+    extern NSString *use_individual_input_mode;
+    extern NSString *beep_on_registration;
+    extern NSString *inline_backspace_implies_commit;
+    extern NSString *delete_okuri_when_quit;
 
-    extern NSString* keyboard_layout;
+    extern NSString *keyboard_layout;
 
-    extern NSString* sub_rules;
-    extern NSString* sub_keymaps;
+    extern NSString *sub_rules;
+    extern NSString *sub_keymaps;
 
-    extern NSString* enable_extended_completion;
-    extern NSString* enable_dynamic_completion;
-    extern NSString* dynamic_completion_range;
-    extern NSString* minimum_completion_length;
+    extern NSString *enable_extended_completion;
+    extern NSString *enable_dynamic_completion;
+    extern NSString *dynamic_completion_range;
+    extern NSString *minimum_completion_length;
 
-    extern NSString* max_count_of_inline_candidates;
-    extern NSString* candidate_window_labels;
-    extern NSString* candidate_window_font_name;
-    extern NSString* candidate_window_font_size;
-    extern NSString* put_candidate_window_upward;
-    extern NSString* enable_annotation;
+    extern NSString *max_count_of_inline_candidates;
+    extern NSString *candidate_window_labels;
+    extern NSString *candidate_window_font_name;
+    extern NSString *candidate_window_font_size;
+    extern NSString *put_candidate_window_upward;
+    extern NSString *enable_annotation;
 
-    extern NSString* user_dictionary_path;
+    extern NSString *user_dictionary_path;
 
-    extern NSString* enable_skkserv;
-    extern NSString* skkserv_localonly;
-    extern NSString* skkserv_port;
+    extern NSString *enable_skkserv;
+    extern NSString *skkserv_localonly;
+    extern NSString *skkserv_port;
 
-    extern NSString* enable_private_mode;
+    extern NSString *enable_private_mode;
 
-    extern NSString* fix_intermediate_conversion;
-    extern NSString* display_shortest_match_of_kana_conversions;
-    extern NSString* handle_recursive_entry_as_okuri;
+    extern NSString *fix_intermediate_conversion;
+    extern NSString *display_shortest_match_of_kana_conversions;
+    extern NSString *handle_recursive_entry_as_okuri;
 
-    extern NSString* openlab_host;
-    extern NSString* openlab_path;
+    extern NSString *openlab_host;
+    extern NSString *openlab_path;
 
-    extern NSString* direct_clients;
+    extern NSString *direct_clients;
 
-    extern NSString* enable_skkdap;
-    extern NSString* skkdap_folder;
-    extern NSString* skkdap_port;
-};
+    extern NSString *enable_skkdap;
+    extern NSString *skkdap_folder;
+    extern NSString *skkdap_port;
+}; // namespace SKKUserDefaultKeys
 
 // DictionarySet 用のキー
 namespace SKKDictionarySetKeys {
-    extern NSString* active;
-    extern NSString* type;
-    extern NSString* location;
-};
+    extern NSString *active;
+    extern NSString *type;
+    extern NSString *location;
+}; // namespace SKKDictionarySetKeys
 
 // DictionaryTypes 用のキー
 namespace SKKDictionaryTypeKeys {
-    extern NSString* type;
-    extern NSString* name;
-};
+    extern NSString *type;
+    extern NSString *name;
+}; // namespace SKKDictionaryTypeKeys
 
 // 重要なパス
 namespace SKKFilePaths {
-    extern NSString* SystemResourceFolder;
-    extern NSString* ApplicationSupportFolder;
-    extern NSString* BlacklistApps;
-    extern NSString* DictionarySet;
-    extern NSString* UserDefaults;
-};
+    extern NSString *SystemResourceFolder;
+    extern NSString *ApplicationSupportFolder;
+    extern NSString *BlacklistApps;
+    extern NSString *DictionarySet;
+    extern NSString *UserDefaults;
+}; // namespace SKKFilePaths
 
 #endif

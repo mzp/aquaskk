@@ -49,9 +49,10 @@ class SKKLocalDictionaryLoader : public SKKDictionaryLoader {
     }
 
 public:
-    SKKLocalDictionaryLoader() : lastupdate_(0) {}
+    SKKLocalDictionaryLoader()
+        : lastupdate_(0) {}
 
-    virtual void Initialize(const  std::string& location) {
+    virtual void Initialize(const std::string& location) {
         path_ = location;
     }
 
@@ -65,4 +66,3 @@ public:
 };
 
 #endif
-

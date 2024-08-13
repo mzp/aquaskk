@@ -32,7 +32,8 @@ class SKKWidget {
     virtual void SKKWidgetHide() = 0;
 
 public:
-    SKKWidget(bool visible = false) : visible_(visible) {}
+    SKKWidget(bool visible = false)
+        : visible_(visible) {}
     virtual ~SKKWidget() {}
 
     void Show() {
