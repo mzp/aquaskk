@@ -8,6 +8,19 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
+// MARK: Version
+
+MARKETING_VERSION = 2024.08
+CURRENT_PROJECT_VERSION = 4.7.6
+
+// MARK: - Identifier
+// Bundle identifierには`inputmethod`を含める必要がある
+PRODUCT_BUNDLE_IDENTIFIER = com.aquaskk.inputmethod.$(TARGET_NAME:rfc1034identifier)
+INFOPLIST_KEY_LSApplicationCategoryType=public.app-category.productivity
+PRODUCT_NAME = $(TARGET_NAME:c99extidentifier)
+
+// MARK: - Build Setting
+
 // MARK: C++ interop
 // TODO: migrate to gnu++20
 CLANG_CXX_LANGUAGE_STANDARD = c++11
@@ -20,11 +33,11 @@ SWIFT_VERSION = 5.0
 
 // MARK: Deployment
 MACOSX_DEPLOYMENT_TARGET = 14
-MARKETING_VERSION = 2024.08
-CURRENT_PROJECT_VERSION = 4.7.6
-INFOPLIST_KEY_LSApplicationCategoryType=public.app-category.productivity
+SDKROOT = auto
+SUPPORTED_PLATFORMS = macosx
+SKIP_INSTALL = YES
 
-// MARK: Other
+// MARK: - Other
 EAGER_LINKING = YES
 ENABLE_HARDENED_RUNTIME = YES
 
@@ -88,12 +101,6 @@ MODULE_VERIFIER_SUPPORTED_LANGUAGES = objective-c objective-c++
 MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = gnu17 gnu++20
 MTL_ENABLE_DEBUG_INFO = NO
 MTL_FAST_MATH = YES
-PRODUCT_BUNDLE_IDENTIFIER = org.codefirst.aquaskk.$(TARGET_NAME:rfc1034identifier)
-PRODUCT_NAME = $(TARGET_NAME:c99extidentifier)
-SDKROOT = auto
-SKIP_INSTALL = YES
-SUPPORTED_PLATFORMS = macosx
-SWIFT_COMPILATION_MODE = wholemodule
 SWIFT_EMIT_LOC_STRINGS = YES
 SWIFT_INSTALL_OBJC_HEADER = NO
 TARGETED_DEVICE_FAMILY = 1,2,7
