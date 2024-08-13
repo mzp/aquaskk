@@ -916,6 +916,7 @@
 		1393E3612C6BB99D00F1E633 /* UserDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
 		1393E3652C6BB9BD00F1E633 /* kana-rule.conf */ = {isa = PBXFileReference; lastKnownFileType = text; path = "kana-rule.conf"; sourceTree = "<group>"; };
 		1393E3662C6BB9BD00F1E633 /* keymap.conf */ = {isa = PBXFileReference; lastKnownFileType = text; path = keymap.conf; sourceTree = "<group>"; };
+		1393E3C02C6C046400F1E633 /* All-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "All-Release.xcconfig"; sourceTree = "<group>"; };
 		139B7B642C60F68100FE5263 /* AquaSKKUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKUI.h; sourceTree = "<group>"; };
 		139B7B652C60F68100FE5263 /* AquaSKKUI.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKUI.docc; sourceTree = "<group>"; };
 		139B7B722C60F68100FE5263 /* AquaSKKUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKKUITests.swift; sourceTree = "<group>"; };
@@ -1277,6 +1278,7 @@
 				138F45152C5CA2F1000B03FC /* Include */,
 				13D7561C2C5A9113006144F2 /* All-Debug.xcconfig */,
 				138B319F2C5DD40C006424E0 /* All-Testing.xcconfig */,
+				1393E3C02C6C046400F1E633 /* All-Release.xcconfig */,
 				13D7561B2C5A905E006144F2 /* All.xcconfig */,
 				137D05A02C5B5AFB009AC591 /* App.xcconfig */,
 				138F45122C5CA1D7000B03FC /* AppTests.xcconfig */,
@@ -3636,7 +3638,7 @@
 		};
 		13D368162C5A81290083CAE3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13D7561B2C5A905E006144F2 /* All.xcconfig */;
+			baseConfigurationReference = 1393E3C02C6C046400F1E633 /* All-Release.xcconfig */;
 			buildSettings = {
 				EAGER_LINKING = YES;
 			};
