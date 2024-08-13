@@ -62,6 +62,7 @@
 }
 
 - (void)prepareWithFont:(NSFont*)newFont labels:(NSString*)newLabels {
+    NSAssert([NSThread isMainThread], @"Must be used from main therad only");
     [labels_ release];
     labels_ = [newLabels retain];
 

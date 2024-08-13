@@ -132,6 +132,7 @@
 }
 
 - (void)updateFrame {
+    NSAssert([NSThread isMainThread], @"Must be used from main therad only");
     NSRect rect = [window_ frame];
     NSSize iconSize = rect.size;
     NSImage* icon = [modeIcons_ objectForKey:[NSNumber numberWithInt:(int)inputMode_]];
