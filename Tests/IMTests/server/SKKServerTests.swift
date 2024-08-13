@@ -9,6 +9,5 @@ import AquaSKKIM_Private
 import Testing
 
 struct SKKServerTests {
-    @Test func componentFiles() async throws {
-    }
+    @Test func componentFiles() async throws {}
 }
