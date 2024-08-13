@@ -23,11 +23,11 @@
 #ifndef SKKInputContext_h
 #define SKKInputContext_h
 
-#import <AquaSKKCore/SKKOutputBuffer.h>
-#import <AquaSKKCore/SKKEntry.h>
 #import <AquaSKKCore/SKKCandidate.h>
-#import <AquaSKKCore/SKKUndoContext.h>
+#import <AquaSKKCore/SKKEntry.h>
+#import <AquaSKKCore/SKKOutputBuffer.h>
 #import <AquaSKKCore/SKKRegistration.h>
+#import <AquaSKKCore/SKKUndoContext.h>
 
 // 入力コンテキスト
 class SKKInputContext {

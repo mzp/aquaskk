@@ -28,14 +28,14 @@
 @class SKKInputMenu;
 
 class MacInputModeMenu : public SKKInputModeListener {
-    SKKInputMenu* menu_;
+    SKKInputMenu *menu_;
     bool active_;
 
     virtual void SKKWidgetShow();
     virtual void SKKWidgetHide();
 
-public:
-    MacInputModeMenu(SKKInputMenu* menu);
+  public:
+    MacInputModeMenu(SKKInputMenu *menu);
 
     virtual void SelectInputMode(SKKInputMode mode);
 };

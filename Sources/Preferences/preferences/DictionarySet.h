@@ -22,21 +22,21 @@
 #import <Cocoa/Cocoa.h>
 
 @interface DictionarySet : NSArrayController {
-    IBOutlet NSWindow* prefView;
-    IBOutlet NSTableView* tableView;
+    IBOutlet NSWindow *prefView;
+    IBOutlet NSTableView *tableView;
 }
 
 - (IBAction)browseLocation:(id)sender;
-- (BOOL)tableView:(NSTableView*)tableView
-writeRowsWithIndexes:(NSIndexSet*)rowIndexes
-     toPasteboard:(NSPasteboard*)pboard;
-- (NSDragOperation)tableView:(NSTableView*)tableView
-		validateDrop:(id <NSDraggingInfo>)info
-		 proposedRow:(int)row
+- (BOOL)tableView:(NSTableView *)tableView
+    writeRowsWithIndexes:(NSIndexSet *)rowIndexes
+            toPasteboard:(NSPasteboard *)pboard;
+- (NSDragOperation)tableView:(NSTableView *)tableView
+                validateDrop:(id<NSDraggingInfo>)info
+                 proposedRow:(int)row
        proposedDropOperation:(NSTableViewDropOperation)op;
-- (BOOL)tableView:(NSTableView*)tableView
-       acceptDrop:(id <NSDraggingInfo>)info
-	      row:(int)row
+- (BOOL)tableView:(NSTableView *)tableView
+       acceptDrop:(id<NSDraggingInfo>)info
+              row:(int)row
     dropOperation:(NSTableViewDropOperation)op;
 
 @end

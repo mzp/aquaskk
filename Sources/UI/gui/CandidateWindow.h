@@ -28,15 +28,15 @@
 @class CandidateView;
 
 @interface CandidateWindow : NSObject {
-    NSWindow* window_;
-    CandidateView* view_;
-    NSString* labels_;
+    NSWindow *window_;
+    CandidateView *view_;
+    NSString *labels_;
 }
 
-+ (CandidateWindow*)sharedWindow;
-- (NSWindow*)window;
-- (void)prepareWithFont:(NSFont*)font labels:(NSString*)labels;
-- (void)setCandidates:(NSArray*)candidates selectedIndex:(int)cursor;
++ (CandidateWindow *)sharedWindow;
+- (NSWindow *)window;
+- (void)prepareWithFont:(NSFont *)font labels:(NSString *)labels;
+- (void)setCandidates:(NSArray *)candidates selectedIndex:(int)cursor;
 - (void)setPage:(NSRange)page;
 - (void)showAt:(NSPoint)origin level:(int)level;
 - (void)hide;

@@ -23,8 +23,8 @@
 #ifndef SubRuleDescriptions_h
 #define SubRuleDescriptions_h
 
-#include <string>
 #include <map>
+#include <string>
 
 class SubRuleDescriptions {
     std::map<std::string, std::string> description_;

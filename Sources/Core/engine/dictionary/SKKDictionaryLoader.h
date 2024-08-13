@@ -43,7 +43,7 @@ class SKKDictionaryLoader : public pthread::task {
             first_ = false;
             notify();
         }
-        
+
         if(NeedsUpdate()) {
             notify();
         } else {
@@ -65,10 +65,11 @@ class SKKDictionaryLoader : public pthread::task {
     }
 
 public:
-    SKKDictionaryLoader() : first_(true), observer_(0) {}
+    SKKDictionaryLoader()
+        : first_(true), observer_(0) {}
 
     void Connect(SKKDictionaryLoaderObserver* observer) {
-	observer_ = observer;
+        observer_ = observer;
     }
 
     // 初期化

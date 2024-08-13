@@ -23,94 +23,128 @@
 #ifndef SKKEvent_h
 #define SKKEvent_h
 
-#include <sstream>
 #import <AquaSKKCore/GenericStateMachine.h>
+#include <sstream>
 
 // キー入力イベント
 enum {
     SKK_NULL = statemachinecxx_sourceforge_jp::USER_EVENT, // 無効なイベント
-    SKK_JMODE,                  // Ctrl-J
-    SKK_ENTER,                  // Ctrl-M
-    SKK_CANCEL,                 // Ctrl-G
-    SKK_BACKSPACE,              // Ctrl-H
-    SKK_DELETE,                 // Ctrl-D
-    SKK_TAB,                    // Ctrl-I
-    SKK_PASTE,                  // Ctrl-Y
-    SKK_LEFT,                   // ←
-    SKK_RIGHT,                  // →
-    SKK_UP,                     // ↑
-    SKK_DOWN,                   // ↓
-    SKK_CHAR,                   // その他全てのキー入力
-    SKK_PING,                   // CTRL-L(内部状態問い合わせ)
-    SKK_UNDO,                   // CTRL-/
-    SKK_ASCII_MODE,             // ASCII モード
-    SKK_HIRAKANA_MODE,          // ひらかなモード
-    SKK_KATAKANA_MODE,          // カタカナモード
-    SKK_JISX0201KANA_MODE,      // 半角カナモード
-    SKK_JISX0208LATIN_MODE,     // 全角英数モード
-    SKK_YES,                    // 仮想イベント
-    SKK_NO,                     // 仮想イベント
-    SKK_ON,                     // 仮想イベント
-    SKK_OFF                     // 仮想イベント
+    SKK_JMODE,                                             // Ctrl-J
+    SKK_ENTER,                                             // Ctrl-M
+    SKK_CANCEL,                                            // Ctrl-G
+    SKK_BACKSPACE,                                         // Ctrl-H
+    SKK_DELETE,                                            // Ctrl-D
+    SKK_TAB,                                               // Ctrl-I
+    SKK_PASTE,                                             // Ctrl-Y
+    SKK_LEFT,                                              // ←
+    SKK_RIGHT,                                             // →
+    SKK_UP,                                                // ↑
+    SKK_DOWN,                                              // ↓
+    SKK_CHAR,                                              // その他全てのキー入力
+    SKK_PING,                                              // CTRL-L(内部状態問い合わせ)
+    SKK_UNDO,                                              // CTRL-/
+    SKK_ASCII_MODE,                                        // ASCII モード
+    SKK_HIRAKANA_MODE,                                     // ひらかなモード
+    SKK_KATAKANA_MODE,                                     // カタカナモード
+    SKK_JISX0201KANA_MODE,                                 // 半角カナモード
+    SKK_JISX0208LATIN_MODE,                                // 全角英数モード
+    SKK_YES,                                               // 仮想イベント
+    SKK_NO,                                                // 仮想イベント
+    SKK_ON,                                                // 仮想イベント
+    SKK_OFF                                                // 仮想イベント
 };
 
 // SKK_CHAR 属性
 enum {
     None,
-    Direct                      = (1 << 0),
-    UpperCases                  = (1 << 1),
-    ToggleKana                  = (1 << 2),
-    ToggleJisx0201Kana          = (1 << 3),
-    SwitchToAscii               = (1 << 4),
-    SwitchToJisx0208Latin       = (1 << 5),
-    EnterJapanese               = (1 << 6),
-    EnterAbbrev                 = (1 << 7),
-    NextCompletion              = (1 << 8),
-    PrevCompletion              = (1 << 9),
-    NextCandidate               = (1 << 10),
-    PrevCandidate               = (1 << 11),
-    RemoveTrigger               = (1 << 12),
-    InputChars			= (1 << 13),
-    CompConversion		= (1 << 14),
-    StickyKey			= (1 << 15)
+    Direct = (1 << 0),
+    UpperCases = (1 << 1),
+    ToggleKana = (1 << 2),
+    ToggleJisx0201Kana = (1 << 3),
+    SwitchToAscii = (1 << 4),
+    SwitchToJisx0208Latin = (1 << 5),
+    EnterJapanese = (1 << 6),
+    EnterAbbrev = (1 << 7),
+    NextCompletion = (1 << 8),
+    PrevCompletion = (1 << 9),
+    NextCandidate = (1 << 10),
+    PrevCandidate = (1 << 11),
+    RemoveTrigger = (1 << 12),
+    InputChars = (1 << 13),
+    CompConversion = (1 << 14),
+    StickyKey = (1 << 15)
 };
 
 // 処理オプション
 enum {
     Default,
-    AlwaysHandled,              // 強制的に「処理済み」にする
-    PseudoHandled,              // 処理は行うが「未処理」とする
-    CapsLock                    // CapsLock
+    AlwaysHandled, // 強制的に「処理済み」にする
+    PseudoHandled, // 処理は行うが「未処理」とする
+    CapsLock       // CapsLock
 };
 
 // イベントパラメータ
 class SKKEvent {
 public:
-    int id;                     // イベント(冗長だが仕方がない)
-    unsigned char code;         // 文字そのもの
-    int attribute;              // SKK_CHAR 属性
-    int option;                 // 処理オプション
+    int id;             // イベント(冗長だが仕方がない)
+    unsigned char code; // 文字そのもの
+    int attribute;      // SKK_CHAR 属性
+    int option;         // 処理オプション
 
-    SKKEvent() : id(0), code(0), attribute(0), option(0) {}
-    SKKEvent(int e, unsigned char c, int a = None) : id(e), code(c), attribute(a), option(0) {}
+    SKKEvent()
+        : id(0), code(0), attribute(0), option(0) {}
+    SKKEvent(int e, unsigned char c, int a = None)
+        : id(e), code(c), attribute(a), option(0) {}
 
     // SKK_CHAR 属性問い合わせ
-    bool IsDirect() const                       { return attribute & Direct; }
-    bool IsUpperCases() const                   { return attribute & UpperCases; }
-    bool IsToggleKana() const                   { return attribute & ToggleKana; }
-    bool IsToggleJisx0201Kana() const           { return attribute & ToggleJisx0201Kana; }
-    bool IsSwitchToAscii() const                { return attribute & SwitchToAscii; }
-    bool IsSwitchToJisx0208Latin() const        { return attribute & SwitchToJisx0208Latin; }
-    bool IsEnterJapanese() const                { return attribute & EnterJapanese; }
-    bool IsEnterAbbrev() const                  { return attribute & EnterAbbrev; }
-    bool IsNextCompletion() const               { return attribute & NextCompletion; }
-    bool IsPrevCompletion() const               { return attribute & PrevCompletion; }
-    bool IsNextCandidate() const                { return attribute & NextCandidate; }
-    bool IsPrevCandidate() const                { return attribute & PrevCandidate; }
-    bool IsRemoveTrigger() const                { return attribute & RemoveTrigger; }
-    bool IsInputChars() const	                { return attribute & InputChars; }
-    bool IsCompConversion() const               { return attribute & CompConversion; }
-    bool IsStickyKey() const                    { return attribute & StickyKey; }
+    bool IsDirect() const {
+        return attribute & Direct;
+    }
+    bool IsUpperCases() const {
+        return attribute & UpperCases;
+    }
+    bool IsToggleKana() const {
+        return attribute & ToggleKana;
+    }
+    bool IsToggleJisx0201Kana() const {
+        return attribute & ToggleJisx0201Kana;
+    }
+    bool IsSwitchToAscii() const {
+        return attribute & SwitchToAscii;
+    }
+    bool IsSwitchToJisx0208Latin() const {
+        return attribute & SwitchToJisx0208Latin;
+    }
+    bool IsEnterJapanese() const {
+        return attribute & EnterJapanese;
+    }
+    bool IsEnterAbbrev() const {
+        return attribute & EnterAbbrev;
+    }
+    bool IsNextCompletion() const {
+        return attribute & NextCompletion;
+    }
+    bool IsPrevCompletion() const {
+        return attribute & PrevCompletion;
+    }
+    bool IsNextCandidate() const {
+        return attribute & NextCandidate;
+    }
+    bool IsPrevCandidate() const {
+        return attribute & PrevCandidate;
+    }
+    bool IsRemoveTrigger() const {
+        return attribute & RemoveTrigger;
+    }
+    bool IsInputChars() const {
+        return attribute & InputChars;
+    }
+    bool IsCompConversion() const {
+        return attribute & CompConversion;
+    }
+    bool IsStickyKey() const {
+        return attribute & StickyKey;
+    }
 
     const static SKKEvent& Null() {
         static SKKEvent obj(SKK_NULL, 0, 0);
@@ -124,7 +158,9 @@ public:
     std::string attr() const {
         std::string result;
 
-#define TEST_attribute(attr)	if(Is ## attr()) result += "," #attr
+#define TEST_attribute(attr)                                                                                           \
+    if(Is##attr())                                                                                                     \
+    result += "," #attr
 
         TEST_attribute(Direct);
         TEST_attribute(UpperCases);
@@ -178,8 +214,7 @@ public:
             "SKK_YES",
             "SKK_NO",
             "SKK_ON",
-            "SKK_OFF"
-        };
+            "SKK_OFF"};
 
         std::ostringstream buf;
         if(0 <= id - SKK_NULL) {

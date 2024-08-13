@@ -4,11 +4,11 @@
  * jconv.h - japanese character code conversion library
  *
  *   Copyright (c) 2006 Tomotaka SUWA, All rights reserved.
- * 
+ *
  *   Redistribution and use in source and binary forms, with or without
  *   modification, are permitted provided that the following conditions
  *   are met:
- * 
+ *
  *   1. Redistributions of source code must retain the above copyright
  *      notice, this list of conditions and the following disclaimer.
  *
@@ -35,11 +35,11 @@
 
 /*
  *   Copyright (c) 2000-2003 Shiro Kawai, All rights reserved.
- * 
+ *
  *   Redistribution and use in source and binary forms, with or without
  *   modification, are permitted provided that the following conditions
  *   are met:
- * 
+ *
  *   1. Redistributions of source code must retain the above copyright
  *      notice, this list of conditions and the following disclaimer.
  *
@@ -67,9 +67,9 @@
 #ifndef jconv_h
 #define jconv_h
 
+#include <stdexcept>
 #include <string>
 #include <vector>
-#include <stdexcept>
 
 namespace jconv {
     const unsigned char subst_char = '?';
@@ -78,48 +78,52 @@ namespace jconv {
     // substitute functors
     // ======================================================================
     class subst_eucj {
-	std::string& output_;
+        std::string& output_;
 
     public:
-	subst_eucj(std::string& dest) : output_(dest) {}
-	void operator()() {
-	    output_ += 0xa2;
-	    output_ += 0xae;
-	}
+        subst_eucj(std::string& dest)
+            : output_(dest) {}
+        void operator()() {
+            output_ += 0xa2;
+            output_ += 0xae;
+        }
     };
 
     class subst_sjis {
-	std::string& output_;
+        std::string& output_;
 
     public:
-	subst_sjis(std::string& dest) : output_(dest) {}
-	void operator()() {
-	    output_ += 0x81;
-	    output_ += 0xac;
-	}
+        subst_sjis(std::string& dest)
+            : output_(dest) {}
+        void operator()() {
+            output_ += 0x81;
+            output_ += 0xac;
+        }
     };
 
     class subst_utf8 {
-	std::string& output_;
+        std::string& output_;
 
     public:
-	subst_utf8(std::string& dest) : output_(dest) {}
-	void operator()() {
-	    output_ += 0xe3;
-	    output_ += 0x80;
-	    output_ += 0x93;
-	}
+        subst_utf8(std::string& dest)
+            : output_(dest) {}
+        void operator()() {
+            output_ += 0xe3;
+            output_ += 0x80;
+            output_ += 0x93;
+        }
     };
 
     class subst_iso2022jp {
-	std::string& output_;
+        std::string& output_;
 
     public:
-	subst_iso2022jp(std::string& dest) : output_(dest) {}
-	void operator()() {
-	    output_ += 0x02;
-	    output_ += 0x0e;
-	}
+        subst_iso2022jp(std::string& dest)
+            : output_(dest) {}
+        void operator()() {
+            output_ += 0x02;
+            output_ += 0x0e;
+        }
     };
 
 #if 0
@@ -140,215 +144,283 @@ namespace jconv {
     // Shift-JIS -> EUC_JP
     // ======================================================================
     class sjis_to_eucj {
-	typedef void (sjis_to_eucj::*handler)(unsigned char);
+        typedef void (sjis_to_eucj::*handler)(unsigned char);
 
-	std::string pool_;
-	std::string& output_;
-	subst_eucj subst_;
-	std::vector<unsigned char> input_;
-	handler state_;
+        std::string pool_;
+        std::string& output_;
+        subst_eucj subst_;
+        std::vector<unsigned char> input_;
+        handler state_;
 
-	// handler
-	void neutral(unsigned char c);
-	void jisx0213(unsigned char c);
+        // handler
+        void neutral(unsigned char c);
+        void jisx0213(unsigned char c);
 
-	void reset() { state_ = &sjis_to_eucj::neutral; }
+        void reset() {
+            state_ = &sjis_to_eucj::neutral;
+        }
 
     public:
-	sjis_to_eucj() : output_(pool_), subst_(output_) { reset(); }
-	sjis_to_eucj(std::string& dest) : output_(dest), subst_(output_) { reset(); }
+        sjis_to_eucj()
+            : output_(pool_), subst_(output_) {
+            reset();
+        }
+        sjis_to_eucj(std::string& dest)
+            : output_(dest), subst_(output_) {
+            reset();
+        }
 
-	void operator()(unsigned char c) { (this->*state_)(c); }
-	std::string& result() { return output_; }
+        void operator()(unsigned char c) {
+            (this->*state_)(c);
+        }
+        std::string& result() {
+            return output_;
+        }
     };
 
     // ======================================================================
     // EUC_JP -> Shift-JIS
     // ======================================================================
     class eucj_to_sjis {
-	typedef void (eucj_to_sjis::*handler)(unsigned char);
+        typedef void (eucj_to_sjis::*handler)(unsigned char);
 
-	std::string pool_;
-	std::string& output_;
-	subst_sjis subst_;
-	std::vector<unsigned char> input_;
-	handler state_;
+        std::string pool_;
+        std::string& output_;
+        subst_sjis subst_;
+        std::vector<unsigned char> input_;
+        handler state_;
 
-	// handler
-	void neutral(unsigned char c);
-	void jisx0201_kana(unsigned char c);
-	void jisx0213_plane1(unsigned char c);
-	void jisx0213_plane2(unsigned char c);
+        // handler
+        void neutral(unsigned char c);
+        void jisx0201_kana(unsigned char c);
+        void jisx0213_plane1(unsigned char c);
+        void jisx0213_plane2(unsigned char c);
 
-	void reset() { state_ = &eucj_to_sjis::neutral; }
+        void reset() {
+            state_ = &eucj_to_sjis::neutral;
+        }
 
     public:
-	eucj_to_sjis() : output_(pool_), subst_(output_) { reset(); }
-	eucj_to_sjis(std::string& dest) : output_(dest), subst_(output_) { reset(); }
+        eucj_to_sjis()
+            : output_(pool_), subst_(output_) {
+            reset();
+        }
+        eucj_to_sjis(std::string& dest)
+            : output_(dest), subst_(output_) {
+            reset();
+        }
 
-	void operator()(unsigned char c) { (this->*state_)(c); }
-	std::string& result() { return output_; }
+        void operator()(unsigned char c) {
+            (this->*state_)(c);
+        }
+        std::string& result() {
+            return output_;
+        }
     };
 
     // ======================================================================
     // UTF8 -> EUC_JP
     // ======================================================================
     class utf8_to_eucj {
-	typedef void (utf8_to_eucj::*handler)(unsigned char);
+        typedef void (utf8_to_eucj::*handler)(unsigned char);
 
-	std::string pool_;
-	std::string& output_;
-	subst_eucj subst_;
-	std::vector<unsigned char> input_;
-	bool nothrow_;
-	handler state_;
+        std::string pool_;
+        std::string& output_;
+        subst_eucj subst_;
+        std::vector<unsigned char> input_;
+        bool nothrow_;
+        handler state_;
 
-	void emit(unsigned short euc);
+        void emit(unsigned short euc);
 
-	// handler
-	void neutral(unsigned char c);
-	void sequence_of_2_bytes(unsigned char c);
-	void sequence_of_3_bytes(unsigned char c);
-	void sequence_of_4_bytes(unsigned char c);
-	void sequence_of_5_bytes(unsigned char c);
-	void sequence_of_6_bytes(unsigned char c);
+        // handler
+        void neutral(unsigned char c);
+        void sequence_of_2_bytes(unsigned char c);
+        void sequence_of_3_bytes(unsigned char c);
+        void sequence_of_4_bytes(unsigned char c);
+        void sequence_of_5_bytes(unsigned char c);
+        void sequence_of_6_bytes(unsigned char c);
 
-	void reset() { state_ = &utf8_to_eucj::neutral; }
+        void reset() {
+            state_ = &utf8_to_eucj::neutral;
+        }
 
-	void dead_end(const char* msg) { if(!nothrow_) throw std::runtime_error(msg); }
+        void dead_end(const char* msg) {
+            if(!nothrow_)
+                throw std::runtime_error(msg);
+        }
 
     public:
-	utf8_to_eucj(bool nothrow = true) : output_(pool_), subst_(output_), nothrow_(nothrow) {
-	    reset();
-	}
-	utf8_to_eucj(std::string& dest, bool nothrow = true) : output_(dest), subst_(output_), nothrow_(nothrow) {
-	    reset();
-	}
+        utf8_to_eucj(bool nothrow = true)
+            : output_(pool_), subst_(output_), nothrow_(nothrow) {
+            reset();
+        }
+        utf8_to_eucj(std::string& dest, bool nothrow = true)
+            : output_(dest), subst_(output_), nothrow_(nothrow) {
+            reset();
+        }
 
-	void operator()(unsigned char c) { (this->*state_)(c); }
-	std::string& result() { return output_; }
+        void operator()(unsigned char c) {
+            (this->*state_)(c);
+        }
+        std::string& result() {
+            return output_;
+        }
     };
 
     // ======================================================================
     // EUC_JP -> UTF8
     // ======================================================================
     class eucj_to_utf8 {
-	typedef void (eucj_to_utf8::*handler)(unsigned char);
+        typedef void (eucj_to_utf8::*handler)(unsigned char);
 
-	std::string pool_;
-	std::string& output_;
-	subst_utf8 subst_;
-	std::vector<unsigned char> input_;
-	bool nothrow_;
-	handler state_;
+        std::string pool_;
+        std::string& output_;
+        subst_utf8 subst_;
+        std::vector<unsigned char> input_;
+        bool nothrow_;
+        handler state_;
 
-	void emit(unsigned int ucs);
+        void emit(unsigned int ucs);
 
-	// handler
-	void neutral(unsigned char c);
-	void jisx0201_kana(unsigned char c);
-	void jisx0213_plane1(unsigned char c);
-	void jisx0213_plane2(unsigned char c);
+        // handler
+        void neutral(unsigned char c);
+        void jisx0201_kana(unsigned char c);
+        void jisx0213_plane1(unsigned char c);
+        void jisx0213_plane2(unsigned char c);
 
-	void reset() { state_ = &eucj_to_utf8::neutral; }
+        void reset() {
+            state_ = &eucj_to_utf8::neutral;
+        }
 
-	void dead_end(const char* msg) { if(!nothrow_) throw std::runtime_error(msg); }
+        void dead_end(const char* msg) {
+            if(!nothrow_)
+                throw std::runtime_error(msg);
+        }
 
     public:
-	eucj_to_utf8(bool nothrow = true) : output_(pool_), subst_(output_), nothrow_(nothrow) {
-	    reset();
-	}
-	eucj_to_utf8(std::string& dest, bool nothrow = true) : output_(dest), subst_(output_), nothrow_(nothrow) {
-	    reset();
-	}
+        eucj_to_utf8(bool nothrow = true)
+            : output_(pool_), subst_(output_), nothrow_(nothrow) {
+            reset();
+        }
+        eucj_to_utf8(std::string& dest, bool nothrow = true)
+            : output_(dest), subst_(output_), nothrow_(nothrow) {
+            reset();
+        }
 
-	void operator()(unsigned char c) { (this->*state_)(c); }
-	std::string& result() { return output_; }
+        void operator()(unsigned char c) {
+            (this->*state_)(c);
+        }
+        std::string& result() {
+            return output_;
+        }
     };
 
     // ======================================================================
     // ISO-2022-JP -> EUC_JP
     // ======================================================================
     class iso2022jp_to_eucj {
-	typedef void (iso2022jp_to_eucj::*handler)(unsigned char);
+        typedef void (iso2022jp_to_eucj::*handler)(unsigned char);
 
-	std::string pool_;
-	std::string& output_;
-	std::vector<unsigned char> input_;
-	bool nothrow_;
-	handler state_;
-	handler sub_state_;
+        std::string pool_;
+        std::string& output_;
+        std::vector<unsigned char> input_;
+        bool nothrow_;
+        handler state_;
+        handler sub_state_;
 
-	// main handler
-	void neutral(unsigned char c);
-	void escape_sequence(unsigned char c);
+        // main handler
+        void neutral(unsigned char c);
+        void escape_sequence(unsigned char c);
 
-	// sub handler(invoked from neutral)
-	void us_ascii(unsigned char c);
-	void jisx0201_roman(unsigned char c);
-	void jisx0201_kana(unsigned char c);
-	void jisx0208_1978(unsigned char c);
-	void jisx0212(unsigned char c);
-	void jisx0213_plane1(unsigned char c);
-	void jisx0213_plane2(unsigned char c);
-	void unknown(unsigned char c);
+        // sub handler(invoked from neutral)
+        void us_ascii(unsigned char c);
+        void jisx0201_roman(unsigned char c);
+        void jisx0201_kana(unsigned char c);
+        void jisx0208_1978(unsigned char c);
+        void jisx0212(unsigned char c);
+        void jisx0213_plane1(unsigned char c);
+        void jisx0213_plane2(unsigned char c);
+        void unknown(unsigned char c);
 
-	void reset() { state_ = &iso2022jp_to_eucj::neutral; }
+        void reset() {
+            state_ = &iso2022jp_to_eucj::neutral;
+        }
 
-	void dead_end(const char* msg) { if(!nothrow_) throw std::runtime_error(msg); }
+        void dead_end(const char* msg) {
+            if(!nothrow_)
+                throw std::runtime_error(msg);
+        }
 
     public:
-	iso2022jp_to_eucj(bool nothrow = true) : output_(pool_), nothrow_(nothrow) {
-	    reset();
-	    sub_state_ = &iso2022jp_to_eucj::us_ascii;
-	}
-	iso2022jp_to_eucj(std::string& dest, bool nothrow = true) : output_(dest), nothrow_(nothrow) {
-	    reset();
-	    sub_state_ = &iso2022jp_to_eucj::us_ascii;
-	}
+        iso2022jp_to_eucj(bool nothrow = true)
+            : output_(pool_), nothrow_(nothrow) {
+            reset();
+            sub_state_ = &iso2022jp_to_eucj::us_ascii;
+        }
+        iso2022jp_to_eucj(std::string& dest, bool nothrow = true)
+            : output_(dest), nothrow_(nothrow) {
+            reset();
+            sub_state_ = &iso2022jp_to_eucj::us_ascii;
+        }
 
-	void operator()(unsigned char c) { (this->*state_)(c); }
-	std::string& result() { return output_; }
+        void operator()(unsigned char c) {
+            (this->*state_)(c);
+        }
+        std::string& result() {
+            return output_;
+        }
     };
 
     // ======================================================================
     // EUC_JP -> ISO-2022-JP
     // ======================================================================
     class eucj_to_iso2022jp {
-	typedef void (eucj_to_iso2022jp::*handler)(unsigned char);
+        typedef void (eucj_to_iso2022jp::*handler)(unsigned char);
 
-	std::string pool_;
-	std::string& output_;
-	std::vector<unsigned char> input_;
-	bool nothrow_;
-	handler state_;
-	handler sub_state_;
+        std::string pool_;
+        std::string& output_;
+        std::vector<unsigned char> input_;
+        bool nothrow_;
+        handler state_;
+        handler sub_state_;
 
-	// main handler
-	void neutral(unsigned char c);
-	void guess(unsigned char c);
+        // main handler
+        void neutral(unsigned char c);
+        void guess(unsigned char c);
 
-	// sub handler
-	void us_ascii(unsigned char c);
-	void jisx0201_kana(unsigned char c);
-	void jisx0212(unsigned char c);
-	void jisx0213_plane1(unsigned char c);
-	void jisx0213_plane2(unsigned char c);
+        // sub handler
+        void us_ascii(unsigned char c);
+        void jisx0201_kana(unsigned char c);
+        void jisx0212(unsigned char c);
+        void jisx0213_plane1(unsigned char c);
+        void jisx0213_plane2(unsigned char c);
 
-	void reset() { state_ = &eucj_to_iso2022jp::neutral; }
+        void reset() {
+            state_ = &eucj_to_iso2022jp::neutral;
+        }
 
-	void dead_end(const char* msg) { if(!nothrow_) throw std::runtime_error(msg); }
+        void dead_end(const char* msg) {
+            if(!nothrow_)
+                throw std::runtime_error(msg);
+        }
 
     public:
-	eucj_to_iso2022jp(bool nothrow = true) : output_(pool_), nothrow_(nothrow), sub_state_(0) {
-	    reset();
-	}
-	eucj_to_iso2022jp(std::string& dest, bool nothrow = true) : output_(dest), nothrow_(nothrow), sub_state_(0) {
-	    reset();
-	}
+        eucj_to_iso2022jp(bool nothrow = true)
+            : output_(pool_), nothrow_(nothrow), sub_state_(0) {
+            reset();
+        }
+        eucj_to_iso2022jp(std::string& dest, bool nothrow = true)
+            : output_(dest), nothrow_(nothrow), sub_state_(0) {
+            reset();
+        }
 
-	void operator()(unsigned char c) { (this->*state_)(c); }
-	std::string& result() { return output_; }
+        void operator()(unsigned char c) {
+            (this->*state_)(c);
+        }
+        std::string& result() {
+            return output_;
+        }
     };
 
     // utility

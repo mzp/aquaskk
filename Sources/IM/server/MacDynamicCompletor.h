@@ -29,22 +29,21 @@
 @class CompletionWindow;
 
 class MacDynamicCompletor : public SKKDynamicCompletor {
-    SKKLayoutManager* layout_;
-    CompletionWindow* window_;
+    SKKLayoutManager *layout_;
+    CompletionWindow *window_;
     std::string completion_;
     int commonPrefixLength_;
     int cursorOffset_;
 
-    NSAttributedString* makeAttributedString(); 
+    NSAttributedString *makeAttributedString();
 
     virtual void SKKWidgetShow();
     virtual void SKKWidgetHide();
 
-public:
-    MacDynamicCompletor(SKKLayoutManager* layout);
+  public:
+    MacDynamicCompletor(SKKLayoutManager *layout);
 
-    virtual void Update(const std::string& completion,
-                        int commonPrefixLength, int cursorOffset);
+    virtual void Update(const std::string &completion, int commonPrefixLength, int cursorOffset);
 };
 
 #endif

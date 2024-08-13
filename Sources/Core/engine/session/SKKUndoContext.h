@@ -24,7 +24,7 @@
 #define SKKUndoContext_h
 
 #include <string>
- 
+
 class SKKFrontEnd;
 
 class SKKUndoContext {

@@ -20,16 +20,16 @@
 
 */
 
-#ifndef	SKKBackEnd_h
+#ifndef SKKBackEnd_h
 #define SKKBackEnd_h
 
 #import <AquaSKKCore/SKKCandidateSuite.h>
-#import <AquaSKKCore/SKKDictionaryKey.h>
 #import <AquaSKKCore/SKKDictionaryCache.h>
+#import <AquaSKKCore/SKKDictionaryKey.h>
 #import <AquaSKKCore/SKKEntry.h>
+#include <memory>
 #include <string>
 #include <vector>
-#include <memory>
 
 class SKKBaseDictionary;
 class SKKUserDictionary;

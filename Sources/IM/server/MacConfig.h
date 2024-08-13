@@ -28,10 +28,10 @@
 #import <AquaSKKCore/SKKConfig.h>
 
 class MacConfig : public SKKConfig {
-    int integerConfig(NSString* key);
-    bool boolConfig(NSString* key);
+    int integerConfig(NSString *key);
+    bool boolConfig(NSString *key);
 
-public:
+  public:
     MacConfig();
 
     virtual bool FixIntermediateConversion();

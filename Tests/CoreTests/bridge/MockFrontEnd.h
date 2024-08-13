@@ -2,8 +2,8 @@
 #define MockFrontEnd_h
 
 #include "SKKFrontEnd.h"
-#import <AquaSKKCore/SKKInputModeListener.h>
 #include "TestResult.h"
+#import <AquaSKKCore/SKKInputModeListener.h>
 #include <sstream>
 
 class MockFrontEnd : public SKKFrontEnd, public SKKInputModeListener {
@@ -11,11 +11,11 @@ class MockFrontEnd : public SKKFrontEnd, public SKKInputModeListener {
     std::string selected_string_;
 
     virtual void InsertString(const std::string& str) {
-	result_.fixed += str;
+        result_.fixed += str;
     }
 
     virtual void ComposeString(const std::string& str, int cursorOffset) {
-	result_.marked = str;
+        result_.marked = str;
         result_.pos = cursorOffset;
     }
 
@@ -36,8 +36,12 @@ class MockFrontEnd : public SKKFrontEnd, public SKKInputModeListener {
     virtual void SKKWidgetHide() {}
 
 public:
-    void SetSelectedString(const std::string& str) { selected_string_ = str; }
-    operator TestResult&() { return result_; }
+    void SetSelectedString(const std::string& str) {
+        selected_string_ = str;
+    }
+    operator TestResult&() {
+        return result_;
+    }
 };
 
 #endif

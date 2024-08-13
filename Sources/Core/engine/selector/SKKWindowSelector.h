@@ -23,8 +23,8 @@
 #ifndef SKKWindowSelector_h
 #define SKKWindowSelector_h
 
-#include <vector>
 #import <AquaSKKCore/SKKBaseSelector.h>
+#include <vector>
 
 class SKKWindowSelector : public SKKBaseSelector {
     class SKKCandidateWindow* window_;

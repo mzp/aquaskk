@@ -26,7 +26,7 @@
 
 #import <AquaSKKCore/SKKBaseDictionary.h>
 
-class SKKUserDictionary: public SKKBaseDictionary {
+class SKKUserDictionary : public SKKBaseDictionary {
 public:
     virtual void Register(const SKKEntry& entry, const SKKCandidate& candidate) = 0;
     virtual void Remove(const SKKEntry& entry, const SKKCandidate& candidate) = 0;

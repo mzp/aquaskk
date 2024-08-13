@@ -23,9 +23,9 @@
 #ifndef SubRuleDescriptions_h
 #define SubRuleDescriptions_h
 
-#include <string>
 #include <map>
 #include <optional>
+#include <string>
 
 class SubRuleDescriptions {
     std::map<std::string, std::string> description_;
@@ -37,9 +37,9 @@ class SubRuleDescriptions {
 public:
     SubRuleDescriptions(const char* folder);
 
-    std::string Description(const std::string &rule_path);
-    std::string Keymap(const std::string &rule_path);
-    bool HasKeymap(const std::string &rule_path);
+    std::string Description(const std::string& rule_path);
+    std::string Keymap(const std::string& rule_path);
+    bool HasKeymap(const std::string& rule_path);
 };
 
 #endif

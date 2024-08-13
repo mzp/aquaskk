@@ -23,12 +23,12 @@
 #ifndef SKKDictionaryKeeper_h
 #define SKKDictionaryKeeper_h
 
+#import <AquaSKKCore/SKKCompletionHelper.h>
 #import <AquaSKKCore/SKKDictionaryFile.h>
 #import <AquaSKKCore/SKKDictionaryLoader.h>
-#import <AquaSKKCore/SKKCompletionHelper.h>
 #import <AquaSKKCore/pthreadutil.h>
-#include <vector>
 #include <memory>
+#include <vector>
 
 class SKKDictionaryKeeper : public SKKDictionaryLoaderObserver {
 #pragma clang diagnostic push

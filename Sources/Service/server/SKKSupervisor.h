@@ -22,8 +22,9 @@
 
 #ifndef SKKSupervisor_h
 #define SKKSupervisor_h
+#import <Foundation/Foundation.h>
 
-#define SKKSupervisorConnectionName	@"SKKSupervisorConnection"
+#define SKKSupervisorConnectionName @"SKKSupervisorConnection"
 
 // AquaSKK 制御用プロトコル
 

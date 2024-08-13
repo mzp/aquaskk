@@ -29,7 +29,8 @@ class SKKRegistration {
 public:
     enum State { None, Started, Finished, Aborted };
 
-    SKKRegistration() : state_(None) {}
+    SKKRegistration()
+        : state_(None) {}
 
     void Start() {
         state_ = Started;

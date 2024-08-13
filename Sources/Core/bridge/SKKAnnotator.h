@@ -23,8 +23,8 @@
 #ifndef SKKAnnotator_h
 #define SKKAnnotator_h
 
-#import <AquaSKKCore/SKKWidget.h>
 #import <AquaSKKCore/SKKCandidate.h>
+#import <AquaSKKCore/SKKWidget.h>
 
 class SKKAnnotator : public SKKWidget {
 public:

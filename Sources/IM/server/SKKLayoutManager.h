@@ -31,11 +31,11 @@ class SKKLayoutManager {
 
     BOOL putUpward() const;
     NSRect inputFrame(int index) const;
-    NSRect screenFrame(const NSRect& input) const;
-    NSPoint fit(const NSRect& screen, const NSRect& window) const;
-    int margin() const; 
+    NSRect screenFrame(const NSRect &input) const;
+    NSPoint fit(const NSRect &screen, const NSRect &window) const;
+    int margin() const;
 
-public:
+  public:
     SKKLayoutManager(id client);
 
     // 入力位置の原点

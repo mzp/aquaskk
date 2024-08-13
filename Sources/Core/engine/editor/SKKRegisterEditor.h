@@ -38,7 +38,7 @@ class SKKRegisterEditor : public SKKBaseEditor {
 
 public:
     SKKRegisterEditor(SKKInputContext* context);
-    
+
     virtual void ReadContext();
     virtual void WriteContext();
     virtual void Input(const std::string& ascii);

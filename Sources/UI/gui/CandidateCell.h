@@ -26,13 +26,13 @@
 #include <Cocoa/Cocoa.h>
 
 @interface CandidateCell : NSObject {
-    NSMutableDictionary* attributes_;
-    NSMutableAttributedString* entry_;
+    NSMutableDictionary *attributes_;
+    NSMutableAttributedString *entry_;
     NSSize size_;
 }
 
-- (id)initWithFont:(NSFont*)font;
-- (void)setString:(NSString*)string withLabel:(char)label;
+- (id)initWithFont:(NSFont *)font;
+- (void)setString:(NSString *)string withLabel:(char)label;
 - (void)drawAtPoint:(NSPoint)point withFocus:(BOOL)focus;
 - (void)drawAtPoint:(NSPoint)point withSize:(NSSize)size;
 - (NSSize)size;

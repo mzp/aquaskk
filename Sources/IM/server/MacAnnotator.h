@@ -29,22 +29,22 @@
 @class AnnotationWindow;
 
 class MacAnnotator : public SKKAnnotator {
-    SKKLayoutManager* layout_;
-    NSString* definition_;
-    NSString* optional_;
-    AnnotationWindow* window_;
+    SKKLayoutManager *layout_;
+    NSString *definition_;
+    NSString *optional_;
+    AnnotationWindow *window_;
     SKKCandidate candidate_;
     int cursor_;
 
-    void release(NSString*& str);
+    void release(NSString *&str);
 
     virtual void SKKWidgetShow();
     virtual void SKKWidgetHide();
 
-public:
-    MacAnnotator(SKKLayoutManager* layout);
+  public:
+    MacAnnotator(SKKLayoutManager *layout);
 
-    virtual void Update(const SKKCandidate& candidate, int cursorOffset);
+    virtual void Update(const SKKCandidate &candidate, int cursorOffset);
 };
 
 #endif

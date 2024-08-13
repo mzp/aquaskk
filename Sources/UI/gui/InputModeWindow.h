@@ -23,20 +23,20 @@
 #ifndef InputModeWindow_h
 #define InputModeWindow_h
 
+#import <AppKit/AppKit.h>
 #import <AquaSKKCore/SKKInputMode.h>
 #include <QuartzCore/QuartzCore.h>
-#import <AppKit/AppKit.h>
 
 @interface InputModeWindow : NSObject {
-    NSWindow* window_;
+    NSWindow *window_;
     SKKInputMode inputMode_;
-    NSDictionary* modeIcons_;
-    CALayer* rootLayer_;
-    CABasicAnimation* animation_;
+    NSDictionary *modeIcons_;
+    CALayer *rootLayer_;
+    CABasicAnimation *animation_;
 }
 
-+ (InputModeWindow*)sharedWindow;
-- (void)setModeIcons:(NSDictionary*)icons;
++ (InputModeWindow *)sharedWindow;
+- (void)setModeIcons:(NSDictionary *)icons;
 - (void)changeMode:(SKKInputMode)mode;
 - (SKKInputMode)currentInputMode;
 - (void)showAt:(NSPoint)topleft level:(int)level;
@@ -45,4 +45,3 @@
 @end
 
 #endif
-

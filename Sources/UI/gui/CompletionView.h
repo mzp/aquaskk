@@ -23,21 +23,19 @@
 #ifndef CompletionView_h
 #define CompletionView_h
 
-#import <Foundation/Foundation.h>
 #import <AppKit/AppKit.h>
-
+#import <Foundation/Foundation.h>
 
 @interface CompletionView : NSView {
-    NSAttributedString* completion_;
-    NSColor* strokeColor_;
-    NSColor* backgroundColor_;
-    NSAttributedString* guide_;
+    NSAttributedString *completion_;
+    NSColor *strokeColor_;
+    NSColor *backgroundColor_;
+    NSAttributedString *guide_;
     NSSize guideSize_;
 }
 
-- (void)setCompletion:(NSAttributedString*)completion;
+- (void)setCompletion:(NSAttributedString *)completion;
 
 @end
 
 #endif
-

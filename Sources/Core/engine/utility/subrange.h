@@ -3,11 +3,11 @@
  * subrange.h - subrange of STL sequence container.
  *
  *   Copyright (c) 2007 Tomotaka SUWA, All rights reserved.
- * 
+ *
  *   Redistribution and use in source and binary forms, with or without
  *   modification, are permitted provided that the following conditions
  *   are met:
- * 
+ *
  *   1. Redistributions of source code must retain the above copyright
  *      notice, this list of conditions and the following disclaimer.
  *
@@ -35,8 +35,7 @@
 #ifndef subrange_h
 #define subrange_h
 
-template <typename Container, typename Iter = typename Container::iterator>
-class subrange {
+template <typename Container, typename Iter = typename Container::iterator> class subrange {
     typedef unsigned size_type;
 
     Iter begin_;
@@ -45,21 +44,21 @@ class subrange {
     void adjust(Container& container, size_type pos, size_type length) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wshorten-64-to-32"
-	unsigned size = container.size();
+        unsigned size = container.size();
 #pragma clang diagnostic pop
 
-	if(pos < size) {
-	    begin_ = container.begin() + pos;
-	} else {
-	    begin_ = end_ = container.end();
-	    return;
-	}
+        if(pos < size) {
+            begin_ = container.begin() + pos;
+        } else {
+            begin_ = end_ = container.end();
+            return;
+        }
 
-	if(length == -1U ||  size < pos + length) {
-	    end_ = container.end();
-	} else {
-      	    end_ = begin_ + length;
-	}
+        if(length == -1U || size < pos + length) {
+            end_ = container.end();
+        } else {
+            end_ = begin_ + length;
+        }
     }
 
 public:
@@ -67,37 +66,58 @@ public:
     typedef Iter iterator;
 
     subrange() {}
-    subrange(Iter begin, Iter end) : begin_(begin), end_(end) {}
+    subrange(Iter begin, Iter end)
+        : begin_(begin), end_(end) {}
     subrange(Container& container, size_type pos, size_type length = -1U) {
-	adjust(container, pos, length);
+        adjust(container, pos, length);
     }
 
     void set(Iter begin, Iter end) {
-	begin_ = begin;
-	end_ = end;
+        begin_ = begin;
+        end_ = end;
     }
 
     void set(Container& container, size_type pos, size_type length = -1U) {
-	adjust(container, pos, length);
+        adjust(container, pos, length);
     }
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wshorten-64-to-32"
-    size_type size() const { return end() - begin(); }
+    size_type size() const {
+        return end() - begin();
+    }
 #pragma clang diagnostic pop
-    bool empty() const { return begin() == end(); }
+    bool empty() const {
+        return begin() == end();
+    }
 
-    Iter begin() { return begin_; }
-    Iter end() { return end_; }
+    Iter begin() {
+        return begin_;
+    }
+    Iter end() {
+        return end_;
+    }
 
-    Iter begin() const { return begin_; }
-    Iter end() const { return end_; }
+    Iter begin() const {
+        return begin_;
+    }
+    Iter end() const {
+        return end_;
+    }
 
-    value_type& front() { return *begin(); }
-    value_type& back() { return *(end() - 1); }
+    value_type& front() {
+        return *begin();
+    }
+    value_type& back() {
+        return *(end() - 1);
+    }
 
-    value_type& operator[](size_type pos) { return *(begin() + pos); }
-    const value_type& operator[](size_type pos) const { return *(begin() + pos); }
+    value_type& operator[](size_type pos) {
+        return *(begin() + pos);
+    }
+    const value_type& operator[](size_type pos) const {
+        return *(begin() + pos);
+    }
 };
 
 #endif

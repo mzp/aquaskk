@@ -23,9 +23,9 @@
 #ifndef SKKDictionaryFile_h
 #define SKKDictionaryFile_h
 
-#include <string>
 #include <deque>
 #include <iosfwd>
+#include <string>
 #include <utility>
 
 // 「見出し語」と「変換候補」のペア(変換候補は分解する前の状態)
@@ -58,28 +58,24 @@ public:
 
 // SKKDictionaryEntry を比較するファンクタ(Effective STL, p.99)
 class SKKDictionaryEntryCompare {
-    bool keyLess(const SKKDictionaryEntry::first_type& key1,
-		 const SKKDictionaryEntry::first_type& key2) const {
-	return key1 < key2;
+    bool keyLess(const SKKDictionaryEntry::first_type& key1, const SKKDictionaryEntry::first_type& key2) const {
+        return key1 < key2;
     }
 
 public:
     // ソート用比較関数
-    bool operator()(const SKKDictionaryEntry& lhs,
-		    const SKKDictionaryEntry& rhs) const {
-	return keyLess(lhs.first, rhs.first);
+    bool operator()(const SKKDictionaryEntry& lhs, const SKKDictionaryEntry& rhs) const {
+        return keyLess(lhs.first, rhs.first);
     }
 
     // 探索用比較関数(その1)
-    bool operator()(const SKKDictionaryEntry& lhs,
-		    const SKKDictionaryEntry::first_type& key) const {
-	return keyLess(lhs.first, key);
+    bool operator()(const SKKDictionaryEntry& lhs, const SKKDictionaryEntry::first_type& key) const {
+        return keyLess(lhs.first, key);
     }
 
     // 探索用比較関数(その2)
-    bool operator()(const SKKDictionaryEntry::first_type& key,
-		    const SKKDictionaryEntry& rhs) const {
-	return keyLess(key, rhs.first);
+    bool operator()(const SKKDictionaryEntry::first_type& key, const SKKDictionaryEntry& rhs) const {
+        return keyLess(key, rhs.first);
     }
 };
 

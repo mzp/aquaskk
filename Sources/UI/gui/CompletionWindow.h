@@ -23,21 +23,20 @@
 #ifndef CompletionWindow_h
 #define CompletionWindow_h
 
-#import <Foundation/Foundation.h>
 #import <AppKit/AppKit.h>
+#import <Foundation/Foundation.h>
 
 @class CompletionView;
 
 @interface CompletionWindow : NSObject {
-    NSWindow* window_;
-    CompletionView* view_;
+    NSWindow *window_;
+    CompletionView *view_;
 }
 
-+ (CompletionWindow*)sharedWindow;
-- (void)showCompletion:(NSAttributedString*)completion at:(NSPoint)topleft level:(int)level;
++ (CompletionWindow *)sharedWindow;
+- (void)showCompletion:(NSAttributedString *)completion at:(NSPoint)topleft level:(int)level;
 - (void)hide;
 
 @end
 
 #endif
-

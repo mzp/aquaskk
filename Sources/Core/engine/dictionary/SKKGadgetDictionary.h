@@ -23,8 +23,8 @@
 #ifndef SKKGadgetDictionary_h
 #define SKKGadgetDictionary_h
 
-#include <map>
 #import <AquaSKKCore/SKKBaseDictionary.h>
+#include <map>
 
 // ======================================================================
 // プログラム実行変換辞書クラス
@@ -43,8 +43,7 @@ class SKKGadgetDictionary : public SKKBaseDictionary {
 
     DispatchTable selectHandlers(const std::string& entry, bool complete = false) const;
 
-    template <typename Predicate, typename Func>
-    void apply(Predicate pred, Func func) {
+    template <typename Predicate, typename Func> void apply(Predicate pred, Func func) {
         DispatchTable::iterator first = table_.begin();
         DispatchTable::iterator last = table_.end();
 
@@ -52,12 +51,11 @@ class SKKGadgetDictionary : public SKKBaseDictionary {
             if(pred(*first)) {
                 func(*first);
             }
-            ++ first;
+            ++first;
         }
     }
 
 public:
-
     virtual void Initialize(const std::string& location);
 
     virtual void Find(const SKKEntry& entry, SKKCandidateSuite& result);

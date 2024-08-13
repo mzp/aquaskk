@@ -26,7 +26,7 @@
 State SKKState::Primary(const Event& event) {
     switch(event) {
     case INIT_EVENT:
-	return State::Initial(&SKKState::KanaInput);
+        return State::Initial(&SKKState::KanaInput);
 
     case ENTRY_EVENT:
         editor_->SetStatePrimary();
@@ -37,12 +37,12 @@ State SKKState::Primary(const Event& event) {
         return 0;
 
     case SKK_ENTER:
-	editor_->HandleEnter();
-	return 0;
+        editor_->HandleEnter();
+        return 0;
 
     case SKK_CANCEL:
-	editor_->HandleCancel();
-	return 0;
+        editor_->HandleCancel();
+        return 0;
 
     case SKK_UNDO:
         // Undo 可能なら見出し語入力に遷移する
@@ -62,8 +62,8 @@ State SKKState::Primary(const Event& event) {
         return 0;
 
     case SKK_PASTE:
-	editor_->HandlePaste();
-	return 0;
+        editor_->HandlePaste();
+        return 0;
 
     case SKK_PING:
         editor_->HandlePing();
@@ -128,36 +128,36 @@ State SKKState::KanaInput(const Event& event) {
 
     switch(event) {
     case INIT_EVENT:
-	return State::ShallowHistory(&SKKState::Hirakana);
+        return State::ShallowHistory(&SKKState::Hirakana);
 
     case EXIT_EVENT:
-	return State::SaveHistory();
+        return State::SaveHistory();
 
     case SKK_CHAR:
-	if(!editor_->CanConvert(param.code)) {
-	    if(param.IsSwitchToAscii()) {
-		return State::Transition(&SKKState::Ascii);
-	    }
+        if(!editor_->CanConvert(param.code)) {
+            if(param.IsSwitchToAscii()) {
+                return State::Transition(&SKKState::Ascii);
+            }
 
-	    if(param.IsSwitchToJisx0208Latin()) {
-		return State::Transition(&SKKState::Jisx0208Latin);
-	    }
+            if(param.IsSwitchToJisx0208Latin()) {
+                return State::Transition(&SKKState::Jisx0208Latin);
+            }
 
-	    if(param.IsEnterAbbrev()) {
-		return State::Transition(&SKKState::AsciiEntry);
-	    }
+            if(param.IsEnterAbbrev()) {
+                return State::Transition(&SKKState::AsciiEntry);
+            }
 
-	    if(param.IsEnterJapanese()) {
-		return State::Transition(&SKKState::KanaEntry);
-	    }
-	}
+            if(param.IsEnterJapanese()) {
+                return State::Transition(&SKKState::KanaEntry);
+            }
+        }
 
         if(param.IsStickyKey()) {
             return State::Transition(&SKKState::KanaEntry);
         }
-	if(param.IsUpperCases()) {
-	    return State::Forward(&SKKState::KanaEntry);
-	}
+        if(param.IsUpperCases()) {
+            return State::Forward(&SKKState::KanaEntry);
+        }
 
         // キー修飾がない場合のみローマ字かな変換を実施する
         if(param.IsInputChars()) {
@@ -178,7 +178,7 @@ State SKKState::Hirakana(const Event& event) {
     switch(event) {
     case ENTRY_EVENT:
         editor_->SelectInputMode(SKKInputMode::HirakanaInputMode);
-	return 0;
+        return 0;
 
     case SKK_HIRAKANA_MODE:
         return 0;
@@ -198,7 +198,7 @@ State SKKState::Hirakana(const Event& event) {
             }
 
             if(param.IsToggleJisx0201Kana()) {
-              return State::Transition(&SKKState::Jisx0201Kana);
+                return State::Transition(&SKKState::Jisx0201Kana);
             }
         }
     }
@@ -215,7 +215,7 @@ State SKKState::Katakana(const Event& event) {
     switch(event) {
     case ENTRY_EVENT:
         editor_->SelectInputMode(SKKInputMode::KatakanaInputMode);
-	return 0;
+        return 0;
 
     case SKK_KATAKANA_MODE:
         return 0;
@@ -245,7 +245,7 @@ State SKKState::Jisx0201Kana(const Event& event) {
     switch(event) {
     case ENTRY_EVENT:
         editor_->SelectInputMode(SKKInputMode::Jisx0201KanaInputMode);
-	return 0;
+        return 0;
 
     case SKK_JISX0201KANA_MODE:
         return 0;
@@ -253,9 +253,8 @@ State SKKState::Jisx0201Kana(const Event& event) {
     default:
         if(!(event == SKK_CHAR && param.IsInputChars() && editor_->CanConvert(param.code))) {
             // 変換する文字がない場合のみ、ToggleKana等の処理する
-            if(event == SKK_JMODE ||
-                param.IsToggleKana() || param.IsToggleJisx0201Kana()) {
-              return State::Transition(&SKKState::Hirakana);
+            if(event == SKK_JMODE || param.IsToggleKana() || param.IsToggleJisx0201Kana()) {
+                return State::Transition(&SKKState::Hirakana);
             }
         }
     }
@@ -271,7 +270,7 @@ State SKKState::LatinInput(const Event& event) {
 
     switch(event) {
     case SKK_JMODE:
-	return State::Transition(&SKKState::Hirakana);
+        return State::Transition(&SKKState::Hirakana);
 
     case SKK_CHAR:
         if(param.IsInputChars()) {
@@ -293,7 +292,7 @@ State SKKState::Ascii(const Event& event) {
     switch(event) {
     case ENTRY_EVENT:
         editor_->SelectInputMode(SKKInputMode::AsciiInputMode);
-	return 0;
+        return 0;
 
     case SKK_ASCII_MODE:
         return 0;
@@ -311,15 +310,14 @@ State SKKState::Jisx0208Latin(const Event& event) {
     switch(event) {
     case ENTRY_EVENT:
         editor_->SelectInputMode(SKKInputMode::Jisx0208LatinInputMode);
-	return 0;
+        return 0;
 
     case SKK_JISX0208LATIN_MODE:
         return 0;
 
     default:
-        if(event == SKK_ASCII_MODE ||
-           (!param.IsInputChars() && param.IsSwitchToAscii())) {
-           return State::Transition(&SKKState::Ascii);
+        if(event == SKK_ASCII_MODE || (!param.IsInputChars() && param.IsSwitchToAscii())) {
+            return State::Transition(&SKKState::Ascii);
         }
     }
 

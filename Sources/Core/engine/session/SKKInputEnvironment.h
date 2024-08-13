@@ -23,10 +23,10 @@
 #ifndef SKKInputEnvironment_h
 #define SKKInputEnvironment_h
 
-#import <AquaSKKCore/SKKInputContext.h>
-#import <AquaSKKCore/SKKInputSessionParameter.h>
-#import <AquaSKKCore/SKKInputModeSelector.h>
 #import <AquaSKKCore/SKKBaseEditor.h>
+#import <AquaSKKCore/SKKInputContext.h>
+#import <AquaSKKCore/SKKInputModeSelector.h>
+#import <AquaSKKCore/SKKInputSessionParameter.h>
 #include <memory>
 
 class SKKInputEnvironment {
@@ -39,10 +39,9 @@ class SKKInputEnvironment {
 #pragma clang diagnostic pop
 
 public:
-    SKKInputEnvironment(SKKInputContext* context,
-                        SKKInputSessionParameter* param,
-                        SKKInputModeListenerCollection* listeners,
-                        SKKBaseEditor* bottom);
+    SKKInputEnvironment(
+        SKKInputContext* context, SKKInputSessionParameter* param, SKKInputModeListenerCollection* listeners,
+        SKKBaseEditor* bottom);
 
     SKKConfig* Config();
     SKKInputContext* InputContext();

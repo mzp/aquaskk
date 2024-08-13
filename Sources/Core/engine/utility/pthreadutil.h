@@ -3,11 +3,11 @@
  * pthreadutil.h - C++ pthread wrapper.
  *
  *   Copyright (c) 2007-2008 Tomotaka SUWA, All rights reserved.
- * 
+ *
  *   Redistribution and use in source and binary forms, with or without
  *   modification, are permitted provided that the following conditions
  *   are met:
- * 
+ *
  *   1. Redistributions of source code must retain the above copyright
  *      notice, this list of conditions and the following disclaimer.
  *
@@ -35,227 +35,229 @@
 #ifndef pthreadutil_h
 #define pthreadutil_h
 
-#include <pthread.h>
-#include <ctime>
-#include <cstdio>
-#include <cerrno>
 #include <cassert>
+#include <cerrno>
+#include <cstdio>
+#include <ctime>
 #include <deque>
-#include <iostream>
 #include <functional>
+#include <iostream>
+#include <pthread.h>
 
 namespace pthread {
     class err {
         const char* msg_;
 
     public:
-        err(const char* msg) : msg_(msg) {}
+        err(const char* msg)
+            : msg_(msg) {}
 
 #ifdef DEBUG
         void operator()() {
-            std::cerr << "ERR: " << msg_
-                      << ": " << std::strerror(errno)
-                      << ": errno=" << errno << std::endl;
+            std::cerr << "ERR: " << msg_ << ": " << std::strerror(errno) << ": errno=" << errno << std::endl;
         }
 #else
         void operator()() {}
 #endif
     };
-    
+
     class mutex {
-	friend class lock;
-	friend class condition;
+        friend class lock;
+        friend class condition;
 
-	pthread_mutex_t handle_;
+        pthread_mutex_t handle_;
 
-	mutex(const mutex&);
-	mutex& operator=(const mutex&);
+        mutex(const mutex&);
+        mutex& operator=(const mutex&);
 
     public:
-	mutex() {
-	    if(pthread_mutex_init(&handle_, 0) != 0) {
+        mutex() {
+            if(pthread_mutex_init(&handle_, 0) != 0) {
                 err("pthread_mutex_init");
             }
-	};
+        };
 
-	~mutex() {
+        ~mutex() {
             if(pthread_mutex_destroy(&handle_) != 0) {
                 err("pthread_mutex_destroy");
             }
-	}
+        }
     };
 
     class suspend_cancel {
-	void set(int state) {
-	    int tmp;
-	    if(pthread_setcancelstate(state, &tmp) != 0) {
+        void set(int state) {
+            int tmp;
+            if(pthread_setcancelstate(state, &tmp) != 0) {
                 err("pthread_setcancelstate");
             }
-	}
+        }
 
-	suspend_cancel(const suspend_cancel&);
-	suspend_cancel& operator=(const suspend_cancel&);
+        suspend_cancel(const suspend_cancel&);
+        suspend_cancel& operator=(const suspend_cancel&);
 
     public:
-	suspend_cancel() {
-	    set(PTHREAD_CANCEL_DISABLE);
-	}
+        suspend_cancel() {
+            set(PTHREAD_CANCEL_DISABLE);
+        }
 
-	~suspend_cancel() {
-	    set(PTHREAD_CANCEL_ENABLE);
-	}
+        ~suspend_cancel() {
+            set(PTHREAD_CANCEL_ENABLE);
+        }
     };
 
     class lock {
-	suspend_cancel shield_;
-	mutex& target_;
+        suspend_cancel shield_;
+        mutex& target_;
 
-	lock();
-	lock(const lock&);
-	lock& operator=(const lock&);
+        lock();
+        lock(const lock&);
+        lock& operator=(const lock&);
 
     public:
-	lock(mutex& target) : target_(target) {
-	    if(pthread_mutex_lock(&target_.handle_) != 0) {
+        lock(mutex& target)
+            : target_(target) {
+            if(pthread_mutex_lock(&target_.handle_) != 0) {
                 err("pthread_mutex_lock");
             }
-	}
+        }
 
-	~lock() {
-	    if(pthread_mutex_unlock(&target_.handle_) != 0) {
+        ~lock() {
+            if(pthread_mutex_unlock(&target_.handle_) != 0) {
                 err("pthread_mutex_unlock");
             }
-	}
+        }
     };
 
     class condition {
-	mutex mutex_;
-	pthread_cond_t handle_;
+        mutex mutex_;
+        pthread_cond_t handle_;
 
-	condition(const condition&);
-	condition& operator=(const condition&);
+        condition(const condition&);
+        condition& operator=(const condition&);
 
-	void trylock() {
-	    assert(EBUSY == pthread_mutex_trylock(&mutex_.handle_) &&
-		   "*** You MUST lock the pthread::condition object to avoid race conditions. ***");
-	}
+        void trylock() {
+            assert(
+                EBUSY == pthread_mutex_trylock(&mutex_.handle_) &&
+                "*** You MUST lock the pthread::condition object to avoid race conditions. ***");
+        }
 
     public:
-	condition() {
-	    pthread_cond_init(&handle_, 0);
-	}
+        condition() {
+            pthread_cond_init(&handle_, 0);
+        }
 
-	~condition() {
-	    pthread_cond_destroy(&handle_);
-	}
+        ~condition() {
+            pthread_cond_destroy(&handle_);
+        }
 
-	operator mutex&() {
-	    return mutex_;
-	}
+        operator mutex&() {
+            return mutex_;
+        }
 
-	void signal() {
-	    trylock();
+        void signal() {
+            trylock();
 
-	    if(pthread_cond_signal(&handle_) != 0) {
+            if(pthread_cond_signal(&handle_) != 0) {
                 err("pthread_cond_signal");
             }
-	}
+        }
 
-	void broadcast() {
-	    trylock();
+        void broadcast() {
+            trylock();
 
-	    if(pthread_cond_broadcast(&handle_) != 0) {
+            if(pthread_cond_broadcast(&handle_) != 0) {
                 err("pthread_cond_broadcast");
             }
-	}
+        }
 
-	bool wait() {
-	    trylock();
+        bool wait() {
+            trylock();
 
-	    if(pthread_cond_wait(&handle_, &mutex_.handle_) != 0) {
+            if(pthread_cond_wait(&handle_, &mutex_.handle_) != 0) {
                 err("pthread_cond_wait");
                 return false;
             }
 
             return true;
-	}
+        }
 
-	bool wait(long second, long nano_second = 0) {
-	    trylock();
+        bool wait(long second, long nano_second = 0) {
+            trylock();
 
-	    timespec abstime;
-	    abstime.tv_sec = std::time(0) + second;
-	    abstime.tv_nsec = nano_second;
+            timespec abstime;
+            abstime.tv_sec = std::time(0) + second;
+            abstime.tv_nsec = nano_second;
 
-	    if(pthread_cond_timedwait(&handle_, &mutex_.handle_, &abstime) != 0) {
+            if(pthread_cond_timedwait(&handle_, &mutex_.handle_, &abstime) != 0) {
                 err("pthread_cond_timedwait");
                 return false;
             }
 
             return true;
-	}
+        }
     };
 
     class task {
     public:
-	virtual ~task() {}
-	virtual bool run() = 0;
+        virtual ~task() {}
+        virtual bool run() = 0;
     };
 
     class timer {
-	task* task_;
-	long interval_;
-	long startup_delay_;
-	pthread_t thread_;
+        task* task_;
+        long interval_;
+        long startup_delay_;
+        pthread_t thread_;
 
-	static void* handler(void* param) {
-	    timer* self = reinterpret_cast<timer*>(param);
+        static void* handler(void* param) {
+            timer* self = reinterpret_cast<timer*>(param);
 
-	    self->run();
+            self->run();
 
-	    return 0;
-	}
+            return 0;
+        }
 
-	void run() {
-	    wait(startup_delay_);
+        void run() {
+            wait(startup_delay_);
 
-	    while(task_->run()) {
-		wait(interval_);
-	    }
-	}
+            while(task_->run()) {
+                wait(interval_);
+            }
+        }
 
-	void wait(long second) {
-	    if(!second) return;
+        void wait(long second) {
+            if(!second)
+                return;
 
-	    timespec ts;
-	    ts.tv_sec = second;
-	    ts.tv_nsec = 0;
+            timespec ts;
+            ts.tv_sec = second;
+            ts.tv_nsec = 0;
 
-	    nanosleep(&ts, 0);
-	}
+            nanosleep(&ts, 0);
+        }
 
-	timer();
-	timer(const timer&);
-	timer& operator=(const timer&);
+        timer();
+        timer(const timer&);
+        timer& operator=(const timer&);
 
     public:
-	timer(task* task, long interval, long startup_delay = 0)
-	    : task_(task), interval_(interval), startup_delay_(startup_delay) {
-	    if(pthread_create(&thread_, 0, timer::handler, this) != 0) {
-		thread_ = 0;
-	    }
-	}
+        timer(task* task, long interval, long startup_delay = 0)
+            : task_(task), interval_(interval), startup_delay_(startup_delay) {
+            if(pthread_create(&thread_, 0, timer::handler, this) != 0) {
+                thread_ = 0;
+            }
+        }
 
-	~timer() {
-	    if(thread_ && pthread_cancel(thread_) == 0) {
-		pthread_join(thread_, 0);
-	    }
-	}
+        ~timer() {
+            if(thread_ && pthread_cancel(thread_) == 0) {
+                pthread_join(thread_, 0);
+            }
+        }
     };
 
     class pool {
-        condition queue_;       // for tasks_ and should_terminate_
-        condition worker_;      // for idle_threads_
+        condition queue_;  // for tasks_ and should_terminate_
+        condition worker_; // for idle_threads_
         std::deque<pthread_t> pool_;
         std::deque<task*> tasks_;
         bool should_terminate_;
@@ -284,11 +286,13 @@ namespace pthread {
             while(1) {
                 lock scope(queue_);
 
-                if(tasks_.empty() && should_terminate_) return 0;
+                if(tasks_.empty() && should_terminate_)
+                    return 0;
 
                 if(!tasks_.empty() || queue_.wait()) {
                     if(tasks_.empty()) {
-                        if(should_terminate_) return 0;
+                        if(should_terminate_)
+                            return 0;
                         continue;
                     }
 
@@ -302,12 +306,12 @@ namespace pthread {
 
         void acquire() {
             lock scope(worker_);
-            -- idle_threads_;
+            --idle_threads_;
         }
 
         void release() {
             lock scope(worker_);
-            ++ idle_threads_;
+            ++idle_threads_;
 
             if(idle_threads_ == pool_.size()) {
                 worker_.signal();
@@ -318,10 +322,11 @@ namespace pthread {
         pool& operator=(const pool&);
 
     public:
-        pool(unsigned size = 4) : should_terminate_(false) {
+        pool(unsigned size = 4)
+            : should_terminate_(false) {
             lock scope(worker_);
 
-            for(unsigned i = 0; i < size; ++ i) {
+            for(unsigned i = 0; i < size; ++i) {
                 pthread_t id;
                 if(pthread_create(&id, 0, pool::handler, this) == 0) {
                     pool_.push_back(id);
@@ -372,6 +377,6 @@ namespace pthread {
             return false;
         }
     };
-};
+}; // namespace pthread
 
 #endif

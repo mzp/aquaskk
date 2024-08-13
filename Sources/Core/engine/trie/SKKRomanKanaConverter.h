@@ -23,8 +23,8 @@
 #ifndef SKKRomanKanaConverter_h
 #define SKKRomanKanaConverter_h
 
-#include <string>
 #import <AquaSKKCore/SKKInputMode.h>
+#include <string>
 
 // 変換結果
 struct SKKRomanKanaConversionResult {
@@ -34,9 +34,10 @@ struct SKKRomanKanaConversionResult {
 };
 
 class SKKRomanKanaConverter {
-    void *impl;
+    void* impl;
     SKKRomanKanaConverter();
     SKKRomanKanaConverter(const SKKRomanKanaConverter&);
+
 public:
     static SKKRomanKanaConverter& theInstance();
 

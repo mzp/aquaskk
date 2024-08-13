@@ -27,4 +27,3 @@ FOUNDATION_EXPORT const unsigned char AquaSKKServiceVersionString[];
 #pragma mark - Jisyo
 #import <AquaSKKService/AISJisyo.h>
 #import <AquaSKKService/AISJisyoController.h>
-

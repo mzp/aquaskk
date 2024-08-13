@@ -23,9 +23,9 @@
 #ifndef SKKCandidateWindow_h
 #define SKKCandidateWindow_h
 
-#include <vector>
-#import <AquaSKKCore/SKKWidget.h>
 #import <AquaSKKCore/SKKCandidate.h>
+#import <AquaSKKCore/SKKWidget.h>
+#include <vector>
 
 class SKKCandidateWindow : public SKKWidget {
 public:
@@ -40,8 +40,8 @@ public:
     // cursor=カーソル位置
     // page_pos=現在ページ位置
     // page_max=全ページ数
-    virtual void Update(SKKCandidateIterator begin, SKKCandidateIterator end,
-                        int cursor, int page_pos, int page_max) = 0;
+    virtual void
+    Update(SKKCandidateIterator begin, SKKCandidateIterator end, int cursor, int page_pos, int page_max) = 0;
 
     // 候補ラベルのインデックス取得(一致しない場合には -1)
     virtual int LabelIndex(char label) = 0;

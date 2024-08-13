@@ -23,10 +23,10 @@
 #ifndef SKKSelector_h
 #define SKKSelector_h
 
+#import <AquaSKKCore/SKKCandidateSuite.h>
+#import <AquaSKKCore/SKKEntry.h>
 #import <AquaSKKCore/SKKInlineSelector.h>
 #import <AquaSKKCore/SKKWindowSelector.h>
-#import <AquaSKKCore/SKKEntry.h>
-#import <AquaSKKCore/SKKCandidateSuite.h>
 #import <AquaSKKCore/subrange.h>
 
 // SKKSelector の相棒クラス

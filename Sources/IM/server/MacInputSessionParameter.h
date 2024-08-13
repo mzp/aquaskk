@@ -39,7 +39,6 @@ class MacInputSessionParameter : public SKKInputSessionParameter {
     std::auto_ptr<SKKDynamicCompletor> completor_;
 #pragma clang diagnostic pop
 
-
 public:
     MacInputSessionParameter(id client, SKKLayoutManager* layout);
 

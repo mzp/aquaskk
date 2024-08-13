@@ -155,7 +155,8 @@ State SKKState::KanaEntry(const Event& event) {
 
     case SKK_CHAR:
         // 変換
-        if(param.IsNextCandidate()) break;
+        if(param.IsNextCandidate())
+            break;
 
         // トグル変換 #1
         if(param.IsToggleKana()) {
@@ -231,7 +232,8 @@ State SKKState::AsciiEntry(const Event& event) {
         return 0;
 
     case SKK_CHAR:
-        if(param.IsNextCandidate()) break;
+        if(param.IsNextCandidate())
+            break;
 
         if(param.IsToggleJisx0201Kana() && !context_->entry.IsEmpty()) {
             editor_->ToggleJisx0201Kana();

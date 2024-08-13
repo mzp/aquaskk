@@ -34,7 +34,8 @@ class SKKDictionaryTemplate : public SKKBaseDictionary {
     Loader loader_;
 
 public:
-    SKKDictionaryTemplate() : keeper_(encoding) {}
+    SKKDictionaryTemplate()
+        : keeper_(encoding) {}
 
     virtual void Initialize(const std::string& location) {
         loader_.Initialize(location);
