@@ -37,6 +37,7 @@
 #import <AquaSKKIM/MacKotoeriDictionary.h>
 #import <AquaSKKCore/skkserv.h>
 #import <AquaSKKUI/InputModeWindow.h>
+#import <AquaSKKService/AISDefaultServerConfiguration.h>
 
 #include <signal.h>
 
@@ -105,6 +106,11 @@ static void terminate(int) {
 }
 
 - (void)_start {
+    [self _startWithConfiguration:[[AISDefaultServerConfiguration alloc] init]];
+}
+
+- (void)_startWithConfiguration:(id<AISServerConfiguration>)configuration {
+    configuration_ = configuration;
     skkserv_ = 0;
 
     [self prepareSignalHandler];
@@ -166,23 +172,11 @@ static void terminate(int) {
 }
 
 - (void)reloadDictionarySet {
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-
-    NSString* userDictionary = [defaults stringForKey:SKKUserDefaultKeys::user_dictionary_path];
-    userDictionary = [userDictionary stringByExpandingTildeInPath];
-
-    NSArray* array = [NSArray arrayWithContentsOfFile:SKKFilePaths::DictionarySet];
-    if(array == nil) {
-        NSLog(@"can't read DictionarySet.plist");
-    }
-
-    [self loadDictionarySetFromPath:userDictionary systemDictionaries:array];
-}
-
-- (void)loadDictionarySetFromPath:(NSString *)userDictionary systemDictionaries:(NSArray<NSDictionary *> *)array {
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-
     NSLog(@"loading DictionarySet ...");
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+
+    NSString* userDictionary = [configuration_ userDictionaryPath];
+    NSArray* array = [configuration_ systemDictionaries];
 
     SKKDictionaryKeyContainer keys;
     NSEnumerator* enumerator = [array objectEnumerator];
@@ -402,22 +396,16 @@ static void terminate(int) {
     }
 }
 
-- (NSString*)pathForSystemResource:(NSString*)path {
-    return [NSString stringWithFormat:@"%@/%@", SKKFilePaths::SystemResourceFolder, path];
+- (NSString*)pathForSystemResource:(NSString*)name {
+    return [configuration_ systemPathForName:name];
 }
 
-- (NSString*)pathForUserResource:(NSString*)path {
-    return [NSString stringWithFormat:@"%@/%@", SKKFilePaths::ApplicationSupportFolder, path];
+- (NSString*)pathForUserResource:(NSString*)name {
+    return [configuration_ userPathForName:name];
 }
 
-- (NSString*)pathForResource:(NSString*)path {
-    NSString* tmp = [self pathForUserResource:path];
-
-    if([self fileExistsAtPath:tmp] == YES) {
-        return tmp;
-    } else {
-        return [self pathForSystemResource:path];
-    }
+- (NSString*)pathForResource:(NSString*)name {
+    return [configuration_ pathForName:name];
 }
 
 @end

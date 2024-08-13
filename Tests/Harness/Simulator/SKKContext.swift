@@ -17,13 +17,13 @@ enum SKKContext {
     struct Server: View {
         var server: SKKServer
         var content: (SKKServer) -> any View
-
+        let configuration = BundledServerConfiguration()
         init(content: @escaping (SKKServer) -> any View) {
             server = SKKServer()
             self.content = content
             signposter.withIntervalSignpost("server start") {
                 logger.info("server start")
-                server._start()
+                server._start(with: configuration)
             }
         }
 

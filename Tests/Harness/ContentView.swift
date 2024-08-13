@@ -21,7 +21,6 @@ struct ContentView: View {
                     }
                     Section("Server") {
                         SupervisorMonitor(supervisor: server)
-                        JisyoMonitor(server: server)
                     }
                 }
             }

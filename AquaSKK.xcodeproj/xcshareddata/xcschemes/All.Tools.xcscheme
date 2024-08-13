@@ -30,7 +30,11 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:Tests/Integration.xctestplan">
+            reference = "container:Tests/Integration.xctestplan"
+            default = "YES">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:Tests/Frameworks.xctestplan">
          </TestPlanReference>
       </TestPlans>
    </TestAction>

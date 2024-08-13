@@ -1,5 +1,5 @@
 //
-//  TypingSession.swift
+//  Typer.swift
 //  Harness
 //
 //  Created by mzp on 8/3/24.
@@ -10,6 +10,7 @@ import Foundation
 
 class Typer {
     // MARK: - Session
+
     class Session {
         private var client = MockTextInput()
 
@@ -26,7 +27,7 @@ class Typer {
             controller.deactivateServer(nil)
         }
     }
-    
+
     private let controller: SKKInputController
     private let client: MockTextInput
     private(set) var text = SendableText()
@@ -71,8 +72,4 @@ class Typer {
     var modeIdentifier: String? {
         text.modeIdentifier
     }
-
-
-
 }
-

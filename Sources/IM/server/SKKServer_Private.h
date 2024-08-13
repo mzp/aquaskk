@@ -7,6 +7,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// Start SKKServer without IMK connection. Testing only.
 - (void)_start;
 
+- (void)_startWithConfiguration:(id<AISServerConfiguration>)configuration;
+
 /// Path for managed resource.
 - (NSString *)pathForResource:(NSString *)path;
 

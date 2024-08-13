@@ -20,7 +20,7 @@ class SKKTextViewAppKit: NSTextView {
     private var client: IMKTextInput?
 
     func setup(controller: SKKInputController, stateStore: SKKStateStore) {
-        let client = SKKTextInputAppKit(inputClient: self, stateStore: stateStore)
+        let client = InputMethodKitAdapter(inputClient: self, stateStore: stateStore)
         controller._setClient(client)
 
         self.controller = controller

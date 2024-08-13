@@ -1,5 +1,5 @@
 //
-//  FileConfigurationTests.swift
+//  DefaultFileConfigurationTests.swift
 //  CoreTests
 //
 //  Created by mzp on 8/11/24.
@@ -8,7 +8,7 @@
 import AquaSKKService
 import Testing
 
-struct FileConfigurationTests {
+struct DefaultFileConfigurationTests {
     @Test func system() {
         let config = DefaultFileConfiguration()
         #expect(config.systemResourcePath == "/Library/Input Methods/AquaSKK.app/Contents/Resources")
