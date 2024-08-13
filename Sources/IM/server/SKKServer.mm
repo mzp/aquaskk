@@ -168,12 +168,21 @@ static void terminate(int) {
 - (void)reloadDictionarySet {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
 
-    NSLog(@"loading DictionarySet ...");
+    NSString* userDictionary = [defaults stringForKey:SKKUserDefaultKeys::user_dictionary_path];
+    userDictionary = [userDictionary stringByExpandingTildeInPath];
 
     NSArray* array = [NSArray arrayWithContentsOfFile:SKKFilePaths::DictionarySet];
     if(array == nil) {
         NSLog(@"can't read DictionarySet.plist");
     }
+
+    [self loadDictionarySetFromPath:userDictionary systemDictionaries:array];
+}
+
+- (void)loadDictionarySetFromPath:(NSString *)userDictionary systemDictionaries:(NSArray<NSDictionary *> *)array {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+
+    NSLog(@"loading DictionarySet ...");
 
     SKKDictionaryKeyContainer keys;
     NSEnumerator* enumerator = [array objectEnumerator];
@@ -208,11 +217,7 @@ static void terminate(int) {
     }
 
 #if 1
-    // FIXME: Typerテストはここでクラッシュする
-    NSString* userDictionary = [defaults stringForKey:SKKUserDefaultKeys::user_dictionary_path];
-    userDictionary = [userDictionary stringByExpandingTildeInPath];
-
-    SKKBackEnd::theInstance().Initialize([userDictionary UTF8String], keys);
+    SKKBackEnd::theInstance().Initialize(userDictionary == nil ? "" : [userDictionary UTF8String], keys);
 #else
     SKKUserDictionary* dictionary = 0;
 
