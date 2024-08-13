@@ -12,7 +12,7 @@ struct DefaultServerConfigurationTests {
     @Test func resourcePath() {
         let config = DefaultServerConfiguration()
 
-        let path = config.systemPath(forName: "keymay.conf")
+        let path = config.systemPath(forName: "keymap.conf")
         #expect(path == "/Library/Input Methods/AquaSKK.app/Contents/Resources/keymap.conf")
     }
 

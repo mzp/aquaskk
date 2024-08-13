@@ -8,7 +8,7 @@
 import AquaSKKService
 import OSLog
 
-private let logger = Logger(subsystem: "org.codefirst.AquaSKK.Harness", category: "Configuratino")
+private let logger = Logger(subsystem: "org.codefirst.AquaSKK.Harness", category: "Configuration")
 
 class BundledServerConfiguration: ServerConfiguration {
     let bundle = Bundle(for: BundledServerConfiguration.self)
