@@ -1,3 +1,18 @@
-Language: ObjC
 IndentWidth: 4
 ColumnLimit: 120
+UseTab: Never
+---
+Language: ObjC
+NamespaceIndentation: All
+---
+Language: Cpp
+AccessModifierOffset: -4
+AlignAfterOpenBracket: AlwaysBreak
+AlignArrayOfStructures: Left
+AllowShortFunctionsOnASingleLine: Empty
+BreakConstructorInitializers: BeforeColon
+IndentAccessModifiers: false
+NamespaceIndentation: All
+PackConstructorInitializers: NextLineOnly
+PointerAlignment: Left
+SpaceAfterControlStatementKeyword: false
