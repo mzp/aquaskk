@@ -8,9 +8,9 @@
 import AppKit
 import Testing
 
-struct ModeTest {
-    @Test func switchByKeyCommand() async {
-        let typer = await Typer()
+@MainActor struct ModeTest {
+    @Test func switchByKeyCommand() {
+        let typer = Typer()
         typer.type(character: "l", keycode: 35)
         let modeIdentifier = typer.modeIdentifier
         #expect(modeIdentifier == "com.apple.inputmethod.Roman")

@@ -7,9 +7,9 @@
 
 import Testing
 
-struct JisyoTests {
-    @Test func convert() async {
-        let typer = await Typer()
+@MainActor struct JisyoTests {
+    @Test func convert() {
+        let typer = Typer()
         typer.type(text: "Kyou")
         #expect(typer.markedText == "▽きょう")
         #expect(typer.text == "")
