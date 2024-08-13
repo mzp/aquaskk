@@ -329,11 +329,12 @@
 		1393E3642C6BB99D00F1E633 /* DictionarySet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1393E3602C6BB99D00F1E633 /* DictionarySet.plist */; };
 		1393E3672C6BB9BD00F1E633 /* keymap.conf in Resources */ = {isa = PBXBuildFile; fileRef = 1393E3662C6BB9BD00F1E633 /* keymap.conf */; };
 		1393E3682C6BB9BD00F1E633 /* kana-rule.conf in Resources */ = {isa = PBXBuildFile; fileRef = 1393E3652C6BB9BD00F1E633 /* kana-rule.conf */; };
-		1393E3B52C6BF51700F1E633 /* AquaSKKCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 1373A8202C6817BA000FE1B7 /* AquaSKKCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1393E3B62C6BF51700F1E633 /* AquaSKKIM.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 1373A8222C6817BA000FE1B7 /* AquaSKKIM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1393E3B72C6BF51700F1E633 /* AquaSKKService.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 1373A82B2C6817BA000FE1B7 /* AquaSKKService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1393E3B82C6BF51700F1E633 /* AquaSKKUI.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 1373A82E2C6817BA000FE1B7 /* AquaSKKUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1393E3B92C6BF52500F1E633 /* Preferences.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1373A8242C6817BA000FE1B7 /* Preferences.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1393E3B52C6BF51700F1E633 /* AquaSKKCore.framework in Embeded Frameworks */ = {isa = PBXBuildFile; fileRef = 1373A8202C6817BA000FE1B7 /* AquaSKKCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1393E3B62C6BF51700F1E633 /* AquaSKKIM.framework in Embeded Frameworks */ = {isa = PBXBuildFile; fileRef = 1373A8222C6817BA000FE1B7 /* AquaSKKIM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1393E3B72C6BF51700F1E633 /* AquaSKKService.framework in Embeded Frameworks */ = {isa = PBXBuildFile; fileRef = 1373A82B2C6817BA000FE1B7 /* AquaSKKService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1393E3B82C6BF51700F1E633 /* AquaSKKUI.framework in Embeded Frameworks */ = {isa = PBXBuildFile; fileRef = 1373A82E2C6817BA000FE1B7 /* AquaSKKUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1393E3B92C6BF52500F1E633 /* Preferences.app in Embeded Applications */ = {isa = PBXBuildFile; fileRef = 1373A8242C6817BA000FE1B7 /* Preferences.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1393E3BB2C6BFB7D00F1E633 /* AquaSKKService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1373A82B2C6817BA000FE1B7 /* AquaSKKService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		139B7B662C60F68100FE5263 /* AquaSKKUI.docc in Sources */ = {isa = PBXBuildFile; fileRef = 139B7B652C60F68100FE5263 /* AquaSKKUI.docc */; };
 		139B7B732C60F68100FE5263 /* AquaSKKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B7B722C60F68100FE5263 /* AquaSKKUITests.swift */; };
 		139B7B742C60F68100FE5263 /* AquaSKKUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 139B7B642C60F68100FE5263 /* AquaSKKUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -441,39 +442,41 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1393E3B32C6BF50200F1E633 /* Copy Frameworks */ = {
+		1393E3B32C6BF50200F1E633 /* Embeded Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1393E3B52C6BF51700F1E633 /* AquaSKKCore.framework in Copy Frameworks */,
-				1393E3B62C6BF51700F1E633 /* AquaSKKIM.framework in Copy Frameworks */,
-				1393E3B72C6BF51700F1E633 /* AquaSKKService.framework in Copy Frameworks */,
-				1393E3B82C6BF51700F1E633 /* AquaSKKUI.framework in Copy Frameworks */,
+				1393E3B52C6BF51700F1E633 /* AquaSKKCore.framework in Embeded Frameworks */,
+				1393E3B62C6BF51700F1E633 /* AquaSKKIM.framework in Embeded Frameworks */,
+				1393E3B72C6BF51700F1E633 /* AquaSKKService.framework in Embeded Frameworks */,
+				1393E3B82C6BF51700F1E633 /* AquaSKKUI.framework in Embeded Frameworks */,
 			);
-			name = "Copy Frameworks";
+			name = "Embeded Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1393E3B42C6BF50400F1E633 /* CopyFiles */ = {
+		1393E3B42C6BF50400F1E633 /* Embeded Applications */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			dstPath = "";
 			dstSubfolderSpec = 6;
 			files = (
-				1393E3B92C6BF52500F1E633 /* Preferences.app in CopyFiles */,
+				1393E3B92C6BF52500F1E633 /* Preferences.app in Embeded Applications */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			name = "Embeded Applications";
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 		13B7BED82C5F5CF900F6BEF8 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				1393E3BB2C6BFB7D00F1E633 /* AquaSKKService.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -2505,8 +2508,8 @@
 				137D05712C5B5A81009AC591 /* Sources */,
 				137D05722C5B5A81009AC591 /* Frameworks */,
 				137D05732C5B5A81009AC591 /* Resources */,
-				1393E3B32C6BF50200F1E633 /* Copy Frameworks */,
-				1393E3B42C6BF50400F1E633 /* CopyFiles */,
+				1393E3B32C6BF50200F1E633 /* Embeded Frameworks */,
+				1393E3B42C6BF50400F1E633 /* Embeded Applications */,
 			);
 			buildRules = (
 			);
