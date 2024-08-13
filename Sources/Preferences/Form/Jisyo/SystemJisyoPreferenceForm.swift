@@ -8,10 +8,6 @@
 import AquaSKKService
 import SwiftUI
 
-extension Jisyo: @retroactive Identifiable {
-    public var id: String { location }
-}
-
 struct SystemJisyoPreferenceForm: View {
     var jisyo: Jisyo
     var selected: Bool

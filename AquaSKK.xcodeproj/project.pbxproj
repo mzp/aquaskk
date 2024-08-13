@@ -313,6 +313,11 @@
 		137D058A2C5B5A83009AC591 /* AquaSKKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D05892C5B5A83009AC591 /* AquaSKKTests.swift */; };
 		137D05942C5B5A83009AC591 /* AquaSKKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D05932C5B5A83009AC591 /* AquaSKKUITests.swift */; };
 		137D05962C5B5A83009AC591 /* AquaSKKUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D05952C5B5A83009AC591 /* AquaSKKUITestsLaunchTests.swift */; };
+		1393E32A2C6B193F00F1E633 /* JisyoMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393E3292C6B193F00F1E633 /* JisyoMonitor.swift */; };
+		1393E32C2C6B19C300F1E633 /* SKK-JISYO.S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1393E32B2C6B19C300F1E633 /* SKK-JISYO.S.txt */; };
+		1393E32E2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393E32D2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift */; };
+		1393E3312C6B201500F1E633 /* JisyoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393E3302C6B201500F1E633 /* JisyoTests.swift */; };
+		1393E3322C6B201500F1E633 /* JisyoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393E3302C6B201500F1E633 /* JisyoTests.swift */; };
 		139B7B662C60F68100FE5263 /* AquaSKKUI.docc in Sources */ = {isa = PBXBuildFile; fileRef = 139B7B652C60F68100FE5263 /* AquaSKKUI.docc */; };
 		139B7B732C60F68100FE5263 /* AquaSKKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B7B722C60F68100FE5263 /* AquaSKKUITests.swift */; };
 		139B7B742C60F68100FE5263 /* AquaSKKUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 139B7B642C60F68100FE5263 /* AquaSKKUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -846,6 +851,10 @@
 		13931D0C2C5B49C200B11EEE /* PreferenecesTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PreferenecesTests.xcconfig; sourceTree = "<group>"; };
 		13931D0D2C5B4B5000B11EEE /* PreferenecesUITests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PreferenecesUITests.xcconfig; sourceTree = "<group>"; };
 		13931D0E2C5B4C6B00B11EEE /* CoreTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CoreTests.xcconfig; sourceTree = "<group>"; };
+		1393E3292C6B193F00F1E633 /* JisyoMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JisyoMonitor.swift; sourceTree = "<group>"; };
+		1393E32B2C6B19C300F1E633 /* SKK-JISYO.S.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "SKK-JISYO.S.txt"; sourceTree = "<group>"; };
+		1393E32D2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Jisyo+SwiftUI.swift"; sourceTree = "<group>"; };
+		1393E3302C6B201500F1E633 /* JisyoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JisyoTests.swift; sourceTree = "<group>"; };
 		139B7B642C60F68100FE5263 /* AquaSKKUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKUI.h; sourceTree = "<group>"; };
 		139B7B652C60F68100FE5263 /* AquaSKKUI.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKUI.docc; sourceTree = "<group>"; };
 		139B7B722C60F68100FE5263 /* AquaSKKUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKKUITests.swift; sourceTree = "<group>"; };
@@ -1121,6 +1130,7 @@
 			children = (
 				135EEBA02C5EEA5100758672 /* Typer */,
 				135C3D652C5B3E9D00661AE3 /* InputTests.swift */,
+				1393E3302C6B201500F1E633 /* JisyoTests.swift */,
 				13B7BE982C5F282D00F6BEF8 /* ModeTests.swift */,
 			);
 			path = TyperTests;
@@ -1543,6 +1553,7 @@
 				1347C2042C5E1AA400414DE2 /* Essestial */,
 				1352C9DA2C5DF8160056261D /* Assets.xcassets */,
 				1352C9DC2C5DF8160056261D /* Harness.entitlements */,
+				1393E32B2C6B19C300F1E633 /* SKK-JISYO.S.txt */,
 			);
 			path = "Support files";
 			sourceTree = "<group>";
@@ -1773,6 +1784,7 @@
 			isa = PBXGroup;
 			children = (
 				1377D0332C678D91005F21AE /* AISJisyo.h */,
+				1393E32D2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift */,
 				1377D0342C678D91005F21AE /* AISJisyo.mm */,
 				1377D0352C678D91005F21AE /* AISJisyoController.h */,
 				1377D0362C678D91005F21AE /* AISJisyoController.mm */,
@@ -2045,6 +2057,7 @@
 			children = (
 				13EB86632C5EA7DD00B47DCD /* SupervisorMonitor.swift */,
 				13B7BE842C5EFD7000F6BEF8 /* StateMonitor.swift */,
+				1393E3292C6B193F00F1E633 /* JisyoMonitor.swift */,
 			);
 			path = Monitor;
 			sourceTree = "<group>";
@@ -2707,6 +2720,7 @@
 				1347C2132C5E1ACE00414DE2 /* AquaSKK-InputMethod.tif in Resources */,
 				1347C2142C5E1ACE00414DE2 /* AquaSKK-Katakana@2x.png in Resources */,
 				1347C2152C5E1ACE00414DE2 /* AquaSKK-Jisx0201Kana.png in Resources */,
+				1393E32C2C6B19C300F1E633 /* SKK-JISYO.S.txt in Resources */,
 				1347C2162C5E1ACE00414DE2 /* AquaSKK-Jisx0201Kana@2x.png in Resources */,
 				1347C2172C5E1ACE00414DE2 /* AquaSKK-Jisx0208Latin@2x.png in Resources */,
 				1347C2182C5E1ACE00414DE2 /* AquaSKK-InputMethod@2x.tiff in Resources */,
@@ -2890,6 +2904,7 @@
 				133834F32C6020CB00D73AD7 /* InputTests.swift in Sources */,
 				133834F42C6020CB00D73AD7 /* TyperTextInput.swift in Sources */,
 				133834F52C6020CB00D73AD7 /* Typer.swift in Sources */,
+				1393E3312C6B201500F1E633 /* JisyoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2943,6 +2958,7 @@
 				13EB86642C5EA7DD00B47DCD /* SupervisorMonitor.swift in Sources */,
 				13B7BE852C5EFD7000F6BEF8 /* StateMonitor.swift in Sources */,
 				1352C9E22C5DF8160056261D /* HarnessApp.swift in Sources */,
+				1393E32A2C6B193F00F1E633 /* JisyoMonitor.swift in Sources */,
 				13B7BE832C5EFCEF00F6BEF8 /* SKKStateStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2995,6 +3011,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1393E3322C6B201500F1E633 /* JisyoTests.swift in Sources */,
 				137D058A2C5B5A83009AC591 /* AquaSKKTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3049,6 +3066,7 @@
 				1377D05B2C678D91005F21AE /* SKKConstVars.mm in Sources */,
 				1377D05C2C678D91005F21AE /* SubRuleDescriptions.cpp in Sources */,
 				1377D05D2C678D91005F21AE /* AISSubRuleController.mm in Sources */,
+				1393E32E2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift in Sources */,
 				13B7BEC52C5F5CF900F6BEF8 /* AquaSKKService.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
