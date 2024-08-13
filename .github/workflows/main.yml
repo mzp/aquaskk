@@ -12,7 +12,8 @@ jobs:
               with:
                   version: 3.x
                   repo-token: ${{ secrets.GITHUB_TOKEN }}
-            - run: sudo xcode-select -s /Applications/Xcode_16_beta_5.app
+            - run: ls /Applications
+            - run: sudo xcode-select -s /Applications/Xcode_16_beta_5.app || sudo xcode-select -s /Applications/Xcode_16_beta_4.app
             - name: Set current datetime as env variable
               run: echo "TEST_RESULTS_BUNDLE=$(date +'TestResults-%Y%m%d%H%M%S.xcresult')" >> $GITHUB_ENV
             - name: Run Check
