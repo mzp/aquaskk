@@ -11,7 +11,7 @@ struct StateMonitor: View {
     var store: SKKStateStore
 
     var body: some View {
-        Form {
+        Section("State") {
             LabeledContent("Mode") {
                 Text(store.modeIdentifier)
                     .textSelection(.enabled)

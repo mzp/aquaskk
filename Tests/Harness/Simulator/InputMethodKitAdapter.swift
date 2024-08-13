@@ -1,5 +1,5 @@
 //
-//  SKKTextInputAppKit.swift
+//  InputMethodKitAdapter.swift
 //  Harness
 //
 //  Created by mzp on 8/3/24.
@@ -12,7 +12,7 @@ import OSLog
 
 private let logger = Logger(subsystem: "org.codefirst.AquaSKK.Harness", category: "Adapter")
 
-class SKKTextInputAppKit: NSObject, IMKTextInput {
+class InputMethodKitAdapter: NSObject, IMKTextInput {
     let inputClient: NSTextInputClient
     var stateStore: SKKStateStore
 

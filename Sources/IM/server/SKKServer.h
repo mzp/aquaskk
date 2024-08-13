@@ -24,6 +24,7 @@
 #define SKKServer_h
 
 #include <AppKit/AppKit.h>
+#import <AquaSKKService/AISServerConfiguration.h>
 #import <AquaSKKService/SKKSupervisor.h>
 #include <InputMethodKit/InputMethodKit.h>
 
@@ -34,6 +35,7 @@
     NSConnection *connection_;
 #pragma clang diagnostic pop
     class skkserv *skkserv_;
+    id<AISServerConfiguration> configuration_;
 }
 
 @end

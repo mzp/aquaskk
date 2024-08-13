@@ -12,16 +12,7 @@ struct SupervisorMonitor: View {
     var supervisor: SKKSupervisor
 
     var body: some View {
-        Form {
-            LabeledContent("Dictionary") {
-                VStack(alignment: .leading) {
-                    ForEach(self.dictionaryType) { entry in
-                        HStack {
-                            Text("\(entry.type): \(entry.name)")
-                        }
-                    }
-                }
-            }
+        Section("Supervise") {
             LabeledContent("Reload") {
                 HStack {
                     Button("Components", systemImage: "arrow.circlepath") {

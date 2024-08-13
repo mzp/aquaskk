@@ -69,6 +69,7 @@
 }
 
 - (void)hide {
+    NSAssert([NSThread isMainThread], @"Must be used from main therad only");
     [window_ orderOut:nil];
 }
 

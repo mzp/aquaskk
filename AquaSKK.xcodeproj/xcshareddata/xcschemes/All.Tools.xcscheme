@@ -15,51 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "135C3D442C5B3E8F00661AE3"
-               BuildableName = "AquaSKKIM.framework"
-               BlueprintName = "AquaSKKIM"
-               ReferencedContainer = "container:AquaSKK.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "139B7B612C60F68100FE5263"
-               BuildableName = "AquaSKKUI.framework"
-               BlueprintName = "AquaSKKUI"
-               ReferencedContainer = "container:AquaSKK.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "13B7BEC02C5F5CF900F6BEF8"
-               BuildableName = "AquaSKKService.framework"
-               BlueprintName = "AquaSKKService"
-               ReferencedContainer = "container:AquaSKK.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "13D7560A2C5A9043006144F2"
-               BuildableName = "AquaSKKCore.framework"
-               BlueprintName = "AquaSKKCore"
+               BlueprintIdentifier = "1352C9C72C5DF80D0056261D"
+               BuildableName = "Harness.app"
+               BlueprintName = "Harness"
                ReferencedContainer = "container:AquaSKK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -72,11 +30,11 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:Tests/Frameworks.xctestplan"
+            reference = "container:Tests/Integration.xctestplan"
             default = "YES">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:Tests/Integration.xctestplan">
+            reference = "container:Tests/Frameworks.xctestplan">
          </TestPlanReference>
       </TestPlans>
    </TestAction>
@@ -90,7 +48,17 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
-      internalIOSLaunchStyle = "3">
+      internalIOSLaunchStyle = "2">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "1352C9C72C5DF80D0056261D"
+            BuildableName = "Harness.app"
+            BlueprintName = "Harness"
+            ReferencedContainer = "container:AquaSKK.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -98,15 +66,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "135C3D442C5B3E8F00661AE3"
-            BuildableName = "AquaSKKIM.framework"
-            BlueprintName = "AquaSKKIM"
+            BlueprintIdentifier = "1352C9C72C5DF80D0056261D"
+            BuildableName = "Harness.app"
+            BlueprintName = "Harness"
             ReferencedContainer = "container:AquaSKK.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

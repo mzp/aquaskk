@@ -33,7 +33,7 @@ SKKRomanKanaConverter &SKKRomanKanaConverter::theInstance() {
 }
 
 void SKKRomanKanaConverter::Initialize(const std::string &path) {
-    NSString *nsPath = [NSString stringWithCString:path.c_str() encoding:kCFStringEncodingUTF8];
+    NSString *nsPath = [NSString stringWithCString:path.c_str() encoding:NSUTF8StringEncoding];
     AICRomanKanaConverter *impl = [[AICRomanKanaConverter alloc] initWithPath:nsPath error:nil];
 
     AICRomanKanaConverter *oldImpl = (AICRomanKanaConverter *)impl;
@@ -44,13 +44,13 @@ void SKKRomanKanaConverter::Initialize(const std::string &path) {
 }
 
 void SKKRomanKanaConverter::Patch(const std::string &path) {
-    NSString *nsPath = [NSString stringWithCString:path.c_str() encoding:kCFStringEncodingUTF8];
+    NSString *nsPath = [NSString stringWithCString:path.c_str() encoding:NSUTF8StringEncoding];
     AICRomanKanaConverter *impl = (AICRomanKanaConverter *)this->impl;
     [impl appendPath:nsPath error:nil];
 }
 
 bool SKKRomanKanaConverter::Convert(SKKInputMode mode, const std::string &str, SKKRomanKanaConversionResult &result) {
-    NSString *nsstring = [NSString stringWithCString:str.c_str() encoding:kCFStringEncodingUTF8];
+    NSString *nsstring = [NSString stringWithCString:str.c_str() encoding:NSUTF8StringEncoding];
     AICRomanKanaConverter *impl = (AICRomanKanaConverter *)this->impl;
     AICRomanKanaResult *ret = [impl convert:nsstring inputMode:mode];
     result.output = std::string([ret.output UTF8String]);

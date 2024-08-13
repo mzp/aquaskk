@@ -48,6 +48,7 @@ class RomanKanaConverter: NSObject {
 
     @objc(appendPath:error:)
     func append(path: String) throws {
+        logger.log("\(#function): Load \(path)")
         let url = URL(fileURLWithPath: path)
         let data = try Data(contentsOf: url)
         guard let content = String(data: data, encoding: .japaneseEUC) else {

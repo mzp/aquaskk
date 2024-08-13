@@ -13,6 +13,10 @@ FOUNDATION_EXPORT double AquaSKKServiceVersionNumber;
 //! Project version string for AquaSKKService.
 FOUNDATION_EXPORT const unsigned char AquaSKKServiceVersionString[];
 
+#pragma mark - Configuration
+#import <AquaSKKService/AISDefaultServerConfiguration.h>
+#import <AquaSKKService/AISServerConfiguration.h>
+
 #pragma mark - Server
 #import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKService/SKKServerProxy.h>
