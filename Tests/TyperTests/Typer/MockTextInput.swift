@@ -1,5 +1,5 @@
 //
-//  TyperTextInput.swift
+//  MockTextInput.swift
 //  Harness
 //
 //  Created by mzp on 8/3/24.
@@ -8,16 +8,14 @@
 import Foundation
 import InputMethodKit
 
-class TyperTextInput: NSObject {
-    var text: String = ""
-    var markedText: String = ""
-    var modeIdentifier: String?
+class MockTextInput: NSObject {
+    var text = SendableText()
 
     var _selectedRange: NSRange = .init(location: 0, length: 0)
     var _markedRange: NSRange = .init(location: 0, length: 0)
 }
 
-extension TyperTextInput: IMKTextInput {
+extension MockTextInput: IMKTextInput {
     func selectedRange() -> NSRange {
         return _selectedRange
     }
@@ -29,8 +27,8 @@ extension TyperTextInput: IMKTextInput {
     func insertText(_ string: Any, replacementRange _: NSRange) {
         // TODO: Use replacementRange
         // TODO: Update selectedRange
-        markedText.removeAll()
-        text.append(string as! String)
+        text.marked.removeAll()
+        text.string.append(string as! String)
     }
 
     func setMarkedText(
@@ -41,19 +39,19 @@ extension TyperTextInput: IMKTextInput {
         // TODO: Use replacementRange
         // TODO: Update markedTextRange
         if let string = value as? NSString {
-            markedText = string as String
+            text.marked = string as String
         } else if let attributedString = value as? NSAttributedString {
-            markedText = attributedString.string
+            text.marked = attributedString.string
         }
     }
 
     func attributedSubstring(from range: NSRange) -> NSAttributedString! {
-        let string = (text as NSString).substring(with: range)
+        let string = (text.string as NSString).substring(with: range)
         return NSAttributedString(string: string)
     }
 
     func length() -> Int {
-        text.count
+        text.string.count
     }
 
     func characterIndex(for _: NSPoint, tracking _: IMKLocationToOffsetMappingMode, inMarkedRange _: UnsafeMutablePointer<ObjCBool>!) -> Int {
@@ -72,7 +70,7 @@ extension TyperTextInput: IMKTextInput {
     func overrideKeyboard(withKeyboardNamed _: String!) {}
 
     func selectMode(_ modeIdentifier: String!) {
-        self.modeIdentifier = modeIdentifier
+        text.modeIdentifier = modeIdentifier
     }
 
     func supportsUnicode() -> Bool {
@@ -96,7 +94,7 @@ extension TyperTextInput: IMKTextInput {
     }
 
     func string(from range: NSRange, actualRange _: NSRangePointer!) -> String! {
-        (text as NSString).substring(with: range)
+        (text.string as NSString).substring(with: range)
     }
 
     func firstRect(forCharacterRange _: NSRange, actualRange _: NSRangePointer!) -> NSRect {

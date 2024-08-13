@@ -7,21 +7,22 @@
 
 import Testing
 
-@MainActor struct JisyoTests {
-    @Test func convert() {
-        let typer = Typer()
-        typer.type(text: "Kyou")
-        #expect(typer.markedText == "▽きょう")
-        #expect(typer.text == "")
+struct JisyoTests {
+    @Test func convert() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.type(text: "Kyou")
+            #expect(typer.markedText == "▽きょう")
+            #expect(typer.insertedText == "")
 
-        typer.type(text: " ")
+            await typer.type(text: " ")
 
-        #expect(typer.markedText == "▼今日")
-        #expect(typer.text == "")
+            #expect(typer.markedText == "▼今日")
+            #expect(typer.insertedText == "")
 
-        typer.type(text: "\n")
-
-        #expect(typer.markedText == "")
-        #expect(typer.text == "今日")
+            await typer.type(text: "\n")
+            #expect(typer.markedText == "")
+            #expect(typer.insertedText == "今日")
+        }
     }
 }

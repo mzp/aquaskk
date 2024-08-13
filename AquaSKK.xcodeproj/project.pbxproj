@@ -29,7 +29,7 @@
 		132B777B2C5DB89E00EEC2A5 /* calculator_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 132B77772C5DB89E00EEC2A5 /* calculator_TEST.mm */; };
 		133834F22C6020CB00D73AD7 /* ModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE982C5F282D00F6BEF8 /* ModeTests.swift */; };
 		133834F32C6020CB00D73AD7 /* InputTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D652C5B3E9D00661AE3 /* InputTests.swift */; };
-		133834F42C6020CB00D73AD7 /* TyperTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135EEB9A2C5EE6AB00758672 /* TyperTextInput.swift */; };
+		133834F42C6020CB00D73AD7 /* MockTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135EEB9A2C5EE6AB00758672 /* MockTextInput.swift */; };
 		133834F52C6020CB00D73AD7 /* Typer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135EEB9D2C5EEA4900758672 /* Typer.swift */; };
 		1344F55E2C5B28FC00D8C850 /* SKKProxyDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4C82C5B28FC00D8C850 /* SKKProxyDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F55F2C5B28FC00D8C850 /* SKKClipboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F49E2C5B28FC00D8C850 /* SKKClipboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -317,6 +317,8 @@
 		1393E32C2C6B19C300F1E633 /* SKK-JISYO.S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1393E32B2C6B19C300F1E633 /* SKK-JISYO.S.txt */; };
 		1393E32E2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393E32D2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift */; };
 		1393E3312C6B201500F1E633 /* JisyoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393E3302C6B201500F1E633 /* JisyoTests.swift */; };
+		1393E3442C6B899300F1E633 /* SendableEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393E3432C6B899300F1E633 /* SendableEvent.swift */; };
+		1393E3462C6B89B100F1E633 /* SendableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393E3452C6B89B100F1E633 /* SendableText.swift */; };
 		139B7B662C60F68100FE5263 /* AquaSKKUI.docc in Sources */ = {isa = PBXBuildFile; fileRef = 139B7B652C60F68100FE5263 /* AquaSKKUI.docc */; };
 		139B7B732C60F68100FE5263 /* AquaSKKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B7B722C60F68100FE5263 /* AquaSKKUITests.swift */; };
 		139B7B742C60F68100FE5263 /* AquaSKKUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 139B7B642C60F68100FE5263 /* AquaSKKUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -729,7 +731,7 @@
 		135C3D8F2C5B3F1D00661AE3 /* SKKServer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKServer.mm; sourceTree = "<group>"; };
 		135C3DBF2C5B3FEC00661AE3 /* IM.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = IM.xcconfig; sourceTree = "<group>"; };
 		135EEB962C5EE3E100758672 /* SKKTextInputAppKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKTextInputAppKit.swift; sourceTree = "<group>"; };
-		135EEB9A2C5EE6AB00758672 /* TyperTextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyperTextInput.swift; sourceTree = "<group>"; };
+		135EEB9A2C5EE6AB00758672 /* MockTextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTextInput.swift; sourceTree = "<group>"; };
 		135EEB9D2C5EEA4900758672 /* Typer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typer.swift; sourceTree = "<group>"; };
 		135FB6D82C6998E800A6480A /* RomanKanaConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanKanaConverter.swift; sourceTree = "<group>"; };
 		135FB6E02C69AA7E00A6480A /* Trie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trie.swift; sourceTree = "<group>"; };
@@ -854,6 +856,8 @@
 		1393E32B2C6B19C300F1E633 /* SKK-JISYO.S.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "SKK-JISYO.S.txt"; sourceTree = "<group>"; };
 		1393E32D2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Jisyo+SwiftUI.swift"; sourceTree = "<group>"; };
 		1393E3302C6B201500F1E633 /* JisyoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JisyoTests.swift; sourceTree = "<group>"; };
+		1393E3432C6B899300F1E633 /* SendableEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendableEvent.swift; sourceTree = "<group>"; };
+		1393E3452C6B89B100F1E633 /* SendableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendableText.swift; sourceTree = "<group>"; };
 		139B7B642C60F68100FE5263 /* AquaSKKUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKUI.h; sourceTree = "<group>"; };
 		139B7B652C60F68100FE5263 /* AquaSKKUI.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKUI.docc; sourceTree = "<group>"; };
 		139B7B722C60F68100FE5263 /* AquaSKKUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKKUITests.swift; sourceTree = "<group>"; };
@@ -1696,8 +1700,10 @@
 		135EEBA02C5EEA5100758672 /* Typer */ = {
 			isa = PBXGroup;
 			children = (
-				135EEB9A2C5EE6AB00758672 /* TyperTextInput.swift */,
+				135EEB9A2C5EE6AB00758672 /* MockTextInput.swift */,
 				135EEB9D2C5EEA4900758672 /* Typer.swift */,
+				1393E3432C6B899300F1E633 /* SendableEvent.swift */,
+				1393E3452C6B89B100F1E633 /* SendableText.swift */,
 			);
 			path = Typer;
 			sourceTree = "<group>";
@@ -2901,9 +2907,11 @@
 			files = (
 				133834F22C6020CB00D73AD7 /* ModeTests.swift in Sources */,
 				133834F32C6020CB00D73AD7 /* InputTests.swift in Sources */,
-				133834F42C6020CB00D73AD7 /* TyperTextInput.swift in Sources */,
+				133834F42C6020CB00D73AD7 /* MockTextInput.swift in Sources */,
+				1393E3462C6B89B100F1E633 /* SendableText.swift in Sources */,
 				133834F52C6020CB00D73AD7 /* Typer.swift in Sources */,
 				1393E3312C6B201500F1E633 /* JisyoTests.swift in Sources */,
+				1393E3442C6B899300F1E633 /* SendableEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

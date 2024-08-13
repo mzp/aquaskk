@@ -1,5 +1,5 @@
 //
-//  Typer.swift
+//  TypingSession.swift
 //  Harness
 //
 //  Created by mzp on 8/3/24.
@@ -8,93 +8,71 @@
 import AquaSKKIM_Private
 import Foundation
 
-struct TyperEvent: Sendable {
-    var characters: String
-    var charactersIgnoringModifiers: String
-    var keyCode: UInt16
-    var modifiers: NSEvent.ModifierFlags
-    var timestapm: TimeInterval
-
-    var nsEvent: NSEvent {
-        return NSEvent.keyEvent(
-            with: .keyDown,
-            location: NSPoint(x: 0, y: 0),
-            modifierFlags: modifiers,
-            timestamp: timestapm,
-            windowNumber: 0,
-            context: nil,
-            characters: characters,
-            charactersIgnoringModifiers: charactersIgnoringModifiers,
-            isARepeat: false,
-            keyCode: keyCode
-        )!
-    }
-
-    init(
-        characters: String,
-        charactersIgnoringModifiers: String? = nil,
-        keyCode: UInt16 = 20,
-        modifiers: NSEvent.ModifierFlags = []
-    ) {
-        self.characters = characters
-        self.charactersIgnoringModifiers = charactersIgnoringModifiers ?? characters
-        self.keyCode = keyCode
-        self.modifiers = modifiers
-        timestapm = Date().timeIntervalSince1970
-    }
-}
-
 class Typer {
-    private var client: TyperTextInput
-    private var controller: SKKInputController
+    // MARK: - Session
+    class Session {
+        private var client = MockTextInput()
 
-    @MainActor init() {
-        let client = TyperTextInput()
-        let controller = SKKInputController()
-        controller._setClient(client)
+        @MainActor func run(perform: (Typer) async -> Void) async {
+            // SKKInputControllerはMainThread以外からはさわれない
+            // deinitもMainThreadで実行されるよう、このメソッドの外には出さない
+            let controller = SKKInputController()
+            defer { controller.deactivateServer(nil) }
+            controller._setClient(client)
+            controller.activateServer(nil)
 
-        self.client = client
+            let typer = Typer(controller: controller, client: client)
+            await perform(typer)
+            controller.deactivateServer(nil)
+        }
+    }
+    
+    private let controller: SKKInputController
+    private let client: MockTextInput
+    private(set) var text = SendableText()
+
+    init(controller: SKKInputController, client: MockTextInput) {
         self.controller = controller
-
-        controller.activateServer(nil)
+        self.client = client
     }
 
-    deinit {
-        controller.deactivateServer(nil)
-    }
+    // MARK: - Action
 
-    // MARK: - Actions
-
-    func type(text: String) {
+    func type(text: String) async {
         for character in text {
-            let event = TyperEvent(characters: String(character))
-            handle(event: event)
+            let event = SendableEvent(characters: String(character))
+            await handle(event: event)
         }
     }
 
-    func type(character: String, keycode: UInt16) {
-        let event = TyperEvent(
+    func type(character: String, keycode: UInt16) async {
+        let event = SendableEvent(
             characters: character,
             keyCode: keycode
         )
-        handle(event: event)
+        await handle(event: event)
     }
 
-    private func handle(event: TyperEvent) {
+    @MainActor func handle(event: SendableEvent) {
         controller.handle(event.nsEvent, client: client)
+        text = client.text
     }
 
     // MARK: - Properties
 
-    var text: String {
-        client.text
+    var insertedText: String {
+        text.string
     }
 
     var markedText: String {
-        client.markedText
+        text.marked
     }
 
     var modeIdentifier: String? {
-        client.modeIdentifier
+        text.modeIdentifier
     }
+
+
+
 }
+

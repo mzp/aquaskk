@@ -8,11 +8,12 @@
 import AppKit
 import Testing
 
-@MainActor struct ModeTest {
-    @Test func switchByKeyCommand() {
-        let typer = Typer()
-        typer.type(character: "l", keycode: 35)
-        let modeIdentifier = typer.modeIdentifier
-        #expect(modeIdentifier == "com.apple.inputmethod.Roman")
+struct ModeTest {
+    @Test func switchByKeyCommand() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.type(character: "l", keycode: 35)
+            #expect(typer.modeIdentifier == "com.apple.inputmethod.Roman")
+        }
     }
 }
