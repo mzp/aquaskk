@@ -13,7 +13,7 @@ jobs:
                   version: 3.x
                   repo-token: ${{ secrets.GITHUB_TOKEN }}
             - run: ls /Applications
-            - run: sudo xcode-select -s /Applications/Xcode_16_beta_5.app || sudo xcode-select -s /Applications/Xcode_16_beta_4.app
+            - run: sudo xcode-select -s /Applications/Xcode_16.0.app
             - name: Set current datetime as env variable
               run: echo "TEST_RESULTS_BUNDLE=$(date +'TestResults-%Y%m%d%H%M%S.xcresult')" >> $GITHUB_ENV
             - name: Run Check
@@ -46,5 +46,6 @@ jobs:
         runs-on: macos-latest
         steps:
             - uses: actions/checkout@v4
-            - run: sudo xcode-select -s /Applications/Xcode_16_beta_5.app
+            - run: ls /Applications
+            - run: sudo xcode-select -s /Applications/Xcode_16.0.app
             - run: set -o pipefail && xcrun xcodebuild -scheme All build -destination "platform=macOS" | xcpretty
