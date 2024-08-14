@@ -10,7 +10,7 @@ import Foundation
 import InputMethodKit
 import OSLog
 
-private let logger = Logger(subsystem: "org.codefirst.AquaSKK.Harness", category: "Adapter")
+private let logger = Logger(subsystem: "com.aquaskk.inputmethod.Harness", category: "Adapter")
 
 class InputMethodKitAdapter: NSObject, IMKTextInput {
     let inputClient: NSTextInputClient
@@ -92,7 +92,7 @@ class InputMethodKitAdapter: NSObject, IMKTextInput {
     }
 
     func uniqueClientIdentifierString() -> String! {
-        "org.codefirst.AquaSKK.client"
+        "com.aquaskk.inputmethod.client"
     }
 
     func string(from range: NSRange, actualRange: NSRangePointer!) -> String! {

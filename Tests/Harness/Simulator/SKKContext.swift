@@ -10,8 +10,8 @@ import Foundation
 import OSLog
 import SwiftUI
 
-private let signposter = OSSignposter(subsystem: "org.codefirst.AquaSKK.Harness", category: "Context")
-private let logger = Logger(subsystem: "org.codefirst.AquaSKK.Harness", category: "Context")
+private let signposter = OSSignposter(subsystem: "com.aquaskk.inputmethod.Harness", category: "Context")
+private let logger = Logger(subsystem: "com.aquaskk.inputmethod.Harness", category: "Context")
 
 enum SKKContext {
     struct Server: View {

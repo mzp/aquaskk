@@ -181,8 +181,6 @@
 	<string>SKKInputController</string>
 	<key>LSBackgroundOnly</key>
 	<string>1</string>
-	<key>NSMainNibFile</key>
-	<string>AquaSKK</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>TISIntendedLanguage</key>

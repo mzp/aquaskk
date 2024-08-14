@@ -9,7 +9,7 @@ import AquaSKKService
 import Foundation
 import OSLog
 
-private let logger = Logger(subsystem: "org.codefirst.AquaSKK", category: "Test")
+private let logger = Logger(subsystem: "com.aquaskk.inputmethod", category: "Test")
 
 public struct BundledFileConfiguration: FileConfiguration {
     public var systemResourcePath: String {

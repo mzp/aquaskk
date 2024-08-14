@@ -8,6 +8,8 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
+#include "./Include/Cpp.xcconfig"
+
 CODE_SIGN_ENTITLEMENTS = Sources/App/AquaSKK.entitlements
 DEVELOPMENT_ASSET_PATHS = "Sources/App/Preview Content"
 

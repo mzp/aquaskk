@@ -306,8 +306,6 @@
 		1377D08E2C678E6D005F21AE /* period.rule in Resources */ = {isa = PBXBuildFile; fileRef = 1377D0812C678E6D005F21AE /* period.rule */; };
 		1377D08F2C678E6D005F21AE /* DictionarySet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1377D07A2C678E6D005F21AE /* DictionarySet.plist */; };
 		1377D0902C678E6D005F21AE /* sub-rule.desc in Resources */ = {isa = PBXBuildFile; fileRef = 1377D0822C678E6D005F21AE /* sub-rule.desc */; };
-		137D05782C5B5A81009AC591 /* AquaSKKApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D05772C5B5A81009AC591 /* AquaSKKApp.swift */; };
-		137D057A2C5B5A81009AC591 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D05792C5B5A81009AC591 /* ContentView.swift */; };
 		137D057C2C5B5A82009AC591 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137D057B2C5B5A82009AC591 /* Assets.xcassets */; };
 		137D057F2C5B5A82009AC591 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137D057E2C5B5A82009AC591 /* Preview Assets.xcassets */; };
 		137D058A2C5B5A83009AC591 /* AquaSKKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D05892C5B5A83009AC591 /* AquaSKKTests.swift */; };
@@ -376,7 +374,6 @@
 		13CEB8282C5DBE460052B7ED /* CalculatorTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4932C5A92D300D8C850 /* CalculatorTesting.swift */; };
 		13D756192C5A9049006144F2 /* AquaSKKCore.docc in Sources */ = {isa = PBXBuildFile; fileRef = 13D756172C5A9049006144F2 /* AquaSKKCore.docc */; };
 		13D7561A2C5A9049006144F2 /* AquaSKKCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 13D756162C5A9049006144F2 /* AquaSKKCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		13E77E9A2C5BE3920096013B /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D802C5B3F1D00661AE3 /* main.mm */; };
 		13EB86642C5EA7DD00B47DCD /* SupervisorMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EB86632C5EA7DD00B47DCD /* SupervisorMonitor.swift */; };
 		13EDDCCA2C5B2D520062A0DA /* stringutil_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5452C5B28FC00D8C850 /* stringutil_TEST.mm */; };
 		13EDDCCB2C5B2E500062A0DA /* utf8util_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F54A2C5B28FC00D8C850 /* utf8util_TEST.mm */; };
@@ -404,6 +401,7 @@
 		13EDDCF12C5B395B0062A0DA /* SKKSelector_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5402C5B28FC00D8C850 /* SKKSelector_TEST.mm */; };
 		13EDDCF22C5B395B0062A0DA /* SKKInputQueue_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5392C5B28FC00D8C850 /* SKKInputQueue_TEST.mm */; };
 		13EDDCF32C5B395B0062A0DA /* SKKInputSession_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F53A2C5B28FC00D8C850 /* SKKInputSession_TEST.mm */; };
+		13F53D9C2C6C39CA00403F65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F53D9B2C6C39CA00403F65 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -763,7 +761,6 @@
 		135C3D7D2C5B3F1D00661AE3 /* MacKotoeriDictionary.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MacKotoeriDictionary.cpp; sourceTree = "<group>"; };
 		135C3D7E2C5B3F1D00661AE3 /* MacMessenger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacMessenger.h; sourceTree = "<group>"; };
 		135C3D7F2C5B3F1D00661AE3 /* MacMessenger.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MacMessenger.mm; sourceTree = "<group>"; };
-		135C3D802C5B3F1D00661AE3 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		135C3D812C5B3F1D00661AE3 /* ObjCUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCUtil.h; sourceTree = "<group>"; };
 		135C3D842C5B3F1D00661AE3 /* SKKInputController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKInputController.h; sourceTree = "<group>"; };
 		135C3D852C5B3F1D00661AE3 /* SKKInputController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKInputController.mm; sourceTree = "<group>"; };
@@ -883,8 +880,6 @@
 		1377D0832C678E6D005F21AE /* SubRuleControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubRuleControllerTests.swift; sourceTree = "<group>"; };
 		1377D0842C678E6D005F21AE /* SubRuleDescriptionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubRuleDescriptionsTests.swift; sourceTree = "<group>"; };
 		1377D0862C678E6D005F21AE /* ServiceTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTesting.swift; sourceTree = "<group>"; };
-		137D05772C5B5A81009AC591 /* AquaSKKApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKKApp.swift; sourceTree = "<group>"; };
-		137D05792C5B5A81009AC591 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		137D057B2C5B5A82009AC591 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		137D057E2C5B5A82009AC591 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		137D05802C5B5A82009AC591 /* AquaSKK.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AquaSKK.entitlements; sourceTree = "<group>"; };
@@ -950,6 +945,7 @@
 		13E6605F2C6852B3000896F6 /* .clang-format */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".clang-format"; sourceTree = "<group>"; };
 		13E660602C6852B3000896F6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		13EB86632C5EA7DD00B47DCD /* SupervisorMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupervisorMonitor.swift; sourceTree = "<group>"; };
+		13F53D9B2C6C39CA00403F65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1978,11 +1974,9 @@
 				137D05802C5B5A82009AC591 /* AquaSKK.entitlements */,
 				131082812C5B5BFC00C186BE /* Info.plist */,
 				1310827F2C5B5BEC00C186BE /* InfoPlist.strings */,
-				137D05772C5B5A81009AC591 /* AquaSKKApp.swift */,
-				137D05792C5B5A81009AC591 /* ContentView.swift */,
+				13F53D9B2C6C39CA00403F65 /* AppDelegate.swift */,
 				137D057B2C5B5A82009AC591 /* Assets.xcassets */,
 				1310827D2C5B5BDB00C186BE /* Images.xcassets */,
-				135C3D802C5B3F1D00661AE3 /* main.mm */,
 				1371A77B2C5B5D3E00E06348 /* data */,
 				1371A7A02C5B5D7000E06348 /* plist */,
 				137D057D2C5B5A82009AC591 /* Preview Content */,
@@ -3103,9 +3097,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13E77E9A2C5BE3920096013B /* main.mm in Sources */,
-				137D057A2C5B5A81009AC591 /* ContentView.swift in Sources */,
-				137D05782C5B5A81009AC591 /* AquaSKKApp.swift in Sources */,
+				13F53D9C2C6C39CA00403F65 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

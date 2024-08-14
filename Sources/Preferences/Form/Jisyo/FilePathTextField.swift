@@ -8,7 +8,7 @@
 import OSLog
 import SwiftUI
 
-private let logger = Logger(subsystem: "org.codefirst.AquaSKK.Preference", category: "Jisyo")
+private let logger = Logger(subsystem: "com.aquaskk.inputmethod.Preference", category: "Jisyo")
 
 struct FilePathTextField: View {
     var titleKey: LocalizedStringKey

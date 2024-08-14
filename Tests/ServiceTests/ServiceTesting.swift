@@ -9,7 +9,7 @@ import Foundation
 import OSLog
 import Testing
 
-private let logger = Logger(subsystem: "org.codefirst.AquaSKK", category: "Test")
+private let logger = Logger(subsystem: "com.aquaskk.inputmethod", category: "Test")
 
 /// テスト用データに簡単にアクセスするためのメソッド群を提供するクラス
 class ServiceTesting {
