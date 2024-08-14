@@ -11,30 +11,30 @@
 
       <inputsourcedef>
         <name>NonLatin</name>
-        <inputsourceid_equal>jp.sourceforge.inputmethod.aquaskk.Hiragana</inputsourceid_equal>
-        <inputsourceid_equal>jp.sourceforge.inputmethod.aquaskk.Katakana</inputsourceid_equal>
-        <inputsourceid_equal>jp.sourceforge.inputmethod.aquaskk.HalfWidthKana</inputsourceid_equal>
+        <inputsourceid_equal>com.aquaskk.inputmethod.Hiragana</inputsourceid_equal>
+        <inputsourceid_equal>com.aquaskk.inputmethod.Katakana</inputsourceid_equal>
+        <inputsourceid_equal>com.aquaskk.inputmethod.HalfWidthKana</inputsourceid_equal>
       </inputsourcedef>
 
       <vkchangeinputsourcedef>
         <name>KeyCode::VK_CHANGE_INPUTSOURCE_AQUASKK_HIRAGANA</name>
-        <inputsourceid_equal>jp.sourceforge.inputmethod.aquaskk.Hiragana</inputsourceid_equal>
+        <inputsourceid_equal>com.aquaskk.inputmethod.Hiragana</inputsourceid_equal>
       </vkchangeinputsourcedef>
       <vkchangeinputsourcedef>
         <name>KeyCode::VK_CHANGE_INPUTSOURCE_AQUASKK_KATAKANA</name>
-        <inputsourceid_equal>jp.sourceforge.inputmethod.aquaskk.Katakana</inputsourceid_equal>
+        <inputsourceid_equal>com.aquaskk.inputmethod.Katakana</inputsourceid_equal>
       </vkchangeinputsourcedef>
       <vkchangeinputsourcedef>
         <name>KeyCode::VK_CHANGE_INPUTSOURCE_AQUASKK_HALF_WIDTH_KANA</name>
-        <inputsourceid_equal>jp.sourceforge.inputmethod.aquaskk.HalfWidthKana</inputsourceid_equal>
+        <inputsourceid_equal>com.aquaskk.inputmethod.HalfWidthKana</inputsourceid_equal>
       </vkchangeinputsourcedef>
       <vkchangeinputsourcedef>
         <name>KeyCode::VK_CHANGE_INPUTSOURCE_AQUASKK_ASCII</name>
-        <inputsourceid_equal>jp.sourceforge.inputmethod.aquaskk.Ascii</inputsourceid_equal>
+        <inputsourceid_equal>com.aquaskk.inputmethod.Ascii</inputsourceid_equal>
       </vkchangeinputsourcedef>
       <vkchangeinputsourcedef>
         <name>KeyCode::VK_CHANGE_INPUTSOURCE_AQUASKK_FULL_WIDTH_ROMAN</name>
-        <inputsourceid_equal>jp.sourceforge.inputmethod.aquaskk.FullWidthRoman</inputsourceid_equal>
+        <inputsourceid_equal>com.aquaskk.inputmethod.FullWidthRoman</inputsourceid_equal>
       </vkchangeinputsourcedef>
 
       <list>

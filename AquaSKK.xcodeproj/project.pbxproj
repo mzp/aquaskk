@@ -226,6 +226,8 @@
 		135FB6E12C69AA7E00A6480A /* Trie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135FB6E02C69AA7E00A6480A /* Trie.swift */; };
 		135FB6E32C69B06B00A6480A /* TriesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135FB6E22C69B06B00A6480A /* TriesTest.swift */; };
 		135FB6E52C69D60200A6480A /* AISRomanKanaConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 135FB6E42C69D60200A6480A /* AISRomanKanaConverter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		13706E592C6C492E004EC879 /* SKK-JISYO.L in Sources */ = {isa = PBXBuildFile; fileRef = 13706E582C6C492E004EC879 /* SKK-JISYO.L */; };
+		13706E5A2C6C5089004EC879 /* SKK-JISYO.L in Resources */ = {isa = PBXBuildFile; fileRef = 13706E582C6C492E004EC879 /* SKK-JISYO.L */; };
 		1371A74F2C5B5D0300E06348 /* DictionarySet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74D2C5B5D0300E06348 /* DictionarySet.plist */; };
 		1371A7502C5B5D0300E06348 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74E2C5B5D0300E06348 /* UserDefaults.plist */; };
 		1371A7512C5B5D0300E06348 /* BlacklistApps.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74C2C5B5D0300E06348 /* BlacklistApps.plist */; };
@@ -782,6 +784,7 @@
 		135FB6E02C69AA7E00A6480A /* Trie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trie.swift; sourceTree = "<group>"; };
 		135FB6E22C69B06B00A6480A /* TriesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriesTest.swift; sourceTree = "<group>"; };
 		135FB6E42C69D60200A6480A /* AISRomanKanaConverter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AISRomanKanaConverter.h; sourceTree = "<group>"; };
+		13706E582C6C492E004EC879 /* SKK-JISYO.L */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 3; lineEnding = 0; path = "SKK-JISYO.L"; sourceTree = "<group>"; };
 		1371A74C2C5B5D0300E06348 /* BlacklistApps.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BlacklistApps.plist; sourceTree = "<group>"; };
 		1371A74D2C5B5D0300E06348 /* DictionarySet.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DictionarySet.plist; sourceTree = "<group>"; };
 		1371A74E2C5B5D0300E06348 /* UserDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
@@ -1771,6 +1774,14 @@
 			path = Typer;
 			sourceTree = "<group>";
 		};
+		13706E572C6C4924004EC879 /* jisyo */ = {
+			isa = PBXGroup;
+			children = (
+				13706E582C6C492E004EC879 /* SKK-JISYO.L */,
+			);
+			path = jisyo;
+			sourceTree = "<group>";
+		};
 		1371A7602C5B5D3E00E06348 /* config */ = {
 			isa = PBXGroup;
 			children = (
@@ -1831,6 +1842,7 @@
 		1371A77B2C5B5D3E00E06348 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				13706E572C6C4924004EC879 /* jisyo */,
 				1371A7602C5B5D3E00E06348 /* config */,
 				1371A7782C5B5D3E00E06348 /* icons */,
 				1371A77A2C5B5D3E00E06348 /* others */,
@@ -2844,6 +2856,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13706E5A2C6C5089004EC879 /* SKK-JISYO.L in Resources */,
 				1371A74F2C5B5D0300E06348 /* DictionarySet.plist in Resources */,
 				1371A7502C5B5D0300E06348 /* UserDefaults.plist in Resources */,
 				1371A7512C5B5D0300E06348 /* BlacklistApps.plist in Resources */,
@@ -3098,6 +3111,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13F53D9C2C6C39CA00403F65 /* AppDelegate.swift in Sources */,
+				13706E592C6C492E004EC879 /* SKK-JISYO.L in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

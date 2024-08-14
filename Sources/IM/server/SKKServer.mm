@@ -87,6 +87,7 @@ static void terminate(int) {
 - (void)prepareDirectory;
 - (void)prepareConnection;
 - (void)prepareUserDefaults;
+- (void)prepareDictionarySet;
 - (void)prepareDictionary;
 - (void)prepareBlacklistApps;
 - (id)newIMKServer;
@@ -119,6 +120,7 @@ static void terminate(int) {
     [self prepareDirectory];
     [self prepareConnection];
     [self prepareUserDefaults];
+    [self prepareDictionarySet];
     [self prepareDictionary];
     [self prepareBlacklistApps];
 
@@ -336,7 +338,7 @@ static void terminate(int) {
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (void)prepareDictionary {
+- (void)prepareDictionarySet {
     os_log(serverLog, "%s", __PRETTY_FUNCTION__);
 
     NSString* factoryDictionarySet = [self pathForSystemResource:@"DictionarySet.plist"];
@@ -354,6 +356,33 @@ static void terminate(int) {
     SKKRegisterFactoryMethod<SKKProxyDictionary>(DictionaryTypes::Proxy);
     SKKRegisterFactoryMethod<MacKotoeriDictionary>(DictionaryTypes::Kotoeri);
     SKKRegisterFactoryMethod<SKKGadgetDictionary>(DictionaryTypes::Gadget);
+}
+
+- (void)prepareDictionary {
+    os_log(serverLog, "%s", __PRETTY_FUNCTION__);
+
+    for(NSDictionary *jisyo in [configuration_ systemDictionaries]) {
+        NSString* location = [jisyo valueForKey:SKKDictionarySetKeys::location];
+        NSString *path = [self pathForSystemResource:location];
+
+        if (![self fileExistsAtPath:path]) {
+            os_log_error(serverLog, "%s: cant' find %@. ignore.", __PRETTY_FUNCTION__, path);
+            continue;
+        }
+        NSString *filename = [path lastPathComponent];
+        NSString *userPath = [self pathForUserResource:filename];
+        if ([self fileExistsAtPath:userPath]) {
+            os_log(serverLog, "%s: %@ already exists. ignore.", __PRETTY_FUNCTION__, userPath);
+            continue;
+        }
+        NSError *error = nil;
+        [NSFileManager.defaultManager copyItemAtPath:path toPath:userPath error:&error];
+        if (error) {
+            os_log_error(serverLog, "%s: can't copy %@ to %@ due to %@", __PRETTY_FUNCTION__, path, userPath, error);
+        } else {
+            os_log(serverLog, "%s: Wrote %@", __PRETTY_FUNCTION__, userPath);
+        }
+    }
 }
 
 - (void)prepareBlacklistApps {
