@@ -6,9 +6,9 @@
 //  Copyright © 2017 mzp. All rights reserved.
 //
 
+import AquaSKKIM
 import Cocoa
 import OSLog
-import AquaSKKIM
 
 private let logger = Logger(subsystem: "com.aquaskk.inputmethod", category: "App")
 
@@ -16,11 +16,10 @@ private let logger = Logger(subsystem: "com.aquaskk.inputmethod", category: "App
 class AppDelegate: NSObject, NSApplicationDelegate {
     var server: SKKServer?
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        logger.info("\(#function): AquaSKK Launch:\(aNotification)")
+        logger.log("\(#function): AquaSKK Launch:\(aNotification)")
         server = SKKServer()
         server?.awakeFromNib()
     }
 
-    func applicationWillTerminate(_ aNotification: Notification) {
-    }
+    func applicationWillTerminate(_: Notification) {}
 }
