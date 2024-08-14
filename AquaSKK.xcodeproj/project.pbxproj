@@ -226,7 +226,6 @@
 		135FB6E12C69AA7E00A6480A /* Trie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135FB6E02C69AA7E00A6480A /* Trie.swift */; };
 		135FB6E32C69B06B00A6480A /* TriesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135FB6E22C69B06B00A6480A /* TriesTest.swift */; };
 		135FB6E52C69D60200A6480A /* AISRomanKanaConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 135FB6E42C69D60200A6480A /* AISRomanKanaConverter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		13706E592C6C492E004EC879 /* SKK-JISYO.L in Sources */ = {isa = PBXBuildFile; fileRef = 13706E582C6C492E004EC879 /* SKK-JISYO.L */; };
 		13706E5A2C6C5089004EC879 /* SKK-JISYO.L in Resources */ = {isa = PBXBuildFile; fileRef = 13706E582C6C492E004EC879 /* SKK-JISYO.L */; };
 		1371A74F2C5B5D0300E06348 /* DictionarySet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74D2C5B5D0300E06348 /* DictionarySet.plist */; };
 		1371A7502C5B5D0300E06348 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74E2C5B5D0300E06348 /* UserDefaults.plist */; };
@@ -365,6 +364,7 @@
 		139B7B9E2C60F7A800FE5263 /* CandidateCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D142C5B430B003EACF0 /* CandidateCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13A685422C69826A001BABA2 /* RomanKanaConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A685412C69826A001BABA2 /* RomanKanaConverterTests.swift */; };
 		13A685442C698312001BABA2 /* CoreTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A685432C698312001BABA2 /* CoreTesting.swift */; };
+		13A6A1392C6D6D2F004B3587 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A6A1382C6D6D2F004B3587 /* main.m */; };
 		13B7BE832C5EFCEF00F6BEF8 /* SKKStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE822C5EFCEF00F6BEF8 /* SKKStateStore.swift */; };
 		13B7BE852C5EFD7000F6BEF8 /* StateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE842C5EFD7000F6BEF8 /* StateMonitor.swift */; };
 		13B7BE882C5F1E9100F6BEF8 /* SKKServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE872C5F1E9100F6BEF8 /* SKKServerTests.swift */; };
@@ -922,6 +922,7 @@
 		139B7B822C60F69E00FE5263 /* UITests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = UITests.xcconfig; sourceTree = "<group>"; };
 		13A685412C69826A001BABA2 /* RomanKanaConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanKanaConverterTests.swift; sourceTree = "<group>"; };
 		13A685432C698312001BABA2 /* CoreTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTesting.swift; sourceTree = "<group>"; };
+		13A6A1382C6D6D2F004B3587 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		13B7BE822C5EFCEF00F6BEF8 /* SKKStateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStateStore.swift; sourceTree = "<group>"; };
 		13B7BE842C5EFD7000F6BEF8 /* StateMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMonitor.swift; sourceTree = "<group>"; };
 		13B7BE872C5F1E9100F6BEF8 /* SKKServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKServerTests.swift; sourceTree = "<group>"; };
@@ -1983,15 +1984,10 @@
 		137D05762C5B5A81009AC591 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				137D05802C5B5A82009AC591 /* AquaSKK.entitlements */,
-				131082812C5B5BFC00C186BE /* Info.plist */,
-				1310827F2C5B5BEC00C186BE /* InfoPlist.strings */,
+				13A6A1382C6D6D2F004B3587 /* main.m */,
 				13F53D9B2C6C39CA00403F65 /* AppDelegate.swift */,
-				137D057B2C5B5A82009AC591 /* Assets.xcassets */,
-				1310827D2C5B5BDB00C186BE /* Images.xcassets */,
-				1371A77B2C5B5D3E00E06348 /* data */,
-				1371A7A02C5B5D7000E06348 /* plist */,
 				137D057D2C5B5A82009AC591 /* Preview Content */,
+				13A6A13A2C6D6D45004B3587 /* Support files */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -2064,6 +2060,20 @@
 				139B7B722C60F68100FE5263 /* AquaSKKUITests.swift */,
 			);
 			path = UITests;
+			sourceTree = "<group>";
+		};
+		13A6A13A2C6D6D45004B3587 /* Support files */ = {
+			isa = PBXGroup;
+			children = (
+				137D05802C5B5A82009AC591 /* AquaSKK.entitlements */,
+				131082812C5B5BFC00C186BE /* Info.plist */,
+				1310827F2C5B5BEC00C186BE /* InfoPlist.strings */,
+				137D057B2C5B5A82009AC591 /* Assets.xcassets */,
+				1310827D2C5B5BDB00C186BE /* Images.xcassets */,
+				1371A7A02C5B5D7000E06348 /* plist */,
+				1371A77B2C5B5D3E00E06348 /* data */,
+			);
+			path = "Support files";
 			sourceTree = "<group>";
 		};
 		13B7BE862C5F1E8400F6BEF8 /* server */ = {
@@ -3111,7 +3121,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13F53D9C2C6C39CA00403F65 /* AppDelegate.swift in Sources */,
-				13706E592C6C492E004EC879 /* SKK-JISYO.L in Sources */,
+				13A6A1392C6D6D2F004B3587 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

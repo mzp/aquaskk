@@ -12,8 +12,7 @@ import OSLog
 
 private let logger = Logger(subsystem: "com.aquaskk.inputmethod", category: "App")
 
-@NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+@objc(AppDelegate) class AppDelegate: NSObject, NSApplicationDelegate {
     var server: SKKServer?
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         logger.log("\(#function): AquaSKK Launch:\(aNotification)")
