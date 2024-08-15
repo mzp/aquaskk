@@ -9,3 +9,10 @@ if [[ $UID != 0 ]]; then
     exit 1
 fi
 
+killall -HUP AquaSKK || true
+rm -rf "/Library/Input Methods/AquaSKK.app" || true
+sleep 1
+cp -r AquaSKK.app "/Library/Input Methods/"
+
+# FIXME: reload without logout
+echo "You may need logout to enable AquaSKK"
