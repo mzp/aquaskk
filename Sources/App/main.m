@@ -14,9 +14,9 @@
 int main(int argc, const char **argv) {
     os_log_t appLog = os_log_create("com.aquaskk.inputmethods", "app");
     os_log(appLog,
-           "🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻"
-           "AquaSKK: An input method without morphological analysis."
-           "Complied timestamp: %s"
+           "🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻\n"
+           "AquaSKK: An input method without morphological analysis.\n"
+           "Complied timestamp: %s\n"
            "🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻",
            __TIMESTAMP__);
 
