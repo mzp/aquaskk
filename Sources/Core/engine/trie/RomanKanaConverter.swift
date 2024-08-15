@@ -6,7 +6,7 @@
 //
 import OSLog
 
-private let logger = Logger(subsystem: "org.codefirst.AquaSKK.Core", category: "Romankana")
+private let logger = Logger(subsystem: "com.aquaskk.inputmethod.Core", category: "Romankana")
 
 struct RomanKanaRule: Equatable, Hashable {
     var hirakana: String

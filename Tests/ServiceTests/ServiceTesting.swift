@@ -9,7 +9,7 @@ import Foundation
 import OSLog
 import Testing
 
-private let logger = Logger(subsystem: "org.codefirst.AquaSKK", category: "Test")
+private let logger = Logger(subsystem: "com.aquaskk.inputmethod", category: "Test")
 
 /// テスト用データに簡単にアクセスするためのメソッド群を提供するクラス
 class ServiceTesting {
@@ -34,8 +34,11 @@ class ServiceTesting {
         let fm = FileManager.default
 
         if writable {
-            let tempPath = NSTemporaryDirectory().appending("/\(filename)")
-            logger.info("Copy \(path) to \(tempPath)")
+            let tempDir = NSTemporaryDirectory().appending("/\(UUID().uuidString)")
+            try fm.createDirectory(atPath: tempDir, withIntermediateDirectories: true)
+
+            let tempPath = tempDir.appending("/\(filename)")
+            logger.log("Copy \(path) to \(tempPath)")
             _ = try? fm.removeItem(atPath: tempPath)
             try fm.copyItem(atPath: path, toPath: tempPath)
             return tempPath

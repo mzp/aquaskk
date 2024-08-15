@@ -9,6 +9,7 @@
 #import <AquaSKKService/SKKConstVars.h>
 #import <os/log.h>
 
+// FIXME: /Library/Input Methods/AquaSKK.appとしてインストールしないと動作しない
 @implementation AISDefaultServerConfiguration
 
 - (NSString*)systemPathForName:(NSString*)name {

@@ -90,7 +90,7 @@ extension MockTextInput: IMKTextInput {
     }
 
     func uniqueClientIdentifierString() -> String! {
-        "org.codefirst.AquaSKK.client"
+        "com.aquaskk.inputmethod.client"
     }
 
     func string(from range: NSRange, actualRange _: NSRangePointer!) -> String! {

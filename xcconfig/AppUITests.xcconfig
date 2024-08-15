@@ -9,3 +9,4 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 TEST_TARGET_NAME = AquaSKK
+#include "./Include/Cpp.xcconfig"

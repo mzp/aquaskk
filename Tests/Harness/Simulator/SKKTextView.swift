@@ -12,8 +12,8 @@ import InputMethodKit
 import OSLog
 import SwiftUI
 
-private let logger = Logger(subsystem: "org.codefirst.AquaSKK.Harness", category: "TextView")
-private let signposter = OSSignposter(subsystem: "org.codefirst.AquaSKK.Harness", category: "TextView")
+private let logger = Logger(subsystem: "com.aquaskk.inputmethod.Harness", category: "TextView")
+private let signposter = OSSignposter(subsystem: "com.aquaskk.inputmethod.Harness", category: "TextView")
 
 class SKKTextViewAppKit: NSTextView {
     private var controller: SKKInputController?

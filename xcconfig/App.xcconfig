@@ -8,12 +8,20 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-CODE_SIGN_ENTITLEMENTS = Sources/App/AquaSKK.entitlements
+#include "./Include/Cpp.xcconfig"
+
+CODE_SIGN_ENTITLEMENTS = Sources/App/Support files/AquaSKK.entitlements
 DEVELOPMENT_ASSET_PATHS = "Sources/App/Preview Content"
 
 REGISTER_APP_GROUPS = YES
 
 OTHER_LDFLAGS = -framework AquaSKKCore -framework AquaSKKIM -framework Carbon
 
-// GENERATE_INFOPLIST_FILE = NO
-// INFOPLIST_FILE = Sources/App/Info.plist
+GENERATE_INFOPLIST_FILE = YES
+INFOPLIST_KEY_LSBackgroundOnly = 1
+INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright (C) 2024 aquaskk.com"
+INFOPLIST_FILE = Sources/App/Support files/Info.plist
+
+INSTALL_PATH =$(LOCAL_LIBRARY_DIR)/Input Methods
+
+SKIP_INSTALL = NO

@@ -1,0 +1,18 @@
+//
+//  All-Testing.xcconfig
+//  AquaSKK
+//
+//  Created by mzp on 8/2/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "./All.xcconfig"
+
+CODE_SIGN_IDENTITY = Apple Development
+DEVELOPMENT_TEAM = VG2YYSKSHY
+
+SWIFT_COMPILATION_MODE = wholemodule
+GCC_OPTIMIZATION_LEVEL = s
+SWIFT_OPTIMIZATION_LEVEL = -O

@@ -226,6 +226,7 @@
 		135FB6E12C69AA7E00A6480A /* Trie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135FB6E02C69AA7E00A6480A /* Trie.swift */; };
 		135FB6E32C69B06B00A6480A /* TriesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135FB6E22C69B06B00A6480A /* TriesTest.swift */; };
 		135FB6E52C69D60200A6480A /* AISRomanKanaConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 135FB6E42C69D60200A6480A /* AISRomanKanaConverter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		13706E5A2C6C5089004EC879 /* SKK-JISYO.L in Resources */ = {isa = PBXBuildFile; fileRef = 13706E582C6C492E004EC879 /* SKK-JISYO.L */; };
 		1371A74F2C5B5D0300E06348 /* DictionarySet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74D2C5B5D0300E06348 /* DictionarySet.plist */; };
 		1371A7502C5B5D0300E06348 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74E2C5B5D0300E06348 /* UserDefaults.plist */; };
 		1371A7512C5B5D0300E06348 /* BlacklistApps.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74C2C5B5D0300E06348 /* BlacklistApps.plist */; };
@@ -306,8 +307,6 @@
 		1377D08E2C678E6D005F21AE /* period.rule in Resources */ = {isa = PBXBuildFile; fileRef = 1377D0812C678E6D005F21AE /* period.rule */; };
 		1377D08F2C678E6D005F21AE /* DictionarySet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1377D07A2C678E6D005F21AE /* DictionarySet.plist */; };
 		1377D0902C678E6D005F21AE /* sub-rule.desc in Resources */ = {isa = PBXBuildFile; fileRef = 1377D0822C678E6D005F21AE /* sub-rule.desc */; };
-		137D05782C5B5A81009AC591 /* AquaSKKApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D05772C5B5A81009AC591 /* AquaSKKApp.swift */; };
-		137D057A2C5B5A81009AC591 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D05792C5B5A81009AC591 /* ContentView.swift */; };
 		137D057C2C5B5A82009AC591 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137D057B2C5B5A82009AC591 /* Assets.xcassets */; };
 		137D057F2C5B5A82009AC591 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137D057E2C5B5A82009AC591 /* Preview Assets.xcassets */; };
 		137D058A2C5B5A83009AC591 /* AquaSKKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D05892C5B5A83009AC591 /* AquaSKKTests.swift */; };
@@ -329,6 +328,15 @@
 		1393E3642C6BB99D00F1E633 /* DictionarySet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1393E3602C6BB99D00F1E633 /* DictionarySet.plist */; };
 		1393E3672C6BB9BD00F1E633 /* keymap.conf in Resources */ = {isa = PBXBuildFile; fileRef = 1393E3662C6BB9BD00F1E633 /* keymap.conf */; };
 		1393E3682C6BB9BD00F1E633 /* kana-rule.conf in Resources */ = {isa = PBXBuildFile; fileRef = 1393E3652C6BB9BD00F1E633 /* kana-rule.conf */; };
+		1393E3B52C6BF51700F1E633 /* AquaSKKCore.framework in Embeded Frameworks */ = {isa = PBXBuildFile; fileRef = 1373A8202C6817BA000FE1B7 /* AquaSKKCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1393E3B62C6BF51700F1E633 /* AquaSKKIM.framework in Embeded Frameworks */ = {isa = PBXBuildFile; fileRef = 1373A8222C6817BA000FE1B7 /* AquaSKKIM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1393E3B72C6BF51700F1E633 /* AquaSKKService.framework in Embeded Frameworks */ = {isa = PBXBuildFile; fileRef = 1373A82B2C6817BA000FE1B7 /* AquaSKKService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1393E3B82C6BF51700F1E633 /* AquaSKKUI.framework in Embeded Frameworks */ = {isa = PBXBuildFile; fileRef = 1373A82E2C6817BA000FE1B7 /* AquaSKKUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1393E3B92C6BF52500F1E633 /* Preferences.app in Embeded Applications */ = {isa = PBXBuildFile; fileRef = 1373A8242C6817BA000FE1B7 /* Preferences.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1393E3BB2C6BFB7D00F1E633 /* AquaSKKService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1373A82B2C6817BA000FE1B7 /* AquaSKKService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1393E3BC2C6BFBF200F1E633 /* AquaSKKCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1373A8202C6817BA000FE1B7 /* AquaSKKCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1393E3BD2C6BFBF200F1E633 /* AquaSKKIM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1373A8222C6817BA000FE1B7 /* AquaSKKIM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1393E3BE2C6BFBF200F1E633 /* AquaSKKUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1373A82E2C6817BA000FE1B7 /* AquaSKKUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		139B7B662C60F68100FE5263 /* AquaSKKUI.docc in Sources */ = {isa = PBXBuildFile; fileRef = 139B7B652C60F68100FE5263 /* AquaSKKUI.docc */; };
 		139B7B732C60F68100FE5263 /* AquaSKKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B7B722C60F68100FE5263 /* AquaSKKUITests.swift */; };
 		139B7B742C60F68100FE5263 /* AquaSKKUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 139B7B642C60F68100FE5263 /* AquaSKKUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -356,6 +364,7 @@
 		139B7B9E2C60F7A800FE5263 /* CandidateCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 134A0D142C5B430B003EACF0 /* CandidateCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13A685422C69826A001BABA2 /* RomanKanaConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A685412C69826A001BABA2 /* RomanKanaConverterTests.swift */; };
 		13A685442C698312001BABA2 /* CoreTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A685432C698312001BABA2 /* CoreTesting.swift */; };
+		13A6A1392C6D6D2F004B3587 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A6A1382C6D6D2F004B3587 /* main.m */; };
 		13B7BE832C5EFCEF00F6BEF8 /* SKKStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE822C5EFCEF00F6BEF8 /* SKKStateStore.swift */; };
 		13B7BE852C5EFD7000F6BEF8 /* StateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE842C5EFD7000F6BEF8 /* StateMonitor.swift */; };
 		13B7BE882C5F1E9100F6BEF8 /* SKKServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE872C5F1E9100F6BEF8 /* SKKServerTests.swift */; };
@@ -367,7 +376,6 @@
 		13CEB8282C5DBE460052B7ED /* CalculatorTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4932C5A92D300D8C850 /* CalculatorTesting.swift */; };
 		13D756192C5A9049006144F2 /* AquaSKKCore.docc in Sources */ = {isa = PBXBuildFile; fileRef = 13D756172C5A9049006144F2 /* AquaSKKCore.docc */; };
 		13D7561A2C5A9049006144F2 /* AquaSKKCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 13D756162C5A9049006144F2 /* AquaSKKCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		13E77E9A2C5BE3920096013B /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D802C5B3F1D00661AE3 /* main.mm */; };
 		13EB86642C5EA7DD00B47DCD /* SupervisorMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EB86632C5EA7DD00B47DCD /* SupervisorMonitor.swift */; };
 		13EDDCCA2C5B2D520062A0DA /* stringutil_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5452C5B28FC00D8C850 /* stringutil_TEST.mm */; };
 		13EDDCCB2C5B2E500062A0DA /* utf8util_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F54A2C5B28FC00D8C850 /* utf8util_TEST.mm */; };
@@ -395,6 +403,7 @@
 		13EDDCF12C5B395B0062A0DA /* SKKSelector_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5402C5B28FC00D8C850 /* SKKSelector_TEST.mm */; };
 		13EDDCF22C5B395B0062A0DA /* SKKInputQueue_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5392C5B28FC00D8C850 /* SKKInputQueue_TEST.mm */; };
 		13EDDCF32C5B395B0062A0DA /* SKKInputSession_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F53A2C5B28FC00D8C850 /* SKKInputSession_TEST.mm */; };
+		13F53D9C2C6C39CA00403F65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F53D9B2C6C39CA00403F65 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -436,15 +445,44 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		13B7BED82C5F5CF900F6BEF8 /* Embed Frameworks */ = {
+		1393E3B32C6BF50200F1E633 /* Embeded Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				1393E3B52C6BF51700F1E633 /* AquaSKKCore.framework in Embeded Frameworks */,
+				1393E3B62C6BF51700F1E633 /* AquaSKKIM.framework in Embeded Frameworks */,
+				1393E3B82C6BF51700F1E633 /* AquaSKKUI.framework in Embeded Frameworks */,
+				1393E3B72C6BF51700F1E633 /* AquaSKKService.framework in Embeded Frameworks */,
+			);
+			name = "Embeded Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1393E3B42C6BF50400F1E633 /* Embeded Applications */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				1393E3B92C6BF52500F1E633 /* Preferences.app in Embeded Applications */,
+			);
+			name = "Embeded Applications";
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		13B7BED82C5F5CF900F6BEF8 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1393E3BC2C6BFBF200F1E633 /* AquaSKKCore.framework in Embed Frameworks */,
+				1393E3BD2C6BFBF200F1E633 /* AquaSKKIM.framework in Embed Frameworks */,
+				1393E3BE2C6BFBF200F1E633 /* AquaSKKUI.framework in Embed Frameworks */,
+				1393E3BB2C6BFB7D00F1E633 /* AquaSKKService.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -691,6 +729,7 @@
 		134A0D232C5B430B003EACF0 /* MessengerView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MessengerView.mm; sourceTree = "<group>"; };
 		134A0D242C5B430B003EACF0 /* MessengerWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessengerWindow.h; sourceTree = "<group>"; };
 		134A0D252C5B430B003EACF0 /* MessengerWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MessengerWindow.mm; sourceTree = "<group>"; };
+		1352B29A2C6DAE14001EF7F6 /* install.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install.sh; sourceTree = "<group>"; };
 		1352C9D82C5DF8160056261D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1352C9DA2C5DF8160056261D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1352C9DB2C5DF8160056261D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -725,7 +764,6 @@
 		135C3D7D2C5B3F1D00661AE3 /* MacKotoeriDictionary.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MacKotoeriDictionary.cpp; sourceTree = "<group>"; };
 		135C3D7E2C5B3F1D00661AE3 /* MacMessenger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacMessenger.h; sourceTree = "<group>"; };
 		135C3D7F2C5B3F1D00661AE3 /* MacMessenger.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MacMessenger.mm; sourceTree = "<group>"; };
-		135C3D802C5B3F1D00661AE3 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		135C3D812C5B3F1D00661AE3 /* ObjCUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCUtil.h; sourceTree = "<group>"; };
 		135C3D842C5B3F1D00661AE3 /* SKKInputController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKInputController.h; sourceTree = "<group>"; };
 		135C3D852C5B3F1D00661AE3 /* SKKInputController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKInputController.mm; sourceTree = "<group>"; };
@@ -747,6 +785,7 @@
 		135FB6E02C69AA7E00A6480A /* Trie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trie.swift; sourceTree = "<group>"; };
 		135FB6E22C69B06B00A6480A /* TriesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriesTest.swift; sourceTree = "<group>"; };
 		135FB6E42C69D60200A6480A /* AISRomanKanaConverter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AISRomanKanaConverter.h; sourceTree = "<group>"; };
+		13706E582C6C492E004EC879 /* SKK-JISYO.L */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 3; lineEnding = 0; path = "SKK-JISYO.L"; sourceTree = "<group>"; };
 		1371A74C2C5B5D0300E06348 /* BlacklistApps.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BlacklistApps.plist; sourceTree = "<group>"; };
 		1371A74D2C5B5D0300E06348 /* DictionarySet.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DictionarySet.plist; sourceTree = "<group>"; };
 		1371A74E2C5B5D0300E06348 /* UserDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
@@ -845,8 +884,6 @@
 		1377D0832C678E6D005F21AE /* SubRuleControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubRuleControllerTests.swift; sourceTree = "<group>"; };
 		1377D0842C678E6D005F21AE /* SubRuleDescriptionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubRuleDescriptionsTests.swift; sourceTree = "<group>"; };
 		1377D0862C678E6D005F21AE /* ServiceTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTesting.swift; sourceTree = "<group>"; };
-		137D05772C5B5A81009AC591 /* AquaSKKApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKKApp.swift; sourceTree = "<group>"; };
-		137D05792C5B5A81009AC591 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		137D057B2C5B5A82009AC591 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		137D057E2C5B5A82009AC591 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		137D05802C5B5A82009AC591 /* AquaSKK.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AquaSKK.entitlements; sourceTree = "<group>"; };
@@ -878,6 +915,7 @@
 		1393E3612C6BB99D00F1E633 /* UserDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
 		1393E3652C6BB9BD00F1E633 /* kana-rule.conf */ = {isa = PBXFileReference; lastKnownFileType = text; path = "kana-rule.conf"; sourceTree = "<group>"; };
 		1393E3662C6BB9BD00F1E633 /* keymap.conf */ = {isa = PBXFileReference; lastKnownFileType = text; path = keymap.conf; sourceTree = "<group>"; };
+		1393E3C02C6C046400F1E633 /* All-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "All-Release.xcconfig"; sourceTree = "<group>"; };
 		139B7B642C60F68100FE5263 /* AquaSKKUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKUI.h; sourceTree = "<group>"; };
 		139B7B652C60F68100FE5263 /* AquaSKKUI.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKUI.docc; sourceTree = "<group>"; };
 		139B7B722C60F68100FE5263 /* AquaSKKUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKKUITests.swift; sourceTree = "<group>"; };
@@ -885,6 +923,7 @@
 		139B7B822C60F69E00FE5263 /* UITests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = UITests.xcconfig; sourceTree = "<group>"; };
 		13A685412C69826A001BABA2 /* RomanKanaConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanKanaConverterTests.swift; sourceTree = "<group>"; };
 		13A685432C698312001BABA2 /* CoreTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTesting.swift; sourceTree = "<group>"; };
+		13A6A1382C6D6D2F004B3587 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		13B7BE822C5EFCEF00F6BEF8 /* SKKStateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStateStore.swift; sourceTree = "<group>"; };
 		13B7BE842C5EFD7000F6BEF8 /* StateMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMonitor.swift; sourceTree = "<group>"; };
 		13B7BE872C5F1E9100F6BEF8 /* SKKServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKServerTests.swift; sourceTree = "<group>"; };
@@ -911,6 +950,7 @@
 		13E6605F2C6852B3000896F6 /* .clang-format */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".clang-format"; sourceTree = "<group>"; };
 		13E660602C6852B3000896F6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		13EB86632C5EA7DD00B47DCD /* SupervisorMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupervisorMonitor.swift; sourceTree = "<group>"; };
+		13F53D9B2C6C39CA00403F65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1239,6 +1279,7 @@
 				138F45152C5CA2F1000B03FC /* Include */,
 				13D7561C2C5A9113006144F2 /* All-Debug.xcconfig */,
 				138B319F2C5DD40C006424E0 /* All-Testing.xcconfig */,
+				1393E3C02C6C046400F1E633 /* All-Release.xcconfig */,
 				13D7561B2C5A905E006144F2 /* All.xcconfig */,
 				137D05A02C5B5AFB009AC591 /* App.xcconfig */,
 				138F45122C5CA1D7000B03FC /* AppTests.xcconfig */,
@@ -1290,6 +1331,7 @@
 				13B7BEC22C5F5CF900F6BEF8 /* Service */,
 				1307C23A2C5B47D800B089B6 /* Preferences */,
 				139B7B632C60F68100FE5263 /* UI */,
+				1352B29B2C6DAE14001EF7F6 /* Installer */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -1636,6 +1678,14 @@
 			path = gui;
 			sourceTree = "<group>";
 		};
+		1352B29B2C6DAE14001EF7F6 /* Installer */ = {
+			isa = PBXGroup;
+			children = (
+				1352B29A2C6DAE14001EF7F6 /* install.sh */,
+			);
+			path = Installer;
+			sourceTree = "<group>";
+		};
 		1352C9D92C5DF8160056261D /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
@@ -1735,6 +1785,14 @@
 			path = Typer;
 			sourceTree = "<group>";
 		};
+		13706E572C6C4924004EC879 /* jisyo */ = {
+			isa = PBXGroup;
+			children = (
+				13706E582C6C492E004EC879 /* SKK-JISYO.L */,
+			);
+			path = jisyo;
+			sourceTree = "<group>";
+		};
 		1371A7602C5B5D3E00E06348 /* config */ = {
 			isa = PBXGroup;
 			children = (
@@ -1795,6 +1853,7 @@
 		1371A77B2C5B5D3E00E06348 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				13706E572C6C4924004EC879 /* jisyo */,
 				1371A7602C5B5D3E00E06348 /* config */,
 				1371A7782C5B5D3E00E06348 /* icons */,
 				1371A77A2C5B5D3E00E06348 /* others */,
@@ -1935,17 +1994,10 @@
 		137D05762C5B5A81009AC591 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				137D05802C5B5A82009AC591 /* AquaSKK.entitlements */,
-				131082812C5B5BFC00C186BE /* Info.plist */,
-				1310827F2C5B5BEC00C186BE /* InfoPlist.strings */,
-				137D05772C5B5A81009AC591 /* AquaSKKApp.swift */,
-				137D05792C5B5A81009AC591 /* ContentView.swift */,
-				137D057B2C5B5A82009AC591 /* Assets.xcassets */,
-				1310827D2C5B5BDB00C186BE /* Images.xcassets */,
-				135C3D802C5B3F1D00661AE3 /* main.mm */,
-				1371A77B2C5B5D3E00E06348 /* data */,
-				1371A7A02C5B5D7000E06348 /* plist */,
+				13A6A1382C6D6D2F004B3587 /* main.m */,
+				13F53D9B2C6C39CA00403F65 /* AppDelegate.swift */,
 				137D057D2C5B5A82009AC591 /* Preview Content */,
+				13A6A13A2C6D6D45004B3587 /* Support files */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -2018,6 +2070,20 @@
 				139B7B722C60F68100FE5263 /* AquaSKKUITests.swift */,
 			);
 			path = UITests;
+			sourceTree = "<group>";
+		};
+		13A6A13A2C6D6D45004B3587 /* Support files */ = {
+			isa = PBXGroup;
+			children = (
+				137D05802C5B5A82009AC591 /* AquaSKK.entitlements */,
+				131082812C5B5BFC00C186BE /* Info.plist */,
+				1310827F2C5B5BEC00C186BE /* InfoPlist.strings */,
+				137D057B2C5B5A82009AC591 /* Assets.xcassets */,
+				1310827D2C5B5BDB00C186BE /* Images.xcassets */,
+				1371A7A02C5B5D7000E06348 /* plist */,
+				1371A77B2C5B5D3E00E06348 /* data */,
+			);
+			path = "Support files";
 			sourceTree = "<group>";
 		};
 		13B7BE862C5F1E8400F6BEF8 /* server */ = {
@@ -2476,6 +2542,8 @@
 				137D05712C5B5A81009AC591 /* Sources */,
 				137D05722C5B5A81009AC591 /* Frameworks */,
 				137D05732C5B5A81009AC591 /* Resources */,
+				1393E3B32C6BF50200F1E633 /* Embeded Frameworks */,
+				1393E3B42C6BF50400F1E633 /* Embeded Applications */,
 			);
 			buildRules = (
 			);
@@ -2808,6 +2876,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13706E5A2C6C5089004EC879 /* SKK-JISYO.L in Resources */,
 				1371A74F2C5B5D0300E06348 /* DictionarySet.plist in Resources */,
 				1371A7502C5B5D0300E06348 /* UserDefaults.plist in Resources */,
 				1371A7512C5B5D0300E06348 /* BlacklistApps.plist in Resources */,
@@ -3061,9 +3130,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13E77E9A2C5BE3920096013B /* main.mm in Sources */,
-				137D057A2C5B5A81009AC591 /* ContentView.swift in Sources */,
-				137D05782C5B5A81009AC591 /* AquaSKKApp.swift in Sources */,
+				13F53D9C2C6C39CA00403F65 /* AppDelegate.swift in Sources */,
+				13A6A1392C6D6D2F004B3587 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3596,7 +3664,7 @@
 		};
 		13D368162C5A81290083CAE3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13D7561B2C5A905E006144F2 /* All.xcconfig */;
+			baseConfigurationReference = 1393E3C02C6C046400F1E633 /* All-Release.xcconfig */;
 			buildSettings = {
 				EAGER_LINKING = YES;
 			};
