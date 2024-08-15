@@ -13,33 +13,10 @@
   },
   "testTargets" : [
     {
-      "enabled" : false,
-      "target" : {
-        "containerPath" : "container:AquaSKK.xcodeproj",
-        "identifier" : "1307C2482C5B47DA00B089B6",
-        "name" : "PreferencesTests"
-      }
-    },
-    {
-      "enabled" : false,
-      "target" : {
-        "containerPath" : "container:AquaSKK.xcodeproj",
-        "identifier" : "1307C2522C5B47DA00B089B6",
-        "name" : "PreferencesUITests"
-      }
-    },
-    {
       "target" : {
         "containerPath" : "container:AquaSKK.xcodeproj",
         "identifier" : "139B7B6A2C60F68100FE5263",
         "name" : "UITests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:AquaSKK.xcodeproj",
-        "identifier" : "13B7BEC92C5F5CF900F6BEF8",
-        "name" : "ServiceTests"
       }
     },
     {
@@ -52,31 +29,22 @@
     {
       "target" : {
         "containerPath" : "container:AquaSKK.xcodeproj",
-        "identifier" : "133834E02C60203900D73AD7",
-        "name" : "TyperTests"
-      }
-    },
-    {
-      "enabled" : false,
-      "target" : {
-        "containerPath" : "container:AquaSKK.xcodeproj",
-        "identifier" : "137D05842C5B5A83009AC591",
-        "name" : "AppTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:AquaSKK.xcodeproj",
         "identifier" : "135C3D4D2C5B3E8F00661AE3",
         "name" : "IMTests"
       }
     },
     {
-      "enabled" : false,
       "target" : {
         "containerPath" : "container:AquaSKK.xcodeproj",
-        "identifier" : "137D058E2C5B5A83009AC591",
-        "name" : "AppUITests"
+        "identifier" : "13B7BEC92C5F5CF900F6BEF8",
+        "name" : "ServiceTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:AquaSKK.xcodeproj",
+        "identifier" : "133834E02C60203900D73AD7",
+        "name" : "TyperTests"
       }
     }
   ],
