@@ -729,6 +729,7 @@
 		134A0D232C5B430B003EACF0 /* MessengerView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MessengerView.mm; sourceTree = "<group>"; };
 		134A0D242C5B430B003EACF0 /* MessengerWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessengerWindow.h; sourceTree = "<group>"; };
 		134A0D252C5B430B003EACF0 /* MessengerWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MessengerWindow.mm; sourceTree = "<group>"; };
+		1352B29A2C6DAE14001EF7F6 /* install.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install.sh; sourceTree = "<group>"; };
 		1352C9D82C5DF8160056261D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1352C9DA2C5DF8160056261D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1352C9DB2C5DF8160056261D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -1330,6 +1331,7 @@
 				13B7BEC22C5F5CF900F6BEF8 /* Service */,
 				1307C23A2C5B47D800B089B6 /* Preferences */,
 				139B7B632C60F68100FE5263 /* UI */,
+				1352B29B2C6DAE14001EF7F6 /* Installer */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -1674,6 +1676,14 @@
 				134A0D252C5B430B003EACF0 /* MessengerWindow.mm */,
 			);
 			path = gui;
+			sourceTree = "<group>";
+		};
+		1352B29B2C6DAE14001EF7F6 /* Installer */ = {
+			isa = PBXGroup;
+			children = (
+				1352B29A2C6DAE14001EF7F6 /* install.sh */,
+			);
+			path = Installer;
 			sourceTree = "<group>";
 		};
 		1352C9D92C5DF8160056261D /* Preview Content */ = {

@@ -1,6 +1,14 @@
 version: '3'
 
 tasks:
+    build:
+        vars:
+            ARCHIVE_PATH: '{{.ARCHIVE_PATH | default "AquaSKK.xcarchive"}}'
+            PRODUCT_PATH: '{{.PRODUCT_PATH | default "AquaSKK"}}'
+        cmds:
+            - rm -rf {{.ARCHIVE_PATH}} {{.PRODUCT_PATH}}
+            - xcrun xcodebuild archive -scheme All -archivePath {{.ARCHIVE_PATH}} | xcpretty
+            - xcrun xcodebuild -exportArchive -archivePath {{.ARCHIVE_PATH}} -exportOptionsPlist {{.ARCHIVE_PATH}}/Info.plist -exportPath {{.PRODUCT_PATH}}
     test:
         vars:
             TEST_RESULTS_BUNDLE: '{{.TEST_RESULTS_BUNDLE | default "TestResults.xcresult"}}'
@@ -17,6 +25,22 @@ tasks:
                   -resultBundlePath {{.TEST_RESULTS_BUNDLE}} |
               tee xcodebuild.log |
               xcpretty -t
+
+    package:
+        deps: [format]
+        cmds:
+            - task: build
+              vars:
+                ARCHIVE_PATH: AquaSKK.xcarchive
+                PRODUCT_PATH: Products/AquaSKK/
+            - cp README.md Products/AquaSKK/
+            - cp Sources/Installer/install.sh Products/AquaSKK/
+            - tar cvjf AquaSKK-{{.TIMESTAMP}}-{{.GIT_COMMIT}}.tar.bz2 Products/AquaSKK/
+        vars:
+            TIMESTAMP:
+                sh: date +"%Y%m%d"
+            GIT_COMMIT:
+                sh: git log -n 1 --format=%h
 
     lint:
         preconditions:

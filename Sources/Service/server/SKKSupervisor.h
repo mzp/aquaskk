@@ -24,7 +24,8 @@
 #define SKKSupervisor_h
 #import <Foundation/Foundation.h>
 
-// FIXME: sandboxd: [com.apple.sandbox.reporting:violation] Sandbox: AquaSKK(3897) deny(1) mach-lookup SKKSupervisorConnection
+// FIXME: sandboxd: [com.apple.sandbox.reporting:violation] Sandbox: AquaSKK(3897) deny(1) mach-lookup
+// SKKSupervisorConnection
 #define SKKSupervisorConnectionName @"SKKSupervisorConnection"
 
 // AquaSKK 制御用プロトコル
