@@ -34,7 +34,7 @@ class ServiceTesting {
         let fm = FileManager.default
 
         if writable {
-            let tempPath = NSTemporaryDirectory().appending("/\(filename)")
+            let tempPath = NSTemporaryDirectory().appending("/\(UUID().uuidString)/\(filename)")
             logger.info("Copy \(path) to \(tempPath)")
             _ = try? fm.removeItem(atPath: tempPath)
             try fm.copyItem(atPath: path, toPath: tempPath)
