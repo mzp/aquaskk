@@ -14,11 +14,11 @@ private let logger = Logger(subsystem: "com.aquaskk.inputmethod.Harness", catego
 
 class InputMethodKitAdapter: NSObject, IMKTextInput {
     let inputClient: NSTextInputClient
-    var stateStore: SKKStateStore
+    var store: SKKStateStore
 
-    init(inputClient: NSTextInputClient, stateStore: SKKStateStore) {
+    init(inputClient: NSTextInputClient, store: SKKStateStore) {
         self.inputClient = inputClient
-        self.stateStore = stateStore
+        self.store = store
     }
 
     func insertText(_ string: Any, replacementRange: NSRange) {
@@ -67,11 +67,13 @@ class InputMethodKitAdapter: NSObject, IMKTextInput {
     }
 
     func overrideKeyboard(withKeyboardNamed keyboardUniqueName: String!) {
-        logger.info("\(#function): \(keyboardUniqueName)")
+        logger.log("\(#function): \(keyboardUniqueName)")
+        store.keyboardLayout = keyboardUniqueName
     }
 
     func selectMode(_ modeIdentifier: String!) {
-        stateStore.modeIdentifier = modeIdentifier
+        logger.log("\(#function): \(modeIdentifier)")
+        store.modeIdentifier = modeIdentifier
     }
 
     func supportsUnicode() -> Bool {

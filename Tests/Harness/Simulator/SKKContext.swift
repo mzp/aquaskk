@@ -34,19 +34,11 @@ enum SKKContext {
 
     struct InputController: View {
         var server: SKKServer
-        var inputController: SKKInputController
-        var stateStore: SKKStateStore
-        var content: (SKKInputController, SKKStateStore) -> any View
-
-        init(server: SKKServer, content: @escaping (SKKInputController, SKKStateStore) -> any View) {
-            self.server = server
-            inputController = SKKInputController()
-            stateStore = SKKStateStore()
-            self.content = content
-        }
+        var content: (SKKInputController) -> any View
+        var inputController = SKKInputController()
 
         var body: some View {
-            AnyView(content(inputController, stateStore))
+            AnyView(content(inputController))
         }
     }
 }

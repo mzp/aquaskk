@@ -11,6 +11,14 @@ import OSLog
 private let logger = Logger(subsystem: "com.aquaskk.inputmethod.Harness", category: "Configuration")
 
 class BundledServerConfiguration: ServerConfiguration {
+    func factoryUserDefaultsPath() -> String {
+        path(forName: "UserDefaults.plist")
+    }
+    
+    func userDefaultsPath() -> String {
+        NSTemporaryDirectory().appending("/aquaskk.plist")
+    }
+    
     let bundle = Bundle(for: BundledServerConfiguration.self)
     func path(forName name: String) -> String {
         let basename = (name as NSString).deletingPathExtension

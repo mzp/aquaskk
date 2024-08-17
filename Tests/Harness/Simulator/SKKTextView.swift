@@ -12,23 +12,40 @@ import InputMethodKit
 import OSLog
 import SwiftUI
 
-private let logger = Logger(subsystem: "com.aquaskk.inputmethod.Harness", category: "TextView")
-private let signposter = OSSignposter(subsystem: "com.aquaskk.inputmethod.Harness", category: "TextView")
+private let logger = Logger(subsystem: "com.aquaskk.inputmethod", category: "TextView")
+private let signposter = OSSignposter(subsystem: "com.aquaskk.inputmethod", category: "TextView")
 
 class SKKTextViewAppKit: NSTextView {
     private var controller: SKKInputController?
-    private var client: IMKTextInput?
+    private var client: InputMethodKitAdapter?
 
-    func setup(controller: SKKInputController, stateStore: SKKStateStore) {
-        let client = InputMethodKitAdapter(inputClient: self, stateStore: stateStore)
+    func setup(controller: SKKInputController, store: SKKStateStore) {
+        let client = InputMethodKitAdapter(inputClient: self, store: store)
         controller._setClient(client)
 
         self.controller = controller
         self.client = client
     }
 
+    func update(store: SKKStateStore) {
+        guard let client = client else {
+            logger.error("\(#function): can't find input client")
+            return
+        }
+        guard let controller = controller else {
+            logger.error("\(#function): can't find input controller")
+            return
+        }
+        client.store = store
+        controller.setValue(store.modeIdentifier, forTag: kTextServiceInputModePropertyTag, client: client)
+    }
+
+    func setInputMode(_ value: String) {
+        controller?.setValue(value, forTag: kTextServiceInputModePropertyTag, client: client)
+    }
+
     override func keyDown(with event: NSEvent) {
-        logger.info("\(#function): \(event)")
+        logger.log("\(#function): \(event)")
 
         var handled = false
         if let controller = controller, let client = client {
@@ -44,11 +61,11 @@ class SKKTextViewAppKit: NSTextView {
 
 struct SKKTextView: NSViewRepresentable {
     var controller: SKKInputController
-    var stateStore: SKKStateStore
+    @Binding var store: SKKStateStore
 
     func makeNSView(context _: Context) -> SKKTextViewAppKit {
         let view = SKKTextViewAppKit()
-        view.setup(controller: controller, stateStore: stateStore)
+        view.setup(controller: controller, store: store)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.textContainerInset = NSSize(width: 10, height: 10)
         view.font = NSFont.systemFont(ofSize: 16)
@@ -56,7 +73,7 @@ struct SKKTextView: NSViewRepresentable {
         return view
     }
 
-    func updateNSView(_: SKKTextViewAppKit, context _: Context) {
-//        textView.setup(controller: controller, stateStore: stateStore)
+    func updateNSView(_ textView: SKKTextViewAppKit, context _: Context) {
+        textView.update(store: store)
     }
 }

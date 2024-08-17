@@ -9,5 +9,6 @@ import Foundation
 import SwiftUI
 
 @Observable class SKKStateStore {
-    var modeIdentifier: String = "<none>"
+    var modeIdentifier: String = ""
+    var keyboardLayout: String = ""
 }
