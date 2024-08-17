@@ -67,7 +67,9 @@ extension MockTextInput: IMKTextInput {
         []
     }
 
-    func overrideKeyboard(withKeyboardNamed _: String!) {}
+    func overrideKeyboard(withKeyboardNamed keyboardName: String!) {
+        text.keyboardLayout = keyboardName
+    }
 
     func selectMode(_ modeIdentifier: String!) {
         text.modeIdentifier = modeIdentifier

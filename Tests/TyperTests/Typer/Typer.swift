@@ -21,10 +21,8 @@ class Typer {
             defer { controller.deactivateServer(nil) }
             controller._setClient(client)
             controller.activateServer(nil)
-
             let typer = Typer(controller: controller, client: client)
             await perform(typer)
-            controller.deactivateServer(nil)
         }
     }
 
@@ -54,9 +52,23 @@ class Typer {
         await handle(event: event)
     }
 
-    @MainActor func handle(event: SendableEvent) {
-        controller.handle(event.nsEvent, client: client)
-        text = client.text
+    func handle(event: SendableEvent) async {
+        await performInMainThread {
+            controller.handle(event.nsEvent, client: client)
+        }
+    }
+
+    func setInputMode(_ value: String) async {
+        await performInMainThread {
+            controller.setValue(value, forTag: kTextServiceInputModePropertyTag, client: client)
+        }
+    }
+
+    func performInMainThread(perform: () -> Void) async {
+        await MainActor.run {
+            perform()
+            text = client.text
+        }
     }
 
     // MARK: - Properties
@@ -71,5 +83,9 @@ class Typer {
 
     var modeIdentifier: String? {
         text.modeIdentifier
+    }
+
+    var keyboardLayout: String? {
+        text.keyboardLayout
     }
 }

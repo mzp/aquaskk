@@ -11,4 +11,5 @@ struct SendableText: Equatable, Sendable {
     var string: String = ""
     var marked: String = ""
     var modeIdentifier: String? = nil
+    var keyboardLayout: String? = nil
 }
