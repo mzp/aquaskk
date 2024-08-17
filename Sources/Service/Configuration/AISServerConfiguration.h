@@ -28,6 +28,12 @@ NS_SWIFT_NAME(ServerConfiguration)
 
 - (nullable NSString *)userDictionaryPath;
 
+/// 初期値が保存されたplistへのパス。読み込み専用。
+- (NSString *)factoryUserDefaultsPath;
+
+/// 設定を保存するplistへのパス。要書き込み権限。
+- (NSString *)userDefaultsPath;
+
 // TODO: AISJisyoを使う
 - (NSArray<NSDictionary *> *)systemDictionaries;
 

@@ -52,4 +52,14 @@
     return array ?: @[];
 }
 
+- (NSString *)factoryUserDefaultsPath
+{
+    return [self systemPathForName:@"UserDefaults.plist"];
+}
+
+- (NSString *)userDefaultsPath
+{
+    return SKKFilePaths::UserDefaults;
+}
+
 @end

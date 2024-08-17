@@ -144,10 +144,11 @@ static void terminate(int) {
 
     delete skkserv_;
 
-    os_log_info(serverLog, "loading UserDefaults ...");
+    NSString *path = [configuration_ userDefaultsPath];
+    os_log_info(serverLog, "%s: path=%@", __PRETTY_FUNCTION__, path);
 
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary* prefs = [[NSDictionary dictionaryWithContentsOfFile:SKKFilePaths::UserDefaults] retain];
+    NSDictionary* prefs = [[NSDictionary dictionaryWithContentsOfFile:path] retain];
 
     // force update userdeafults
     [defaults setPersistentDomain:prefs forName:[[NSBundle mainBundle] bundleIdentifier]];
@@ -325,10 +326,10 @@ static void terminate(int) {
 }
 
 - (void)prepareUserDefaults {
-    os_log(serverLog, "%s", __PRETTY_FUNCTION__);
-    NSString* factoryDefaults = [self pathForSystemResource:@"UserDefaults.plist"];
-    NSString* userDefaults = SKKFilePaths::UserDefaults;
+    NSString* factoryDefaults = [configuration_ factoryUserDefaultsPath];
+    NSString* userDefaults = [configuration_ userDefaultsPath];
 
+    os_log(serverLog, "%s\nfactoryDefaults=%@\nuserDefaults=%@", __PRETTY_FUNCTION__, factoryDefaults, userDefaults);
     NSMutableDictionary* defaults = [NSMutableDictionary dictionaryWithContentsOfFile:factoryDefaults];
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
 

@@ -32,6 +32,10 @@
 #import <AquaSKKIM/MacInputModeMenu.h>
 #import <AquaSKKIM/MacInputModeWindow.h>
 
+#import <os/log.h>
+
+static os_log_t controllerLog = os_log_create("com.aquaskk.inputmethod", "controller");
+
 @interface SKKInputController (Local)
 
 - (void)initializeKeyboardLayout;
@@ -43,7 +47,6 @@
 - (void)cancelKeyEventForASCII;
 - (BOOL)isBlacklistedApp:(NSBundle*)bunde;
 - (SKKInputMode)syncInputSource;
-- (void)debug:(NSString*)message;
 - (NSBundle*)currentBundle;
 - (NSUserDefaults*)defaults;
 
@@ -110,7 +113,7 @@
 - (void)commitComposition:(id)sender {
     if([self directMode]) return;
 
-    [self debug:@"commitComposition"];
+    os_log(controllerLog, "%s", __PRETTY_FUNCTION__);
 
     session_->Commit();
 }
@@ -118,11 +121,11 @@
 // IMKStateSetting
 - (void)activateServer:(id)sender {
     [NSUserDefaults resetStandardUserDefaults];
-    
+
     if([self directMode]) return;
 
-    [self debug:@"activateServer"];
-
+    os_log(controllerLog, "%s", __PRETTY_FUNCTION__);
+    NSAssert(!activated_, @"session is already activted");
     activated_ = YES;
 
     session_->Activate();
@@ -130,8 +133,8 @@
 
 - (void)deactivateServer:(id)sender {
     if([self directMode]) return;
-
-    [self debug:@"deactivateServer"];
+    os_log(controllerLog, "%s", __PRETTY_FUNCTION__);
+    NSAssert(activated_, @"session is not activted");
 
     session_->Deactivate();
 }
@@ -143,7 +146,7 @@
 
     if(tag != kTextServiceInputModePropertyTag) return;
 
-    [self debug:@"setValue"];
+    os_log(controllerLog, "%s: %@", __PRETTY_FUNCTION__, value);
 
     // 「AquaSKK 統合」の場合
     if([menu_ convertIdToEventId:value] == SKK_NULL) {
@@ -195,6 +198,7 @@
 
 // IMKInputController
 - (NSMenu*)menu {
+    os_log(controllerLog, "%s", __PRETTY_FUNCTION__);
     struct {
         const char* title;
         SEL handler;
@@ -230,7 +234,7 @@
         } else {
             item = [NSMenuItem separatorItem];
         }
-        
+
         if(items[i].state != 0) {
             [item setState:(NSInteger)[self performSelector:items[i].state]];
 
@@ -253,8 +257,9 @@
 
 // handling menu items
 - (void)showPreferences:(id)sender {
+    os_log(controllerLog, "%s", __PRETTY_FUNCTION__);
     NSString* path = [NSString stringWithFormat:@"%@/AquaSKKPreferences.app",
-                               [[NSBundle mainBundle] sharedSupportPath]];
+                      [[NSBundle mainBundle] sharedSupportPath]];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [[NSWorkspace sharedWorkspace] launchApplication:path];
@@ -262,31 +267,35 @@
 }
 
 - (void)togglePrivateMode:(id)sender {
+    os_log(controllerLog, "%s", __PRETTY_FUNCTION__);
     [self setPrivateMode:![self privateMode]];
 
     SKKBackEnd::theInstance().EnablePrivateMode([self privateMode]);
 }
 
 - (void)toggleDirectMode:(id)sender {
+    os_log(controllerLog, "%s", __PRETTY_FUNCTION__);
     [self setDirectMode:![self directMode]];
 }
 
 - (void)reloadComponents:(id)sender {
+    os_log(controllerLog, "%s", __PRETTY_FUNCTION__);
     [proxy_ reloadComponents];
 }
 
 - (void)showDebugInfo:(id)sender {
+    os_log(controllerLog, "%s", __PRETTY_FUNCTION__);
     NSMutableString* info = [[NSMutableString alloc] initWithCapacity:0];
     NSRect rect;
 
     [info appendFormat:@"bundleId = %@\n", [client_ bundleIdentifier]];
     [info appendFormat:@"attributes = %@\n",
-          [client_ attributesForCharacterIndex:0 lineHeightRectangle:&rect]];
+     [client_ attributesForCharacterIndex:0 lineHeightRectangle:&rect]];
     [info appendFormat:@"inline rect = %@\n", NSStringFromRect(rect)];
     [info appendFormat:@"selected range = %@\n",NSStringFromRange([client_ selectedRange])];
     [info appendFormat:@"marked range = %@\n", NSStringFromRange([client_ markedRange])];
     [info appendFormat:@"supports unicode = %@\n",
-          ([client_ supportsUnicode] == 1 ? @"YES" : @"NO")];
+     ([client_ supportsUnicode] == 1 ? @"YES" : @"NO")];
     [info appendFormat:@"window level = %d\n", [client_ windowLevel]];
     [info appendFormat:@"length = %ld\n", [client_ length]];
     [info appendFormat:@"valid attributes = %@\n", [client_ validAttributesForMarkedText]];
@@ -324,18 +333,22 @@
 }
 
 - (void)webHome:(id)sender {
+    os_log(controllerLog, "%s", __PRETTY_FUNCTION__);
     [self openURL:@"http://aquaskk.sourceforge.jp/"];
 }
 
 - (void)webSourceForge:(id)sender {
+    os_log(controllerLog, "%s", __PRETTY_FUNCTION__);
     [self openURL:@"http://sourceforge.jp/projects/aquaskk/"];
 }
 
 - (void)webWiki:(id)sender {
+    os_log(controllerLog, "%s", __PRETTY_FUNCTION__);
     [self openURL:@"http://sourceforge.jp/projects/aquaskk/wiki/FrontPage"];
 }
 
 - (void)github:(id)sender {
+    os_log(controllerLog, "%s", __PRETTY_FUNCTION__);
     [self openURL:@"https://github.com/codefirst/aquaskk"];
 }
 
@@ -345,6 +358,7 @@
 
 - (void)initializeKeyboardLayout {
     NSString* keyboardLayout = [[self defaults] stringForKey:SKKUserDefaultKeys::keyboard_layout];
+    os_log(controllerLog, "%s: overrideKeyboardWithKeyboardNamed:%@", __PRETTY_FUNCTION__, keyboardLayout);
     [client_ overrideKeyboardWithKeyboardNamed:keyboardLayout];
 }
 
@@ -378,7 +392,7 @@
 
 - (void)workAroundForSpecificApplications {
     if([self isBlacklistedApp:[self currentBundle]]) {
-        [self debug:@"cancel key event"];
+        os_log(controllerLog, "%s: cancel key event", __PRETTY_FUNCTION__);
         [self cancelKeyEventForASCII];
     }
 }
@@ -425,14 +439,11 @@
     NSString* null = [NSString stringWithFormat:@"%c", 0x0c];
     NSRange range = NSMakeRange(NSNotFound, NSNotFound);
 
+    os_log(controllerLog, "%s: setMarkedText: null", __PRETTY_FUNCTION__);
     [client_ setMarkedText:null selectionRange:range replacementRange:range];
-    [client_ setMarkedText:@"" selectionRange:range replacementRange:range];
-}
 
-- (void)debug:(NSString*)str {
-#ifdef SKK_DEBUG
-    NSLog(@"%@: %@", [client_ bundleIdentifier], str);
-#endif
+    os_log(controllerLog, "%s: setMarkedText: (empty)", __PRETTY_FUNCTION__);
+    [client_ setMarkedText:@"" selectionRange:range replacementRange:range];
 }
 
 - (NSBundle*)currentBundle {
