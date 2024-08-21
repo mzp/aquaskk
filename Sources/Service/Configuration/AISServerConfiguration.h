@@ -31,6 +31,11 @@ NS_SWIFT_NAME(ServerConfiguration)
 // TODO: AISJisyoを使う
 - (NSArray<NSDictionary *> *)systemDictionaries;
 
+// MARK: - User Defaults
+
+@property(nonatomic, readonly) NSString *userDefaultsPath;
+@property(nonatomic, readonly) NSString *factoryUserDefaultsPath;
+
 @end
 NS_ASSUME_NONNULL_END
 
