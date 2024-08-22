@@ -10,4 +10,4 @@
 
 #include "./IM.xcconfig"
 
-OTHER_LDFLAGS = $(inherits) -framework AquaSKKIM
+OTHER_LDFLAGS = $(inherits) -framework AquaSKKIM -framework AquaSKKTesting

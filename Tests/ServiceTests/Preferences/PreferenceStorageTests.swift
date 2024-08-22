@@ -6,6 +6,7 @@
 //
 
 @testable import AquaSKKService
+import AquaSKKTesting
 import Testing
 
 private let abcLayout = "com.apple.keylayout.ABC"
