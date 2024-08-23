@@ -12,6 +12,47 @@
 // FIXME: /Library/Input Methods/AquaSKK.appとしてインストールしないと動作しない
 @implementation AISDefaultServerConfiguration
 
+// MARK: - Jisyo
+- (NSString *)userDictionaryPath
+{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSString* userDictionary = [defaults stringForKey:SKKUserDefaultKeys::user_dictionary_path];
+    return [userDictionary stringByExpandingTildeInPath];
+}
+
+- (NSString *)dictionarySetPath {
+    return SKKFilePaths::DictionarySet;
+}
+
+- (NSArray<NSDictionary *> *)systemDictionaries {
+    NSString *path = SKKFilePaths::DictionarySet;
+    NSArray* array = [NSArray arrayWithContentsOfFile:path];
+    if(array == nil) {
+        os_log_error(OS_LOG_DEFAULT, "can't read %@", path);
+    }
+    return array ?: @[];
+}
+
+// MARK: - UserDefaults
+- (NSString *)factoryUserDefaultsPath {
+    return [self systemPathForName:@"UserDefaults.plist"];
+}
+
+- (NSString *)userDefaultsPath {
+    return SKKFilePaths::UserDefaults;
+}
+
+// MARK: - Other
+- (NSString *)systemResourcePath {
+    return SKKFilePaths::SystemResourceFolder;
+}
+
+- (NSString *)applicationSupportPath
+{
+    return SKKFilePaths::ApplicationSupportFolder;
+}
+
+// MARK: - Internal
 - (NSString*)systemPathForName:(NSString*)name {
     return [NSString stringWithFormat:@"%@/%@", SKKFilePaths::SystemResourceFolder, name];
 }
@@ -36,28 +77,5 @@
     return [fileManager fileExistsAtPath:path];
 }
 
-- (NSString *)userDictionaryPath
-{
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    NSString* userDictionary = [defaults stringForKey:SKKUserDefaultKeys::user_dictionary_path];
-    return [userDictionary stringByExpandingTildeInPath];
-}
-
-- (NSArray<NSDictionary *> *)systemDictionaries {
-    NSString *path = SKKFilePaths::DictionarySet;
-    NSArray* array = [NSArray arrayWithContentsOfFile:path];
-    if(array == nil) {
-        os_log_error(OS_LOG_DEFAULT, "can't read %@", path);
-    }
-    return array ?: @[];
-}
-
-- (NSString *)factoryUserDefaultsPath {
-    return [self systemPathForName:@"UserDefaults.plist"];
-}
-
-- (NSString *)userDefaultsPath {
-    return SKKFilePaths::UserDefaults;
-}
 
 @end

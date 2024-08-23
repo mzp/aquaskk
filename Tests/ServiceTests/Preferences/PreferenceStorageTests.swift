@@ -15,8 +15,15 @@ private let dvorakLayout = "com.apple.keylayout.Dvorak"
 struct PreferenceStorageTests {
     func preferenceStorage() throws -> PreferenceStorage {
         let bundle = ServiceTesting.shared.bundle
-        let configuration = try BundledFileConfiguration(bundle: bundle)
+        let configuration = try BundledServerConfiguration(bundle: bundle)
         return PreferenceStorage(configuration: configuration)
+    }
+
+    init() {
+        let userDefaults = UserDefaults.standard
+        for key in userDefaults.dictionaryRepresentation().keys {
+            userDefaults.removeObject(forKey: key)
+        }
     }
 
     @Test func availableKeyboardLayouts() throws {
@@ -38,26 +45,20 @@ struct PreferenceStorageTests {
 
     @Test func readWritePreference() throws {
         let storage = try preferenceStorage()
-        let originalLayout = storage.keyboardLayout
-        defer { storage.keyboardLayout = originalLayout }
         storage.keyboardLayout = dvorakLayout
+
         #expect(storage.keyboardLayout == dvorakLayout)
 
-        let layout = try preferenceStorage().keyboardLayout
-        #expect(layout == dvorakLayout)
-    }
-
-    @Test func userDefaultsCompatibility() throws {
-        let storage = try preferenceStorage()
-        let originalLayout = storage.keyboardLayout
-        defer { storage.keyboardLayout = originalLayout }
-
-        try preferenceStorage().keyboardLayout = dvorakLayout
         let fromUserDefaults = UserDefaults.standard.string(forKey: "keyboard_layout")
         #expect(fromUserDefaults == dvorakLayout)
 
+        let fromOtherClass = try preferenceStorage().keyboardLayout
+        #expect(fromOtherClass == dvorakLayout)
+
         UserDefaults.standard.setValue(abcLayout, forKey: "keyboard_layout")
-        #expect(try preferenceStorage().keyboardLayout == abcLayout)
+        let fromStorage = try preferenceStorage().keyboardLayout
+
+        #expect(fromStorage == abcLayout)
     }
 
     @Test func subRules() throws {

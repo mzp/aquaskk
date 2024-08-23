@@ -11,13 +11,12 @@ import SwiftUI
 
 /// AquaSKK の設定を管理する。
 public class PreferenceStorage: ObservableObject {
-    private let configuration: FileConfiguration
+    private let configuration: ServerConfiguration
 
-    public static let `default` = PreferenceStorage(configuration: DefaultFileConfiguration())
+    public static let `default` = PreferenceStorage(configuration: DefaultServerConfiguration())
 
-    public init(configuration: FileConfiguration) {
+    public init(configuration: ServerConfiguration) {
         self.configuration = configuration
-        jisyoController = JisyoController(path: configuration.dictionarySetPath)
     }
 
     // デフォルト値はUserDefaults.plistに格納されておりSKKServerが初期化するので、
@@ -116,7 +115,8 @@ public class PreferenceStorage: ObservableObject {
 
     @AppStorage("user_dictionary_path") public var userJisyoPath: String = ""
 
-    private let jisyoController: JisyoController
+    private lazy var jisyoController: JisyoController = .init(path: configuration.dictionarySetPath)
+
     public var systemJisyos: [Jisyo] {
         jisyoController.allJisyo
     }

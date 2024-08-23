@@ -22,7 +22,7 @@ enum SKKContext {
     struct Server: View {
         var server: SKKServer
         var content: (SKKServer) -> any View
-        let configuration = BundledServerConfiguration(bundle: HarnessBundle.bundle
+        let configuration = try! BundledServerConfiguration(bundle: HarnessBundle.bundle
         )
         init(content: @escaping (SKKServer) -> any View) {
             server = SKKServer()
