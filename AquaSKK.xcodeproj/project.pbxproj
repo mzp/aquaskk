@@ -32,6 +32,9 @@
 		133834F42C6020CB00D73AD7 /* MockTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135EEB9A2C5EE6AB00758672 /* MockTextInput.swift */; };
 		133834F52C6020CB00D73AD7 /* Typer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135EEB9D2C5EEA4900758672 /* Typer.swift */; };
 		1338D5042C78C9AE0015DD86 /* Logger+Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1338D5032C78C9AE0015DD86 /* Logger+Testing.swift */; };
+		133E1FDE2C7951E900B1A03A /* SandboxedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133E1FDD2C7951E900B1A03A /* SandboxedTests.swift */; };
+		133E1FE22C79528E00B1A03A /* SandboxShims.h in Headers */ = {isa = PBXBuildFile; fileRef = 133E1FE02C79528E00B1A03A /* SandboxShims.h */; };
+		133E1FE32C79528E00B1A03A /* SandboxShims.m in Sources */ = {isa = PBXBuildFile; fileRef = 133E1FE12C79528E00B1A03A /* SandboxShims.m */; };
 		1344F55E2C5B28FC00D8C850 /* SKKProxyDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4C82C5B28FC00D8C850 /* SKKProxyDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F55F2C5B28FC00D8C850 /* SKKClipboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F49E2C5B28FC00D8C850 /* SKKClipboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5642C5B28FC00D8C850 /* SKKRegisterEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4DB2C5B28FC00D8C850 /* SKKRegisterEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -497,7 +500,7 @@
 		1307C24D2C5B47DA00B089B6 /* AquaSKK_PreferencesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKK_PreferencesTests.swift; sourceTree = "<group>"; };
 		1307C2572C5B47DA00B089B6 /* AquaSKK_PreferencesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKK_PreferencesUITests.swift; sourceTree = "<group>"; };
 		1307C2592C5B47DA00B089B6 /* AquaSKK_PreferencesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKK_PreferencesUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		1307C2672C5B48D600B089B6 /* Prefereneces.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Prefereneces.xcconfig; sourceTree = "<group>"; };
+		1307C2672C5B48D600B089B6 /* PreferenecesApp.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PreferenecesApp.xcconfig; sourceTree = "<group>"; };
 		1310827D2C5B5BDB00C186BE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1310827F2C5B5BEC00C186BE /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		131082812C5B5BFC00C186BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -522,6 +525,9 @@
 		133A55182C5DA7910047E911 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		133A55192C5DA7910047E911 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		133A551A2C5DB0790047E911 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		133E1FDD2C7951E900B1A03A /* SandboxedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxedTests.swift; sourceTree = "<group>"; };
+		133E1FE02C79528E00B1A03A /* SandboxShims.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SandboxShims.h; sourceTree = "<group>"; };
+		133E1FE12C79528E00B1A03A /* SandboxShims.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SandboxShims.m; sourceTree = "<group>"; };
 		1344F4932C5A92D300D8C850 /* CalculatorTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTesting.swift; sourceTree = "<group>"; };
 		1344F49C2C5B28FC00D8C850 /* SKKAnnotator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKAnnotator.h; sourceTree = "<group>"; };
 		1344F49D2C5B28FC00D8C850 /* SKKCandidateWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKCandidateWindow.h; sourceTree = "<group>"; };
@@ -875,7 +881,7 @@
 		1377D0682C678E4F005F21AE /* SubRulePreferenceForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubRulePreferenceForm.swift; sourceTree = "<group>"; };
 		1377D06A2C678E4F005F21AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1377D06B2C678E4F005F21AE /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
-		1377D06C2C678E4F005F21AE /* Preferences.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Preferences.entitlements; sourceTree = "<group>"; };
+		1377D06C2C678E4F005F21AE /* PreferencesApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PreferencesApp.entitlements; sourceTree = "<group>"; };
 		1377D07A2C678E6D005F21AE /* DictionarySet.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DictionarySet.plist; sourceTree = "<group>"; };
 		1377D07B2C678E6D005F21AE /* JisyoControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JisyoControllerTests.swift; sourceTree = "<group>"; };
 		1377D07D2C678E6D005F21AE /* PreferenceStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceStorageTests.swift; sourceTree = "<group>"; };
@@ -898,8 +904,8 @@
 		138F45112C5CA1B6000B03FC /* IMTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = IMTests.xcconfig; sourceTree = "<group>"; };
 		138F45122C5CA1D7000B03FC /* AppTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppTests.xcconfig; sourceTree = "<group>"; };
 		138F45132C5CA1F2000B03FC /* AppUITests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppUITests.xcconfig; sourceTree = "<group>"; };
-		13931D0C2C5B49C200B11EEE /* PreferenecesTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PreferenecesTests.xcconfig; sourceTree = "<group>"; };
-		13931D0D2C5B4B5000B11EEE /* PreferenecesUITests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PreferenecesUITests.xcconfig; sourceTree = "<group>"; };
+		13931D0C2C5B49C200B11EEE /* PreferenecesAppTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PreferenecesAppTests.xcconfig; sourceTree = "<group>"; };
+		13931D0D2C5B4B5000B11EEE /* PreferenecesAppUITests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PreferenecesAppUITests.xcconfig; sourceTree = "<group>"; };
 		13931D0E2C5B4C6B00B11EEE /* CoreTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CoreTests.xcconfig; sourceTree = "<group>"; };
 		1393E32B2C6B19C300F1E633 /* SKK-JISYO.S.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "SKK-JISYO.S.txt"; sourceTree = "<group>"; };
 		1393E32D2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Jisyo+SwiftUI.swift"; sourceTree = "<group>"; };
@@ -1087,7 +1093,7 @@
 			path = Testing;
 			sourceTree = "<group>";
 		};
-		1307C23A2C5B47D800B089B6 /* Preferences */ = {
+		1307C23A2C5B47D800B089B6 /* PreferenceApp */ = {
 			isa = PBXGroup;
 			children = (
 				1307C23D2C5B47D800B089B6 /* ContentView.swift */,
@@ -1098,7 +1104,7 @@
 				1307C2412C5B47DA00B089B6 /* Preview Content */,
 				1377D06D2C678E4F005F21AE /* Support files */,
 			);
-			path = Preferences;
+			path = PreferenceApp;
 			sourceTree = "<group>";
 		};
 		1307C2412C5B47DA00B089B6 /* Preview Content */ = {
@@ -1215,6 +1221,7 @@
 				135C3D652C5B3E9D00661AE3 /* InputTests.swift */,
 				1393E3302C6B201500F1E633 /* JisyoTests.swift */,
 				13B7BE982C5F282D00F6BEF8 /* ModeTests.swift */,
+				133E1FDD2C7951E900B1A03A /* SandboxedTests.swift */,
 			);
 			path = TyperTests;
 			sourceTree = "<group>";
@@ -1306,9 +1313,9 @@
 				138F45112C5CA1B6000B03FC /* IMTests.xcconfig */,
 				139B7B812C60F69E00FE5263 /* UI.xcconfig */,
 				139B7B822C60F69E00FE5263 /* UITests.xcconfig */,
-				1307C2672C5B48D600B089B6 /* Prefereneces.xcconfig */,
-				13931D0C2C5B49C200B11EEE /* PreferenecesTests.xcconfig */,
-				13931D0D2C5B4B5000B11EEE /* PreferenecesUITests.xcconfig */,
+				1307C2672C5B48D600B089B6 /* PreferenecesApp.xcconfig */,
+				13931D0C2C5B49C200B11EEE /* PreferenecesAppTests.xcconfig */,
+				13931D0D2C5B4B5000B11EEE /* PreferenecesAppUITests.xcconfig */,
 				13B7BEE12C5F5D1A00F6BEF8 /* Service.xcconfig */,
 				13B7BEE22C5F5D2000F6BEF8 /* ServiceTests.xcconfig */,
 				13018B2C2C7696B40045FF13 /* Testing.xcconfig */,
@@ -1343,10 +1350,10 @@
 			isa = PBXGroup;
 			children = (
 				137D05762C5B5A81009AC591 /* App */,
+				1307C23A2C5B47D800B089B6 /* PreferenceApp */,
 				13D756182C5A9049006144F2 /* Core */,
 				135C3D5F2C5B3E9600661AE3 /* IM */,
 				13B7BEC22C5F5CF900F6BEF8 /* Service */,
-				1307C23A2C5B47D800B089B6 /* Preferences */,
 				139B7B632C60F68100FE5263 /* UI */,
 				1352B29B2C6DAE14001EF7F6 /* Installer */,
 			);
@@ -1939,6 +1946,8 @@
 				1377D0472C678D91005F21AE /* SKKServerProxy.h */,
 				1377D0482C678D91005F21AE /* SKKServerProxy.mm */,
 				1377D0492C678D91005F21AE /* SKKSupervisor.h */,
+				133E1FE02C79528E00B1A03A /* SandboxShims.h */,
+				133E1FE12C79528E00B1A03A /* SandboxShims.m */,
 			);
 			path = server;
 			sourceTree = "<group>";
@@ -1973,7 +1982,7 @@
 			children = (
 				1377D06A2C678E4F005F21AE /* Assets.xcassets */,
 				1377D06B2C678E4F005F21AE /* Localizable.xcstrings */,
-				1377D06C2C678E4F005F21AE /* Preferences.entitlements */,
+				1377D06C2C678E4F005F21AE /* PreferencesApp.entitlements */,
 			);
 			path = "Support files";
 			sourceTree = "<group>";
@@ -2310,6 +2319,7 @@
 				1377D0512C678D91005F21AE /* AISSubRule.h in Headers */,
 				1377D0522C678D91005F21AE /* SKKSupervisor.h in Headers */,
 				1377D0532C678D91005F21AE /* AISJisyoController.h in Headers */,
+				133E1FE22C79528E00B1A03A /* SandboxShims.h in Headers */,
 				1377D0542C678D91005F21AE /* AISKeyboardLayout.h in Headers */,
 				13B7BED32C5F5CF900F6BEF8 /* AquaSKKService.h in Headers */,
 			);
@@ -3092,6 +3102,7 @@
 			files = (
 				133834F22C6020CB00D73AD7 /* ModeTests.swift in Sources */,
 				133834F32C6020CB00D73AD7 /* InputTests.swift in Sources */,
+				133E1FDE2C7951E900B1A03A /* SandboxedTests.swift in Sources */,
 				133834F42C6020CB00D73AD7 /* MockTextInput.swift in Sources */,
 				1393E3462C6B89B100F1E633 /* SendableText.swift in Sources */,
 				133834F52C6020CB00D73AD7 /* Typer.swift in Sources */,
@@ -3255,6 +3266,7 @@
 				1393E3532C6BAFA700F1E633 /* AISDefaultServerConfiguration.mm in Sources */,
 				1377D05C2C678D91005F21AE /* SubRuleDescriptions.cpp in Sources */,
 				1377D05D2C678D91005F21AE /* AISSubRuleController.mm in Sources */,
+				133E1FE32C79528E00B1A03A /* SandboxShims.m in Sources */,
 				1393E32E2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift in Sources */,
 				13B7BEC52C5F5CF900F6BEF8 /* AquaSKKService.docc in Sources */,
 			);
@@ -3375,21 +3387,21 @@
 		};
 		1307C25C2C5B47DA00B089B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1307C2672C5B48D600B089B6 /* Prefereneces.xcconfig */;
+			baseConfigurationReference = 1307C2672C5B48D600B089B6 /* PreferenecesApp.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		1307C25D2C5B47DA00B089B6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1307C2672C5B48D600B089B6 /* Prefereneces.xcconfig */;
+			baseConfigurationReference = 1307C2672C5B48D600B089B6 /* PreferenecesApp.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
 		};
 		1307C25F2C5B47DA00B089B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13931D0C2C5B49C200B11EEE /* PreferenecesTests.xcconfig */;
+			baseConfigurationReference = 13931D0C2C5B49C200B11EEE /* PreferenecesAppTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Preferences.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Preferences";
@@ -3398,7 +3410,7 @@
 		};
 		1307C2602C5B47DA00B089B6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13931D0C2C5B49C200B11EEE /* PreferenecesTests.xcconfig */;
+			baseConfigurationReference = 13931D0C2C5B49C200B11EEE /* PreferenecesAppTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Preferences.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Preferences";
@@ -3407,14 +3419,14 @@
 		};
 		1307C2622C5B47DA00B089B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13931D0D2C5B4B5000B11EEE /* PreferenecesUITests.xcconfig */;
+			baseConfigurationReference = 13931D0D2C5B4B5000B11EEE /* PreferenecesAppUITests.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		1307C2632C5B47DA00B089B6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13931D0D2C5B4B5000B11EEE /* PreferenecesUITests.xcconfig */;
+			baseConfigurationReference = 13931D0D2C5B4B5000B11EEE /* PreferenecesAppUITests.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
@@ -3605,14 +3617,14 @@
 		};
 		138B31992C5DD3F6006424E0 /* Testing */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1307C2672C5B48D600B089B6 /* Prefereneces.xcconfig */;
+			baseConfigurationReference = 1307C2672C5B48D600B089B6 /* PreferenecesApp.xcconfig */;
 			buildSettings = {
 			};
 			name = Testing;
 		};
 		138B319A2C5DD3F6006424E0 /* Testing */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13931D0C2C5B49C200B11EEE /* PreferenecesTests.xcconfig */;
+			baseConfigurationReference = 13931D0C2C5B49C200B11EEE /* PreferenecesAppTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Preferences.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Preferences";
@@ -3621,7 +3633,7 @@
 		};
 		138B319B2C5DD3F6006424E0 /* Testing */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13931D0D2C5B4B5000B11EEE /* PreferenecesUITests.xcconfig */;
+			baseConfigurationReference = 13931D0D2C5B4B5000B11EEE /* PreferenecesAppUITests.xcconfig */;
 			buildSettings = {
 			};
 			name = Testing;

@@ -21,6 +21,7 @@
 */
 
 #import <AquaSKKService/SKKConstVars.h>
+#import "SandboxShims.h"
 #include "ObjCUtil.h"
 
 #define DECLARE_NSStringKey(key) NSString* key = @ #key
@@ -118,7 +119,7 @@ namespace SKKFilePaths {
     static NSString* pathForApplicationSupport() {
         ObjC::RAIIPool pool;
         static NSString* path = [[NSString stringWithFormat:@"%@/Library/Application Support/AquaSKK",
-                                           NSHomeDirectory()] retain];
+                                           AISHomeDirectory()] retain];
 
         return path;
     }
@@ -143,7 +144,7 @@ namespace SKKFilePaths {
         ObjC::RAIIPool pool;
         const char* plist = "Library/Preferences/jp.sourceforge.inputmethod.aquaskk.plist";
         static NSString* path = [[NSString stringWithFormat:@"%@/%s",
-                                           NSHomeDirectory(), plist] retain];
+                                           AISHomeDirectory(), plist] retain];
 
         return path;
     }
@@ -154,3 +155,5 @@ namespace SKKFilePaths {
     NSString* DictionarySet = pathForDictionarySet();
     NSString* UserDefaults = pathForUserDefaults();
 }
+
+
