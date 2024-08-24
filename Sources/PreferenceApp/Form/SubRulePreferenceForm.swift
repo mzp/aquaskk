@@ -14,7 +14,7 @@ extension SubRule: @retroactive Identifiable {
 
 struct SubRuleTable: View {
     var rules: [SubRule]
-    var storage: PreferenceStorage
+    var storage: PreferenceStore
     var body: some View {
         Table(rules) {
             TableColumn("Enabled") { rule in
@@ -31,7 +31,7 @@ struct SubRuleTable: View {
 }
 
 struct SubRulePreferenceForm: View {
-    @ObservedObject private var storage = PreferenceStorage.default
+    @ObservedObject private var storage = PreferenceStore.default
 
     var body: some View {
         Form {

@@ -6,39 +6,75 @@
 //
 
 import SwiftUI
+import AquaSKKService
+
+enum FormType {
+    case general
+    case subrule
+    case completion
+    case candidate
+    case dictionary
+    case compatibility
+    case other
+    case about
+}
 
 struct ContentView: View {
+    @State var selection: FormType = .general
+    @ObservedObject var store : PreferenceStore = .default
+
     var body: some View {
-        TabView {
-            Tab("General", systemImage: "gearshape") {
+        NavigationSplitView {
+            List(selection: $selection) {
+                NavigationLink(value: FormType.general) {
+                    Label("General", systemImage: "gearshape")
+                }
+                NavigationLink(value: FormType.subrule) {
+                    Label("Extension", systemImage: "puzzlepiece.extension")
+                }
+
+                NavigationLink(value: FormType.completion) {
+                    Label("Completion", systemImage: "rectangle.and.pencil.and.ellipsis")
+                }
+                NavigationLink(value: FormType.candidate) {
+                    Label("Candidate Window", systemImage: "macwindow")
+                }
+                NavigationLink(value: FormType.dictionary) {
+                    Label("Dictionary", systemImage: "book")
+                }
+                NavigationLink(value: FormType.compatibility) {
+                    Label("Compatibility", systemImage: "wrench.adjustable")
+                }
+                NavigationLink(value: FormType.other) {
+                    Label("Other", systemImage: "square.2.layers.3d")
+
+                }
+                NavigationLink(value: FormType.about) {
+                    Label("About", systemImage: "info.circle")
+                }
+            }
+        } detail: {
+            switch selection {
+            case .general:
                 GeneralPreferenceForm()
-            }
-            Tab("Extension", systemImage: "puzzlepiece.extension") {
+            case .subrule:
                 SubRulePreferenceForm()
-            }
-            Tab("Completion", systemImage: "rectangle.and.pencil.and.ellipsis") {
+            case .completion:
                 CompletionPreferenceForm()
-            }
-            Tab("Candidate Window", systemImage: "macwindow") {
+            case .candidate:
                 CandidatePreferenceForm()
-            }
-            Tab("Dictionary", systemImage: "book") {
+            case .dictionary:
                 JisyoPreferenceForm()
-            }
-            Tab("Compatibility", systemImage: "wrench.adjustable") {
-                // TODO: Compatibily/Per-app workaround setting
+            case .compatibility:
                 Text("TBD")
-            }
-            Tab("Other", systemImage: "square.2.layers.3d") {
+            case .other:
                 OtherPreferenceForm()
-            }
-            Tab("About", systemImage: "info.circle") {
+            case .about:
                 AboutForm()
             }
         }
-        .navigationTitle("AquaSKK Preferences")
         .formStyle(.grouped)
-        .tabViewStyle(.sidebarAdaptable)
+        .environmentObject(store)
     }
 }
 

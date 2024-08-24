@@ -11,7 +11,7 @@ import SwiftUI
 struct SystemJisyoPreferenceForm: View {
     var jisyo: Jisyo
     var selected: Bool
-    @ObservedObject var storage: PreferenceStorage
+    @ObservedObject var storage: PreferenceStore
     @State var isPresenting: Bool = false
 
     var enabled: Binding<Bool> {

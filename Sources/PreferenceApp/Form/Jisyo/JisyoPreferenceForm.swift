@@ -12,7 +12,7 @@ import SwiftUI
 private let logger = Logger(subsystem: "com.aquaskk.inputmethod.Preference", category: "Jisyo")
 
 struct JisyoPreferenceForm: View {
-    @ObservedObject private var storage = PreferenceStorage.default
+    @ObservedObject private var storage = PreferenceStore.default
     @State var selection: String?
     var body: some View {
         Form {

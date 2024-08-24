@@ -9,8 +9,7 @@ import AquaSKKService
 import SwiftUI
 
 struct UserJisyoPreferenceForm: View {
-    @ObservedObject private var storage = PreferenceStorage.default
-    @State private var isPresenting: Bool = false
+    @ObservedObject private var storage = PreferenceStore.default
 
     var body: some View {
         FilePathTextField("Location", location: $storage.userJisyoPath)
