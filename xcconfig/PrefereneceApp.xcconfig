@@ -10,10 +10,7 @@
 
 #include "./Include/Cpp.xcconfig"
 
-CODE_SIGN_ENTITLEMENTS = Sources/PreferenceApp/Support files/PreferencesApp.entitlements
+CODE_SIGN_ENTITLEMENTS = Sources/PreferenceApp/Support files/PreferenceApp.entitlements
 DEVELOPMENT_ASSET_PATHS = "Sources/PreferenceApp/Preview Content"
 
-REGISTER_APP_GROUPS = YES
-
 OTHER_LDFLAGS = -framework AquaSKKService -framework Carbon
-MACOSX_DEPLOYMENT_TARGET = 15 // for Tab

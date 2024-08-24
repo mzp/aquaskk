@@ -8,17 +8,6 @@
 import AquaSKKService
 import SwiftUI
 
-enum FormType {
-    case general
-    case subrule
-    case completion
-    case candidate
-    case dictionary
-    case compatibility
-    case other
-    case about
-}
-
 struct ContentView: View {
     @State var selection: FormType = .general
     @ObservedObject var store: PreferenceStore = .default
