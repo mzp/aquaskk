@@ -1,5 +1,5 @@
 //
-//  PreferenceStorage.swift
+//  PreferenceStore.swift
 //  AquaSKKService
 //
 //  Created by mzp on 8/6/24.
@@ -9,28 +9,26 @@ import Combine
 import Foundation
 import SwiftUI
 
-/// AquaSKK の設定を管理する。
-///
-/// 設定は `configuration.userDefaultsPath` に保存されている。
-/// SKKServerはUserdefaults.standardから読み書きするので、
-/// 初期化時にUserdefaults.standardに転送する。
-/// またStandardDefaultsが変更されたら、`configuration.userDefaultsPath`に保存する。
+// AquaSKK の設定を管理する。
+//
+// 設定は `configuration.userDefaultsPath` に保存されている。
+// SKKServerはUserdefaults.standardから読み書きするので、
+// 初期化時にUserdefaults.standardに転送する。
+// またStandardDefaultsが変更されたら、`serverConfiguration.userDefaultsPath`に保存する。
 
 public class PreferenceStore: ObservableObject {
-    private let configuration: ServerConfiguration
+    private let serverConfiguration: ServerConfiguration
 
-    public static let `default` = PreferenceStore(configuration: DefaultServerConfiguration())
+    public static let `default` = PreferenceStore(serverConfiguration: DefaultServerConfiguration())
 
-    public init(configuration: ServerConfiguration) {
-        self.configuration = configuration
-//        configuration.userDefaultsPath
+    public init(serverConfiguration: ServerConfiguration) {
+        self.serverConfiguration = serverConfiguration
 
-//        デフォルト値はUserDefaults.plistに格納されておりSKKServerが初期化するので、
-        // ここでは適当な初期値を与える
-        // FIXME: Load from UserDefaults.plist/embedded the default value
+        let defaults = AISUserDefaults(serverConfiguration: serverConfiguration)
+        defaults.prepare()
+        let standardDefaults = defaults.standard
 
-        let standardDefaults = UserDefaults.standard
-
+        // デフォルト値は UserDefaults.standard に格納されいるので、ここでの初期値は型だけ合わせる
         _suppressNewlineOnCommit = .init(wrappedValue: false, "suppress_newline_on_commit", store: standardDefaults)
         _useNumericConversion = .init(wrappedValue: false, "use_numeric_conversion", store: standardDefaults)
         _showInputModeIcon = .init(wrappedValue: false, "show_input_mode_icon", store: standardDefaults)
@@ -69,7 +67,6 @@ public class PreferenceStore: ObservableObject {
         _enableSkkdap = .init(wrappedValue: false, "enable_skkdap", store: standardDefaults)
         _skkdapFolder = .init(wrappedValue: "", "skkdap_folder", store: standardDefaults)
         _skkdapPort = .init(wrappedValue: 0, "skkdap_port", store: standardDefaults)
-
     }
 
     // MARK: - Text edit setting
@@ -131,12 +128,12 @@ public class PreferenceStore: ObservableObject {
     }
 
     public var availableSystemSubRules: [SubRule] {
-        let controller = SubRuleController(path: configuration.systemResourcePath, activeRules: subRules)
+        let controller = SubRuleController(path: serverConfiguration.systemResourcePath, activeRules: subRules)
         return controller.allRules
     }
 
     public var availableUserSubRules: [SubRule] {
-        let controller = SubRuleController(path: configuration.applicationSupportPath, activeRules: subRules)
+        let controller = SubRuleController(path: serverConfiguration.applicationSupportPath, activeRules: subRules)
         return controller.allRules
     }
 
@@ -164,7 +161,7 @@ public class PreferenceStore: ObservableObject {
 
     @AppStorage public var userJisyoPath: String
 
-    private lazy var jisyoController: JisyoController = .init(path: configuration.dictionarySetPath)
+    private lazy var jisyoController: JisyoController = .init(path: serverConfiguration.dictionarySetPath)
 
     public var systemJisyos: [Jisyo] {
         jisyoController.allJisyo
@@ -189,19 +186,14 @@ public class PreferenceStore: ObservableObject {
 
     // MARK: - Completion
 
-    @AppStorage("enable_extended_completion") public var enableExtendedCompletion: Bool = false
-    // min:0 - max:15
-    @AppStorage("minimum_completion_length") public var minimumCompletionLength: Int = 0
-
-    @AppStorage("enable_dynamic_completion") public var enableDynamicCompletion: Bool = false
-
-    /// min 1 - max: 100
-    @AppStorage("dynamic_completion_range") public var dynamicCompletionRange: Int = 1
+    @AppStorage public var enableExtendedCompletion: Bool // [0, 15]
+    @AppStorage public var minimumCompletionLength: Int
+    @AppStorage public var enableDynamicCompletion: Bool
+    @AppStorage public var dynamicCompletionRange: Int // [1, 100]
 
     // MARK: - Candidate
 
-    // 0 - 100
-    @AppStorage public var maxCountOfInlineCandidates: Int
+    @AppStorage public var maxCountOfInlineCandidates: Int // [0, 100]
     @AppStorage public var candidateWindowLabels: String
     @AppStorage public var candidateWindowFontName: String
     @AppStorage public var candidateWindowFontSize: Int

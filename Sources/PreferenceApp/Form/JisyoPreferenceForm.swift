@@ -12,7 +12,7 @@ import SwiftUI
 private let logger = Logger(subsystem: "com.aquaskk.inputmethod.Preference", category: "Jisyo")
 
 struct JisyoPreferenceForm: View {
-    @ObservedObject private var storage = PreferenceStore.default
+    @EnvironmentObject var store: PreferenceStore
     @State var selection: String?
     var body: some View {
         Form {
@@ -21,11 +21,11 @@ struct JisyoPreferenceForm: View {
             }
             Section("System Dictionary") {
                 VStack(alignment: .leading, spacing: 0) {
-                    List(storage.systemJisyos, selection: $selection) { jisyo in
+                    List(store.systemJisyos, selection: $selection) { jisyo in
                         SystemJisyoPreferenceForm(
                             jisyo: jisyo,
                             selected: selection == jisyo.id,
-                            storage: storage
+                            storage: store
                         ).tag(jisyo.id)
                     }.listStyle(.inset)
                 }
@@ -36,5 +36,7 @@ struct JisyoPreferenceForm: View {
 }
 
 #Preview {
-    JisyoPreferenceForm().formStyle(.grouped)
+    JisyoPreferenceForm()
+        .environmentObject(PreferenceStore.default)
+        .formStyle(.grouped)
 }

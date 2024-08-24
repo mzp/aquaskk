@@ -5,8 +5,8 @@
 //  Created by mzp on 7/31/24.
 //
 
-import SwiftUI
 import AquaSKKService
+import SwiftUI
 
 enum FormType {
     case general
@@ -21,7 +21,7 @@ enum FormType {
 
 struct ContentView: View {
     @State var selection: FormType = .general
-    @ObservedObject var store : PreferenceStore = .default
+    @ObservedObject var store: PreferenceStore = .default
 
     var body: some View {
         NavigationSplitView {
@@ -47,7 +47,6 @@ struct ContentView: View {
                 }
                 NavigationLink(value: FormType.other) {
                     Label("Other", systemImage: "square.2.layers.3d")
-
                 }
                 NavigationLink(value: FormType.about) {
                     Label("About", systemImage: "info.circle")

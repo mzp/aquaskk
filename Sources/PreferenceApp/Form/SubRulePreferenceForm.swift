@@ -14,14 +14,14 @@ extension SubRule: @retroactive Identifiable {
 
 struct SubRuleTable: View {
     var rules: [SubRule]
-    var storage: PreferenceStore
+    var store: PreferenceStore
     var body: some View {
         Table(rules) {
             TableColumn("Enabled") { rule in
                 Toggle("Enable", isOn: Binding(get: {
                     rule.enabled
                 }, set: { value in
-                    storage.set(rule: rule, enabled: value)
+                    store.set(rule: rule, enabled: value)
                 })).labelsHidden()
             }.width(20)
             TableColumn("Name", value: \.name).width(150)
@@ -31,20 +31,22 @@ struct SubRuleTable: View {
 }
 
 struct SubRulePreferenceForm: View {
-    @ObservedObject private var storage = PreferenceStore.default
+    @EnvironmentObject var store: PreferenceStore
 
     var body: some View {
         Form {
             Section("System") {
-                SubRuleTable(rules: storage.availableSystemSubRules, storage: storage)
+                SubRuleTable(rules: store.availableSystemSubRules, store: store)
             }
             Section("User") {
-                SubRuleTable(rules: storage.availableUserSubRules, storage: storage)
+                SubRuleTable(rules: store.availableUserSubRules, store: store)
             }
         }
     }
 }
 
 #Preview {
-    SubRulePreferenceForm().formStyle(.grouped)
+    SubRulePreferenceForm()
+        .environmentObject(PreferenceStore.default)
+        .formStyle(.grouped)
 }

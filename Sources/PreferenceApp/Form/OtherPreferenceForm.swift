@@ -10,29 +10,31 @@ import AquaSKKService
 import SwiftUI
 
 struct OtherPreferenceForm: View {
-    @ObservedObject private var storage = PreferenceStore.default
+    @EnvironmentObject var store: PreferenceStore
 
     var body: some View {
         Form {
             Section("skkserve") {
-                Toggle("Enable", isOn: $storage.enableSkkserv)
-                Toggle("Accept only localhost", isOn: $storage.skkservLocalonly)
+                Toggle("Enable", isOn: $store.enableSkkserv)
+                Toggle("Accept only localhost", isOn: $store.skkservLocalonly)
                 TextField("Port", text: Binding(
-                    get: { String(storage.skkservPort) },
-                    set: { storage.skkservPort = Int($0) ?? storage.skkservPort }
+                    get: { String(store.skkservPort) },
+                    set: { store.skkservPort = Int($0) ?? store.skkservPort }
                 ))
             }
 
             Section("Other") {
-                Toggle("Display shorted match of kana converion", isOn: $storage.displayShortestMatchOfKanaConversions)
-                Toggle("Handle recursive entry as okuri", isOn: $storage.handleRecursiveEntryAsOkuri)
-                Toggle("No okuri when cancel", isOn: $storage.deleteOkuriWhenQuit)
-                Toggle("Commit with backspace", isOn: $storage.inlineBackspaceImpliesCommit)
+                Toggle("Display shorted match of kana converion", isOn: $store.displayShortestMatchOfKanaConversions)
+                Toggle("Handle recursive entry as okuri", isOn: $store.handleRecursiveEntryAsOkuri)
+                Toggle("No okuri when cancel", isOn: $store.deleteOkuriWhenQuit)
+                Toggle("Commit with backspace", isOn: $store.inlineBackspaceImpliesCommit)
             }
         }
     }
 }
 
 #Preview {
-    OtherPreferenceForm().formStyle(.grouped)
+    OtherPreferenceForm()
+        .environmentObject(PreferenceStore.default)
+        .formStyle(.grouped)
 }

@@ -314,6 +314,8 @@
 		137D058A2C5B5A83009AC591 /* AquaSKKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D05892C5B5A83009AC591 /* AquaSKKTests.swift */; };
 		137D05942C5B5A83009AC591 /* AquaSKKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D05932C5B5A83009AC591 /* AquaSKKUITests.swift */; };
 		137D05962C5B5A83009AC591 /* AquaSKKUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D05952C5B5A83009AC591 /* AquaSKKUITestsLaunchTests.swift */; };
+		137EAC932C79913C00A45D57 /* AISUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 137EAC922C79913C00A45D57 /* AISUserDefaults.m */; };
+		137EAC942C79913C00A45D57 /* AISUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 137EAC912C79913C00A45D57 /* AISUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1393E32C2C6B19C300F1E633 /* SKK-JISYO.S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1393E32B2C6B19C300F1E633 /* SKK-JISYO.S.txt */; };
 		1393E32E2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393E32D2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift */; };
 		1393E3312C6B201500F1E633 /* JisyoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393E3302C6B201500F1E633 /* JisyoTests.swift */; };
@@ -896,6 +898,8 @@
 		137D05932C5B5A83009AC591 /* AquaSKKUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKKUITests.swift; sourceTree = "<group>"; };
 		137D05952C5B5A83009AC591 /* AquaSKKUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKKUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		137D05A02C5B5AFB009AC591 /* App.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = App.xcconfig; sourceTree = "<group>"; };
+		137EAC912C79913C00A45D57 /* AISUserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AISUserDefaults.h; sourceTree = "<group>"; };
+		137EAC922C79913C00A45D57 /* AISUserDefaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AISUserDefaults.m; sourceTree = "<group>"; };
 		138B319F2C5DD40C006424E0 /* All-Testing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "All-Testing.xcconfig"; sourceTree = "<group>"; };
 		138F45102C5CA19D000B03FC /* Core.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Core.xcconfig; sourceTree = "<group>"; };
 		138F45112C5CA1B6000B03FC /* IMTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = IMTests.xcconfig; sourceTree = "<group>"; };
@@ -1908,6 +1912,8 @@
 			isa = PBXGroup;
 			children = (
 				1377D03B2C678D91005F21AE /* PreferenceStore.swift */,
+				137EAC912C79913C00A45D57 /* AISUserDefaults.h */,
+				137EAC922C79913C00A45D57 /* AISUserDefaults.m */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -1944,7 +1950,6 @@
 			isa = PBXGroup;
 			children = (
 				1377D05E2C678E4F005F21AE /* FilePathTextField.swift */,
-				1377D05F2C678E4F005F21AE /* JisyoPreferenceForm.swift */,
 				1377D0602C678E4F005F21AE /* SystemJisyoPreferenceForm.swift */,
 				1377D0612C678E4F005F21AE /* UserJisyoPreferenceForm.swift */,
 			);
@@ -1954,13 +1959,14 @@
 		1377D0692C678E4F005F21AE /* Form */ = {
 			isa = PBXGroup;
 			children = (
-				1377D0622C678E4F005F21AE /* Jisyo */,
 				1377D0632C678E4F005F21AE /* AboutForm.swift */,
 				1377D0642C678E4F005F21AE /* CandidatePreferenceForm.swift */,
 				1377D0652C678E4F005F21AE /* CompletionPreferenceForm.swift */,
 				1377D0662C678E4F005F21AE /* GeneralPreferenceForm.swift */,
+				1377D05F2C678E4F005F21AE /* JisyoPreferenceForm.swift */,
 				1377D0672C678E4F005F21AE /* OtherPreferenceForm.swift */,
 				1377D0682C678E4F005F21AE /* SubRulePreferenceForm.swift */,
+				1377D0622C678E4F005F21AE /* Jisyo */,
 			);
 			path = Form;
 			sourceTree = "<group>";
@@ -2304,6 +2310,7 @@
 				1377D04F2C678D91005F21AE /* SKKServerProxy.h in Headers */,
 				1377D0502C678D91005F21AE /* ObjCUtil.h in Headers */,
 				1393E3562C6BAFB400F1E633 /* AISServerConfiguration.h in Headers */,
+				137EAC942C79913C00A45D57 /* AISUserDefaults.h in Headers */,
 				1393E3542C6BAFA700F1E633 /* AISDefaultServerConfiguration.h in Headers */,
 				1377D0512C678D91005F21AE /* AISSubRule.h in Headers */,
 				1377D0522C678D91005F21AE /* SKKSupervisor.h in Headers */,
@@ -3248,6 +3255,7 @@
 				1377D0562C678D91005F21AE /* AISSubRule.m in Sources */,
 				1377D0572C678D91005F21AE /* AISJisyo.mm in Sources */,
 				1377D0582C678D91005F21AE /* AISKeyboardLayout.m in Sources */,
+				137EAC932C79913C00A45D57 /* AISUserDefaults.m in Sources */,
 				1377D0592C678D91005F21AE /* PreferenceStore.swift in Sources */,
 				1377D05A2C678D91005F21AE /* AISJisyoController.mm in Sources */,
 				1377D05B2C678D91005F21AE /* SKKConstVars.mm in Sources */,

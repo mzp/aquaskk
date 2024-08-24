@@ -10,29 +10,31 @@ import AquaSKKService
 import SwiftUI
 
 struct CandidatePreferenceForm: View {
-    @ObservedObject private var storage = PreferenceStore.default
+    @EnvironmentObject var store: PreferenceStore
 
     var body: some View {
         Form {
             Section("Inline") {
                 LabeledContent("Max count", content: {
-                    Stepper("Count(s)", value: $storage.maxCountOfInlineCandidates)
+                    Stepper("Count(s)", value: $store.maxCountOfInlineCandidates)
                 })
             }
 
             Section("Window") {
-                TextField("Candidate labels", text: $storage.candidateWindowLabels)
+                TextField("Candidate labels", text: $store.candidateWindowLabels)
                 // TODO: Font
-                Toggle("Put upwoard", isOn: $storage.putCandidateWindowUpward)
+                Toggle("Put upwoard", isOn: $store.putCandidateWindowUpward)
             }
 
             Section("Annotation") {
-                Toggle("Enable", isOn: $storage.enableAnnotation)
+                Toggle("Enable", isOn: $store.enableAnnotation)
             }
         }
     }
 }
 
 #Preview {
-    CandidatePreferenceForm().formStyle(.grouped)
+    CandidatePreferenceForm()
+        .formStyle(.grouped)
+        .environmentObject(PreferenceStore.default)
 }

@@ -9,29 +9,29 @@ import AquaSKKService
 import SwiftUI
 
 struct GeneralPreferenceForm: View {
-    @ObservedObject private var storage = PreferenceStore.default
+    @EnvironmentObject var store: PreferenceStore
 
     var body: some View {
         Form {
             Section("Text Edit") {
-                Toggle("Suppress newline on commit", isOn: $storage.suppressNewlineOnCommit)
+                Toggle("Suppress newline on commit", isOn: $store.suppressNewlineOnCommit)
 
-                Toggle("Use numeric conversion", isOn: $storage.useNumericConversion)
-                Toggle("Show input mode icon", isOn: $storage.showInputModeIcon)
+                Toggle("Use numeric conversion", isOn: $store.useNumericConversion)
+                Toggle("Show input mode icon", isOn: $store.showInputModeIcon)
 
-                Toggle(isOn: $storage.useIndividualInputMode, label: {
+                Toggle(isOn: $store.useIndividualInputMode, label: {
                     HStack {
                         Text("Use indivisual input mode")
                         Text("(for unified mode)").bold()
                     }
                 })
 
-                Toggle("Beep on registration", isOn: $storage.beepOnRegistration)
+                Toggle("Beep on registration", isOn: $store.beepOnRegistration)
             }
 
             Section("Keyboard Layout") {
-                Picker("Layout", selection: $storage.keyboardLayout) {
-                    ForEach(storage.availableKeyboardLayouts, id: \.inputSourceID, content: { layout in
+                Picker("Layout", selection: $store.keyboardLayout) {
+                    ForEach(store.availableKeyboardLayouts, id: \.inputSourceID, content: { layout in
                         Text(layout.localizedName).tag(layout.inputSourceID)
                     })
                 }
@@ -42,4 +42,5 @@ struct GeneralPreferenceForm: View {
 
 #Preview {
     GeneralPreferenceForm()
+        .environmentObject(PreferenceStore.default)
 }

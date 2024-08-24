@@ -1,5 +1,5 @@
 //
-//  createStoreTests.swift
+//  PreferenceStoreTests.swift
 //  AquaSKKServiceTests
 //
 //  Created by mzp on 8/3/24.
@@ -16,7 +16,7 @@ struct PreferenceStoreTests {
     func createStore() throws -> PreferenceStore {
         let bundle = ServiceTesting.shared.bundle
         let configuration = try BundledServerConfiguration(bundle: bundle)
-        return PreferenceStore(configuration: configuration)
+        return PreferenceStore(serverConfiguration: configuration)
     }
 
     init() {

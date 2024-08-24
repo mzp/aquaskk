@@ -9,31 +9,33 @@ import AquaSKKService
 import SwiftUI
 
 struct CompletionPreferenceForm: View {
-    @ObservedObject private var storage = PreferenceStore.default
+    @EnvironmentObject var store: PreferenceStore
 
     var body: some View {
         Form {
             Section("Completion") {
                 // FIXME: What is 一般辞書?
-                Toggle("Include User dictionary", isOn: $storage.enableExtendedCompletion)
+                Toggle("Include User dictionary", isOn: $store.enableExtendedCompletion)
                 LabeledContent("Minimum Length", content: {
                     VStack(alignment: .trailing) {
-                        Slider(value: Binding(get: { Float(storage.minimumCompletionLength) }, set: { storage.minimumCompletionLength = Int($0) }))
-                        Text("Ignore characters less than equal \(storage.minimumCompletionLength)")
+                        Slider(value: Binding(get: { Float(store.minimumCompletionLength) }, set: { store.minimumCompletionLength = Int($0) }))
+                        Text("Ignore characters less than equal \(store.minimumCompletionLength)")
                     }
-                }).disabled(!storage.enableExtendedCompletion)
+                }).disabled(!store.enableExtendedCompletion)
             }
 
             Section("Dynamic Completion") {
-                Toggle("Enable", isOn: $storage.enableDynamicCompletion)
+                Toggle("Enable", isOn: $store.enableDynamicCompletion)
                 LabeledContent("Max count", content: {
-                    Stepper("Word(s)", value: $storage.dynamicCompletionRange)
-                }).disabled(!storage.enableDynamicCompletion)
+                    Stepper("Word(s)", value: $store.dynamicCompletionRange)
+                }).disabled(!store.enableDynamicCompletion)
             }
         }
     }
 }
 
 #Preview {
-    CompletionPreferenceForm().formStyle(.grouped)
+    CompletionPreferenceForm()
+        .environmentObject(PreferenceStore.default)
+        .formStyle(.grouped)
 }
