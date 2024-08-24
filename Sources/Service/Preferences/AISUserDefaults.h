@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)prepareUserDefaults;
 
+- (void)saveChanges;
+
 @property(nonatomic, readonly) NSUserDefaults *standardDefaults NS_SWIFT_NAME(standard);
 
 @end

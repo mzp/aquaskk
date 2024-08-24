@@ -20,8 +20,14 @@ struct PreferenceStoreTests {
     }
 
     init() {
+        guard let name = Bundle.main.bundleIdentifier else {
+            return
+        }
         let userDefaults = UserDefaults.standard
-        for key in userDefaults.dictionaryRepresentation().keys {
+        guard let dictionary = userDefaults.persistentDomain(forName: name) else {
+            return
+        }
+        for key in dictionary.keys {
             userDefaults.removeObject(forKey: key)
         }
     }
@@ -40,6 +46,18 @@ struct PreferenceStoreTests {
             $0.localizedName < $1.localizedName
         })
         #expect(layouts == sorted)
+    }
+
+    @Test func persist() throws {
+        let bundle = ServiceTesting.shared.bundle
+        let configuration = try BundledServerConfiguration(bundle: bundle)
+        let store = PreferenceStore(serverConfiguration: configuration)
+        store.keyboardLayout = dvorakLayout
+
+        let url = URL(fileURLWithPath: configuration.userDefaultsPath)
+        let dictionary = try #require(NSDictionary(contentsOf: url))
+        let layout = try #require(dictionary["keyboard_layout"] as? String)
+        #expect(layout == dvorakLayout)
     }
 
     @Test func readWritePreference() throws {

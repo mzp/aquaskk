@@ -8,6 +8,7 @@
 import Combine
 import Foundation
 import SwiftUI
+import OSLog
 
 // AquaSKK の設定を管理する。
 //
@@ -18,13 +19,15 @@ import SwiftUI
 
 public class PreferenceStore: ObservableObject {
     private let serverConfiguration: ServerConfiguration
+    private let defaults: AISUserDefaults
+    private let queue = OperationQueue()
 
     public static let `default` = PreferenceStore(serverConfiguration: DefaultServerConfiguration())
 
     public init(serverConfiguration: ServerConfiguration) {
         self.serverConfiguration = serverConfiguration
 
-        let defaults = AISUserDefaults(serverConfiguration: serverConfiguration)
+        self.defaults = AISUserDefaults(serverConfiguration: serverConfiguration)
         defaults.prepare()
         let standardDefaults = defaults.standard
 
@@ -67,6 +70,11 @@ public class PreferenceStore: ObservableObject {
         _enableSkkdap = .init(wrappedValue: false, "enable_skkdap", store: standardDefaults)
         _skkdapFolder = .init(wrappedValue: "", "skkdap_folder", store: standardDefaults)
         _skkdapPort = .init(wrappedValue: 0, "skkdap_port", store: standardDefaults)
+
+        NotificationCenter.default.addObserver(forName: UserDefaults.didChangeNotification, object: nil, queue: queue) { note in
+            Logger.service.log("\(note)")
+            self.defaults.saveChanges()
+        }
     }
 
     // MARK: - Text edit setting
