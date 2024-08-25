@@ -17,7 +17,7 @@ tasks:
         cmds:
             - rm -rf {{.TEST_RESULTS_BUNDLE}}
             - set -o pipefail &&
-              xcrun xcodebuild test
+              xcrun xcodebuild clean test
                   -configuration Testing
                   -scheme All
                   -testPlan CI
