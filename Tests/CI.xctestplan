@@ -22,15 +22,22 @@
     {
       "target" : {
         "containerPath" : "container:AquaSKK.xcodeproj",
-        "identifier" : "1344F6142C5B2C9500D8C850",
-        "name" : "CoreTests"
+        "identifier" : "135C3D4D2C5B3E8F00661AE3",
+        "name" : "IMTests"
       }
     },
     {
       "target" : {
         "containerPath" : "container:AquaSKK.xcodeproj",
-        "identifier" : "135C3D4D2C5B3E8F00661AE3",
-        "name" : "IMTests"
+        "identifier" : "1307C2482C5B47DA00B089B6",
+        "name" : "PreferenceAppTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:AquaSKK.xcodeproj",
+        "identifier" : "1344F6142C5B2C9500D8C850",
+        "name" : "CoreTests"
       }
     },
     {

@@ -8,9 +8,10 @@ import AquaSKKService
 import Testing
 
 struct SandboxedTests {
-    @Test func sandboxed() {
+    @Test func preferenceShoulRead() throws {
         let config = DefaultServerConfiguration()
-        NSLog(config.userDefaultsPath)
         #expect(!config.userDefaultsPath.contains("Library/Containers/"))
+        let url = URL(fileURLWithPath: "\(config.userDefaultsPath)")
+        _ = try Data(contentsOf: url, options: [])
     }
 }

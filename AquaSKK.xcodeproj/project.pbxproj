@@ -313,8 +313,6 @@
 		137D057C2C5B5A82009AC591 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137D057B2C5B5A82009AC591 /* Assets.xcassets */; };
 		137D057F2C5B5A82009AC591 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137D057E2C5B5A82009AC591 /* Preview Assets.xcassets */; };
 		137D058A2C5B5A83009AC591 /* AquaSKKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D05892C5B5A83009AC591 /* AquaSKKTests.swift */; };
-		137D05942C5B5A83009AC591 /* AquaSKKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D05932C5B5A83009AC591 /* AquaSKKUITests.swift */; };
-		137D05962C5B5A83009AC591 /* AquaSKKUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D05952C5B5A83009AC591 /* AquaSKKUITestsLaunchTests.swift */; };
 		137EAC932C79913C00A45D57 /* AISUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 137EAC922C79913C00A45D57 /* AISUserDefaults.m */; };
 		137EAC942C79913C00A45D57 /* AISUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 137EAC912C79913C00A45D57 /* AISUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		137EAC962C79990E00A45D57 /* Logger+Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EAC952C79990E00A45D57 /* Logger+Service.swift */; };
@@ -412,13 +410,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1307C2542C5B47DA00B089B6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 13D368112C5A81290083CAE3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1307C2382C5B47D800B089B6;
-			remoteInfo = "AquaSKK-Preferences";
-		};
 		1349B7252C651C7B002E0CB8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 13D368112C5A81290083CAE3 /* Project object */;
@@ -427,13 +418,6 @@
 			remoteInfo = Preferences;
 		};
 		1349B7272C651C82002E0CB8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 13D368112C5A81290083CAE3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 137D05742C5B5A81009AC591;
-			remoteInfo = AquaSKK;
-		};
-		137D05902C5B5A83009AC591 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 13D368112C5A81290083CAE3 /* Project object */;
 			proxyType = 1;
@@ -843,10 +827,8 @@
 		1373A8232C6817BA000FE1B7 /* IMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1373A8242C6817BA000FE1B7 /* PreferenceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PreferenceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1373A8252C6817BA000FE1B7 /* PreferenceAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PreferenceAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1373A8262C6817BA000FE1B7 /* PreferencesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PreferencesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1373A8272C6817BA000FE1B7 /* AquaSKK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AquaSKK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1373A8282C6817BA000FE1B7 /* AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1373A8292C6817BA000FE1B7 /* AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1373A82A2C6817BA000FE1B7 /* Harness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Harness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1373A82B2C6817BA000FE1B7 /* AquaSKKService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AquaSKKService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1373A82C2C6817BA000FE1B7 /* ServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -898,8 +880,6 @@
 		137D057E2C5B5A82009AC591 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		137D05802C5B5A82009AC591 /* AquaSKK.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AquaSKK.entitlements; sourceTree = "<group>"; };
 		137D05892C5B5A83009AC591 /* AquaSKKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKKTests.swift; sourceTree = "<group>"; };
-		137D05932C5B5A83009AC591 /* AquaSKKUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKKUITests.swift; sourceTree = "<group>"; };
-		137D05952C5B5A83009AC591 /* AquaSKKUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKKUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		137D05A02C5B5AFB009AC591 /* App.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = App.xcconfig; sourceTree = "<group>"; };
 		137EAC912C79913C00A45D57 /* AISUserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AISUserDefaults.h; sourceTree = "<group>"; };
 		137EAC922C79913C00A45D57 /* AISUserDefaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AISUserDefaults.m; sourceTree = "<group>"; };
@@ -908,9 +888,7 @@
 		138F45102C5CA19D000B03FC /* Core.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Core.xcconfig; sourceTree = "<group>"; };
 		138F45112C5CA1B6000B03FC /* IMTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = IMTests.xcconfig; sourceTree = "<group>"; };
 		138F45122C5CA1D7000B03FC /* AppTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppTests.xcconfig; sourceTree = "<group>"; };
-		138F45132C5CA1F2000B03FC /* AppUITests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppUITests.xcconfig; sourceTree = "<group>"; };
 		13931D0C2C5B49C200B11EEE /* PrefereneceAppTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PrefereneceAppTests.xcconfig; sourceTree = "<group>"; };
-		13931D0D2C5B4B5000B11EEE /* PrefereneceAppUITests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PrefereneceAppUITests.xcconfig; sourceTree = "<group>"; };
 		13931D0E2C5B4C6B00B11EEE /* CoreTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CoreTests.xcconfig; sourceTree = "<group>"; };
 		1393E32B2C6B19C300F1E633 /* SKK-JISYO.S.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "SKK-JISYO.S.txt"; sourceTree = "<group>"; };
 		1393E32D2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Jisyo+SwiftUI.swift"; sourceTree = "<group>"; };
@@ -987,13 +965,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1307C2502C5B47DA00B089B6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		133834DE2C60203900D73AD7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1037,13 +1008,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		137D05822C5B5A83009AC591 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		137D058C2C5B5A83009AC591 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1303,7 +1267,6 @@
 				13D7561B2C5A905E006144F2 /* All.xcconfig */,
 				137D05A02C5B5AFB009AC591 /* App.xcconfig */,
 				138F45122C5CA1D7000B03FC /* AppTests.xcconfig */,
-				138F45132C5CA1F2000B03FC /* AppUITests.xcconfig */,
 				138F45102C5CA19D000B03FC /* Core.xcconfig */,
 				13931D0E2C5B4C6B00B11EEE /* CoreTests.xcconfig */,
 				1352C9E32C5DF8330056261D /* Harness.xcconfig */,
@@ -1313,7 +1276,6 @@
 				139B7B822C60F69E00FE5263 /* UITests.xcconfig */,
 				1307C2672C5B48D600B089B6 /* PrefereneceApp.xcconfig */,
 				13931D0C2C5B49C200B11EEE /* PrefereneceAppTests.xcconfig */,
-				13931D0D2C5B4B5000B11EEE /* PrefereneceAppUITests.xcconfig */,
 				13B7BEE12C5F5D1A00F6BEF8 /* Service.xcconfig */,
 				13B7BEE22C5F5D2000F6BEF8 /* ServiceTests.xcconfig */,
 				13018B2C2C7696B40045FF13 /* Testing.xcconfig */,
@@ -1330,7 +1292,6 @@
 				13CFD1B22C6818F9000A67E9 /* Frameworks.xctestplan */,
 				13CFD1B42C681A61000A67E9 /* Integration.xctestplan */,
 				137D05882C5B5A83009AC591 /* AppTests */,
-				137D05922C5B5A83009AC591 /* AppUITests */,
 				1344F6202C5B2C9C00D8C850 /* CoreTests */,
 				1352C9DE2C5DF8160056261D /* Harness */,
 				13018B232C7696A40045FF13 /* Testing */,
@@ -2044,15 +2005,6 @@
 			path = AppTests;
 			sourceTree = "<group>";
 		};
-		137D05922C5B5A83009AC591 /* AppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				137D05932C5B5A83009AC591 /* AquaSKKUITests.swift */,
-				137D05952C5B5A83009AC591 /* AquaSKKUITestsLaunchTests.swift */,
-			);
-			path = AppUITests;
-			sourceTree = "<group>";
-		};
 		138F45152C5CA2F1000B03FC /* Include */ = {
 			isa = PBXGroup;
 			children = (
@@ -2230,10 +2182,8 @@
 				1373A8232C6817BA000FE1B7 /* IMTests.xctest */,
 				1373A8242C6817BA000FE1B7 /* PreferenceApp.app */,
 				1373A8252C6817BA000FE1B7 /* PreferenceAppTests.xctest */,
-				1373A8262C6817BA000FE1B7 /* PreferencesUITests.xctest */,
 				1373A8272C6817BA000FE1B7 /* AquaSKK.app */,
 				1373A8282C6817BA000FE1B7 /* AppTests.xctest */,
-				1373A8292C6817BA000FE1B7 /* AppUITests.xctest */,
 				1373A82A2C6817BA000FE1B7 /* Harness.app */,
 				1373A82B2C6817BA000FE1B7 /* AquaSKKService.framework */,
 				1373A82C2C6817BA000FE1B7 /* ServiceTests.xctest */,
@@ -2476,24 +2426,6 @@
 			productReference = 1373A8252C6817BA000FE1B7 /* PreferenceAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		1307C2522C5B47DA00B089B6 /* PreferencesUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1307C2612C5B47DA00B089B6 /* Build configuration list for PBXNativeTarget "PreferencesUITests" */;
-			buildPhases = (
-				1307C24F2C5B47DA00B089B6 /* Sources */,
-				1307C2502C5B47DA00B089B6 /* Frameworks */,
-				1307C2512C5B47DA00B089B6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1307C2552C5B47DA00B089B6 /* PBXTargetDependency */,
-			);
-			name = PreferencesUITests;
-			productName = "AquaSKK-PreferencesUITests";
-			productReference = 1373A8262C6817BA000FE1B7 /* PreferencesUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		133834E02C60203900D73AD7 /* TyperTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 133834E82C60203900D73AD7 /* Build configuration list for PBXNativeTarget "TyperTests" */;
@@ -2626,24 +2558,6 @@
 			productReference = 1373A8282C6817BA000FE1B7 /* AppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		137D058E2C5B5A83009AC591 /* AppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 137D059D2C5B5A83009AC591 /* Build configuration list for PBXNativeTarget "AppUITests" */;
-			buildPhases = (
-				137D058B2C5B5A83009AC591 /* Sources */,
-				137D058C2C5B5A83009AC591 /* Frameworks */,
-				137D058D2C5B5A83009AC591 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				137D05912C5B5A83009AC591 /* PBXTargetDependency */,
-			);
-			name = AppUITests;
-			productName = AquaSKKUITests;
-			productReference = 1373A8292C6817BA000FE1B7 /* AppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		139B7B612C60F68100FE5263 /* AquaSKKUI */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 139B7B792C60F68100FE5263 /* Build configuration list for PBXNativeTarget "AquaSKKUI" */;
@@ -2754,10 +2668,6 @@
 						CreatedOnToolsVersion = 16.0;
 						TestTargetID = 1307C2382C5B47D800B089B6;
 					};
-					1307C2522C5B47DA00B089B6 = {
-						CreatedOnToolsVersion = 16.0;
-						TestTargetID = 1307C2382C5B47D800B089B6;
-					};
 					133834E02C60203900D73AD7 = {
 						CreatedOnToolsVersion = 16.0;
 						TestTargetID = 1352C9C72C5DF80D0056261D;
@@ -2779,10 +2689,6 @@
 						CreatedOnToolsVersion = 16.0;
 					};
 					137D05842C5B5A83009AC591 = {
-						CreatedOnToolsVersion = 16.0;
-						TestTargetID = 137D05742C5B5A81009AC591;
-					};
-					137D058E2C5B5A83009AC591 = {
 						CreatedOnToolsVersion = 16.0;
 						TestTargetID = 137D05742C5B5A81009AC591;
 					};
@@ -2832,8 +2738,6 @@
 				13B7BEC92C5F5CF900F6BEF8 /* ServiceTests */,
 				137D05842C5B5A83009AC591 /* AppTests */,
 				1307C2482C5B47DA00B089B6 /* PreferenceAppTests */,
-				137D058E2C5B5A83009AC591 /* AppUITests */,
-				1307C2522C5B47DA00B089B6 /* PreferencesUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -2857,13 +2761,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		1307C2472C5B47DA00B089B6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1307C2512C5B47DA00B089B6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2995,13 +2892,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		137D058D2C5B5A83009AC591 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		139B7B602C60F68100FE5263 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3088,13 +2978,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1307C24E2C5B47DA00B089B6 /* SandboxTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1307C24F2C5B47DA00B089B6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3218,15 +3101,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		137D058B2C5B5A83009AC591 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				137D05962C5B5A83009AC591 /* AquaSKKUITestsLaunchTests.swift in Sources */,
-				137D05942C5B5A83009AC591 /* AquaSKKUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		139B7B5E2C60F68100FE5263 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3340,11 +3214,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1307C2552C5B47DA00B089B6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1307C2382C5B47D800B089B6 /* PreferenceApp */;
-			targetProxy = 1307C2542C5B47DA00B089B6 /* PBXContainerItemProxy */;
-		};
 		1349B7262C651C7B002E0CB8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1307C2382C5B47D800B089B6 /* PreferenceApp */;
@@ -3354,11 +3223,6 @@
 			isa = PBXTargetDependency;
 			target = 137D05742C5B5A81009AC591 /* AquaSKK */;
 			targetProxy = 1349B7272C651C82002E0CB8 /* PBXContainerItemProxy */;
-		};
-		137D05912C5B5A83009AC591 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 137D05742C5B5A81009AC591 /* AquaSKK */;
-			targetProxy = 137D05902C5B5A83009AC591 /* PBXContainerItemProxy */;
 		};
 		13CFD1B62C681B22000A67E9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3418,20 +3282,6 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PreferenceApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PreferenceApp";
-			};
-			name = Release;
-		};
-		1307C2622C5B47DA00B089B6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13931D0D2C5B4B5000B11EEE /* PrefereneceAppUITests.xcconfig */;
-			buildSettings = {
-			};
-			name = Debug;
-		};
-		1307C2632C5B47DA00B089B6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13931D0D2C5B4B5000B11EEE /* PrefereneceAppUITests.xcconfig */;
-			buildSettings = {
 			};
 			name = Release;
 		};
@@ -3561,20 +3411,6 @@
 			};
 			name = Release;
 		};
-		137D059E2C5B5A83009AC591 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 138F45132C5CA1F2000B03FC /* AppUITests.xcconfig */;
-			buildSettings = {
-			};
-			name = Debug;
-		};
-		137D059F2C5B5A83009AC591 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 138F45132C5CA1F2000B03FC /* AppUITests.xcconfig */;
-			buildSettings = {
-			};
-			name = Release;
-		};
 		138B31942C5DD3F6006424E0 /* Testing */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 138B319F2C5DD40C006424E0 /* All-Testing.xcconfig */;
@@ -3635,13 +3471,6 @@
 			};
 			name = Testing;
 		};
-		138B319B2C5DD3F6006424E0 /* Testing */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13931D0D2C5B4B5000B11EEE /* PrefereneceAppUITests.xcconfig */;
-			buildSettings = {
-			};
-			name = Testing;
-		};
 		138B319C2C5DD3F6006424E0 /* Testing */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 137D05A02C5B5AFB009AC591 /* App.xcconfig */;
@@ -3655,13 +3484,6 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AquaSKK.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AquaSKK";
-			};
-			name = Testing;
-		};
-		138B319E2C5DD3F6006424E0 /* Testing */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 138F45132C5CA1F2000B03FC /* AppUITests.xcconfig */;
-			buildSettings = {
 			};
 			name = Testing;
 		};
@@ -3819,16 +3641,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1307C2612C5B47DA00B089B6 /* Build configuration list for PBXNativeTarget "PreferencesUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1307C2622C5B47DA00B089B6 /* Debug */,
-				138B319B2C5DD3F6006424E0 /* Testing */,
-				1307C2632C5B47DA00B089B6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		133834E82C60203900D73AD7 /* Build configuration list for PBXNativeTarget "TyperTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -3895,16 +3707,6 @@
 				137D059B2C5B5A83009AC591 /* Debug */,
 				138B319D2C5DD3F6006424E0 /* Testing */,
 				137D059C2C5B5A83009AC591 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		137D059D2C5B5A83009AC591 /* Build configuration list for PBXNativeTarget "AppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				137D059E2C5B5A83009AC591 /* Debug */,
-				138B319E2C5DD3F6006424E0 /* Testing */,
-				137D059F2C5B5A83009AC591 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
