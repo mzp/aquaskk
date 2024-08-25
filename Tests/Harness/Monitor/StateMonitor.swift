@@ -12,10 +12,7 @@ struct StateMonitor: View {
 
     var body: some View {
         Section("State") {
-            LabeledContent("Mode") {
-                Text(store.modeIdentifier)
-                    .textSelection(.enabled)
-            }
+            LabeledContent("Keyboard", value: store.keyboardLayout)
         }
     }
 }

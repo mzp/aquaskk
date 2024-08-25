@@ -70,7 +70,7 @@ struct PreferenceStoreTests {
         store.keyboardLayout = dvorakLayout
 
         #expect(store.keyboardLayout == dvorakLayout)
-
+        store.flush()
         let fromUserDefaults = UserDefaults.standard.string(forKey: "keyboard_layout")
         #expect(fromUserDefaults == dvorakLayout)
 

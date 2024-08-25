@@ -1,12 +1,12 @@
 //
 //  SKKTextView.swift
-//  AquaSKKIM
+//  AquaSKKInput
 //
 //  Created by mzp on 8/3/24.
 //
 
 import AppKit
-import AquaSKKIM_Private
+import AquaSKKInput_Private
 import Foundation
 import InputMethodKit
 import OSLog
@@ -25,6 +25,16 @@ class SKKTextViewAppKit: NSTextView {
 
         self.controller = controller
         self.client = client
+    }
+
+    func update(controller: SKKInputController, stateStore: SKKStateStore) {
+        self.controller = controller
+        controller
+            .setValue(
+                stateStore.modeIdentifier,
+                forTag: kTextServiceInputModePropertyTag,
+                client: client
+            )
     }
 
     override func keyDown(with event: NSEvent) {
@@ -56,7 +66,7 @@ struct SKKTextView: NSViewRepresentable {
         return view
     }
 
-    func updateNSView(_: SKKTextViewAppKit, context _: Context) {
-//        textView.setup(controller: controller, stateStore: stateStore)
+    func updateNSView(_ textView: SKKTextViewAppKit, context _: Context) {
+        textView.update(controller: controller, stateStore: stateStore)
     }
 }

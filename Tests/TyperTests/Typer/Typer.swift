@@ -5,7 +5,7 @@
 //  Created by mzp on 8/3/24.
 //
 
-import AquaSKKIM_Private
+import AquaSKKInput_Private
 import Foundation
 
 class Typer {

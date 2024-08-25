@@ -6,7 +6,7 @@
 //  Copyright © 2017 mzp. All rights reserved.
 //
 
-import AquaSKKIM
+import AquaSKKInput
 import Cocoa
 import OSLog
 
