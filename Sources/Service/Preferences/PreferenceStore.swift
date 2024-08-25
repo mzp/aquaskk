@@ -71,9 +71,8 @@ public class PreferenceStore: ObservableObject {
         _skkdapFolder = .init(wrappedValue: "", "skkdap_folder", store: standardDefaults)
         _skkdapPort = .init(wrappedValue: 0, "skkdap_port", store: standardDefaults)
 
-        NotificationCenter.default.addObserver(forName: UserDefaults.didChangeNotification, object: nil, queue: queue) { note in
+        NotificationCenter.default.addObserver(forName: UserDefaults.didChangeNotification, object: nil, queue: queue) { _ in
             // TODO: Too many; add throttling
-            Logger.service.debug("\(note)")
             self.defaults.saveChanges()
         }
     }

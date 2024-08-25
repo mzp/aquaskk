@@ -315,7 +315,6 @@
 		137D058A2C5B5A83009AC591 /* AquaSKKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D05892C5B5A83009AC591 /* AquaSKKTests.swift */; };
 		137EAC932C79913C00A45D57 /* AISUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 137EAC922C79913C00A45D57 /* AISUserDefaults.m */; };
 		137EAC942C79913C00A45D57 /* AISUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 137EAC912C79913C00A45D57 /* AISUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		137EAC962C79990E00A45D57 /* Logger+Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EAC952C79990E00A45D57 /* Logger+Service.swift */; };
 		1393E32C2C6B19C300F1E633 /* SKK-JISYO.S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1393E32B2C6B19C300F1E633 /* SKK-JISYO.S.txt */; };
 		1393E32E2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393E32D2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift */; };
 		1393E3312C6B201500F1E633 /* JisyoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393E3302C6B201500F1E633 /* JisyoTests.swift */; };
@@ -883,7 +882,6 @@
 		137D05A02C5B5AFB009AC591 /* App.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = App.xcconfig; sourceTree = "<group>"; };
 		137EAC912C79913C00A45D57 /* AISUserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AISUserDefaults.h; sourceTree = "<group>"; };
 		137EAC922C79913C00A45D57 /* AISUserDefaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AISUserDefaults.m; sourceTree = "<group>"; };
-		137EAC952C79990E00A45D57 /* Logger+Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Service.swift"; sourceTree = "<group>"; };
 		138B319F2C5DD40C006424E0 /* All-Testing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "All-Testing.xcconfig"; sourceTree = "<group>"; };
 		138F45102C5CA19D000B03FC /* Core.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Core.xcconfig; sourceTree = "<group>"; };
 		138F45112C5CA1B6000B03FC /* IMTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = IMTests.xcconfig; sourceTree = "<group>"; };
@@ -2077,7 +2075,6 @@
 			children = (
 				13B7BEC42C5F5CF900F6BEF8 /* AquaSKKService.docc */,
 				13B7BEC32C5F5CF900F6BEF8 /* AquaSKKService.h */,
-				137EAC952C79990E00A45D57 /* Logger+Service.swift */,
 				132062292C68AB8E00FCC540 /* Configuration */,
 				1377D0372C678D91005F21AE /* Jisyo */,
 				1377D03A2C678D91005F21AE /* Keyboard Layout */,
@@ -3136,7 +3133,6 @@
 				1377D0562C678D91005F21AE /* AISSubRule.m in Sources */,
 				1377D0572C678D91005F21AE /* AISJisyo.mm in Sources */,
 				1377D0582C678D91005F21AE /* AISKeyboardLayout.m in Sources */,
-				137EAC962C79990E00A45D57 /* Logger+Service.swift in Sources */,
 				137EAC932C79913C00A45D57 /* AISUserDefaults.m in Sources */,
 				1377D0592C678D91005F21AE /* PreferenceStore.swift in Sources */,
 				1377D05A2C678D91005F21AE /* AISJisyoController.mm in Sources */,
