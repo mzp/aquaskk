@@ -1,8 +1,10 @@
-#include "MockCompletionHelper.h"
-#import <AquaSKKCore/SKKDictionaryKeeper.h>
 #include <cassert>
 
 #import <XCTest/XCTest.h>
+
+#import <AquaSKKCore/SKKDictionaryKeeper.h>
+
+#include "MockCompletionHelper.h"
 
 @interface SKKDictionaryKeeperTests : XCTestCase
 @end

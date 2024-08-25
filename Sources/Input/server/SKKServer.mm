@@ -20,6 +20,10 @@
 
 */
 
+#include <signal.h>
+
+#import <os/log.h>
+
 #import <AquaSKKCore/SKKAutoUpdateDictionary.h>
 #import <AquaSKKCore/SKKBackEnd.h>
 #import <AquaSKKCore/SKKCommonDictionary.h>
@@ -29,17 +33,14 @@
 #import <AquaSKKCore/SKKLocalUserDictionary.h>
 #import <AquaSKKCore/SKKProxyDictionary.h>
 #import <AquaSKKCore/SKKRomanKanaConverter.h>
+#import <AquaSKKCore/skkserv.h>
 #import <AquaSKKInput/BlacklistApps.h>
+#import <AquaSKKInput/MacKotoeriDictionary.h>
 #import <AquaSKKInput/SKKPreProcessor.h>
 #import <AquaSKKInput/SKKServer.h>
-#import <AquaSKKService/SKKConstVars.h>
-// #import <AquaSKKInput/SKKPythonRunner.h>
-#import <AquaSKKCore/skkserv.h>
-#import <AquaSKKInput/MacKotoeriDictionary.h>
 #import <AquaSKKService/AISDefaultServerConfiguration.h>
+#import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKUI/InputModeWindow.h>
-#import <os/log.h>
-#include <signal.h>
 
 static os_log_t appLog(void) {
     static os_log_t _serviceLog;
@@ -212,30 +213,7 @@ static void terminate(int) {
         }
     }
 
-#if 1
     SKKBackEnd::theInstance().Initialize(userDictionary == nil ? "" : [userDictionary UTF8String], keys);
-#else
-    SKKUserDictionary *dictionary = 0;
-
-    if([defaults boolForKey:SKKUserDefaultKeys::enable_skkdap] == YES) {
-        NSString *port = [defaults stringForKey:SKKUserDefaultKeys::skkdap_port];
-
-        SKKPythonRunner runner;
-
-        runner.Run("");
-
-        dictionary = new SKKDistributedUserDictionary();
-        dictionary->Initialize([port UTF8String]);
-    } else {
-        NSString *userDictionary = [defaults stringForKey:SKKUserDefaultKeys::user_dictionary_path];
-        userDictionary = [userDictionary stringByExpandingTildeInPath];
-
-        dictionary = new SKKLocalUserDictionary();
-        dictionary->Initialize([userDictionary UTF8String]);
-    }
-
-    SKKBackEnd::theInstance().Initialize(dictionary, keys);
-#endif
 }
 
 - (void)reloadComponents {
