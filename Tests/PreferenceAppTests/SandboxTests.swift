@@ -14,7 +14,6 @@ struct SandboxTests {
         let config = DefaultServerConfiguration()
         #expect(!config.userDefaultsPath.contains("Library/Containers/"))
         let url = URL(fileURLWithPath: "\(config.userDefaultsPath)")
-        NSLog("\(config.userDefaultsPath)")
         try Data().write(to: url)
     }
 }
