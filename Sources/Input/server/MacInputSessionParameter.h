@@ -28,16 +28,13 @@
 #include <memory>
 
 class MacInputSessionParameter : public SKKInputSessionParameter {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    std::auto_ptr<SKKConfig> config_;
-    std::auto_ptr<SKKFrontEnd> frontend_;
-    std::auto_ptr<SKKMessenger> messenger_;
-    std::auto_ptr<SKKClipboard> clipboard_;
-    std::auto_ptr<SKKCandidateWindow> candidateWindow_;
-    std::auto_ptr<SKKAnnotator> annotator_;
-    std::auto_ptr<SKKDynamicCompletor> completor_;
-#pragma clang diagnostic pop
+    std::unique_ptr<SKKConfig> config_;
+    std::unique_ptr<SKKFrontEnd> frontend_;
+    std::unique_ptr<SKKMessenger> messenger_;
+    std::unique_ptr<SKKClipboard> clipboard_;
+    std::unique_ptr<SKKCandidateWindow> candidateWindow_;
+    std::unique_ptr<SKKAnnotator> annotator_;
+    std::unique_ptr<SKKDynamicCompletor> completor_;
 
 public:
     MacInputSessionParameter(id client, SKKLayoutManager* layout);

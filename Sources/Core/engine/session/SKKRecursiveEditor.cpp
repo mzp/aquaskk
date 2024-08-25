@@ -77,10 +77,7 @@ bool SKKRecursiveEditor::IsChildOf(SKKStateMachine::Handler handler) {
 // ----------------------------------------------------------------------
 
 void SKKRecursiveEditor::forEachWidget(WidgetMethod method) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    std::for_each(widgets_.begin(), widgets_.end(), std::mem_fun(method));
-#pragma clang diagnostic pop
+    std::for_each(widgets_.begin(), widgets_.end(), std::mem_fn(method));
 }
 
 void SKKRecursiveEditor::complete() {

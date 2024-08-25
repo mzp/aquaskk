@@ -116,7 +116,7 @@ namespace {
 } // namespace
 
 SKKBackEnd::SKKBackEnd()
-    : userdict_(0), useNumericConversion_(false), enableExtendedCompletion_(false), minimumCompletionLength_(0) {}
+    : userdict_(nullptr), useNumericConversion_(false), enableExtendedCompletion_(false), minimumCompletionLength_(0) {}
 
 SKKBackEnd& SKKBackEnd::theInstance() {
     static SKKBackEnd obj;

@@ -211,10 +211,7 @@ namespace statemachinecxx_sourceforge_jp {
         History history_;
 
         enum HistoryTypes { SHALLOW, DEEP };
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        class Equal : public std::unary_function<Entry, bool> {
-#pragma clang diagnostic pop
+        class Equal : public std::function<bool(Entry)> {
             Handler key_;
 
         public:
@@ -282,10 +279,7 @@ namespace statemachinecxx_sourceforge_jp {
         Queue incoming_;
         Queue outgoing_;
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        class Equal : public std::unary_function<Entry, bool> {
-#pragma clang diagnostic pop
+        class Equal : public std::function<bool(Entry)> {
             const Handler key_;
 
         public:

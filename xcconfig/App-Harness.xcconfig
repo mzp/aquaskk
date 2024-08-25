@@ -8,8 +8,6 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-#include "./Include/Cpp.xcconfig"
-
 CODE_SIGN_ENTITLEMENTS = Tests/Harness/Support files/Harness.entitlements
 DEVELOPMENT_ASSET_PATHS = "Tests/Harness/Preview Content"
 

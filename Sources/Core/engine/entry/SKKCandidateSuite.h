@@ -180,10 +180,7 @@ public:
     }
 
     void Remove(const SKKCandidate& candidate) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        RemoveIf(std::bind1st(std::equal_to<SKKCandidate>(), candidate));
-#pragma clang diagnostic pop
+        RemoveIf([candidate](SKKCandidate c) { return candidate == c; });
     }
 
     template <typename Predicate> void RemoveIf(const Predicate& pred) {
@@ -191,7 +188,9 @@ public:
             SKKCandidateContainer removed;
 
             // pred が true の要素を remove して copy するので、not1 で反転させる
-            std::remove_copy_if(candidates_.begin(), candidates_.end(), std::back_inserter(removed), std::not1(pred));
+            std::remove_copy_if(
+                candidates_.begin(), candidates_.end(), std::back_inserter(removed),
+                [pred](SKKCandidate c) { return !pred(c); });
 
             for(unsigned index = 0; !hints_.empty() && index < removed.size(); ++index) {
                 remove_hint(removed[index]);

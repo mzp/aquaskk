@@ -8,8 +8,8 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-CLANG_CXX_LANGUAGE_STANDARD = c++11
+CLANG_CXX_LANGUAGE_STANDARD = c++20
 MODULE_VERIFIER_SUPPORTED_LANGUAGES = objective-c++
-MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = gnu++11
+MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = gnu++20
 
 SWIFT_OBJC_INTEROP_MODE = objcxx

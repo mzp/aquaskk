@@ -104,9 +104,9 @@ namespace {
     // カーソル位置がウィンドウ矩形に含まれていなければ無視する
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wshorten-64-to-32"
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    using namespace std::placeholders;
     int count = std::count_if(list.begin(), list.end(),
-                              std::bind2nd(std::ptr_fun(CGRectContainsPoint), cursor));
+                              std::bind(std::function<bool(CGRect, CGPoint)>(CGRectContainsPoint),_1, cursor));
 #pragma clang diagnostic pop
     if(!count) {
         return;

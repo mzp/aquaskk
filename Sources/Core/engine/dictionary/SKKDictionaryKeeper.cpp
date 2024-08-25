@@ -66,7 +66,7 @@ namespace {
 } // namespace
 
 SKKDictionaryKeeper::SKKDictionaryKeeper(Encoding encoding)
-    : timer_(0), loaded_(false), needs_conversion_(encoding == EUC_JP) {}
+    : timer_(nullptr), loaded_(false), needs_conversion_(encoding == EUC_JP) {}
 
 void SKKDictionaryKeeper::Initialize(SKKDictionaryLoader* loader) {
     if(timer_.get())
@@ -75,10 +75,7 @@ void SKKDictionaryKeeper::Initialize(SKKDictionaryLoader* loader) {
     loader->Connect(this);
 
     timeout_ = loader->Timeout();
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    timer_ = std::auto_ptr<pthread::timer>(new pthread::timer(loader, loader->Interval()));
-#pragma clang diagnostic pop
+    timer_ = std::unique_ptr<pthread::timer>(new pthread::timer(loader, loader->Interval()));
 }
 
 std::string SKKDictionaryKeeper::FindOkuriAri(const std::string& query) {

@@ -30,14 +30,12 @@ SKKInputModeSelector::SKKInputModeSelector(SKKInputModeListenerCollection* liste
 }
 
 void SKKInputModeSelector::Select(SKKInputMode mode) {
+    using namespace std::placeholders;
     needsUpdate_ = mode_ != mode;
     mode_ = mode;
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     std::for_each(
         listeners_->begin(), listeners_->end(),
-        std::bind2nd(std::mem_fun(&SKKInputModeListener::SelectInputMode), mode_));
-#pragma clang diagnostic pop
+                  std::bind(std::mem_fn(&SKKInputModeListener::SelectInputMode), _1, mode_));
 }
 
 void SKKInputModeSelector::Notify() {
@@ -59,15 +57,9 @@ SKKInputModeSelector::operator SKKInputMode() const {
 // ------------------------------------------------------------
 
 void SKKInputModeSelector::SKKWidgetShow() {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    std::for_each(listeners_->begin(), listeners_->end(), std::mem_fun(&SKKWidget::Show));
-#pragma clang diagnostic pop
+    std::for_each(listeners_->begin(), listeners_->end(), std::mem_fn(&SKKWidget::Show));
 }
 
 void SKKInputModeSelector::SKKWidgetHide() {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    std::for_each(listeners_->begin(), listeners_->end(), std::mem_fun(&SKKWidget::Hide));
-#pragma clang diagnostic pop
+    std::for_each(listeners_->begin(), listeners_->end(), std::mem_fn(&SKKWidget::Hide));
 }

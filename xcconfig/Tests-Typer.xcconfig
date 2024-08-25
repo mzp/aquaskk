@@ -9,6 +9,4 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 
-#include "./Include/Cpp.xcconfig"
-
 OTHER_LDFLAGS = $(inherits) -framework AquaSKKInput -framework AquaSKKTesting
