@@ -98,6 +98,7 @@ class SKKCandidateParser {
 
 public:
     void Parse(const std::string& str) {
+        using namespace std::placeholders;
         handler_ = &SKKCandidateParser::phase1;
 
         candidates_.clear();
@@ -105,11 +106,8 @@ public:
 
         reset();
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        std::for_each(str.begin(), str.end(), std::bind1st(std::mem_fun(&SKKCandidateParser::invoke), this));
+        std::for_each(str.begin(), str.end(), std::bind(std::mem_fn(&SKKCandidateParser::invoke), this, _1));
     }
-#pragma clang diagnostic pop
 
     const SKKCandidateContainer& Candidates() const {
         return candidates_;

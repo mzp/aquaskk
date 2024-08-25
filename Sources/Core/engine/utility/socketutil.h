@@ -545,11 +545,11 @@ namespace net {
             }
 
             void reset() {
+
+                using namespace std::placeholders;
+
                 FD_ZERO(&impl_);
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-                std::for_each(set_.begin(), set_.end(), std::bind1st(std::mem_fun(&fdset::setup), this));
-#pragma clang diagnostic pop
+                std::for_each(set_.begin(), set_.end(), std::bind(std::mem_fn(&fdset::setup), this, _1));
             }
 
             operator fd_set*() {

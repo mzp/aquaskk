@@ -21,6 +21,9 @@
 */
 
 #include "SKKFrontEnd.h"
+
+#include <functional>
+
 #import <AquaSKKCore/SKKBackEnd.h>
 #import <AquaSKKCore/SKKUndoContext.h>
 
@@ -38,13 +41,10 @@ SKKUndoContext::UndoResult SKKUndoContext::Undo() {
         return UndoFailed;
     }
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     // 表示不可能な文字が含まれるか？
-    if(std::find_if(entry_.begin(), entry_.end(), std::not1(std::ptr_fun(isprint))) != entry_.end()) {
+    if(std::find_if(entry_.begin(), entry_.end(), std::not1(std::function<int(int)>(isprint))) != entry_.end()) {
         return UndoKanaEntry;
     }
-#pragma clang diagnostic pop
 
     return UndoAsciiEntry;
 }

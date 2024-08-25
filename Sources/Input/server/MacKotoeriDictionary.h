@@ -33,6 +33,7 @@ class KotoeriImpl;
 
 class MacKotoeriDictionary : public SKKBaseDictionary {
     std::unique_ptr<KotoeriImpl> impl_;
+
 public:
     MacKotoeriDictionary();
     virtual ~MacKotoeriDictionary();
