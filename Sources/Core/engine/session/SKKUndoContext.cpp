@@ -42,7 +42,7 @@ SKKUndoContext::UndoResult SKKUndoContext::Undo() {
     }
 
     // 表示不可能な文字が含まれるか？
-    if(std::find_if(entry_.begin(), entry_.end(), std::not1(std::function<int(int)>(isprint))) != entry_.end()) {
+    if(std::find_if(entry_.begin(), entry_.end(), std::not_fn(std::function<int(int)>(isprint))) != entry_.end()) {
         return UndoKanaEntry;
     }
 
