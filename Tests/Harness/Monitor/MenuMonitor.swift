@@ -5,7 +5,7 @@
 //  Created by mzp on 8/17/24.
 //
 
-import AquaSKKIM
+import AquaSKKInput
 import SwiftUI
 
 struct MenuMonitor: View {

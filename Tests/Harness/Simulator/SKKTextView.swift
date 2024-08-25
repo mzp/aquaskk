@@ -1,12 +1,12 @@
 //
 //  SKKTextView.swift
-//  AquaSKKIM
+//  AquaSKKInput
 //
 //  Created by mzp on 8/3/24.
 //
 
 import AppKit
-import AquaSKKIM_Private
+import AquaSKKInput_Private
 import Foundation
 import InputMethodKit
 import OSLog

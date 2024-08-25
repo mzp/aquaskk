@@ -30,8 +30,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "135C3D442C5B3E8F00661AE3"
-               BuildableName = "AquaSKKIM.framework"
-               BlueprintName = "AquaSKKIM"
+               BuildableName = "AquaSKKInput.framework"
+               BlueprintName = "AquaSKKInput"
                ReferencedContainer = "container:AquaSKK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
