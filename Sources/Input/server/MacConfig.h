@@ -31,7 +31,7 @@ class MacConfig : public SKKConfig {
     int integerConfig(NSString *key);
     bool boolConfig(NSString *key);
 
-  public:
+public:
     MacConfig();
 
     virtual bool FixIntermediateConversion();

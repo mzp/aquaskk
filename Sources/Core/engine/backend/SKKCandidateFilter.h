@@ -29,8 +29,8 @@
 // skk-ignore-dic-word 対応
 
 struct SKKIgnoreDicWord : public std::function<bool(SKKCandidate)> {
-    bool operator()(const SKKCandidate& candidate) const {
-        const std::string& str = candidate.Word();
+    bool operator()(const SKKCandidate &candidate) const {
+        const std::string &str = candidate.Word();
 
         return str.find("(skk-ignore-dic-word ") == 0;
     }

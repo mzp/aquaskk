@@ -34,7 +34,7 @@ public:
     // completion="\n" で結合された見出し語候補
     // commonPrefixLength=各見出し語候補の共通プレフィクス長
     // cursorOffset=カーソル位置
-    virtual void Update(const std::string& completion, int commonPrefixLength, int cursorOffset) = 0;
+    virtual void Update(const std::string &completion, int commonPrefixLength, int cursorOffset) = 0;
 };
 
 #endif

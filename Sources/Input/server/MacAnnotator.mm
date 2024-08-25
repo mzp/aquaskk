@@ -20,31 +20,31 @@
 
 */
 
+#import <AquaSKKCore/utf8util.h>
 #import <AquaSKKInput/MacAnnotator.h>
+#import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKUI/AnnotationWindow.h>
 #import <AquaSKKUI/CandidateWindow.h>
-#import <AquaSKKService/SKKConstVars.h>
-#import <AquaSKKCore/utf8util.h>
 
-#include <InputMethodKit/InputMethodKit.h>
 #include <CoreServices/CoreServices.h>
+#include <InputMethodKit/InputMethodKit.h>
 #include <iostream>
 
-MacAnnotator::MacAnnotator(SKKLayoutManager* layout)
+MacAnnotator::MacAnnotator(SKKLayoutManager *layout)
     : layout_(layout), definition_(nil), optional_(nil) {
     window_ = [AnnotationWindow sharedWindow];
 }
 
-void MacAnnotator::Update(const SKKCandidate& candidate, int cursorOffset) {
+void MacAnnotator::Update(const SKKCandidate &candidate, int cursorOffset) {
     candidate_ = candidate;
     cursor_ = cursorOffset;
 
     release(definition_);
     release(optional_);
 
-    NSString* str = [NSString stringWithUTF8String:candidate_.Variant().c_str()];
+    NSString *str = [NSString stringWithUTF8String:candidate_.Variant().c_str()];
     CFRange range = CFRangeMake(0, [str length]);
-    definition_ = (NSString*)DCSCopyTextDefinition(0, (CFStringRef)str, range);
+    definition_ = (NSString *)DCSCopyTextDefinition(0, (CFStringRef)str, range);
 
     if(!candidate_.Annotation().empty()) {
         optional_ = [NSString stringWithUTF8String:candidate_.Annotation().c_str()];
@@ -54,7 +54,7 @@ void MacAnnotator::Update(const SKKCandidate& candidate, int cursorOffset) {
 
 // ------------------------------------------------------------
 
-void MacAnnotator::release(NSString*& str) {
+void MacAnnotator::release(NSString *&str) {
     if(str) {
         [str release];
     }
@@ -69,8 +69,7 @@ void MacAnnotator::SKKWidgetShow() {
         SKKWidgetHide();
     }
 
-    [window_ showAt:layout_->AnnotationWindowOrigin(cursor_)
-             level:layout_->WindowLevel()];
+    [window_ showAt:layout_->AnnotationWindowOrigin(cursor_) level:layout_->WindowLevel()];
 }
 
 void MacAnnotator::SKKWidgetHide() {

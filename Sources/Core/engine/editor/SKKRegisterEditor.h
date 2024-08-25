@@ -33,18 +33,18 @@ class SKKRegisterEditor : public SKKBaseEditor {
     SKKTextBuffer word_;
 
     SKKRegisterEditor();
-    SKKRegisterEditor(const SKKRegisterEditor&);
-    SKKRegisterEditor& operator=(const SKKRegisterEditor&);
+    SKKRegisterEditor(const SKKRegisterEditor &);
+    SKKRegisterEditor &operator=(const SKKRegisterEditor &);
 
 public:
-    SKKRegisterEditor(SKKInputContext* context);
+    SKKRegisterEditor(SKKInputContext *context);
 
     virtual void ReadContext();
     virtual void WriteContext();
-    virtual void Input(const std::string& ascii);
-    virtual void Input(const std::string& fixed, const std::string& input, char code);
+    virtual void Input(const std::string &ascii);
+    virtual void Input(const std::string &fixed, const std::string &input, char code);
     virtual void Input(Event event);
-    virtual void Commit(std::string& queue);
+    virtual void Commit(std::string &queue);
 };
 
 #endif

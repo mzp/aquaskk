@@ -29,7 +29,7 @@
 static std::string OKURI_ARI_MARK = ";; okuri-ari entries.";
 static std::string OKURI_NASI_MARK = ";; okuri-nasi entries.";
 
-bool SKKDictionaryFile::Load(const std::string& path) {
+bool SKKDictionaryFile::Load(const std::string &path) {
     okuriAri_.clear();
     okuriNasi_.clear();
 
@@ -55,7 +55,7 @@ bool SKKDictionaryFile::Load(const std::string& path) {
     return true;
 }
 
-bool SKKDictionaryFile::Save(const std::string& path) {
+bool SKKDictionaryFile::Save(const std::string &path) {
     std::ofstream ofs(path.c_str());
 
     ofs << OKURI_ARI_MARK << std::endl;
@@ -78,15 +78,15 @@ void SKKDictionaryFile::Sort() {
     sort(okuriNasi_);
 }
 
-SKKDictionaryEntryContainer& SKKDictionaryFile::OkuriAri() {
+SKKDictionaryEntryContainer &SKKDictionaryFile::OkuriAri() {
     return okuriAri_;
 }
 
-SKKDictionaryEntryContainer& SKKDictionaryFile::OkuriNasi() {
+SKKDictionaryEntryContainer &SKKDictionaryFile::OkuriNasi() {
     return okuriNasi_;
 }
 
-bool SKKDictionaryFile::exist(const std::string& path) {
+bool SKKDictionaryFile::exist(const std::string &path) {
     struct stat st;
 
     if(stat(path.c_str(), &st) < 0 || !S_ISREG(st.st_mode)) {
@@ -97,7 +97,7 @@ bool SKKDictionaryFile::exist(const std::string& path) {
     return true;
 }
 
-bool SKKDictionaryFile::fetch(std::istream& is, SKKDictionaryEntry& entry) {
+bool SKKDictionaryFile::fetch(std::istream &is, SKKDictionaryEntry &entry) {
     if(is >> entry.first && is.ignore() && std::getline(is, entry.second)) {
         return true;
     }
@@ -105,7 +105,7 @@ bool SKKDictionaryFile::fetch(std::istream& is, SKKDictionaryEntry& entry) {
     return false;
 }
 
-bool SKKDictionaryFile::store(std::ostream& os, const SKKDictionaryEntryContainer& container) {
+bool SKKDictionaryFile::store(std::ostream &os, const SKKDictionaryEntryContainer &container) {
     for(unsigned i = 0; i < container.size(); ++i) {
         os << container[i].first << ' ' << container[i].second << std::endl;
     }
@@ -113,6 +113,6 @@ bool SKKDictionaryFile::store(std::ostream& os, const SKKDictionaryEntryContaine
     return os.good();
 }
 
-void SKKDictionaryFile::sort(SKKDictionaryEntryContainer& container) {
+void SKKDictionaryFile::sort(SKKDictionaryEntryContainer &container) {
     std::sort(container.begin(), container.end(), SKKDictionaryEntryCompare());
 }

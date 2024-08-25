@@ -40,7 +40,7 @@
 
 namespace string {
     // 置換ユーティリティ
-    static void translate(std::string& str, const std::string& from, const std::string& to) {
+    static void translate(std::string &str, const std::string &from, const std::string &to) {
         std::string::size_type pos = 0;
 
         if(from == to)
@@ -51,7 +51,7 @@ namespace string {
         }
     }
 
-    template <typename T> static std::string join(T& sequence, const std::string& delimiter = " ") {
+    template <typename T> static std::string join(T &sequence, const std::string &delimiter = " ") {
         std::string result;
 
         for(typename T::iterator iter = sequence.begin(); iter != sequence.end(); ++iter) {
@@ -69,7 +69,7 @@ namespace string {
         std::istringstream buf_;
 
     public:
-        void split(const std::string& target, const std::string& delimiter = ",") {
+        void split(const std::string &target, const std::string &delimiter = ",") {
             std::string str(target);
 
             translate(str, delimiter, " ");
@@ -78,7 +78,7 @@ namespace string {
             buf_.str(str);
         }
 
-        template <typename T> splitter& operator>>(T& value) {
+        template <typename T> splitter &operator>>(T &value) {
             buf_ >> value;
             return *this;
         }

@@ -32,13 +32,13 @@ public:
     virtual ~SKKCompletionHelper() {}
 
     // 見出し語
-    virtual const std::string& Entry() const = 0;
+    virtual const std::string &Entry() const = 0;
 
     // 補完継続可否
     virtual bool CanContinue() const = 0;
 
     // 補完候補の追加
-    virtual void Add(const std::string& completion) = 0;
+    virtual void Add(const std::string &completion) = 0;
 };
 
 #endif

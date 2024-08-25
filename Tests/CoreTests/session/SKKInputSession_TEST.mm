@@ -1,30 +1,29 @@
-#import <AquaSKKCore/SKKInputSession.h>
-#import <AquaSKKCore/SKKKeymap.h>
 #include "SKKRomanKanaConverter.h"
 #import <AquaSKKCore/SKKBackEnd.h>
+#import <AquaSKKCore/SKKInputSession.h>
+#import <AquaSKKCore/SKKKeymap.h>
 
 #include "MockInputSessionParameter.h"
 #include "TestData.h"
 
+#import <XCTest/XCTest.h>
+#include <cassert>
+#include <fstream>
 #include <ios>
 #include <iostream>
-#include <fstream>
-#include <cassert>
-#import <XCTest/XCTest.h>
 
-@interface SKKInputSessionTests: XCTestCase
+@interface SKKInputSessionTests : XCTestCase
 @end
 
-
 class TestRunner {
-    MockInputSessionParameter* param;
+    MockInputSessionParameter *param;
     SKKInputSession session;
     SKKKeymap map;
     TestData test;
 
-    SKKEvent getEvent(TestEntry& entry) {
-        TestEvent& input = entry.input;
-        
+    SKKEvent getEvent(TestEntry &entry) {
+        TestEvent &input = entry.input;
+
         return map.Fetch(input.code, 0, input.mods);
     }
 
@@ -49,8 +48,8 @@ class TestRunner {
         TestEntry entry;
 
         while(test >> entry) {
-            ++ total;
-            TestResult& actual = param->Result();
+            ++total;
+            TestResult &actual = param->Result();
 
             actual.Clear();
 
@@ -58,7 +57,7 @@ class TestRunner {
             param->SetYankString(entry.input.yank);
 
             SKKEvent event = getEvent(entry);
-            
+
             actual.ret = session.HandleEvent(event);
 
             if(actual != entry.expected) {
@@ -66,21 +65,19 @@ class TestRunner {
                 std::cerr << "*** test failed *** line=" << entry.line << std::endl;
                 std::cerr << "\t" << event.dump() << std::endl;
                 entry.expected.Dump("\texpected: ");
-                        actual.Dump("\t  actual: ");
+                actual.Dump("\t  actual: ");
                 std::cerr << std::endl;
             } else {
-                ++ success;
+                ++success;
             }
         }
 
         std::cerr << "success=" << success << " / "
-                  << "total=" << total
-                  << ", (" << (double)success / total * 100 << "%)"
-                  << std::endl;
+                  << "total=" << total << ", (" << (double)success / total * 100 << "%)" << std::endl;
     }
 
 public:
-    TestRunner(const std::string& path)
+    TestRunner(const std::string &path)
         : param(new MockInputSessionParameter()), session(param) {
         initialize();
         test.Load(path);

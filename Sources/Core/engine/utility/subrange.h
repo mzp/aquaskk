@@ -41,7 +41,7 @@ template <typename Container, typename Iter = typename Container::iterator> clas
     Iter begin_;
     Iter end_;
 
-    void adjust(Container& container, size_type pos, size_type length) {
+    void adjust(Container &container, size_type pos, size_type length) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wshorten-64-to-32"
         unsigned size = container.size();
@@ -68,7 +68,7 @@ public:
     subrange() {}
     subrange(Iter begin, Iter end)
         : begin_(begin), end_(end) {}
-    subrange(Container& container, size_type pos, size_type length = -1U) {
+    subrange(Container &container, size_type pos, size_type length = -1U) {
         adjust(container, pos, length);
     }
 
@@ -77,7 +77,7 @@ public:
         end_ = end;
     }
 
-    void set(Container& container, size_type pos, size_type length = -1U) {
+    void set(Container &container, size_type pos, size_type length = -1U) {
         adjust(container, pos, length);
     }
 
@@ -105,17 +105,17 @@ public:
         return end_;
     }
 
-    value_type& front() {
+    value_type &front() {
         return *begin();
     }
-    value_type& back() {
+    value_type &back() {
         return *(end() - 1);
     }
 
-    value_type& operator[](size_type pos) {
+    value_type &operator[](size_type pos) {
         return *(begin() + pos);
     }
-    const value_type& operator[](size_type pos) const {
+    const value_type &operator[](size_type pos) const {
         return *(begin() + pos);
     }
 };

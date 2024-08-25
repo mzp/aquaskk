@@ -29,13 +29,13 @@ class SKKInputContext;
 
 // 基底エディタクラス
 class SKKBaseEditor {
-    SKKInputContext* context_;
+    SKKInputContext *context_;
 
 protected:
-    SKKBaseEditor(SKKInputContext* context)
+    SKKBaseEditor(SKKInputContext *context)
         : context_(context) {}
 
-    SKKInputContext* context() const {
+    SKKInputContext *context() const {
         return context_;
     }
 
@@ -54,10 +54,10 @@ public:
     virtual void WriteContext() {}
 
     // 入力処理(ASCII もしくはペースト用)
-    virtual void Input(const std::string& ascii) {}
+    virtual void Input(const std::string &ascii) {}
 
     // 入力処理(fixed=確定文字列, input=入力文字列, code=入力文字)
-    virtual void Input(const std::string& fixed, const std::string& input, char code) {}
+    virtual void Input(const std::string &fixed, const std::string &input, char code) {}
 
     enum Event { BackSpace, Delete, CursorLeft, CursorRight, CursorUp, CursorDown };
 
@@ -67,7 +67,7 @@ public:
     // 確定処理
     //
     // queue に確定した文字列をセットする
-    virtual void Commit(std::string& queue) = 0;
+    virtual void Commit(std::string &queue) = 0;
 };
 
 #endif

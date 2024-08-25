@@ -57,11 +57,11 @@
 namespace net {
     namespace socket {
 #ifdef _MSC_VER
-        typedef int(__stdcall* initializer)(SOCKET, const sockaddr*, socklen_t);
-        typedef int(__stdcall* converter)(SOCKET, sockaddr*, socklen_t*);
+        typedef int(__stdcall *initializer)(SOCKET, const sockaddr *, socklen_t);
+        typedef int(__stdcall *converter)(SOCKET, sockaddr *, socklen_t *);
 #else
-        typedef int (*initializer)(int, const sockaddr*, socklen_t);
-        typedef int (*converter)(int, sockaddr*, socklen_t*);
+        typedef int (*initializer)(int, const sockaddr *, socklen_t);
+        typedef int (*converter)(int, sockaddr *, socklen_t *);
 #endif
 
         // ======================================================================
@@ -69,8 +69,8 @@ namespace net {
         // ======================================================================
         class closer {
             closer();
-            closer(const closer&);
-            closer& operator=(const closer&);
+            closer(const closer &);
+            closer &operator=(const closer &);
 
         public:
             closer(int fd) {
@@ -100,7 +100,7 @@ namespace net {
         struct SO_REUSEADDR_option {
             int operator()(int fd) const {
                 int optval = 1;
-                return setsockopt(fd, SOL_SOCKET, SO_REUSEADDR, (const char*)&optval, sizeof(optval));
+                return setsockopt(fd, SOL_SOCKET, SO_REUSEADDR, (const char *)&optval, sizeof(optval));
             }
         };
 
@@ -108,8 +108,8 @@ namespace net {
         // address resolver(socket factory)
         // ======================================================================
         class address {
-            addrinfo* result_;
-            addrinfo* iter_;
+            addrinfo *result_;
+            addrinfo *iter_;
 
             void clear() {
                 if(!result_)
@@ -119,8 +119,8 @@ namespace net {
                 result_ = iter_ = 0;
             }
 
-            address(const address&);
-            address& operator=(const address&);
+            address(const address &);
+            address &operator=(const address &);
 
         public:
             address()
@@ -129,7 +129,7 @@ namespace net {
                 clear();
             }
 
-            bool resolve(const char* node, const char* service, int flags, int family, int socktype, int protocol) {
+            bool resolve(const char *node, const char *service, int flags, int family, int socktype, int protocol) {
                 clear();
 
                 addrinfo hints = {};
@@ -146,7 +146,7 @@ namespace net {
                 return iter_ != 0;
             }
 
-            operator const addrinfo*() const {
+            operator const addrinfo *() const {
                 return iter_;
             }
 
@@ -155,7 +155,7 @@ namespace net {
                     iter_ = iter_->ai_next;
             }
 
-            template <typename T> int get(const T& option, initializer init) {
+            template <typename T> int get(const T &option, initializer init) {
                 assert(iter_);
 
                 int fd = static_cast<int>(::socket(iter_->ai_family, iter_->ai_socktype, iter_->ai_protocol));
@@ -175,7 +175,7 @@ namespace net {
             std::string node_;
             std::string service_;
 
-            const char* ptr(const std::string& str) const {
+            const char *ptr(const std::string &str) const {
                 if(!str.empty()) {
                     return str.c_str();
                 }
@@ -186,14 +186,14 @@ namespace net {
         public:
             endpoint() {}
 
-            endpoint(const char* node, const char* service) {
+            endpoint(const char *node, const char *service) {
                 if(node)
                     node_ = node;
                 if(service)
                     service_ = service;
             }
 
-            endpoint(const std::string& host, unsigned short port) {
+            endpoint(const std::string &host, unsigned short port) {
                 node_ = host;
 
                 std::ostringstream buf;
@@ -201,7 +201,7 @@ namespace net {
                 service_ = buf.str();
             }
 
-            void parse(const std::string& addr, const std::string& default_port) {
+            void parse(const std::string &addr, const std::string &default_port) {
                 std::string tmp(addr);
                 std::replace(tmp.begin(), tmp.end(), ':', ' ');
 
@@ -212,11 +212,11 @@ namespace net {
                 buf >> node_ >> service_;
             }
 
-            const std::string& node() const {
+            const std::string &node() const {
                 return node_;
             }
 
-            const std::string& service() const {
+            const std::string &service() const {
                 return service_;
             }
 
@@ -224,7 +224,7 @@ namespace net {
                 return connect(family, type, protocol, flags, DEFAULT_option());
             }
 
-            template <typename T> int connect(int family, int type, int protocol, int flags, const T& option) const {
+            template <typename T> int connect(int family, int type, int protocol, int flags, const T &option) const {
                 address addr;
 
                 if(addr.resolve(ptr(node_), ptr(service_), flags, family, type, protocol)) {
@@ -238,7 +238,7 @@ namespace net {
                 return bind(family, type, protocol, flags, SO_REUSEADDR_option());
             }
 
-            template <typename T> int bind(int family, int type, int protocol, int flags, const T& option) const {
+            template <typename T> int bind(int family, int type, int protocol, int flags, const T &option) const {
                 address addr;
 
                 if(addr.resolve(ptr(node_), ptr(service_), flags | AI_PASSIVE, family, type, protocol)) {
@@ -254,7 +254,7 @@ namespace net {
             }
 
             template <typename T>
-            int listen(int backlog, int family, int type, int protocol, int flags, const T& option) const {
+            int listen(int backlog, int family, int type, int protocol, int flags, const T &option) const {
                 int fd = bind(family, type, protocol, flags, option);
 
                 if(fd == -1 || ::listen(fd, backlog) == -1) {
@@ -274,7 +274,7 @@ namespace net {
         // getnameinfo abstraction
         // ======================================================================
         class nameinfo {
-            static namepair info(const sockaddr* saddr, int length, int option) {
+            static namepair info(const sockaddr *saddr, int length, int option) {
                 char host[NI_MAXHOST] = {};
                 char service[NI_MAXSERV] = {};
 
@@ -290,8 +290,8 @@ namespace net {
                 socklen_t length = sizeof(storage);
                 namepair result;
 
-                if(convert(fd, (sockaddr*)&storage, &length) == 0) {
-                    result = nameinfo::info((const sockaddr*)&storage, length, option);
+                if(convert(fd, (sockaddr *)&storage, &length) == 0) {
+                    result = nameinfo::info((const sockaddr *)&storage, length, option);
                 }
 
                 return result;
@@ -306,7 +306,7 @@ namespace net {
                 return nameinfo::get(fd, getsockname, option);
             }
 
-            static const namepair addr(const addrinfo* info, int option = NI_NUMERICHOST | NI_NUMERICSERV) {
+            static const namepair addr(const addrinfo *info, int option = NI_NUMERICHOST | NI_NUMERICSERV) {
                 return nameinfo::info(info->ai_addr, info->ai_addrlen, option);
             }
         };
@@ -316,8 +316,8 @@ namespace net {
         // ======================================================================
         class streambuf : public std::streambuf {
             int fd_;
-            char* input_;
-            char* output_;
+            char *input_;
+            char *output_;
 
             enum { BUFFER_SIZE = 8192 }; // TODO: should be a customize point
 
@@ -417,13 +417,13 @@ namespace net {
                 assign(fd);
             }
 
-            tcpstream(const std::string& host, unsigned short port, int family = AF_INET, int flags = 0)
+            tcpstream(const std::string &host, unsigned short port, int family = AF_INET, int flags = 0)
                 : std::iostream(0) {
                 rdbuf(&buf_);
                 open(host, port, family, flags);
             }
 
-            tcpstream(const endpoint& endpoint, int family = AF_INET, int flags = 0)
+            tcpstream(const endpoint &endpoint, int family = AF_INET, int flags = 0)
                 : std::iostream(0) {
                 rdbuf(&buf_);
                 open(endpoint, family, flags);
@@ -437,11 +437,11 @@ namespace net {
                 assign(fd);
             }
 
-            void open(const std::string& host, unsigned short port, int family = AF_INET, int flags = 0) {
+            void open(const std::string &host, unsigned short port, int family = AF_INET, int flags = 0) {
                 open(endpoint(host, port), family, flags);
             }
 
-            void open(const endpoint& endpoint, int family = AF_INET, int flags = 0) {
+            void open(const endpoint &endpoint, int family = AF_INET, int flags = 0) {
                 assign(endpoint.connect(family, SOCK_STREAM, 0, flags));
             }
 
@@ -461,8 +461,8 @@ namespace net {
         class tcpserver {
             int fd_;
 
-            tcpserver(const tcpserver&);
-            tcpserver& operator=(const tcpserver&);
+            tcpserver(const tcpserver &);
+            tcpserver &operator=(const tcpserver &);
 
             enum { BACKLOG_SIZE = 32 };
 
@@ -475,7 +475,7 @@ namespace net {
                 open(port, backlog, family, flags);
             }
 
-            tcpserver(const endpoint& endpoint, int backlog = BACKLOG_SIZE, int family = AF_INET, int flags = 0) {
+            tcpserver(const endpoint &endpoint, int backlog = BACKLOG_SIZE, int family = AF_INET, int flags = 0) {
                 open(endpoint, backlog, family, flags);
             }
 
@@ -491,7 +491,7 @@ namespace net {
                 open(endpoint("", port), backlog, family, flags);
             }
 
-            void open(const endpoint& endpoint, int backlog = BACKLOG_SIZE, int family = AF_INET, int flags = 0) {
+            void open(const endpoint &endpoint, int backlog = BACKLOG_SIZE, int family = AF_INET, int flags = 0) {
                 attach(endpoint.listen(backlog, family, SOCK_STREAM, 0, flags));
             }
 
@@ -507,7 +507,7 @@ namespace net {
                 return fd_;
             }
 
-            operator void*() {
+            operator void *() {
                 return fd_ != -1 ? this : 0;
             }
         };
@@ -552,7 +552,7 @@ namespace net {
                 std::for_each(set_.begin(), set_.end(), std::bind(std::mem_fn(&fdset::setup), this, _1));
             }
 
-            operator fd_set*() {
+            operator fd_set *() {
                 if(!set_.empty()) {
                     return &impl_;
                 }
@@ -569,7 +569,7 @@ namespace net {
             fdset write_;
             fdset exception_;
 
-            fdset& target(int type) {
+            fdset &target(int type) {
                 switch(type) {
                 case WRITE:
                     return write_;
@@ -593,7 +593,7 @@ namespace net {
                 return ((max < e) ? e : max) + 1;
             }
 
-            int select(timeval* tv = 0) {
+            int select(timeval *tv = 0) {
                 read_.reset();
                 write_.reset();
                 exception_.reset();
@@ -641,8 +641,8 @@ namespace {
     class winsock2_environment {
         int result_;
 
-        winsock2_environment(const winsock2_environment&);
-        winsock2_environment& operator=(const winsock2_environment&);
+        winsock2_environment(const winsock2_environment &);
+        winsock2_environment &operator=(const winsock2_environment &);
 
     public:
         winsock2_environment() {

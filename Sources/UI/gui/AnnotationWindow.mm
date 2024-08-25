@@ -20,13 +20,13 @@
 
 */
 
-#import <AquaSKKUI/AnnotationWindow.h>
 #import <AquaSKKUI/AnnotationView.h>
+#import <AquaSKKUI/AnnotationWindow.h>
 
 @implementation AnnotationWindow
 
-+ (AnnotationWindow*)sharedWindow {
-    static AnnotationWindow* obj =  [[AnnotationWindow alloc] init];
++ (AnnotationWindow *)sharedWindow {
+    static AnnotationWindow *obj = [[AnnotationWindow alloc] init];
     return obj;
 }
 
@@ -37,9 +37,9 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
         window_ = [[NSWindow alloc] initWithContentRect:[view_ frame]
-                                    styleMask:NSBorderlessWindowMask
-                                    backing:NSBackingStoreBuffered
-                                    defer:YES];
+                                              styleMask:NSBorderlessWindowMask
+                                                backing:NSBackingStoreBuffered
+                                                  defer:YES];
 #pragma clang diagnostic pop
         [window_ setContentView:view_];
     }
@@ -53,11 +53,11 @@
     [super dealloc];
 }
 
-- (NSWindow*)window {
+- (NSWindow *)window {
     return window_;
 }
 
-- (void)setAnnotation:(NSString*)definition optional:(NSString*)annotation {
+- (void)setAnnotation:(NSString *)definition optional:(NSString *)annotation {
     [view_ setAnnotation:definition optional:annotation];
 }
 

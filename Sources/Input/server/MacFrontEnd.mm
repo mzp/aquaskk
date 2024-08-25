@@ -20,15 +20,16 @@
 
 */
 
-#include <iostream>
+#import <AquaSKKCore/utf8util.h>
 #import <AquaSKKInput/BlacklistApps.h>
 #import <AquaSKKInput/MacFrontEnd.h>
-#import <AquaSKKCore/utf8util.h>
+#include <iostream>
 
-MacFrontEnd::MacFrontEnd(id client) : client_(client) {}
+MacFrontEnd::MacFrontEnd(id client)
+    : client_(client) {}
 
-void MacFrontEnd::InsertString(const std::string& str) {
-    NSString* string = @"";
+void MacFrontEnd::InsertString(const std::string &str) {
+    NSString *string = @"";
 
     if(!str.empty()) {
         string = [NSString stringWithUTF8String:str.c_str()];
@@ -39,8 +40,8 @@ void MacFrontEnd::InsertString(const std::string& str) {
     [client_ insertText:string replacementRange:notFound()];
 }
 
-void MacFrontEnd::ComposeString(const std::string& str, int cursorOffset) {
-    NSMutableAttributedString* marked = createMarkedText(str, cursorOffset);
+void MacFrontEnd::ComposeString(const std::string &str, int cursorOffset) {
+    NSMutableAttributedString *marked = createMarkedText(str, cursorOffset);
     NSRange cursorPos = NSMakeRange([marked length] + cursorOffset, 0);
 
     // *** FIXME ***
@@ -55,16 +56,16 @@ void MacFrontEnd::ComposeString(const std::string& str, int cursorOffset) {
     [marked release];
 }
 
-void MacFrontEnd::ComposeString(const std::string& str, int candidateStart, int candidateLength) {
-    NSMutableAttributedString* marked = createMarkedText(str, 0);
+void MacFrontEnd::ComposeString(const std::string &str, int candidateStart, int candidateLength) {
+    NSMutableAttributedString *marked = createMarkedText(str, 0);
     NSRange cursorPos = NSMakeRange([marked length] + 0, 0);
     NSRange segment = NSMakeRange(candidateStart, candidateLength);
 
-    [marked addAttribute:NSMarkedClauseSegmentAttributeName
-                   value:[NSNumber numberWithInt:0] range:segment];
+    [marked addAttribute:NSMarkedClauseSegmentAttributeName value:[NSNumber numberWithInt:0] range:segment];
 
     [marked addAttribute:NSUnderlineStyleAttributeName
-                   value:[NSNumber numberWithInt:NSUnderlineStyleThick] range:segment];
+                   value:[NSNumber numberWithInt:NSUnderlineStyleThick]
+                   range:segment];
 
     [client_ setMarkedText:marked selectionRange:cursorPos replacementRange:notFound()];
 
@@ -73,7 +74,7 @@ void MacFrontEnd::ComposeString(const std::string& str, int candidateStart, int 
 
 std::string MacFrontEnd::SelectedString() {
     NSRange range = [client_ selectedRange];
-    NSAttributedString* text = [client_ attributedSubstringFromRange:range];
+    NSAttributedString *text = [client_ attributedSubstringFromRange:range];
 
     if(text) {
         return [[text string] UTF8String];
@@ -88,20 +89,22 @@ NSRange MacFrontEnd::notFound() const {
     return NSMakeRange(NSNotFound, NSNotFound);
 }
 
-NSMutableAttributedString* MacFrontEnd::createMarkedText(const std::string& str, int cursorOffset) {
-    NSString* source = [NSString stringWithUTF8String:str.c_str()];
-    NSMutableAttributedString* marked = [[NSMutableAttributedString alloc] initWithString:source];
+NSMutableAttributedString *MacFrontEnd::createMarkedText(const std::string &str, int cursorOffset) {
+    NSString *source = [NSString stringWithUTF8String:str.c_str()];
+    NSMutableAttributedString *marked = [[NSMutableAttributedString alloc] initWithString:source];
 
     [marked addAttribute:NSCursorAttributeName
-            value:[NSCursor IBeamCursor] range:NSMakeRange([marked length] + cursorOffset, 0)];
+                   value:[NSCursor IBeamCursor]
+                   range:NSMakeRange([marked length] + cursorOffset, 0)];
 
     [marked addAttribute:NSUnderlineStyleAttributeName
-            value:[NSNumber numberWithInt:NSUnderlineStyleSingle] range:NSMakeRange(0, [marked length])];
+                   value:[NSNumber numberWithInt:NSUnderlineStyleSingle]
+                   range:NSMakeRange(0, [marked length])];
 
     return marked;
 }
 
-void MacFrontEnd::workaroundForBlacklistApp(NSString* string) {
+void MacFrontEnd::workaroundForBlacklistApp(NSString *string) {
     // 確定前に、非確定文字列に確定予定文字列をセットするとうまくいく
     if(isBlacklistApp()) {
         NSLog(@"insert marked text");
@@ -113,5 +116,5 @@ void MacFrontEnd::workaroundForBlacklistApp(NSString* string) {
 
 // workaroundが必要なアプリかどうかを判定する
 bool MacFrontEnd::isBlacklistApp() const {
-    return [[BlacklistApps sharedManager] isInsertMarkedText: [client_ bundleIdentifier]];
+    return [[BlacklistApps sharedManager] isInsertMarkedText:[client_ bundleIdentifier]];
 }

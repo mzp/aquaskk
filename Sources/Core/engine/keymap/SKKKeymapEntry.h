@@ -40,18 +40,18 @@ class SKKKeymapEntry {
 
     enum { LABEL_GROUP = (1 << 1), LABEL_HEX = (1 << 2), LABEL_KEYCODE = (1 << 3) };
 
-    std::string setup(const std::string& str);
-    void parseGroup(const std::string& str);
-    void parseRange(const std::string& str);
-    void parseEntry(const std::string& str);
-    int makeKey(const std::string& str);
+    std::string setup(const std::string &str);
+    void parseGroup(const std::string &str);
+    void parseRange(const std::string &str);
+    void parseEntry(const std::string &str);
+    int makeKey(const std::string &str);
 
 public:
     SKKKeymapEntry();
-    SKKKeymapEntry(const std::string& configKey, const std::string& configValue);
+    SKKKeymapEntry(const std::string &configKey, const std::string &configValue);
 
     // キーの読み出し
-    bool operator>>(int& key);
+    bool operator>>(int &key);
 
     // エントリーがイベントかどうか
     bool IsEvent() const;

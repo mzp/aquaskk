@@ -35,7 +35,7 @@ template <typename Handler, typename Event> struct DebugInspector {
     std::string buf_;
 
 public:
-    void operator()(const Handler handler, const Event& event) {
+    void operator()(const Handler handler, const Event &event) {
         if(event == 0)
             return;
 

@@ -28,8 +28,8 @@
 
 class SKKUserDictionary : public SKKBaseDictionary {
 public:
-    virtual void Register(const SKKEntry& entry, const SKKCandidate& candidate) = 0;
-    virtual void Remove(const SKKEntry& entry, const SKKCandidate& candidate) = 0;
+    virtual void Register(const SKKEntry &entry, const SKKCandidate &candidate) = 0;
+    virtual void Remove(const SKKEntry &entry, const SKKCandidate &candidate) = 0;
     virtual void SetPrivateMode(bool flag) = 0;
 };
 

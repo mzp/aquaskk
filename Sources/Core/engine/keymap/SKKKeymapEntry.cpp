@@ -36,7 +36,7 @@ enum KeymapEntryType {
 // キーマップシンボルテーブル
 // ======================================================================
 static const struct {
-    const char* name;
+    const char *name;
     int symbol;
     int type;
 } KeymapTable[] = {
@@ -81,7 +81,7 @@ static const struct {
 };
 
 // 検索
-int fetchKeymapIndex(const std::string& key) {
+int fetchKeymapIndex(const std::string &key) {
     for(int i = 0; KeymapTable[i].name != 0x00; ++i) {
         if(key == KeymapTable[i].name) {
             return i;
@@ -92,7 +92,7 @@ int fetchKeymapIndex(const std::string& key) {
 }
 
 // 文字列一括置換ユーティリティ
-void translate(std::string& src, const std::string& from, const std::string& to) {
+void translate(std::string &src, const std::string &from, const std::string &to) {
     std::string::size_type pos = 0;
 
     while((pos = src.find(from, pos)) != std::string::npos) {
@@ -106,7 +106,7 @@ void translate(std::string& src, const std::string& from, const std::string& to)
 SKKKeymapEntry::SKKKeymapEntry()
     : pos_(0) {}
 
-SKKKeymapEntry::SKKKeymapEntry(const std::string& configKey, const std::string& configValue)
+SKKKeymapEntry::SKKKeymapEntry(const std::string &configKey, const std::string &configValue)
     : pos_(0), not_(false) {
     std::string key(configKey);
 
@@ -142,7 +142,7 @@ SKKKeymapEntry::SKKKeymapEntry(const std::string& configKey, const std::string& 
 }
 
 // キーの読み出し
-bool SKKKeymapEntry::operator>>(int& state) {
+bool SKKKeymapEntry::operator>>(int &state) {
     if(!(pos_ < keys_.size()))
         return false;
 
@@ -174,7 +174,7 @@ int SKKKeymapEntry::Symbol() const {
 // ======================================================================
 // private method
 // ======================================================================
-std::string SKKKeymapEntry::setup(const std::string& str) {
+std::string SKKKeymapEntry::setup(const std::string &str) {
     label_ = mods_ = 0;
 
     // 全ての "::" を空白に置換
@@ -206,7 +206,7 @@ std::string SKKKeymapEntry::setup(const std::string& str) {
 }
 
 // グループエントリの解析
-void SKKKeymapEntry::parseGroup(const std::string& str) {
+void SKKKeymapEntry::parseGroup(const std::string &str) {
     // 全ての ',' を空白に置換
     std::string tmp(str);
     std::replace(tmp.begin(), tmp.end(), ',', ' ');
@@ -227,7 +227,7 @@ void SKKKeymapEntry::parseGroup(const std::string& str) {
 }
 
 // 範囲コードの解析
-void SKKKeymapEntry::parseRange(const std::string& str) {
+void SKKKeymapEntry::parseRange(const std::string &str) {
     std::string tmp(str);
     std::istringstream buf(tmp);
     KeyRange range;
@@ -243,7 +243,7 @@ void SKKKeymapEntry::parseRange(const std::string& str) {
 }
 
 // 単一エントリの解析
-void SKKKeymapEntry::parseEntry(const std::string& str) {
+void SKKKeymapEntry::parseEntry(const std::string &str) {
     KeyRange range;
 
     range.first = range.second = makeKey(str);
@@ -252,7 +252,7 @@ void SKKKeymapEntry::parseEntry(const std::string& str) {
 }
 
 // キーの生成
-int SKKKeymapEntry::makeKey(const std::string& str) {
+int SKKKeymapEntry::makeKey(const std::string &str) {
     int key;
 
     // 16 進数表記？

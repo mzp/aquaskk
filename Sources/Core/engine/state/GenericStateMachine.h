@@ -61,7 +61,7 @@ namespace statemachinecxx_sourceforge_jp {
         GenericEvent() {}
         GenericEvent(int signal)
             : signal_(signal) {}
-        GenericEvent(int signal, const ParamType& param)
+        GenericEvent(int signal, const ParamType &param)
             : signal_(signal), param_(param) {}
 
         operator int() const {
@@ -71,10 +71,10 @@ namespace statemachinecxx_sourceforge_jp {
             signal_ = signal;
         }
 
-        const ParamType& Param() const {
+        const ParamType &Param() const {
             return param_;
         }
-        void SetParam(const ParamType& arg) {
+        void SetParam(const ParamType &arg) {
             param_ = arg;
         }
 
@@ -85,19 +85,19 @@ namespace statemachinecxx_sourceforge_jp {
             return !IsSystem();
         }
 
-        static GenericEvent& Probe() {
+        static GenericEvent &Probe() {
             static GenericEvent evt(PROBE);
             return evt;
         }
-        static GenericEvent& Entry() {
+        static GenericEvent &Entry() {
             static GenericEvent evt(ENTRY_EVENT);
             return evt;
         }
-        static GenericEvent& Exit() {
+        static GenericEvent &Exit() {
             static GenericEvent evt(EXIT_EVENT);
             return evt;
         }
-        static GenericEvent& Init() {
+        static GenericEvent &Init() {
             static GenericEvent evt(INIT_EVENT);
             return evt;
         }
@@ -218,7 +218,7 @@ namespace statemachinecxx_sourceforge_jp {
             Equal(const Handler arg)
                 : key_(arg) {}
 
-            bool operator()(const Entry& entry) const {
+            bool operator()(const Entry &entry) const {
                 return key_ == entry.first;
             }
         };
@@ -233,7 +233,7 @@ namespace statemachinecxx_sourceforge_jp {
             if(iter == history_.end())
                 return 0;
 
-            ShallowDeepPair& pair = iter->second;
+            ShallowDeepPair &pair = iter->second;
 
             return type == SHALLOW ? pair.first : pair.second;
         }
@@ -286,17 +286,17 @@ namespace statemachinecxx_sourceforge_jp {
             Equal(Handler arg)
                 : key_(arg) {}
 
-            bool operator()(const Entry& entry) const {
+            bool operator()(const Entry &entry) const {
                 return key_ == entry.first;
             }
         };
 
-        QueueIterator find(const Handler key, Queue& queue) {
+        QueueIterator find(const Handler key, Queue &queue) {
             return std::find_if(queue.begin(), queue.end(), Equal(key));
         }
 
     public:
-        void Enqueue(const Handler key, const Event& event) {
+        void Enqueue(const Handler key, const Event &event) {
             QueueIterator iter = find(key, incoming_);
 
             if(iter == incoming_.end()) {
@@ -316,7 +316,7 @@ namespace statemachinecxx_sourceforge_jp {
             }
         }
 
-        bool Dequeue(const Handler key, Event& event) {
+        bool Dequeue(const Handler key, Event &event) {
             QueueIterator iter = find(key, outgoing_);
 
             if(iter == outgoing_.end())
@@ -338,7 +338,7 @@ namespace statemachinecxx_sourceforge_jp {
     // empty inspector
     // ======================================================================
     template <typename Handler, typename Event> struct EmptyInspector {
-        void operator()(const Handler handler, const Event& event) {}
+        void operator()(const Handler handler, const Event &event) {}
     };
 
     // ======================================================================
@@ -373,7 +373,7 @@ namespace statemachinecxx_sourceforge_jp {
         // ------------------------------------------------------------
         // invoke state function
         // ------------------------------------------------------------
-        State invoke(const Handler handler, const Event& event) {
+        State invoke(const Handler handler, const Event &event) {
             inspector_(handler, event);
             return (container_.*handler)(event);
         }
@@ -408,7 +408,7 @@ namespace statemachinecxx_sourceforge_jp {
         // ------------------------------------------------------------
         // initial transition trigger
         // ------------------------------------------------------------
-        void initialize(const State& target) {
+        void initialize(const State &target) {
             State state;
 
             active_ = target;
@@ -498,7 +498,7 @@ namespace statemachinecxx_sourceforge_jp {
                 exitAction(source);
 
                 struct check {
-                    static bool exist(Path& path, const Handler handler) {
+                    static bool exist(Path &path, const Handler handler) {
                         PathIterator iter = std::find(path.begin(), path.end(), handler);
                         if(iter != path.end()) {
                             path.erase(iter, path.end());
@@ -536,7 +536,7 @@ namespace statemachinecxx_sourceforge_jp {
     public:
         GenericStateMachine()
             : top_(&StateContainer::TopState), active_(0) {}
-        GenericStateMachine(const StateContainer& src)
+        GenericStateMachine(const StateContainer &src)
             : container_(src), top_(&StateContainer::TopState), active_(0) {}
 
         ~GenericStateMachine() {
@@ -554,7 +554,7 @@ namespace statemachinecxx_sourceforge_jp {
             initialize(State::Initial(top_));
         }
 
-        void Dispatch(const Event& event) {
+        void Dispatch(const Event &event) {
             if(!active_)
                 Start();
 
@@ -606,7 +606,7 @@ namespace statemachinecxx_sourceforge_jp {
             return active_;
         }
 
-        const StateContainer& Container() const {
+        const StateContainer &Container() const {
             return container_;
         }
 
@@ -627,7 +627,7 @@ namespace statemachinecxx_sourceforge_jp {
     template <typename StateContainer, typename ParamType = int> struct BaseStateContainer {
         typedef GenericState<StateContainer> State;
         typedef GenericEvent<ParamType> Event;
-        typedef State (StateContainer::*Handler)(const Event&);
+        typedef State (StateContainer::*Handler)(const Event &);
 
         virtual ~BaseStateContainer() {}
 
@@ -638,7 +638,7 @@ namespace statemachinecxx_sourceforge_jp {
             return true;
         }
 
-        virtual State TopState(const Event& event) {
+        virtual State TopState(const Event &event) {
             switch(event) {
             case INIT_EVENT:
                 return State::Initial(InitialState());

@@ -6,13 +6,13 @@
 //
 
 #import "SandboxShims.h"
-#include <unistd.h>
 #include <pwd.h>
+#include <unistd.h>
 
 NSString *AISHomeDirectory(void) {
     // https://blog.rinsuki.net/articles/get-actual-home-path-from-sandbox/
     uid_t uid = getuid();
-    struct passwd* pw = getpwuid(uid);
-    const char* path= pw->pw_dir;
+    struct passwd *pw = getpwuid(uid);
+    const char *path = pw->pw_dir;
     return [NSString stringWithCString:path encoding:NSUTF8StringEncoding];
 }

@@ -26,7 +26,7 @@
 SKKTextBuffer::SKKTextBuffer()
     : cursor_(0) {}
 
-void SKKTextBuffer::Insert(const std::string& str) {
+void SKKTextBuffer::Insert(const std::string &str) {
     utf8::push(buf_, str, cursor_);
 }
 
@@ -76,7 +76,7 @@ bool SKKTextBuffer::IsEmpty() const {
     return buf_.empty();
 }
 
-bool SKKTextBuffer::operator==(const std::string& str) const {
+bool SKKTextBuffer::operator==(const std::string &str) const {
     return buf_ == str;
 }
 

@@ -20,24 +20,24 @@
 
 */
 
-#import <AquaSKKInput/BlacklistApps.h>
-#import <AquaSKKInput/SKKServer.h>
-#import <AquaSKKInput/SKKPreProcessor.h>
-#import <AquaSKKCore/SKKRomanKanaConverter.h>
+#import <AquaSKKCore/SKKAutoUpdateDictionary.h>
 #import <AquaSKKCore/SKKBackEnd.h>
 #import <AquaSKKCore/SKKCommonDictionary.h>
-#import <AquaSKKCore/SKKAutoUpdateDictionary.h>
-#import <AquaSKKCore/SKKProxyDictionary.h>
+#import <AquaSKKCore/SKKDictionaryFactory.h>
+#import <AquaSKKCore/SKKDistributedUserDictionary.h>
 #import <AquaSKKCore/SKKGadgetDictionary.h>
 #import <AquaSKKCore/SKKLocalUserDictionary.h>
-#import <AquaSKKCore/SKKDistributedUserDictionary.h>
-#import <AquaSKKCore/SKKDictionaryFactory.h>
+#import <AquaSKKCore/SKKProxyDictionary.h>
+#import <AquaSKKCore/SKKRomanKanaConverter.h>
+#import <AquaSKKInput/BlacklistApps.h>
+#import <AquaSKKInput/SKKPreProcessor.h>
+#import <AquaSKKInput/SKKServer.h>
 #import <AquaSKKService/SKKConstVars.h>
 // #import <AquaSKKInput/SKKPythonRunner.h>
-#import <AquaSKKInput/MacKotoeriDictionary.h>
 #import <AquaSKKCore/skkserv.h>
-#import <AquaSKKUI/InputModeWindow.h>
+#import <AquaSKKInput/MacKotoeriDictionary.h>
 #import <AquaSKKService/AISDefaultServerConfiguration.h>
+#import <AquaSKKUI/InputModeWindow.h>
 #import <os/log.h>
 #include <signal.h>
 
@@ -46,7 +46,7 @@ static os_log_t appLog(void) {
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _serviceLog = os_log_create("com.aquaskk.inputmethod", "App");
+      _serviceLog = os_log_create("com.aquaskk.inputmethod", "App");
     });
     return _serviceLog;
 }
@@ -64,27 +64,22 @@ namespace {
         };
     };
 
-    NSString* DictionaryNames[] = {
-        @"SKK 辞書(EUC-JP)",
-        @"SKK 辞書(自動ダウンロード)",
-        @"skkserv 辞書",
-        @"ことえり辞書",
-        @"プログラム辞書",
-        @"SKK 辞書(UTF-8)"
-    };
+    NSString *DictionaryNames[] = {@"SKK 辞書(EUC-JP)", @"SKK 辞書(自動ダウンロード)",
+                                   @"skkserv 辞書",     @"ことえり辞書",
+                                   @"プログラム辞書",   @"SKK 辞書(UTF-8)"};
 
     const struct {
         int mode;
-        NSString* name;
+        NSString *name;
     } InputModeIcons[] = {
-        { (int)SKKInputMode::HirakanaInputMode,		@"AquaSKK-Hirakana" },
-        { (int)SKKInputMode::KatakanaInputMode,		@"AquaSKK-Katakana" },
-        { (int)SKKInputMode::Jisx0201KanaInputMode,	@"AquaSKK-Jisx0201Kana" },
-        { (int)SKKInputMode::AsciiInputMode,		@"AquaSKK-Ascii" },
-        { (int)SKKInputMode::Jisx0208LatinInputMode,	@"AquaSKK-Jisx0208Latin" },
-        { 0,				0 }
+        {(int)SKKInputMode::HirakanaInputMode,      @"AquaSKK-Hirakana"     },
+        {(int)SKKInputMode::KatakanaInputMode,      @"AquaSKK-Katakana"     },
+        {(int)SKKInputMode::Jisx0201KanaInputMode,  @"AquaSKK-Jisx0201Kana" },
+        {(int)SKKInputMode::AsciiInputMode,         @"AquaSKK-Ascii"        },
+        {(int)SKKInputMode::Jisx0208LatinInputMode, @"AquaSKK-Jisx0208Latin"},
+        {0,                                         0                       }
     };
-}
+} // namespace
 
 static void terminate(int) {
     [NSApp terminate:nil];
@@ -101,11 +96,11 @@ static void terminate(int) {
 - (id)newIMKServer;
 
 - (void)initializeInputModeIcons;
-- (BOOL)fileExistsAtPath:(NSString*)path;
-- (void)createDirectory:(NSString*)path;
-- (NSString*)pathForSystemResource:(NSString*)path;
-- (NSString*)pathForUserResource:(NSString*)path;
-- (NSString*)pathForResource:(NSString*)path;
+- (BOOL)fileExistsAtPath:(NSString *)path;
+- (void)createDirectory:(NSString *)path;
+- (NSString *)pathForSystemResource:(NSString *)path;
+- (NSString *)pathForUserResource:(NSString *)path;
+- (NSString *)pathForResource:(NSString *)path;
 @end
 
 @implementation SKKServer
@@ -141,11 +136,11 @@ static void terminate(int) {
 
 - (void)reloadBlacklistApps {
     os_log(appLog(), "%s", __PRETTY_FUNCTION__);
-    NSArray* array = [NSMutableArray arrayWithContentsOfFile:SKKFilePaths::BlacklistApps];
+    NSArray *array = [NSMutableArray arrayWithContentsOfFile:SKKFilePaths::BlacklistApps];
     if(array == nil) {
         os_log_error(appLog(), "can't read BlacklistApps.plist");
     }
-    [[BlacklistApps sharedManager] load: array];
+    [[BlacklistApps sharedManager] load:array];
 }
 
 - (void)reloadUserDefaults {
@@ -155,11 +150,12 @@ static void terminate(int) {
 
     [userDefaults_ reloadUserDefaults];
 
-    NSUserDefaults* defaults = userDefaults_.standardDefaults;
+    NSUserDefaults *defaults = userDefaults_.standardDefaults;
 
     if([defaults boolForKey:SKKUserDefaultKeys::enable_skkserv] == YES) {
-        skkserv_ = new skkserv([defaults integerForKey:SKKUserDefaultKeys::skkserv_port],
-                               [defaults boolForKey:SKKUserDefaultKeys::skkserv_localonly] == YES);
+        skkserv_ = new skkserv(
+            [defaults integerForKey:SKKUserDefaultKeys::skkserv_port],
+            [defaults boolForKey:SKKUserDefaultKeys::skkserv_localonly] == YES);
     }
 
     flag = [defaults boolForKey:SKKUserDefaultKeys::use_numeric_conversion] == YES;
@@ -180,32 +176,31 @@ static void terminate(int) {
 
 - (void)reloadDictionarySet {
     os_log(appLog(), "%s", __PRETTY_FUNCTION__);
-    NSUserDefaults* defaults = userDefaults_.standardDefaults;
+    NSUserDefaults *defaults = userDefaults_.standardDefaults;
 
-    NSString* userDictionary = [configuration_ userDictionaryPath];
-    NSArray* array = [configuration_ systemDictionaries];
+    NSString *userDictionary = [configuration_ userDictionaryPath];
+    NSArray *array = [configuration_ systemDictionaries];
 
     SKKDictionaryKeyContainer keys;
-    NSEnumerator* enumerator = [array objectEnumerator];
-    
-    while(NSDictionary* entry = [enumerator nextObject]) {
-        NSNumber* active = [entry valueForKey:SKKDictionarySetKeys::active];
+    NSEnumerator *enumerator = [array objectEnumerator];
+
+    while(NSDictionary *entry = [enumerator nextObject]) {
+        NSNumber *active = [entry valueForKey:SKKDictionarySetKeys::active];
 
         if([active boolValue] == YES) {
-            NSNumber* type = [entry valueForKey:SKKDictionarySetKeys::type];
-            NSString* location = [entry valueForKey:SKKDictionarySetKeys::location];
+            NSNumber *type = [entry valueForKey:SKKDictionarySetKeys::type];
+            NSString *location = [entry valueForKey:SKKDictionarySetKeys::location];
 
             if(location && [location length] > 0) {
                 location = [location stringByExpandingTildeInPath];
 
                 // 自動更新辞書の場合
                 if([type intValue] == DictionaryTypes::AutoUpdate) {
-                    NSString* file = [location lastPathComponent];
-                    NSString* path = [NSString stringWithFormat:@"%@ %@/%@ %@",
-                                               [defaults stringForKey:SKKUserDefaultKeys::openlab_host],
-                                               [defaults stringForKey:SKKUserDefaultKeys::openlab_path],
-                                               location,
-                                               [self pathForUserResource:file]];
+                    NSString *file = [location lastPathComponent];
+                    NSString *path = [NSString
+                        stringWithFormat:@"%@ %@/%@ %@", [defaults stringForKey:SKKUserDefaultKeys::openlab_host],
+                                         [defaults stringForKey:SKKUserDefaultKeys::openlab_path], location,
+                                         [self pathForUserResource:file]];
                     location = path;
                 }
             } else {
@@ -220,10 +215,10 @@ static void terminate(int) {
 #if 1
     SKKBackEnd::theInstance().Initialize(userDictionary == nil ? "" : [userDictionary UTF8String], keys);
 #else
-    SKKUserDictionary* dictionary = 0;
+    SKKUserDictionary *dictionary = 0;
 
     if([defaults boolForKey:SKKUserDefaultKeys::enable_skkdap] == YES) {
-        NSString* port = [defaults stringForKey:SKKUserDefaultKeys::skkdap_port];
+        NSString *port = [defaults stringForKey:SKKUserDefaultKeys::skkdap_port];
 
         SKKPythonRunner runner;
 
@@ -232,20 +227,20 @@ static void terminate(int) {
         dictionary = new SKKDistributedUserDictionary();
         dictionary->Initialize([port UTF8String]);
     } else {
-        NSString* userDictionary = [defaults stringForKey:SKKUserDefaultKeys::user_dictionary_path];
+        NSString *userDictionary = [defaults stringForKey:SKKUserDefaultKeys::user_dictionary_path];
         userDictionary = [userDictionary stringByExpandingTildeInPath];
 
         dictionary = new SKKLocalUserDictionary();
         dictionary->Initialize([userDictionary UTF8String]);
     }
-    
+
     SKKBackEnd::theInstance().Initialize(dictionary, keys);
 #endif
 }
 
 - (void)reloadComponents {
     os_log(appLog(), "%s", __PRETTY_FUNCTION__);
-    NSString* tmp;
+    NSString *tmp;
 
     tmp = [self pathForResource:@"keymap.conf"];
     SKKPreProcessor::theInstance().Initialize([tmp UTF8String]);
@@ -253,16 +248,16 @@ static void terminate(int) {
     tmp = [self pathForResource:@"kana-rule.conf"];
     SKKRomanKanaConverter::theInstance().Initialize([tmp UTF8String]);
 
-    NSUserDefaults* defaults = userDefaults_.standardDefaults;
+    NSUserDefaults *defaults = userDefaults_.standardDefaults;
 
-    NSArray* subRules = [defaults arrayForKey:SKKUserDefaultKeys::sub_rules];
-    for(NSString* path in subRules) {
+    NSArray *subRules = [defaults arrayForKey:SKKUserDefaultKeys::sub_rules];
+    for(NSString *path in subRules) {
         os_log_info(appLog(), "loading SubRule: %@", path);
         SKKRomanKanaConverter::theInstance().Patch([path UTF8String]);
     }
 
-    NSArray* subKeymaps = [defaults arrayForKey:SKKUserDefaultKeys::sub_keymaps];
-    for(NSString* path in subKeymaps) {
+    NSArray *subKeymaps = [defaults arrayForKey:SKKUserDefaultKeys::sub_keymaps];
+    for(NSString *path in subKeymaps) {
         os_log_info(appLog(), "loading SubKeyMap: %@", path);
         SKKPreProcessor::theInstance().Patch([path UTF8String]);
     }
@@ -270,7 +265,7 @@ static void terminate(int) {
     [self initializeInputModeIcons];
 }
 
-- (NSArray*)createDictionaryTypes {
+- (NSArray *)createDictionaryTypes {
     int order[] = {
         DictionaryTypes::Common,
         DictionaryTypes::CommonUTF8,
@@ -278,17 +273,14 @@ static void terminate(int) {
         DictionaryTypes::Proxy,
         DictionaryTypes::Kotoeri,
         DictionaryTypes::Gadget,
-        0xff
-    };
-    NSMutableArray* types = [[NSMutableArray alloc] init];
+        0xff};
+    NSMutableArray *types = [[NSMutableArray alloc] init];
 
-    for(int index = 0; order[index] != 0xff; ++ index) {
-        NSNumber* type = [NSNumber numberWithInt:order[index]];
-        NSString* name = DictionaryNames[order[index]];
-        NSDictionary* entity = [NSDictionary dictionaryWithObjectsAndKeys:
-                                             type, SKKDictionaryTypeKeys::type,
-                                             name, SKKDictionaryTypeKeys::name,
-                                             nil];
+    for(int index = 0; order[index] != 0xff; ++index) {
+        NSNumber *type = [NSNumber numberWithInt:order[index]];
+        NSString *name = DictionaryNames[order[index]];
+        NSDictionary *entity = [NSDictionary
+            dictionaryWithObjectsAndKeys:type, SKKDictionaryTypeKeys::type, name, SKKDictionaryTypeKeys::name, nil];
         [types addObject:entity];
     }
 
@@ -309,7 +301,7 @@ static void terminate(int) {
 
 - (void)prepareDirectory {
     os_log(appLog(), "%s", __PRETTY_FUNCTION__);
-    NSString* dir = SKKFilePaths::ApplicationSupportFolder;
+    NSString *dir = SKKFilePaths::ApplicationSupportFolder;
 
     if([self fileExistsAtPath:dir] != YES) {
         [self createDirectory:dir];
@@ -335,12 +327,14 @@ static void terminate(int) {
 - (void)prepareDictionarySet {
     os_log(appLog(), "%s", __PRETTY_FUNCTION__);
 
-    NSString* factoryDictionarySet = [self pathForSystemResource:@"DictionarySet.plist"];
-    NSString* userDictionarySet = SKKFilePaths::DictionarySet;
+    NSString *factoryDictionarySet = [self pathForSystemResource:@"DictionarySet.plist"];
+    NSString *userDictionarySet = SKKFilePaths::DictionarySet;
 
     if([self fileExistsAtPath:userDictionarySet] != YES) {
-        os_log_error(appLog(), "%s %@ doesn't exist. Copy from %@", __PRETTY_FUNCTION__, userDictionarySet, factoryDictionarySet);
-        NSData* data = [NSData dataWithContentsOfFile:factoryDictionarySet];
+        os_log_error(
+            appLog(), "%s %@ doesn't exist. Copy from %@", __PRETTY_FUNCTION__, userDictionarySet,
+            factoryDictionarySet);
+        NSData *data = [NSData dataWithContentsOfFile:factoryDictionarySet];
         [data writeToFile:userDictionarySet atomically:YES];
     }
 
@@ -356,22 +350,22 @@ static void terminate(int) {
     os_log(appLog(), "%s", __PRETTY_FUNCTION__);
 
     for(NSDictionary *jisyo in [configuration_ systemDictionaries]) {
-        NSString* location = [jisyo valueForKey:SKKDictionarySetKeys::location];
+        NSString *location = [jisyo valueForKey:SKKDictionarySetKeys::location];
         NSString *path = [self pathForSystemResource:location];
 
-        if (![self fileExistsAtPath:path]) {
+        if(![self fileExistsAtPath:path]) {
             os_log_error(appLog(), "%s: cant' find %@. ignore.", __PRETTY_FUNCTION__, path);
             continue;
         }
         NSString *filename = [path lastPathComponent];
         NSString *userPath = [self pathForUserResource:filename];
-        if ([self fileExistsAtPath:userPath]) {
+        if([self fileExistsAtPath:userPath]) {
             os_log(appLog(), "%s: %@ already exists. ignore.", __PRETTY_FUNCTION__, userPath);
             continue;
         }
         NSError *error = nil;
         [NSFileManager.defaultManager copyItemAtPath:path toPath:userPath error:&error];
-        if (error) {
+        if(error) {
             os_log_error(appLog(), "%s: can't copy %@ to %@ due to %@", __PRETTY_FUNCTION__, path, userPath, error);
         } else {
             os_log(appLog(), "%s: Wrote %@", __PRETTY_FUNCTION__, userPath);
@@ -381,28 +375,28 @@ static void terminate(int) {
 
 - (void)prepareBlacklistApps {
     os_log(appLog(), "%s", __PRETTY_FUNCTION__);
-    NSString* blacklistApps = SKKFilePaths::BlacklistApps;
+    NSString *blacklistApps = SKKFilePaths::BlacklistApps;
 
     if([self fileExistsAtPath:blacklistApps] != YES) {
-        NSString* factoryBlacklistApps = [self pathForSystemResource:@"BlacklistApps.plist"];
-        NSData* data = [NSData dataWithContentsOfFile:factoryBlacklistApps];
+        NSString *factoryBlacklistApps = [self pathForSystemResource:@"BlacklistApps.plist"];
+        NSData *data = [NSData dataWithContentsOfFile:factoryBlacklistApps];
         [data writeToFile:blacklistApps atomically:YES];
     }
 }
 
 - (id)newIMKServer {
-    NSDictionary* info = [[NSBundle mainBundle] infoDictionary];
-    NSString* connection = [info objectForKey:@"InputMethodConnectionName"];
-    NSString* identifier = [[NSBundle mainBundle] bundleIdentifier];
+    NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
+    NSString *connection = [info objectForKey:@"InputMethodConnectionName"];
+    NSString *identifier = [[NSBundle mainBundle] bundleIdentifier];
 
     return [[IMKServer alloc] initWithName:connection bundleIdentifier:identifier];
 }
 
 - (void)initializeInputModeIcons {
-    NSMutableDictionary* icons = [[NSMutableDictionary alloc] initWithCapacity:0];
+    NSMutableDictionary *icons = [[NSMutableDictionary alloc] initWithCapacity:0];
 
-    for(int i = 0; InputModeIcons[i].name != 0; ++ i) {
-        NSImage* image = [NSImage imageNamed:InputModeIcons[i].name];
+    for(int i = 0; InputModeIcons[i].name != 0; ++i) {
+        NSImage *image = [NSImage imageNamed:InputModeIcons[i].name];
         [icons setObject:image forKey:[NSNumber numberWithInt:InputModeIcons[i].mode]];
     }
 
@@ -411,32 +405,30 @@ static void terminate(int) {
     [icons release];
 }
 
-- (BOOL)fileExistsAtPath:(NSString*)path {
-    NSFileManager* fileManager = [NSFileManager defaultManager];
+- (BOOL)fileExistsAtPath:(NSString *)path {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
 
     return [fileManager fileExistsAtPath:path];
 }
 
-- (void)createDirectory:(NSString*)path {
-    NSFileManager* fileManager = [NSFileManager defaultManager];
-    NSError* error;
+- (void)createDirectory:(NSString *)path {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error;
 
-    if([fileManager createDirectoryAtPath:path
-                    withIntermediateDirectories:YES
-                    attributes:nil error:&error] != YES) {
+    if([fileManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error] != YES) {
         os_log_error(appLog(), "create directory[%@] failed: %@", path, [error localizedDescription]);
     }
 }
 
-- (NSString*)pathForSystemResource:(NSString*)name {
+- (NSString *)pathForSystemResource:(NSString *)name {
     return [configuration_ systemPathForName:name];
 }
 
-- (NSString*)pathForUserResource:(NSString*)name {
+- (NSString *)pathForUserResource:(NSString *)name {
     return [configuration_ userPathForName:name];
 }
 
-- (NSString*)pathForResource:(NSString*)name {
+- (NSString *)pathForResource:(NSString *)name {
     return [configuration_ pathForName:name];
 }
 

@@ -25,7 +25,7 @@
 #import <AquaSKKCore/SKKInputQueue.h>
 #include <cassert>
 
-SKKInputQueue::SKKInputQueue(SKKInputQueueObserver* observer)
+SKKInputQueue::SKKInputQueue(SKKInputQueueObserver *observer)
     : observer_(observer), mode_(SKKInputMode::HirakanaInputMode) {}
 
 void SKKInputQueue::SelectInputMode(SKKInputMode mode) {
@@ -69,12 +69,12 @@ bool SKKInputQueue::IsEmpty() const {
     return queue_.empty();
 }
 
-const std::string& SKKInputQueue::QueueString() const {
+const std::string &SKKInputQueue::QueueString() const {
     return queue_;
 }
 
 bool SKKInputQueue::CanConvert(char code) const {
-    SKKRomanKanaConverter& converter = SKKRomanKanaConverter::theInstance();
+    SKKRomanKanaConverter &converter = SKKRomanKanaConverter::theInstance();
     SKKRomanKanaConversionResult result;
     std::string tmp_queue(queue_);
 
@@ -100,7 +100,7 @@ bool SKKInputQueue::CanConvert(char code) const {
 // ------------------------------------------------------------
 
 SKKInputQueueObserver::State SKKInputQueue::convert(char code, bool direct) {
-    SKKRomanKanaConverter& converter = SKKRomanKanaConverter::theInstance();
+    SKKRomanKanaConverter &converter = SKKRomanKanaConverter::theInstance();
     SKKRomanKanaConversionResult result;
     SKKInputQueueObserver::State state;
 
@@ -138,7 +138,7 @@ SKKInputQueueObserver::State SKKInputQueue::convert(char code, bool direct) {
 }
 
 SKKInputQueueObserver::State SKKInputQueue::terminate() {
-    SKKRomanKanaConverter& converter = SKKRomanKanaConverter::theInstance();
+    SKKRomanKanaConverter &converter = SKKRomanKanaConverter::theInstance();
     SKKRomanKanaConversionResult result;
     SKKInputQueueObserver::State state;
 

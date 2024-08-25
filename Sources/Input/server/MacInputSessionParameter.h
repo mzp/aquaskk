@@ -37,15 +37,15 @@ class MacInputSessionParameter : public SKKInputSessionParameter {
     std::unique_ptr<SKKDynamicCompletor> completor_;
 
 public:
-    MacInputSessionParameter(id client, SKKLayoutManager* layout);
+    MacInputSessionParameter(id client, SKKLayoutManager *layout);
 
-    virtual SKKConfig* Config();
-    virtual SKKFrontEnd* FrontEnd();
-    virtual SKKMessenger* Messenger();
-    virtual SKKClipboard* Clipboard();
-    virtual SKKCandidateWindow* CandidateWindow();
-    virtual SKKAnnotator* Annotator();
-    virtual SKKDynamicCompletor* DynamicCompletor();
+    virtual SKKConfig *Config();
+    virtual SKKFrontEnd *FrontEnd();
+    virtual SKKMessenger *Messenger();
+    virtual SKKClipboard *Clipboard();
+    virtual SKKCandidateWindow *CandidateWindow();
+    virtual SKKAnnotator *Annotator();
+    virtual SKKDynamicCompletor *DynamicCompletor();
 };
 
 #endif

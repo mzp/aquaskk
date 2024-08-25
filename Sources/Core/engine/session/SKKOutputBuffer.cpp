@@ -24,19 +24,19 @@
 #include "utf8util.h"
 #import <AquaSKKCore/SKKOutputBuffer.h>
 
-SKKOutputBuffer::SKKOutputBuffer(SKKFrontEnd* frontend)
+SKKOutputBuffer::SKKOutputBuffer(SKKFrontEnd *frontend)
     : frontend_(frontend) {}
 
-void SKKOutputBuffer::Fix(const std::string& str) {
+void SKKOutputBuffer::Fix(const std::string &str) {
     frontend_->InsertString(str);
 }
 
-void SKKOutputBuffer::Compose(const std::string& str, int cursor) {
+void SKKOutputBuffer::Compose(const std::string &str, int cursor) {
     utf8::push(composing_, str, cursor_);
     cursor_ += cursor;
 }
 
-void SKKOutputBuffer::Convert(const std::string& str) {
+void SKKOutputBuffer::Convert(const std::string &str) {
     start_ = utf8::length(utf8::left(composing_, cursor_));
     length_ = utf8::length(str);
 

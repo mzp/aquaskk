@@ -25,12 +25,12 @@
 
 #include <InputMethodKit/InputMethodKit.h>
 
-MacDynamicCompletor::MacDynamicCompletor(SKKLayoutManager* layout) : layout_(layout) {
+MacDynamicCompletor::MacDynamicCompletor(SKKLayoutManager *layout)
+    : layout_(layout) {
     window_ = [CompletionWindow sharedWindow];
 }
 
-void MacDynamicCompletor::Update(const std::string& completion,
-                                 int commonPrefixLength, int cursorOffset) {
+void MacDynamicCompletor::Update(const std::string &completion, int commonPrefixLength, int cursorOffset) {
     completion_ = completion;
     commonPrefixLength_ = commonPrefixLength;
     cursorOffset_ = cursorOffset;
@@ -45,22 +45,21 @@ void MacDynamicCompletor::SKKWidgetShow() {
     }
 
     [window_ showCompletion:makeAttributedString()
-             at:layout_->InputOrigin(cursorOffset_ + 1)
-             level:layout_->WindowLevel()];
+                         at:layout_->InputOrigin(cursorOffset_ + 1)
+                      level:layout_->WindowLevel()];
 }
 
 void MacDynamicCompletor::SKKWidgetHide() {
     [window_ hide];
 }
 
-NSAttributedString* MacDynamicCompletor::makeAttributedString() {
-    NSDictionary* bold = [[NSDictionary dictionaryWithObject:[NSFont boldSystemFontOfSize:0.0]
-                                                     forKey:NSFontAttributeName] retain];
-    NSMutableAttributedString* result = [[NSMutableAttributedString alloc]
-                                            initWithString:[NSString stringWithUTF8String:completion_.c_str()]];
+NSAttributedString *MacDynamicCompletor::makeAttributedString() {
+    NSDictionary *bold = [[NSDictionary dictionaryWithObject:[NSFont boldSystemFontOfSize:0.0]
+                                                      forKey:NSFontAttributeName] retain];
+    NSMutableAttributedString *result =
+        [[NSMutableAttributedString alloc] initWithString:[NSString stringWithUTF8String:completion_.c_str()]];
 
-    [result addAttribute:NSFontAttributeName
-                   value:[NSFont systemFontOfSize:0.0] range:NSMakeRange(0, [result length])];
+    [result addAttribute:NSFontAttributeName value:[NSFont systemFontOfSize:0.0] range:NSMakeRange(0, [result length])];
 
     NSRange diff = NSMakeRange(-1, 1);
     do {
@@ -70,10 +69,9 @@ NSAttributedString* MacDynamicCompletor::makeAttributedString() {
             [result setAttributes:bold range:diff];
         }
 
-        NSString* str = [result string];
+        NSString *str = [result string];
 
-        diff = [str rangeOfString:@"\n" options:0
-                            range:NSMakeRange(diff.location, [str length] - diff.location)];
+        diff = [str rangeOfString:@"\n" options:0 range:NSMakeRange(diff.location, [str length] - diff.location)];
     } while(diff.location != NSNotFound);
 
     [bold release];

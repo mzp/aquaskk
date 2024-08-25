@@ -28,19 +28,19 @@
 class SKKFrontEnd;
 
 class SKKUndoContext {
-    SKKFrontEnd* frontend_;
+    SKKFrontEnd *frontend_;
     std::string entry_;
     std::string candidate_;
 
 public:
-    SKKUndoContext(SKKFrontEnd* frontend);
+    SKKUndoContext(SKKFrontEnd *frontend);
 
     enum UndoResult { UndoFailed, UndoKanaEntry, UndoAsciiEntry };
     UndoResult Undo();
     bool IsActive() const;
     void Clear();
-    const std::string& Entry() const;
-    const std::string& Candidate() const;
+    const std::string &Entry() const;
+    const std::string &Candidate() const;
 };
 
 #endif

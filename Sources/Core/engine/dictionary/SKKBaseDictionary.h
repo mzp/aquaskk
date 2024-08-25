@@ -41,18 +41,18 @@ public:
     //
     // location の書式は各辞書の実装で定義する
     //
-    virtual void Initialize(const std::string& location) = 0;
+    virtual void Initialize(const std::string &location) = 0;
 
     // 候補検索
-    virtual void Find(const SKKEntry& entry, SKKCandidateSuite& result) = 0;
+    virtual void Find(const SKKEntry &entry, SKKCandidateSuite &result) = 0;
 
     // 見出し語検索
-    virtual std::string ReverseLookup(const std::string& candidate) {
+    virtual std::string ReverseLookup(const std::string &candidate) {
         return "";
     }
 
     // 見出し語補完
-    virtual void Complete(SKKCompletionHelper& helper) {}
+    virtual void Complete(SKKCompletionHelper &helper) {}
 };
 
 #endif

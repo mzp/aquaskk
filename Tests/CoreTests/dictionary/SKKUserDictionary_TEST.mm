@@ -1,7 +1,7 @@
+#include "MockCompletionHelper.h"
+#import <AquaSKKCore/SKKLocalUserDictionary.h>
 #include <cassert>
 #include <iostream>
-#import <AquaSKKCore/SKKLocalUserDictionary.h>
-#include "MockCompletionHelper.h"
 
 #import <XCTest/XCTest.h>
 

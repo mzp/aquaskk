@@ -29,13 +29,13 @@
 class SKKBaseDictionary;
 
 class SKKDictionaryCache {
-    std::map<SKKDictionaryKey, SKKBaseDictionary*> cache_;
+    std::map<SKKDictionaryKey, SKKBaseDictionary *> cache_;
 
 public:
     ~SKKDictionaryCache();
 
-    SKKBaseDictionary* Get(const SKKDictionaryKey& key);
-    void Clear(const SKKDictionaryKey& key);
+    SKKBaseDictionary *Get(const SKKDictionaryKey &key);
+    void Clear(const SKKDictionaryKey &key);
 };
 
 #endif

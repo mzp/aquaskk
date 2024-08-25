@@ -33,39 +33,39 @@ namespace {
     // 検索用ファンクタ
     class ApplyFind {
         SKKEntry entry_;
-        SKKCandidateSuite* result_;
+        SKKCandidateSuite *result_;
 
     public:
-        ApplyFind(const SKKEntry& entry, SKKCandidateSuite& result)
+        ApplyFind(const SKKEntry &entry, SKKCandidateSuite &result)
             : entry_(entry), result_(&result) {}
 
-        void operator()(SKKBaseDictionary* dict) const {
+        void operator()(SKKBaseDictionary *dict) const {
             dict->Find(entry_, *result_);
         }
     };
 
     // 補完用ファンクタ
     class ApplyComplete {
-        SKKCompletionHelper* helper_;
+        SKKCompletionHelper *helper_;
 
     public:
-        ApplyComplete(SKKCompletionHelper& helper)
+        ApplyComplete(SKKCompletionHelper &helper)
             : helper_(&helper) {}
 
-        void operator()(SKKBaseDictionary* dict) const {
+        void operator()(SKKBaseDictionary *dict) const {
             dict->Complete(*helper_);
         }
     };
 
     // 数値変換用ファンクタ
     class NumericConversion {
-        SKKNumericConverter* converter_;
+        SKKNumericConverter *converter_;
 
     public:
-        NumericConversion(SKKNumericConverter& converter)
+        NumericConversion(SKKNumericConverter &converter)
             : converter_(&converter) {}
 
-        SKKCandidate& operator()(SKKCandidate& candidate) const {
+        SKKCandidate &operator()(SKKCandidate &candidate) const {
             converter_->Apply(candidate);
             return candidate;
         }
@@ -81,17 +81,17 @@ namespace {
         bool needsLengthCheck_;
 
     public:
-        CompletionHelper(const std::string& entry, int minimumLength, int completionLimit)
+        CompletionHelper(const std::string &entry, int minimumLength, int completionLimit)
             : entry_(entry), minimumLength_(minimumLength), completionLimit_(completionLimit) {
             needsLengthCheck_ = utf8::length(entry) < minimumLength_;
             check_.insert(entry_);
         }
 
-        virtual const std::string& Entry() const {
+        virtual const std::string &Entry() const {
             return entry_;
         }
 
-        virtual void Add(const std::string& completion) {
+        virtual void Add(const std::string &completion) {
             if(!CanContinue())
                 return;
 
@@ -109,7 +109,7 @@ namespace {
             return completionLimit_ == 0 || result_.size() < completionLimit_;
         }
 
-        operator std::vector<std::string>&() {
+        operator std::vector<std::string> &() {
             return result_;
         }
     };
@@ -118,12 +118,12 @@ namespace {
 SKKBackEnd::SKKBackEnd()
     : userdict_(nullptr), useNumericConversion_(false), enableExtendedCompletion_(false), minimumCompletionLength_(0) {}
 
-SKKBackEnd& SKKBackEnd::theInstance() {
+SKKBackEnd &SKKBackEnd::theInstance() {
     static SKKBackEnd obj;
     return obj;
 }
 
-void SKKBackEnd::Initialize(const std::string& userdict_path, const SKKDictionaryKeyContainer& keys) {
+void SKKBackEnd::Initialize(const std::string &userdict_path, const SKKDictionaryKeyContainer &keys) {
     if(userdict_.get() == 0) {
         userdict_.reset(new SKKLocalUserDictionary());
     }
@@ -147,7 +147,7 @@ void SKKBackEnd::Initialize(const std::string& userdict_path, const SKKDictionar
     actives_ = keys;
 }
 
-void SKKBackEnd::Initialize(SKKUserDictionary* dictionary, const SKKDictionaryKeyContainer& keys) {
+void SKKBackEnd::Initialize(SKKUserDictionary *dictionary, const SKKDictionaryKeyContainer &keys) {
     userdict_.reset(dictionary);
 
     // 不要な辞書を破棄する
@@ -167,7 +167,7 @@ void SKKBackEnd::Initialize(SKKUserDictionary* dictionary, const SKKDictionaryKe
     actives_ = keys;
 }
 
-bool SKKBackEnd::Complete(const std::string& key, std::vector<std::string>& result, unsigned limit) {
+bool SKKBackEnd::Complete(const std::string &key, std::vector<std::string> &result, unsigned limit) {
     CompletionHelper helper(key, minimumCompletionLength_, limit);
 
     if(key.empty() || !enableExtendedCompletion_) {
@@ -181,7 +181,7 @@ bool SKKBackEnd::Complete(const std::string& key, std::vector<std::string>& resu
     return !result.empty();
 }
 
-bool SKKBackEnd::Find(const SKKEntry& entry, SKKCandidateSuite& result) {
+bool SKKBackEnd::Find(const SKKEntry &entry, SKKCandidateSuite &result) {
     result.Clear();
 
     std::for_each(dicts_.begin(), dicts_.end(), ApplyFind(entry, result));
@@ -194,7 +194,7 @@ bool SKKBackEnd::Find(const SKKEntry& entry, SKKCandidateSuite& result) {
 
             std::for_each(dicts_.begin(), dicts_.end(), ApplyFind(converter.NormalizedKey(), suite));
 
-            SKKCandidateContainer& cands = suite.Candidates();
+            SKKCandidateContainer &cands = suite.Candidates();
 
             std::transform(
                 cands.begin(), cands.end(), std::back_inserter(result.Candidates()), NumericConversion(converter));
@@ -208,7 +208,7 @@ bool SKKBackEnd::Find(const SKKEntry& entry, SKKCandidateSuite& result) {
     return !result.IsEmpty();
 }
 
-std::string SKKBackEnd::ReverseLookup(const std::string& candidate) {
+std::string SKKBackEnd::ReverseLookup(const std::string &candidate) {
     if(candidate.empty())
         return "";
 
@@ -223,7 +223,7 @@ std::string SKKBackEnd::ReverseLookup(const std::string& candidate) {
     return "";
 }
 
-void SKKBackEnd::Register(const SKKEntry& entry, const SKKCandidate& candidate) {
+void SKKBackEnd::Register(const SKKEntry &entry, const SKKCandidate &candidate) {
     if(entry.EntryString().empty() || (entry.IsOkuriAri() && (entry.OkuriString().empty() || candidate.IsEmpty()))) {
         std::cerr << "SKKBackEnd: Invalid registration received" << std::endl;
         return;
@@ -236,7 +236,7 @@ void SKKBackEnd::Register(const SKKEntry& entry, const SKKCandidate& candidate) 
     userdict_->Register(normalize(entry), candidate);
 }
 
-void SKKBackEnd::Remove(const SKKEntry& entry, const SKKCandidate& candidate) {
+void SKKBackEnd::Remove(const SKKEntry &entry, const SKKCandidate &candidate) {
     if(entry.EntryString().empty()) {
         std::cerr << "SKKBackEnd: Invalid removal received" << std::endl;
         return;
@@ -263,7 +263,7 @@ void SKKBackEnd::SetMinimumCompletionLength(int length) {
 
 // ----------------------------------------------------------------------
 
-SKKEntry SKKBackEnd::normalize(const SKKEntry& entry) {
+SKKEntry SKKBackEnd::normalize(const SKKEntry &entry) {
     // 送りありなら何もしない
     if(entry.IsOkuriAri()) {
         return entry;

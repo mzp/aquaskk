@@ -25,12 +25,12 @@
 
 SKKEntry::SKKEntry() {}
 
-SKKEntry::SKKEntry(const std::string& entry, const std::string& okuri)
+SKKEntry::SKKEntry(const std::string &entry, const std::string &okuri)
     : normal_entry_(entry), kana_(okuri) {
     updateEntry();
 }
 
-void SKKEntry::SetEntry(const std::string& entry) {
+void SKKEntry::SetEntry(const std::string &entry) {
     normal_entry_ = entry;
 
     if(!normal_entry_.empty()) {
@@ -47,26 +47,26 @@ void SKKEntry::SetEntry(const std::string& entry) {
     updateEntry();
 }
 
-void SKKEntry::AppendEntry(const std::string& str) {
+void SKKEntry::AppendEntry(const std::string &str) {
     normal_entry_ += str;
 }
 
-void SKKEntry::SetOkuri(const std::string& prefix, const std::string& kana) {
+void SKKEntry::SetOkuri(const std::string &prefix, const std::string &kana) {
     prefix_ = prefix;
     kana_ = kana;
 
     updateEntry();
 }
 
-const std::string& SKKEntry::EntryString() const {
+const std::string &SKKEntry::EntryString() const {
     return IsOkuriAri() ? okuri_entry_ : normal_entry_;
 }
 
-const std::string& SKKEntry::OkuriString() const {
+const std::string &SKKEntry::OkuriString() const {
     return kana_;
 }
 
-const std::string& SKKEntry::PromptString() const {
+const std::string &SKKEntry::PromptString() const {
     return prompt_;
 }
 
@@ -159,7 +159,7 @@ bool SKKEntry::IsOkuriAri() const {
     return !kana_.empty();
 }
 
-bool operator==(const SKKEntry& left, const SKKEntry& right) {
+bool operator==(const SKKEntry &left, const SKKEntry &right) {
     return left.normal_entry_ == right.normal_entry_ && left.okuri_entry_ == right.okuri_entry_ &&
            left.prefix_ == right.prefix_ && left.kana_ == right.kana_ && left.prompt_ == right.prompt_;
 }

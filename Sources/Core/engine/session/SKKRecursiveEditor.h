@@ -36,13 +36,13 @@ class SKKDynamicCompletor;
 
 class SKKRecursiveEditor {
     std::unique_ptr<SKKInputEnvironment> env_;
-    SKKInputContext* context_;
-    SKKConfig* config_;
-    SKKAnnotator* annotator_;
-    SKKDynamicCompletor* completor_;
+    SKKInputContext *context_;
+    SKKConfig *config_;
+    SKKAnnotator *annotator_;
+    SKKDynamicCompletor *completor_;
     SKKInputEngine editor_;
     SKKStateMachine state_;
-    std::vector<SKKWidget*> widgets_;
+    std::vector<SKKWidget *> widgets_;
 
     typedef void (SKKWidget::*WidgetMethod)();
     void forEachWidget(WidgetMethod method);
@@ -50,14 +50,14 @@ class SKKRecursiveEditor {
     void annotate();
 
     SKKRecursiveEditor();
-    SKKRecursiveEditor(const SKKRecursiveEditor&);
-    SKKRecursiveEditor& operator=(const SKKRecursiveEditor&);
+    SKKRecursiveEditor(const SKKRecursiveEditor &);
+    SKKRecursiveEditor &operator=(const SKKRecursiveEditor &);
 
 public:
-    SKKRecursiveEditor(SKKInputEnvironment* env);
+    SKKRecursiveEditor(SKKInputEnvironment *env);
     ~SKKRecursiveEditor();
 
-    void Input(const SKKEvent& event);
+    void Input(const SKKEvent &event);
     void Output();
 
     void Activate();

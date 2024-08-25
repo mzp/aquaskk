@@ -35,12 +35,12 @@ class SKKNumericConverter {
     std::vector<std::string> params_;
 
 public:
-    bool Setup(const std::string& query);
+    bool Setup(const std::string &query);
 
-    const std::string& OriginalKey() const;
-    const std::string& NormalizedKey() const;
+    const std::string &OriginalKey() const;
+    const std::string &NormalizedKey() const;
 
-    void Apply(SKKCandidate& candidate) const;
+    void Apply(SKKCandidate &candidate) const;
 };
 
 #endif

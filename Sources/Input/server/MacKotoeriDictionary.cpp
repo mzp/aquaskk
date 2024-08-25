@@ -39,17 +39,17 @@ class KotoeriImpl {
     bool isRegistered_;
     DCMDictionaryID id_;
 
-    CFStringRef CFStringWithUTF8(const char* utf8) {
+    CFStringRef CFStringWithUTF8(const char *utf8) {
         CFMutableStringRef cfstr = CFStringCreateMutable(0, 0);
         CFStringAppendCString(cfstr, utf8, kCFStringEncodingUTF8);
 
         CFStringRef result;
         CFIndex len = CFStringGetLength(cfstr);
         CFIndex bufsize = len * sizeof(UInt16);
-        UInt16* buf = new UInt16[len];
+        UInt16 *buf = new UInt16[len];
 
         CFStringGetBytes(
-            cfstr, CFRangeMake(0, len), kCFStringEncodingUnicode, 0, false, reinterpret_cast<UInt8*>(buf), bufsize,
+            cfstr, CFRangeMake(0, len), kCFStringEncodingUnicode, 0, false, reinterpret_cast<UInt8 *>(buf), bufsize,
             NULL);
 
         CFRelease(cfstr);
@@ -58,7 +58,7 @@ class KotoeriImpl {
             buf[i] = CFSwapInt16HostToBig(buf[i]);
         }
 
-        result = CFStringCreateWithBytes(0, reinterpret_cast<UInt8*>(buf), bufsize, kCFStringEncodingUnicode, false);
+        result = CFStringCreateWithBytes(0, reinterpret_cast<UInt8 *>(buf), bufsize, kCFStringEncodingUnicode, false);
 
         delete[] buf;
 
@@ -72,7 +72,7 @@ class KotoeriImpl {
             return "";
 
         int bufsize = CFStringGetMaximumSizeForEncoding(length, kCFStringEncodingUTF8) + 1;
-        char* buf = new char[bufsize];
+        char *buf = new char[bufsize];
         memset(buf, 0, bufsize);
         CFStringGetCString(cfstr, buf, bufsize, kCFStringEncodingUTF8);
 
@@ -83,7 +83,7 @@ class KotoeriImpl {
         return result;
     }
 
-    bool find(const std::string& key, DCMFoundRecordIterator* iterator) {
+    bool find(const std::string &key, DCMFoundRecordIterator *iterator) {
         DCMDictionaryRef ref;
         if(DCMOpenDictionary(id_, 0, NULL, &ref) != noErr) {
             std::cout << "DCMOpenDictionary() failed" << std::endl;
@@ -123,7 +123,7 @@ public:
         }
     }
 
-    void Initialize(const std::string& location) {
+    void Initialize(const std::string &location) {
         path_ = CFStringCreateWithCString(kCFAllocatorDefault, location.c_str(), kCFStringEncodingUTF8);
         if(!path_) {
             std::cout << "KotoeriImpl: CFStringCreateCopy() failed" << std::endl;
@@ -153,7 +153,7 @@ public:
         }
     }
 
-    void Find(const std::string& str, SKKCandidateSuite& result) {
+    void Find(const std::string &str, SKKCandidateSuite &result) {
         OSStatus status;
 
         DCMFoundRecordIterator iterator;
@@ -207,8 +207,8 @@ public:
 // Snow Leopard 以降では Dictionary Manager は非サポート
 class KotoeriImpl {
 public:
-    void Initialize(const std::string&) {}
-    void Find(const std::string&, SKKCandidateSuite&) {}
+    void Initialize(const std::string &) {}
+    void Find(const std::string &, SKKCandidateSuite &) {}
 };
 #endif
 
@@ -223,11 +223,11 @@ MacKotoeriDictionary::~MacKotoeriDictionary() {
     // 延させるために、空のデストラクタ実装が必要
 }
 
-void MacKotoeriDictionary::Initialize(const std::string& location) {
+void MacKotoeriDictionary::Initialize(const std::string &location) {
     impl_->Initialize(location);
 }
 
-void MacKotoeriDictionary::Find(const SKKEntry& entry, SKKCandidateSuite& result) {
+void MacKotoeriDictionary::Find(const SKKEntry &entry, SKKCandidateSuite &result) {
     if(!entry.IsOkuriAri()) {
         impl_->Find(entry.EntryString(), result);
     }

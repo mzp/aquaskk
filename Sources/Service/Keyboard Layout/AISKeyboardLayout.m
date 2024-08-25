@@ -12,7 +12,7 @@
 
 - (instancetype)initWithTISInputSourceRef:(TISInputSourceRef)inputSourceRef {
     self = [super init];
-    if (self) {
+    if(self) {
         _inputSourceRef = inputSourceRef;
     }
     return self;
@@ -45,11 +45,11 @@
 }
 
 - (BOOL)isEqual:(id)other {
-    if (other == self) {
+    if(other == self) {
         return YES;
-    } else if (![super isEqual:other]) {
+    } else if(![super isEqual:other]) {
         return NO;
-    } else if ([other isKindOfClass:AISKeyboardLayout.class]) {
+    } else if([other isKindOfClass:AISKeyboardLayout.class]) {
         AISKeyboardLayout *otherLayout = (AISKeyboardLayout *)other;
         return [self.inputSourceID isEqualToString:otherLayout.inputSourceID];
     } else {

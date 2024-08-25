@@ -31,15 +31,15 @@ class SubRuleDescriptions {
     std::map<std::string, std::string> description_;
     std::map<std::string, std::string> keymap_;
 
-    void add(const std::string& line);
+    void add(const std::string &line);
     void initializeSubRulesAtPath();
 
 public:
-    SubRuleDescriptions(const char* folder);
+    SubRuleDescriptions(const char *folder);
 
-    std::string Description(const std::string& rule_path);
-    std::string Keymap(const std::string& rule_path);
-    bool HasKeymap(const std::string& rule_path);
+    std::string Description(const std::string &rule_path);
+    std::string Keymap(const std::string &rule_path);
+    bool HasKeymap(const std::string &rule_path);
 };
 
 #endif

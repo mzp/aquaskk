@@ -1,5 +1,5 @@
-#include <cassert>
 #include "utf8util.h"
+#include <cassert>
 
 #import <XCTest/XCTest.h>
 
@@ -9,7 +9,6 @@
 @implementation Utf8UtilTests
 
 - (void)testMain {
-
 
     std::string str = "ABCいろは日本語ＡＢＣ";
 

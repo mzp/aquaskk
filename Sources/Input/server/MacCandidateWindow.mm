@@ -20,16 +20,16 @@
 
 */
 
-#import <AquaSKKInput/MacCandidateWindow.h>
-#import <AquaSKKUI/CandidateWindow.h>
-#import <AquaSKKUI/CandidateView.h>
-#import <AquaSKKUI/CandidateCell.h>
-#import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKCore/utf8util.h>
+#import <AquaSKKInput/MacCandidateWindow.h>
+#import <AquaSKKService/SKKConstVars.h>
+#import <AquaSKKUI/CandidateCell.h>
+#import <AquaSKKUI/CandidateView.h>
+#import <AquaSKKUI/CandidateWindow.h>
 
 #include <InputMethodKit/InputMethodKit.h>
 
-MacCandidateWindow::MacCandidateWindow(SKKLayoutManager* layout)
+MacCandidateWindow::MacCandidateWindow(SKKLayoutManager *layout)
     : layout_(layout) {
     window_ = [CandidateWindow sharedWindow];
     candidates_ = [[NSMutableArray alloc] initWithCapacity:0];
@@ -40,12 +40,12 @@ MacCandidateWindow::~MacCandidateWindow() {
     [candidates_ release];
 }
 
-void MacCandidateWindow::Setup(SKKCandidateIterator begin, SKKCandidateIterator end, std::vector<int>& pages) {
+void MacCandidateWindow::Setup(SKKCandidateIterator begin, SKKCandidateIterator end, std::vector<int> &pages) {
     reloadUserDefaults();
 
     std::vector<int> cell_width;
 
-    CandidateCell* cell = [window_ newCandidateCell];
+    CandidateCell *cell = [window_ newCandidateCell];
     int width;
 
     // 全ての cell の幅を求める
@@ -56,7 +56,7 @@ void MacCandidateWindow::Setup(SKKCandidateIterator begin, SKKCandidateIterator 
         if(utf8::length(candidate) < 3) {
             width = [cell defaultSize].width;
         } else {
-            NSString* string = [NSString stringWithUTF8String:candidate.c_str()];
+            NSString *string = [NSString stringWithUTF8String:candidate.c_str()];
 
             [cell setString:string withLabel:'A'];
 
@@ -65,7 +65,7 @@ void MacCandidateWindow::Setup(SKKCandidateIterator begin, SKKCandidateIterator 
 
         cell_width.push_back(width + [CandidateView cellSpacing]);
 
-        ++ begin;
+        ++begin;
     }
 
     unsigned limit = ([cell defaultSize].width + [CandidateView cellSpacing]) * cellCount_;
@@ -79,14 +79,14 @@ void MacCandidateWindow::Setup(SKKCandidateIterator begin, SKKCandidateIterator 
         while(offset < cell_width.size()) {
             if(limit < size + cell_width[offset]) {
                 if(size == 0) {
-                    ++ offset;
+                    ++offset;
                     count = 1;
                 }
                 break;
             }
             size += cell_width[offset];
-            ++ offset;
-            ++ count;
+            ++offset;
+            ++count;
         }
 
         pages.push_back(count);
@@ -95,13 +95,13 @@ void MacCandidateWindow::Setup(SKKCandidateIterator begin, SKKCandidateIterator 
     [cell release];
 }
 
-void MacCandidateWindow::Update(SKKCandidateIterator begin, SKKCandidateIterator end,
-                                int cursor, int page_pos, int page_max) {
+void MacCandidateWindow::Update(
+    SKKCandidateIterator begin, SKKCandidateIterator end, int cursor, int page_pos, int page_max) {
     [candidates_ removeAllObjects];
 
-    for(SKKCandidateIterator curr = begin; curr != end; ++ curr) {
+    for(SKKCandidateIterator curr = begin; curr != end; ++curr) {
         std::string candidate(curr->Variant());
-	[candidates_ addObject:[NSString stringWithUTF8String:candidate.c_str()]];
+        [candidates_ addObject:[NSString stringWithUTF8String:candidate.c_str()]];
     }
 
     page_ = NSMakeRange(page_pos, page_max);
@@ -115,14 +115,14 @@ int MacCandidateWindow::LabelIndex(char label) {
 // ------------------------------------------------------------
 
 void MacCandidateWindow::reloadUserDefaults() {
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    NSString* fontName = [defaults stringForKey:SKKUserDefaultKeys::candidate_window_font_name];
+    NSString *fontName = [defaults stringForKey:SKKUserDefaultKeys::candidate_window_font_name];
     float fontSize = [defaults floatForKey:SKKUserDefaultKeys::candidate_window_font_size];
 
-    NSFont* font = [NSFont fontWithName:fontName size:fontSize] ?: [NSFont labelFontOfSize:fontSize];
+    NSFont *font = [NSFont fontWithName:fontName size:fontSize] ?: [NSFont labelFontOfSize:fontSize];
 
-    NSString* labels = [defaults stringForKey:SKKUserDefaultKeys::candidate_window_labels];
+    NSString *labels = [defaults stringForKey:SKKUserDefaultKeys::candidate_window_labels];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wshorten-64-to-32"
     cellCount_ = [labels length];
@@ -136,8 +136,7 @@ void MacCandidateWindow::reloadUserDefaults() {
 void MacCandidateWindow::SKKWidgetShow() {
     [window_ setCandidates:candidates_ selectedIndex:cursor_];
     [window_ setPage:page_];
-    [window_ showAt:layout_->CandidateWindowOrigin()
-             level:layout_->WindowLevel()];
+    [window_ showAt:layout_->CandidateWindowOrigin() level:layout_->WindowLevel()];
 }
 
 void MacCandidateWindow::SKKWidgetHide() {

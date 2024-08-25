@@ -20,17 +20,17 @@
 
 */
 
+#import <AquaSKKCore/SKKBackEnd.h>
+#import <AquaSKKCore/SKKInputSession.h>
 #import <AquaSKKInput/BlacklistApps.h>
 #import <AquaSKKInput/SKKInputController.h>
 #import <AquaSKKInput/SKKLayoutManager.h>
-#import <AquaSKKCore/SKKInputSession.h>
-#import <AquaSKKCore/SKKBackEnd.h>
 
-#import <AquaSKKInput/SKKPreProcessor.h>
-#import <AquaSKKService/SKKConstVars.h>
-#import <AquaSKKInput/MacInputSessionParameter.h>
 #import <AquaSKKInput/MacInputModeMenu.h>
 #import <AquaSKKInput/MacInputModeWindow.h>
+#import <AquaSKKInput/MacInputSessionParameter.h>
+#import <AquaSKKInput/SKKPreProcessor.h>
+#import <AquaSKKService/SKKConstVars.h>
 
 #import <os/log.h>
 
@@ -39,7 +39,7 @@ static os_log_t appLog(void) {
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _serviceLog = os_log_create("com.aquaskk.inputmethod", "App");
+      _serviceLog = os_log_create("com.aquaskk.inputmethod", "App");
     });
     return _serviceLog;
 }
@@ -53,11 +53,11 @@ static os_log_t appLog(void) {
 - (void)setDirectMode:(BOOL)flag;
 - (void)workAroundForSpecificApplications;
 - (void)cancelKeyEventForASCII;
-- (BOOL)isBlacklistedApp:(NSBundle*)bunde;
+- (BOOL)isBlacklistedApp:(NSBundle *)bunde;
 - (SKKInputMode)syncInputSource;
-- (void)debug:(NSString*)message;
-- (NSBundle*)currentBundle;
-- (NSUserDefaults*)defaults;
+- (void)debug:(NSString *)message;
+- (NSBundle *)currentBundle;
+- (NSUserDefaults *)defaults;
 
 @end
 
@@ -99,8 +99,9 @@ static os_log_t appLog(void) {
 }
 
 // IMKServerInput
-- (BOOL)handleEvent:(NSEvent*)event client:(id)sender {
-    if([self directMode]) return NO;
+- (BOOL)handleEvent:(NSEvent *)event client:(id)sender {
+    if([self directMode])
+        return NO;
 
     SKKInputMode current = [menu_ currentInputMode];
 
@@ -120,7 +121,8 @@ static os_log_t appLog(void) {
 }
 
 - (void)commitComposition:(id)sender {
-    if([self directMode]) return;
+    if([self directMode])
+        return;
 
     [self debug:@"commitComposition"];
 
@@ -130,8 +132,9 @@ static os_log_t appLog(void) {
 // IMKStateSetting
 - (void)activateServer:(id)sender {
     [NSUserDefaults resetStandardUserDefaults];
-    
-    if([self directMode]) return;
+
+    if([self directMode])
+        return;
 
     [self debug:@"activateServer"];
 
@@ -141,7 +144,8 @@ static os_log_t appLog(void) {
 }
 
 - (void)deactivateServer:(id)sender {
-    if([self directMode]) return;
+    if([self directMode])
+        return;
 
     [self debug:@"deactivateServer"];
 
@@ -152,9 +156,11 @@ static os_log_t appLog(void) {
     os_log(appLog(), "%s: %{private}@ tag:%lx", __PRETTY_FUNCTION__, value, tag);
     [self initializeKeyboardLayout];
 
-    if([self directMode]) return;
+    if([self directMode])
+        return;
 
-    if(tag != kTextServiceInputModePropertyTag) return;
+    if(tag != kTextServiceInputModePropertyTag)
+        return;
 
     [self debug:@"setValue"];
 
@@ -168,7 +174,7 @@ static os_log_t appLog(void) {
             activated_ = NO;
 
             if(individual) {
-                NSString* identifier = [menu_ convertInputModeToId:[menu_ currentInputMode]];
+                NSString *identifier = [menu_ convertInputModeToId:[menu_ currentInputMode]];
                 SKKEvent param;
 
                 param.id = [menu_ convertIdToEventId:identifier];
@@ -176,7 +182,7 @@ static os_log_t appLog(void) {
 
                 modeIcon_->SelectInputMode([menu_ currentInputMode]);
             } else {
-                NSString* identifier = [menu_ convertInputModeToId:[menu_ unifiedInputMode]];
+                NSString *identifier = [menu_ convertInputModeToId:[menu_ unifiedInputMode]];
                 SKKEvent param;
 
                 param.id = [menu_ convertIdToEventId:identifier];
@@ -189,11 +195,11 @@ static os_log_t appLog(void) {
     }
 }
 
-- (void)changeInputMode:(NSString*)identifier {
+- (void)changeInputMode:(NSString *)identifier {
     SKKEvent param;
 
     // ex) "com.apple.inputmethod.Roman" => SKK_ASCII_MODE
-    param.id = [menu_ convertIdToEventId:(NSString*)identifier];
+    param.id = [menu_ convertIdToEventId:(NSString *)identifier];
 
     // setValue内でメニューの更新があると、 selectInputMode -> setValueの無限ループが発生するため、
     // 更新を停止する
@@ -201,59 +207,57 @@ static os_log_t appLog(void) {
     if((SKKInputMode)param.id != SKKInputMode::InvalidInputMode) {
         session_->HandleEvent(param);
 
-        modeIcon_->SelectInputMode([menu_ convertIdToInputMode:(NSString*)identifier]);
+        modeIcon_->SelectInputMode([menu_ convertIdToInputMode:(NSString *)identifier]);
     }
     [menu_ activation];
 }
 
 // IMKInputController
-- (NSMenu*)menu {
+- (NSMenu *)menu {
     struct {
-        const char* title;
+        const char *title;
         SEL handler;
         SEL state;
     } items[] = {
-        { "環境設定",                 @selector(showPreferences:),   0 },
-        { "直接入力モード",           @selector(toggleDirectMode:),  @selector(directMode) },
-        { "プライベートモード",       @selector(togglePrivateMode:), @selector(privateMode) },
-        { "設定ファイルの再読み込み", @selector(reloadComponents:),  0 },
+        {"環境設定",                         @selector(showPreferences:),   0                     },
+        {"直接入力モード",                @selector(toggleDirectMode:),  @selector(directMode) },
+        {"プライベートモード",          @selector(togglePrivateMode:), @selector(privateMode)},
+        {"設定ファイルの再読み込み", @selector(reloadComponents:),  0                     },
 #ifdef SKK_DEBUG
-        { "デバッグ情報",             @selector(showDebugInfo:),     0 },
+        {"デバッグ情報",                   @selector(showDebugInfo:),     0                     },
 #endif
-        { "separator",                0,                             0 },
-        { "Web::日本語を快適に",      @selector(webHome:),           0 },
-        { "Web::SourceForge.JP",      @selector(webSourceForge:),    0 },
-        { "Web::Wiki",                @selector(webWiki:),           0 },
-        { "Web::Github[forked]",      @selector(github:),            0 },
-        { 0,                          0,                             0 }
+        {"separator",                            0,                             0                     },
+        {"Web::日本語を快適に",           @selector(webHome:),           0                     },
+        {"Web::SourceForge.JP",                  @selector(webSourceForge:),    0                     },
+        {"Web::Wiki",                            @selector(webWiki:),           0                     },
+        {"Web::Github[forked]",                  @selector(github:),            0                     },
+        {0,                                      0,                             0                     }
     };
 
-    NSMenu* inputMenu = [[[NSMenu alloc] initWithTitle:@"AquaSKK"] autorelease];
+    NSMenu *inputMenu = [[[NSMenu alloc] initWithTitle:@"AquaSKK"] autorelease];
 
-    for(int i = 0; items[i].title != 0; ++ i) {
-        NSString* title = [NSString stringWithUTF8String:items[i].title];
+    for(int i = 0; items[i].title != 0; ++i) {
+        NSString *title = [NSString stringWithUTF8String:items[i].title];
         SEL handler = items[i].handler;
-        NSMenuItem* item;
+        NSMenuItem *item;
 
         if(handler != 0) {
-            item = [[NSMenuItem alloc] initWithTitle:title
-                                              action:handler
-                                       keyEquivalent:@""];
+            item = [[NSMenuItem alloc] initWithTitle:title action:handler keyEquivalent:@""];
             [item autorelease];
         } else {
             item = [NSMenuItem separatorItem];
         }
-        
+
         if(items[i].state != 0) {
             [item setState:(NSInteger)[self performSelector:items[i].state]];
 
             if(items[i].state == @selector(directMode)) {
-                NSWorkspace* workspace = [NSWorkspace sharedWorkspace];
+                NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-                NSString* path = [workspace absolutePathForAppBundleWithIdentifier:[client_ bundleIdentifier]];
+                NSString *path = [workspace absolutePathForAppBundleWithIdentifier:[client_ bundleIdentifier]];
 #pragma clang diagnostic pop
-                NSString* name = [[NSFileManager defaultManager] displayNameAtPath:path];
+                NSString *name = [[NSFileManager defaultManager] displayNameAtPath:path];
                 [item setTitle:[NSString stringWithFormat:@"“%@” では直接入力", name]];
             }
         }
@@ -266,8 +270,8 @@ static os_log_t appLog(void) {
 
 // handling menu items
 - (void)showPreferences:(id)sender {
-    NSString* path = [NSString stringWithFormat:@"%@/AquaSKKPreferences.app",
-                               [[NSBundle mainBundle] sharedSupportPath]];
+    NSString *path =
+        [NSString stringWithFormat:@"%@/AquaSKKPreferences.app", [[NSBundle mainBundle] sharedSupportPath]];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [[NSWorkspace sharedWorkspace] launchApplication:path];
@@ -289,22 +293,20 @@ static os_log_t appLog(void) {
 }
 
 - (void)showDebugInfo:(id)sender {
-    NSMutableString* info = [[NSMutableString alloc] initWithCapacity:0];
+    NSMutableString *info = [[NSMutableString alloc] initWithCapacity:0];
     NSRect rect;
 
     [info appendFormat:@"bundleId = %@\n", [client_ bundleIdentifier]];
-    [info appendFormat:@"attributes = %@\n",
-          [client_ attributesForCharacterIndex:0 lineHeightRectangle:&rect]];
+    [info appendFormat:@"attributes = %@\n", [client_ attributesForCharacterIndex:0 lineHeightRectangle:&rect]];
     [info appendFormat:@"inline rect = %@\n", NSStringFromRect(rect)];
-    [info appendFormat:@"selected range = %@\n",NSStringFromRange([client_ selectedRange])];
+    [info appendFormat:@"selected range = %@\n", NSStringFromRange([client_ selectedRange])];
     [info appendFormat:@"marked range = %@\n", NSStringFromRange([client_ markedRange])];
-    [info appendFormat:@"supports unicode = %@\n",
-          ([client_ supportsUnicode] == 1 ? @"YES" : @"NO")];
+    [info appendFormat:@"supports unicode = %@\n", ([client_ supportsUnicode] == 1 ? @"YES" : @"NO")];
     [info appendFormat:@"window level = %d\n", [client_ windowLevel]];
     [info appendFormat:@"length = %ld\n", [client_ length]];
     [info appendFormat:@"valid attributes = %@\n", [client_ validAttributesForMarkedText]];
 
-    NSAlert* alert = [[NSAlert alloc] init];
+    NSAlert *alert = [[NSAlert alloc] init];
     [alert addButtonWithTitle:@"OK"];
     [alert setMessageText:@"デバッグ情報"];
     [alert setInformativeText:info];
@@ -322,7 +324,7 @@ static os_log_t appLog(void) {
     [alert beginSheetModalForWindow:0 modalDelegate:self didEndSelector:0 contextInfo:0];
 #pragma clang diagnostic pop
 
-    NSPasteboard* pb = [NSPasteboard generalPasteboard];
+    NSPasteboard *pb = [NSPasteboard generalPasteboard];
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -332,7 +334,7 @@ static os_log_t appLog(void) {
     [info release];
 }
 
-- (void)openURL:(NSString*)url {
+- (void)openURL:(NSString *)url {
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
 }
 
@@ -357,7 +359,7 @@ static os_log_t appLog(void) {
 @implementation SKKInputController (Local)
 
 - (void)initializeKeyboardLayout {
-    NSString* keyboardLayout = [[self defaults] stringForKey:SKKUserDefaultKeys::keyboard_layout];
+    NSString *keyboardLayout = [[self defaults] stringForKey:SKKUserDefaultKeys::keyboard_layout];
     os_log(appLog(), "%s: %{private}@", __PRETTY_FUNCTION__, keyboardLayout);
     [client_ overrideKeyboardWithKeyboardNamed:keyboardLayout];
 }
@@ -371,15 +373,15 @@ static os_log_t appLog(void) {
 }
 
 - (BOOL)directMode {
-    NSArray* clients = [[self defaults] arrayForKey:SKKUserDefaultKeys::direct_clients];
+    NSArray *clients = [[self defaults] arrayForKey:SKKUserDefaultKeys::direct_clients];
 
     return [clients containsObject:[client_ bundleIdentifier]] == YES;
 }
 
 - (void)setDirectMode:(BOOL)flag {
-    NSArray* current = [[self defaults] arrayForKey:SKKUserDefaultKeys::direct_clients];
-    NSMutableArray* result = [NSMutableArray arrayWithArray:current];
-    NSString* client = [client_ bundleIdentifier];
+    NSArray *current = [[self defaults] arrayForKey:SKKUserDefaultKeys::direct_clients];
+    NSMutableArray *result = [NSMutableArray arrayWithArray:current];
+    NSString *client = [client_ bundleIdentifier];
 
     if(flag) {
         [result addObject:client];
@@ -406,7 +408,9 @@ static os_log_t appLog(void) {
         // OpenJDKを使っている
         return YES;
     }
-    if(!bundle) { return NO; }
+    if(!bundle) {
+        return NO;
+    }
 
     return [[BlacklistApps sharedManager] isInsertEmptyString:bundle];
 }
@@ -436,29 +440,29 @@ static os_log_t appLog(void) {
 
 - (void)cancelKeyEventForASCII {
     // Ctrl-L を強制挿入することで、アプリケーション側のキー処理を無効化する
-    NSString* null = [NSString stringWithFormat:@"%c", 0x0c];
+    NSString *null = [NSString stringWithFormat:@"%c", 0x0c];
     NSRange range = NSMakeRange(NSNotFound, NSNotFound);
 
     [client_ setMarkedText:null selectionRange:range replacementRange:range];
     [client_ setMarkedText:@"" selectionRange:range replacementRange:range];
 }
 
-- (void)debug:(NSString*)str {
+- (void)debug:(NSString *)str {
 #ifdef SKK_DEBUG
     NSLog(@"%@: %@", [client_ bundleIdentifier], str);
 #endif
 }
 
-- (NSBundle*)currentBundle {
-    NSWorkspace* workspace = [NSWorkspace sharedWorkspace];
+- (NSBundle *)currentBundle {
+    NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    NSString* path = [workspace absolutePathForAppBundleWithIdentifier:[client_ bundleIdentifier]];
+    NSString *path = [workspace absolutePathForAppBundleWithIdentifier:[client_ bundleIdentifier]];
 #pragma clang diagnostic pop
     return [NSBundle bundleWithPath:path];
 }
 
-- (NSUserDefaults*)defaults {
+- (NSUserDefaults *)defaults {
     return [NSUserDefaults standardUserDefaults];
 }
 

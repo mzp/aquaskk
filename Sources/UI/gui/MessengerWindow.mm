@@ -20,13 +20,13 @@
 
 */
 
-#import <AquaSKKUI/MessengerWindow.h>
 #import <AquaSKKUI/MessengerView.h>
+#import <AquaSKKUI/MessengerWindow.h>
 
 @implementation MessengerWindow
 
-+ (MessengerWindow*)sharedWindow {
-    static MessengerWindow* obj =  [[MessengerWindow alloc] init];
++ (MessengerWindow *)sharedWindow {
+    static MessengerWindow *obj = [[MessengerWindow alloc] init];
 
     return obj;
 }
@@ -38,9 +38,9 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
         window_ = [[NSWindow alloc] initWithContentRect:NSMakeRect(0, 0, 0, 0)
-                                    styleMask:NSBorderlessWindowMask
-                                    backing:NSBackingStoreBuffered
-                                    defer:YES];
+                                              styleMask:NSBorderlessWindowMask
+                                                backing:NSBackingStoreBuffered
+                                                  defer:YES];
 #pragma clang diagnostic pop
         [window_ setBackgroundColor:[NSColor clearColor]];
         [window_ setOpaque:NO];
@@ -57,11 +57,11 @@
     [super dealloc];
 }
 
-- (void)showMessage:(NSString*)msg at:(NSPoint)topleft level:(int)level {
+- (void)showMessage:(NSString *)msg at:(NSPoint)topleft level:(int)level {
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
 
     [view_ setMessage:msg];
-    
+
     [window_ setFrame:[view_ frame] display:NO];
     [window_ setFrameTopLeftPoint:topleft];
     [window_ setLevel:level];
@@ -72,13 +72,13 @@
 }
 
 - (void)hide {
-    NSMutableDictionary* dictionary = [NSMutableDictionary dictionaryWithCapacity:2];
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithCapacity:2];
 
     [dictionary setObject:window_ forKey:NSViewAnimationTargetKey];
     [dictionary setObject:NSViewAnimationFadeOutEffect forKey:NSViewAnimationEffectKey];
-    
-    NSViewAnimation* animation = [[NSViewAnimation alloc]
-                                     initWithViewAnimations:[NSArray arrayWithObjects:dictionary, nil]];
+
+    NSViewAnimation *animation =
+        [[NSViewAnimation alloc] initWithViewAnimations:[NSArray arrayWithObjects:dictionary, nil]];
 
     [animation setDuration:0.5];
     [animation startAnimation];

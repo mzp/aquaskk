@@ -33,12 +33,12 @@ class SKKHttpDictionaryLoader : public SKKDictionaryLoader {
     std::string tmp_path_;
 
     virtual bool NeedsUpdate();
-    virtual const std::string& FilePath() const;
+    virtual const std::string &FilePath() const;
 
-    bool request(net::socket::tcpstream& http);
-    int content_length(net::socket::tcpstream& http);
-    int file_size(const std::string& path) const;
-    bool download(net::socket::tcpstream& http, int length);
+    bool request(net::socket::tcpstream &http);
+    int content_length(net::socket::tcpstream &http);
+    int file_size(const std::string &path) const;
+    bool download(net::socket::tcpstream &http, int length);
 
 public:
     SKKHttpDictionaryLoader();
@@ -50,7 +50,7 @@ public:
     //
     // "openlab.jp /skk/skk/dic/SKK-JISYO.L /path/to/the/SKK-JISYO.L"
     //
-    virtual void Initialize(const std::string& location);
+    virtual void Initialize(const std::string &location);
 
     virtual int Interval() const {
         return 60 * 60 * 6;

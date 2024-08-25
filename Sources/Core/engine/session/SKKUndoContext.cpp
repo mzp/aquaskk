@@ -27,7 +27,7 @@
 #import <AquaSKKCore/SKKBackEnd.h>
 #import <AquaSKKCore/SKKUndoContext.h>
 
-SKKUndoContext::SKKUndoContext(SKKFrontEnd* frontend)
+SKKUndoContext::SKKUndoContext(SKKFrontEnd *frontend)
     : frontend_(frontend) {}
 
 SKKUndoContext::UndoResult SKKUndoContext::Undo() {
@@ -58,10 +58,10 @@ void SKKUndoContext::Clear() {
     candidate_.clear();
 }
 
-const std::string& SKKUndoContext::Entry() const {
+const std::string &SKKUndoContext::Entry() const {
     return entry_;
 }
 
-const std::string& SKKUndoContext::Candidate() const {
+const std::string &SKKUndoContext::Candidate() const {
     return candidate_;
 }

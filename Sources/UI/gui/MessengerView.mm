@@ -36,8 +36,7 @@
         message_ = nil;
         icon_ = [[NSImage imageNamed:NSImageNameInfo] retain];
         [icon_ setSize:NSMakeSize(16, 16)];
-        attributes_ = [NSDictionary dictionaryWithObject:[NSFont systemFontOfSize:0.0]
-                                    forKey:NSFontAttributeName];
+        attributes_ = [NSDictionary dictionaryWithObject:[NSFont systemFontOfSize:0.0] forKey:NSFontAttributeName];
         [attributes_ retain];
     }
     return self;
@@ -54,7 +53,7 @@
     [super dealloc];
 }
 
-- (void)setMessage:(NSString*)message {
+- (void)setMessage:(NSString *)message {
     if(message_) {
         [message_ release];
     }

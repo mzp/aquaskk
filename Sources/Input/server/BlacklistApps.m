@@ -38,17 +38,17 @@ static BlacklistApps *sharedData_ = nil;
 
 - (BOOL)isInsertEmptyString:(NSBundle *)bundle {
     NSMutableDictionary *entry = [self getEntry:[bundle bundleIdentifier]];
-    if (entry) {
+    if(entry) {
         return [entry[@"insertEmptyString"] boolValue];
     }
 
-    if ([self isJavaApp:bundle]) {
+    if([self isJavaApp:bundle]) {
         return YES;
     }
 
     // very special apps
-    if ([[bundle bundleIdentifier] hasPrefix:@"com.microsoft.Excel"] &&
-        [[bundle objectForInfoDictionaryKey:@"CFBundleVersion"] hasPrefix:@"15."]) {
+    if([[bundle bundleIdentifier] hasPrefix:@"com.microsoft.Excel"] &&
+       [[bundle objectForInfoDictionaryKey:@"CFBundleVersion"] hasPrefix:@"15."]) {
         return YES;
     }
 
@@ -64,8 +64,8 @@ static BlacklistApps *sharedData_ = nil;
 }
 
 - (NSMutableDictionary *)getEntry:(NSString *)bundleIdentifier {
-    for (NSMutableDictionary *entry in blacklistApps_) {
-        if ([bundleIdentifier hasPrefix:entry[@"bundleIdentifier"]]) {
+    for(NSMutableDictionary *entry in blacklistApps_) {
+        if([bundleIdentifier hasPrefix:entry[@"bundleIdentifier"]]) {
             return entry;
         }
     }
@@ -79,23 +79,23 @@ static BlacklistApps *sharedData_ = nil;
 }
 
 - (BOOL)isJavaApp:(NSBundle *)bundle {
-    if ([[bundle bundleIdentifier] hasPrefix:@"jp.naver.line.mac"]) {
+    if([[bundle bundleIdentifier] hasPrefix:@"jp.naver.line.mac"]) {
         return YES;
     }
-    if ([bundle objectForInfoDictionaryKey:@"Java"]) {
+    if([bundle objectForInfoDictionaryKey:@"Java"]) {
         return YES;
     }
-    if ([bundle objectForInfoDictionaryKey:@"Eclipse"]) {
+    if([bundle objectForInfoDictionaryKey:@"Eclipse"]) {
         return YES;
     }
-    if ([bundle objectForInfoDictionaryKey:@"JVMOptions"]) {
+    if([bundle objectForInfoDictionaryKey:@"JVMOptions"]) {
         return YES;
     }
     return NO;
 }
 
 + (BlacklistApps *)sharedManager {
-    if (!sharedData_) {
+    if(!sharedData_) {
         sharedData_ = [[BlacklistApps alloc] init];
     }
     return sharedData_;

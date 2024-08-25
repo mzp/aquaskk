@@ -10,16 +10,16 @@ class MockFrontEnd : public SKKFrontEnd, public SKKInputModeListener {
     TestResult result_;
     std::string selected_string_;
 
-    virtual void InsertString(const std::string& str) {
+    virtual void InsertString(const std::string &str) {
         result_.fixed += str;
     }
 
-    virtual void ComposeString(const std::string& str, int cursorOffset) {
+    virtual void ComposeString(const std::string &str, int cursorOffset) {
         result_.marked = str;
         result_.pos = cursorOffset;
     }
 
-    virtual void ComposeString(const std::string& str, int convertFrom, int convertTo) {
+    virtual void ComposeString(const std::string &str, int convertFrom, int convertTo) {
         result_.marked = str;
         result_.pos = 0;
     }
@@ -36,10 +36,10 @@ class MockFrontEnd : public SKKFrontEnd, public SKKInputModeListener {
     virtual void SKKWidgetHide() {}
 
 public:
-    void SetSelectedString(const std::string& str) {
+    void SetSelectedString(const std::string &str) {
         selected_string_ = str;
     }
-    operator TestResult&() {
+    operator TestResult &() {
         return result_;
     }
 };

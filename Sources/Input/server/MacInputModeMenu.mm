@@ -23,7 +23,8 @@
 #import <AquaSKKInput/MacInputModeMenu.h>
 #import <AquaSKKInput/SKKInputMenu.h>
 
-MacInputModeMenu::MacInputModeMenu(SKKInputMenu* menu) : menu_(menu), active_(false) {}
+MacInputModeMenu::MacInputModeMenu(SKKInputMenu *menu)
+    : menu_(menu), active_(false) {}
 
 void MacInputModeMenu::SelectInputMode(SKKInputMode mode) {
     if(active_) {

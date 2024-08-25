@@ -20,11 +20,11 @@
 
 */
 
-#include <InputMethodKit/InputMethodKit.h>
-#import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKInput/SKKLayoutManager.h>
-#import <AquaSKKUI/CandidateWindow.h>
+#import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKUI/AnnotationWindow.h>
+#import <AquaSKKUI/CandidateWindow.h>
+#include <InputMethodKit/InputMethodKit.h>
 
 SKKLayoutManager::SKKLayoutManager(id client)
     : client_(client) {}
@@ -42,7 +42,7 @@ NSPoint SKKLayoutManager::CandidateWindowOrigin() const {
     NSRect candidate = [[[CandidateWindow sharedWindow] window] frame];
     NSRect screen = screenFrame(input);
     NSPoint pt = candidate.origin = input.origin;
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     bool candidateIsUpward = [defaults boolForKey:SKKUserDefaultKeys::put_candidate_window_upward] == YES;
 
     // 右端
@@ -73,7 +73,7 @@ NSPoint SKKLayoutManager::AnnotationWindowOrigin(int mark) const {
     NSRect annotation = [[[AnnotationWindow sharedWindow] window] frame];
     NSRect screen = screenFrame(input);
     NSPoint pt = annotation.origin = input.origin;
-    NSWindow* candwindow = [[CandidateWindow sharedWindow] window];
+    NSWindow *candwindow = [[CandidateWindow sharedWindow] window];
     NSRect candidate = [candwindow frame];
     bool candidateIsVisible = [candwindow isVisible];
     bool candidateIsUpward = (input.origin.y < candidate.origin.y);
@@ -99,8 +99,8 @@ NSPoint SKKLayoutManager::AnnotationWindowOrigin(int mark) const {
 }
 
 int SKKLayoutManager::WindowLevel() const {
-    id <IMKTextInput> obj = client_;
-    
+    id<IMKTextInput> obj = client_;
+
     return [obj windowLevel] + 1;
 }
 
@@ -114,10 +114,9 @@ NSRect SKKLayoutManager::inputFrame(int index) const {
     // 例外を補足する(例外発生時は、左下原点が使用される)
     @try {
         NSRect candidate = [[[CandidateWindow sharedWindow] window] frame];
-        NSDictionary* dict = [[client_ attributesForCharacterIndex:index
-                                               lineHeightRectangle:&frame] retain];
+        NSDictionary *dict = [[client_ attributesForCharacterIndex:index lineHeightRectangle:&frame] retain];
         if(dict) {
-            NSFont* font = [dict objectForKey:NSFontAttributeName];
+            NSFont *font = [dict objectForKey:NSFontAttributeName];
 
             frame.size.height = font ? NSHeight([font boundingRectForFont]) : NSHeight(candidate);
 
@@ -125,7 +124,7 @@ NSRect SKKLayoutManager::inputFrame(int index) const {
         }
     }
 
-    @catch(NSException* exception) {
+    @catch(NSException *exception) {
         NSLog(@"%@", exception);
     }
 
@@ -133,10 +132,10 @@ NSRect SKKLayoutManager::inputFrame(int index) const {
 }
 
 // メニューバーを除いたスクリーン矩形
-NSRect SKKLayoutManager::screenFrame(const NSRect& input) const {
+NSRect SKKLayoutManager::screenFrame(const NSRect &input) const {
     // カーソルを含むスクリーンを探す
-    NSEnumerator* enumerator = [[NSScreen screens] objectEnumerator];
-    while(NSScreen* screen = [enumerator nextObject]) {
+    NSEnumerator *enumerator = [[NSScreen screens] objectEnumerator];
+    while(NSScreen *screen = [enumerator nextObject]) {
         NSRect whole = [screen frame];
         NSRect frame = [screen visibleFrame];
 
@@ -153,7 +152,7 @@ NSRect SKKLayoutManager::screenFrame(const NSRect& input) const {
 }
 
 // 右端調整
-NSPoint SKKLayoutManager::fit(const NSRect& screen, const NSRect& window) const {
+NSPoint SKKLayoutManager::fit(const NSRect &screen, const NSRect &window) const {
     NSPoint pt = window.origin;
 
     if(NSMaxX(screen) < NSMaxX(window)) {

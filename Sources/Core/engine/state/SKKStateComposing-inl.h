@@ -23,7 +23,7 @@
 // ======================================================================
 // level 1：構築
 // ======================================================================
-State SKKState::Composing(const Event& event) {
+State SKKState::Composing(const Event &event) {
     switch(event) {
     case EXIT_EVENT:
         return State::SaveHistory();
@@ -39,8 +39,8 @@ State SKKState::Composing(const Event& event) {
 // ======================================================================
 // level 2：見出し語編集
 // ======================================================================
-State SKKState::Edit(const Event& event) {
-    const SKKEvent& param = event.Param();
+State SKKState::Edit(const Event &event) {
+    const SKKEvent &param = event.Param();
 
     switch(event) {
     case EXIT_EVENT:
@@ -121,7 +121,7 @@ State SKKState::Edit(const Event& event) {
 // ======================================================================
 // level 3 (sub of Edit)：見出し語入力
 // ======================================================================
-State SKKState::EntryInput(const Event& event) {
+State SKKState::EntryInput(const Event &event) {
     // 履歴を保存するだけ
     switch(event) {
     case ENTRY_EVENT:
@@ -144,8 +144,8 @@ State SKKState::EntryInput(const Event& event) {
 // ======================================================================
 // level 4 (sub of EntryInput)：日本語
 // ======================================================================
-State SKKState::KanaEntry(const Event& event) {
-    const SKKEvent& param = event.Param();
+State SKKState::KanaEntry(const Event &event) {
+    const SKKEvent &param = event.Param();
 
     switch(event) {
     case ENTRY_EVENT:
@@ -223,8 +223,8 @@ State SKKState::KanaEntry(const Event& event) {
 // ======================================================================
 // level 4 (sub of EntryInput)：省略表記
 // ======================================================================
-State SKKState::AsciiEntry(const Event& event) {
-    const SKKEvent& param = event.Param();
+State SKKState::AsciiEntry(const Event &event) {
+    const SKKEvent &param = event.Param();
 
     switch(event) {
     case ENTRY_EVENT:
@@ -254,8 +254,8 @@ State SKKState::AsciiEntry(const Event& event) {
 // ======================================================================
 // level 3 (sub of Edit)：見出し語補完
 // ======================================================================
-State SKKState::EntryCompletion(const Event& event) {
-    const SKKEvent& param = event.Param();
+State SKKState::EntryCompletion(const Event &event) {
+    const SKKEvent &param = event.Param();
 
     switch(event) {
     case ENTRY_EVENT:
@@ -300,8 +300,8 @@ State SKKState::EntryCompletion(const Event& event) {
 // ======================================================================
 // level 2：候補選択
 // ======================================================================
-State SKKState::SelectCandidate(const Event& event) {
-    const SKKEvent& param = event.Param();
+State SKKState::SelectCandidate(const Event &event) {
+    const SKKEvent &param = event.Param();
 
     switch(event) {
     case ENTRY_EVENT:
@@ -391,8 +391,8 @@ State SKKState::SelectCandidate(const Event& event) {
 // ======================================================================
 // level 1：送り
 // ======================================================================
-State SKKState::OkuriInput(const Event& event) {
-    const SKKEvent& param = event.Param();
+State SKKState::OkuriInput(const Event &event) {
+    const SKKEvent &param = event.Param();
 
     switch(event) {
     case ENTRY_EVENT:

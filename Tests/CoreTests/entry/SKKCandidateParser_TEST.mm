@@ -1,5 +1,5 @@
-#include <cassert>
 #import <AquaSKKCore/SKKCandidateParser.h>
+#include <cassert>
 
 #import <XCTest/XCTest.h>
 
@@ -31,8 +31,9 @@
     XCTAssert(parser.Candidates().size() == 1 && parser.Hints().empty());
 
     parser.Parse("//[]/[///]/[おくり/候補1/候補2/]//");
-    XCTAssert(parser.Candidates().empty() && parser.Hints().size() == 1
-	   && parser.Hints()[0].second[1] == SKKCandidate("候補2"));
+    XCTAssert(
+        parser.Candidates().empty() && parser.Hints().size() == 1 &&
+        parser.Hints()[0].second[1] == SKKCandidate("候補2"));
 }
 
 @end

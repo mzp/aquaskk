@@ -32,7 +32,7 @@
     return YES;
 }
 
-- (id)initWithDictionaryTypes:(NSArray*)dictionaryTypes {
+- (id)initWithDictionaryTypes:(NSArray *)dictionaryTypes {
     if(self = [super init]) {
         dictionaryTypes_ = [dictionaryTypes retain];
     }
@@ -47,8 +47,8 @@
 }
 
 - (id)transformedValue:(id)value {
-    for(NSDictionary* item in dictionaryTypes_) {
-        NSString* type = [item valueForKey:SKKDictionaryTypeKeys::type];
+    for(NSDictionary *item in dictionaryTypes_) {
+        NSString *type = [item valueForKey:SKKDictionaryTypeKeys::type];
 
         if([type compare:value] == NSOrderedSame) {
             return [item valueForKey:SKKDictionaryTypeKeys::name];
@@ -59,8 +59,8 @@
 }
 
 - (id)reverseTransformedValue:(id)value {
-    for(NSDictionary* item in dictionaryTypes_) {
-        NSString* name = [item valueForKey:SKKDictionaryTypeKeys::name];
+    for(NSDictionary *item in dictionaryTypes_) {
+        NSString *name = [item valueForKey:SKKDictionaryTypeKeys::name];
 
         if([name compare:value] == NSOrderedSame) {
             return [item valueForKey:SKKDictionaryTypeKeys::type];

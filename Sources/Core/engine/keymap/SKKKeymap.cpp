@@ -25,11 +25,11 @@
 #import <AquaSKKCore/SKKKeymapEntry.h>
 #include <fstream>
 
-void SKKKeymap::Initialize(const std::string& path) {
+void SKKKeymap::Initialize(const std::string &path) {
     load(path, true);
 }
 
-void SKKKeymap::Patch(const std::string& path) {
+void SKKKeymap::Patch(const std::string &path) {
     load(path, false);
 }
 
@@ -64,7 +64,7 @@ SKKEvent SKKKeymap::Fetch(int charcode, int keycode, int mods) {
     return event;
 }
 
-void SKKKeymap::load(const std::string& path, bool initialize) {
+void SKKKeymap::load(const std::string &path, bool initialize) {
     std::ifstream config(path.c_str());
 
     if(!config)
@@ -114,7 +114,7 @@ void SKKKeymap::load(const std::string& path, bool initialize) {
     }
 }
 
-SKKKeymap::Keymap::iterator SKKKeymap::find(int charcode, int keycode, int mods, Keymap& keymap) {
+SKKKeymap::Keymap::iterator SKKKeymap::find(int charcode, int keycode, int mods, Keymap &keymap) {
     Keymap::iterator iter;
 
     // まずキーコードで調べる(優先度高)

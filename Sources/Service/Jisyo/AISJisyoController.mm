@@ -7,34 +7,32 @@
 
 #import <Foundation/Foundation.h>
 
-#import <os/log.h>
 #import <AquaSKKService/AISJisyo.h>
 #import <AquaSKKService/AISJisyoController.h>
 #import <AquaSKKService/SKKConstVars.h>
+#import <os/log.h>
 
 namespace {
-// 順番の入れ替えは禁止(追加のみ)
-struct DictionaryTypes {
-    enum {
-        Common,
-        AutoUpdate,
-        Proxy,
-        Kotoeri,
-        Gadget,
-        CommonUTF8,
+    // 順番の入れ替えは禁止(追加のみ)
+    struct DictionaryTypes {
+        enum {
+            Common,
+            AutoUpdate,
+            Proxy,
+            Kotoeri,
+            Gadget,
+            CommonUTF8,
+        };
     };
-};
 
-NSString *DictionaryNames[] = {
-    @"SKK 辞書(EUC-JP)", @"SKK 辞書(自動ダウンロード)",
-    @"skkserv 辞書",     @"ことえり辞書",
-    @"プログラム辞書",   @"SKK 辞書(UTF-8)"};
+    NSString *DictionaryNames[] = {@"SKK 辞書(EUC-JP)", @"SKK 辞書(自動ダウンロード)",
+                                   @"skkserv 辞書",     @"ことえり辞書",
+                                   @"プログラム辞書",   @"SKK 辞書(UTF-8)"};
 } // namespace
 
 @interface AISJisyoController ()
 
-@property(nonatomic, strong)
-    NSMutableArray<NSMutableDictionary *> *dictionarySet;
+@property(nonatomic, strong) NSMutableArray<NSMutableDictionary *> *dictionarySet;
 
 @end
 
@@ -42,12 +40,12 @@ NSString *DictionaryNames[] = {
 
 - (instancetype)initWithPath:(NSString *)path {
     self = [super init];
-    if (self) {
+    if(self) {
         _path = path;
         NSURL *url = [NSURL fileURLWithPath:path];
         NSError *error = nil;
         self.dictionarySet = [[NSMutableArray arrayWithContentsOfURL:url error:&error] mutableCopy];
-        if (error != nil) {
+        if(error != nil) {
             os_log_error(OS_LOG_DEFAULT, "can't load %@ set due to %@", url, error);
         }
         NSAssert(self.dictionarySet, @"can't find dictionary set plist");
@@ -56,9 +54,8 @@ NSString *DictionaryNames[] = {
 }
 
 - (NSArray<AISJisyo *> *)allJisyo {
-    NSMutableArray *allJisyo =
-        [NSMutableArray arrayWithCapacity:self.dictionarySet.count];
-    for (NSMutableDictionary *entry in self.dictionarySet) {
+    NSMutableArray *allJisyo = [NSMutableArray arrayWithCapacity:self.dictionarySet.count];
+    for(NSMutableDictionary *entry in self.dictionarySet) {
         AISJisyo *jisyo = [[AISJisyo alloc] initWithDictionary:entry];
         [allJisyo addObject:jisyo];
     }
@@ -84,8 +81,7 @@ NSString *DictionaryNames[] = {
     [self.dictionarySet writeToFile:self.path atomically:YES];
 }
 
-- (void)appendJisyo:(AISJisyo *)jisyo
-{
+- (void)appendJisyo:(AISJisyo *)jisyo {
     [self.dictionarySet addObject:[jisyo.dictionary mutableCopy]];
 }
 

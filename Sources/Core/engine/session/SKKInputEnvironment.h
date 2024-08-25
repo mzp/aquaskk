@@ -30,21 +30,21 @@
 #include <memory>
 
 class SKKInputEnvironment {
-    SKKInputContext* context_;
-    SKKInputSessionParameter* param_;
+    SKKInputContext *context_;
+    SKKInputSessionParameter *param_;
     SKKInputModeSelector selector_;
     std::unique_ptr<SKKBaseEditor> bottom_;
 
 public:
     SKKInputEnvironment(
-        SKKInputContext* context, SKKInputSessionParameter* param, SKKInputModeListenerCollection* listeners,
-        SKKBaseEditor* bottom);
+        SKKInputContext *context, SKKInputSessionParameter *param, SKKInputModeListenerCollection *listeners,
+        SKKBaseEditor *bottom);
 
-    SKKConfig* Config();
-    SKKInputContext* InputContext();
-    SKKInputSessionParameter* InputSessionParameter();
-    SKKInputModeSelector* InputModeSelector();
-    SKKBaseEditor* BaseEditor();
+    SKKConfig *Config();
+    SKKInputContext *InputContext();
+    SKKInputSessionParameter *InputSessionParameter();
+    SKKInputModeSelector *InputModeSelector();
+    SKKBaseEditor *BaseEditor();
 };
 
 #endif

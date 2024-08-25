@@ -23,7 +23,7 @@
 #import <AquaSKKCore/SKKInlineSelector.h>
 #include <cassert>
 
-void SKKInlineSelector::Initialize(SKKCandidateContainer& container, unsigned inlineCount) {
+void SKKInlineSelector::Initialize(SKKCandidateContainer &container, unsigned inlineCount) {
     range_.set(container, 0, inlineCount);
     pos_ = 0;
 }
@@ -46,7 +46,7 @@ bool SKKInlineSelector::Prev() {
     return true;
 }
 
-const SKKCandidate& SKKInlineSelector::Current() const {
+const SKKCandidate &SKKInlineSelector::Current() const {
     assert(!IsEmpty());
 
     return range_[pos_];

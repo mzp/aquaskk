@@ -1,7 +1,7 @@
 #import <AquaSKKCore/pthreadutil.h>
-#include <string>
 #include <iostream>
 #include <sstream>
+#include <string>
 #include <unistd.h>
 
 #import <XCTest/XCTest.h>
@@ -9,19 +9,19 @@
 class debugtask : public pthread::task {
     std::string str_;
     int loop_;
-    pthread::mutex& mutex_;
+    pthread::mutex &mutex_;
 
 public:
-    debugtask(const std::string& str, int loop, pthread::mutex& mutex)
+    debugtask(const std::string &str, int loop, pthread::mutex &mutex)
         : str_(str), loop_(loop), mutex_(mutex) {}
 
     virtual ~debugtask() {
         pthread::lock scope(mutex_);
         std::cerr << "delete: " << str_ << std::endl;
     }
-    
+
     virtual bool run() {
-        for(int index = 0; index < loop_; ++ index) {
+        for(int index = 0; index < loop_; ++index) {
             do {
                 pthread::lock scope(mutex_);
                 std::cerr << "run :" << str_ << std::endl;
@@ -33,7 +33,6 @@ public:
         return true;
     }
 };
-
 
 @interface PThreadUtilTests : XCTestCase
 

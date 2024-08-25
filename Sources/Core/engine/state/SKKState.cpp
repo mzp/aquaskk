@@ -31,7 +31,7 @@ namespace {
     typedef SKKState::State State;
 } // namespace
 
-SKKState::SKKState(SKKInputEnvironment* env, SKKInputEngine* editor)
+SKKState::SKKState(SKKInputEnvironment *env, SKKInputEngine *editor)
     : context_(env->InputContext()),
       messenger_(env->InputSessionParameter()->Messenger()),
       window_(env->InputSessionParameter()->CandidateWindow()),
@@ -40,7 +40,7 @@ SKKState::SKKState(SKKInputEnvironment* env, SKKInputEngine* editor)
       completer_(editor_),
       selector_(editor_, window_) {}
 
-SKKState::SKKState(const SKKState& src)
+SKKState::SKKState(const SKKState &src)
     : context_(src.context_),
       messenger_(src.messenger_),
       window_(src.window_),
@@ -49,12 +49,12 @@ SKKState::SKKState(const SKKState& src)
       completer_(editor_),
       selector_(editor_, window_) {}
 
-void SKKState::ToString(const Handler handler, const Event& event, std::string& result) {
-    static const char* systemEvent[] = {"PROBE", "<<ENTRY>>", "<<INIT>>", "<<EXIT>>"};
+void SKKState::ToString(const Handler handler, const Event &event, std::string &result) {
+    static const char *systemEvent[] = {"PROBE", "<<ENTRY>>", "<<INIT>>", "<<EXIT>>"};
 
     static struct {
         Handler handler;
-        const char* name;
+        const char *name;
     } states[] = {
 #define DEFINE_State(arg) {&SKKState::arg, "SKKState::" #arg}
         DEFINE_State(Primary),

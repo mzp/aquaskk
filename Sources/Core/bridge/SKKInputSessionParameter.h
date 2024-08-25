@@ -35,13 +35,13 @@ class SKKInputSessionParameter {
 public:
     virtual ~SKKInputSessionParameter() {}
 
-    virtual SKKConfig* Config() = 0;
-    virtual SKKFrontEnd* FrontEnd() = 0;
-    virtual SKKMessenger* Messenger() = 0;
-    virtual SKKClipboard* Clipboard() = 0;
-    virtual SKKCandidateWindow* CandidateWindow() = 0;
-    virtual SKKAnnotator* Annotator() = 0;
-    virtual SKKDynamicCompletor* DynamicCompletor() = 0;
+    virtual SKKConfig *Config() = 0;
+    virtual SKKFrontEnd *FrontEnd() = 0;
+    virtual SKKMessenger *Messenger() = 0;
+    virtual SKKClipboard *Clipboard() = 0;
+    virtual SKKCandidateWindow *CandidateWindow() = 0;
+    virtual SKKAnnotator *Annotator() = 0;
+    virtual SKKDynamicCompletor *DynamicCompletor() = 0;
 };
 
 #endif

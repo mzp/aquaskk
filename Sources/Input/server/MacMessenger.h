@@ -27,12 +27,12 @@
 #import <AquaSKKInput/SKKLayoutManager.h>
 
 class MacMessenger : public SKKMessenger {
-    SKKLayoutManager* layout_;
+    SKKLayoutManager *layout_;
 
 public:
-    MacMessenger(SKKLayoutManager* layout);
+    MacMessenger(SKKLayoutManager *layout);
 
-    virtual void SendMessage(const std::string& msg);
+    virtual void SendMessage(const std::string &msg);
     virtual void Beep();
 };
 

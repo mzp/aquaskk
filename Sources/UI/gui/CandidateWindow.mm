@@ -20,13 +20,13 @@
 
 */
 
-#import <AquaSKKUI/CandidateWindow.h>
 #import <AquaSKKUI/CandidateView.h>
+#import <AquaSKKUI/CandidateWindow.h>
 
 @implementation CandidateWindow
 
-+ (CandidateWindow*)sharedWindow {
-    static CandidateWindow* obj = [[CandidateWindow alloc] init];
++ (CandidateWindow *)sharedWindow {
+    static CandidateWindow *obj = [[CandidateWindow alloc] init];
 
     return obj;
 }
@@ -38,9 +38,9 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
         window_ = [[NSWindow alloc] initWithContentRect:NSZeroRect
-                                    styleMask:NSBorderlessWindowMask
-                                    backing:NSBackingStoreBuffered
-                                    defer:YES];
+                                              styleMask:NSBorderlessWindowMask
+                                                backing:NSBackingStoreBuffered
+                                                  defer:YES];
 #pragma clang diagnostic pop
         [window_ setIgnoresMouseEvents:YES];
         [window_ setContentView:view_];
@@ -57,11 +57,11 @@
     [super dealloc];
 }
 
-- (NSWindow*)window {
+- (NSWindow *)window {
     return window_;
 }
 
-- (void)prepareWithFont:(NSFont*)newFont labels:(NSString*)newLabels {
+- (void)prepareWithFont:(NSFont *)newFont labels:(NSString *)newLabels {
     NSAssert([NSThread isMainThread], @"Must be used from main therad only");
     [labels_ release];
     labels_ = [newLabels retain];
@@ -70,7 +70,7 @@
     [window_ setContentSize:[view_ contentSize]];
 }
 
-- (void)setCandidates:(NSArray*)candidates selectedIndex:(int)cursor {
+- (void)setCandidates:(NSArray *)candidates selectedIndex:(int)cursor {
     [view_ setCandidates:candidates selectedIndex:cursor];
 }
 
@@ -89,15 +89,15 @@
 }
 
 - (int)indexOfLabel:(char)label {
-    NSString* target = [NSString stringWithFormat:@"%c", label];
+    NSString *target = [NSString stringWithFormat:@"%c", label];
     NSRange result = [labels_ rangeOfString:target options:NSCaseInsensitiveSearch];
 
     if(result.location == NSNotFound) {
-	return -1;
+        return -1;
     } else {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wshorten-64-to-32"
-	return result.location;
+        return result.location;
 #pragma clang diagnostic pop
     }
 }

@@ -63,7 +63,7 @@ template <typename Iterator> class utf8iterator {
         return size() != 0;
     }
 
-    utf8iterator& next(int count = 1) {
+    utf8iterator &next(int count = 1) {
         for(int i = 0; i < count; ++i) {
             do {
                 ++curr_;
@@ -72,7 +72,7 @@ template <typename Iterator> class utf8iterator {
         return *this;
     }
 
-    utf8iterator& prev(int count = 1) {
+    utf8iterator &prev(int count = 1) {
         for(int i = 0; i < count; ++i) {
             do {
                 --curr_;
@@ -86,7 +86,7 @@ public:
         : curr_(0) {}
     utf8iterator(Iterator iter)
         : curr_(iter) {}
-    utf8iterator& operator=(Iterator iter) {
+    utf8iterator &operator=(Iterator iter) {
         curr_ = iter;
         return *this;
     }
@@ -102,7 +102,7 @@ public:
         return std::string(curr_, curr_ + size());
     }
 
-    utf8iterator& operator++() {
+    utf8iterator &operator++() {
         return next();
     }
     utf8iterator operator++(int) {
@@ -111,7 +111,7 @@ public:
         return iter;
     }
 
-    utf8iterator& operator--() {
+    utf8iterator &operator--() {
         return prev();
     }
     utf8iterator operator--(int) {
@@ -120,20 +120,20 @@ public:
         return iter;
     }
 
-    utf8iterator& operator+=(int count) {
+    utf8iterator &operator+=(int count) {
         return 0 < count ? next(count) : prev(std::abs(count));
     }
-    utf8iterator& operator-=(int count) {
+    utf8iterator &operator-=(int count) {
         return 0 < count ? prev(count) : next(std::abs(count));
     }
 
-    friend bool operator==(const utf8iterator& lhs, const utf8iterator& rhs) {
+    friend bool operator==(const utf8iterator &lhs, const utf8iterator &rhs) {
         return lhs.curr_ == rhs.curr_;
     }
-    friend bool operator!=(const utf8iterator& lhs, const utf8iterator& rhs) {
+    friend bool operator!=(const utf8iterator &lhs, const utf8iterator &rhs) {
         return lhs.curr_ != rhs.curr_;
     }
-    friend bool operator<(const utf8iterator& lhs, const utf8iterator& rhs) {
+    friend bool operator<(const utf8iterator &lhs, const utf8iterator &rhs) {
         return lhs.curr_ < rhs.curr_;
     }
 };
@@ -159,7 +159,7 @@ struct utf8 {
     typedef utf8iterator<std::string::const_iterator> const_iterator;
 
     // UTF8 文字列長取得
-    static unsigned length(const std::string& str) {
+    static unsigned length(const std::string &str) {
         return const_iterator(str.end()) - const_iterator(str.begin());
     }
 
@@ -170,7 +170,7 @@ struct utf8 {
     //      utf8::push(str, "a", -3); // "a文字列";
     //      utf8::push(str, "b");     // "a文字列b";
     //
-    static void push(std::string& target, const std::string& str, int offset = 0) {
+    static void push(std::string &target, const std::string &str, int offset = 0) {
         if(0 <= offset || target.empty()) {
             target += str;
         } else {
@@ -191,7 +191,7 @@ struct utf8 {
     //      utf8::pop(str);           // "文字";
     //      utf8::pop(str, -1);       // "字";
     //
-    static void pop(std::string& target, int offset = 0) {
+    static void pop(std::string &target, int offset = 0) {
         iterator end(target.end());
         iterator pos(end + (0 < offset ? 0 : offset) - 1);
 
@@ -207,7 +207,7 @@ struct utf8 {
     //	    utf8::left(str);	      // "文字列";
     //	    utf8::left(str, -1);      // "文字";
     //
-    static std::string left(const std::string& str, int offset = 0) {
+    static std::string left(const std::string &str, int offset = 0) {
         if(offset == 0)
             return str;
 
@@ -231,7 +231,7 @@ struct utf8 {
     //	    utf8::right(str);	      // "";
     //	    utf8::right(str, -1);     // "列";
     //
-    static std::string right(const std::string& str, int offset = 0) {
+    static std::string right(const std::string &str, int offset = 0) {
         if(offset == 0)
             return "";
 
@@ -253,7 +253,7 @@ struct utf8 {
     // 例：
     //      if(common_prefix("1漢字2", "1漢字3") == "1漢字") { ...
     //
-    static std::string common_prefix(const std::string& s1, const std::string& s2) {
+    static std::string common_prefix(const std::string &s1, const std::string &s2) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wshorten-64-to-32"
         int max = std::min(s1.size(), s2.size());

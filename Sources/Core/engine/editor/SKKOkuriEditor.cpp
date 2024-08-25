@@ -27,7 +27,7 @@
 #include <exception>
 #include <iostream>
 
-SKKOkuriEditor::SKKOkuriEditor(SKKInputContext* context, SKKOkuriListener* listener)
+SKKOkuriEditor::SKKOkuriEditor(SKKInputContext *context, SKKOkuriListener *listener)
     : SKKBaseEditor(context), listener_(listener) {}
 
 void SKKOkuriEditor::ReadContext() {
@@ -43,7 +43,7 @@ void SKKOkuriEditor::WriteContext() {
     update();
 }
 
-void SKKOkuriEditor::Input(const std::string& fixed, const std::string& input, char code) {
+void SKKOkuriEditor::Input(const std::string &fixed, const std::string &input, char code) {
     input_ = input;
 
     if(first_) {
@@ -95,7 +95,7 @@ void SKKOkuriEditor::Input(SKKBaseEditor::Event event) {
     update();
 }
 
-void SKKOkuriEditor::Commit(std::string&) {
+void SKKOkuriEditor::Commit(std::string &) {
     prefix_.clear();
     okuri_.clear();
 }

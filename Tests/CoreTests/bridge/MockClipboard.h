@@ -13,7 +13,7 @@ class MockClipboard : public SKKClipboard {
     }
 
 public:
-    void SetString(const std::string& str) {
+    void SetString(const std::string &str) {
         str_ = str;
     }
 };

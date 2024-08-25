@@ -1,18 +1,17 @@
+#include "SKKRomanKanaConverter.h"
+#import <AquaSKKCore/SKKInputQueue.h>
+#import <XCTest/XCTest.h>
 #include <cassert>
 #include <iostream>
-#import <AquaSKKCore/SKKInputQueue.h>
-#include "SKKRomanKanaConverter.h"
-#import <XCTest/XCTest.h>
 
-@interface SKKInputQueueTests: XCTestCase
+@interface SKKInputQueueTests : XCTestCase
 @end
-
 
 class TestInputQueueObserver : public SKKInputQueueObserver {
     State state_;
 
 public:
-    virtual void SKKInputQueueUpdate(const State& state) {
+    virtual void SKKInputQueueUpdate(const State &state) {
         state_.fixed += state.fixed;
         state_.queue = state.queue;
     }
@@ -21,7 +20,7 @@ public:
         state_ = State();
     }
 
-    bool Test(const std::string& fixed, const std::string& queue) {
+    bool Test(const std::string &fixed, const std::string &queue) {
         return state_.fixed == fixed && state_.queue == queue;
     }
 
@@ -33,7 +32,7 @@ public:
 @implementation SKKInputQueueTests
 
 - (void)testMain {
-    auto& converter = SKKRomanKanaConverter::theInstance();
+    auto &converter = SKKRomanKanaConverter::theInstance();
 
     NSBundle *bundle = [NSBundle bundleForClass:SKKInputQueueTests.class];
     const char *path = [bundle pathForResource:@"kana-rule" ofType:@"conf"].UTF8String;

@@ -38,7 +38,7 @@ class MacInputModeWindow : public SKKInputModeListener {
     virtual void SKKWidgetShow();
     virtual void SKKWidgetHide();
 
-  public:
+public:
     MacInputModeWindow(SKKLayoutManager *layout);
     ~MacInputModeWindow();
 

@@ -1,8 +1,8 @@
-#include <iostream>
 #import <AquaSKKCore/SKKGadgetDictionary.h>
 #import <XCTest/XCTest.h>
+#include <iostream>
 
-@interface SKKGadgetDictionaryTests: XCTestCase
+@interface SKKGadgetDictionaryTests : XCTestCase
 @end
 
 @implementation SKKGadgetDictionaryTests

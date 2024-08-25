@@ -32,16 +32,16 @@ class SKKComposingEditor : public SKKBaseEditor {
     void update();
 
 public:
-    SKKComposingEditor(SKKInputContext* context);
+    SKKComposingEditor(SKKInputContext *context);
 
     virtual void ReadContext();
     virtual void WriteContext();
-    virtual void Input(const std::string& ascii);
-    virtual void Input(const std::string& fixed, const std::string& input, char code);
+    virtual void Input(const std::string &ascii);
+    virtual void Input(const std::string &fixed, const std::string &input, char code);
     virtual void Input(Event event);
-    virtual void Commit(std::string& queue);
+    virtual void Commit(std::string &queue);
 
-    void SetEntry(const std::string& entry);
+    void SetEntry(const std::string &entry);
 };
 
 #endif

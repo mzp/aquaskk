@@ -41,15 +41,15 @@ namespace jconv {
 #include "jconv_eucj2ucs-inl.h"
 #include "jconv_body-inl.h"
     // clang-format on
-    void convert_utf8_to_eucj(const std::string& from, std::string& to) {
+    void convert_utf8_to_eucj(const std::string &from, std::string &to) {
         std::for_each(from.begin(), from.end(), utf8_to_eucj(to));
     }
 
-    void convert_eucj_to_utf8(const std::string& from, std::string& to) {
+    void convert_eucj_to_utf8(const std::string &from, std::string &to) {
         std::for_each(from.begin(), from.end(), eucj_to_utf8(to));
     }
 
-    std::string utf8_from_eucj(const std::string& eucj) {
+    std::string utf8_from_eucj(const std::string &eucj) {
         std::string utf8;
 
         convert_eucj_to_utf8(eucj, utf8);
@@ -57,7 +57,7 @@ namespace jconv {
         return utf8;
     }
 
-    std::string eucj_from_utf8(const std::string& utf8) {
+    std::string eucj_from_utf8(const std::string &utf8) {
         std::string eucj;
 
         convert_utf8_to_eucj(utf8, eucj);
@@ -66,14 +66,14 @@ namespace jconv {
     }
 
     struct kana {
-        const char* hirakana;
-        const char* katakana;
-        const char* jisx0201_kana;
-        const char* roman;
+        const char *hirakana;
+        const char *katakana;
+        const char *jisx0201_kana;
+        const char *roman;
     };
 
     // data member pointer
-    typedef const char* kana::*kana_member;
+    typedef const char *kana::*kana_member;
 
     static kana primary_kana_table[] = {
         {"が",    "ガ", "ｶﾞ", "ga"},
@@ -175,17 +175,17 @@ namespace jconv {
         {0,     0,     0,     0    }
     };
 
-    static kana* kana_tables[] = {primary_kana_table, secondary_kana_table, 0};
+    static kana *kana_tables[] = {primary_kana_table, secondary_kana_table, 0};
 
     class translate {
         std::string from_;
         std::string to_;
 
     public:
-        translate(const char* from, const char* to)
+        translate(const char *from, const char *to)
             : from_(from), to_(to) {}
 
-        unsigned operator()(std::string& str, unsigned remain, unsigned offset = 0) {
+        unsigned operator()(std::string &str, unsigned remain, unsigned offset = 0) {
             if(!remain)
                 return 0;
 
@@ -201,67 +201,67 @@ namespace jconv {
         }
     };
 
-    static void kana_convert(kana_member target, kana_member replacement, std::string& str) {
+    static void kana_convert(kana_member target, kana_member replacement, std::string &str) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wshorten-64-to-32"
         unsigned remain = str.size();
 #pragma clang diagnostic pop
-        for(kana** tbl = kana_tables; *tbl != 0; ++tbl) {
-            for(kana* ptr = *tbl; remain && ptr->hirakana; ++ptr) {
+        for(kana **tbl = kana_tables; *tbl != 0; ++tbl) {
+            for(kana *ptr = *tbl; remain && ptr->hirakana; ++ptr) {
                 remain = translate(ptr->*target, ptr->*replacement)(str, remain);
             }
         }
     }
 
-    void hirakana_to_katakana(const std::string& from, std::string& to) {
+    void hirakana_to_katakana(const std::string &from, std::string &to) {
         to = from;
         kana_convert(&kana::hirakana, &kana::katakana, to);
     }
 
-    void hirakana_to_jisx0201_kana(const std::string& from, std::string& to) {
+    void hirakana_to_jisx0201_kana(const std::string &from, std::string &to) {
         to = from;
         kana_convert(&kana::hirakana, &kana::jisx0201_kana, to);
     }
 
-    void hirakana_to_roman(const std::string& from, std::string& to) {
+    void hirakana_to_roman(const std::string &from, std::string &to) {
         to = from;
         kana_convert(&kana::hirakana, &kana::roman, to);
     }
 
-    void katakana_to_hirakana(const std::string& from, std::string& to) {
+    void katakana_to_hirakana(const std::string &from, std::string &to) {
         to = from;
         kana_convert(&kana::katakana, &kana::hirakana, to);
     }
 
-    void katakana_to_jisx0201_kana(const std::string& from, std::string& to) {
+    void katakana_to_jisx0201_kana(const std::string &from, std::string &to) {
         to = from;
         kana_convert(&kana::katakana, &kana::jisx0201_kana, to);
     }
 
-    void katakana_to_roman(const std::string& from, std::string& to) {
+    void katakana_to_roman(const std::string &from, std::string &to) {
         to = from;
         kana_convert(&kana::katakana, &kana::roman, to);
     }
 
-    void jisx0201_kana_to_hirakana(const std::string& from, std::string& to) {
+    void jisx0201_kana_to_hirakana(const std::string &from, std::string &to) {
         to = from;
         kana_convert(&kana::jisx0201_kana, &kana::hirakana, to);
     }
 
-    void jisx0201_kana_to_katakana(const std::string& from, std::string& to) {
+    void jisx0201_kana_to_katakana(const std::string &from, std::string &to) {
         to = from;
         kana_convert(&kana::jisx0201_kana, &kana::katakana, to);
     }
 
-    void jisx0201_kana_to_roman(const std::string& from, std::string& to) {
+    void jisx0201_kana_to_roman(const std::string &from, std::string &to) {
         to = from;
         kana_convert(&kana::jisx0201_kana, &kana::roman, to);
     }
 
     // latin record
     struct latin {
-        const char* ascii;
-        const char* jisx0208_latin;
+        const char *ascii;
+        const char *jisx0208_latin;
     };
 
     static latin latin_table[] = {
@@ -363,7 +363,7 @@ namespace jconv {
         {0,    0    }
     };
 
-    void ascii_to_jisx0208_latin(const std::string& from, std::string& to) {
+    void ascii_to_jisx0208_latin(const std::string &from, std::string &to) {
         to.clear();
         for(unsigned i = 0; i < from.size(); ++i) {
             if(from[i] < 0x20 || 0x7e < from[i]) {
@@ -374,13 +374,13 @@ namespace jconv {
         }
     }
 
-    void jisx0208_latin_to_ascii(const std::string& from, std::string& to) {
+    void jisx0208_latin_to_ascii(const std::string &from, std::string &to) {
         to = from;
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wshorten-64-to-32"
         unsigned remain = to.size();
 #pragma clang diagnostic pop
-        for(latin* ptr = latin_table; remain && ptr->ascii; ++ptr) {
+        for(latin *ptr = latin_table; remain && ptr->ascii; ++ptr) {
             remain = translate(ptr->jisx0208_latin, ptr->ascii)(to, remain);
         }
     }

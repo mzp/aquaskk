@@ -20,11 +20,11 @@
 
 */
 
-#import <AquaSKKService/SKKConstVars.h>
-#import "SandboxShims.h"
 #include "ObjCUtil.h"
+#import "SandboxShims.h"
+#import <AquaSKKService/SKKConstVars.h>
 
-#define DECLARE_NSStringKey(key) NSString* key = @ #key
+#define DECLARE_NSStringKey(key) NSString *key = @ #key
 
 namespace SKKUserDefaultKeys {
     // boolean
@@ -93,67 +93,64 @@ namespace SKKUserDefaultKeys {
     DECLARE_NSStringKey(skkdap_folder);
     // number
     DECLARE_NSStringKey(skkdap_port);
-}
+} // namespace SKKUserDefaultKeys
 
 namespace SKKDictionarySetKeys {
     DECLARE_NSStringKey(active);
     DECLARE_NSStringKey(type);
     DECLARE_NSStringKey(location);
-}
+} // namespace SKKDictionarySetKeys
 
 namespace SKKDictionaryTypeKeys {
     DECLARE_NSStringKey(type);
     DECLARE_NSStringKey(name);
-}
+} // namespace SKKDictionaryTypeKeys
 
 #undef DECLARE_NSStringKey
 
 namespace SKKFilePaths {
-    static NSString* pathForSystemResource() {
+    static NSString *pathForSystemResource() {
         ObjC::RAIIPool pool;
-        static NSString* path = @"/Library/Input Methods/AquaSKK.app/Contents/Resources";
-
-        return path;
-    }
-    
-    static NSString* pathForApplicationSupport() {
-        ObjC::RAIIPool pool;
-        static NSString* path = [[NSString stringWithFormat:@"%@/Library/Application Support/AquaSKK",
-                                           AISHomeDirectory()] retain];
+        static NSString *path = @"/Library/Input Methods/AquaSKK.app/Contents/Resources";
 
         return path;
     }
 
-    static NSString* pathForBlacklistApps() {
+    static NSString *pathForApplicationSupport() {
         ObjC::RAIIPool pool;
-        static NSString* path = [[NSString stringWithFormat:@"%@/BlacklistApps.plist",
-                                  pathForApplicationSupport()] retain];
+        static NSString *path =
+            [[NSString stringWithFormat:@"%@/Library/Application Support/AquaSKK", AISHomeDirectory()] retain];
 
         return path;
     }
 
-    static NSString* pathForDictionarySet() {
+    static NSString *pathForBlacklistApps() {
         ObjC::RAIIPool pool;
-        static NSString* path = [[NSString stringWithFormat:@"%@/DictionarySet.plist",
-                                           pathForApplicationSupport()] retain];
+        static NSString *path =
+            [[NSString stringWithFormat:@"%@/BlacklistApps.plist", pathForApplicationSupport()] retain];
 
         return path;
     }
 
-    static NSString* pathForUserDefaults() {
+    static NSString *pathForDictionarySet() {
         ObjC::RAIIPool pool;
-        const char* plist = "Library/Preferences/jp.sourceforge.inputmethod.aquaskk.plist";
-        static NSString* path = [[NSString stringWithFormat:@"%@/%s",
-                                           AISHomeDirectory(), plist] retain];
+        static NSString *path =
+            [[NSString stringWithFormat:@"%@/DictionarySet.plist", pathForApplicationSupport()] retain];
 
         return path;
     }
 
-    NSString* SystemResourceFolder = pathForSystemResource();
-    NSString* BlacklistApps = pathForBlacklistApps();
-    NSString* ApplicationSupportFolder = pathForApplicationSupport();
-    NSString* DictionarySet = pathForDictionarySet();
-    NSString* UserDefaults = pathForUserDefaults();
-}
+    static NSString *pathForUserDefaults() {
+        ObjC::RAIIPool pool;
+        const char *plist = "Library/Preferences/jp.sourceforge.inputmethod.aquaskk.plist";
+        static NSString *path = [[NSString stringWithFormat:@"%@/%s", AISHomeDirectory(), plist] retain];
 
+        return path;
+    }
 
+    NSString *SystemResourceFolder = pathForSystemResource();
+    NSString *BlacklistApps = pathForBlacklistApps();
+    NSString *ApplicationSupportFolder = pathForApplicationSupport();
+    NSString *DictionarySet = pathForDictionarySet();
+    NSString *UserDefaults = pathForUserDefaults();
+} // namespace SKKFilePaths

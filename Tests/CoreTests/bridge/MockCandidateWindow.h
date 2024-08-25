@@ -8,7 +8,7 @@ class MockCandidateWindow : public SKKCandidateWindow {
     virtual void SKKWidgetHide() {}
 
 public:
-    virtual void Setup(SKKCandidateIterator begin, SKKCandidateIterator end, std::vector<int>& pages) {
+    virtual void Setup(SKKCandidateIterator begin, SKKCandidateIterator end, std::vector<int> &pages) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wshorten-64-to-32"
         pages.push_back(end - begin);

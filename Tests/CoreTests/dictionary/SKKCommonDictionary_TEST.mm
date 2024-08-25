@@ -1,9 +1,9 @@
-#include <cassert>
 #import <AquaSKKCore/SKKCommonDictionary.h>
+#include <cassert>
 
 #import <XCTest/XCTest.h>
 
-void test(SKKBaseDictionary& dict) {
+void test(SKKBaseDictionary &dict) {
     SKKCandidateSuite suite;
 
     dict.Find(SKKEntry("NOT_EXIST", "d"), suite);
@@ -22,7 +22,7 @@ void test(SKKBaseDictionary& dict) {
     XCTAssert(dict.ReverseLookup("漢字") == "かんじ");
 }
 
-@interface SKKCommonDictionaryTests: XCTestCase
+@interface SKKCommonDictionaryTests : XCTestCase
 @end
 
 @implementation SKKCommonDictionaryTests
@@ -36,7 +36,7 @@ void test(SKKBaseDictionary& dict) {
     dict.Initialize([bundle pathForResource:@"SKK-JISYO" ofType:@"TEST"].UTF8String);
 
     test(dict);
- 
+
     SKKCommonDictionaryUTF8 utf8;
 
     utf8.Initialize([bundle pathForResource:@"SKK-JISYO.TEST" ofType:@"UTF8"].UTF8String);

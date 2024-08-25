@@ -25,7 +25,7 @@
 @interface CompletionView (Local)
 
 - (NSRect)completionRect;
-- (NSAttributedString*)newGuideWithString:(NSString*)string;
+- (NSAttributedString *)newGuideWithString:(NSString *)string;
 
 @end
 
@@ -60,7 +60,7 @@
     [super dealloc];
 }
 
-- (void)setCompletion:(NSAttributedString*)completion {
+- (void)setCompletion:(NSAttributedString *)completion {
     if(completion_) {
         [completion_ release];
     }
@@ -85,9 +85,9 @@
 
     frame.origin.y = 0;
     frame.size.height = guideSize_.height;
-    NSBezierPath* guidePlate = [NSBezierPath bezierPathWithRoundedRect:frame
-                                             xRadius:NSHeight(frame) / 2
-                                             yRadius:NSHeight(frame) / 2];
+    NSBezierPath *guidePlate = [NSBezierPath bezierPathWithRoundedRect:frame
+                                                               xRadius:NSHeight(frame) / 2
+                                                               yRadius:NSHeight(frame) / 2];
     frame.origin.y = frame.size.height = guideSize_.height / 2;
     [guidePlate appendBezierPathWithRect:frame];
     [guidePlate fill];
@@ -114,18 +114,15 @@
     return rect;
 }
 
-- (NSAttributedString*)newGuideWithString:(NSString*)string {
-    NSMutableAttributedString* tmp = [[NSMutableAttributedString alloc] initWithString:string];
+- (NSAttributedString *)newGuideWithString:(NSString *)string {
+    NSMutableAttributedString *tmp = [[NSMutableAttributedString alloc] initWithString:string];
     NSRange range = NSMakeRange(0, [tmp length]);
 
-    [tmp addAttribute:NSFontAttributeName
-         value:[NSFont boldSystemFontOfSize:[NSFont labelFontSize]] range:range];
+    [tmp addAttribute:NSFontAttributeName value:[NSFont boldSystemFontOfSize:[NSFont labelFontSize]] range:range];
 
-    [tmp addAttribute:NSForegroundColorAttributeName
-         value:[NSColor whiteColor] range:range];
+    [tmp addAttribute:NSForegroundColorAttributeName value:[NSColor whiteColor] range:range];
 
-    [tmp addAttribute:NSBackgroundColorAttributeName
-         value:strokeColor_ range:range];
+    [tmp addAttribute:NSBackgroundColorAttributeName value:strokeColor_ range:range];
 
     return tmp;
 }

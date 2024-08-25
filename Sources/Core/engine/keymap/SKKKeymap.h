@@ -35,15 +35,15 @@ class SKKKeymap {
     Keymap attributes_;
     Keymap option_;
 
-    Keymap::iterator find(int charcode, int keycode, int mods, Keymap& keymap);
-    void load(const std::string& path_to_config, bool initialize);
+    Keymap::iterator find(int charcode, int keycode, int mods, Keymap &keymap);
+    void load(const std::string &path_to_config, bool initialize);
 
 public:
     // 初期化
-    void Initialize(const std::string& path_to_config);
+    void Initialize(const std::string &path_to_config);
 
     // 追加の読み込み
-    void Patch(const std::string& path_to_config);
+    void Patch(const std::string &path_to_config);
 
     // 検索
     SKKEvent Fetch(int charcode, int keycode, int mods);

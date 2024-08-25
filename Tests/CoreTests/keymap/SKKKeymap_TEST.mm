@@ -1,13 +1,12 @@
-#include <cassert>
-#include <iostream>
+#import <AquaSKKCore/SKKKeyState.h>
 #import <AquaSKKCore/SKKKeymap.h>
 #import <AquaSKKCore/SKKKeymapEntry.h>
-#import <AquaSKKCore/SKKKeyState.h>
 #import <XCTest/XCTest.h>
+#include <cassert>
+#include <iostream>
 
-@interface SKKKeymapTests: XCTestCase
+@interface SKKKeymapTests : XCTestCase
 @end
-
 
 @implementation SKKKeymapTests
 
@@ -47,7 +46,7 @@
     XCTAssert(param == SKKEvent(SKK_RIGHT, 'f', 0));
 
     param = keymap.Fetch(0x20, 0, SKKKeyState::SHIFT);
-    XCTAssert(param == SKKEvent(SKK_CHAR, 0x20, PrevCandidate|CompConversion));
+    XCTAssert(param == SKKEvent(SKK_CHAR, 0x20, PrevCandidate | CompConversion));
 
     param = keymap.Fetch('v', 0, SKKKeyState::META);
     XCTAssert(param == SKKEvent(SKK_PASTE, 'v', 0));

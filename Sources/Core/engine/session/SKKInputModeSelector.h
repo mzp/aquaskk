@@ -29,7 +29,7 @@
 #include <vector>
 
 class SKKInputModeSelector : public SKKWidget {
-    SKKInputModeListenerCollection* listeners_;
+    SKKInputModeListenerCollection *listeners_;
     SKKInputMode mode_;
     bool needsUpdate_;
 
@@ -37,7 +37,7 @@ class SKKInputModeSelector : public SKKWidget {
     virtual void SKKWidgetHide();
 
 public:
-    SKKInputModeSelector(SKKInputModeListenerCollection* listeners);
+    SKKInputModeSelector(SKKInputModeListenerCollection *listeners);
 
     void Select(SKKInputMode mode);
     void Notify();

@@ -30,7 +30,7 @@ public:
     virtual ~SKKMessenger() {}
 
     // メッセージの送信
-    virtual void SendMessage(const std::string& msg) = 0;
+    virtual void SendMessage(const std::string &msg) = 0;
 
     // ビープの再生
     virtual void Beep() = 0;

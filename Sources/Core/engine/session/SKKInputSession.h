@@ -36,7 +36,7 @@ class SKKEvent;
 
 class SKKInputSession {
     std::unique_ptr<SKKInputSessionParameter> param_;
-    std::vector<SKKRecursiveEditor*> stack_;
+    std::vector<SKKRecursiveEditor *> stack_;
     SKKInputModeListenerCollection listeners_;
     SKKInputContext context_;
     bool inEvent_;
@@ -44,23 +44,23 @@ class SKKInputSession {
 
     void beginEvent();
     void endEvent();
-    bool result(const SKKEvent& event);
+    bool result(const SKKEvent &event);
 
-    SKKRecursiveEditor* top();
-    SKKRecursiveEditor* createEditor(SKKBaseEditor* bottom);
+    SKKRecursiveEditor *top();
+    SKKRecursiveEditor *createEditor(SKKBaseEditor *bottom);
     void popEditor();
 
     SKKInputSession();
-    SKKInputSession(const SKKInputSession&);
-    SKKInputSession& operator=(const SKKInputSession&);
+    SKKInputSession(const SKKInputSession &);
+    SKKInputSession &operator=(const SKKInputSession &);
 
 public:
-    SKKInputSession(SKKInputSessionParameter* param);
+    SKKInputSession(SKKInputSessionParameter *param);
     ~SKKInputSession();
 
-    void AddInputModeListener(SKKInputModeListener* listener);
+    void AddInputModeListener(SKKInputModeListener *listener);
 
-    bool HandleEvent(const SKKEvent& event);
+    bool HandleEvent(const SKKEvent &event);
     void Commit();
     void Clear();
 

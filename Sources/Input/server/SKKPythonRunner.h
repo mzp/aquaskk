@@ -29,7 +29,7 @@ public:
 
     ~SKKPythonRunner();
 
-    void Run(const char* path);
+    void Run(const char *path);
 };
 
 #endif

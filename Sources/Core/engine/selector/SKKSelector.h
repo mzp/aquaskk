@@ -37,15 +37,15 @@ struct SKKSelectorBuddy {
     virtual const SKKEntry SKKSelectorQueryEntry() = 0;
 
     // SKKSelector で現在選択中の候補が変更された場合に呼び出される
-    virtual void SKKSelectorUpdate(const SKKCandidate& candidate) = 0;
+    virtual void SKKSelectorUpdate(const SKKCandidate &candidate) = 0;
 };
 
 class SKKCandidateWindow;
 
 // 変換候補選択クラス
 class SKKSelector {
-    SKKSelectorBuddy* buddy_;
-    SKKBaseSelector* selector_;
+    SKKSelectorBuddy *buddy_;
+    SKKBaseSelector *selector_;
     SKKInlineSelector inlineSelector_;
     SKKWindowSelector windowSelector_;
     SKKCandidateSuite suite_;
@@ -53,7 +53,7 @@ class SKKSelector {
     void notify();
 
 public:
-    SKKSelector(SKKSelectorBuddy* buddy, SKKCandidateWindow* window);
+    SKKSelector(SKKSelectorBuddy *buddy, SKKCandidateWindow *window);
 
     // インラインかどうか
     bool IsInline() const;

@@ -38,11 +38,11 @@ public:
 
     virtual ~SKKInputQueueObserver() {}
 
-    virtual void SKKInputQueueUpdate(const State& state) = 0;
+    virtual void SKKInputQueueUpdate(const State &state) = 0;
 };
 
 class SKKInputQueue {
-    SKKInputQueueObserver* observer_;
+    SKKInputQueueObserver *observer_;
     SKKInputMode mode_;
     std::string queue_;
 
@@ -50,7 +50,7 @@ class SKKInputQueue {
     SKKInputQueueObserver::State terminate();
 
 public:
-    SKKInputQueue(SKKInputQueueObserver* observer);
+    SKKInputQueue(SKKInputQueueObserver *observer);
 
     // 入力モードを変更する
     void SelectInputMode(SKKInputMode mode);
@@ -65,7 +65,7 @@ public:
     void Clear();
 
     bool IsEmpty() const;
-    const std::string& QueueString() const;
+    const std::string &QueueString() const;
 
     // 変換可能かどうか
     bool CanConvert(char code) const;

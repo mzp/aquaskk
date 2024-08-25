@@ -36,7 +36,7 @@ class SKKUserDictionary;
 
 class SKKBackEnd {
     std::unique_ptr<SKKUserDictionary> userdict_;
-    std::vector<SKKBaseDictionary*> dicts_;
+    std::vector<SKKBaseDictionary *> dicts_;
     SKKDictionaryKeyContainer actives_;
     SKKDictionaryCache cache_;
     bool useNumericConversion_;
@@ -44,33 +44,33 @@ class SKKBackEnd {
     int minimumCompletionLength_;
 
     SKKBackEnd();
-    SKKBackEnd(const SKKBackEnd&);
-    SKKBackEnd& operator=(const SKKBackEnd&);
+    SKKBackEnd(const SKKBackEnd &);
+    SKKBackEnd &operator=(const SKKBackEnd &);
 
-    SKKEntry normalize(const SKKEntry& entry);
+    SKKEntry normalize(const SKKEntry &entry);
 
 public:
-    static SKKBackEnd& theInstance();
+    static SKKBackEnd &theInstance();
 
-    void Initialize(const std::string& userdict_path, const SKKDictionaryKeyContainer& keys);
+    void Initialize(const std::string &userdict_path, const SKKDictionaryKeyContainer &keys);
 
     // 初期化
-    void Initialize(SKKUserDictionary* dictionary, const SKKDictionaryKeyContainer& keys);
+    void Initialize(SKKUserDictionary *dictionary, const SKKDictionaryKeyContainer &keys);
 
     // 補完
-    bool Complete(const std::string& key, std::vector<std::string>& result, unsigned limit = 0);
+    bool Complete(const std::string &key, std::vector<std::string> &result, unsigned limit = 0);
 
     // 検索
-    bool Find(const SKKEntry& entry, SKKCandidateSuite& result);
+    bool Find(const SKKEntry &entry, SKKCandidateSuite &result);
 
     // 逆引き
-    std::string ReverseLookup(const std::string& candidate);
+    std::string ReverseLookup(const std::string &candidate);
 
     // 登録
-    void Register(const SKKEntry& entry, const SKKCandidate& candidate);
+    void Register(const SKKEntry &entry, const SKKCandidate &candidate);
 
     // 削除
-    void Remove(const SKKEntry& entry, const SKKCandidate& candidate);
+    void Remove(const SKKEntry &entry, const SKKCandidate &candidate);
 
     // オプション：数値変換
     void UseNumericConversion(bool flag);

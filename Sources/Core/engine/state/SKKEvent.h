@@ -146,12 +146,12 @@ public:
         return attribute & StickyKey;
     }
 
-    const static SKKEvent& Null() {
+    const static SKKEvent &Null() {
         static SKKEvent obj(SKK_NULL, 0, 0);
         return obj;
     }
 
-    bool operator==(const SKKEvent& rhs) const {
+    bool operator==(const SKKEvent &rhs) const {
         return (id == rhs.id && code == rhs.code && attribute == rhs.attribute);
     }
 
@@ -190,7 +190,7 @@ public:
     }
 
     std::string dump() const {
-        const char* eventName[] = {
+        const char *eventName[] = {
             "SKK_NULL",
             "SKK_JMODE",
             "SKK_ENTER",

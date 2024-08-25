@@ -20,10 +20,10 @@
 
 */
 
-#import <AquaSKKInput/MacInputModeWindow.h>
 #import <AquaSKKCore/SKKFrontEnd.h>
-#import <AquaSKKService/SKKConstVars.h>
+#import <AquaSKKInput/MacInputModeWindow.h>
 #import <AquaSKKInput/SKKLayoutManager.h>
+#import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKUI/InputModeWindow.h>
 #include <iostream>
 #include <vector>
@@ -40,10 +40,10 @@ namespace {
     int ActiveProcessID() {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        NSDictionary* info = [[NSWorkspace sharedWorkspace] activeApplication];
+        NSDictionary *info = [[NSWorkspace sharedWorkspace] activeApplication];
 #pragma clang diagnostic pop
 
-        NSNumber* pid = [info objectForKey:@"NSApplicationProcessIdentifier"];
+        NSNumber *pid = [info objectForKey:@"NSApplicationProcessIdentifier"];
 
         return [pid intValue];
     }
@@ -53,21 +53,22 @@ namespace {
     // プロセス ID に関連したウィンドウ矩形群の取得
     CGRectContainer CreateWindowBoundsListOf(int pid) {
         CGRectContainer result;
-        NSArray* array = (NSArray*)CGWindowListCopyWindowInfo(kCGWindowListOptionOnScreenOnly,
-                                                              kCGNullWindowID);
-        NSEnumerator* enumerator = [array objectEnumerator];
+        NSArray *array = (NSArray *)CGWindowListCopyWindowInfo(kCGWindowListOptionOnScreenOnly, kCGNullWindowID);
+        NSEnumerator *enumerator = [array objectEnumerator];
 
-        while(NSDictionary* window = [enumerator nextObject]) {
+        while(NSDictionary *window = [enumerator nextObject]) {
             // 引数のプロセス ID でフィルタ
-            NSNumber* owner = [window objectForKey:(NSString*)kCGWindowOwnerPID];
-            if([owner intValue] != pid) continue;
+            NSNumber *owner = [window objectForKey:(NSString *)kCGWindowOwnerPID];
+            if([owner intValue] != pid)
+                continue;
 
             // デスクトップ全面を覆う Finder のウィンドウは除外
-            NSNumber* level = [window objectForKey:(NSString*)kCGWindowLayer];
-            if([level intValue] == kCGMinimumWindowLevel) continue;
+            NSNumber *level = [window objectForKey:(NSString *)kCGWindowLayer];
+            if([level intValue] == kCGMinimumWindowLevel)
+                continue;
 
             CGRect rect;
-            NSDictionary* bounds = [window objectForKey:(NSString*)kCGWindowBounds];
+            NSDictionary *bounds = [window objectForKey:(NSString *)kCGWindowBounds];
             if(CGRectMakeWithDictionaryRepresentation((CFDictionaryRef)bounds, &rect)) {
                 result.push_back(rect);
             }
@@ -77,18 +78,18 @@ namespace {
 
         return result;
     }
-}
+} // namespace
 
 // ----------------------------------------------------------------------
 // SKKModeTips -- 遅延表示用の緩衝クラス
 // ----------------------------------------------------------------------
 
 @interface SKKModeTips : NSObject {
-    InputModeWindow* window_;
-    SKKLayoutManager* layout_;
+    InputModeWindow *window_;
+    SKKLayoutManager *layout_;
 }
 
-- (id)initWithLayoutManager:(SKKLayoutManager*)layout;
+- (id)initWithLayoutManager:(SKKLayoutManager *)layout;
 - (void)changeMode:(SKKInputMode)mode;
 - (void)show;
 - (void)hide;
@@ -105,8 +106,8 @@ namespace {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wshorten-64-to-32"
     using namespace std::placeholders;
-    int count = std::count_if(list.begin(), list.end(),
-                              std::bind(std::function<bool(CGRect, CGPoint)>(CGRectContainsPoint),_1, cursor));
+    int count = std::count_if(
+        list.begin(), list.end(), std::bind(std::function<bool(CGRect, CGPoint)>(CGRectContainsPoint), _1, cursor));
 #pragma clang diagnostic pop
     if(!count) {
         return;
@@ -119,7 +120,7 @@ namespace {
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
 }
 
-- (id)initWithLayoutManager:(SKKLayoutManager*)layout {
+- (id)initWithLayoutManager:(SKKLayoutManager *)layout {
     self = [super init];
     if(self) {
         window_ = [InputModeWindow sharedWindow];
@@ -155,7 +156,7 @@ namespace {
 // MacInputModeWindow
 // ----------------------------------------------------------------------
 
-MacInputModeWindow::MacInputModeWindow(SKKLayoutManager* layout) {
+MacInputModeWindow::MacInputModeWindow(SKKLayoutManager *layout) {
     tips_ = [[SKKModeTips alloc] initWithLayoutManager:layout];
 }
 
@@ -170,13 +171,14 @@ void MacInputModeWindow::SelectInputMode(SKKInputMode mode) {
 // ----------------------------------------------------------------------
 
 bool MacInputModeWindow::enabled() const {
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
     return [defaults boolForKey:SKKUserDefaultKeys::show_input_mode_icon] == YES;
 }
 
 void MacInputModeWindow::SKKWidgetShow() {
-    if(!enabled()) return;
+    if(!enabled())
+        return;
 
     [tips_ show];
 }

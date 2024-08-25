@@ -26,7 +26,7 @@
 
 namespace {
     struct DeleteDictionary {
-        void operator()(const std::pair<SKKDictionaryKey, SKKBaseDictionary*>& entry) const {
+        void operator()(const std::pair<SKKDictionaryKey, SKKBaseDictionary *> &entry) const {
             delete entry.second;
         }
     };
@@ -36,7 +36,7 @@ SKKDictionaryCache::~SKKDictionaryCache() {
     std::for_each(cache_.begin(), cache_.end(), DeleteDictionary());
 }
 
-SKKBaseDictionary* SKKDictionaryCache::Get(const SKKDictionaryKey& key) {
+SKKBaseDictionary *SKKDictionaryCache::Get(const SKKDictionaryKey &key) {
     if(cache_.find(key) == cache_.end()) {
         cache_[key] = SKKDictionaryFactory::theInstance().Create(key.first, key.second);
     }
@@ -44,7 +44,7 @@ SKKBaseDictionary* SKKDictionaryCache::Get(const SKKDictionaryKey& key) {
     return cache_[key];
 }
 
-void SKKDictionaryCache::Clear(const SKKDictionaryKey& key) {
+void SKKDictionaryCache::Clear(const SKKDictionaryKey &key) {
     if(cache_.find(key) != cache_.end()) {
         delete cache_[key];
         cache_.erase(key);
