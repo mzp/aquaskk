@@ -21,12 +21,16 @@
 */
 
 #include "utf8util.h"
-#import <AquaSKKCore/SKKCandidateSuite.h>
-#import <AquaSKKCore/SKKLocalUserDictionary.h>
+
 #include <cerrno>
+#include <functional>
 #include <cstring>
 #include <ctime>
 #include <iostream>
+
+#import <AquaSKKCore/SKKCandidateSuite.h>
+#import <AquaSKKCore/SKKLocalUserDictionary.h>
+
 
 namespace {
     static const int MAX_IDLE_COUNT = 20;
@@ -123,10 +127,7 @@ void SKKLocalUserDictionary::Find(const SKKEntry& entry, SKKCandidateSuite& resu
         suite.Parse(fetch(entry, file_.OkuriNasi()));
 
         SKKCandidateContainer& candidates = suite.Candidates();
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        std::for_each(candidates.begin(), candidates.end(), std::mem_fun_ref(&SKKCandidate::Decode));
-#pragma clang diagnostic pop
+        std::for_each(candidates.begin(), candidates.end(), std::mem_fn<void(void)>(&SKKCandidate::Decode));
     }
 
     result.Add(suite);
