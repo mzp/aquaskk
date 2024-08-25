@@ -67,7 +67,8 @@ class InputMethodKitAdapter: NSObject, IMKTextInput {
     }
 
     func overrideKeyboard(withKeyboardNamed keyboardUniqueName: String!) {
-        logger.info("\(#function): \(keyboardUniqueName)")
+        logger.log("\(#function): \(keyboardUniqueName)")
+        stateStore.keyboardLayout = keyboardUniqueName
     }
 
     func selectMode(_ modeIdentifier: String!) {

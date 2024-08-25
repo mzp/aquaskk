@@ -42,9 +42,9 @@ enum SKKContext {
         var server: SKKServer
         var inputController: SKKInputController
         var stateStore: SKKStateStore
-        var content: (SKKInputController, SKKStateStore) -> any View
+        var content: (SKKInputController) -> any View
 
-        init(server: SKKServer, content: @escaping (SKKInputController, SKKStateStore) -> any View) {
+        init(server: SKKServer, content: @escaping (SKKInputController) -> any View) {
             self.server = server
             inputController = SKKInputController()
             stateStore = SKKStateStore()
@@ -52,7 +52,7 @@ enum SKKContext {
         }
 
         var body: some View {
-            AnyView(content(inputController, stateStore))
+            AnyView(content(inputController))
         }
     }
 }
