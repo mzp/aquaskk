@@ -25,6 +25,7 @@
 
 #include <AppKit/AppKit.h>
 #import <AquaSKKService/AISServerConfiguration.h>
+#import <AquaSKKService/AISUserDefaults.h>
 #import <AquaSKKService/SKKSupervisor.h>
 #include <InputMethodKit/InputMethodKit.h>
 
@@ -36,6 +37,7 @@
 #pragma clang diagnostic pop
     class skkserv *skkserv_;
     id<AISServerConfiguration> configuration_;
+    AISUserDefaults *userDefaults_;
 }
 
 @end

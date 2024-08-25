@@ -1,13 +1,13 @@
 //
-//  AquaSKK_PreferencesTests.swift
+//  SandboxTests.swift
 //  AquaSKK-PreferencesTests
 //
 //  Created by mzp on 7/31/24.
 //
 
+import AquaSKKService
 @testable import PreferenceApp
 import Testing
-import AquaSKKService
 
 struct SandboxTests {
     @Test func preferenceShouldBeWritable() throws {

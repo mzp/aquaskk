@@ -7,8 +7,8 @@
 
 import Combine
 import Foundation
-import SwiftUI
 import OSLog
+import SwiftUI
 
 // AquaSKK の設定を管理する。
 //
@@ -27,7 +27,7 @@ public class PreferenceStore: ObservableObject {
     public init(serverConfiguration: ServerConfiguration) {
         self.serverConfiguration = serverConfiguration
 
-        self.defaults = AISUserDefaults(serverConfiguration: serverConfiguration)
+        defaults = AISUserDefaults(serverConfiguration: serverConfiguration)
         defaults.prepare()
         let standardDefaults = defaults.standard
 
@@ -72,7 +72,8 @@ public class PreferenceStore: ObservableObject {
         _skkdapPort = .init(wrappedValue: 0, "skkdap_port", store: standardDefaults)
 
         NotificationCenter.default.addObserver(forName: UserDefaults.didChangeNotification, object: nil, queue: queue) { note in
-            Logger.service.log("\(note)")
+            // TODO: Too many; add throttling
+            Logger.service.debug("\(note)")
             self.defaults.saveChanges()
         }
     }

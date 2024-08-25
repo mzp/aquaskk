@@ -41,7 +41,15 @@
 #import <os/log.h>
 #include <signal.h>
 
-static os_log_t serverLog = os_log_create("com.aquaskk.inputmethods", "server");
+static os_log_t appLog(void) {
+    static os_log_t _serviceLog;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _serviceLog = os_log_create("com.aquaskk.inputmethod", "App");
+    });
+    return _serviceLog;
+}
 
 namespace {
     // 順番の入れ替えは禁止(追加のみ)
@@ -114,6 +122,7 @@ static void terminate(int) {
 
 - (void)_startWithConfiguration:(id<AISServerConfiguration>)configuration {
     configuration_ = configuration;
+    userDefaults_ = [[AISUserDefaults alloc] initWithServerConfiguration:configuration];
     skkserv_ = 0;
 
     [self prepareSignalHandler];
@@ -131,10 +140,10 @@ static void terminate(int) {
 }
 
 - (void)reloadBlacklistApps {
-    os_log(serverLog, "%s", __PRETTY_FUNCTION__);
+    os_log(appLog(), "%s", __PRETTY_FUNCTION__);
     NSArray* array = [NSMutableArray arrayWithContentsOfFile:SKKFilePaths::BlacklistApps];
     if(array == nil) {
-        os_log_error(serverLog, "can't read BlacklistApps.plist");
+        os_log_error(appLog(), "can't read BlacklistApps.plist");
     }
     [[BlacklistApps sharedManager] load: array];
 }
@@ -144,16 +153,9 @@ static void terminate(int) {
 
     delete skkserv_;
 
-    NSString *path = configuration_.userDefaultsPath;
-    os_log(serverLog, "loading UserDefaults: %{public}@", path);
+    [userDefaults_ reloadUserDefaults];
 
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary* prefs = [[NSDictionary dictionaryWithContentsOfFile:path] retain];
-
-    // force update userdeafults
-    [defaults setPersistentDomain:prefs forName:[[NSBundle mainBundle] bundleIdentifier]];
-
-    [prefs release];
+    NSUserDefaults* defaults = userDefaults_.standardDefaults;
 
     if([defaults boolForKey:SKKUserDefaultKeys::enable_skkserv] == YES) {
         skkserv_ = new skkserv([defaults integerForKey:SKKUserDefaultKeys::skkserv_port],
@@ -177,8 +179,8 @@ static void terminate(int) {
 }
 
 - (void)reloadDictionarySet {
-    os_log(serverLog, "%s", __PRETTY_FUNCTION__);
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    os_log(appLog(), "%s", __PRETTY_FUNCTION__);
+    NSUserDefaults* defaults = userDefaults_.standardDefaults;
 
     NSString* userDictionary = [configuration_ userDictionaryPath];
     NSArray* array = [configuration_ systemDictionaries];
@@ -210,7 +212,7 @@ static void terminate(int) {
                 location = @"[location was not specified]";
             }
 
-            os_log_info(serverLog, "loading %@ (%@)", DictionaryNames[[type intValue]], location);
+            os_log_info(appLog(), "loading %@ (%@)", DictionaryNames[[type intValue]], location);
             keys.push_back(SKKDictionaryKey([type intValue], [location UTF8String]));
         }
     }
@@ -242,7 +244,7 @@ static void terminate(int) {
 }
 
 - (void)reloadComponents {
-    os_log(serverLog, "%s", __PRETTY_FUNCTION__);
+    os_log(appLog(), "%s", __PRETTY_FUNCTION__);
     NSString* tmp;
 
     tmp = [self pathForResource:@"keymap.conf"];
@@ -251,17 +253,17 @@ static void terminate(int) {
     tmp = [self pathForResource:@"kana-rule.conf"];
     SKKRomanKanaConverter::theInstance().Initialize([tmp UTF8String]);
 
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults* defaults = userDefaults_.standardDefaults;
 
     NSArray* subRules = [defaults arrayForKey:SKKUserDefaultKeys::sub_rules];
     for(NSString* path in subRules) {
-        os_log_info(serverLog, "loading SubRule: %@", path);
+        os_log_info(appLog(), "loading SubRule: %@", path);
         SKKRomanKanaConverter::theInstance().Patch([path UTF8String]);
     }
 
     NSArray* subKeymaps = [defaults arrayForKey:SKKUserDefaultKeys::sub_keymaps];
     for(NSString* path in subKeymaps) {
-        os_log_info(serverLog, "loading SubKeyMap: %@", path);
+        os_log_info(appLog(), "loading SubKeyMap: %@", path);
         SKKPreProcessor::theInstance().Patch([path UTF8String]);
     }
 
@@ -298,7 +300,7 @@ static void terminate(int) {
 @implementation SKKServer (Local)
 
 - (void)prepareSignalHandler {
-    os_log(serverLog, "%s", __PRETTY_FUNCTION__);
+    os_log(appLog(), "%s", __PRETTY_FUNCTION__);
     signal(SIGHUP, terminate);
     signal(SIGINT, terminate);
     signal(SIGTERM, terminate);
@@ -306,7 +308,7 @@ static void terminate(int) {
 }
 
 - (void)prepareDirectory {
-    os_log(serverLog, "%s", __PRETTY_FUNCTION__);
+    os_log(appLog(), "%s", __PRETTY_FUNCTION__);
     NSString* dir = SKKFilePaths::ApplicationSupportFolder;
 
     if([self fileExistsAtPath:dir] != YES) {
@@ -315,7 +317,7 @@ static void terminate(int) {
 }
 
 - (void)prepareConnection {
-    os_log(serverLog, "%s", __PRETTY_FUNCTION__);
+    os_log(appLog(), "%s", __PRETTY_FUNCTION__);
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     connection_ = [[NSConnection alloc] init];
@@ -326,27 +328,18 @@ static void terminate(int) {
 }
 
 - (void)prepareUserDefaults {
-    NSString* factoryDefaults = configuration_.factoryUserDefaultsPath;
-    NSString* userDefaults = configuration_.userDefaultsPath;
-
-    os_log(serverLog, "%s: factory=%{public}@ to %{public}@", __PRETTY_FUNCTION__, factoryDefaults, userDefaults);
-    NSMutableDictionary* defaults = [NSMutableDictionary dictionaryWithContentsOfFile:factoryDefaults];
-    [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
-
-    [defaults addEntriesFromDictionary:[NSDictionary dictionaryWithContentsOfFile:userDefaults]];
-    [defaults writeToFile:userDefaults atomically:YES];
-
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    os_log(appLog(), "%s", __PRETTY_FUNCTION__);
+    [userDefaults_ prepareUserDefaults];
 }
 
 - (void)prepareDictionarySet {
-    os_log(serverLog, "%s", __PRETTY_FUNCTION__);
+    os_log(appLog(), "%s", __PRETTY_FUNCTION__);
 
     NSString* factoryDictionarySet = [self pathForSystemResource:@"DictionarySet.plist"];
     NSString* userDictionarySet = SKKFilePaths::DictionarySet;
 
     if([self fileExistsAtPath:userDictionarySet] != YES) {
-        os_log_error(serverLog, "%s %@ doesn't exist. Copy from %@", __PRETTY_FUNCTION__, userDictionarySet, factoryDictionarySet);
+        os_log_error(appLog(), "%s %@ doesn't exist. Copy from %@", __PRETTY_FUNCTION__, userDictionarySet, factoryDictionarySet);
         NSData* data = [NSData dataWithContentsOfFile:factoryDictionarySet];
         [data writeToFile:userDictionarySet atomically:YES];
     }
@@ -360,34 +353,34 @@ static void terminate(int) {
 }
 
 - (void)prepareDictionary {
-    os_log(serverLog, "%s", __PRETTY_FUNCTION__);
+    os_log(appLog(), "%s", __PRETTY_FUNCTION__);
 
     for(NSDictionary *jisyo in [configuration_ systemDictionaries]) {
         NSString* location = [jisyo valueForKey:SKKDictionarySetKeys::location];
         NSString *path = [self pathForSystemResource:location];
 
         if (![self fileExistsAtPath:path]) {
-            os_log_error(serverLog, "%s: cant' find %@. ignore.", __PRETTY_FUNCTION__, path);
+            os_log_error(appLog(), "%s: cant' find %@. ignore.", __PRETTY_FUNCTION__, path);
             continue;
         }
         NSString *filename = [path lastPathComponent];
         NSString *userPath = [self pathForUserResource:filename];
         if ([self fileExistsAtPath:userPath]) {
-            os_log(serverLog, "%s: %@ already exists. ignore.", __PRETTY_FUNCTION__, userPath);
+            os_log(appLog(), "%s: %@ already exists. ignore.", __PRETTY_FUNCTION__, userPath);
             continue;
         }
         NSError *error = nil;
         [NSFileManager.defaultManager copyItemAtPath:path toPath:userPath error:&error];
         if (error) {
-            os_log_error(serverLog, "%s: can't copy %@ to %@ due to %@", __PRETTY_FUNCTION__, path, userPath, error);
+            os_log_error(appLog(), "%s: can't copy %@ to %@ due to %@", __PRETTY_FUNCTION__, path, userPath, error);
         } else {
-            os_log(serverLog, "%s: Wrote %@", __PRETTY_FUNCTION__, userPath);
+            os_log(appLog(), "%s: Wrote %@", __PRETTY_FUNCTION__, userPath);
         }
     }
 }
 
 - (void)prepareBlacklistApps {
-    os_log(serverLog, "%s", __PRETTY_FUNCTION__);
+    os_log(appLog(), "%s", __PRETTY_FUNCTION__);
     NSString* blacklistApps = SKKFilePaths::BlacklistApps;
 
     if([self fileExistsAtPath:blacklistApps] != YES) {
@@ -431,7 +424,7 @@ static void terminate(int) {
     if([fileManager createDirectoryAtPath:path
                     withIntermediateDirectories:YES
                     attributes:nil error:&error] != YES) {
-        os_log_error(serverLog, "create directory[%@] failed: %@", path, [error localizedDescription]);
+        os_log_error(appLog(), "create directory[%@] failed: %@", path, [error localizedDescription]);
     }
 }
 

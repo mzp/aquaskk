@@ -56,40 +56,24 @@ static os_log_t serviceLog(void) {
     os_log(serviceLog(), "%s:bundleID=%{public}@", __PRETTY_FUNCTION__, bundleIdentifier);
     NSDictionary *preference = [self.standardDefaults persistentDomainForName:bundleIdentifier];
     os_log_info(serviceLog(), "%s:%{private}@", __PRETTY_FUNCTION__, preference);
-
-
     [preference writeToFile:self.serverConfiguration.userDefaultsPath atomically:YES];
+}
 
-    /*
+- (void)reloadUserDefaults {
+    NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
+    NSString *path = self.serverConfiguration.userDefaultsPath;
+    os_log(serviceLog(),
+           "%s UserDefaults(path=%{public}@; bundleID=%{public}@)",
+           __PRETTY_FUNCTION__,
+           path,
+           bundleIdentifier);
 
-     NSLog(@"saving changes ...");
+    NSUserDefaults* defaults = self.standardDefaults;
+    NSDictionary* prefs = [NSDictionary dictionaryWithContentsOfFile:path];
+    os_log(serviceLog(), "%s content=%{private}@", __PRETTY_FUNCTION__, prefs);
 
-     for(NSDictionary* rule in [subRuleController_ arrangedObjects]) {
-     NSNumber* active = [rule objectForKey:SUB_RULE_SWITCH];
-
-     if([active boolValue]) {
-     NSString* folder = [rule objectForKey:SUB_RULE_FOLDER];
-     NSString* subrule = [rule objectForKey:SUB_RULE_PATH];
-     NSString* keymap = [rule objectForKey:SUB_RULE_KEYMAP];
-
-     NSLog(@"activating sub rule: %@", subrule);
-     [active_subrules addObject:[folder stringByAppendingPathComponent:subrule]];
-
-     if(keymap != nil) {
-     NSLog(@"activating sub keymap: %@", keymap);
-     [active_keymaps addObject:[folder stringByAppendingPathComponent:keymap]];
-     }
-     }
-     }
-
-     [preferences_ setObject:active_subrules forKey:SKKUserDefaultKeys::sub_rules];
-     [preferences_ setObject:active_keymaps forKey:SKKUserDefaultKeys::sub_keymaps];
-
-     [preferences_ writeToFile:SKKFilePaths::UserDefaults atomically:YES];
-     [blacklistApps_ writeToFile:SKKFilePaths::BlacklistApps atomically:YES];
-     [dictionarySet_ writeToFile:SKKFilePaths::DictionarySet atomically:YES];
-
-     */
+    // force update userdeafults
+    [defaults setPersistentDomain:prefs forName:bundleIdentifier];
 }
 
 @end
