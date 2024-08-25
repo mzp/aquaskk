@@ -35,10 +35,7 @@ class SKKAnnotator;
 class SKKDynamicCompletor;
 
 class SKKRecursiveEditor {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    std::auto_ptr<SKKInputEnvironment> env_;
-#pragma clang diagnostic pop
+    std::unique_ptr<SKKInputEnvironment> env_;
     SKKInputContext* context_;
     SKKConfig* config_;
     SKKAnnotator* annotator_;

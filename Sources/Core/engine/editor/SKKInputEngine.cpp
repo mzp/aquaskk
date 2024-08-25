@@ -224,10 +224,7 @@ void SKKInputEngine::ToggleJisx0201Kana() {
 
 void SKKInputEngine::UpdateInputContext() {
     context_->output.Clear();
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    std::for_each(stack_.begin(), stack_.end(), std::mem_fun(&SKKBaseEditor::WriteContext));
-#pragma clang diagnostic pop
+    std::for_each(stack_.begin(), stack_.end(), std::mem_fn(&SKKBaseEditor::WriteContext));
 
     // 非確定文字があれば挿入(ex. "ky" など)
     if(config_->DisplayShortestMatchOfKanaConversions() && !inputState_.intermediate.empty()) {

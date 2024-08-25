@@ -33,10 +33,7 @@ namespace {
     static const int MAX_SAVE_INTERVAL = 60 * 5;
 
     // SKKDictionaryEntry と文字列を比較するファンクタ
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    class CompareUserDictionaryEntry : public std::unary_function<SKKDictionaryEntry, bool> {
-#pragma clang diagnostic pop
+    class CompareUserDictionaryEntry : public std::function<bool(SKKDictionaryEntry)> {
         const std::string str_;
 
     public:

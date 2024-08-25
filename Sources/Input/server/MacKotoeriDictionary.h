@@ -32,10 +32,7 @@
 class KotoeriImpl;
 
 class MacKotoeriDictionary : public SKKBaseDictionary {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    std::auto_ptr<KotoeriImpl> impl_;
-#pragma clang diagnostic pop
+    std::unique_ptr<KotoeriImpl> impl_;
 public:
     MacKotoeriDictionary();
     virtual ~MacKotoeriDictionary();
