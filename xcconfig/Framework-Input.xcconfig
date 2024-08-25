@@ -8,9 +8,9 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-#include "./Include/Cpp.xcconfig"
-
 OTHER_LDFLAGS = $(inherits) -framework AppKit -framework InputMethodKit -framework AquaSKKCore -framework AquaSKKService -framework AquaSKKUI
 
 MODULEMAP_FILE = Sources/Input/AquaSKKInput.modulemap
 MODULEMAP_PRIVATE_FILE = Sources/Input/AquaSKKInput.Private.modulemap
+
+SWIFT_INSTALL_OBJC_HEADER = YES

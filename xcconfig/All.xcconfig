@@ -22,11 +22,7 @@ PRODUCT_NAME = $(TARGET_NAME:c99extidentifier)
 // MARK: - Build Setting
 
 // MARK: C++ interop
-// TODO: migrate to gnu++20
-CLANG_CXX_LANGUAGE_STANDARD = c++11
-ENABLE_MODULE_VERIFIER = YES
-MODULE_VERIFIER_SUPPORTED_LANGUAGES = objective-c++
-MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = gnu++11
+#include "./Include/Cpp.xcconfig"
 
 // MARK: Swift
 SWIFT_VERSION = 5.0

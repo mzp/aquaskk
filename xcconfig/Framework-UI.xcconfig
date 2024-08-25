@@ -8,6 +8,6 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-#include "./Include/Cpp.xcconfig"
-
 OTHER_LDFLAGS = $(inherits) -framework AppKit -framework QuartzCore -framework AquaSKKCore
+
+SWIFT_INSTALL_OBJC_HEADER = YES
