@@ -32,6 +32,18 @@
 #import <AquaSKKIM/MacInputModeMenu.h>
 #import <AquaSKKIM/MacInputModeWindow.h>
 
+#import <os/log.h>
+
+static os_log_t appLog(void) {
+    static os_log_t _serviceLog;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _serviceLog = os_log_create("com.aquaskk.inputmethod", "App");
+    });
+    return _serviceLog;
+}
+
 @interface SKKInputController (Local)
 
 - (void)initializeKeyboardLayout;
@@ -137,6 +149,7 @@
 }
 
 - (void)setValue:(id)value forTag:(long)tag client:(id)sender {
+    os_log(appLog(), "%s: %{private}@ tag:%lx", __PRETTY_FUNCTION__, value, tag);
     [self initializeKeyboardLayout];
 
     if([self directMode]) return;
@@ -345,6 +358,7 @@
 
 - (void)initializeKeyboardLayout {
     NSString* keyboardLayout = [[self defaults] stringForKey:SKKUserDefaultKeys::keyboard_layout];
+    os_log(appLog(), "%s: %{private}@", __PRETTY_FUNCTION__, keyboardLayout);
     [client_ overrideKeyboardWithKeyboardNamed:keyboardLayout];
 }
 

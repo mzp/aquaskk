@@ -16,6 +16,7 @@ FOUNDATION_EXPORT const unsigned char AquaSKKServiceVersionString[];
 #pragma mark - Configuration
 #import <AquaSKKService/AISDefaultServerConfiguration.h>
 #import <AquaSKKService/AISServerConfiguration.h>
+#import <AquaSKKService/AISUserDefaults.h>
 
 #pragma mark - Server
 #import <AquaSKKService/SKKConstVars.h>

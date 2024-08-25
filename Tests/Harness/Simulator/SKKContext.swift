@@ -6,6 +6,7 @@
 //
 
 import AquaSKKIM
+import AquaSKKTesting
 import Foundation
 import OSLog
 import SwiftUI
@@ -13,11 +14,16 @@ import SwiftUI
 private let signposter = OSSignposter(subsystem: "com.aquaskk.inputmethod.Harness", category: "Context")
 private let logger = Logger(subsystem: "com.aquaskk.inputmethod.Harness", category: "Context")
 
+class HarnessBundle {
+    static let bundle = Bundle(for: HarnessBundle.self)
+}
+
 enum SKKContext {
     struct Server: View {
         var server: SKKServer
         var content: (SKKServer) -> any View
-        let configuration = BundledServerConfiguration()
+        let configuration = try! BundledServerConfiguration(bundle: HarnessBundle.bundle)
+        ///        let configuration = DefaultServerConfiguration()
         init(content: @escaping (SKKServer) -> any View) {
             server = SKKServer()
             self.content = content

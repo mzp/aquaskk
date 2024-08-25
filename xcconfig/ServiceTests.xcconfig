@@ -10,4 +10,4 @@
 
 #include "./Service.xcconfig"
 
-OTHER_LDFLAGS = $(inherits) -framework AquaSKKService
+OTHER_LDFLAGS = $(inherits) -framework AquaSKKService -framework AquaSKKTesting
