@@ -53,6 +53,7 @@ struct PreferenceStoreTests {
         let configuration = try BundledServerConfiguration(bundle: bundle)
         let store = PreferenceStore(serverConfiguration: configuration)
         store.keyboardLayout = dvorakLayout
+        store.flush()
 
         let url = URL(fileURLWithPath: configuration.userDefaultsPath)
         let dictionary = try #require(NSDictionary(contentsOf: url))

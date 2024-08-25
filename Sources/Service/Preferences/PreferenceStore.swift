@@ -20,7 +20,7 @@ import SwiftUI
 public class PreferenceStore: ObservableObject {
     private let serverConfiguration: ServerConfiguration
     private let defaults: AISUserDefaults
-    private let queue = OperationQueue()
+    private var tokens = Set<AnyCancellable>()
 
     public static let `default` = PreferenceStore(serverConfiguration: DefaultServerConfiguration())
 
@@ -71,10 +71,20 @@ public class PreferenceStore: ObservableObject {
         _skkdapFolder = .init(wrappedValue: "", "skkdap_folder", store: standardDefaults)
         _skkdapPort = .init(wrappedValue: 0, "skkdap_port", store: standardDefaults)
 
-        NotificationCenter.default.addObserver(forName: UserDefaults.didChangeNotification, object: nil, queue: queue) { _ in
-            // TODO: Too many; add throttling
-            self.defaults.saveChanges()
-        }
+        NotificationCenter.default
+            .publisher(for: UserDefaults.didChangeNotification)
+            .debounce(for: .seconds(1), scheduler: RunLoop.main)
+            .sink { [weak self] _ in
+                self?.flush()
+            }.store(in: &tokens)
+    }
+
+    deinit {
+        flush()
+    }
+
+    public func flush() {
+        defaults.saveChanges()
     }
 
     // MARK: - Text edit setting
