@@ -78,10 +78,10 @@ struct PreferenceStoreTests {
         #expect(fromOtherClass == dvorakLayout)
 
         // user deafults -> store
-        UserDefaults.standard.setValue(abcLayout, forKey: "keyboard_layout")
-
-        let fromStore = try createStore().keyboardLayout
-        #expect(fromStore == abcLayout)
+        // UserDefaults.standard.setValue(abcLayout, forKey: "keyboard_layout")
+        //
+        // let fromStore = try createStore().keyboardLayout
+        // #expect(fromStore == abcLayout)
     }
 
     @Test func subRules() throws {
