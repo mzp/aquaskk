@@ -106,33 +106,34 @@ static void terminate(int) {
 
 @implementation SKKServer
 
-- (void)awakeFromNib {
-    [self _start];
+- (instancetype)initWithServerConfiguration:(id<AISServerConfiguration>)configuration {
+    if(self = [super init]) {
+        configuration_ = configuration;
+        userDefaults_ = [[AISUserDefaults alloc] initWithServerConfiguration:configuration];
+        skkserv_ = 0;
 
+        [self prepareSignalHandler];
+        [self prepareDirectory];
+        [self prepareConnection];
+        [self prepareUserDefaults];
+        [self prepareDictionarySet];
+        [self prepareDictionary];
+        [self prepareBlacklistApps];
+
+        [self reloadBlacklistApps];
+        [self reloadDictionarySet];
+        [self reloadUserDefaults];
+        [self reloadComponents];
+    }
+    return self;
+}
+
+- (instancetype)init {
+    return [self initWithServerConfiguration:[[AISDefaultServerConfiguration alloc] init]];
+}
+
+- (void)startIMKServer {
     imkserver_ = [self newIMKServer];
-}
-
-- (void)_start {
-    [self _startWithConfiguration:[[AISDefaultServerConfiguration alloc] init]];
-}
-
-- (void)_startWithConfiguration:(id<AISServerConfiguration>)configuration {
-    configuration_ = configuration;
-    userDefaults_ = [[AISUserDefaults alloc] initWithServerConfiguration:configuration];
-    skkserv_ = 0;
-
-    [self prepareSignalHandler];
-    [self prepareDirectory];
-    [self prepareConnection];
-    [self prepareUserDefaults];
-    [self prepareDictionarySet];
-    [self prepareDictionary];
-    [self prepareBlacklistApps];
-
-    [self reloadBlacklistApps];
-    [self reloadDictionarySet];
-    [self reloadUserDefaults];
-    [self reloadComponents];
 }
 
 - (void)reloadBlacklistApps {
@@ -263,6 +264,9 @@ static void terminate(int) {
     }
 
     return [types autorelease];
+}
+
+- (void)stratIMKServer {
 }
 
 @end

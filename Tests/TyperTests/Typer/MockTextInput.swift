@@ -5,11 +5,13 @@
 //  Created by mzp on 8/3/24.
 //
 
+import AquaSKKInput
 import Foundation
 import InputMethodKit
 
 class MockTextInput: NSObject {
     var text = SendableText()
+    var pasteboard: String = ""
 
     var _selectedRange: NSRange = .init(location: 0, length: 0)
     var _markedRange: NSRange = .init(location: 0, length: 0)
@@ -99,5 +101,15 @@ extension MockTextInput: IMKTextInput {
 
     func firstRect(forCharacterRange _: NSRange, actualRange _: NSRangePointer!) -> NSRect {
         .zero
+    }
+}
+
+extension MockTextInput: AIIClipboardProvider, AIIClipboard {
+    func newClipboard() -> AIIClipboard {
+        self
+    }
+
+    var pasteString: String {
+        pasteboard
     }
 }

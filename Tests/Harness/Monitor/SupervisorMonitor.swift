@@ -4,9 +4,15 @@
 //
 //  Created by mzp on 8/3/24.
 //
-
 import AquaSKKInput
+import AquaSKKService
+import AquaSKKTesting
 import SwiftUI
+
+enum ServerConfigType {
+    case bundled
+    case system
+}
 
 struct SupervisorMonitor: View {
     var supervisor: SKKSupervisor
@@ -66,5 +72,6 @@ class SupervisorForPreview: SKKSupervisor {
 }
 
 #Preview {
-    SupervisorMonitor(supervisor: SupervisorForPreview())
+    SupervisorMonitor(
+        supervisor: SupervisorForPreview())
 }

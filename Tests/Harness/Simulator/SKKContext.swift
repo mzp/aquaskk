@@ -22,15 +22,10 @@ enum SKKContext {
     struct Server: View {
         var server: SKKServer
         var content: (SKKServer) -> any View
-        let configuration = try! BundledServerConfiguration(bundle: HarnessBundle.bundle)
-        ///        let configuration = DefaultServerConfiguration()
-        init(content: @escaping (SKKServer) -> any View) {
-            server = SKKServer()
+        init(configuration: ServerConfiguration, content: @escaping (SKKServer) -> any View) {
             self.content = content
-            signposter.withIntervalSignpost("server start") {
-                logger.info("server start")
-                server._start(with: configuration)
-            }
+            logger.info("server start")
+            server = SKKServer(serverConfiguration: configuration)
         }
 
         var body: some View {

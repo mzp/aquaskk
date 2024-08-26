@@ -39,9 +39,9 @@ class Typer {
 
     // MARK: - Action
 
-    func type(text: String) async {
+    func type(text: String, modifiers: NSEvent.ModifierFlags = []) async {
         for character in text {
-            let event = SendableEvent(characters: String(character))
+            let event = SendableEvent(characters: String(character), modifiers: modifiers)
             await handle(event: event)
         }
     }
@@ -71,5 +71,10 @@ class Typer {
 
     var modeIdentifier: String? {
         text.modeIdentifier
+    }
+
+    var clipboard: String {
+        get { client.pasteboard }
+        set { client.pasteboard = newValue }
     }
 }

@@ -12,7 +12,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// TODO: SKKServerのうちパスに依存する部分を切り出したもの。FileConfigurationと統合したい。
 /// SKKサーバー動作に必要なリソースを管理する。
 NS_SWIFT_NAME(ServerConfiguration)
 @protocol AISServerConfiguration

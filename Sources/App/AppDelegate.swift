@@ -17,7 +17,7 @@ private let logger = Logger(subsystem: "com.aquaskk.inputmethod", category: "App
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         logger.log("\(#function): AquaSKK Launch:\(aNotification)")
         server = SKKServer()
-        server?.awakeFromNib()
+        server?.startIMKServer()
     }
 
     func applicationWillTerminate(_: Notification) {}

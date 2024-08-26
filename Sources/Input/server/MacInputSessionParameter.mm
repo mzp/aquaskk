@@ -19,14 +19,15 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 */
+#import "MacInputSessionParameter.h"
 
+#import <AquaSKKInput/AIIClipboard.h>
 #import <AquaSKKInput/MacAnnotator.h>
 #import <AquaSKKInput/MacCandidateWindow.h>
 #import <AquaSKKInput/MacClipboard.h>
 #import <AquaSKKInput/MacConfig.h>
 #import <AquaSKKInput/MacDynamicCompletor.h>
 #import <AquaSKKInput/MacFrontEnd.h>
-#import <AquaSKKInput/MacInputSessionParameter.h>
 #import <AquaSKKInput/MacMessenger.h>
 
 MacInputSessionParameter::MacInputSessionParameter(id client, SKKLayoutManager *layout)
@@ -36,7 +37,12 @@ MacInputSessionParameter::MacInputSessionParameter(id client, SKKLayoutManager *
       clipboard_(new MacClipboard()),
       candidateWindow_(new MacCandidateWindow(layout)),
       annotator_(new MacAnnotator(layout)),
-      completor_(new MacDynamicCompletor(layout)) {}
+      completor_(new MacDynamicCompletor(layout)) {
+    if([client respondsToSelector:@selector(newClipboard)]) {
+        std::unique_ptr<SKKClipboard> clipboard(new AquaSKKInput::Clipboard([client newClipboard]));
+        this->clipboard_.swap(clipboard);
+    }
+}
 
 SKKConfig *MacInputSessionParameter::Config() {
     return config_.get();

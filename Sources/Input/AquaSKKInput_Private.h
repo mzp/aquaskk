@@ -7,4 +7,3 @@
 
 #import <AquaSKKInput/AquaSKKInput.h>
 #import <AquaSKKInput/SKKInputController_Private.h>
-#import <AquaSKKInput/SKKServer_Private.h>

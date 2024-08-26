@@ -10,6 +10,8 @@
 		13018B262C7696A40045FF13 /* AquaSKKTesting.docc in Sources */ = {isa = PBXBuildFile; fileRef = 13018B252C7696A40045FF13 /* AquaSKKTesting.docc */; };
 		13018B272C7696A40045FF13 /* AquaSKKTesting.h in Headers */ = {isa = PBXBuildFile; fileRef = 13018B242C7696A40045FF13 /* AquaSKKTesting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13018B302C769D370045FF13 /* BundledServerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13018B2F2C769D370045FF13 /* BundledServerConfiguration.swift */; };
+		1301FE042C7C27E000F870E9 /* AIIClipboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 1301FE022C7C27E000F870E9 /* AIIClipboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1301FE052C7C27E000F870E9 /* AIIClipboard.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1301FE032C7C27E000F870E9 /* AIIClipboard.mm */; };
 		1307C23C2C5B47D800B089B6 /* PreferencesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1307C23B2C5B47D800B089B6 /* PreferencesApp.swift */; };
 		1307C23E2C5B47D800B089B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1307C23D2C5B47D800B089B6 /* ContentView.swift */; };
 		1307C2432C5B47DA00B089B6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1307C2422C5B47DA00B089B6 /* Preview Assets.xcassets */; };
@@ -371,7 +373,6 @@
 		13B7BE882C5F1E9100F6BEF8 /* SKKServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE872C5F1E9100F6BEF8 /* SKKServerTests.swift */; };
 		13B7BE912C5F229D00F6BEF8 /* SKKInputController_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B7BE902C5F228300F6BEF8 /* SKKInputController_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		13B7BE952C5F236700F6BEF8 /* AquaSKKInput_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B7BE942C5F236700F6BEF8 /* AquaSKKInput_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		13B7BE972C5F245000F6BEF8 /* SKKServer_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B7BE962C5F245000F6BEF8 /* SKKServer_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		13B7BEC52C5F5CF900F6BEF8 /* AquaSKKService.docc in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BEC42C5F5CF900F6BEF8 /* AquaSKKService.docc */; };
 		13B7BED32C5F5CF900F6BEF8 /* AquaSKKService.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B7BEC32C5F5CF900F6BEF8 /* AquaSKKService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13CEB8282C5DBE460052B7ED /* CalculatorTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4932C5A92D300D8C850 /* CalculatorTesting.swift */; };
@@ -479,6 +480,8 @@
 		13018B252C7696A40045FF13 /* AquaSKKTesting.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKTesting.docc; sourceTree = "<group>"; };
 		13018B2C2C7696B40045FF13 /* Framework-Testing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Testing.xcconfig"; sourceTree = "<group>"; };
 		13018B2F2C769D370045FF13 /* BundledServerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundledServerConfiguration.swift; sourceTree = "<group>"; };
+		1301FE022C7C27E000F870E9 /* AIIClipboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIIClipboard.h; sourceTree = "<group>"; };
+		1301FE032C7C27E000F870E9 /* AIIClipboard.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AIIClipboard.mm; sourceTree = "<group>"; };
 		1307C23B2C5B47D800B089B6 /* PreferencesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesApp.swift; sourceTree = "<group>"; };
 		1307C23D2C5B47D800B089B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1307C2422C5B47DA00B089B6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -917,7 +920,6 @@
 		13B7BE922C5F236000F6BEF8 /* AquaSKKInput.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = AquaSKKInput.modulemap; sourceTree = "<group>"; };
 		13B7BE932C5F236000F6BEF8 /* AquaSKKInput.Private.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = AquaSKKInput.Private.modulemap; sourceTree = "<group>"; };
 		13B7BE942C5F236700F6BEF8 /* AquaSKKInput_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKInput_Private.h; sourceTree = "<group>"; };
-		13B7BE962C5F245000F6BEF8 /* SKKServer_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKServer_Private.h; sourceTree = "<group>"; };
 		13B7BE982C5F282D00F6BEF8 /* ModeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeTests.swift; sourceTree = "<group>"; };
 		13B7BEC32C5F5CF900F6BEF8 /* AquaSKKService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKService.h; sourceTree = "<group>"; };
 		13B7BEC42C5F5CF900F6BEF8 /* AquaSKKService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKService.docc; sourceTree = "<group>"; };
@@ -1057,6 +1059,15 @@
 				1338D5032C78C9AE0015DD86 /* Logger+Testing.swift */,
 			);
 			path = Testing;
+			sourceTree = "<group>";
+		};
+		1301FDFF2C7C27B000F870E9 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				1301FE022C7C27E000F870E9 /* AIIClipboard.h */,
+				1301FE032C7C27E000F870E9 /* AIIClipboard.mm */,
+			);
+			path = Session;
 			sourceTree = "<group>";
 		};
 		1307C23A2C5B47D800B089B6 /* PreferenceApp */ = {
@@ -1692,6 +1703,7 @@
 				13B7BE942C5F236700F6BEF8 /* AquaSKKInput_Private.h */,
 				13B7BE922C5F236000F6BEF8 /* AquaSKKInput.modulemap */,
 				13B7BE932C5F236000F6BEF8 /* AquaSKKInput.Private.modulemap */,
+				1301FDFF2C7C27B000F870E9 /* Session */,
 				135C3D932C5B3F1D00661AE3 /* server */,
 				135C3D5E2C5B3E9600661AE3 /* AquaSKKIM.docc */,
 			);
@@ -1744,7 +1756,6 @@
 				135C3D8A2C5B3F1D00661AE3 /* SKKPreProcessor.h */,
 				135C3D8B2C5B3F1D00661AE3 /* SKKPreProcessor.mm */,
 				135C3D8E2C5B3F1D00661AE3 /* SKKServer.h */,
-				13B7BE962C5F245000F6BEF8 /* SKKServer_Private.h */,
 				135C3D8F2C5B3F1D00661AE3 /* SKKServer.mm */,
 			);
 			path = server;
@@ -2211,10 +2222,10 @@
 				135C3DAD2C5B3F1D00661AE3 /* MacConfig.h in Headers */,
 				13B7BE912C5F229D00F6BEF8 /* SKKInputController_Private.h in Headers */,
 				135C3DAF2C5B3F1D00661AE3 /* SKKInputMenu.h in Headers */,
+				1301FE042C7C27E000F870E9 /* AIIClipboard.h in Headers */,
 				135C3DB02C5B3F1D00661AE3 /* MacInputModeMenu.h in Headers */,
 				135C3DB12C5B3F1D00661AE3 /* SKKServer.h in Headers */,
 				13B7BE952C5F236700F6BEF8 /* AquaSKKInput_Private.h in Headers */,
-				13B7BE972C5F245000F6BEF8 /* SKKServer_Private.h in Headers */,
 				135C3DB32C5B3F1D00661AE3 /* MacMessenger.h in Headers */,
 				135C3DB42C5B3F1D00661AE3 /* MacAnnotator.h in Headers */,
 				135C3DB52C5B3F1D00661AE3 /* SKKLayoutManager.h in Headers */,
@@ -3052,6 +3063,7 @@
 				135C3D972C5B3F1D00661AE3 /* MacConfig.mm in Sources */,
 				135C3D982C5B3F1D00661AE3 /* MacCandidateWindow.mm in Sources */,
 				135C3D992C5B3F1D00661AE3 /* MacKotoeriDictionary.cpp in Sources */,
+				1301FE052C7C27E000F870E9 /* AIIClipboard.mm in Sources */,
 				135C3D9A2C5B3F1D00661AE3 /* MacDynamicCompletor.mm in Sources */,
 				135C3D9B2C5B3F1D00661AE3 /* SKKPreProcessor.mm in Sources */,
 				135C3D9C2C5B3F1D00661AE3 /* SKKInputMenu.mm in Sources */,

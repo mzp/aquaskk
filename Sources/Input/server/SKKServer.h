@@ -40,6 +40,10 @@
     AISUserDefaults *userDefaults_;
 }
 
+- (instancetype)initWithServerConfiguration:(id<AISServerConfiguration>)configuration NS_DESIGNATED_INITIALIZER;
+- (instancetype)init;
+- (void)startIMKServer;
+
 @end
 
 #endif
