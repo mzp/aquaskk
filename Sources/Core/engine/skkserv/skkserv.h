@@ -30,8 +30,8 @@ class skkserv {
     net::socket::monitor incoming_;
     bool localonly_;
 
-    static void* listener(void* param);
-    static void* worker(void* param);
+    static void *listener(void *param);
+    static void *worker(void *param);
 
     void accept();
 

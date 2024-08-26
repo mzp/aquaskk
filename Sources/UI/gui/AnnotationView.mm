@@ -26,13 +26,13 @@
 
 - (void)initializeStyle;
 - (void)initializeView;
-- (NSAttributedString*)newHeader:(NSString*)string;
-- (void)setDefinitiveAnnotation:(NSString*)string;
-- (void)setOptionalAnnotation:(NSString*)string;
+- (NSAttributedString *)newHeader:(NSString *)string;
+- (void)setDefinitiveAnnotation:(NSString *)string;
+- (void)setOptionalAnnotation:(NSString *)string;
 - (void)scrollToTop;
-- (NSString*)normalizeString:(NSString*)string;
+- (NSString *)normalizeString:(NSString *)string;
 - (void)appendNewLine;
-- (NSAttributedString*)getParagraph:(NSString*)string withStyle:(NSParagraphStyle*)style;
+- (NSAttributedString *)getParagraph:(NSString *)string withStyle:(NSParagraphStyle *)style;
 
 @end
 
@@ -68,9 +68,9 @@
     [super dealloc];
 }
 
-- (void)setAnnotation:(NSString*)definition optional:(NSString*)annotation {
+- (void)setAnnotation:(NSString *)definition optional:(NSString *)annotation {
     [textView_ setString:@""];
-    NSTextStorage* storage = [textView_ textStorage];
+    NSTextStorage *storage = [textView_ textStorage];
 
     [storage beginEditing];
 
@@ -128,7 +128,7 @@
     frame.size.width -= 2;
     frame.size.height -= 2;
 
-    NSScrollView* scrollView = [[NSScrollView alloc] initWithFrame:frame];
+    NSScrollView *scrollView = [[NSScrollView alloc] initWithFrame:frame];
     [scrollView setHasVerticalScroller:YES];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -147,57 +147,52 @@
     [scrollView release];
 }
 
-- (NSAttributedString*)newHeader:(NSString*)string {
-    NSMutableAttributedString* header = [[NSMutableAttributedString alloc] initWithString:string];
+- (NSAttributedString *)newHeader:(NSString *)string {
+    NSMutableAttributedString *header = [[NSMutableAttributedString alloc] initWithString:string];
     NSRange range = NSMakeRange(0, [string length]);
 
-    [header addAttribute:NSFontAttributeName
-                   value:[NSFont boldSystemFontOfSize:[NSFont labelFontSize]] range:range];
+    [header addAttribute:NSFontAttributeName value:[NSFont boldSystemFontOfSize:[NSFont labelFontSize]] range:range];
 
-    [header addAttribute:NSForegroundColorAttributeName
-                   value:[NSColor grayColor] range:range];
+    [header addAttribute:NSForegroundColorAttributeName value:[NSColor grayColor] range:range];
 
-    NSMutableParagraphStyle* style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     [style setLineSpacing:4.0];
 
-    [header addAttribute:NSParagraphStyleAttributeName
-                   value:style range:range];
+    [header addAttribute:NSParagraphStyleAttributeName value:style range:range];
 
     [style release];
 
     return header;
 }
 
-- (void)setDefinitiveAnnotation:(NSString*)string {
-    NSTextStorage* storage = [textView_ textStorage];
-    NSArray* array = [string componentsSeparatedByString:@"\n"];
+- (void)setDefinitiveAnnotation:(NSString *)string {
+    NSTextStorage *storage = [textView_ textStorage];
+    NSArray *array = [string componentsSeparatedByString:@"\n"];
 
-    for(int i = 0; array && i < [array count]; ++ i) {
-        NSString* line = [array objectAtIndex:i];
+    for(int i = 0; array && i < [array count]; ++i) {
+        NSString *line = [array objectAtIndex:i];
 
-        if([line length] == 0) continue;
+        if([line length] == 0)
+            continue;
 
         [self appendNewLine];
 
         if([line length] == 1 && i + 1 < [array count]) {
-            NSString* item = [NSString stringWithFormat:@"%@\t%@",
-                                       [array objectAtIndex:i],
-                                       [array objectAtIndex:i + 1]];
+            NSString *item =
+                [NSString stringWithFormat:@"%@\t%@", [array objectAtIndex:i], [array objectAtIndex:i + 1]];
 
-            NSAttributedString* attr = [self getParagraph:[self normalizeString:item]
-                                             withStyle:listStyle_];
+            NSAttributedString *attr = [self getParagraph:[self normalizeString:item] withStyle:listStyle_];
             [storage appendAttributedString:attr];
-            ++ i;
+            ++i;
         } else {
-            NSAttributedString* attr = [self getParagraph:[self normalizeString:line]
-                                             withStyle:blockStyle_];
+            NSAttributedString *attr = [self getParagraph:[self normalizeString:line] withStyle:blockStyle_];
             [storage appendAttributedString:attr];
         }
     }
 }
 
-- (void)setOptionalAnnotation:(NSString*)string {
-    NSTextStorage* storage = [textView_ textStorage];
+- (void)setOptionalAnnotation:(NSString *)string {
+    NSTextStorage *storage = [textView_ textStorage];
 
     [self appendNewLine];
     [storage appendAttributedString:[self getParagraph:string withStyle:blockStyle_]];
@@ -209,31 +204,31 @@
     if([textView_ isFlipped]) {
         top = NSMakePoint(0.0, 0.0);
     } else {
-        top = NSMakePoint(0.0, NSMaxY([textView_ frame]) - NSHeight([textView_  bounds]));
+        top = NSMakePoint(0.0, NSMaxY([textView_ frame]) - NSHeight([textView_ bounds]));
     }
 
     [textView_ scrollPoint:top];
 }
 
-- (NSString*)normalizeString:(NSString*)string {
+- (NSString *)normalizeString:(NSString *)string {
     const static struct {
         unsigned short unichar;
-        NSString* string;
+        NSString *string;
     } table[] = {
-        { 0xe021, @"[ー]" },
-        { 0xe022, @"[二]" },
-        { 0xe023, @"[三]" },
-        { 0xe024, @"[四]" },
-        { 0xe025, @"[五]" },
-        { 0xe026, @"[六]" },
-        { 0xe027, @"[文]" },
-        { 0,      0x00 }
+        {0xe021, @"[ー]"},
+        {0xe022, @"[二]"},
+        {0xe023, @"[三]"},
+        {0xe024, @"[四]"},
+        {0xe025, @"[五]"},
+        {0xe026, @"[六]"},
+        {0xe027, @"[文]"},
+        {0,      0x00    }
     };
 
-    NSString* tmp = string;
-    for(int i = 0; table[i].string != 0x00; ++ i) {
-        NSString* from = [NSString stringWithFormat:@"%C", table[i].unichar];
-        NSString* to = table[i].string;
+    NSString *tmp = string;
+    for(int i = 0; table[i].string != 0x00; ++i) {
+        NSString *from = [NSString stringWithFormat:@"%C", table[i].unichar];
+        NSString *to = table[i].string;
         tmp = [tmp stringByReplacingOccurrencesOfString:from withString:to];
     }
 
@@ -244,8 +239,8 @@
     [[[textView_ textStorage] mutableString] appendString:@"\n"];
 }
 
-- (NSAttributedString*)getParagraph:(NSString*)string withStyle:(NSParagraphStyle*)style {
-    NSMutableAttributedString* attr = [[NSMutableAttributedString alloc] initWithString:string];
+- (NSAttributedString *)getParagraph:(NSString *)string withStyle:(NSParagraphStyle *)style {
+    NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:string];
     NSRange range = NSMakeRange(0, [attr length]);
 
     [attr addAttribute:NSParagraphStyleAttributeName value:style range:range];

@@ -41,7 +41,7 @@ class MacAnnotator : public SKKAnnotator {
     virtual void SKKWidgetShow();
     virtual void SKKWidgetHide();
 
-  public:
+public:
     MacAnnotator(SKKLayoutManager *layout);
 
     virtual void Update(const SKKCandidate &candidate, int cursorOffset);

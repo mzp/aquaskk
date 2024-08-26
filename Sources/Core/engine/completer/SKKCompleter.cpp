@@ -23,7 +23,7 @@
 #import <AquaSKKCore/SKKBackEnd.h>
 #import <AquaSKKCore/SKKCompleter.h>
 
-SKKCompleter::SKKCompleter(SKKCompleterBuddy* buddy)
+SKKCompleter::SKKCompleter(SKKCompleterBuddy *buddy)
     : buddy_(buddy) {}
 
 bool SKKCompleter::Execute(int limit) {
@@ -38,7 +38,7 @@ bool SKKCompleter::Remove() {
     if(completions_.empty())
         return false;
 
-    SKKBackEnd& backend = SKKBackEnd::theInstance();
+    SKKBackEnd &backend = SKKBackEnd::theInstance();
 
     backend.Remove(completions_[pos_], SKKCandidate());
 

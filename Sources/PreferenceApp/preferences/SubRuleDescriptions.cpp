@@ -25,7 +25,7 @@
 #include <iostream>
 #include <sstream>
 
-SubRuleDescriptions::SubRuleDescriptions(const char* folder) {
+SubRuleDescriptions::SubRuleDescriptions(const char *folder) {
     std::string path(std::string(folder) + "/sub-rule.desc");
     std::ifstream ifs(path.c_str());
     std::string line;
@@ -35,7 +35,7 @@ SubRuleDescriptions::SubRuleDescriptions(const char* folder) {
     }
 }
 
-const char* SubRuleDescriptions::Description(const char* rule_path) {
+const char *SubRuleDescriptions::Description(const char *rule_path) {
     if(description_.find(rule_path) != description_.end()) {
         return description_[rule_path].c_str();
     }
@@ -43,7 +43,7 @@ const char* SubRuleDescriptions::Description(const char* rule_path) {
     return rule_path;
 }
 
-const char* SubRuleDescriptions::Keymap(const char* rule_path) {
+const char *SubRuleDescriptions::Keymap(const char *rule_path) {
     if(keymap_.find(rule_path) != keymap_.end()) {
         return keymap_[rule_path].c_str();
     }
@@ -53,7 +53,7 @@ const char* SubRuleDescriptions::Keymap(const char* rule_path) {
 
 // ----------------------------------------------------------------------
 
-void SubRuleDescriptions::add(const std::string& line) {
+void SubRuleDescriptions::add(const std::string &line) {
     if(line.empty() || line[0] == '#')
         return;
 

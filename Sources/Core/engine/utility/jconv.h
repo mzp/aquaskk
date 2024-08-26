@@ -78,10 +78,10 @@ namespace jconv {
     // substitute functors
     // ======================================================================
     class subst_eucj {
-        std::string& output_;
+        std::string &output_;
 
     public:
-        subst_eucj(std::string& dest)
+        subst_eucj(std::string &dest)
             : output_(dest) {}
         void operator()() {
             output_ += 0xa2;
@@ -90,10 +90,10 @@ namespace jconv {
     };
 
     class subst_sjis {
-        std::string& output_;
+        std::string &output_;
 
     public:
-        subst_sjis(std::string& dest)
+        subst_sjis(std::string &dest)
             : output_(dest) {}
         void operator()() {
             output_ += 0x81;
@@ -102,10 +102,10 @@ namespace jconv {
     };
 
     class subst_utf8 {
-        std::string& output_;
+        std::string &output_;
 
     public:
-        subst_utf8(std::string& dest)
+        subst_utf8(std::string &dest)
             : output_(dest) {}
         void operator()() {
             output_ += 0xe3;
@@ -115,10 +115,10 @@ namespace jconv {
     };
 
     class subst_iso2022jp {
-        std::string& output_;
+        std::string &output_;
 
     public:
-        subst_iso2022jp(std::string& dest)
+        subst_iso2022jp(std::string &dest)
             : output_(dest) {}
         void operator()() {
             output_ += 0x02;
@@ -147,7 +147,7 @@ namespace jconv {
         typedef void (sjis_to_eucj::*handler)(unsigned char);
 
         std::string pool_;
-        std::string& output_;
+        std::string &output_;
         subst_eucj subst_;
         std::vector<unsigned char> input_;
         handler state_;
@@ -165,7 +165,7 @@ namespace jconv {
             : output_(pool_), subst_(output_) {
             reset();
         }
-        sjis_to_eucj(std::string& dest)
+        sjis_to_eucj(std::string &dest)
             : output_(dest), subst_(output_) {
             reset();
         }
@@ -173,7 +173,7 @@ namespace jconv {
         void operator()(unsigned char c) {
             (this->*state_)(c);
         }
-        std::string& result() {
+        std::string &result() {
             return output_;
         }
     };
@@ -185,7 +185,7 @@ namespace jconv {
         typedef void (eucj_to_sjis::*handler)(unsigned char);
 
         std::string pool_;
-        std::string& output_;
+        std::string &output_;
         subst_sjis subst_;
         std::vector<unsigned char> input_;
         handler state_;
@@ -205,7 +205,7 @@ namespace jconv {
             : output_(pool_), subst_(output_) {
             reset();
         }
-        eucj_to_sjis(std::string& dest)
+        eucj_to_sjis(std::string &dest)
             : output_(dest), subst_(output_) {
             reset();
         }
@@ -213,7 +213,7 @@ namespace jconv {
         void operator()(unsigned char c) {
             (this->*state_)(c);
         }
-        std::string& result() {
+        std::string &result() {
             return output_;
         }
     };
@@ -225,7 +225,7 @@ namespace jconv {
         typedef void (utf8_to_eucj::*handler)(unsigned char);
 
         std::string pool_;
-        std::string& output_;
+        std::string &output_;
         subst_eucj subst_;
         std::vector<unsigned char> input_;
         bool nothrow_;
@@ -245,7 +245,7 @@ namespace jconv {
             state_ = &utf8_to_eucj::neutral;
         }
 
-        void dead_end(const char* msg) {
+        void dead_end(const char *msg) {
             if(!nothrow_)
                 throw std::runtime_error(msg);
         }
@@ -255,7 +255,7 @@ namespace jconv {
             : output_(pool_), subst_(output_), nothrow_(nothrow) {
             reset();
         }
-        utf8_to_eucj(std::string& dest, bool nothrow = true)
+        utf8_to_eucj(std::string &dest, bool nothrow = true)
             : output_(dest), subst_(output_), nothrow_(nothrow) {
             reset();
         }
@@ -263,7 +263,7 @@ namespace jconv {
         void operator()(unsigned char c) {
             (this->*state_)(c);
         }
-        std::string& result() {
+        std::string &result() {
             return output_;
         }
     };
@@ -275,7 +275,7 @@ namespace jconv {
         typedef void (eucj_to_utf8::*handler)(unsigned char);
 
         std::string pool_;
-        std::string& output_;
+        std::string &output_;
         subst_utf8 subst_;
         std::vector<unsigned char> input_;
         bool nothrow_;
@@ -293,7 +293,7 @@ namespace jconv {
             state_ = &eucj_to_utf8::neutral;
         }
 
-        void dead_end(const char* msg) {
+        void dead_end(const char *msg) {
             if(!nothrow_)
                 throw std::runtime_error(msg);
         }
@@ -303,7 +303,7 @@ namespace jconv {
             : output_(pool_), subst_(output_), nothrow_(nothrow) {
             reset();
         }
-        eucj_to_utf8(std::string& dest, bool nothrow = true)
+        eucj_to_utf8(std::string &dest, bool nothrow = true)
             : output_(dest), subst_(output_), nothrow_(nothrow) {
             reset();
         }
@@ -311,7 +311,7 @@ namespace jconv {
         void operator()(unsigned char c) {
             (this->*state_)(c);
         }
-        std::string& result() {
+        std::string &result() {
             return output_;
         }
     };
@@ -323,7 +323,7 @@ namespace jconv {
         typedef void (iso2022jp_to_eucj::*handler)(unsigned char);
 
         std::string pool_;
-        std::string& output_;
+        std::string &output_;
         std::vector<unsigned char> input_;
         bool nothrow_;
         handler state_;
@@ -347,7 +347,7 @@ namespace jconv {
             state_ = &iso2022jp_to_eucj::neutral;
         }
 
-        void dead_end(const char* msg) {
+        void dead_end(const char *msg) {
             if(!nothrow_)
                 throw std::runtime_error(msg);
         }
@@ -358,7 +358,7 @@ namespace jconv {
             reset();
             sub_state_ = &iso2022jp_to_eucj::us_ascii;
         }
-        iso2022jp_to_eucj(std::string& dest, bool nothrow = true)
+        iso2022jp_to_eucj(std::string &dest, bool nothrow = true)
             : output_(dest), nothrow_(nothrow) {
             reset();
             sub_state_ = &iso2022jp_to_eucj::us_ascii;
@@ -367,7 +367,7 @@ namespace jconv {
         void operator()(unsigned char c) {
             (this->*state_)(c);
         }
-        std::string& result() {
+        std::string &result() {
             return output_;
         }
     };
@@ -379,7 +379,7 @@ namespace jconv {
         typedef void (eucj_to_iso2022jp::*handler)(unsigned char);
 
         std::string pool_;
-        std::string& output_;
+        std::string &output_;
         std::vector<unsigned char> input_;
         bool nothrow_;
         handler state_;
@@ -400,7 +400,7 @@ namespace jconv {
             state_ = &eucj_to_iso2022jp::neutral;
         }
 
-        void dead_end(const char* msg) {
+        void dead_end(const char *msg) {
             if(!nothrow_)
                 throw std::runtime_error(msg);
         }
@@ -410,7 +410,7 @@ namespace jconv {
             : output_(pool_), nothrow_(nothrow), sub_state_(0) {
             reset();
         }
-        eucj_to_iso2022jp(std::string& dest, bool nothrow = true)
+        eucj_to_iso2022jp(std::string &dest, bool nothrow = true)
             : output_(dest), nothrow_(nothrow), sub_state_(0) {
             reset();
         }
@@ -418,33 +418,33 @@ namespace jconv {
         void operator()(unsigned char c) {
             (this->*state_)(c);
         }
-        std::string& result() {
+        std::string &result() {
             return output_;
         }
     };
 
     // utility
-    void convert_utf8_to_eucj(const std::string& from, std::string& to);
-    void convert_eucj_to_utf8(const std::string& from, std::string& to);
+    void convert_utf8_to_eucj(const std::string &from, std::string &to);
+    void convert_eucj_to_utf8(const std::string &from, std::string &to);
 
-    std::string utf8_from_eucj(const std::string& eucj);
-    std::string eucj_from_utf8(const std::string& utf8);
+    std::string utf8_from_eucj(const std::string &eucj);
+    std::string eucj_from_utf8(const std::string &utf8);
 
     // translator(UTF-8 only)
-    void hirakana_to_katakana(const std::string& from, std::string& to);
-    void hirakana_to_jisx0201_kana(const std::string& from, std::string& to);
-    void hirakana_to_roman(const std::string& from, std::string& to);
+    void hirakana_to_katakana(const std::string &from, std::string &to);
+    void hirakana_to_jisx0201_kana(const std::string &from, std::string &to);
+    void hirakana_to_roman(const std::string &from, std::string &to);
 
-    void katakana_to_hirakana(const std::string& from, std::string& to);
-    void katakana_to_jisx0201_kana(const std::string& from, std::string& to);
-    void katakana_to_roman(const std::string& from, std::string& to);
+    void katakana_to_hirakana(const std::string &from, std::string &to);
+    void katakana_to_jisx0201_kana(const std::string &from, std::string &to);
+    void katakana_to_roman(const std::string &from, std::string &to);
 
-    void jisx0201_kana_to_hirakana(const std::string& from, std::string& to);
-    void jisx0201_kana_to_katakana(const std::string& from, std::string& to);
-    void jisx0201_kana_to_roman(const std::string& from, std::string& to);
+    void jisx0201_kana_to_hirakana(const std::string &from, std::string &to);
+    void jisx0201_kana_to_katakana(const std::string &from, std::string &to);
+    void jisx0201_kana_to_roman(const std::string &from, std::string &to);
 
-    void ascii_to_jisx0208_latin(const std::string& from, std::string& to);
-    void jisx0208_latin_to_ascii(const std::string& from, std::string& to);
+    void ascii_to_jisx0208_latin(const std::string &from, std::string &to);
+    void jisx0208_latin_to_ascii(const std::string &from, std::string &to);
 } // namespace jconv
 
 #endif // INC__jconv__

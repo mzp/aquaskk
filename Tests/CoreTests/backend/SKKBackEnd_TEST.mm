@@ -1,8 +1,8 @@
+#import <AquaSKKCore/SKKBackEnd.h>
+#import <AquaSKKCore/SKKCommonDictionary.h>
+#import <AquaSKKCore/SKKDictionaryFactory.h>
 #include <cassert>
 #include <iostream>
-#import <AquaSKKCore/SKKBackEnd.h>
-#import <AquaSKKCore/SKKDictionaryFactory.h>
-#import <AquaSKKCore/SKKCommonDictionary.h>
 
 #import <XCTest/XCTest.h>
 
@@ -13,19 +13,19 @@
 
 - (void)testMain {
     SKKRegisterFactoryMethod<SKKCommonDictionary>(0);
-    
+
     SKKDictionaryKeyContainer dicts;
 
     NSBundle *bundle = [NSBundle bundleForClass:SKKBackEndTests.class];
 
-    const char* testJisyoPath = [[bundle pathForResource:@"SKK-JISYO" ofType:@"TEST"] UTF8String];
+    const char *testJisyoPath = [[bundle pathForResource:@"SKK-JISYO" ofType:@"TEST"] UTF8String];
 
     dicts.push_back(SKKDictionaryKey(0, testJisyoPath));
     dicts.push_back(SKKDictionaryKey(0, testJisyoPath));
 
-    auto& backend = SKKBackEnd::theInstance();
+    auto &backend = SKKBackEnd::theInstance();
 
-    const char* jisyoPath = [[bundle pathForResource:@"skk-jisyo" ofType:@"utf8"] UTF8String];
+    const char *jisyoPath = [[bundle pathForResource:@"skk-jisyo" ofType:@"utf8"] UTF8String];
     backend.Initialize(jisyoPath, dicts);
 
     std::vector<std::string> result;

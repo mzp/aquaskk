@@ -36,7 +36,7 @@ class SKKTextBuffer {
 public:
     SKKTextBuffer();
 
-    void Insert(const std::string& str);
+    void Insert(const std::string &str);
     void BackSpace();
     void Delete();
     void Clear();
@@ -50,7 +50,7 @@ public:
 
     bool IsEmpty() const;
 
-    bool operator==(const std::string& str) const;
+    bool operator==(const std::string &str) const;
 
     std::string String() const;
     std::string LeftString() const;

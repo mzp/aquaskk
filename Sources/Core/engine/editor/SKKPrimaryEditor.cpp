@@ -23,13 +23,13 @@
 #import <AquaSKKCore/SKKInputContext.h>
 #import <AquaSKKCore/SKKPrimaryEditor.h>
 
-SKKPrimaryEditor::SKKPrimaryEditor(SKKInputContext* context)
+SKKPrimaryEditor::SKKPrimaryEditor(SKKInputContext *context)
     : SKKBaseEditor(context) {}
 
 void SKKPrimaryEditor::ReadContext() {
     context()->entry = SKKEntry();
 
-    SKKRegistration& registration = context()->registration;
+    SKKRegistration &registration = context()->registration;
 
     if(registration == SKKRegistration::Finished) {
         context()->output.Fix(registration.Word());
@@ -37,11 +37,11 @@ void SKKPrimaryEditor::ReadContext() {
     }
 }
 
-void SKKPrimaryEditor::Input(const std::string& ascii) {
+void SKKPrimaryEditor::Input(const std::string &ascii) {
     context()->event_handled = false;
 }
 
-void SKKPrimaryEditor::Input(const std::string& fixed, const std::string&, char) {
+void SKKPrimaryEditor::Input(const std::string &fixed, const std::string &, char) {
     context()->output.Fix(fixed);
 }
 
@@ -49,7 +49,7 @@ void SKKPrimaryEditor::Input(SKKBaseEditor::Event event) {
     context()->event_handled = false;
 }
 
-void SKKPrimaryEditor::Commit(std::string& queue) {
+void SKKPrimaryEditor::Commit(std::string &queue) {
     context()->output.Fix(queue);
     queue.clear();
 

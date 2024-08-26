@@ -101,7 +101,7 @@ namespace calculator {
             return result; // EOF
         }
 
-        void save_token(const token& token) {
+        void save_token(const token &token) {
             buf_ = token;
         }
 
@@ -190,7 +190,7 @@ namespace calculator {
         }
 
     public:
-        double run(const std::string& input) {
+        double run(const std::string &input) {
             input_.clear();
             input_.str(input);
             buf_.kind = 0;

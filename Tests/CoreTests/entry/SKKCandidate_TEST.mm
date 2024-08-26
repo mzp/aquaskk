@@ -1,5 +1,5 @@
-#include <cassert>
 #import <AquaSKKCore/SKKCandidate.h>
+#include <cassert>
 
 #import <XCTest/XCTest.h>
 

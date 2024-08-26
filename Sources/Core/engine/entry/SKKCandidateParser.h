@@ -97,7 +97,7 @@ class SKKCandidateParser {
     }
 
 public:
-    void Parse(const std::string& str) {
+    void Parse(const std::string &str) {
         using namespace std::placeholders;
         handler_ = &SKKCandidateParser::phase1;
 
@@ -109,11 +109,11 @@ public:
         std::for_each(str.begin(), str.end(), std::bind(std::mem_fn(&SKKCandidateParser::invoke), this, _1));
     }
 
-    const SKKCandidateContainer& Candidates() const {
+    const SKKCandidateContainer &Candidates() const {
         return candidates_;
     }
 
-    const SKKOkuriHintContainer& Hints() const {
+    const SKKOkuriHintContainer &Hints() const {
         return hints_;
     }
 };

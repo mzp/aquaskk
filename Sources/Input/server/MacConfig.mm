@@ -23,8 +23,7 @@
 #import <AquaSKKInput/MacConfig.h>
 #import <AquaSKKService/SKKConstVars.h>
 
-MacConfig::MacConfig() {
-}
+MacConfig::MacConfig() {}
 
 bool MacConfig::FixIntermediateConversion() {
     return boolConfig(SKKUserDefaultKeys::fix_intermediate_conversion);
@@ -68,16 +67,16 @@ bool MacConfig::DeleteOkuriWhenQuit() {
 
 // private methods
 
-int MacConfig::integerConfig(NSString* key) {
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+int MacConfig::integerConfig(NSString *key) {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wshorten-64-to-32"
     return [defaults integerForKey:key];
 #pragma clang diagnostic pop
 }
 
-bool MacConfig::boolConfig(NSString* key) {
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+bool MacConfig::boolConfig(NSString *key) {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
     return [defaults boolForKey:key] == YES;
 }

@@ -20,13 +20,13 @@
 
 */
 
-#import <AquaSKKUI/CompletionWindow.h>
 #import <AquaSKKUI/CompletionView.h>
+#import <AquaSKKUI/CompletionWindow.h>
 
 @implementation CompletionWindow
 
-+ (CompletionWindow*)sharedWindow {
-    static CompletionWindow* obj =  [[CompletionWindow alloc] init];
++ (CompletionWindow *)sharedWindow {
+    static CompletionWindow *obj = [[CompletionWindow alloc] init];
     return obj;
 }
 
@@ -37,9 +37,9 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
         window_ = [[NSWindow alloc] initWithContentRect:NSMakeRect(0, 0, 0, 0)
-                                    styleMask:NSBorderlessWindowMask
-                                    backing:NSBackingStoreBuffered
-                                    defer:YES];
+                                              styleMask:NSBorderlessWindowMask
+                                                backing:NSBackingStoreBuffered
+                                                  defer:YES];
 #pragma clang diagnostic pop
         [window_ setBackgroundColor:[NSColor clearColor]];
         [window_ setOpaque:NO];
@@ -56,7 +56,7 @@
     [super dealloc];
 }
 
-- (void)showCompletion:(NSAttributedString*)comp at:(NSPoint)topleft level:(int)level {
+- (void)showCompletion:(NSAttributedString *)comp at:(NSPoint)topleft level:(int)level {
     [view_ setCompletion:comp];
 
     NSRect frame = [view_ frame];

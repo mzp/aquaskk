@@ -30,7 +30,7 @@
 // プログラム実行変換辞書クラス
 // ======================================================================
 class SKKGadgetDictionary : public SKKBaseDictionary {
-    typedef void (*DispatchHandler)(const std::string&, std::vector<std::string>&);
+    typedef void (*DispatchHandler)(const std::string &, std::vector<std::string> &);
     typedef std::pair<std::string, DispatchHandler> DispatchPair;
     typedef std::vector<DispatchPair> DispatchTable;
 
@@ -41,7 +41,7 @@ class SKKGadgetDictionary : public SKKBaseDictionary {
 
     DispatchTable table_;
 
-    DispatchTable selectHandlers(const std::string& entry, bool complete = false) const;
+    DispatchTable selectHandlers(const std::string &entry, bool complete = false) const;
 
     template <typename Predicate, typename Func> void apply(Predicate pred, Func func) {
         DispatchTable::iterator first = table_.begin();
@@ -56,11 +56,11 @@ class SKKGadgetDictionary : public SKKBaseDictionary {
     }
 
 public:
-    virtual void Initialize(const std::string& location);
+    virtual void Initialize(const std::string &location);
 
-    virtual void Find(const SKKEntry& entry, SKKCandidateSuite& result);
+    virtual void Find(const SKKEntry &entry, SKKCandidateSuite &result);
 
-    virtual void Complete(SKKCompletionHelper& helper);
+    virtual void Complete(SKKCompletionHelper &helper);
 };
 
 #endif

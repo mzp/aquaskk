@@ -33,12 +33,12 @@ class SKKInlineSelector : public SKKBaseSelector {
     int maxPosition() const;
 
 public:
-    void Initialize(SKKCandidateContainer& container, unsigned inlineCount);
+    void Initialize(SKKCandidateContainer &container, unsigned inlineCount);
 
     virtual bool Next();
     virtual bool Prev();
 
-    virtual const SKKCandidate& Current() const;
+    virtual const SKKCandidate &Current() const;
 
     virtual bool IsEmpty() const;
 };

@@ -24,10 +24,10 @@
 #import <AquaSKKCore/SKKWindowSelector.h>
 #include <cassert>
 
-SKKWindowSelector::SKKWindowSelector(SKKCandidateWindow* window)
+SKKWindowSelector::SKKWindowSelector(SKKCandidateWindow *window)
     : window_(window) {}
 
-void SKKWindowSelector::Initialize(SKKCandidateContainer& container, unsigned inlineCount) {
+void SKKWindowSelector::Initialize(SKKCandidateContainer &container, unsigned inlineCount) {
     range_.set(container, inlineCount);
     window_->Setup(range_.begin(), range_.end(), pages_);
 
@@ -68,7 +68,7 @@ bool SKKWindowSelector::Prev() {
     return true;
 }
 
-const SKKCandidate& SKKWindowSelector::Current() const {
+const SKKCandidate &SKKWindowSelector::Current() const {
     assert(!view_.empty());
 
     return view_[cursor_pos_];

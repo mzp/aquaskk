@@ -23,9 +23,11 @@
 #include "SKKRomanKanaConverter.h"
 #import <AquaSKKCore/AISRomanKanaConverter.h>
 
-SKKRomanKanaConverter::SKKRomanKanaConverter() : impl(NULL) {}
+SKKRomanKanaConverter::SKKRomanKanaConverter()
+    : impl(NULL) {}
 
-SKKRomanKanaConverter::SKKRomanKanaConverter(const SKKRomanKanaConverter &romanKana) : impl(romanKana.impl) {}
+SKKRomanKanaConverter::SKKRomanKanaConverter(const SKKRomanKanaConverter &romanKana)
+    : impl(romanKana.impl) {}
 
 SKKRomanKanaConverter &SKKRomanKanaConverter::theInstance() {
     static SKKRomanKanaConverter obj;
@@ -38,7 +40,7 @@ void SKKRomanKanaConverter::Initialize(const std::string &path) {
 
     AICRomanKanaConverter *oldImpl = (AICRomanKanaConverter *)impl;
     this->impl = (void *)[impl retain];
-    if (oldImpl != NULL) {
+    if(oldImpl != NULL) {
         [oldImpl release];
     }
 }

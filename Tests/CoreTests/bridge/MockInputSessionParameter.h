@@ -14,7 +14,7 @@
 
 class MockInputSessionParameter : public SKKInputSessionParameter {
     MockConfig config_;
-    MockFrontEnd* frontend_;
+    MockFrontEnd *frontend_;
     MockMessenger messenger_;
     MockClipboard clipboard_;
     MockCandidateWindow candidate_;
@@ -25,38 +25,38 @@ public:
     MockInputSessionParameter()
         : frontend_(new MockFrontEnd()) {}
 
-    virtual SKKConfig* Config() {
+    virtual SKKConfig *Config() {
         return &config_;
     }
-    virtual SKKFrontEnd* FrontEnd() {
+    virtual SKKFrontEnd *FrontEnd() {
         return frontend_;
     }
-    virtual SKKMessenger* Messenger() {
+    virtual SKKMessenger *Messenger() {
         return &messenger_;
     }
-    virtual SKKClipboard* Clipboard() {
+    virtual SKKClipboard *Clipboard() {
         return &clipboard_;
     }
-    virtual SKKCandidateWindow* CandidateWindow() {
+    virtual SKKCandidateWindow *CandidateWindow() {
         return &candidate_;
     }
-    virtual SKKAnnotator* Annotator() {
+    virtual SKKAnnotator *Annotator() {
         return &annotator_;
     }
-    virtual SKKDynamicCompletor* DynamicCompletor() {
+    virtual SKKDynamicCompletor *DynamicCompletor() {
         return &completor_;
     }
 
-    SKKInputModeListener* Listener() {
+    SKKInputModeListener *Listener() {
         return frontend_;
     }
-    TestResult& Result() {
+    TestResult &Result() {
         return *frontend_;
     }
-    void SetSelectedString(const std::string& str) {
+    void SetSelectedString(const std::string &str) {
         frontend_->SetSelectedString(str);
     }
-    void SetYankString(const std::string& str) {
+    void SetYankString(const std::string &str) {
         clipboard_.SetString(str);
     }
 };

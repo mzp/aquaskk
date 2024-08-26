@@ -24,7 +24,7 @@
 #import <AquaSKKCore/SKKCandidateEditor.h>
 #import <AquaSKKCore/SKKInputContext.h>
 
-SKKCandidateEditor::SKKCandidateEditor(SKKInputContext* context)
+SKKCandidateEditor::SKKCandidateEditor(SKKInputContext *context)
     : SKKBaseEditor(context) {}
 
 void SKKCandidateEditor::ReadContext() {
@@ -46,7 +46,7 @@ void SKKCandidateEditor::WriteContext() {
     update();
 }
 
-void SKKCandidateEditor::Commit(std::string& queue) {
+void SKKCandidateEditor::Commit(std::string &queue) {
     SKKBackEnd::theInstance().Register(entry_, candidate_);
 
     queue = candidate_.Variant();
@@ -57,7 +57,7 @@ void SKKCandidateEditor::Commit(std::string& queue) {
     }
 }
 
-void SKKCandidateEditor::SetCandidate(const SKKCandidate& candidate) {
+void SKKCandidateEditor::SetCandidate(const SKKCandidate &candidate) {
     candidate_ = candidate;
 
     update();

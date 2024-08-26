@@ -30,19 +30,19 @@
 class SKKBaseDictionary;
 
 class SKKDictionaryFactory {
-    typedef SKKBaseDictionary* (*SKKDictionaryCreator)(const std::string& location);
+    typedef SKKBaseDictionary *(*SKKDictionaryCreator)(const std::string &location);
 
     std::map<int, SKKDictionaryCreator> creators_;
 
     SKKDictionaryFactory();
-    SKKDictionaryFactory(const SKKDictionaryFactory&);
-    SKKDictionaryFactory& operator=(const SKKDictionaryFactory&);
+    SKKDictionaryFactory(const SKKDictionaryFactory &);
+    SKKDictionaryFactory &operator=(const SKKDictionaryFactory &);
 
 public:
-    static SKKDictionaryFactory& theInstance();
+    static SKKDictionaryFactory &theInstance();
 
     void Register(int type, SKKDictionaryCreator creator);
-    SKKBaseDictionary* Create(int type, const std::string& location);
+    SKKBaseDictionary *Create(int type, const std::string &location);
 };
 
 // ======================================================================
@@ -60,8 +60,8 @@ public:
 //
 template <typename ConcreteDictionary> bool SKKRegisterFactoryMethod(int type) {
     struct Factory {
-        static SKKBaseDictionary* Method(const std::string& location) {
-            ConcreteDictionary* obj = new ConcreteDictionary();
+        static SKKBaseDictionary *Method(const std::string &location) {
+            ConcreteDictionary *obj = new ConcreteDictionary();
             obj->Initialize(location);
             return obj;
         }

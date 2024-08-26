@@ -20,9 +20,9 @@
 
 */
 
-#import <AquaSKKUI/CandidateView.h>
 #import <AquaSKKUI/CandidateCell.h>
 #import <AquaSKKUI/CandidatePageIndicator.h>
+#import <AquaSKKUI/CandidateView.h>
 
 @implementation CandidateView
 
@@ -32,8 +32,8 @@
 
 - (id)initWithFrame:(NSRect)frameRect {
     if(self = [super initWithFrame:frameRect]) {
-	candidateCells_ = [[NSMutableArray alloc] initWithCapacity:0];
-	indicator_ = [[CandidatePageIndicator alloc] init];
+        candidateCells_ = [[NSMutableArray alloc] initWithCapacity:0];
+        indicator_ = [[CandidatePageIndicator alloc] init];
         cellFont_ = 0;
         labels_ = @"";
     }
@@ -44,7 +44,8 @@
 - (void)dealloc {
     [candidateCells_ release];
     [indicator_ release];
-    if(cellFont_) [cellFont_ release];
+    if(cellFont_)
+        [cellFont_ release];
 
     [super dealloc];
 }
@@ -57,8 +58,8 @@
 #pragma clang diagnostic ignored "-Wshorten-64-to-32"
     int cellCount = [labels_ length];
 #pragma clang diagnostic pop
-    for(unsigned index = 0; index < [candidateCells_ count]; ++ index) {
-        CandidateCell* cell = [candidateCells_ objectAtIndex:index];
+    for(unsigned index = 0; index < [candidateCells_ count]; ++index) {
+        CandidateCell *cell = [candidateCells_ objectAtIndex:index];
         NSSize maxSize = [cell size];
 
         maxSize.width = [cell defaultSize].width * cellCount + [CandidateView cellSpacing] * (cellCount - 1);
@@ -69,7 +70,7 @@
             [cell drawAtPoint:offset withSize:maxSize];
         }
 
-	offset.x += ([cell size].width + margin);
+        offset.x += ([cell size].width + margin);
     }
 
     [indicator_ drawAtPoint:NSMakePoint([self bounds].size.width - [indicator_ size].width - margin, margin)];
@@ -81,10 +82,11 @@
     NSFrameRect([self frame]);
 }
 
-- (void)prepareWithFont:(NSFont*)newFont labels:(NSString*)newLabels {
+- (void)prepareWithFont:(NSFont *)newFont labels:(NSString *)newLabels {
     [newFont retain];
 
-    if(cellFont_) [cellFont_ release];
+    if(cellFont_)
+        [cellFont_ release];
     cellFont_ = newFont;
 
     labels_ = newLabels;
@@ -93,7 +95,7 @@
 - (NSSize)contentSize {
     NSSize result;
 
-    CandidateCell* cell = [self newCandidateCell];
+    CandidateCell *cell = [self newCandidateCell];
 
     result.width = ([cell defaultSize].width + [CandidateView cellSpacing]) * [labels_ length];
     result.width += [indicator_ size].width;
@@ -107,15 +109,15 @@
     return result;
 }
 
-- (void)setCandidates:(NSArray*)candidates selectedIndex:(int)cursor {
+- (void)setCandidates:(NSArray *)candidates selectedIndex:(int)cursor {
     [candidateCells_ removeAllObjects];
 
-    for(unsigned index = 0; index < [candidates count]; ++ index) {
-	CandidateCell* tmp = [self newCandidateCell];
+    for(unsigned index = 0; index < [candidates count]; ++index) {
+        CandidateCell *tmp = [self newCandidateCell];
 
-	[tmp setString:[candidates objectAtIndex:index] withLabel:[labels_ characterAtIndex:index]];
-	[candidateCells_ addObject:tmp];
-	[tmp release];
+        [tmp setString:[candidates objectAtIndex:index] withLabel:[labels_ characterAtIndex:index]];
+        [candidateCells_ addObject:tmp];
+        [tmp release];
     }
 
     selected_ = cursor;

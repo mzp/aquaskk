@@ -31,21 +31,21 @@ class SKKPreProcessor {
     SKKKeymap keymap_;
 
     SKKPreProcessor();
-    SKKPreProcessor(const SKKPreProcessor&);
-    SKKPreProcessor& operator=(const SKKPreProcessor&);
+    SKKPreProcessor(const SKKPreProcessor &);
+    SKKPreProcessor &operator=(const SKKPreProcessor &);
 
 public:
     // シングルトン
-    static SKKPreProcessor& theInstance();
+    static SKKPreProcessor &theInstance();
 
     // キーマップのロード
-    void Initialize(const std::string& path);
+    void Initialize(const std::string &path);
 
     // キーマップの追加ロード
-    void Patch(const std::string& path);
+    void Patch(const std::string &path);
 
     // NSEvent → SKKEvent 変換
-    SKKEvent Execute(const NSEvent* event);
+    SKKEvent Execute(const NSEvent *event);
 };
 
 #endif

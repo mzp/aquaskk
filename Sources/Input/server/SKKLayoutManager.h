@@ -35,7 +35,7 @@ class SKKLayoutManager {
     NSPoint fit(const NSRect &screen, const NSRect &window) const;
     int margin() const;
 
-  public:
+public:
     SKKLayoutManager(id client);
 
     // 入力位置の原点

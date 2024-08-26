@@ -1,8 +1,8 @@
-#include <cassert>
 #import <AquaSKKCore/SKKInlineSelector.h>
 #import <XCTest/XCTest.h>
+#include <cassert>
 
-@interface SKKInlineSelectorTests: XCTestCase
+@interface SKKInlineSelectorTests : XCTestCase
 @end
 
 @implementation SKKInlineSelectorTests
@@ -10,7 +10,7 @@
 - (void)testMain {
     SKKCandidateContainer container;
     SKKInlineSelector selector;
-    
+
     container.push_back(SKKCandidate("候補1"));
     container.push_back(SKKCandidate("候補2"));
     container.push_back(SKKCandidate("候補3"));

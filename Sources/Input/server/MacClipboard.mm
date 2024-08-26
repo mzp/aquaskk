@@ -20,17 +20,17 @@
 
 */
 
-#import <Foundation/Foundation.h>
 #import <AppKit/AppKit.h>
+#import <Foundation/Foundation.h>
 
 #import <AquaSKKInput/MacClipboard.h>
 
 const std::string MacClipboard::PasteString() {
-    NSPasteboard* pasteboard = [NSPasteboard generalPasteboard];
+    NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     if([[pasteboard types] containsObject:NSStringPboardType] == YES) {
-        NSString* str = [pasteboard stringForType:NSStringPboardType];
+        NSString *str = [pasteboard stringForType:NSStringPboardType];
         return [str UTF8String];
     }
 #pragma clang diagnostic pop

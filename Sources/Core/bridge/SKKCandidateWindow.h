@@ -32,7 +32,7 @@ public:
     virtual ~SKKCandidateWindow() {}
 
     // 各ページ毎に表示可能な候補数を求める
-    virtual void Setup(SKKCandidateIterator begin, SKKCandidateIterator end, std::vector<int>& pages) = 0;
+    virtual void Setup(SKKCandidateIterator begin, SKKCandidateIterator end, std::vector<int> &pages) = 0;
 
     // 更新
     //

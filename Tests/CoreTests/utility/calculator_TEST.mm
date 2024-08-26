@@ -6,7 +6,7 @@
 
 #import <XCTest/XCTest.h>
 
-@interface CalculatorTests: XCTestCase
+@interface CalculatorTests : XCTestCase
 @end
 
 @implementation CalculatorTests

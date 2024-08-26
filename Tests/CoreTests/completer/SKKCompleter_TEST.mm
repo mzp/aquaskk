@@ -1,26 +1,26 @@
-#include <cassert>
-#import <AquaSKKCore/SKKCompleter.h>
 #import <AquaSKKCore/SKKBackEnd.h>
+#import <AquaSKKCore/SKKCompleter.h>
 #import <XCTest/XCTest.h>
+#include <cassert>
 
 class TestBuddy : public SKKCompleterBuddy {
     std::string query_;
 
     virtual const std::string SKKCompleterQueryString() {
-	return query_;
+        return query_;
     }
 
-    virtual void SKKCompleterUpdate(const std::string& entry) {
-	query_ = entry;
+    virtual void SKKCompleterUpdate(const std::string &entry) {
+        query_ = entry;
     }
 
 public:
-    void SetQuery(const std::string& str) {
-	query_ = str;
+    void SetQuery(const std::string &str) {
+        query_ = str;
     }
 
-    const std::string& Entry() const {
-	return query_;
+    const std::string &Entry() const {
+        return query_;
     }
 };
 
@@ -35,12 +35,10 @@ public:
     SKKCompleter completer(&buddy);
     SKKDictionaryKeyContainer dicts;
 
-    auto& backend = SKKBackEnd::theInstance();
+    auto &backend = SKKBackEnd::theInstance();
 
     NSBundle *bundle = [NSBundle bundleForClass:SKKCompleterTests.class];
-    backend
-        .Initialize([bundle pathForResource:@"skk-jisyo" ofType:@"utf8"].UTF8String,
-                    dicts);
+    backend.Initialize([bundle pathForResource:@"skk-jisyo" ofType:@"utf8"].UTF8String, dicts);
 
     buddy.SetQuery("ほかん");
 

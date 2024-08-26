@@ -23,26 +23,22 @@
 
 @implementation PathFormatter
 
-- (NSString*)stringForObjectValue:(id)object {
+- (NSString *)stringForObjectValue:(id)object {
     if(![object isKindOfClass:[NSString class]]) {
         return nil;
     }
-    
+
     return [object stringByAbbreviatingWithTildeInPath];
 }
 
-- (BOOL)getObjectValue:(id*)objptr
-             forString:(NSString*)string
-      errorDescription:(NSString**)error {
+- (BOOL)getObjectValue:(id *)objptr forString:(NSString *)string errorDescription:(NSString **)error {
     *objptr = [NSString stringWithString:string];
 
     return YES;
 }
 
-- (NSAttributedString*)newAttributedStringForObjectValue:(id)object
-                                withDefaultAttributes:(NSDictionary*)attributes {
-    return [[NSAttributedString alloc] initWithString:[self stringForObjectValue:object]
-                                       attributes:attributes];
+- (NSAttributedString *)newAttributedStringForObjectValue:(id)object withDefaultAttributes:(NSDictionary *)attributes {
+    return [[NSAttributedString alloc] initWithString:[self stringForObjectValue:object] attributes:attributes];
 }
 
 @end

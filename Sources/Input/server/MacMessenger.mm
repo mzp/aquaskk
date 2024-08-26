@@ -20,20 +20,21 @@
 
 */
 
-#import <AquaSKKInput/MacMessenger.h>
-#import <AquaSKKUI/MessengerWindow.h>
-#import <AquaSKKService/SKKConstVars.h>
-#import <AquaSKKCore/SKKFrontEnd.h>
 #include "ObjCUtil.h"
+#import <AquaSKKCore/SKKFrontEnd.h>
+#import <AquaSKKInput/MacMessenger.h>
+#import <AquaSKKService/SKKConstVars.h>
+#import <AquaSKKUI/MessengerWindow.h>
 
-MacMessenger::MacMessenger(SKKLayoutManager* layout) : layout_(layout) {}
+MacMessenger::MacMessenger(SKKLayoutManager *layout)
+    : layout_(layout) {}
 
-void MacMessenger::SendMessage(const std::string& msg) {
+void MacMessenger::SendMessage(const std::string &msg) {
     ObjC::RAIIPool pool;
 
-    MessengerWindow* window = [MessengerWindow sharedWindow];
+    MessengerWindow *window = [MessengerWindow sharedWindow];
 
-    NSString* str = [NSString stringWithUTF8String:msg.c_str()];
+    NSString *str = [NSString stringWithUTF8String:msg.c_str()];
     NSPoint topleft = layout_->InputOrigin();
 
     topleft.y -= 2;
@@ -42,7 +43,7 @@ void MacMessenger::SendMessage(const std::string& msg) {
 }
 
 void MacMessenger::Beep() {
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
     if([defaults boolForKey:SKKUserDefaultKeys::beep_on_registration] == YES) {
         NSBeep();

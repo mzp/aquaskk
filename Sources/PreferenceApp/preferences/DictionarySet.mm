@@ -23,46 +23,46 @@
 #import <AquaSKKService/SKKConstVars.h>
 
 // ドラッグ & ドロップ用
-static NSString* DictionaryRowsType = @"DictionaryRowsType";
+static NSString *DictionaryRowsType = @"DictionaryRowsType";
 
 @implementation DictionarySet
 
-- (void)moveObjectsInArrangedObjectsFromIndexes:(NSIndexSet*)indexSet toIndex:(unsigned int)insertIndex {
-    NSArray* objects = [self arrangedObjects];
+- (void)moveObjectsInArrangedObjectsFromIndexes:(NSIndexSet *)indexSet toIndex:(unsigned int)insertIndex {
+    NSArray *objects = [self arrangedObjects];
     NSUInteger idx = [indexSet lastIndex];
     int aboveInsertIndexCount = 0;
     int removeIndex;
 
     while(NSNotFound != idx) {
-	if(idx >= insertIndex) {
+        if(idx >= insertIndex) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wshorten-64-to-32"
-	    removeIndex = idx + aboveInsertIndexCount;
-	    aboveInsertIndexCount += 1;
-	} else {
-	    removeIndex = idx;
+            removeIndex = idx + aboveInsertIndexCount;
+            aboveInsertIndexCount += 1;
+        } else {
+            removeIndex = idx;
 #pragma clang diagnostic pop
-	    insertIndex -= 1;
-	}
+            insertIndex -= 1;
+        }
 
-	id object = [[objects objectAtIndex:removeIndex] retain];
-	[self removeObjectAtArrangedObjectIndex:removeIndex];
-	[self insertObject:object atArrangedObjectIndex:insertIndex];
-	[object release];
+        id object = [[objects objectAtIndex:removeIndex] retain];
+        [self removeObjectAtArrangedObjectIndex:removeIndex];
+        [self insertObject:object atArrangedObjectIndex:insertIndex];
+        [object release];
 
-	idx = [indexSet indexLessThanIndex:idx];
+        idx = [indexSet indexLessThanIndex:idx];
     }
 }
 
-- (int)rowsAboveRow:(int)row inIndexSet:(NSIndexSet*)indexSet {
+- (int)rowsAboveRow:(int)row inIndexSet:(NSIndexSet *)indexSet {
     NSUInteger currentIndex = [indexSet firstIndex];
     int i = 0;
 
     while(currentIndex != NSNotFound) {
-	if(currentIndex < row) {
-	    ++ i;
-	}
-	currentIndex = [indexSet indexGreaterThanIndex:currentIndex];
+        if(currentIndex < row) {
+            ++i;
+        }
+        currentIndex = [indexSet indexGreaterThanIndex:currentIndex];
     }
 
     return i;
@@ -79,35 +79,35 @@ static NSString* DictionaryRowsType = @"DictionaryRowsType";
 
     // 新規のエントリを初期化する
     if(obj) {
-	[obj setValue:[NSNumber numberWithBool:YES] forKey:SKKDictionarySetKeys::active];
-	[obj setValue:[NSNumber numberWithInt:0] forKey:SKKDictionarySetKeys::type];
-	[obj setValue:@"" forKey:SKKDictionarySetKeys::location];
+        [obj setValue:[NSNumber numberWithBool:YES] forKey:SKKDictionarySetKeys::active];
+        [obj setValue:[NSNumber numberWithInt:0] forKey:SKKDictionarySetKeys::type];
+        [obj setValue:@"" forKey:SKKDictionarySetKeys::location];
     }
 
     return obj;
 }
 
 - (IBAction)browseLocation:(id)sender {
-    NSOpenPanel* panel = [NSOpenPanel openPanel];
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
 
-    NSString* path = [[self selection] valueForKey:SKKDictionarySetKeys::location];
-    NSString* dir = [path stringByDeletingLastPathComponent];
-    NSURL* dirurl = [NSURL fileURLWithPath:dir];
+    NSString *path = [[self selection] valueForKey:SKKDictionarySetKeys::location];
+    NSString *dir = [path stringByDeletingLastPathComponent];
+    NSURL *dirurl = [NSURL fileURLWithPath:dir];
 
     [panel setDirectoryURL:dirurl];
-    [panel beginSheetModalForWindow:prefView completionHandler:^(NSInteger result) {
+    [panel beginSheetModalForWindow:prefView
+                  completionHandler:^(NSInteger result) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        if(result == NSOKButton) {
+                    if(result == NSOKButton) {
 #pragma clang diagnostic pop
-            [[self selection] setValue:[[panel URL] path]
-                                forKey:SKKDictionarySetKeys::location];
-        }
-    }];
+                        [[self selection] setValue:[[panel URL] path] forKey:SKKDictionarySetKeys::location];
+                    }
+                  }];
 }
 
-- (BOOL)tableView:(NSTableView*)tv writeRowsWithIndexes:(NSIndexSet*)rowIndexes toPasteboard:(NSPasteboard*)pboard {
-    NSArray* typesArray = [NSArray arrayWithObjects:DictionaryRowsType, nil];
+- (BOOL)tableView:(NSTableView *)tv writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {
+    NSArray *typesArray = [NSArray arrayWithObjects:DictionaryRowsType, nil];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:rowIndexes];
@@ -118,15 +118,15 @@ static NSString* DictionaryRowsType = @"DictionaryRowsType";
     return YES;
 }
 
-- (NSDragOperation)tableView:(NSTableView*)tv
-		validateDrop:(id <NSDraggingInfo>)info
-		 proposedRow:(int)row
+- (NSDragOperation)tableView:(NSTableView *)tv
+                validateDrop:(id<NSDraggingInfo>)info
+                 proposedRow:(int)row
        proposedDropOperation:(NSTableViewDropOperation)op {
     NSDragOperation dragOp = NSDragOperationCopy;
 
     // ドラッグ元が同じなら、移動
     if([info draggingSource] == tableView) {
-	dragOp =  NSDragOperationMove;
+        dragOp = NSDragOperationMove;
     }
 
     [tv setDropRow:row dropOperation:NSTableViewDropAbove];
@@ -134,24 +134,24 @@ static NSString* DictionaryRowsType = @"DictionaryRowsType";
     return dragOp;
 }
 
-- (BOOL)tableView:(NSTableView*)tv
-       acceptDrop:(id <NSDraggingInfo>)info
+- (BOOL)tableView:(NSTableView *)tv
+       acceptDrop:(id<NSDraggingInfo>)info
               row:(int)row
     dropOperation:(NSTableViewDropOperation)op {
     if(row < 0) {
-	row = 0;
+        row = 0;
     }
 
     // ドラッグ元以外なら、何もしない
     if([info draggingSource] != tableView) {
-	return NO;
+        return NO;
     }
 
-    NSPasteboard* pboard = [info draggingPasteboard];
-    NSData* rowData = [pboard dataForType:DictionaryRowsType];
+    NSPasteboard *pboard = [info draggingPasteboard];
+    NSData *rowData = [pboard dataForType:DictionaryRowsType];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    NSIndexSet* rowIndexes = [NSKeyedUnarchiver unarchiveObjectWithData:rowData];
+    NSIndexSet *rowIndexes = [NSKeyedUnarchiver unarchiveObjectWithData:rowData];
 #pragma clang diagnostic pop
     [self moveObjectsInArrangedObjectsFromIndexes:rowIndexes toIndex:row];
 
@@ -163,11 +163,11 @@ static NSString* DictionaryRowsType = @"DictionaryRowsType";
     return YES;
 }
 
-- (NSInteger)numberOfRowsInTableView:(NSTableView*)tv {
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tv {
     return [[self arrangedObjects] count];
 }
 
-- (id)tableView:(NSTableView*)tv objectValueForTableColumn:(NSTableColumn*)column row:(NSInteger)row {
+- (id)tableView:(NSTableView *)tv objectValueForTableColumn:(NSTableColumn *)column row:(NSInteger)row {
     id obj = [[self arrangedObjects] objectAtIndex:row];
     return [obj valueForKey:[column identifier]];
 }

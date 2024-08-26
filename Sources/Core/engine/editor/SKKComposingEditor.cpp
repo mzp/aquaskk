@@ -23,7 +23,7 @@
 #import <AquaSKKCore/SKKComposingEditor.h>
 #import <AquaSKKCore/SKKInputContext.h>
 
-SKKComposingEditor::SKKComposingEditor(SKKInputContext* context)
+SKKComposingEditor::SKKComposingEditor(SKKInputContext *context)
     : SKKBaseEditor(context) {}
 
 void SKKComposingEditor::ReadContext() {
@@ -48,13 +48,13 @@ void SKKComposingEditor::WriteContext() {
     update();
 }
 
-void SKKComposingEditor::Input(const std::string& ascii) {
+void SKKComposingEditor::Input(const std::string &ascii) {
     composing_.Insert(ascii);
 
     update();
 }
 
-void SKKComposingEditor::Input(const std::string& fixed, const std::string&, char) {
+void SKKComposingEditor::Input(const std::string &fixed, const std::string &, char) {
     Input(fixed);
 }
 
@@ -91,13 +91,13 @@ void SKKComposingEditor::Input(SKKBaseEditor::Event event) {
     update();
 }
 
-void SKKComposingEditor::Commit(std::string& queue) {
+void SKKComposingEditor::Commit(std::string &queue) {
     queue = composing_.String();
 }
 
 // ----------------------------------------------------------------------
 
-void SKKComposingEditor::SetEntry(const std::string& entry) {
+void SKKComposingEditor::SetEntry(const std::string &entry) {
     composing_.Clear();
     composing_.Insert(entry);
 

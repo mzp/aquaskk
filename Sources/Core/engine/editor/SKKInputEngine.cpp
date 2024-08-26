@@ -34,10 +34,10 @@
 //
 // SKKInputEngine::SetState* メソッドで使用する。
 class SKKInputEngine::Synchronizer {
-    SKKInputEngine* engine_;
+    SKKInputEngine *engine_;
 
 public:
-    Synchronizer(SKKInputEngine* engine)
+    Synchronizer(SKKInputEngine *engine)
         : engine_(engine) {
         // 直近の状態を SKKInputContext に反映する
         engine_->UpdateInputContext();
@@ -57,7 +57,7 @@ public:
 
 // ----------------------------------------------------------------------
 
-SKKInputEngine::SKKInputEngine(SKKInputEnvironment* env)
+SKKInputEngine::SKKInputEngine(SKKInputEnvironment *env)
     : env_(env),
       param_(env->InputSessionParameter()),
       context_(env->InputContext()),
@@ -86,7 +86,7 @@ void SKKInputEngine::SetStateComposing() {
 
     push(&composingEditor_);
 
-    SKKEntry& entry = context_->entry;
+    SKKEntry &entry = context_->entry;
 
     if(!config_->DeleteOkuriWhenQuit()) {
         entry.AppendEntry(entry.OkuriString());
@@ -190,7 +190,7 @@ void SKKInputEngine::Commit() {
     word_.clear();
 
     // Top のフィルターから Commit していき、最終的な単語を取得する
-    std::vector<SKKBaseEditor*>::reverse_iterator iter;
+    std::vector<SKKBaseEditor *>::reverse_iterator iter;
     for(iter = stack_.rbegin(); iter != stack_.rend(); ++iter) {
         (*iter)->Commit(word_);
     }
@@ -205,7 +205,7 @@ void SKKInputEngine::Reset() {
 void SKKInputEngine::ToggleKana() {
     terminate();
 
-    SKKEntry& entry = context_->entry;
+    SKKEntry &entry = context_->entry;
 
     study(entry, SKKCandidate());
 
@@ -215,7 +215,7 @@ void SKKInputEngine::ToggleKana() {
 void SKKInputEngine::ToggleJisx0201Kana() {
     terminate();
 
-    SKKEntry& entry = context_->entry;
+    SKKEntry &entry = context_->entry;
 
     study(entry, SKKCandidate());
 
@@ -246,7 +246,7 @@ bool SKKInputEngine::IsOkuriComplete() const {
 
 // ----------------------------------------------------------------------
 
-SKKBaseEditor* SKKInputEngine::top() const {
+SKKBaseEditor *SKKInputEngine::top() const {
     return stack_.back();
 }
 
@@ -267,7 +267,7 @@ void SKKInputEngine::initialize() {
     }
 }
 
-void SKKInputEngine::push(SKKBaseEditor* editor) {
+void SKKInputEngine::push(SKKBaseEditor *editor) {
     stack_.push_back(editor);
 }
 
@@ -289,7 +289,7 @@ void SKKInputEngine::invoke(SKKBaseEditor::Event event) {
     }
 }
 
-void SKKInputEngine::study(const SKKEntry& entry, const SKKCandidate& candidate) {
+void SKKInputEngine::study(const SKKEntry &entry, const SKKCandidate &candidate) {
     if(entry.IsEmpty())
         return;
     if(entry.IsOkuriAri() && entry.OkuriString().empty())
@@ -300,13 +300,13 @@ void SKKInputEngine::study(const SKKEntry& entry, const SKKCandidate& candidate)
     SKKBackEnd::theInstance().Register(entry, candidate);
 }
 
-void SKKInputEngine::insert(const std::string& str) {
+void SKKInputEngine::insert(const std::string &str) {
     stack_.front()->Input(str, "", 0);
 }
 
 // ----------------------------------------------------------------------
 
-void SKKInputEngine::SKKInputQueueUpdate(const SKKInputQueueObserver::State& state) {
+void SKKInputEngine::SKKInputQueueUpdate(const SKKInputQueueObserver::State &state) {
     inputState_ = state;
 
     if(inputMode() == SKKInputMode::AsciiInputMode) {
@@ -322,7 +322,7 @@ const std::string SKKInputEngine::SKKCompleterQueryString() {
     return entry.EntryString();
 }
 
-void SKKInputEngine::SKKCompleterUpdate(const std::string& entry) {
+void SKKInputEngine::SKKCompleterUpdate(const std::string &entry) {
     composingEditor_.SetEntry(entry);
 }
 
@@ -336,10 +336,10 @@ const SKKEntry SKKInputEngine::SKKSelectorQueryEntry() {
     return entry;
 }
 
-void SKKInputEngine::SKKSelectorUpdate(const SKKCandidate& candidate) {
+void SKKInputEngine::SKKSelectorUpdate(const SKKCandidate &candidate) {
     candidateEditor_.SetCandidate(candidate);
 }
 
-void SKKInputEngine::SKKOkuriListenerAppendEntry(const std::string& fixed) {
+void SKKInputEngine::SKKOkuriListenerAppendEntry(const std::string &fixed) {
     composingEditor_.Input(fixed, "", 0);
 }

@@ -1,30 +1,32 @@
-#include <cassert>
-#import <AquaSKKCore/SKKSelector.h>
-#import <AquaSKKCore/SKKCandidateWindow.h>
 #import <AquaSKKCore/SKKBackEnd.h>
+#import <AquaSKKCore/SKKCandidateWindow.h>
 #import <AquaSKKCore/SKKCommonDictionary.h>
 #import <AquaSKKCore/SKKDictionaryFactory.h>
+#import <AquaSKKCore/SKKSelector.h>
+#include <cassert>
 
-#include "MockFrontEnd.h"
 #include "MockCandidateWindow.h"
+#include "MockFrontEnd.h"
 #import <XCTest/XCTest.h>
 
-@interface SKKSelectorTests: XCTestCase
+@interface SKKSelectorTests : XCTestCase
 @end
 
 class MockBuddy : public SKKSelectorBuddy {
     SKKCandidate candidate_;
 
     virtual const SKKEntry SKKSelectorQueryEntry() {
-	return SKKEntry("かんじ");
+        return SKKEntry("かんじ");
     }
 
-    virtual void SKKSelectorUpdate(const SKKCandidate& candidate) {
-	candidate_ = candidate;
+    virtual void SKKSelectorUpdate(const SKKCandidate &candidate) {
+        candidate_ = candidate;
     }
 
 public:
-    SKKCandidate& Current() { return candidate_; }
+    SKKCandidate &Current() {
+        return candidate_;
+    }
 };
 
 @implementation SKKSelectorTests

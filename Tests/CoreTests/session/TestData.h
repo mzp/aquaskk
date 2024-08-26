@@ -20,12 +20,12 @@ class TestData {
     std::vector<TestEntry> tests_;
     unsigned current_;
 
-    std::string& decode(std::string& str) {
+    std::string &decode(std::string &str) {
         string::translate(str, "%20", " ");
         return str;
     }
 
-    TestEvent makeEvent(const std::string& event) {
+    TestEvent makeEvent(const std::string &event) {
         TestEvent result;
         string::splitter splitter;
         std::string key;
@@ -69,7 +69,7 @@ class TestData {
         return result;
     }
 
-    SKKInputMode inputMode(const std::string& mode) {
+    SKKInputMode inputMode(const std::string &mode) {
         if(mode == "J")
             return SKKInputMode::HirakanaInputMode;
         if(mode == "K")
@@ -84,7 +84,7 @@ class TestData {
         return SKKInputMode::InvalidInputMode;
     }
 
-    char charcode(const std::string& str) {
+    char charcode(const std::string &str) {
         char result;
         std::istringstream buf(str);
 
@@ -99,7 +99,7 @@ class TestData {
         return result;
     }
 
-    int integer(const std::string& str) {
+    int integer(const std::string &str) {
         int result;
         std::istringstream buf(str);
 
@@ -108,7 +108,7 @@ class TestData {
         return result;
     }
 
-    TestResult makeTestResult(const std::string& expected) {
+    TestResult makeTestResult(const std::string &expected) {
         string::splitter splitter;
         TestResult result;
         std::string str;
@@ -138,7 +138,7 @@ class TestData {
         return result;
     }
 
-    TestEntry makeTestEntry(int line, const std::string& event, const std::string& expected) {
+    TestEntry makeTestEntry(int line, const std::string &event, const std::string &expected) {
         TestEntry result;
 
         result.line = line;
@@ -149,7 +149,7 @@ class TestData {
     }
 
 public:
-    void Load(const std::string& path) {
+    void Load(const std::string &path) {
         std::ifstream ifs(path.c_str());
         std::string line;
         string::splitter splitter;
@@ -173,7 +173,7 @@ public:
         current_ = 0;
     }
 
-    bool operator>>(TestEntry& entry) {
+    bool operator>>(TestEntry &entry) {
         if(current_ < tests_.size()) {
             entry = tests_[current_++];
             return true;

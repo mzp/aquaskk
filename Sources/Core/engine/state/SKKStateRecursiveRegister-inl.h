@@ -23,7 +23,7 @@
 // ======================================================================
 // level 1：単語登録
 // ======================================================================
-State SKKState::RecursiveRegister(const Event& event) {
+State SKKState::RecursiveRegister(const Event &event) {
     switch(event) {
     case ENTRY_EVENT:
         editor_->SetStateRegistration();

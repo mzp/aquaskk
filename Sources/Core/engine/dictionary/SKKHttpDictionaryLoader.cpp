@@ -26,7 +26,7 @@
 
 SKKHttpDictionaryLoader::SKKHttpDictionaryLoader() {}
 
-void SKKHttpDictionaryLoader::Initialize(const std::string& location) {
+void SKKHttpDictionaryLoader::Initialize(const std::string &location) {
     std::istringstream buf(location);
     std::string addr;
 
@@ -50,13 +50,13 @@ bool SKKHttpDictionaryLoader::NeedsUpdate() {
     return false;
 }
 
-const std::string& SKKHttpDictionaryLoader::FilePath() const {
+const std::string &SKKHttpDictionaryLoader::FilePath() const {
     return path_;
 }
 
 // ----------------------------------------------------------------------
 
-bool SKKHttpDictionaryLoader::request(net::socket::tcpstream& http) {
+bool SKKHttpDictionaryLoader::request(net::socket::tcpstream &http) {
     char timestamp[64];
     struct stat st;
 
@@ -78,7 +78,7 @@ bool SKKHttpDictionaryLoader::request(net::socket::tcpstream& http) {
     return (bool)http;
 }
 
-int SKKHttpDictionaryLoader::content_length(net::socket::tcpstream& http) {
+int SKKHttpDictionaryLoader::content_length(net::socket::tcpstream &http) {
     int length = 0;
     std::string response;
 
@@ -104,7 +104,7 @@ int SKKHttpDictionaryLoader::content_length(net::socket::tcpstream& http) {
     return length;
 }
 
-int SKKHttpDictionaryLoader::file_size(const std::string& path) const {
+int SKKHttpDictionaryLoader::file_size(const std::string &path) const {
     struct stat st;
 
     if(stat(path.c_str(), &st) == 0) {
@@ -117,7 +117,7 @@ int SKKHttpDictionaryLoader::file_size(const std::string& path) const {
     return 0;
 }
 
-bool SKKHttpDictionaryLoader::download(net::socket::tcpstream& http, int length) {
+bool SKKHttpDictionaryLoader::download(net::socket::tcpstream &http, int length) {
     if(!length)
         return false;
 

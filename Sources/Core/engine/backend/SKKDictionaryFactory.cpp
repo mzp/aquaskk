@@ -27,14 +27,14 @@
 // Null 辞書
 class SKKNullDictionary : public SKKBaseDictionary {
 public:
-    virtual void Initialize(const std::string&) {}
+    virtual void Initialize(const std::string &) {}
 
-    virtual void Find(const SKKEntry&, SKKCandidateSuite&) {}
+    virtual void Find(const SKKEntry &, SKKCandidateSuite &) {}
 };
 
 SKKDictionaryFactory::SKKDictionaryFactory() {}
 
-SKKDictionaryFactory& SKKDictionaryFactory::theInstance() {
+SKKDictionaryFactory &SKKDictionaryFactory::theInstance() {
     static SKKDictionaryFactory obj;
     return obj;
 }
@@ -48,7 +48,7 @@ void SKKDictionaryFactory::Register(int type, SKKDictionaryCreator creator) {
     creators_[type] = creator;
 }
 
-SKKBaseDictionary* SKKDictionaryFactory::Create(int type, const std::string& location) {
+SKKBaseDictionary *SKKDictionaryFactory::Create(int type, const std::string &location) {
     if(creators_.find(type) == creators_.end()) {
         std::cerr << "type=" << type << " does not have a creator" << std::endl;
         return new SKKNullDictionary();

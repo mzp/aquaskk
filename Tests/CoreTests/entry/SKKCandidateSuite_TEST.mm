@@ -4,7 +4,7 @@
 
 #import <XCTest/XCTest.h>
 
-@interface SKKCandidateSuiteTests: XCTestCase
+@interface SKKCandidateSuiteTests : XCTestCase
 @end
 
 @implementation SKKCandidateSuiteTests
@@ -51,8 +51,8 @@
 }
 
 struct pred : public std::function<bool(SKKCandidate)> {
-    bool operator()(const SKKCandidate& candidate) const {
-        const std::string& str = candidate.Word();
+    bool operator()(const SKKCandidate &candidate) const {
+        const std::string &str = candidate.Word();
 
         return str.find("(skk-ignore-dic-word ") == 0;
     }

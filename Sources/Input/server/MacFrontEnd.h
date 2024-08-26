@@ -35,7 +35,7 @@ class MacFrontEnd : public SKKFrontEnd {
     void workaroundForBlacklistApp(NSString *string);
     bool isBlacklistApp() const;
 
-  public:
+public:
     MacFrontEnd(id client);
 
     virtual void InsertString(const std::string &str);

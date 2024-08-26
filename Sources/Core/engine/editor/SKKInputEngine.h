@@ -41,11 +41,11 @@ class SKKInputEngine : public SKKInputQueueObserver,
     class Synchronizer;
     friend class Synchronizer;
 
-    SKKInputEnvironment* env_;
-    SKKInputSessionParameter* param_;
-    SKKInputContext* context_;
-    SKKConfig* config_;
-    std::vector<SKKBaseEditor*> stack_;
+    SKKInputEnvironment *env_;
+    SKKInputSessionParameter *param_;
+    SKKInputContext *context_;
+    SKKConfig *config_;
+    std::vector<SKKBaseEditor *> stack_;
 
     SKKInputQueue inputQueue_;
     SKKInputQueueObserver::State inputState_;
@@ -58,38 +58,38 @@ class SKKInputEngine : public SKKInputQueueObserver,
     SKKEntryRemoveEditor entryRemoveEditor_;
 
     SKKInputEngine();
-    SKKInputEngine(const SKKInputEngine&);
-    SKKInputEngine& operator=(const SKKInputEngine&);
+    SKKInputEngine(const SKKInputEngine &);
+    SKKInputEngine &operator=(const SKKInputEngine &);
 
-    SKKBaseEditor* top() const;
+    SKKBaseEditor *top() const;
     SKKInputMode inputMode() const;
     void initialize();
-    void push(SKKBaseEditor* editor);
+    void push(SKKBaseEditor *editor);
     void invoke(SKKBaseEditor::Event event);
     void terminate();
-    void study(const SKKEntry& entry, const SKKCandidate& candidate);
-    void insert(const std::string& str);
+    void study(const SKKEntry &entry, const SKKCandidate &candidate);
+    void insert(const std::string &str);
 
     // ローマ字かな変換通知
-    virtual void SKKInputQueueUpdate(const SKKInputQueueObserver::State& state);
+    virtual void SKKInputQueueUpdate(const SKKInputQueueObserver::State &state);
 
     // 見出し語の取得
     virtual const std::string SKKCompleterQueryString();
 
     // 現在の見出し語の通知
-    virtual void SKKCompleterUpdate(const std::string& entry);
+    virtual void SKKCompleterUpdate(const std::string &entry);
 
     // SKKSelector::Execute() 時に呼び出される
     virtual const SKKEntry SKKSelectorQueryEntry();
 
     // SKKSelector で現在選択中の候補が変更された場合に呼び出される
-    virtual void SKKSelectorUpdate(const SKKCandidate& candidate);
+    virtual void SKKSelectorUpdate(const SKKCandidate &candidate);
 
     // 送り入力中に見出し語部分が増えた場合に呼び出される
-    virtual void SKKOkuriListenerAppendEntry(const std::string& fixed);
+    virtual void SKKOkuriListenerAppendEntry(const std::string &fixed);
 
 public:
-    SKKInputEngine(SKKInputEnvironment* env);
+    SKKInputEngine(SKKInputEnvironment *env);
 
     // 入力モード
     void SelectInputMode(SKKInputMode mode);

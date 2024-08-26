@@ -38,9 +38,9 @@ public:
     MacKotoeriDictionary();
     virtual ~MacKotoeriDictionary();
 
-    virtual void Initialize(const std::string& location);
+    virtual void Initialize(const std::string &location);
 
-    virtual void Find(const SKKEntry& entry, SKKCandidateSuite& result);
+    virtual void Find(const SKKEntry &entry, SKKCandidateSuite &result);
 };
 
 #endif

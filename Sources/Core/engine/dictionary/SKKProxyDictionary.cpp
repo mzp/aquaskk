@@ -31,13 +31,13 @@ SKKProxyDictionary::~SKKProxyDictionary() {
     session_.close();
 }
 
-void SKKProxyDictionary::Initialize(const std::string& location) {
+void SKKProxyDictionary::Initialize(const std::string &location) {
     remote_.parse(location, "1178");
 
     session_.close();
 }
 
-void SKKProxyDictionary::Find(const SKKEntry& entry, SKKCandidateSuite& result) {
+void SKKProxyDictionary::Find(const SKKEntry &entry, SKKCandidateSuite &result) {
     // 再入でループするのを防ぐ
     if(!active_) {
         active_ = true;
@@ -60,7 +60,7 @@ bool SKKProxyDictionary::connect() {
     return (bool)session_;
 }
 
-bool SKKProxyDictionary::send(const SKKEntry& entry) {
+bool SKKProxyDictionary::send(const SKKEntry &entry) {
     session_ << '1' << jconv::eucj_from_utf8(entry.EntryString()) << ' ' << std::flush;
 
     return (bool)session_;
@@ -76,7 +76,7 @@ bool SKKProxyDictionary::ready() {
     return monitor.wait(1) == 1 && monitor.test(fd, type);
 }
 
-void SKKProxyDictionary::recv(SKKCandidateSuite& result) {
+void SKKProxyDictionary::recv(SKKCandidateSuite &result) {
     std::string response;
 
     if(std::getline(session_, response).eof() || response.size() < 2 || response[0] != '1') {

@@ -27,7 +27,7 @@
 #include <vector>
 
 class SKKWindowSelector : public SKKBaseSelector {
-    class SKKCandidateWindow* window_;
+    class SKKCandidateWindow *window_;
 
     typedef subrange<SKKBaseSelector::Range> PageRange;
 
@@ -46,14 +46,14 @@ class SKKWindowSelector : public SKKBaseSelector {
     int maxPosition() const;
 
 public:
-    SKKWindowSelector(SKKCandidateWindow* window);
+    SKKWindowSelector(SKKCandidateWindow *window);
 
-    void Initialize(SKKCandidateContainer& container, unsigned inlineCount);
+    void Initialize(SKKCandidateContainer &container, unsigned inlineCount);
 
     virtual bool Next();
     virtual bool Prev();
 
-    virtual const SKKCandidate& Current() const;
+    virtual const SKKCandidate &Current() const;
 
     virtual bool IsEmpty() const;
 

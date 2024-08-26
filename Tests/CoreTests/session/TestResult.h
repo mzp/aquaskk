@@ -18,7 +18,7 @@ struct TestResult {
     TestResult()
         : mode(SKKInputMode::InvalidInputMode), pos(0), ret(true) {}
     TestResult(
-        const std::string& fixed, const std::string& marked, SKKInputMode mode = SKKInputMode::InvalidInputMode,
+        const std::string &fixed, const std::string &marked, SKKInputMode mode = SKKInputMode::InvalidInputMode,
         bool ret = true, int pos = 0)
         : fixed(fixed), marked(marked), mode(mode), pos(pos), ret(ret) {}
 
@@ -27,7 +27,7 @@ struct TestResult {
         pos = 0;
     }
 
-    void Dump(const std::string& msg) {
+    void Dump(const std::string &msg) {
         std::cerr << msg << "fixed=" << fixed << ", "
                   << "marked=" << marked << ", "
                   << "pos=" << pos << ", "
@@ -35,12 +35,12 @@ struct TestResult {
                   << "ret=" << ret << ", " << std::endl;
     }
 
-    friend bool operator==(const TestResult& left, const TestResult& right) {
+    friend bool operator==(const TestResult &left, const TestResult &right) {
         return left.fixed == right.fixed && left.marked == right.marked && left.mode == right.mode &&
                left.pos == right.pos && left.ret == right.ret;
     }
 
-    friend bool operator!=(const TestResult& left, const TestResult& right) {
+    friend bool operator!=(const TestResult &left, const TestResult &right) {
         return !(left == right);
     }
 };

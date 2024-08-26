@@ -33,23 +33,20 @@
     return NSMakeSize(size.width + margin, size.height + margin);
 }
 
-- (id)initWithFont:(NSFont*)font {
+- (id)initWithFont:(NSFont *)font {
     if(self = [super init]) {
-	entry_ = [[NSMutableAttributedString alloc] init];
+        entry_ = [[NSMutableAttributedString alloc] init];
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wincompatible-pointer-types"
-	attributes_ = [[NSDictionary dictionaryWithObjectsAndKeys:
-                    font, NSFontAttributeName,
-                    [NSColor labelColor], NSForegroundColorAttributeName,
-                    nil]
-                   retain];
+        attributes_ = [[NSDictionary dictionaryWithObjectsAndKeys:font, NSFontAttributeName, [NSColor labelColor],
+                                                                  NSForegroundColorAttributeName, nil] retain];
 #pragma clang diagnostic pop
-	NSAttributedString* tmpstr = [[NSAttributedString alloc]
-					 initWithString:[NSString stringWithUTF8String:" A  漢字 "]
-					 attributes:attributes_];
-	size_ = [CandidateCell focusSize:[tmpstr size]];
-	[tmpstr release];
+        NSAttributedString *tmpstr =
+            [[NSAttributedString alloc] initWithString:[NSString stringWithUTF8String:" A  漢字 "]
+                                            attributes:attributes_];
+        size_ = [CandidateCell focusSize:[tmpstr size]];
+        [tmpstr release];
     }
 
     return self;
@@ -62,32 +59,33 @@
     [super dealloc];
 }
 
-- (void)setString:(NSString*)string withLabel:(char)label {
+- (void)setString:(NSString *)string withLabel:(char)label {
     // 属性付き文字列
-    NSAttributedString* tmpstr = [[NSAttributedString alloc]
-				     initWithString:[NSString stringWithFormat:@" %c  %@", label, string]
-				     attributes:attributes_];
+    NSAttributedString *tmpstr =
+        [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" %c  %@", label, string]
+                                        attributes:attributes_];
     [entry_ setAttributedString:tmpstr];
     [tmpstr release];
 
     // ラベルの背景色
-    if (@available(macOS 10_14, *)) {
-      [entry_ addAttribute:NSBackgroundColorAttributeName
-        value:[NSColor controlAccentColor] range:NSMakeRange(0, 3)];
+    if(@available(macOS 10_14, *)) {
+        [entry_ addAttribute:NSBackgroundColorAttributeName value:[NSColor controlAccentColor] range:NSMakeRange(0, 3)];
     } else {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-      [entry_ addAttribute:NSBackgroundColorAttributeName
-        value:[NSColor selectedMenuItemColor] range:NSMakeRange(0, 3)];
+        [entry_ addAttribute:NSBackgroundColorAttributeName
+                       value:[NSColor selectedMenuItemColor]
+                       range:NSMakeRange(0, 3)];
 #pragma clang diagnostic pop
     }
 
     // ラベルの文字色
     [entry_ addAttribute:NSForegroundColorAttributeName
-	    value:[NSColor selectedMenuItemTextColor] range:NSMakeRange(0, 3)];
+                   value:[NSColor selectedMenuItemTextColor]
+                   range:NSMakeRange(0, 3)];
 
     // ラインブレイク属性
-    NSMutableParagraphStyle* style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     [style setLineBreakMode:NSLineBreakByTruncatingTail];
     [entry_ addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, [entry_ length])];
     [style release];
@@ -97,9 +95,9 @@
     NSSize current = [CandidateCell focusSize:[entry_ size]];
 
     if(current.width < [self defaultSize].width) {
-	return [self defaultSize];
+        return [self defaultSize];
     } else {
-	return current;
+        return current;
     }
 }
 
@@ -116,8 +114,8 @@
 
     [[NSGraphicsContext currentContext] setShouldAntialias:NO];
 
-    if (@available(macOS 10_14, *)) {
-        [[[NSColor windowBackgroundColor] colorWithSystemEffect: NSColorSystemEffectPressed] setFill];
+    if(@available(macOS 10_14, *)) {
+        [[[NSColor windowBackgroundColor] colorWithSystemEffect:NSColorSystemEffectPressed] setFill];
     } else {
         [[[NSColor blackColor] colorWithAlphaComponent:0.1] setFill];
     }

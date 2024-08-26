@@ -30,12 +30,12 @@ class CompareOkuriHint {
     std::string kana_;
 
 public:
-    CompareOkuriHint(const std::string& okuri)
+    CompareOkuriHint(const std::string &okuri)
         : kana_(okuri) {}
-    CompareOkuriHint(const SKKOkuriHint& hint)
+    CompareOkuriHint(const SKKOkuriHint &hint)
         : kana_(hint.first) {}
 
-    bool operator()(const SKKOkuriHint& hint) const {
+    bool operator()(const SKKOkuriHint &hint) const {
         return kana_ == hint.first;
     }
 };
@@ -50,31 +50,31 @@ class SKKCandidateSuite {
 
     // 重複チェック用ファンクタ
     class contains {
-        SKKCandidateContainer& container_;
+        SKKCandidateContainer &container_;
 
     public:
-        contains(SKKCandidateContainer& src)
+        contains(SKKCandidateContainer &src)
             : container_(src) {}
 
-        bool operator()(const SKKCandidate& item) const {
+        bool operator()(const SKKCandidate &item) const {
             return !item.IsEmpty() && std::find(container_.begin(), container_.end(), item) != container_.end();
         }
     };
 
-    void add(SKKCandidateContainer& container, const SKKCandidateContainer& src) {
+    void add(SKKCandidateContainer &container, const SKKCandidateContainer &src) {
         std::remove_copy_if(src.begin(), src.end(), std::back_inserter(container), contains(container));
     }
 
-    void update(SKKCandidateContainer& container, const SKKCandidate& candidate) {
+    void update(SKKCandidateContainer &container, const SKKCandidate &candidate) {
         remove(container, candidate);
         container.push_front(candidate);
     }
 
-    void remove(SKKCandidateContainer& container, const SKKCandidate& candidate) {
+    void remove(SKKCandidateContainer &container, const SKKCandidate &candidate) {
         container.erase(std::remove(container.begin(), container.end(), candidate), container.end());
     }
 
-    void remove_hint(const SKKCandidate& candidate) {
+    void remove_hint(const SKKCandidate &candidate) {
         SKKOkuriHintContainer result;
 
         for(SKKOkuriHintIterator iter = hints_.begin(); iter != hints_.end(); ++iter) {
@@ -88,11 +88,11 @@ class SKKCandidateSuite {
         hints_.swap(result);
     }
 
-    SKKOkuriHintIterator find_okuri(const std::string& okuri) {
+    SKKOkuriHintIterator find_okuri(const std::string &okuri) {
         return std::find_if(hints_.begin(), hints_.end(), CompareOkuriHint(okuri));
     }
 
-    const std::string flatten(const SKKCandidateContainer& container, bool exclude_avoid_study) const {
+    const std::string flatten(const SKKCandidateContainer &container, bool exclude_avoid_study) const {
         std::string result;
 
         for(unsigned i = 0; i < container.size(); ++i) {
@@ -109,11 +109,11 @@ class SKKCandidateSuite {
 public:
     SKKCandidateSuite() {}
 
-    SKKCandidateSuite(const std::string& line) {
+    SKKCandidateSuite(const std::string &line) {
         Parse(line);
     }
 
-    void Parse(const std::string& str) {
+    void Parse(const std::string &str) {
         parser_.Parse(str);
 
         candidates_ = parser_.Candidates();
@@ -129,14 +129,14 @@ public:
         return candidates_.empty();
     }
 
-    void Add(const SKKCandidate& candidate) {
+    void Add(const SKKCandidate &candidate) {
         SKKCandidateContainer tmp;
 
         tmp.push_back(candidate);
         add(candidates_, tmp);
     }
 
-    void Add(const SKKOkuriHint& hint) {
+    void Add(const SKKOkuriHint &hint) {
         SKKOkuriHintIterator iter = find_okuri(hint.first);
 
         if(iter != hints_.end()) {
@@ -146,26 +146,26 @@ public:
         }
     }
 
-    void Add(const SKKCandidateContainer& candidates) {
+    void Add(const SKKCandidateContainer &candidates) {
         add(candidates_, candidates);
     }
 
-    void Add(const SKKOkuriHintContainer& hints) {
+    void Add(const SKKOkuriHintContainer &hints) {
         for(unsigned i = 0; i < hints.size(); ++i) {
             Add(hints[i]);
         }
     }
 
-    void Add(const SKKCandidateSuite& suite) {
+    void Add(const SKKCandidateSuite &suite) {
         add(candidates_, suite.candidates_);
         Add(suite.hints_);
     }
 
-    void Update(const SKKCandidate& candidate) {
+    void Update(const SKKCandidate &candidate) {
         update(candidates_, candidate);
     }
 
-    void Update(const SKKOkuriHint& hint) {
+    void Update(const SKKOkuriHint &hint) {
         if(hint.second.empty())
             return;
 
@@ -179,11 +179,11 @@ public:
         }
     }
 
-    void Remove(const SKKCandidate& candidate) {
+    void Remove(const SKKCandidate &candidate) {
         RemoveIf([candidate](SKKCandidate c) { return candidate == c; });
     }
 
-    template <typename Predicate> void RemoveIf(const Predicate& pred) {
+    template <typename Predicate> void RemoveIf(const Predicate &pred) {
         if(!hints_.empty()) {
             SKKCandidateContainer removed;
 
@@ -200,7 +200,7 @@ public:
         candidates_.erase(std::remove_if(candidates_.begin(), candidates_.end(), pred), candidates_.end());
     }
 
-    bool FindOkuriStrictly(const std::string& okuri, SKKCandidateSuite& suite) {
+    bool FindOkuriStrictly(const std::string &okuri, SKKCandidateSuite &suite) {
         SKKOkuriHintIterator iter = find_okuri(okuri);
 
         suite.Clear();
@@ -212,11 +212,11 @@ public:
         return !suite.IsEmpty();
     }
 
-    SKKCandidateContainer& Candidates() {
+    SKKCandidateContainer &Candidates() {
         return candidates_;
     }
 
-    SKKOkuriHintContainer& Hints() {
+    SKKOkuriHintContainer &Hints() {
         return hints_;
     }
 

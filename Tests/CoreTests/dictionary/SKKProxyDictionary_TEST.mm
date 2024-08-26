@@ -1,71 +1,69 @@
+#include "jconv.h"
+#import <AquaSKKCore/SKKCommonDictionary.h>
+#import <AquaSKKCore/SKKProxyDictionary.h>
+#import <XCTest/XCTest.h>
 #include <cassert>
 #include <errno.h>
-#import <AquaSKKCore/SKKProxyDictionary.h>
-#import <AquaSKKCore/SKKCommonDictionary.h>
-#include "jconv.h"
-#import <XCTest/XCTest.h>
 
-@interface SKKProxyDictionaryTests: XCTestCase
+@interface SKKProxyDictionaryTests : XCTestCase
 @end
 
-
-void session(int fd, SKKCommonDictionary& dict) {
+void session(int fd, SKKCommonDictionary &dict) {
     net::socket::tcpstream sock(fd);
     unsigned char cmd;
 
     do {
         cmd = sock.get();
         switch(cmd) {
-        case '0':		// 切断
+        case '0': // 切断
             break;
 
-	case '1': {		// 検索
-	    std::string word;
-	    std::string key;
+        case '1': { // 検索
+            std::string word;
+            std::string key;
             sock >> word;
             sock.get();
 
-	    jconv::convert_eucj_to_utf8(word, key);
+            jconv::convert_eucj_to_utf8(word, key);
 
-	    SKKCandidateSuite result;
+            SKKCandidateSuite result;
             SKKEntry entry(key);
 
-	    // 検索文字列の最後が [a-z] なら『送りあり』
-	    if(1 < key.size() && 0x7f < (unsigned)key[0] && std::isalpha(key[key.size() - 1])) {
+            // 検索文字列の最後が [a-z] なら『送りあり』
+            if(1 < key.size() && 0x7f < (unsigned)key[0] && std::isalpha(key[key.size() - 1])) {
                 entry = SKKEntry(key, "dummy");
-	    }
+            }
 
             dict.Find(entry, result);
 
-	    // 見つかった？
-	    if(!result.IsEmpty()) {
-		std::string candidates;
-		jconv::convert_utf8_to_eucj(result.ToString(), candidates);
-		sock << '1' << candidates << std::endl;
-	    } else {
-		sock << '4' << word << std::endl;
-	    }
-	    sock << std::flush;
-	}
-            break;
+            // 見つかった？
+            if(!result.IsEmpty()) {
+                std::string candidates;
+                jconv::convert_utf8_to_eucj(result.ToString(), candidates);
+                sock << '1' << candidates << std::endl;
+            } else {
+                sock << '4' << word << std::endl;
+            }
+            sock << std::flush;
+        } break;
 
-        default:		// 無効なコマンド
-	    sock << '0' << std::flush;
+        default: // 無効なコマンド
+            sock << '0' << std::flush;
             break;
-	}
+        }
     } while(sock.good() && cmd != '0');
     sock.close();
 }
 
-void notify_ok(void* param) {
-    auto* condition = (pthread::condition*)param;
+void notify_ok(void *param) {
+    auto *condition = (pthread::condition *)param;
     pthread::lock lock(*condition);
 
     condition->signal();
 }
 
 // 正常サーバー
-void* normal_server(void* param) {
+void *normal_server(void *param) {
     SKKCommonDictionary dict;
 
     dict.Initialize("SKK-JISYO.TEST");
@@ -76,14 +74,14 @@ void* normal_server(void* param) {
     notify_ok(param);
 
     while(true) {
-	session(skkserv.accept(), dict);
+        session(skkserv.accept(), dict);
     }
 
     return 0;
 }
 
 // だんまりサーバー
-void* dumb_server(void* param) {
+void *dumb_server(void *param) {
     ushort port = 33000;
     net::socket::tcpserver skkserv(port);
 
@@ -97,7 +95,7 @@ void* dumb_server(void* param) {
 }
 
 // おかしなサーバー
-void* mad_server(void* param) {
+void *mad_server(void *param) {
     ushort port = 43000;
     net::socket::tcpserver skkserv(port);
 
@@ -114,7 +112,7 @@ void* mad_server(void* param) {
 }
 
 // 自殺サーバー
-void* suicide_server(void* param) {
+void *suicide_server(void *param) {
     ushort port = 53000;
     net::socket::tcpserver skkserv(port);
 
@@ -128,9 +126,9 @@ void* suicide_server(void* param) {
 }
 
 // サーバー起動
-void spawn_server(void*(*server)(void* param)) {
+void spawn_server(void *(*server)(void *param)) {
     pthread_t thread;
-    pthread::condition ready; 
+    pthread::condition ready;
     pthread::lock lock(ready);
 
     pthread_create(&thread, 0, server, &ready);
@@ -171,7 +169,7 @@ void spawn_server(void*(*server)(void* param)) {
     XCTAssert(suite.ToString() == "/漢字/寛治/官寺/");
 
     suite.Clear();
-    
+
     proxy.Find(SKKEntry("NOT-EXIST"), suite);
     XCTAssert(suite.IsEmpty());
 

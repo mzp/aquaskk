@@ -20,49 +20,48 @@
 
 */
 
-#import <AquaSKKInput/MacInputSessionParameter.h>
-#import <AquaSKKInput/MacConfig.h>
-#import <AquaSKKInput/MacFrontEnd.h>
-#import <AquaSKKInput/MacMessenger.h>
-#import <AquaSKKInput/MacClipboard.h>
-#import <AquaSKKInput/MacCandidateWindow.h>
 #import <AquaSKKInput/MacAnnotator.h>
+#import <AquaSKKInput/MacCandidateWindow.h>
+#import <AquaSKKInput/MacClipboard.h>
+#import <AquaSKKInput/MacConfig.h>
 #import <AquaSKKInput/MacDynamicCompletor.h>
+#import <AquaSKKInput/MacFrontEnd.h>
+#import <AquaSKKInput/MacInputSessionParameter.h>
+#import <AquaSKKInput/MacMessenger.h>
 
-MacInputSessionParameter::MacInputSessionParameter(id client, SKKLayoutManager* layout)
-    : config_(new MacConfig())
-    , frontend_(new MacFrontEnd(client))
-    , messenger_(new MacMessenger(layout))
-    , clipboard_(new MacClipboard())
-    , candidateWindow_(new MacCandidateWindow(layout))
-    , annotator_(new MacAnnotator(layout))
-    , completor_(new MacDynamicCompletor(layout))
-{}
+MacInputSessionParameter::MacInputSessionParameter(id client, SKKLayoutManager *layout)
+    : config_(new MacConfig()),
+      frontend_(new MacFrontEnd(client)),
+      messenger_(new MacMessenger(layout)),
+      clipboard_(new MacClipboard()),
+      candidateWindow_(new MacCandidateWindow(layout)),
+      annotator_(new MacAnnotator(layout)),
+      completor_(new MacDynamicCompletor(layout)) {}
 
-SKKConfig* MacInputSessionParameter::Config() {
+SKKConfig *MacInputSessionParameter::Config() {
     return config_.get();
 }
 
-SKKFrontEnd* MacInputSessionParameter::FrontEnd() {
+SKKFrontEnd *MacInputSessionParameter::FrontEnd() {
     return frontend_.get();
 }
 
-SKKMessenger* MacInputSessionParameter::Messenger() {
+SKKMessenger *MacInputSessionParameter::Messenger() {
     return messenger_.get();
 }
 
-SKKClipboard* MacInputSessionParameter::Clipboard() {
+SKKClipboard *MacInputSessionParameter::Clipboard() {
     return clipboard_.get();
 }
 
-SKKCandidateWindow* MacInputSessionParameter::CandidateWindow() {
+SKKCandidateWindow *MacInputSessionParameter::CandidateWindow() {
     return candidateWindow_.get();
 }
 
-SKKAnnotator* MacInputSessionParameter::Annotator() {
+SKKAnnotator *MacInputSessionParameter::Annotator() {
     return annotator_.get();
 }
 
-SKKDynamicCompletor* MacInputSessionParameter::DynamicCompletor() {
+SKKDynamicCompletor *MacInputSessionParameter::DynamicCompletor() {
     return completor_.get();
 }

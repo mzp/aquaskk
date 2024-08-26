@@ -38,30 +38,30 @@ class SKKDictionaryKeeper : public SKKDictionaryLoaderObserver {
     bool needs_conversion_;
     int timeout_;
 
-    virtual void SKKDictionaryLoaderUpdate(const SKKDictionaryFile& file);
+    virtual void SKKDictionaryLoaderUpdate(const SKKDictionaryFile &file);
 
-    std::string fetch(const std::string& query, SKKDictionaryEntryContainer& container);
+    std::string fetch(const std::string &query, SKKDictionaryEntryContainer &container);
     bool ready();
 
-    std::string eucj_from_utf8(const std::string& src);
-    std::string utf8_from_eucj(const std::string& src);
+    std::string eucj_from_utf8(const std::string &src);
+    std::string utf8_from_eucj(const std::string &src);
 
 public:
     enum Encoding { EUC_JP, UTF_8 };
 
     SKKDictionaryKeeper(Encoding encoding = EUC_JP);
 
-    void Initialize(SKKDictionaryLoader* loader);
+    void Initialize(SKKDictionaryLoader *loader);
 
     // 通常の検索
-    std::string FindOkuriAri(const std::string& query);
-    std::string FindOkuriNasi(const std::string& query);
+    std::string FindOkuriAri(const std::string &query);
+    std::string FindOkuriNasi(const std::string &query);
 
     // 逆引き
-    std::string ReverseLookup(const std::string& candidate);
+    std::string ReverseLookup(const std::string &candidate);
 
     // 見出し語補完
-    void Complete(SKKCompletionHelper& helper);
+    void Complete(SKKCompletionHelper &helper);
 };
 
 #endif

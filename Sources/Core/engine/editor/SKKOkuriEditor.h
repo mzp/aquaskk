@@ -29,11 +29,11 @@ class SKKOkuriListener {
 public:
     virtual ~SKKOkuriListener() {}
 
-    virtual void SKKOkuriListenerAppendEntry(const std::string& fixed) = 0;
+    virtual void SKKOkuriListenerAppendEntry(const std::string &fixed) = 0;
 };
 
 class SKKOkuriEditor : public SKKBaseEditor {
-    SKKOkuriListener* listener_;
+    SKKOkuriListener *listener_;
     bool first_;
     std::string prefix_;
     std::string okuri_;
@@ -42,13 +42,13 @@ class SKKOkuriEditor : public SKKBaseEditor {
     void update();
 
 public:
-    SKKOkuriEditor(SKKInputContext* context, SKKOkuriListener* listener);
+    SKKOkuriEditor(SKKInputContext *context, SKKOkuriListener *listener);
 
     virtual void ReadContext();
     virtual void WriteContext();
-    virtual void Input(const std::string& fixed, const std::string& input, char code);
+    virtual void Input(const std::string &fixed, const std::string &input, char code);
     virtual void Input(SKKBaseEditor::Event event);
-    virtual void Commit(std::string& queue);
+    virtual void Commit(std::string &queue);
 
     bool IsOkuriComplete() const;
 };

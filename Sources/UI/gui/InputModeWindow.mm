@@ -31,8 +31,8 @@
 
 @implementation InputModeWindow
 
-+ (InputModeWindow*)sharedWindow {
-    static InputModeWindow* obj =  [[InputModeWindow alloc] init];
++ (InputModeWindow *)sharedWindow {
+    static InputModeWindow *obj = [[InputModeWindow alloc] init];
 
     return obj;
 }
@@ -43,9 +43,9 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
         window_ = [[NSWindow alloc] initWithContentRect:NSZeroRect
-                                    styleMask:NSBorderlessWindowMask
-                                    backing:NSBackingStoreBuffered
-                                    defer:YES];
+                                              styleMask:NSBorderlessWindowMask
+                                                backing:NSBackingStoreBuffered
+                                                  defer:YES];
 #pragma clang diagnostic pop
         [window_ setBackgroundColor:[NSColor clearColor]];
         [window_ setOpaque:NO];
@@ -69,7 +69,7 @@
     [super dealloc];
 }
 
-- (void)setModeIcons:(NSDictionary*)icons {
+- (void)setModeIcons:(NSDictionary *)icons {
     [icons retain];
 
     if(modeIcons_) {
@@ -84,8 +84,8 @@
 
     [self updateFrame];
 
-    NSImage* image = [modeIcons_ objectForKey:[NSNumber numberWithInt:(int)mode]];
-    NSBitmapImageRep* rep = [NSBitmapImageRep imageRepWithData:[image TIFFRepresentation]];
+    NSImage *image = [modeIcons_ objectForKey:[NSNumber numberWithInt:(int)mode]];
+    NSBitmapImageRep *rep = [NSBitmapImageRep imageRepWithData:[image TIFFRepresentation]];
 
     [self setImage:(id)[rep CGImage]];
 }
@@ -111,12 +111,12 @@
 @end
 
 @implementation InputModeWindow (Local)
-        
+
 - (void)prepareLayer {
     rootLayer_ = [CALayer layer];
     rootLayer_.opacity = 0.0;
 
-    NSView* view = [window_ contentView];
+    NSView *view = [window_ contentView];
 
     [view setLayer:rootLayer_];
     [view setWantsLayer:YES];
@@ -128,15 +128,15 @@
     animation_.duration = 2.0;
     animation_.fromValue = [NSNumber numberWithFloat:1.0];
     animation_.toValue = [NSNumber numberWithFloat:0];
-    animation_.timingFunction = [CAMediaTimingFunction functionWithControlPoints:0.5 :0.0 :0.5 :0.0];
+    animation_.timingFunction = [CAMediaTimingFunction functionWithControlPoints:0.5:0.0:0.5:0.0];
 }
 
 - (void)updateFrame {
     NSAssert([NSThread isMainThread], @"Must be used from main therad only");
     NSRect rect = [window_ frame];
     NSSize iconSize = rect.size;
-    NSImage* icon = [modeIcons_ objectForKey:[NSNumber numberWithInt:(int)inputMode_]];
-    NSArray* reps = [icon representations];
+    NSImage *icon = [modeIcons_ objectForKey:[NSNumber numberWithInt:(int)inputMode_]];
+    NSArray *reps = [icon representations];
 
     if([reps count]) {
         iconSize = icon.size;
@@ -159,8 +159,7 @@
 
 - (void)setImage:(id)image {
     [CATransaction begin];
-    [CATransaction setValue:[NSNumber numberWithFloat:0.0]
-                   forKey:kCATransactionAnimationDuration];
+    [CATransaction setValue:[NSNumber numberWithFloat:0.0] forKey:kCATransactionAnimationDuration];
 
     rootLayer_.contents = image;
 

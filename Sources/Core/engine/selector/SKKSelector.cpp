@@ -23,7 +23,7 @@
 #import <AquaSKKCore/SKKBackEnd.h>
 #import <AquaSKKCore/SKKSelector.h>
 
-SKKSelector::SKKSelector(SKKSelectorBuddy* buddy, SKKCandidateWindow* window)
+SKKSelector::SKKSelector(SKKSelectorBuddy *buddy, SKKCandidateWindow *window)
     : buddy_(buddy), selector_(0), windowSelector_(window) {}
 
 bool SKKSelector::IsInline() const {

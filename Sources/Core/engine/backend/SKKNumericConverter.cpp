@@ -28,7 +28,7 @@
 // ======================================================================
 
 // 1024 → １０２４
-static std::string ConvertType1(const std::string& src) {
+static std::string ConvertType1(const std::string &src) {
     std::string result;
 
     for(unsigned i = 0; i < src.size(); ++i) {
@@ -70,7 +70,7 @@ static std::string ConvertType1(const std::string& src) {
 }
 
 // 1024 → 一〇二四
-static std::string ConvertType2(const std::string& src) {
+static std::string ConvertType2(const std::string &src) {
     std::string result;
 
     for(unsigned i = 0; i < src.size(); ++i) {
@@ -112,9 +112,9 @@ static std::string ConvertType2(const std::string& src) {
 }
 
 // 1024 → 千二十四
-static std::string ConvertType3(const std::string& src) {
-    const char* unit1[] = {"", "万", "億", "兆", "京", "垓"};
-    const char* unit2[] = {"十", "百", "千"};
+static std::string ConvertType3(const std::string &src) {
+    const char *unit1[] = {"", "万", "億", "兆", "京", "垓"};
+    const char *unit2[] = {"十", "百", "千"};
     std::string result;
     unsigned int previous_size = 0;
 
@@ -187,14 +187,14 @@ static std::string ConvertType3(const std::string& src) {
 }
 
 // 数値再変換(AquaSKK では無視)
-static std::string ConvertType4(const std::string& src) {
+static std::string ConvertType4(const std::string &src) {
     return src;
 }
 
 // 1024 → 壱阡弐拾四
-static std::string ConvertType5(const std::string& src) {
-    const char* unit1[] = {"", "萬", "億", "兆", "京", "垓"};
-    const char* unit2[] = {"拾", "百", "阡"};
+static std::string ConvertType5(const std::string &src) {
+    const char *unit1[] = {"", "萬", "億", "兆", "京", "垓"};
+    const char *unit2[] = {"拾", "百", "阡"};
     std::string result;
     unsigned int previous_size = 0;
 
@@ -257,7 +257,7 @@ static std::string ConvertType5(const std::string& src) {
 }
 
 // 34 → ３四
-static std::string ConvertType9(const std::string& src) {
+static std::string ConvertType9(const std::string &src) {
     return ConvertType1(src.substr(0, 1)) + ConvertType2(src.substr(1, 1));
 }
 
@@ -266,11 +266,11 @@ static std::string ConvertType9(const std::string& src) {
 // ======================================================================
 
 // 検索キーの正規化
-bool SKKNumericConverter::Setup(const std::string& query) {
+bool SKKNumericConverter::Setup(const std::string &query) {
     params_.clear();
     original_ = query;
 
-    const char* numbers = "0123456789";
+    const char *numbers = "0123456789";
     std::string src(query);
     std::string::size_type from = src.find_first_of(numbers);
 
@@ -289,12 +289,12 @@ bool SKKNumericConverter::Setup(const std::string& query) {
 }
 
 // オリジナルのキー
-const std::string& SKKNumericConverter::OriginalKey() const {
+const std::string &SKKNumericConverter::OriginalKey() const {
     return original_;
 }
 
 // 正規化されたキー
-const std::string& SKKNumericConverter::NormalizedKey() const {
+const std::string &SKKNumericConverter::NormalizedKey() const {
     if(params_.empty())
         return original_;
 
@@ -302,11 +302,11 @@ const std::string& SKKNumericConverter::NormalizedKey() const {
 }
 
 // 数値変換を適用する
-void SKKNumericConverter::Apply(SKKCandidate& candidate) const {
+void SKKNumericConverter::Apply(SKKCandidate &candidate) const {
     if(params_.empty())
         return;
 
-    const char* numbers = "0123459";
+    const char *numbers = "0123459";
     std::string result;
     std::string src(candidate.Word());
     std::string::size_type pos = 0;

@@ -34,13 +34,13 @@ class SKKCandidateEditor : public SKKBaseEditor {
     void update();
 
 public:
-    SKKCandidateEditor(SKKInputContext* context);
+    SKKCandidateEditor(SKKInputContext *context);
 
     virtual void ReadContext();
     virtual void WriteContext();
-    virtual void Commit(std::string& queue);
+    virtual void Commit(std::string &queue);
 
-    void SetCandidate(const SKKCandidate& candidate);
+    void SetCandidate(const SKKCandidate &candidate);
 };
 
 #endif

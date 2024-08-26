@@ -1,9 +1,9 @@
-#include <cassert>
 #import <AquaSKKCore/SKKDictionaryFile.h>
+#include <cassert>
 
 #import <XCTest/XCTest.h>
 
-@interface SKKDictionaryFileTests: XCTestCase
+@interface SKKDictionaryFileTests : XCTestCase
 @end
 
 @implementation SKKDictionaryFileTests

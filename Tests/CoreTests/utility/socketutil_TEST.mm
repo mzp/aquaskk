@@ -1,9 +1,8 @@
 #import <AquaSKKCore/socketutil.h>
 #import <XCTest/XCTest.h>
 
-@interface SocketUtilTests: XCTestCase
+@interface SocketUtilTests : XCTestCase
 @end
-
 
 @implementation SocketUtilTests
 
@@ -20,5 +19,5 @@
     ep1.parse("localhost", "8080");
     XCTAssert(ep1.node() == "localhost" && ep1.service() == "8080");
 }
-    
+
 @end

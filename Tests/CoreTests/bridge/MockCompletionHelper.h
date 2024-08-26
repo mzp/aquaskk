@@ -10,20 +10,20 @@ class MockCompletionHelper : public SKKCompletionHelper {
     std::string entry_;
 
 public:
-    void Initialize(const std::string& entry) {
+    void Initialize(const std::string &entry) {
         entry_ = entry;
         result_.clear();
     }
 
-    std::vector<std::string>& Result() {
+    std::vector<std::string> &Result() {
         return result_;
     }
 
-    virtual const std::string& Entry() const {
+    virtual const std::string &Entry() const {
         return entry_;
     }
 
-    virtual void Add(const std::string& completion) {
+    virtual void Add(const std::string &completion) {
         result_.push_back(completion);
     }
 

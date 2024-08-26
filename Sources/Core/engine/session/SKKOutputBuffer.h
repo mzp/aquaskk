@@ -29,7 +29,7 @@ class SKKFrontEnd;
 
 // 出力バッファ
 class SKKOutputBuffer {
-    SKKFrontEnd* frontend_;
+    SKKFrontEnd *frontend_;
     std::string composing_;
     std::string last_;
     int cursor_;
@@ -38,11 +38,11 @@ class SKKOutputBuffer {
     int length_;
 
 public:
-    SKKOutputBuffer(SKKFrontEnd* frontend);
+    SKKOutputBuffer(SKKFrontEnd *frontend);
 
-    void Fix(const std::string& str);
-    void Compose(const std::string& str, int cursor = 0);
-    void Convert(const std::string& str);
+    void Fix(const std::string &str);
+    void Compose(const std::string &str, int cursor = 0);
+    void Convert(const std::string &str);
     void Clear();
 
     void SetMark();

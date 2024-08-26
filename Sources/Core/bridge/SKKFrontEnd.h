@@ -31,14 +31,14 @@ public:
     virtual ~SKKFrontEnd() {}
 
     // 確定文字入力
-    virtual void InsertString(const std::string& str) = 0;
+    virtual void InsertString(const std::string &str) = 0;
 
     // 未確定文字入力(カーソル位置は末尾からのオフセット)
-    virtual void ComposeString(const std::string& str, int cursorOffset = 0) = 0;
+    virtual void ComposeString(const std::string &str, int cursorOffset = 0) = 0;
 
     // 未確定文字入力
     // candidateStart=変換候補の開始位置, candidateLength=変換候補の長さ
-    virtual void ComposeString(const std::string& str, int candidateStart, int candidateLength) = 0;
+    virtual void ComposeString(const std::string &str, int candidateStart, int candidateLength) = 0;
 
     // 選択中の文字列
     virtual std::string SelectedString() = 0;

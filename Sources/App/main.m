@@ -13,12 +13,13 @@
 
 int main(int argc, const char **argv) {
     os_log_t appLog = os_log_create("com.aquaskk.inputmethods", "app");
-    os_log(appLog,
-           "🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻\n"
-           "AquaSKK: An input method without morphological analysis.\n"
-           "Complied timestamp: %s\n"
-           "🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻",
-           __TIMESTAMP__);
+    os_log(
+        appLog,
+        "🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻\n"
+        "AquaSKK: An input method without morphological analysis.\n"
+        "Complied timestamp: %s\n"
+        "🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻",
+        __TIMESTAMP__);
 
     NSApplication *application = [NSApplication sharedApplication];
     AppDelegate *delegate = [[AppDelegate alloc] init];

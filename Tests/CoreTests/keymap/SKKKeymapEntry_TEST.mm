@@ -1,11 +1,11 @@
-#include <cassert>
-#include <iostream>
 #import <AquaSKKCore/SKKEvent.h>
 #import <AquaSKKCore/SKKKeyState.h>
 #import <AquaSKKCore/SKKKeymapEntry.h>
 #import <XCTest/XCTest.h>
+#include <cassert>
+#include <iostream>
 
-@interface SKKKeymapEntryTests: XCTestCase
+@interface SKKKeymapEntryTests : XCTestCase
 @end
 
 @implementation SKKKeymapEntryTests

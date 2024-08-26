@@ -201,7 +201,6 @@
 		135C3D9F2C5B3F1D00661AE3 /* MacInputSessionParameter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D7B2C5B3F1D00661AE3 /* MacInputSessionParameter.mm */; };
 		135C3DA02C5B3F1D00661AE3 /* MacMessenger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D7F2C5B3F1D00661AE3 /* MacMessenger.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		135C3DA12C5B3F1D00661AE3 /* BlacklistApps.m in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D692C5B3F1D00661AE3 /* BlacklistApps.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		135C3DA22C5B3F1D00661AE3 /* SKKPythonRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D8D2C5B3F1D00661AE3 /* SKKPythonRunner.cpp */; };
 		135C3DA32C5B3F1D00661AE3 /* SKKLayoutManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D892C5B3F1D00661AE3 /* SKKLayoutManager.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		135C3DA42C5B3F1D00661AE3 /* MacInputModeWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D792C5B3F1D00661AE3 /* MacInputModeWindow.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		135C3DA52C5B3F1D00661AE3 /* SKKServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D8F2C5B3F1D00661AE3 /* SKKServer.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -218,7 +217,6 @@
 		135C3DB32C5B3F1D00661AE3 /* MacMessenger.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D7E2C5B3F1D00661AE3 /* MacMessenger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DB42C5B3F1D00661AE3 /* MacAnnotator.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D6A2C5B3F1D00661AE3 /* MacAnnotator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DB52C5B3F1D00661AE3 /* SKKLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D882C5B3F1D00661AE3 /* SKKLayoutManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		135C3DB62C5B3F1D00661AE3 /* SKKPythonRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D8C2C5B3F1D00661AE3 /* SKKPythonRunner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DB72C5B3F1D00661AE3 /* MacCandidateWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D6C2C5B3F1D00661AE3 /* MacCandidateWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DB82C5B3F1D00661AE3 /* SKKInputController.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D842C5B3F1D00661AE3 /* SKKInputController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DB92C5B3F1D00661AE3 /* MacInputModeWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D782C5B3F1D00661AE3 /* MacInputModeWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -770,8 +768,6 @@
 		135C3D892C5B3F1D00661AE3 /* SKKLayoutManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKLayoutManager.mm; sourceTree = "<group>"; };
 		135C3D8A2C5B3F1D00661AE3 /* SKKPreProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKPreProcessor.h; sourceTree = "<group>"; };
 		135C3D8B2C5B3F1D00661AE3 /* SKKPreProcessor.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKPreProcessor.mm; sourceTree = "<group>"; };
-		135C3D8C2C5B3F1D00661AE3 /* SKKPythonRunner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKPythonRunner.h; sourceTree = "<group>"; };
-		135C3D8D2C5B3F1D00661AE3 /* SKKPythonRunner.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKPythonRunner.cpp; sourceTree = "<group>"; };
 		135C3D8E2C5B3F1D00661AE3 /* SKKServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKServer.h; sourceTree = "<group>"; };
 		135C3D8F2C5B3F1D00661AE3 /* SKKServer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKServer.mm; sourceTree = "<group>"; };
 		135C3DBF2C5B3FEC00661AE3 /* Framework-Input.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Input.xcconfig"; sourceTree = "<group>"; };
@@ -1747,8 +1743,6 @@
 				135C3D892C5B3F1D00661AE3 /* SKKLayoutManager.mm */,
 				135C3D8A2C5B3F1D00661AE3 /* SKKPreProcessor.h */,
 				135C3D8B2C5B3F1D00661AE3 /* SKKPreProcessor.mm */,
-				135C3D8C2C5B3F1D00661AE3 /* SKKPythonRunner.h */,
-				135C3D8D2C5B3F1D00661AE3 /* SKKPythonRunner.cpp */,
 				135C3D8E2C5B3F1D00661AE3 /* SKKServer.h */,
 				13B7BE962C5F245000F6BEF8 /* SKKServer_Private.h */,
 				135C3D8F2C5B3F1D00661AE3 /* SKKServer.mm */,
@@ -2224,7 +2218,6 @@
 				135C3DB32C5B3F1D00661AE3 /* MacMessenger.h in Headers */,
 				135C3DB42C5B3F1D00661AE3 /* MacAnnotator.h in Headers */,
 				135C3DB52C5B3F1D00661AE3 /* SKKLayoutManager.h in Headers */,
-				135C3DB62C5B3F1D00661AE3 /* SKKPythonRunner.h in Headers */,
 				135C3DB72C5B3F1D00661AE3 /* MacCandidateWindow.h in Headers */,
 				135C3DB82C5B3F1D00661AE3 /* SKKInputController.h in Headers */,
 				135C3DB92C5B3F1D00661AE3 /* MacInputModeWindow.h in Headers */,
@@ -3067,7 +3060,6 @@
 				135C3D9F2C5B3F1D00661AE3 /* MacInputSessionParameter.mm in Sources */,
 				135C3DA02C5B3F1D00661AE3 /* MacMessenger.mm in Sources */,
 				135C3DA12C5B3F1D00661AE3 /* BlacklistApps.m in Sources */,
-				135C3DA22C5B3F1D00661AE3 /* SKKPythonRunner.cpp in Sources */,
 				135C3DA32C5B3F1D00661AE3 /* SKKLayoutManager.mm in Sources */,
 				135C3DA42C5B3F1D00661AE3 /* MacInputModeWindow.mm in Sources */,
 				135C3DA52C5B3F1D00661AE3 /* SKKServer.mm in Sources */,

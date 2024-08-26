@@ -21,28 +21,27 @@
 */
 
 #include "PreferenceController.h"
-#include "DictionaryTypeTransformer.h" 
+#include "DictionaryTypeTransformer.h"
 #include "SubRuleDescriptions.h"
-#import <AquaSKKService/SKKServerProxy.h>
 #import <AquaSKKService/SKKConstVars.h>
-
+#import <AquaSKKService/SKKServerProxy.h>
 
 #include <Carbon/Carbon.h>
 
 namespace {
-    const NSString* SUB_RULE_FOLDER = @"folder";
-    const NSString* SUB_RULE_PATH = @"path";
-    const NSString* SUB_RULE_SWITCH = @"active";
-    const NSString* SUB_RULE_KEYMAP = @"keymap";
-    const NSString* SUB_RULE_DESCRIPTION = @"description";
-    const NSString* SUB_RULE_TYPE = @"type";
-}
+    const NSString *SUB_RULE_FOLDER = @"folder";
+    const NSString *SUB_RULE_PATH = @"path";
+    const NSString *SUB_RULE_SWITCH = @"active";
+    const NSString *SUB_RULE_KEYMAP = @"keymap";
+    const NSString *SUB_RULE_DESCRIPTION = @"description";
+    const NSString *SUB_RULE_TYPE = @"type";
+} // namespace
 
 @interface PreferenceController (Local)
-- (NSArray*)collectKeyboardLayout;
-- (NSMenuItem*)menuItemWithInputSource:(TISInputSourceRef)inputSource imageSize:(NSSize)size;
+- (NSArray *)collectKeyboardLayout;
+- (NSMenuItem *)menuItemWithInputSource:(TISInputSourceRef)inputSource imageSize:(NSSize)size;
 - (void)initializeVersion;
-- (void)initializeSubRulesAtPath:(NSString*)path withType:(NSString*)type;
+- (void)initializeSubRulesAtPath:(NSString *)path withType:(NSString *)type;
 - (void)setupKeyboardLayout;
 - (void)updatePopUpButton;
 - (void)updateFontButton;
@@ -55,25 +54,21 @@ namespace {
 - (id)init {
     if(self = [super init]) {
         layoutNames_ = [[NSMutableArray alloc] init];
-        preferences_ = [[NSMutableDictionary
-                            dictionaryWithContentsOfFile:SKKFilePaths::UserDefaults] retain];
-        blacklistApps_ = [[NSMutableArray
-                           arrayWithContentsOfFile:SKKFilePaths::BlacklistApps] retain];
-        dictionarySet_ = [[NSMutableArray
-                              arrayWithContentsOfFile:SKKFilePaths::DictionarySet] retain];
+        preferences_ = [[NSMutableDictionary dictionaryWithContentsOfFile:SKKFilePaths::UserDefaults] retain];
+        blacklistApps_ = [[NSMutableArray arrayWithContentsOfFile:SKKFilePaths::BlacklistApps] retain];
+        dictionarySet_ = [[NSMutableArray arrayWithContentsOfFile:SKKFilePaths::DictionarySet] retain];
 
-        NSString* fontName = [preferences_ objectForKey:SKKUserDefaultKeys::candidate_window_font_name];
-        NSNumber* fontSize =  [preferences_ objectForKey:SKKUserDefaultKeys::candidate_window_font_size];
+        NSString *fontName = [preferences_ objectForKey:SKKUserDefaultKeys::candidate_window_font_name];
+        NSNumber *fontSize = [preferences_ objectForKey:SKKUserDefaultKeys::candidate_window_font_size];
         candidateWindowFont_ =
-            [NSFont fontWithName:fontName size:[fontSize floatValue]] ?:
-            [NSFont labelFontOfSize:[fontSize floatValue]];
+            [NSFont fontWithName:fontName size:[fontSize floatValue]] ?: [NSFont labelFontOfSize:[fontSize floatValue]];
 
         [candidateWindowFont_ retain];
 
         proxy_ = [[SKKServerProxy alloc] init];
 
-        NSValueTransformer* transformer
-            = [[DictionaryTypeTransformer alloc] initWithDictionaryTypes:[proxy_ createDictionaryTypes]];
+        NSValueTransformer *transformer =
+            [[DictionaryTypeTransformer alloc] initWithDictionaryTypes:[proxy_ createDictionaryTypes]];
 
         [NSValueTransformer setValueTransformer:transformer forName:@"DictionaryTypeTransformer"];
 
@@ -103,20 +98,18 @@ namespace {
     [dictionaryTypes_ setContent:[proxy_ createDictionaryTypes]];
 
     [self initializeVersion];
-    [self initializeSubRulesAtPath:SKKFilePaths::SystemResourceFolder
-                          withType:@"システム"];
-    [self initializeSubRulesAtPath:SKKFilePaths::ApplicationSupportFolder
-                          withType:@"ユーザー"];
+    [self initializeSubRulesAtPath:SKKFilePaths::SystemResourceFolder withType:@"システム"];
+    [self initializeSubRulesAtPath:SKKFilePaths::ApplicationSupportFolder withType:@"ユーザー"];
     [self setupKeyboardLayout];
     [self updatePopUpButton];
     [self updateFontButton];
 }
 
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)sender {
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
     return YES;
 }
 
-- (void)applicationWillTerminate:(NSNotification*)aNotification {
+- (void)applicationWillTerminate:(NSNotification *)aNotification {
     [self saveChanges];
 
     [self reloadServer];
@@ -130,16 +123,15 @@ namespace {
     candidateWindowFont_ = [[sender convertFont:[NSFont systemFontOfSize:14]] retain];
 
     // Cocoa Bindings により、ボタンのフォント属性も連動して変更される
-    [preferences_ setObject:[candidateWindowFont_ fontName]
-                  forKey:SKKUserDefaultKeys::candidate_window_font_name];
+    [preferences_ setObject:[candidateWindowFont_ fontName] forKey:SKKUserDefaultKeys::candidate_window_font_name];
     [preferences_ setObject:[NSNumber numberWithFloat:[candidateWindowFont_ pointSize]]
-                  forKey:SKKUserDefaultKeys::candidate_window_font_size];
+                     forKey:SKKUserDefaultKeys::candidate_window_font_size];
 
     [self updateFontButton];
 }
 
 - (IBAction)showFontPanel:(id)sender {
-    NSFontPanel* panel = [NSFontPanel sharedFontPanel];
+    NSFontPanel *panel = [NSFontPanel sharedFontPanel];
 
     [panel setPanelFont:[fontButton_ font] isMultiple:NO];
     [panel makeKeyAndOrderFront:self];
@@ -150,7 +142,7 @@ namespace {
 #pragma clang diagnostic ignored "-Wshorten-64-to-32"
     int index = [layoutPopUp_ indexOfSelectedItem];
 #pragma clang diagnostic pop
-    NSString* selectedLayout = [layoutNames_ objectAtIndex:index];
+    NSString *selectedLayout = [layoutNames_ objectAtIndex:index];
 
     if(selectedLayout) {
         [preferences_ setObject:selectedLayout forKey:SKKUserDefaultKeys::keyboard_layout];
@@ -158,22 +150,22 @@ namespace {
 }
 
 - (IBAction)browseLocation:(id)sender {
-    NSOpenPanel* panel = [NSOpenPanel openPanel];
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
 
-    NSString* path = [preferences_ valueForKey:SKKUserDefaultKeys::user_dictionary_path];
-    NSString* dir = [path stringByDeletingLastPathComponent];
-    NSURL* dirurl = [NSURL fileURLWithPath:dir];
+    NSString *path = [preferences_ valueForKey:SKKUserDefaultKeys::user_dictionary_path];
+    NSString *dir = [path stringByDeletingLastPathComponent];
+    NSURL *dirurl = [NSURL fileURLWithPath:dir];
 
     [panel setDirectoryURL:dirurl];
-    [panel beginSheetModalForWindow:prefWindow_ completionHandler:^(NSInteger result) {
+    [panel beginSheetModalForWindow:prefWindow_
+                  completionHandler:^(NSInteger result) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        if(result == NSOKButton) {
+                    if(result == NSOKButton) {
 #pragma clang diagnostic pop
-            [preferences_ setObject:[[panel URL] path]
-                             forKey:SKKUserDefaultKeys::user_dictionary_path];
-        }
-    }];
+                        [preferences_ setObject:[[panel URL] path] forKey:SKKUserDefaultKeys::user_dictionary_path];
+                    }
+                  }];
 }
 
 @end
@@ -181,14 +173,14 @@ namespace {
 @implementation PreferenceController (Local)
 
 static NSInteger compareInputSource(id obj1, id obj2, void *context) {
-    NSString* lhs = (NSString*)TISGetInputSourceProperty((TISInputSourceRef)obj1, kTISPropertyLocalizedName);
-    NSString* rhs = (NSString*)TISGetInputSourceProperty((TISInputSourceRef)obj2, kTISPropertyLocalizedName);
+    NSString *lhs = (NSString *)TISGetInputSourceProperty((TISInputSourceRef)obj1, kTISPropertyLocalizedName);
+    NSString *rhs = (NSString *)TISGetInputSourceProperty((TISInputSourceRef)obj2, kTISPropertyLocalizedName);
 
     return [lhs compare:rhs];
 }
 
-- (NSArray*)collectKeyboardLayout {
-    NSArray* result = 0;
+- (NSArray *)collectKeyboardLayout {
+    NSArray *result = 0;
 
     // 検索条件(ASCII 入力可能なキーボードレイアウト)
     CFMutableDictionaryRef conditions = CFDictionaryCreateMutable(0, 2, 0, 0);
@@ -196,7 +188,7 @@ static NSInteger compareInputSource(id obj1, id obj2, void *context) {
     CFDictionaryAddValue(conditions, kTISPropertyInputSourceIsASCIICapable, kCFBooleanTrue);
 
     // リストして名前でソートする
-    if(NSArray* array = (NSArray*)TISCreateInputSourceList(conditions, true)) {
+    if(NSArray *array = (NSArray *)TISCreateInputSourceList(conditions, true)) {
         result = [array sortedArrayUsingFunction:compareInputSource context:0];
         [array release];
     }
@@ -206,17 +198,18 @@ static NSInteger compareInputSource(id obj1, id obj2, void *context) {
     return result;
 }
 
-- (NSMenuItem*)menuItemWithInputSource:(TISInputSourceRef)inputSource imageSize:(NSSize)size {
-    NSString* title = (NSString*)TISGetInputSourceProperty(inputSource, kTISPropertyLocalizedName);
+- (NSMenuItem *)menuItemWithInputSource:(TISInputSourceRef)inputSource imageSize:(NSSize)size {
+    NSString *title = (NSString *)TISGetInputSourceProperty(inputSource, kTISPropertyLocalizedName);
     IconRef iconref = (IconRef)TISGetInputSourceProperty(inputSource, kTISPropertyIconRef);
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    NSImage* image = [[NSImage alloc] initWithIconRef:iconref];
+    NSImage *image = [[NSImage alloc] initWithIconRef:iconref];
 #pragma clang diagnostic pop
     [image setSize:size];
 
-    NSMenuItem* item = [[NSMenuItem alloc] initWithTitle:title
-                                           action:@selector(keyboardLayoutDidChange:) keyEquivalent:@""];
+    NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:title
+                                                  action:@selector(keyboardLayoutDidChange:)
+                                           keyEquivalent:@""];
     [item setImage:image];
     [image release];
 
@@ -225,37 +218,36 @@ static NSInteger compareInputSource(id obj1, id obj2, void *context) {
 
 - (void)initializeVersion {
     NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
-    NSString* version = [NSString stringWithFormat:@"AquaSKK %@ (%@)",
-				  [info objectForKey:@"CFBundleShortVersionString"],
-				  [info objectForKey:@"CFBundleVersion"]];
+    NSString *version =
+        [NSString stringWithFormat:@"AquaSKK %@ (%@)", [info objectForKey:@"CFBundleShortVersionString"],
+                                   [info objectForKey:@"CFBundleVersion"]];
 
     [version_ setStringValue:version];
     [copyright_ setStringValue:[info objectForKey:@"CFBundleGetInfoString"]];
 }
 
-- (void)initializeSubRulesAtPath:(NSString*)folder withType:(NSString*)type {
-    SubRuleDescriptions* table = new SubRuleDescriptions([folder UTF8String]);
-    NSArray* active_rules = (NSArray*)[preferences_ objectForKey:SKKUserDefaultKeys::sub_rules];
-    NSDirectoryEnumerator* files = [[NSFileManager defaultManager] enumeratorAtPath:folder];
+- (void)initializeSubRulesAtPath:(NSString *)folder withType:(NSString *)type {
+    SubRuleDescriptions *table = new SubRuleDescriptions([folder UTF8String]);
+    NSArray *active_rules = (NSArray *)[preferences_ objectForKey:SKKUserDefaultKeys::sub_rules];
+    NSDirectoryEnumerator *files = [[NSFileManager defaultManager] enumeratorAtPath:folder];
 
-    while(NSString* file = [files nextObject]) {
+    while(NSString *file = [files nextObject]) {
         if([[file pathExtension] isEqualToString:@"rule"]) {
-            NSMutableDictionary* rule = [[NSMutableDictionary alloc] init];
+            NSMutableDictionary *rule = [[NSMutableDictionary alloc] init];
 
             [rule setObject:folder forKey:SUB_RULE_FOLDER];
 
             [rule setObject:file forKey:SUB_RULE_PATH];
 
-            if(const char* keymap = table->Keymap([file UTF8String])) {
+            if(const char *keymap = table->Keymap([file UTF8String])) {
                 [rule setObject:[NSString stringWithUTF8String:keymap] forKey:SUB_RULE_KEYMAP];
             }
 
             [rule setObject:[NSString stringWithUTF8String:table->Description([file UTF8String])]
                      forKey:SUB_RULE_DESCRIPTION];
 
-            BOOL flag = active_rules != nil
-                ? [active_rules containsObject:[folder stringByAppendingPathComponent:file]]
-                : NO;
+            BOOL flag =
+                active_rules != nil ? [active_rules containsObject:[folder stringByAppendingPathComponent:file]] : NO;
 
             [rule setObject:[NSNumber numberWithBool:flag] forKey:SUB_RULE_SWITCH];
 
@@ -273,22 +265,23 @@ static NSInteger compareInputSource(id obj1, id obj2, void *context) {
 }
 
 - (void)setupKeyboardLayout {
-    NSArray* array = [self collectKeyboardLayout];
-    if(!array) return;
+    NSArray *array = [self collectKeyboardLayout];
+    if(!array)
+        return;
 
     // PopUpButton のフォントからアイコンのサイズを決めておく
     NSSize size;
-    NSFont* font = [layoutPopUp_ font];
+    NSFont *font = [layoutPopUp_ font];
     size.height = size.width = [font ascender] - [font descender];
 
-    NSMenu* menu = [[NSMenu alloc] initWithTitle:@""];
+    NSMenu *menu = [[NSMenu alloc] initWithTitle:@""];
 
-    NSEnumerator* enumerator = [array objectEnumerator];
+    NSEnumerator *enumerator = [array objectEnumerator];
     while(TISInputSourceRef inputSource = (TISInputSourceRef)[enumerator nextObject]) {
         [menu addItem:[self menuItemWithInputSource:inputSource imageSize:size]];
 
         // "com.apple.keylayout.US" 等の ID 文字列を配列に追加しておく
-        [layoutNames_ addObject:(NSString*)TISGetInputSourceProperty(inputSource, kTISPropertyInputSourceID)];
+        [layoutNames_ addObject:(NSString *)TISGetInputSourceProperty(inputSource, kTISPropertyInputSourceID)];
     }
 
     // PopUpButton にメニューを貼り付ける
@@ -297,7 +290,7 @@ static NSInteger compareInputSource(id obj1, id obj2, void *context) {
 }
 
 - (void)updatePopUpButton {
-    NSString* selectedLayout = [preferences_ objectForKey:SKKUserDefaultKeys::keyboard_layout];
+    NSString *selectedLayout = [preferences_ objectForKey:SKKUserDefaultKeys::keyboard_layout];
     NSUInteger index = [layoutNames_ indexOfObject:selectedLayout];
 
     if(index == NSNotFound) {
@@ -308,28 +301,27 @@ static NSInteger compareInputSource(id obj1, id obj2, void *context) {
 }
 
 - (void)updateFontButton {
-    [fontButton_ setTitle:[NSString stringWithFormat:@"%@ - %2.1f",
-                                    [candidateWindowFont_ displayName],
-                                    [candidateWindowFont_ pointSize]]];
+    [fontButton_ setTitle:[NSString stringWithFormat:@"%@ - %2.1f", [candidateWindowFont_ displayName],
+                                                     [candidateWindowFont_ pointSize]]];
 }
 
 - (void)saveChanges {
-    NSMutableArray* active_subrules = [[NSMutableArray alloc] init];
-    NSMutableArray* active_keymaps = [[NSMutableArray alloc] init];
+    NSMutableArray *active_subrules = [[NSMutableArray alloc] init];
+    NSMutableArray *active_keymaps = [[NSMutableArray alloc] init];
 
     NSLog(@"saving changes ...");
 
-    for(NSDictionary* rule in [subRuleController_ arrangedObjects]) {
-        NSNumber* active = [rule objectForKey:SUB_RULE_SWITCH];
+    for(NSDictionary *rule in [subRuleController_ arrangedObjects]) {
+        NSNumber *active = [rule objectForKey:SUB_RULE_SWITCH];
 
         if([active boolValue]) {
-            NSString* folder = [rule objectForKey:SUB_RULE_FOLDER];
-            NSString* subrule = [rule objectForKey:SUB_RULE_PATH];
-            NSString* keymap = [rule objectForKey:SUB_RULE_KEYMAP];
+            NSString *folder = [rule objectForKey:SUB_RULE_FOLDER];
+            NSString *subrule = [rule objectForKey:SUB_RULE_PATH];
+            NSString *keymap = [rule objectForKey:SUB_RULE_KEYMAP];
 
             NSLog(@"activating sub rule: %@", subrule);
-	    [active_subrules addObject:[folder stringByAppendingPathComponent:subrule]];
-		
+            [active_subrules addObject:[folder stringByAppendingPathComponent:subrule]];
+
             if(keymap != nil) {
                 NSLog(@"activating sub keymap: %@", keymap);
                 [active_keymaps addObject:[folder stringByAppendingPathComponent:keymap]];
@@ -339,7 +331,7 @@ static NSInteger compareInputSource(id obj1, id obj2, void *context) {
 
     [preferences_ setObject:active_subrules forKey:SKKUserDefaultKeys::sub_rules];
     [preferences_ setObject:active_keymaps forKey:SKKUserDefaultKeys::sub_keymaps];
-    
+
     [preferences_ writeToFile:SKKFilePaths::UserDefaults atomically:YES];
     [blacklistApps_ writeToFile:SKKFilePaths::BlacklistApps atomically:YES];
     [dictionarySet_ writeToFile:SKKFilePaths::DictionarySet atomically:YES];

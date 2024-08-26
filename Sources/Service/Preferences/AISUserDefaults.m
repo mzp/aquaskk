@@ -13,21 +13,19 @@ static os_log_t serviceLog(void) {
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _serviceLog = os_log_create("com.aquaskk.inputmethod", "Service");
+      _serviceLog = os_log_create("com.aquaskk.inputmethod", "Service");
     });
     return _serviceLog;
 }
 
-
-@interface AISUserDefaults()
+@interface AISUserDefaults ()
 @property(nonatomic, strong) id<AISServerConfiguration> serverConfiguration;
 @property(nonatomic, strong) NSUserDefaults *standardDefaults;
 @end
 
 @implementation AISUserDefaults
 
-- (instancetype)initWithServerConfiguration:(id<AISServerConfiguration>)serverConfiguration
-{
+- (instancetype)initWithServerConfiguration:(id<AISServerConfiguration>)serverConfiguration {
     self = [super init];
     if(self) {
         self.serverConfiguration = serverConfiguration;
@@ -37,11 +35,11 @@ static os_log_t serviceLog(void) {
 }
 
 - (void)prepareUserDefaults {
-    NSString* factoryDefaults = self.serverConfiguration.factoryUserDefaultsPath;
-    NSString* userDefaults = self.serverConfiguration.userDefaultsPath;
+    NSString *factoryDefaults = self.serverConfiguration.factoryUserDefaultsPath;
+    NSString *userDefaults = self.serverConfiguration.userDefaultsPath;
 
     os_log(serviceLog(), "%s: factory=%{public}@ to %{public}@", __PRETTY_FUNCTION__, factoryDefaults, userDefaults);
-    NSMutableDictionary* defaults = [NSMutableDictionary dictionaryWithContentsOfFile:factoryDefaults];
+    NSMutableDictionary *defaults = [NSMutableDictionary dictionaryWithContentsOfFile:factoryDefaults];
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
 
     [defaults addEntriesFromDictionary:[NSDictionary dictionaryWithContentsOfFile:userDefaults]];
@@ -50,8 +48,7 @@ static os_log_t serviceLog(void) {
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (void)saveChanges
-{
+- (void)saveChanges {
     NSString *bundleIdentifier = NSBundle.mainBundle.bundleIdentifier;
     os_log(serviceLog(), "%s:bundleID=%{public}@", __PRETTY_FUNCTION__, bundleIdentifier);
     NSDictionary *preference = [self.standardDefaults persistentDomainForName:bundleIdentifier];
@@ -62,14 +59,12 @@ static os_log_t serviceLog(void) {
 - (void)reloadUserDefaults {
     NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
     NSString *path = self.serverConfiguration.userDefaultsPath;
-    os_log(serviceLog(),
-           "%s UserDefaults(path=%{public}@; bundleID=%{public}@)",
-           __PRETTY_FUNCTION__,
-           path,
-           bundleIdentifier);
+    os_log(
+        serviceLog(), "%s UserDefaults(path=%{public}@; bundleID=%{public}@)", __PRETTY_FUNCTION__, path,
+        bundleIdentifier);
 
-    NSUserDefaults* defaults = self.standardDefaults;
-    NSDictionary* prefs = [NSDictionary dictionaryWithContentsOfFile:path];
+    NSUserDefaults *defaults = self.standardDefaults;
+    NSDictionary *prefs = [NSDictionary dictionaryWithContentsOfFile:path];
     os_log(serviceLog(), "%s content=%{private}@", __PRETTY_FUNCTION__, prefs);
 
     // force update userdeafults

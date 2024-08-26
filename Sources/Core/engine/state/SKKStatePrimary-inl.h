@@ -23,7 +23,7 @@
 // ======================================================================
 // level 1：直接入力
 // ======================================================================
-State SKKState::Primary(const Event& event) {
+State SKKState::Primary(const Event &event) {
     switch(event) {
     case INIT_EVENT:
         return State::Initial(&SKKState::KanaInput);
@@ -123,8 +123,8 @@ State SKKState::Primary(const Event& event) {
 // ======================================================================
 // level 2 (sub of Primary)：かな入力
 // ======================================================================
-State SKKState::KanaInput(const Event& event) {
-    const SKKEvent& param = event.Param();
+State SKKState::KanaInput(const Event &event) {
+    const SKKEvent &param = event.Param();
 
     switch(event) {
     case INIT_EVENT:
@@ -172,8 +172,8 @@ State SKKState::KanaInput(const Event& event) {
 // ======================================================================
 // level 3 (sub of KanaInput)：ひらかな
 // ======================================================================
-State SKKState::Hirakana(const Event& event) {
-    const SKKEvent& param = event.Param();
+State SKKState::Hirakana(const Event &event) {
+    const SKKEvent &param = event.Param();
 
     switch(event) {
     case ENTRY_EVENT:
@@ -209,8 +209,8 @@ State SKKState::Hirakana(const Event& event) {
 // ======================================================================
 // level 3 (sub of KanaInput)：カタカナ
 // ======================================================================
-State SKKState::Katakana(const Event& event) {
-    const SKKEvent& param = event.Param();
+State SKKState::Katakana(const Event &event) {
+    const SKKEvent &param = event.Param();
 
     switch(event) {
     case ENTRY_EVENT:
@@ -239,8 +239,8 @@ State SKKState::Katakana(const Event& event) {
 // ======================================================================
 // level 3 (sub of KanaInput)：半角カタカナ
 // ======================================================================
-State SKKState::Jisx0201Kana(const Event& event) {
-    const SKKEvent& param = event.Param();
+State SKKState::Jisx0201Kana(const Event &event) {
+    const SKKEvent &param = event.Param();
 
     switch(event) {
     case ENTRY_EVENT:
@@ -265,7 +265,7 @@ State SKKState::Jisx0201Kana(const Event& event) {
 // ======================================================================
 // level 2 (sub of Primary)：Latin 入力
 // ======================================================================
-State SKKState::LatinInput(const Event& event) {
+State SKKState::LatinInput(const Event &event) {
     SKKEvent param(event.Param());
 
     switch(event) {
@@ -288,7 +288,7 @@ State SKKState::LatinInput(const Event& event) {
 // ======================================================================
 // level 2 (sub of LatinInput)：ASCII
 // ======================================================================
-State SKKState::Ascii(const Event& event) {
+State SKKState::Ascii(const Event &event) {
     switch(event) {
     case ENTRY_EVENT:
         editor_->SelectInputMode(SKKInputMode::AsciiInputMode);
@@ -304,8 +304,8 @@ State SKKState::Ascii(const Event& event) {
 // ======================================================================
 // level 2 (sub of LatinInput)：全角英数
 // ======================================================================
-State SKKState::Jisx0208Latin(const Event& event) {
-    const SKKEvent& param = event.Param();
+State SKKState::Jisx0208Latin(const Event &event) {
+    const SKKEvent &param = event.Param();
 
     switch(event) {
     case ENTRY_EVENT:

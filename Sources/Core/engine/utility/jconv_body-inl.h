@@ -507,7 +507,7 @@ void utf8_to_eucj::sequence_of_2_bytes(unsigned char c) {
         return dead_end("utf8_to_eucj::sequence_of_2_bytes(): illegal UTF8 sequence");
     }
 
-    unsigned short* etab = NULL;
+    unsigned short *etab = NULL;
 
     switch(input_[0]) {
     case 0xc2:
@@ -578,7 +578,7 @@ void utf8_to_eucj::sequence_of_3_bytes(unsigned char c) {
 
     reset();
 
-    unsigned char* tab1 = NULL;
+    unsigned char *tab1 = NULL;
     unsigned short(*tab2)[64] = NULL;
 
     switch(input_[0]) {
@@ -673,7 +673,7 @@ void utf8_to_eucj::sequence_of_4_bytes(unsigned char c) {
 
     reset();
 
-    unsigned short* tab = NULL;
+    unsigned short *tab = NULL;
 
     if(input_[0] != 0xf0) {
         subst_();
@@ -783,7 +783,7 @@ int examine_utf8_nbytes(unsigned int ucs) {
     return 6;
 }
 
-void ucs4_to_utf8(unsigned int ucs, std::string& dest) {
+void ucs4_to_utf8(unsigned int ucs, std::string &dest) {
     switch(examine_utf8_nbytes(ucs)) {
     case 1:
         dest += ucs;

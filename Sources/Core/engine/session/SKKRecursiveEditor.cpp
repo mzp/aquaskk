@@ -30,7 +30,7 @@
 #import <AquaSKKCore/SKKInputSessionParameter.h>
 #import <AquaSKKCore/SKKRecursiveEditor.h>
 
-SKKRecursiveEditor::SKKRecursiveEditor(SKKInputEnvironment* env)
+SKKRecursiveEditor::SKKRecursiveEditor(SKKInputEnvironment *env)
     : env_(env),
       context_(env->InputContext()),
       config_(env->Config()),
@@ -49,7 +49,7 @@ SKKRecursiveEditor::~SKKRecursiveEditor() {
     forEachWidget(&SKKWidget::Hide);
 }
 
-void SKKRecursiveEditor::Input(const SKKEvent& event) {
+void SKKRecursiveEditor::Input(const SKKEvent &event) {
     state_.Dispatch(SKKStateMachine::Event(event.id, event));
 }
 

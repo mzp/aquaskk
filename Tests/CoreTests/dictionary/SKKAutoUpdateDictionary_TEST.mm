@@ -1,6 +1,6 @@
+#import <AquaSKKCore/SKKAutoUpdateDictionary.h>
 #include <cassert>
 #include <sys/stat.h>
-#import <AquaSKKCore/SKKAutoUpdateDictionary.h>
 
 #import <XCTest/XCTest.h>
 
@@ -10,8 +10,8 @@
 @implementation SKKAutoUpdateDictionaryTests
 
 - (void)testMain {
-    const char* path1 = "SKK-JISYO.S1";
-    const char* path2 = "SKK-JISYO.S2";
+    const char *path1 = "SKK-JISYO.S1";
+    const char *path2 = "SKK-JISYO.S2";
     SKKAutoUpdateDictionary dict1, dict2;
     SKKCandidateSuite suite;
 

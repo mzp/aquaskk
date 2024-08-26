@@ -41,7 +41,7 @@ class MacCandidateWindow : public SKKCandidateWindow {
     virtual void SKKWidgetShow();
     virtual void SKKWidgetHide();
 
-  public:
+public:
     MacCandidateWindow(SKKLayoutManager *layout);
     virtual ~MacCandidateWindow();
 

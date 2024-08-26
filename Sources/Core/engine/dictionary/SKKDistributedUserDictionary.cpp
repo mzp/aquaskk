@@ -35,12 +35,12 @@ namespace {
         std::vector<std::string> request_;
 
     protected:
-        void add_param(const std::string& param) {
+        void add_param(const std::string &param) {
             request_.push_back(param);
         }
 
     public:
-        bool send(std::iostream& stream) {
+        bool send(std::iostream &stream) {
             const std::string CRLF = "\r\n";
             std::string line;
 
@@ -54,7 +54,7 @@ namespace {
 
     class get_request : public basic_request {
     public:
-        get_request(const SKKEntry& entry) {
+        get_request(const SKKEntry &entry) {
             add_param("GET");
             add_param(entry.EntryString());
             add_param(entry.OkuriString());
@@ -63,7 +63,7 @@ namespace {
 
     class complete_request : public basic_request {
     public:
-        complete_request(const SKKEntry& entry) {
+        complete_request(const SKKEntry &entry) {
             add_param("COMPLETE");
             add_param(entry.EntryString());
         }
@@ -71,7 +71,7 @@ namespace {
 
     class update_request : public basic_request {
     protected:
-        update_request(const std::string& command, const SKKEntry& entry, const SKKCandidate& candidate) {
+        update_request(const std::string &command, const SKKEntry &entry, const SKKCandidate &candidate) {
             SKKCandidate tmp(candidate);
 
             tmp.Encode();
@@ -85,13 +85,13 @@ namespace {
 
     class put_request : public update_request {
     public:
-        put_request(const SKKEntry& entry, const SKKCandidate& candidate)
+        put_request(const SKKEntry &entry, const SKKCandidate &candidate)
             : update_request("PUT", entry, candidate) {}
     };
 
     class delete_request : public update_request {
     public:
-        delete_request(const SKKEntry& entry, const SKKCandidate& candidate)
+        delete_request(const SKKEntry &entry, const SKKCandidate &candidate)
             : update_request("DELETE", entry, candidate) {}
     };
 
@@ -99,7 +99,7 @@ namespace {
         string::splitter splitter_;
 
     public:
-        response(std::iostream& stream) {
+        response(std::iostream &stream) {
             std::string line;
 
             std::getline(stream, line);
@@ -107,7 +107,7 @@ namespace {
             splitter_.split(line, "/");
         }
 
-        response& operator>>(std::string& str) {
+        response &operator>>(std::string &str) {
             splitter_ >> str;
             return *this;
         }
@@ -118,12 +118,12 @@ namespace {
     };
 } // namespace
 
-void SKKDistributedUserDictionary::Initialize(const std::string& path) {
+void SKKDistributedUserDictionary::Initialize(const std::string &path) {
     server_.close();
     server_.open("localhost", atoi(path.c_str()));
 }
 
-void SKKDistributedUserDictionary::Find(const SKKEntry& entry, SKKCandidateSuite& result) {
+void SKKDistributedUserDictionary::Find(const SKKEntry &entry, SKKCandidateSuite &result) {
     get_request request(entry);
 
     if(request.send(server_)) {
@@ -140,12 +140,12 @@ void SKKDistributedUserDictionary::Find(const SKKEntry& entry, SKKCandidateSuite
     }
 }
 
-std::string SKKDistributedUserDictionary::ReverseLookup(const std::string& candidate) {
+std::string SKKDistributedUserDictionary::ReverseLookup(const std::string &candidate) {
     // 今のところサポートしない
     return "";
 }
 
-void SKKDistributedUserDictionary::Complete(SKKCompletionHelper& helper) {
+void SKKDistributedUserDictionary::Complete(SKKCompletionHelper &helper) {
     complete_request request(helper.Entry());
 
     if(request.send(server_)) {
@@ -158,7 +158,7 @@ void SKKDistributedUserDictionary::Complete(SKKCompletionHelper& helper) {
     }
 }
 
-void SKKDistributedUserDictionary::Register(const SKKEntry& entry, const SKKCandidate& candidate) {
+void SKKDistributedUserDictionary::Register(const SKKEntry &entry, const SKKCandidate &candidate) {
     put_request request(entry, candidate);
 
     if(!request.send(server_)) {
@@ -166,7 +166,7 @@ void SKKDistributedUserDictionary::Register(const SKKEntry& entry, const SKKCand
     }
 }
 
-void SKKDistributedUserDictionary::Remove(const SKKEntry& entry, const SKKCandidate& candidate) {
+void SKKDistributedUserDictionary::Remove(const SKKEntry &entry, const SKKCandidate &candidate) {
     delete_request request(entry, candidate);
 
     if(!request.send(server_)) {

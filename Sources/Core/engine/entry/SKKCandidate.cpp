@@ -25,7 +25,7 @@
 static std::string org_table[] = {"[", "/", ";", ""};
 static std::string enc_table[] = {"[5b]", "[2f]", "[3b]", ""};
 
-static std::string translate(const std::string& str, const std::string* from, const std::string* to) {
+static std::string translate(const std::string &str, const std::string *from, const std::string *to) {
     std::string result(str);
 
     for(int index = 0; !from[index].empty(); ++index) {
@@ -38,10 +38,10 @@ static std::string translate(const std::string& str, const std::string* from, co
     return result;
 }
 
-std::string SKKCandidate::Encode(const std::string& src) {
+std::string SKKCandidate::Encode(const std::string &src) {
     return translate(src, org_table, enc_table);
 }
 
-std::string SKKCandidate::Decode(const std::string& src) {
+std::string SKKCandidate::Decode(const std::string &src) {
     return translate(src, enc_table, org_table);
 }

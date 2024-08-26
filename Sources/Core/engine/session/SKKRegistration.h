@@ -36,7 +36,7 @@ public:
         state_ = Started;
     }
 
-    void Finish(const std::string& str) {
+    void Finish(const std::string &str) {
         state_ = Finished;
         word_ = str;
     }
@@ -55,7 +55,7 @@ public:
         return state_;
     }
 
-    const std::string& Word() const {
+    const std::string &Word() const {
         return word_;
     }
 

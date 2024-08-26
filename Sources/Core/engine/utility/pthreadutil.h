@@ -46,10 +46,10 @@
 
 namespace pthread {
     class err {
-        const char* msg_;
+        const char *msg_;
 
     public:
-        err(const char* msg)
+        err(const char *msg)
             : msg_(msg) {}
 
 #ifdef DEBUG
@@ -67,8 +67,8 @@ namespace pthread {
 
         pthread_mutex_t handle_;
 
-        mutex(const mutex&);
-        mutex& operator=(const mutex&);
+        mutex(const mutex &);
+        mutex &operator=(const mutex &);
 
     public:
         mutex() {
@@ -92,8 +92,8 @@ namespace pthread {
             }
         }
 
-        suspend_cancel(const suspend_cancel&);
-        suspend_cancel& operator=(const suspend_cancel&);
+        suspend_cancel(const suspend_cancel &);
+        suspend_cancel &operator=(const suspend_cancel &);
 
     public:
         suspend_cancel() {
@@ -107,14 +107,14 @@ namespace pthread {
 
     class lock {
         suspend_cancel shield_;
-        mutex& target_;
+        mutex &target_;
 
         lock();
-        lock(const lock&);
-        lock& operator=(const lock&);
+        lock(const lock &);
+        lock &operator=(const lock &);
 
     public:
-        lock(mutex& target)
+        lock(mutex &target)
             : target_(target) {
             if(pthread_mutex_lock(&target_.handle_) != 0) {
                 err("pthread_mutex_lock");
@@ -132,8 +132,8 @@ namespace pthread {
         mutex mutex_;
         pthread_cond_t handle_;
 
-        condition(const condition&);
-        condition& operator=(const condition&);
+        condition(const condition &);
+        condition &operator=(const condition &);
 
         void trylock() {
             assert(
@@ -150,7 +150,7 @@ namespace pthread {
             pthread_cond_destroy(&handle_);
         }
 
-        operator mutex&() {
+        operator mutex &() {
             return mutex_;
         }
 
@@ -204,13 +204,13 @@ namespace pthread {
     };
 
     class timer {
-        task* task_;
+        task *task_;
         long interval_;
         long startup_delay_;
         pthread_t thread_;
 
-        static void* handler(void* param) {
-            timer* self = reinterpret_cast<timer*>(param);
+        static void *handler(void *param) {
+            timer *self = reinterpret_cast<timer *>(param);
 
             self->run();
 
@@ -237,11 +237,11 @@ namespace pthread {
         }
 
         timer();
-        timer(const timer&);
-        timer& operator=(const timer&);
+        timer(const timer &);
+        timer &operator=(const timer &);
 
     public:
-        timer(task* task, long interval, long startup_delay = 0)
+        timer(task *task, long interval, long startup_delay = 0)
             : task_(task), interval_(interval), startup_delay_(startup_delay) {
             if(pthread_create(&thread_, 0, timer::handler, this) != 0) {
                 thread_ = 0;
@@ -259,12 +259,12 @@ namespace pthread {
         condition queue_;  // for tasks_ and should_terminate_
         condition worker_; // for idle_threads_
         std::deque<pthread_t> pool_;
-        std::deque<task*> tasks_;
+        std::deque<task *> tasks_;
         bool should_terminate_;
         unsigned idle_threads_;
 
-        static void* handler(void* param) {
-            pool* self = reinterpret_cast<pool*>(param);
+        static void *handler(void *param) {
+            pool *self = reinterpret_cast<pool *>(param);
 
             self->run();
 
@@ -272,7 +272,7 @@ namespace pthread {
         }
 
         void run() {
-            while(task* task = dequeue()) {
+            while(task *task = dequeue()) {
                 acquire();
 
                 task->run();
@@ -282,7 +282,7 @@ namespace pthread {
             }
         }
 
-        task* dequeue() {
+        task *dequeue() {
             while(1) {
                 lock scope(queue_);
 
@@ -296,7 +296,7 @@ namespace pthread {
                         continue;
                     }
 
-                    task* next = tasks_.front();
+                    task *next = tasks_.front();
                     tasks_.pop_front();
 
                     return next;
@@ -318,8 +318,8 @@ namespace pthread {
             }
         }
 
-        pool(const pool&);
-        pool& operator=(const pool&);
+        pool(const pool &);
+        pool &operator=(const pool &);
 
     public:
         pool(unsigned size = 4)
@@ -365,7 +365,7 @@ namespace pthread {
             }
         }
 
-        bool enqueue(task* newly_allocated_task) {
+        bool enqueue(task *newly_allocated_task) {
             lock scope(queue_);
 
             if(!should_terminate_) {

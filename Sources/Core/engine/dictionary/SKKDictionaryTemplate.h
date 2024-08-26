@@ -37,13 +37,13 @@ public:
     SKKDictionaryTemplate()
         : keeper_(encoding) {}
 
-    virtual void Initialize(const std::string& location) {
+    virtual void Initialize(const std::string &location) {
         loader_.Initialize(location);
         keeper_.Initialize(&loader_);
     }
 
-    virtual void Find(const SKKEntry& entry, SKKCandidateSuite& result) {
-        const std::string& key = entry.EntryString();
+    virtual void Find(const SKKEntry &entry, SKKCandidateSuite &result) {
+        const std::string &key = entry.EntryString();
         SKKCandidateSuite suite;
 
         if(entry.IsOkuriAri()) {
@@ -62,11 +62,11 @@ public:
         result.Add(suite);
     }
 
-    virtual std::string ReverseLookup(const std::string& candidate) {
+    virtual std::string ReverseLookup(const std::string &candidate) {
         return keeper_.ReverseLookup(candidate);
     }
 
-    virtual void Complete(SKKCompletionHelper& helper) {
+    virtual void Complete(SKKCompletionHelper &helper) {
         keeper_.Complete(helper);
     }
 };

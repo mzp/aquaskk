@@ -23,8 +23,8 @@
 // ======================================================================
 // level 1：単語削除
 // ======================================================================
-State SKKState::EntryRemove(const Event& event) {
-    const SKKEvent& param = event.Param();
+State SKKState::EntryRemove(const Event &event) {
+    const SKKEvent &param = event.Param();
 
     switch(event) {
     case ENTRY_EVENT:

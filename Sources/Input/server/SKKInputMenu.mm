@@ -20,8 +20,8 @@
 
 */
 
-#import <AquaSKKInput/SKKInputMenu.h>
 #import <AquaSKKCore/SKKEvent.h>
+#import <AquaSKKInput/SKKInputMenu.h>
 
 @implementation SKKInputMenu
 
@@ -29,39 +29,31 @@ namespace {
     const struct InputModeTable {
         int event_id;
         SKKInputMode mode;
-        NSString* identifier;
+        NSString *identifier;
     } table[] = {
         // InputMode
-        { SKK_HIRAKANA_MODE, 		SKKInputMode::HirakanaInputMode,
-          @"com.apple.inputmethod.Japanese.Hiragana" },
-        { SKK_KATAKANA_MODE, 		SKKInputMode::KatakanaInputMode,
-          @"com.apple.inputmethod.Japanese.Katakana" },
-        { SKK_JISX0201KANA_MODE,	SKKInputMode::Jisx0201KanaInputMode,
-          @"com.apple.inputmethod.Japanese.HalfWidthKana" },
-        { SKK_JISX0208LATIN_MODE,	SKKInputMode::Jisx0208LatinInputMode,
-          @"com.apple.inputmethod.Japanese.FullWidthRoman" },
-        { SKK_ASCII_MODE,		SKKInputMode::AsciiInputMode,
-          @"com.apple.inputmethod.Roman" },
+        {SKK_HIRAKANA_MODE,      SKKInputMode::HirakanaInputMode,      @"com.apple.inputmethod.Japanese.Hiragana"     },
+        {SKK_KATAKANA_MODE,      SKKInputMode::KatakanaInputMode,      @"com.apple.inputmethod.Japanese.Katakana"     },
+        {SKK_JISX0201KANA_MODE,  SKKInputMode::Jisx0201KanaInputMode,  @"com.apple.inputmethod.Japanese.HalfWidthKana"},
+        {SKK_JISX0208LATIN_MODE, SKKInputMode::Jisx0208LatinInputMode,
+         @"com.apple.inputmethod.Japanese.FullWidthRoman"                                                             },
+        {SKK_ASCII_MODE,         SKKInputMode::AsciiInputMode,         @"com.apple.inputmethod.Roman"                 },
         // InputSource
-        { SKK_HIRAKANA_MODE, 		SKKInputMode::HirakanaInputMode,
-          @"jp.sourceforge.inputmethod.aquaskk.Hiragana" },
-        { SKK_KATAKANA_MODE, 		SKKInputMode::KatakanaInputMode,
-          @"jp.sourceforge.inputmethod.aquaskk.Katakana" },
-        { SKK_JISX0201KANA_MODE,	SKKInputMode::Jisx0201KanaInputMode,
-          @"jp.sourceforge.inputmethod.aquaskk.HalfWidthKana" },
-        { SKK_JISX0208LATIN_MODE,	SKKInputMode::Jisx0208LatinInputMode,
-          @"jp.sourceforge.inputmethod.aquaskk.FullWidthRoman" },
-        { SKK_ASCII_MODE,		SKKInputMode::AsciiInputMode,
-          @"jp.sourceforge.inputmethod.aquaskk.Ascii" },
+        {SKK_HIRAKANA_MODE,      SKKInputMode::HirakanaInputMode,      @"jp.sourceforge.inputmethod.aquaskk.Hiragana" },
+        {SKK_KATAKANA_MODE,      SKKInputMode::KatakanaInputMode,      @"jp.sourceforge.inputmethod.aquaskk.Katakana" },
+        {SKK_JISX0201KANA_MODE,  SKKInputMode::Jisx0201KanaInputMode,
+         @"jp.sourceforge.inputmethod.aquaskk.HalfWidthKana"                                                          },
+        {SKK_JISX0208LATIN_MODE, SKKInputMode::Jisx0208LatinInputMode,
+         @"jp.sourceforge.inputmethod.aquaskk.FullWidthRoman"                                                         },
+        {SKK_ASCII_MODE,         SKKInputMode::AsciiInputMode,         @"jp.sourceforge.inputmethod.aquaskk.Ascii"    },
         // Error
-        { SKK_NULL,			SKKInputMode::InvalidInputMode,
-          0 }
+        {SKK_NULL,               SKKInputMode::InvalidInputMode,       0                                              }
     };
 
-    const InputModeTable& findInputModeTable(NSString* identifier) {
+    const InputModeTable &findInputModeTable(NSString *identifier) {
         int i;
 
-        for(i = 0; table[i].identifier != 0; ++ i) {
+        for(i = 0; table[i].identifier != 0; ++i) {
             if([identifier caseInsensitiveCompare:table[i].identifier] == 0) {
                 return table[i];
             }
@@ -71,7 +63,7 @@ namespace {
     }
 
     static SKKInputMode unifiedInputMode__ = SKKInputMode::HirakanaInputMode;
-};
+}; // namespace
 
 - (id)initWithClient:(id)client {
     if(self = [super init]) {
@@ -84,7 +76,7 @@ namespace {
 }
 
 - (void)updateMenu:(SKKInputMode)mode {
-    NSString* identifer = [self convertInputModeToId:mode];
+    NSString *identifer = [self convertInputModeToId:mode];
 
     if(identifer) {
         currentInputMode_ = mode;
@@ -96,8 +88,8 @@ namespace {
     }
 }
 
-- (NSString*)convertInputModeToId:(SKKInputMode)mode {
-    for(int i = 0; table[i].identifier != 0; ++ i) {
+- (NSString *)convertInputModeToId:(SKKInputMode)mode {
+    for(int i = 0; table[i].identifier != 0; ++i) {
         if(table[i].mode == mode) {
             return table[i].identifier;
         }
@@ -106,7 +98,7 @@ namespace {
     return 0;
 }
 
-- (int)convertIdToEventId:(NSString*)identifier {
+- (int)convertIdToEventId:(NSString *)identifier {
     return findInputModeTable(identifier).event_id;
 }
 
@@ -117,7 +109,7 @@ namespace {
     activation_ = NO;
 }
 
-- (SKKInputMode)convertIdToInputMode:(NSString*)identifier {
+- (SKKInputMode)convertIdToInputMode:(NSString *)identifier {
     return findInputModeTable(identifier).mode;
 }
 

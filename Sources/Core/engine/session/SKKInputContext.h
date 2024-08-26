@@ -43,7 +43,7 @@ public:
     bool dynamic_completion;
     bool annotation;
 
-    SKKInputContext(SKKFrontEnd* frontend)
+    SKKInputContext(SKKFrontEnd *frontend)
         : output(frontend), undo(frontend), dynamic_completion(false) {}
 };
 

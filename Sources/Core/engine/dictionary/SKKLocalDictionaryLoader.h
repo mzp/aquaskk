@@ -44,7 +44,7 @@ class SKKLocalDictionaryLoader : public SKKDictionaryLoader {
         return false;
     }
 
-    virtual const std::string& FilePath() const {
+    virtual const std::string &FilePath() const {
         return path_;
     }
 
@@ -52,7 +52,7 @@ public:
     SKKLocalDictionaryLoader()
         : lastupdate_(0) {}
 
-    virtual void Initialize(const std::string& location) {
+    virtual void Initialize(const std::string &location) {
         path_ = location;
     }
 

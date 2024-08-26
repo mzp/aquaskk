@@ -31,7 +31,7 @@ public:
     virtual ~SKKAnnotator() {}
 
     // 註釈の更新(candidate=候補, cursor=カーソル位置)
-    virtual void Update(const SKKCandidate& candidate, int cursorOffset) = 0;
+    virtual void Update(const SKKCandidate &candidate, int cursorOffset) = 0;
 };
 
 #endif

@@ -34,11 +34,11 @@ struct SKKCompleterBuddy {
     virtual const std::string SKKCompleterQueryString() = 0;
 
     // 現在の見出し語の通知
-    virtual void SKKCompleterUpdate(const std::string& entry) = 0;
+    virtual void SKKCompleterUpdate(const std::string &entry) = 0;
 };
 
 class SKKCompleter {
-    SKKCompleterBuddy* buddy_;
+    SKKCompleterBuddy *buddy_;
     std::vector<std::string> completions_;
     int pos_;
 
@@ -48,7 +48,7 @@ class SKKCompleter {
     int maxPosition() const;
 
 public:
-    SKKCompleter(SKKCompleterBuddy* buddy);
+    SKKCompleter(SKKCompleterBuddy *buddy);
 
     // 見出し語の補完
     bool Execute(int limit = 0);

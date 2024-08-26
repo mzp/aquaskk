@@ -1,19 +1,19 @@
 #import <AquaSKKCore/SKKDistributedUserDictionary.h>
 #import <AquaSKKCore/pthreadutil.h>
 #import <AquaSKKCore/socketutil.h>
-#include "stringutil.h"
-#include "MockCompletionHelper.h"
 #import <XCTest/XCTest.h>
 
-@interface SKKDistributedUserDictionaryTests: XCTestCase
-@end
+#include "MockCompletionHelper.h"
+#include "stringutil.h"
 
+@interface SKKDistributedUserDictionaryTests : XCTestCase
+@end
 
 class param {
     string::splitter splitter_;
 
 public:
-    param(const std::string& line) {
+    param(const std::string &line) {
         splitter_.split(line, " ");
 
         splitter_ >> command >> entry;
@@ -34,7 +34,7 @@ public:
 class server : public pthread::task {
     net::socket::tcpserver server_;
 
-    void session(std::iostream& stream) {
+    void session(std::iostream &stream) {
         std::string line;
 
         while(std::getline(stream, line)) {

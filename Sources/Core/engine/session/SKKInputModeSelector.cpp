@@ -24,7 +24,7 @@
 #include <algorithm>
 #include <functional>
 
-SKKInputModeSelector::SKKInputModeSelector(SKKInputModeListenerCollection* listeners)
+SKKInputModeSelector::SKKInputModeSelector(SKKInputModeListenerCollection *listeners)
     : SKKWidget(true), listeners_(listeners), mode_(SKKInputMode::InvalidInputMode) {
     Select(SKKInputMode::HirakanaInputMode);
 }
@@ -35,7 +35,7 @@ void SKKInputModeSelector::Select(SKKInputMode mode) {
     mode_ = mode;
     std::for_each(
         listeners_->begin(), listeners_->end(),
-                  std::bind(std::mem_fn(&SKKInputModeListener::SelectInputMode), _1, mode_));
+        std::bind(std::mem_fn(&SKKInputModeListener::SelectInputMode), _1, mode_));
 }
 
 void SKKInputModeSelector::Notify() {

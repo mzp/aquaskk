@@ -39,7 +39,7 @@ public:
     virtual bool Prev() = 0;
 
     // 現在の候補
-    virtual const SKKCandidate& Current() const = 0;
+    virtual const SKKCandidate &Current() const = 0;
 
     // 選択可能な候補があるかどうか
     virtual bool IsEmpty() const = 0;

@@ -33,17 +33,17 @@ class SKKProxyDictionary : public SKKBaseDictionary {
     bool active_;
 
     bool connect();
-    bool send(const SKKEntry& entry);
+    bool send(const SKKEntry &entry);
     bool ready();
-    void recv(SKKCandidateSuite& result);
+    void recv(SKKCandidateSuite &result);
 
 public:
     SKKProxyDictionary();
     virtual ~SKKProxyDictionary();
 
-    virtual void Initialize(const std::string& path);
+    virtual void Initialize(const std::string &path);
 
-    virtual void Find(const SKKEntry& entry, SKKCandidateSuite& result);
+    virtual void Find(const SKKEntry &entry, SKKCandidateSuite &result);
 };
 
 #endif

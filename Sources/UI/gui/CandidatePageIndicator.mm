@@ -32,9 +32,8 @@
 }
 
 - (void)preparePlate {
-    indicator_ = [[NSAttributedString alloc]
-		     initWithString:[NSString stringWithFormat:@"888 / 888"]
-		     attributes:attributes_];
+    indicator_ = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"888 / 888"]
+                                                 attributes:attributes_];
 
     float radius = 0.5 * [indicator_ size].height;
 
@@ -49,18 +48,21 @@
 
     [plate_ moveToPoint:bottomright];
     [plate_ appendBezierPathWithArcWithCenter:NSMakePoint(bottomright.x, bottomright.y + radius)
-	    radius:radius startAngle:270 endAngle:90];
+                                       radius:radius
+                                   startAngle:270
+                                     endAngle:90];
 
     [plate_ moveToPoint:topleft];
     [plate_ appendBezierPathWithArcWithCenter:NSMakePoint(topleft.x, topleft.y - radius)
-	    radius:radius startAngle:90 endAngle:270];
-    
+                                       radius:radius
+                                   startAngle:90
+                                     endAngle:270];
 }
 
 - (id)init {
     if(self = [super init]) {
-	[self prepareAttributes];
-	[self preparePlate];
+        [self prepareAttributes];
+        [self preparePlate];
     }
 
     return self;
@@ -68,7 +70,7 @@
 
 - (void)dealloc {
     if(indicator_) {
-	[indicator_ release];
+        [indicator_ release];
     }
     [plate_ release];
     [attributes_ release];
@@ -77,15 +79,16 @@
 }
 
 - (void)setPage:(NSRange)page {
-    if(indicator_) [indicator_ release];
+    if(indicator_)
+        [indicator_ release];
 
     indicator_ = [[NSAttributedString alloc]
-		     initWithString:[NSString stringWithFormat:@"%3ld / %-3ld", page.location, page.length]
-		     attributes:attributes_];
+        initWithString:[NSString stringWithFormat:@"%3ld / %-3ld", page.location, page.length]
+            attributes:attributes_];
 }
 
 - (void)drawAtPoint:(NSPoint)pt {
-    NSAffineTransform* xform = [NSAffineTransform transform];
+    NSAffineTransform *xform = [NSAffineTransform transform];
 
     [xform translateXBy:pt.x yBy:pt.y];
     [xform concat];
@@ -93,8 +96,9 @@
     [[NSColor systemGrayColor] setFill];
 
     [plate_ fill];
-    [indicator_ drawAtPoint:NSMakePoint(([plate_ bounds].size.width - [indicator_ size].width) / 2.0,
-                                        ([plate_ bounds].size.height - [indicator_ size].height) / 2.0)];
+    [indicator_ drawAtPoint:NSMakePoint(
+                                ([plate_ bounds].size.width - [indicator_ size].width) / 2.0,
+                                ([plate_ bounds].size.height - [indicator_ size].height) / 2.0)];
 
     [xform invert];
     [xform concat];

@@ -40,7 +40,7 @@ class MacDynamicCompletor : public SKKDynamicCompletor {
     virtual void SKKWidgetShow();
     virtual void SKKWidgetHide();
 
-  public:
+public:
     MacDynamicCompletor(SKKLayoutManager *layout);
 
     virtual void Update(const std::string &completion, int commonPrefixLength, int cursorOffset);

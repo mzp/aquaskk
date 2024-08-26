@@ -6,10 +6,10 @@
 #include "SKKRegistrationObserver.h"
 
 class MockRegistrationObserver : public SKKRegistrationObserver {
-    virtual void SKKRegistrationBegin(SKKBaseEditor* bottom) {
+    virtual void SKKRegistrationBegin(SKKBaseEditor *bottom) {
         delete bottom;
     }
-    virtual void SKKRegistrationFinish(const std::string& word) {}
+    virtual void SKKRegistrationFinish(const std::string &word) {}
     virtual void SKKRegistrationCancel() {}
 };
 

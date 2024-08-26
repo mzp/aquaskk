@@ -23,7 +23,7 @@
 #import <AquaSKKCore/SKKInputContext.h>
 #import <AquaSKKCore/SKKRegisterEditor.h>
 
-SKKRegisterEditor::SKKRegisterEditor(SKKInputContext* context)
+SKKRegisterEditor::SKKRegisterEditor(SKKInputContext *context)
     : SKKBaseEditor(context), entry_(context->entry) {
     prompt_ = "[登録：" + entry_.PromptString() + "]";
 }
@@ -39,11 +39,11 @@ void SKKRegisterEditor::WriteContext() {
     context()->output.Compose(prompt_ + word_.String(), word_.CursorPosition());
 }
 
-void SKKRegisterEditor::Input(const std::string& ascii) {
+void SKKRegisterEditor::Input(const std::string &ascii) {
     word_.Insert(ascii);
 }
 
-void SKKRegisterEditor::Input(const std::string& fixed, const std::string&, char) {
+void SKKRegisterEditor::Input(const std::string &fixed, const std::string &, char) {
     Input(fixed);
 }
 
@@ -78,7 +78,7 @@ void SKKRegisterEditor::Input(SKKBaseEditor::Event event) {
     }
 }
 
-void SKKRegisterEditor::Commit(std::string& queue) {
+void SKKRegisterEditor::Commit(std::string &queue) {
     word_.Insert(queue);
     queue = word_.String();
 

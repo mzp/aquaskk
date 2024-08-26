@@ -34,16 +34,16 @@ struct SKKRomanKanaConversionResult {
 };
 
 class SKKRomanKanaConverter {
-    void* impl;
+    void *impl;
     SKKRomanKanaConverter();
-    SKKRomanKanaConverter(const SKKRomanKanaConverter&);
+    SKKRomanKanaConverter(const SKKRomanKanaConverter &);
 
 public:
-    static SKKRomanKanaConverter& theInstance();
+    static SKKRomanKanaConverter &theInstance();
 
-    void Initialize(const std::string& path);
+    void Initialize(const std::string &path);
 
-    void Patch(const std::string& path);
+    void Patch(const std::string &path);
 
     /// ローマ字かな変換
     ///
@@ -52,7 +52,7 @@ public:
     /// @param result 変換結果
     ///
     /// @return true=変換された、false=変換されなかった
-    bool Convert(SKKInputMode mode, const std::string& str, SKKRomanKanaConversionResult& result);
+    bool Convert(SKKInputMode mode, const std::string &str, SKKRomanKanaConversionResult &result);
 };
 
 #endif

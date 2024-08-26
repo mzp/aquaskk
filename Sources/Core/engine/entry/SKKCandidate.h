@@ -33,7 +33,7 @@ class SKKCandidate {
     std::string variant_; // 数値変換用
     bool avoid_study_;    // 動的変換は学習しない
 
-    void parse(const std::string& str) {
+    void parse(const std::string &str) {
         std::string::size_type pos = str.find_first_of(';');
 
         if(pos != std::string::npos) {
@@ -47,7 +47,7 @@ public:
     SKKCandidate()
         : avoid_study_(false) {}
 
-    SKKCandidate(const std::string& candidate, bool auto_parse = true)
+    SKKCandidate(const std::string &candidate, bool auto_parse = true)
         : avoid_study_(false) {
         if(auto_parse) {
             parse(candidate);
@@ -60,15 +60,15 @@ public:
         return word_.empty();
     }
 
-    const std::string& Word() const {
+    const std::string &Word() const {
         return word_;
     }
 
-    const std::string& Annotation() const {
+    const std::string &Annotation() const {
         return annotation_;
     }
 
-    const std::string& Variant() const {
+    const std::string &Variant() const {
         return (variant_.empty() ? Word() : variant_);
     }
 
@@ -76,7 +76,7 @@ public:
         return avoid_study_;
     }
 
-    void SetVariant(const std::string& str) {
+    void SetVariant(const std::string &str) {
         variant_ = str;
     }
 
@@ -88,17 +88,17 @@ public:
         return word_ + (annotation_.empty() ? "" : (";" + annotation_));
     }
 
-    bool operator==(const SKKCandidate& rhs) const {
+    bool operator==(const SKKCandidate &rhs) const {
         return Variant() == rhs.Variant(); // 注釈は比較しない
     }
 
-    bool operator!=(const SKKCandidate& rhs) const {
+    bool operator!=(const SKKCandidate &rhs) const {
         return !this->operator==(rhs);
     }
 
     // 候補のエンコードとデコード
-    static std::string Encode(const std::string& src);
-    static std::string Decode(const std::string& src);
+    static std::string Encode(const std::string &src);
+    static std::string Decode(const std::string &src);
 
     void Encode() {
         word_ = Encode(word_);

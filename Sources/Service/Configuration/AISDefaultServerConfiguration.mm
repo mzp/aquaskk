@@ -13,10 +13,9 @@
 @implementation AISDefaultServerConfiguration
 
 // MARK: - Jisyo
-- (NSString *)userDictionaryPath
-{
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    NSString* userDictionary = [defaults stringForKey:SKKUserDefaultKeys::user_dictionary_path];
+- (NSString *)userDictionaryPath {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *userDictionary = [defaults stringForKey:SKKUserDefaultKeys::user_dictionary_path];
     return [userDictionary stringByExpandingTildeInPath];
 }
 
@@ -26,7 +25,7 @@
 
 - (NSArray<NSDictionary *> *)systemDictionaries {
     NSString *path = SKKFilePaths::DictionarySet;
-    NSArray* array = [NSArray arrayWithContentsOfFile:path];
+    NSArray *array = [NSArray arrayWithContentsOfFile:path];
     if(array == nil) {
         os_log_error(OS_LOG_DEFAULT, "can't read %@", path);
     }
@@ -47,22 +46,21 @@
     return SKKFilePaths::SystemResourceFolder;
 }
 
-- (NSString *)applicationSupportPath
-{
+- (NSString *)applicationSupportPath {
     return SKKFilePaths::ApplicationSupportFolder;
 }
 
 // MARK: - Internal
-- (NSString*)systemPathForName:(NSString*)name {
+- (NSString *)systemPathForName:(NSString *)name {
     return [NSString stringWithFormat:@"%@/%@", SKKFilePaths::SystemResourceFolder, name];
 }
 
-- (NSString*)userPathForName:(NSString *)name {
+- (NSString *)userPathForName:(NSString *)name {
     return [NSString stringWithFormat:@"%@/%@", SKKFilePaths::ApplicationSupportFolder, name];
 }
 
-- (NSString*)pathForName:(NSString*)name {
-    NSString* tmp = [self userPathForName:name];
+- (NSString *)pathForName:(NSString *)name {
+    NSString *tmp = [self userPathForName:name];
 
     if([self fileExistsAtPath:tmp] == YES) {
         return tmp;
@@ -71,11 +69,10 @@
     }
 }
 
-- (BOOL)fileExistsAtPath:(NSString*)path {
-    NSFileManager* fileManager = [NSFileManager defaultManager];
+- (BOOL)fileExistsAtPath:(NSString *)path {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
 
     return [fileManager fileExistsAtPath:path];
 }
-
 
 @end

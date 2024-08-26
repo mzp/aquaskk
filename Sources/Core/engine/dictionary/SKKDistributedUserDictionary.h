@@ -31,14 +31,14 @@ class SKKDistributedUserDictionary : public SKKUserDictionary {
 
 public:
     // path の形式は port
-    virtual void Initialize(const std::string& path);
+    virtual void Initialize(const std::string &path);
 
-    virtual void Find(const SKKEntry& entry, SKKCandidateSuite& result);
-    virtual std::string ReverseLookup(const std::string& candidate);
-    virtual void Complete(SKKCompletionHelper& helper);
+    virtual void Find(const SKKEntry &entry, SKKCandidateSuite &result);
+    virtual std::string ReverseLookup(const std::string &candidate);
+    virtual void Complete(SKKCompletionHelper &helper);
 
-    virtual void Register(const SKKEntry& entry, const SKKCandidate& candidate);
-    virtual void Remove(const SKKEntry& entry, const SKKCandidate& candidate);
+    virtual void Register(const SKKEntry &entry, const SKKCandidate &candidate);
+    virtual void Remove(const SKKEntry &entry, const SKKCandidate &candidate);
 
     virtual void SetPrivateMode(bool flag);
 };

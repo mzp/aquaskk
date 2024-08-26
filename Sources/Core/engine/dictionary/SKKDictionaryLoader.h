@@ -30,12 +30,12 @@ class SKKDictionaryLoaderObserver {
 public:
     virtual ~SKKDictionaryLoaderObserver() {}
 
-    virtual void SKKDictionaryLoaderUpdate(const SKKDictionaryFile& file) = 0;
+    virtual void SKKDictionaryLoaderUpdate(const SKKDictionaryFile &file) = 0;
 };
 
 class SKKDictionaryLoader : public pthread::task {
     bool first_;
-    SKKDictionaryLoaderObserver* observer_;
+    SKKDictionaryLoaderObserver *observer_;
     SKKDictionaryFile file_;
 
     virtual bool run() {
@@ -68,12 +68,12 @@ public:
     SKKDictionaryLoader()
         : first_(true), observer_(0) {}
 
-    void Connect(SKKDictionaryLoaderObserver* observer) {
+    void Connect(SKKDictionaryLoaderObserver *observer) {
         observer_ = observer;
     }
 
     // 初期化
-    virtual void Initialize(const std::string& location) = 0;
+    virtual void Initialize(const std::string &location) = 0;
 
     // チェック間隔
     virtual int Interval() const = 0;
@@ -85,7 +85,7 @@ public:
     virtual bool NeedsUpdate() = 0;
 
     // ファイルパス
-    virtual const std::string& FilePath() const = 0;
+    virtual const std::string &FilePath() const = 0;
 };
 
 #endif

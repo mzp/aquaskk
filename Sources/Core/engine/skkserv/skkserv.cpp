@@ -64,8 +64,8 @@ skkserv::~skkserv() {
     }
 }
 
-void* skkserv::listener(void* param) {
-    skkserv* server = reinterpret_cast<skkserv*>(param);
+void *skkserv::listener(void *param) {
+    skkserv *server = reinterpret_cast<skkserv *>(param);
 
     while(true) {
         pthread_testcancel();
@@ -89,13 +89,13 @@ void skkserv::accept() {
         }
 
         pthread_t tmp;
-        thread_param* param = new thread_param(fd);
+        thread_param *param = new thread_param(fd);
         pthread_create(&tmp, 0, skkserv::worker, param);
     }
 }
 
-void* skkserv::worker(void* arg) {
-    thread_param* param = reinterpret_cast<thread_param*>(arg);
+void *skkserv::worker(void *arg) {
+    thread_param *param = reinterpret_cast<thread_param *>(arg);
     net::socket::tcpstream session(param->fd());
     net::socket::namepair remote = net::socket::nameinfo::remote(session.socket());
     delete param;

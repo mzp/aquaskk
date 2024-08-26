@@ -1,16 +1,15 @@
-#include <cassert>
-#import <AquaSKKCore/SKKDictionaryFactory.h>
 #import <AquaSKKCore/SKKBaseDictionary.h>
 #import <AquaSKKCore/SKKCommonDictionary.h>
+#import <AquaSKKCore/SKKDictionaryFactory.h>
+#include <cassert>
 
 #import <XCTest/XCTest.h>
-
 
 int main() {
     SKKRegisterFactoryMethod<SKKCommonDictionary>(0);
 
-    auto& factory = SKKDictionaryFactory::theInstance();
-    auto* dict = factory.Create(0, "SKK-JISYO.TEST");
+    auto &factory = SKKDictionaryFactory::theInstance();
+    auto *dict = factory.Create(0, "SKK-JISYO.TEST");
 
     SKKCandidateSuite suite;
     dict->Find(SKKEntry("かんじ"), suite);

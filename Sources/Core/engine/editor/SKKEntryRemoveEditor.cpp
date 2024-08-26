@@ -24,7 +24,7 @@
 #import <AquaSKKCore/SKKEntryRemoveEditor.h>
 #import <AquaSKKCore/SKKInputContext.h>
 
-SKKEntryRemoveEditor::SKKEntryRemoveEditor(SKKInputContext* context)
+SKKEntryRemoveEditor::SKKEntryRemoveEditor(SKKInputContext *context)
     : SKKBaseEditor(context) {}
 
 void SKKEntryRemoveEditor::ReadContext() {
@@ -43,11 +43,11 @@ void SKKEntryRemoveEditor::WriteContext() {
     context()->entry = entry_;
 }
 
-void SKKEntryRemoveEditor::Input(const std::string& ascii) {
+void SKKEntryRemoveEditor::Input(const std::string &ascii) {
     input_ += ascii;
 }
 
-void SKKEntryRemoveEditor::Input(const std::string& fixed, const std::string&, char) {
+void SKKEntryRemoveEditor::Input(const std::string &fixed, const std::string &, char) {
     Input(fixed);
 }
 
@@ -57,7 +57,7 @@ void SKKEntryRemoveEditor::Input(Event event) {
     }
 }
 
-void SKKEntryRemoveEditor::Commit(std::string& queue) {
+void SKKEntryRemoveEditor::Commit(std::string &queue) {
     if(input_ != "yes") {
         context()->needs_setback = true;
     } else {

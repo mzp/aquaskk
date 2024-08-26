@@ -34,6 +34,6 @@ public:
     virtual void SelectInputMode(SKKInputMode mode) = 0;
 };
 
-typedef std::vector<SKKInputModeListener*> SKKInputModeListenerCollection;
+typedef std::vector<SKKInputModeListener *> SKKInputModeListenerCollection;
 
 #endif

@@ -29,10 +29,10 @@
 
 namespace {
     class scoped_flag {
-        bool& flag_;
+        bool &flag_;
 
     public:
-        scoped_flag(bool& flag)
+        scoped_flag(bool &flag)
             : flag_(flag) {
             flag_ = true;
         }
@@ -43,7 +43,7 @@ namespace {
     };
 } // namespace
 
-SKKInputSession::SKKInputSession(SKKInputSessionParameter* param)
+SKKInputSession::SKKInputSession(SKKInputSessionParameter *param)
     : param_(param), context_(param->FrontEnd()), inEvent_(false) {
     stack_.push_back(createEditor(new SKKPrimaryEditor(&context_)));
 }
@@ -59,11 +59,11 @@ SKKInputSession::~SKKInputSession() {
     }
 }
 
-void SKKInputSession::AddInputModeListener(SKKInputModeListener* listener) {
+void SKKInputSession::AddInputModeListener(SKKInputModeListener *listener) {
     listeners_.push_back(listener);
 }
 
-bool SKKInputSession::HandleEvent(const SKKEvent& event) {
+bool SKKInputSession::HandleEvent(const SKKEvent &event) {
     if(inEvent_)
         return false;
 
@@ -143,7 +143,7 @@ void SKKInputSession::endEvent() {
     }
 }
 
-bool SKKInputSession::result(const SKKEvent& event) {
+bool SKKInputSession::result(const SKKEvent &event) {
     // 単語登録中か、未確定状態なら常に処理済み
     if(stack_.size() != 1 || context_.output.IsComposing()) {
         return true;
@@ -161,11 +161,11 @@ bool SKKInputSession::result(const SKKEvent& event) {
     }
 }
 
-SKKRecursiveEditor* SKKInputSession::top() {
+SKKRecursiveEditor *SKKInputSession::top() {
     return stack_.back();
 }
 
-SKKRecursiveEditor* SKKInputSession::createEditor(SKKBaseEditor* bottom) {
+SKKRecursiveEditor *SKKInputSession::createEditor(SKKBaseEditor *bottom) {
     return new SKKRecursiveEditor(new SKKInputEnvironment(&context_, param_.get(), &listeners_, bottom));
 }
 

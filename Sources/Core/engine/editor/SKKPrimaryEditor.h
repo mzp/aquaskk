@@ -27,13 +27,13 @@
 
 class SKKPrimaryEditor : public SKKBaseEditor {
 public:
-    SKKPrimaryEditor(SKKInputContext* context);
+    SKKPrimaryEditor(SKKInputContext *context);
 
     virtual void ReadContext();
-    virtual void Input(const std::string& ascii);
-    virtual void Input(const std::string& fixed, const std::string& input, char code);
+    virtual void Input(const std::string &ascii);
+    virtual void Input(const std::string &fixed, const std::string &input, char code);
     virtual void Input(SKKBaseEditor::Event event);
-    virtual void Commit(std::string& queue);
+    virtual void Commit(std::string &queue);
 };
 
 #endif

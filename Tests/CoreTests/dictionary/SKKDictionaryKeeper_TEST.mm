@@ -1,10 +1,12 @@
 #include <cassert>
-#import <AquaSKKCore/SKKDictionaryKeeper.h>
-#include "MockCompletionHelper.h"
 
 #import <XCTest/XCTest.h>
 
-@interface SKKDictionaryKeeperTests: XCTestCase
+#import <AquaSKKCore/SKKDictionaryKeeper.h>
+
+#include "MockCompletionHelper.h"
+
+@interface SKKDictionaryKeeperTests : XCTestCase
 @end
 
 class DebugLoader : public SKKDictionaryLoader {
@@ -14,18 +16,22 @@ class DebugLoader : public SKKDictionaryLoader {
         return true;
     }
 
-    virtual const std::string& FilePath() const {
+    virtual const std::string &FilePath() const {
         return path_;
     }
 
 public:
-    virtual void Initialize(const std::string& path) {
+    virtual void Initialize(const std::string &path) {
         path_ = path;
     }
 
-    virtual int Interval() const { return 5; }
+    virtual int Interval() const {
+        return 5;
+    }
 
-    virtual int Timeout() const { return 5; }
+    virtual int Timeout() const {
+        return 5;
+    }
 };
 
 @implementation SKKDictionaryKeeperTests
@@ -38,8 +44,7 @@ public:
 
     NSBundle *bundle = [NSBundle bundleForClass:SKKDictionaryKeeperTests.class];
 
-    loader
-        .Initialize([bundle pathForResource:@"SKK-JISYO" ofType:@"TEST"].UTF8String);
+    loader.Initialize([bundle pathForResource:@"SKK-JISYO" ofType:@"TEST"].UTF8String);
 
     keeper.Initialize(&loader);
 
