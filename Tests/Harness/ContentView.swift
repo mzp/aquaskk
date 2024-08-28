@@ -20,6 +20,7 @@ struct ContentView: View {
 
                     Section("Client") {
                         StateMonitor(store: store)
+                        UICatalog()
                         MenuMonitor(inputController: controller, store: $store)
                     }
                     Section("Server") {

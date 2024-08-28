@@ -23,6 +23,7 @@
 		13185CC62C5B57DF001CF24D /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13185CBA2C5B57DF001CF24D /* main.mm */; };
 		13185CC72C5B57DF001CF24D /* DictionaryTypeTransformer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13185CB92C5B57DF001CF24D /* DictionaryTypeTransformer.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		13185CC82C5B57DF001CF24D /* PathFormatter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13185CBC2C5B57DF001CF24D /* PathFormatter.mm */; };
+		131FC6742C7ECC0C00C261CC /* UICatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131FC6732C7ECC0C00C261CC /* UICatalog.swift */; };
 		1321D6D22C7A22BD004768B2 /* FormType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1321D6D12C7A22BD004768B2 /* FormType.swift */; };
 		132B777A2C5DB89E00EEC2A5 /* pthreadutil_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 132B77782C5DB89E00EEC2A5 /* pthreadutil_TEST.mm */; };
 		132B777B2C5DB89E00EEC2A5 /* calculator_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 132B77772C5DB89E00EEC2A5 /* calculator_TEST.mm */; };
@@ -500,6 +501,7 @@
 		13185CBE2C5B57DF001CF24D /* PreferenceController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PreferenceController.mm; sourceTree = "<group>"; };
 		13185CBF2C5B57DF001CF24D /* SubRuleDescriptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubRuleDescriptions.h; sourceTree = "<group>"; };
 		13185CC02C5B57DF001CF24D /* SubRuleDescriptions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SubRuleDescriptions.cpp; sourceTree = "<group>"; };
+		131FC6732C7ECC0C00C261CC /* UICatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICatalog.swift; sourceTree = "<group>"; };
 		1321D6D02C7A225D004768B2 /* PreferenceApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PreferenceApp.entitlements; sourceTree = "<group>"; };
 		1321D6D12C7A22BD004768B2 /* FormType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormType.swift; sourceTree = "<group>"; };
 		132B77772C5DB89E00EEC2A5 /* calculator_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = calculator_TEST.mm; sourceTree = "<group>"; };
@@ -2146,6 +2148,7 @@
 				13EB86632C5EA7DD00B47DCD /* SupervisorMonitor.swift */,
 				13562DCA2C7BA74C0073579C /* StateMonitor.swift */,
 				13562DCB2C7BA74C0073579C /* MenuMonitor.swift */,
+				131FC6732C7ECC0C00C261CC /* UICatalog.swift */,
 			);
 			path = Monitor;
 			sourceTree = "<group>";
@@ -3037,6 +3040,7 @@
 				1352C9E52C5DF9510056261D /* SKKContext.swift in Sources */,
 				13562DCC2C7BA74C0073579C /* StateMonitor.swift in Sources */,
 				13562DCD2C7BA74C0073579C /* MenuMonitor.swift in Sources */,
+				131FC6742C7ECC0C00C261CC /* UICatalog.swift in Sources */,
 				135EEB972C5EE3E100758672 /* InputMethodKitAdapter.swift in Sources */,
 				13EB86642C5EA7DD00B47DCD /* SupervisorMonitor.swift in Sources */,
 				1352C9E22C5DF8160056261D /* HarnessApp.swift in Sources */,
