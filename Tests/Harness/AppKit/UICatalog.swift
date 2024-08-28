@@ -26,7 +26,16 @@ struct UICatalog: View {
     @State var point: CGPoint = .zero
     @State var selection: WindowType = .annotation
     var body: some View {
-        Section("Catalog") {
+        Section("UI") {
+            LabeledContent("Catalog") {
+                VStack(spacing: 30) {
+                    AppKitAnnotationView(definition: "AquaSKK", optional: "Input method")
+                        .frame(height: 150)
+                    AppKitCompletionView(completion: "AquaSKK").frame(height: 20)
+                    AppKitCandidateView()
+                    AppKitMessengerView(message: "Hello from AquaSKK")
+                }
+            }
             Picker("Window", selection: $selection) {
                 Text("Annotation").tag(WindowType.annotation)
                 Text("Candidate").tag(WindowType.candidate)
