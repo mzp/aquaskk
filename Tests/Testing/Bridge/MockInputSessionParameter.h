@@ -3,13 +3,13 @@
 #ifndef MockInputSessionParameter_h
 #define MockInputSessionParameter_h
 
-#include "MockAnnotator.h"
-#include "MockCandidateWindow.h"
-#include "MockClipboard.h"
-#include "MockConfig.h"
-#include "MockDynamicCompletor.h"
-#include "MockFrontEnd.h"
-#include "MockMessenger.h"
+#import <AquaSKKTesting/MockAnnotator.h>
+#import <AquaSKKTesting/MockCandidateWindow.h>
+#import <AquaSKKTesting/MockClipboard.h>
+#import <AquaSKKTesting/MockConfig.h>
+#import <AquaSKKTesting/MockDynamicCompletor.h>
+#import <AquaSKKTesting/MockFrontEnd.h>
+#import <AquaSKKTesting/MockMessenger.h>
 #import <AquaSKKCore/SKKInputSessionParameter.h>
 
 class MockInputSessionParameter : public SKKInputSessionParameter {

@@ -3,8 +3,7 @@
 #import <XCTest/XCTest.h>
 
 #import <AquaSKKCore/SKKDictionaryKeeper.h>
-
-#include "MockCompletionHelper.h"
+#import <AquaSKKTesting/MockCompletionHelper.h>
 
 @interface SKKDictionaryKeeperTests : XCTestCase
 @end

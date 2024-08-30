@@ -16,6 +16,15 @@
 		1307C24E2C5B47DA00B089B6 /* SandboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1307C24D2C5B47DA00B089B6 /* SandboxTests.swift */; };
 		1310827E2C5B5BDB00C186BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1310827D2C5B5BDB00C186BE /* Images.xcassets */; };
 		131082802C5B5BEC00C186BE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1310827F2C5B5BEC00C186BE /* InfoPlist.strings */; };
+		1315FE8C2C81836F004011B7 /* MockAnnotator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1315FE822C818327004011B7 /* MockAnnotator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1315FE8E2C818377004011B7 /* MockCompletionHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 1315FE852C818327004011B7 /* MockCompletionHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1315FE8F2C818377004011B7 /* MockFrontEnd.h in Headers */ = {isa = PBXBuildFile; fileRef = 1315FE882C818327004011B7 /* MockFrontEnd.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1315FE902C818377004011B7 /* MockConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 1315FE862C818327004011B7 /* MockConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1315FE912C818377004011B7 /* MockCandidateWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 1315FE832C818327004011B7 /* MockCandidateWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1315FE922C818377004011B7 /* MockDynamicCompletor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1315FE872C818327004011B7 /* MockDynamicCompletor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1315FE932C818377004011B7 /* MockClipboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 1315FE842C818327004011B7 /* MockClipboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1315FE942C818377004011B7 /* MockInputSessionParameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1315FE892C818327004011B7 /* MockInputSessionParameter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1315FE952C818377004011B7 /* MockMessenger.h in Headers */ = {isa = PBXBuildFile; fileRef = 1315FE8A2C818327004011B7 /* MockMessenger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13185CC22C5B57DF001CF24D /* SubRuleDescriptions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13185CC02C5B57DF001CF24D /* SubRuleDescriptions.cpp */; };
 		13185CC32C5B57DF001CF24D /* BlacklistApps.m in Sources */ = {isa = PBXBuildFile; fileRef = 13185CB52C5B57DF001CF24D /* BlacklistApps.m */; };
 		13185CC42C5B57DF001CF24D /* PreferenceController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13185CBE2C5B57DF001CF24D /* PreferenceController.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -492,6 +501,15 @@
 		1310827D2C5B5BDB00C186BE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1310827F2C5B5BEC00C186BE /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		131082812C5B5BFC00C186BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1315FE822C818327004011B7 /* MockAnnotator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockAnnotator.h; sourceTree = "<group>"; };
+		1315FE832C818327004011B7 /* MockCandidateWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockCandidateWindow.h; sourceTree = "<group>"; };
+		1315FE842C818327004011B7 /* MockClipboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockClipboard.h; sourceTree = "<group>"; };
+		1315FE852C818327004011B7 /* MockCompletionHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockCompletionHelper.h; sourceTree = "<group>"; };
+		1315FE862C818327004011B7 /* MockConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockConfig.h; sourceTree = "<group>"; };
+		1315FE872C818327004011B7 /* MockDynamicCompletor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockDynamicCompletor.h; sourceTree = "<group>"; };
+		1315FE882C818327004011B7 /* MockFrontEnd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockFrontEnd.h; sourceTree = "<group>"; };
+		1315FE892C818327004011B7 /* MockInputSessionParameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockInputSessionParameter.h; sourceTree = "<group>"; };
+		1315FE8A2C818327004011B7 /* MockMessenger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockMessenger.h; sourceTree = "<group>"; };
 		13185CB42C5B57DF001CF24D /* BlacklistApps.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlacklistApps.h; sourceTree = "<group>"; };
 		13185CB52C5B57DF001CF24D /* BlacklistApps.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlacklistApps.m; sourceTree = "<group>"; };
 		13185CB62C5B57DF001CF24D /* DictionarySet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DictionarySet.h; sourceTree = "<group>"; };
@@ -632,16 +650,6 @@
 		1344F50F2C5B28FC00D8C850 /* SKKStateMachine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKStateMachine.h; sourceTree = "<group>"; };
 		1344F5102C5B28FC00D8C850 /* SKKStatePrimary-inl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SKKStatePrimary-inl.h"; sourceTree = "<group>"; };
 		1344F5112C5B28FC00D8C850 /* SKKStateRecursiveRegister-inl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SKKStateRecursiveRegister-inl.h"; sourceTree = "<group>"; };
-		1344F5192C5B28FC00D8C850 /* MockAnnotator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockAnnotator.h; sourceTree = "<group>"; };
-		1344F51A2C5B28FC00D8C850 /* MockCandidateWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockCandidateWindow.h; sourceTree = "<group>"; };
-		1344F51B2C5B28FC00D8C850 /* MockClipboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockClipboard.h; sourceTree = "<group>"; };
-		1344F51C2C5B28FC00D8C850 /* MockCompletionHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockCompletionHelper.h; sourceTree = "<group>"; };
-		1344F51D2C5B28FC00D8C850 /* MockConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockConfig.h; sourceTree = "<group>"; };
-		1344F51E2C5B28FC00D8C850 /* MockDynamicCompletor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockDynamicCompletor.h; sourceTree = "<group>"; };
-		1344F51F2C5B28FC00D8C850 /* MockFrontEnd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockFrontEnd.h; sourceTree = "<group>"; };
-		1344F5202C5B28FC00D8C850 /* MockInputSessionParameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockInputSessionParameter.h; sourceTree = "<group>"; };
-		1344F5212C5B28FC00D8C850 /* MockMessenger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockMessenger.h; sourceTree = "<group>"; };
-		1344F5222C5B28FC00D8C850 /* MockRegistrationObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockRegistrationObserver.h; sourceTree = "<group>"; };
 		1344F52B2C5B28FC00D8C850 /* SKKAutoUpdateDictionary_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKAutoUpdateDictionary_TEST.mm; sourceTree = "<group>"; };
 		1344F52C2C5B28FC00D8C850 /* SKKBackEnd_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKBackEnd_TEST.mm; sourceTree = "<group>"; };
 		1344F52D2C5B28FC00D8C850 /* SKKCandidate_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKCandidate_TEST.mm; sourceTree = "<group>"; };
@@ -1065,6 +1073,7 @@
 				13018B242C7696A40045FF13 /* AquaSKKTesting.h */,
 				13018B2F2C769D370045FF13 /* BundledServerConfiguration.swift */,
 				1338D5032C78C9AE0015DD86 /* Logger+Testing.swift */,
+				1315FE812C8182FA004011B7 /* Bridge */,
 			);
 			path = Testing;
 			sourceTree = "<group>";
@@ -1097,6 +1106,22 @@
 				1307C24D2C5B47DA00B089B6 /* SandboxTests.swift */,
 			);
 			path = PreferenceAppTests;
+			sourceTree = "<group>";
+		};
+		1315FE812C8182FA004011B7 /* Bridge */ = {
+			isa = PBXGroup;
+			children = (
+				1315FE822C818327004011B7 /* MockAnnotator.h */,
+				1315FE832C818327004011B7 /* MockCandidateWindow.h */,
+				1315FE842C818327004011B7 /* MockClipboard.h */,
+				1315FE852C818327004011B7 /* MockCompletionHelper.h */,
+				1315FE862C818327004011B7 /* MockConfig.h */,
+				1315FE872C818327004011B7 /* MockDynamicCompletor.h */,
+				1315FE882C818327004011B7 /* MockFrontEnd.h */,
+				1315FE892C818327004011B7 /* MockInputSessionParameter.h */,
+				1315FE8A2C818327004011B7 /* MockMessenger.h */,
+			);
+			path = Bridge;
 			sourceTree = "<group>";
 		};
 		13185CC12C5B57DF001CF24D /* preferences */ = {
@@ -1575,7 +1600,6 @@
 			children = (
 				13A685432C698312001BABA2 /* CoreTesting.swift */,
 				133A55212C5DB8430047E911 /* backend */,
-				13EDDCF42C5B3CD20062A0DA /* bridge */,
 				133A55202C5DB8390047E911 /* completer */,
 				133A551F2C5DB8240047E911 /* dictionary */,
 				1347782F2C5DB95A007B1DFB /* editor */,
@@ -2173,23 +2197,6 @@
 			path = Monitor;
 			sourceTree = "<group>";
 		};
-		13EDDCF42C5B3CD20062A0DA /* bridge */ = {
-			isa = PBXGroup;
-			children = (
-				1344F5192C5B28FC00D8C850 /* MockAnnotator.h */,
-				1344F51A2C5B28FC00D8C850 /* MockCandidateWindow.h */,
-				1344F51B2C5B28FC00D8C850 /* MockClipboard.h */,
-				1344F51C2C5B28FC00D8C850 /* MockCompletionHelper.h */,
-				1344F51D2C5B28FC00D8C850 /* MockConfig.h */,
-				1344F51E2C5B28FC00D8C850 /* MockDynamicCompletor.h */,
-				1344F51F2C5B28FC00D8C850 /* MockFrontEnd.h */,
-				1344F5202C5B28FC00D8C850 /* MockInputSessionParameter.h */,
-				1344F5212C5B28FC00D8C850 /* MockMessenger.h */,
-				1344F5222C5B28FC00D8C850 /* MockRegistrationObserver.h */,
-			);
-			path = bridge;
-			sourceTree = "<group>";
-		};
 		13F546EB2C681776007AE506 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -2220,6 +2227,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				13018B272C7696A40045FF13 /* AquaSKKTesting.h in Headers */,
+				1315FE8C2C81836F004011B7 /* MockAnnotator.h in Headers */,
+				1315FE8E2C818377004011B7 /* MockCompletionHelper.h in Headers */,
+				1315FE8F2C818377004011B7 /* MockFrontEnd.h in Headers */,
+				1315FE902C818377004011B7 /* MockConfig.h in Headers */,
+				1315FE912C818377004011B7 /* MockCandidateWindow.h in Headers */,
+				1315FE922C818377004011B7 /* MockDynamicCompletor.h in Headers */,
+				1315FE932C818377004011B7 /* MockClipboard.h in Headers */,
+				1315FE942C818377004011B7 /* MockInputSessionParameter.h in Headers */,
+				1315FE952C818377004011B7 /* MockMessenger.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
