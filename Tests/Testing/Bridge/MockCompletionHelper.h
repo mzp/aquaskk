@@ -4,32 +4,22 @@
 #define MockCompletionHelper_h
 
 #import <AquaSKKCore/SKKCompletionHelper.h>
+#include <vector>
 
 class MockCompletionHelper : public SKKCompletionHelper {
     std::vector<std::string> result_;
     std::string entry_;
 
 public:
-    void Initialize(const std::string &entry) {
-        entry_ = entry;
-        result_.clear();
-    }
+    void Initialize(const std::string &entry);
 
-    std::vector<std::string> &Result() {
-        return result_;
-    }
+    std::vector<std::string> &Result();
 
-    virtual const std::string &Entry() const {
-        return entry_;
-    }
+    const std::string &Entry() const;
 
-    virtual void Add(const std::string &completion) {
-        result_.push_back(completion);
-    }
+    void Add(const std::string &completion);
 
-    virtual bool CanContinue() const {
-        return true;
-    }
+    bool CanContinue() const;
 };
 
 #endif

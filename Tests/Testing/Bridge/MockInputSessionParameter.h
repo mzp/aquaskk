@@ -3,6 +3,7 @@
 #ifndef MockInputSessionParameter_h
 #define MockInputSessionParameter_h
 
+#import <AquaSKKCore/SKKInputSessionParameter.h>
 #import <AquaSKKTesting/MockAnnotator.h>
 #import <AquaSKKTesting/MockCandidateWindow.h>
 #import <AquaSKKTesting/MockClipboard.h>
@@ -10,7 +11,6 @@
 #import <AquaSKKTesting/MockDynamicCompletor.h>
 #import <AquaSKKTesting/MockFrontEnd.h>
 #import <AquaSKKTesting/MockMessenger.h>
-#import <AquaSKKCore/SKKInputSessionParameter.h>
 
 class MockInputSessionParameter : public SKKInputSessionParameter {
     MockConfig config_;
@@ -22,43 +22,19 @@ class MockInputSessionParameter : public SKKInputSessionParameter {
     MockDynamicCompletor completor_;
 
 public:
-    MockInputSessionParameter()
-        : frontend_(new MockFrontEnd()) {}
-
-    virtual SKKConfig *Config() {
-        return &config_;
-    }
-    virtual SKKFrontEnd *FrontEnd() {
-        return frontend_;
-    }
-    virtual SKKMessenger *Messenger() {
-        return &messenger_;
-    }
-    virtual SKKClipboard *Clipboard() {
-        return &clipboard_;
-    }
-    virtual SKKCandidateWindow *CandidateWindow() {
-        return &candidate_;
-    }
-    virtual SKKAnnotator *Annotator() {
-        return &annotator_;
-    }
-    virtual SKKDynamicCompletor *DynamicCompletor() {
-        return &completor_;
-    }
-
-    SKKInputModeListener *Listener() {
-        return frontend_;
-    }
-    TestResult &Result() {
-        return *frontend_;
-    }
-    void SetSelectedString(const std::string &str) {
-        frontend_->SetSelectedString(str);
-    }
-    void SetYankString(const std::string &str) {
-        clipboard_.SetString(str);
-    }
+    MockInputSessionParameter();
+    virtual SKKConfig *Config();
+    virtual SKKFrontEnd *FrontEnd();
+    virtual SKKMessenger *Messenger();
+    virtual SKKClipboard *Clipboard();
+    virtual SKKCandidateWindow *CandidateWindow();
+    virtual SKKAnnotator *Annotator();
+    virtual SKKDynamicCompletor *DynamicCompletor();
+    SKKInputModeListener *Listener();
+    TestResult &Result();
+    void SetSelectedString(const std::string &str);
+    void SetYankString(const std::string &str);
+    static SKKInputSessionParameter *newInstance();
 };
 
 #endif

@@ -6,6 +6,7 @@
 //
 
 import AquaSKKInput_Private
+import AquaSKKTesting
 import Foundation
 
 class Typer {
@@ -13,13 +14,14 @@ class Typer {
 
     class Session {
         private var client = MockTextInput()
+        let sessionParameter = MockInputSessionParameter.newInstance()
 
         @MainActor func run(perform: (Typer) async -> Void) async {
             // SKKInputControllerはMainThread以外からはさわれない
             // deinitもMainThreadで実行されるよう、このメソッドの外には出さない
             let controller = SKKInputController()
             defer { controller.deactivateServer(nil) }
-            controller._setClient(client)
+            controller._setClient(client, sessionParameter: sessionParameter)
             controller.activateServer(nil)
 
             let typer = Typer(controller: controller, client: client)

@@ -48,6 +48,17 @@
 		133E1FDE2C7951E900B1A03A /* SandboxedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133E1FDD2C7951E900B1A03A /* SandboxedTests.swift */; };
 		133E1FE22C79528E00B1A03A /* SandboxShims.h in Headers */ = {isa = PBXBuildFile; fileRef = 133E1FE02C79528E00B1A03A /* SandboxShims.h */; };
 		133E1FE32C79528E00B1A03A /* SandboxShims.m in Sources */ = {isa = PBXBuildFile; fileRef = 133E1FE12C79528E00B1A03A /* SandboxShims.m */; };
+		13415B1C2C82825A00ED9D0A /* TestResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5492C5B28FC00D8C850 /* TestResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		13415B222C82831800ED9D0A /* MockFrontEnd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13415B202C82831800ED9D0A /* MockFrontEnd.cpp */; };
+		13415B242C82840100ED9D0A /* MockAnnotator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13415B232C82840100ED9D0A /* MockAnnotator.cpp */; };
+		13415B262C82843500ED9D0A /* MockCandidateWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13415B252C82843500ED9D0A /* MockCandidateWindow.cpp */; };
+		13415B282C82849500ED9D0A /* MockClipboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13415B272C82849500ED9D0A /* MockClipboard.cpp */; };
+		13415B2A2C8284CF00ED9D0A /* MockCompletionHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13415B292C8284CF00ED9D0A /* MockCompletionHelper.cpp */; };
+		13415B2C2C82855400ED9D0A /* MockConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13415B2B2C82855400ED9D0A /* MockConfig.cpp */; };
+		13415B302C82859100ED9D0A /* MockDynamicCompletor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13415B2E2C82859100ED9D0A /* MockDynamicCompletor.cpp */; };
+		13415B322C8285CB00ED9D0A /* MockInputSessionParameter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13415B312C8285CB00ED9D0A /* MockInputSessionParameter.cpp */; };
+		13415B342C82863400ED9D0A /* MockMessenger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13415B332C82863400ED9D0A /* MockMessenger.cpp */; };
+		13415B362C82865500ED9D0A /* TestResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13415B352C82865500ED9D0A /* TestResult.cpp */; };
 		1344F55E2C5B28FC00D8C850 /* SKKProxyDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4C82C5B28FC00D8C850 /* SKKProxyDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F55F2C5B28FC00D8C850 /* SKKClipboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F49E2C5B28FC00D8C850 /* SKKClipboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5642C5B28FC00D8C850 /* SKKRegisterEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4DB2C5B28FC00D8C850 /* SKKRegisterEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -541,6 +552,16 @@
 		133E1FDD2C7951E900B1A03A /* SandboxedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxedTests.swift; sourceTree = "<group>"; };
 		133E1FE02C79528E00B1A03A /* SandboxShims.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SandboxShims.h; sourceTree = "<group>"; };
 		133E1FE12C79528E00B1A03A /* SandboxShims.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SandboxShims.m; sourceTree = "<group>"; };
+		13415B202C82831800ED9D0A /* MockFrontEnd.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MockFrontEnd.cpp; sourceTree = "<group>"; };
+		13415B232C82840100ED9D0A /* MockAnnotator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MockAnnotator.cpp; sourceTree = "<group>"; };
+		13415B252C82843500ED9D0A /* MockCandidateWindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MockCandidateWindow.cpp; sourceTree = "<group>"; };
+		13415B272C82849500ED9D0A /* MockClipboard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MockClipboard.cpp; sourceTree = "<group>"; };
+		13415B292C8284CF00ED9D0A /* MockCompletionHelper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MockCompletionHelper.cpp; sourceTree = "<group>"; };
+		13415B2B2C82855400ED9D0A /* MockConfig.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MockConfig.cpp; sourceTree = "<group>"; };
+		13415B2E2C82859100ED9D0A /* MockDynamicCompletor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MockDynamicCompletor.cpp; sourceTree = "<group>"; };
+		13415B312C8285CB00ED9D0A /* MockInputSessionParameter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MockInputSessionParameter.cpp; sourceTree = "<group>"; };
+		13415B332C82863400ED9D0A /* MockMessenger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MockMessenger.cpp; sourceTree = "<group>"; };
+		13415B352C82865500ED9D0A /* TestResult.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestResult.cpp; sourceTree = "<group>"; };
 		1344F4932C5A92D300D8C850 /* CalculatorTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTesting.swift; sourceTree = "<group>"; };
 		1344F49C2C5B28FC00D8C850 /* SKKAnnotator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKAnnotator.h; sourceTree = "<group>"; };
 		1344F49D2C5B28FC00D8C850 /* SKKCandidateWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKCandidateWindow.h; sourceTree = "<group>"; };
@@ -1112,14 +1133,25 @@
 			isa = PBXGroup;
 			children = (
 				1315FE822C818327004011B7 /* MockAnnotator.h */,
+				13415B232C82840100ED9D0A /* MockAnnotator.cpp */,
 				1315FE832C818327004011B7 /* MockCandidateWindow.h */,
+				13415B252C82843500ED9D0A /* MockCandidateWindow.cpp */,
 				1315FE842C818327004011B7 /* MockClipboard.h */,
+				13415B272C82849500ED9D0A /* MockClipboard.cpp */,
 				1315FE852C818327004011B7 /* MockCompletionHelper.h */,
+				13415B292C8284CF00ED9D0A /* MockCompletionHelper.cpp */,
 				1315FE862C818327004011B7 /* MockConfig.h */,
+				13415B2B2C82855400ED9D0A /* MockConfig.cpp */,
 				1315FE872C818327004011B7 /* MockDynamicCompletor.h */,
+				13415B2E2C82859100ED9D0A /* MockDynamicCompletor.cpp */,
 				1315FE882C818327004011B7 /* MockFrontEnd.h */,
+				13415B202C82831800ED9D0A /* MockFrontEnd.cpp */,
 				1315FE892C818327004011B7 /* MockInputSessionParameter.h */,
+				13415B312C8285CB00ED9D0A /* MockInputSessionParameter.cpp */,
 				1315FE8A2C818327004011B7 /* MockMessenger.h */,
+				13415B332C82863400ED9D0A /* MockMessenger.cpp */,
+				1344F5492C5B28FC00D8C850 /* TestResult.h */,
+				13415B352C82865500ED9D0A /* TestResult.cpp */,
 			);
 			path = Bridge;
 			sourceTree = "<group>";
@@ -1213,7 +1245,6 @@
 			children = (
 				1344F53A2C5B28FC00D8C850 /* SKKInputSession_TEST.mm */,
 				1344F5482C5B28FC00D8C850 /* TestEvent.h */,
-				1344F5492C5B28FC00D8C850 /* TestResult.h */,
 				1344F5472C5B28FC00D8C850 /* TestData.h */,
 			);
 			path = session;
@@ -2234,6 +2265,7 @@
 				1315FE912C818377004011B7 /* MockCandidateWindow.h in Headers */,
 				1315FE922C818377004011B7 /* MockDynamicCompletor.h in Headers */,
 				1315FE932C818377004011B7 /* MockClipboard.h in Headers */,
+				13415B1C2C82825A00ED9D0A /* TestResult.h in Headers */,
 				1315FE942C818377004011B7 /* MockInputSessionParameter.h in Headers */,
 				1315FE952C818377004011B7 /* MockMessenger.h in Headers */,
 			);
@@ -2692,6 +2724,7 @@
 				TargetAttributes = {
 					13018B212C7696A40045FF13 = {
 						CreatedOnToolsVersion = 16.0;
+						LastSwiftMigration = 1600;
 					};
 					1307C2382C5B47D800B089B6 = {
 						CreatedOnToolsVersion = 16.0;
@@ -2972,9 +3005,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13415B362C82865500ED9D0A /* TestResult.cpp in Sources */,
 				1338D5042C78C9AE0015DD86 /* Logger+Testing.swift in Sources */,
+				13415B342C82863400ED9D0A /* MockMessenger.cpp in Sources */,
+				13415B2C2C82855400ED9D0A /* MockConfig.cpp in Sources */,
+				13415B242C82840100ED9D0A /* MockAnnotator.cpp in Sources */,
 				13018B262C7696A40045FF13 /* AquaSKKTesting.docc in Sources */,
 				13018B302C769D370045FF13 /* BundledServerConfiguration.swift in Sources */,
+				13415B322C8285CB00ED9D0A /* MockInputSessionParameter.cpp in Sources */,
+				13415B302C82859100ED9D0A /* MockDynamicCompletor.cpp in Sources */,
+				13415B282C82849500ED9D0A /* MockClipboard.cpp in Sources */,
+				13415B2A2C8284CF00ED9D0A /* MockCompletionHelper.cpp in Sources */,
+				13415B222C82831800ED9D0A /* MockFrontEnd.cpp in Sources */,
+				13415B262C82843500ED9D0A /* MockCandidateWindow.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3272,6 +3315,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13018B2C2C7696B40045FF13 /* Framework-Testing.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -3279,6 +3326,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13018B2C2C7696B40045FF13 /* Framework-Testing.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 			};
 			name = Testing;
 		};
@@ -3286,6 +3337,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13018B2C2C7696B40045FF13 /* Framework-Testing.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};

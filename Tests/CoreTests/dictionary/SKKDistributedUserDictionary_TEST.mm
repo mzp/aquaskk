@@ -3,8 +3,8 @@
 #import <AquaSKKCore/socketutil.h>
 #import <XCTest/XCTest.h>
 
-#import <AquaSKKTesting/MockCompletionHelper.h>
 #include "stringutil.h"
+#import <AquaSKKTesting/MockCompletionHelper.h>
 
 @interface SKKDistributedUserDictionaryTests : XCTestCase
 @end

@@ -3,8 +3,8 @@
 #import <AquaSKKCore/SKKInputSession.h>
 #import <AquaSKKCore/SKKKeymap.h>
 
-#include <AquaSKKTesting/MockInputSessionParameter.h>
 #include "TestData.h"
+#include <AquaSKKTesting/MockInputSessionParameter.h>
 
 #import <XCTest/XCTest.h>
 #include <cassert>
