@@ -59,6 +59,7 @@
 		13415B322C8285CB00ED9D0A /* MockInputSessionParameter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13415B312C8285CB00ED9D0A /* MockInputSessionParameter.cpp */; };
 		13415B342C82863400ED9D0A /* MockMessenger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13415B332C82863400ED9D0A /* MockMessenger.cpp */; };
 		13415B362C82865500ED9D0A /* TestResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13415B352C82865500ED9D0A /* TestResult.cpp */; };
+		13415B3A2C82893400ED9D0A /* TyperInputSessionParameter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13415B392C82893400ED9D0A /* TyperInputSessionParameter.mm */; };
 		1344F55E2C5B28FC00D8C850 /* SKKProxyDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4C82C5B28FC00D8C850 /* SKKProxyDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F55F2C5B28FC00D8C850 /* SKKClipboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F49E2C5B28FC00D8C850 /* SKKClipboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5642C5B28FC00D8C850 /* SKKRegisterEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4DB2C5B28FC00D8C850 /* SKKRegisterEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -562,6 +563,9 @@
 		13415B312C8285CB00ED9D0A /* MockInputSessionParameter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MockInputSessionParameter.cpp; sourceTree = "<group>"; };
 		13415B332C82863400ED9D0A /* MockMessenger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MockMessenger.cpp; sourceTree = "<group>"; };
 		13415B352C82865500ED9D0A /* TestResult.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestResult.cpp; sourceTree = "<group>"; };
+		13415B382C82893400ED9D0A /* TyperInputSessionParameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TyperInputSessionParameter.h; sourceTree = "<group>"; };
+		13415B392C82893400ED9D0A /* TyperInputSessionParameter.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TyperInputSessionParameter.mm; sourceTree = "<group>"; };
+		13415B3D2C828E1900ED9D0A /* ObjC-BridgeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjC-BridgeHeader.h"; sourceTree = "<group>"; };
 		1344F4932C5A92D300D8C850 /* CalculatorTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTesting.swift; sourceTree = "<group>"; };
 		1344F49C2C5B28FC00D8C850 /* SKKAnnotator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKAnnotator.h; sourceTree = "<group>"; };
 		1344F49D2C5B28FC00D8C850 /* SKKCandidateWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKCandidateWindow.h; sourceTree = "<group>"; };
@@ -1253,11 +1257,13 @@
 		133834E22C60203900D73AD7 /* TyperTests */ = {
 			isa = PBXGroup;
 			children = (
+				13415B372C82892900ED9D0A /* Session */,
 				135EEBA02C5EEA5100758672 /* Typer */,
 				135C3D652C5B3E9D00661AE3 /* InputTests.swift */,
 				1393E3302C6B201500F1E633 /* JisyoTests.swift */,
 				13B7BE982C5F282D00F6BEF8 /* ModeTests.swift */,
 				133E1FDD2C7951E900B1A03A /* SandboxedTests.swift */,
+				13415B3D2C828E1900ED9D0A /* ObjC-BridgeHeader.h */,
 			);
 			path = TyperTests;
 			sourceTree = "<group>";
@@ -1329,6 +1335,15 @@
 				1344F5382C5B28FC00D8C850 /* SKKInlineSelector_TEST.mm */,
 			);
 			path = selector;
+			sourceTree = "<group>";
+		};
+		13415B372C82892900ED9D0A /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				13415B382C82893400ED9D0A /* TyperInputSessionParameter.h */,
+				13415B392C82893400ED9D0A /* TyperInputSessionParameter.mm */,
+			);
+			path = Session;
 			sourceTree = "<group>";
 		};
 		1344F4972C5B27DB00D8C850 /* xcconfig */ = {
@@ -3064,6 +3079,7 @@
 				133834F32C6020CB00D73AD7 /* InputTests.swift in Sources */,
 				133E1FDE2C7951E900B1A03A /* SandboxedTests.swift in Sources */,
 				133834F42C6020CB00D73AD7 /* MockTextInput.swift in Sources */,
+				13415B3A2C82893400ED9D0A /* TyperInputSessionParameter.mm in Sources */,
 				1393E3462C6B89B100F1E633 /* SendableText.swift in Sources */,
 				133834F52C6020CB00D73AD7 /* Typer.swift in Sources */,
 				1393E3312C6B201500F1E633 /* JisyoTests.swift in Sources */,
@@ -3379,7 +3395,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 133834EC2C60204900D73AD7 /* Tests-Typer.xcconfig */;
 			buildSettings = {
+				SWIFT_INSTALL_MODULE = NO;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Harness.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Harness";
+				_EXPERIMENTAL_SWIFT_EXPLICIT_MODULES = NO;
 			};
 			name = Debug;
 		};
@@ -3387,7 +3405,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 133834EC2C60204900D73AD7 /* Tests-Typer.xcconfig */;
 			buildSettings = {
+				SWIFT_INSTALL_MODULE = NO;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Harness.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Harness";
+				_EXPERIMENTAL_SWIFT_EXPLICIT_MODULES = NO;
 			};
 			name = Testing;
 		};
@@ -3395,7 +3415,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 133834EC2C60204900D73AD7 /* Tests-Typer.xcconfig */;
 			buildSettings = {
+				SWIFT_INSTALL_MODULE = NO;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Harness.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Harness";
+				_EXPERIMENTAL_SWIFT_EXPLICIT_MODULES = NO;
 			};
 			name = Release;
 		};
