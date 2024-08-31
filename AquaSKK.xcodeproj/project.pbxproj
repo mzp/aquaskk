@@ -1103,7 +1103,7 @@
 				13018B2F2C769D370045FF13 /* BundledServerConfiguration.swift */,
 				1338D5032C78C9AE0015DD86 /* Logger+Testing.swift */,
 				13415B372C82892900ED9D0A /* TyperSupports */,
-				1315FE812C8182FA004011B7 /* Mock */,
+				1315FE812C8182FA004011B7 /* Session */,
 			);
 			path = Testing;
 			sourceTree = "<group>";
@@ -1138,7 +1138,7 @@
 			path = PreferenceAppTests;
 			sourceTree = "<group>";
 		};
-		1315FE812C8182FA004011B7 /* Mock */ = {
+		1315FE812C8182FA004011B7 /* Session */ = {
 			isa = PBXGroup;
 			children = (
 				1315FE822C818327004011B7 /* MockAnnotator.h */,
@@ -1162,7 +1162,7 @@
 				1344F5492C5B28FC00D8C850 /* TestResult.h */,
 				13415B352C82865500ED9D0A /* TestResult.cpp */,
 			);
-			path = Mock;
+			path = Session;
 			sourceTree = "<group>";
 		};
 		13185CC12C5B57DF001CF24D /* preferences */ = {
