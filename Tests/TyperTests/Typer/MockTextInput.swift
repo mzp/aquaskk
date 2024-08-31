@@ -5,12 +5,12 @@
 //  Created by mzp on 8/3/24.
 //
 
+import AquaSKKTesting
 import Foundation
 import InputMethodKit
 
 class MockTextInput: NSObject {
     var text = SendableText()
-
     var _selectedRange: NSRange = .init(location: 0, length: 0)
     var _markedRange: NSRange = .init(location: 0, length: 0)
 }

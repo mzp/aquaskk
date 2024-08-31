@@ -5,8 +5,8 @@
 #import <AquaSKKCore/SKKSelector.h>
 #include <cassert>
 
-#include "MockCandidateWindow.h"
-#include "MockFrontEnd.h"
+#import <AquaSKKTesting/MockCandidateWindow.h>
+#import <AquaSKKTesting/MockFrontEnd.h>
 #import <XCTest/XCTest.h>
 
 @interface SKKSelectorTests : XCTestCase

@@ -79,8 +79,22 @@ static os_log_t appLog(void) {
     proxy_ = [[SKKServerProxy alloc] init];
     menu_ = [[SKKInputMenu alloc] initWithClient:client];
 
-    layout_ = new SKKLayoutManager(client_);
     session_ = new SKKInputSession(new MacInputSessionParameter(client_, layout_));
+    modeIcon_ = new MacInputModeWindow(layout_);
+
+    session_->AddInputModeListener(new MacInputModeMenu(menu_));
+    session_->AddInputModeListener(modeIcon_);
+}
+
+- (void)_setClient:(id)client sessionParameter:(SKKInputSessionParameter *)parameter {
+    client_ = [client retain];
+    context_ = [[NSTextInputContext alloc] initWithClient:client];
+    activated_ = NO;
+    proxy_ = [[SKKServerProxy alloc] init];
+    menu_ = [[SKKInputMenu alloc] initWithClient:client];
+
+    layout_ = new SKKLayoutManager(client_);
+    session_ = new SKKInputSession(parameter);
     modeIcon_ = new MacInputModeWindow(layout_);
 
     session_->AddInputModeListener(new MacInputModeMenu(menu_));

@@ -4,7 +4,7 @@
 
 #import <XCTest/XCTest.h>
 
-#include "MockCompletionHelper.h"
+#import <AquaSKKTesting/MockCompletionHelper.h>
 
 @interface SKKUserDictionaryTests : XCTestCase
 @end

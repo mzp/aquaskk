@@ -16,13 +16,25 @@ struct JisyoTests {
             #expect(typer.insertedText == "")
 
             await typer.type(text: " ")
-
+            let candidates = typer.candidates
             #expect(typer.markedText == "▼今日")
             #expect(typer.insertedText == "")
+            #expect(candidates.contains("橋") == true)
+            #expect(!candidates.isEmpty)
 
             await typer.type(text: "\n")
             #expect(typer.markedText == "")
             #expect(typer.insertedText == "今日")
+        }
+    }
+
+    @Test func yank() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            typer.set(pasteString: "HELLO")
+            await typer.type(text: "/hello ")
+            await typer.type(text: "y", modifiers: [.control])
+            #expect(typer.markedText == "[登録：hello]HELLO")
         }
     }
 }

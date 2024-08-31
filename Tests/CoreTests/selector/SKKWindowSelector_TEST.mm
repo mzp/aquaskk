@@ -2,7 +2,7 @@
 #import <AquaSKKCore/SKKWindowSelector.h>
 #include <cassert>
 
-#include "MockCandidateWindow.h"
+#import <AquaSKKTesting/MockCandidateWindow.h>
 
 #import <XCTest/XCTest.h>
 
