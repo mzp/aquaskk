@@ -35,4 +35,19 @@
     clipboard->SetString(std::string([pasteString UTF8String]));
 }
 
+- (NSArray<NSString *> *)candidates {
+    MockCandidateWindow *candidateWindow =
+        dynamic_cast<MockCandidateWindow *>(inputSessionParameter_->CandidateWindow());
+
+    NSMutableArray<NSString *> *result = [NSMutableArray array];
+
+    auto container = candidateWindow->Container();
+    std::for_each(container.begin(), container.end(), [result](const SKKCandidate &candidate) {
+        std::string variant = candidate.Variant();
+        [result addObject:[NSString stringWithUTF8String:variant.c_str()]];
+    });
+
+    return result;
+}
+
 @end

@@ -90,4 +90,8 @@ class Typer {
     func set(pasteString: String) {
         inputSession.set(pasteString: pasteString)
     }
+
+    var candidates: [String] {
+        inputSession.candidates
+    }
 }

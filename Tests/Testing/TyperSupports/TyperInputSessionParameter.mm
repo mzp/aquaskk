@@ -6,6 +6,7 @@
 //
 
 #include "TyperInputSessionParameter.h"
+
 #import <AquaSKKInput/MacAnnotator.h>
 #import <AquaSKKInput/MacCandidateWindow.h>
 #import <AquaSKKInput/MacClipboard.h>
@@ -13,7 +14,6 @@
 #import <AquaSKKInput/MacDynamicCompletor.h>
 #import <AquaSKKInput/MacFrontEnd.h>
 #import <AquaSKKInput/MacMessenger.h>
-
 #import <AquaSKKTesting/MockAnnotator.h>
 #import <AquaSKKTesting/MockCandidateWindow.h>
 #import <AquaSKKTesting/MockClipboard.h>

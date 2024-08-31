@@ -15,6 +15,9 @@ void MockCandidateWindow::Setup(SKKCandidateIterator begin, SKKCandidateIterator
 #pragma clang diagnostic ignored "-Wshorten-64-to-32"
     pages.push_back(end - begin);
 #pragma clang diagnostic pop
+
+    container_.clear();
+    std::copy(begin, end, std::back_inserter(container_));
 }
 
 void MockCandidateWindow::Update(

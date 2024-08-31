@@ -5,9 +5,10 @@
 //  Created by mzp on 8/30/24.
 //
 
+#import <Foundation/Foundation.h>
+
 #import <AquaSKKInput/SKKInputController.h>
 #import <AquaSKKTesting/TyperInputSessionParameter.h>
-#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
     TyperInputSessionParameter *inputSessionParameter_;
     id client_;
 }
+
+@property(nonatomic, readonly) NSArray<NSString *> *candidates;
 
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithClient:(id)client NS_DESIGNATED_INITIALIZER;
