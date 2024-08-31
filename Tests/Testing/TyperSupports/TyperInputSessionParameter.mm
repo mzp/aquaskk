@@ -16,6 +16,7 @@
 
 #import <AquaSKKTesting/MockAnnotator.h>
 #import <AquaSKKTesting/MockCandidateWindow.h>
+#import <AquaSKKTesting/MockClipboard.h>
 #import <AquaSKKTesting/MockDynamicCompletor.h>
 #import <AquaSKKTesting/MockMessenger.h>
 
@@ -23,7 +24,7 @@ TyperInputSessionParameter::TyperInputSessionParameter(id client)
     : config_(new MacConfig()),
       frontend_(new MacFrontEnd(client)),
       messenger_(new MockMessenger()),
-      clipboard_(new MacClipboard()),
+      clipboard_(new MockClipboard()),
       candidateWindow_(new MockCandidateWindow()),
       annotator_(new MockAnnotator()),
       completor_(new MockDynamicCompletor()) {}
@@ -54,11 +55,4 @@ SKKAnnotator *TyperInputSessionParameter::Annotator() {
 
 SKKDynamicCompletor *TyperInputSessionParameter::DynamicCompletor() {
     return completor_.get();
-}
-
-TyperInputSessionParameter *TyperInputSessionParameter::newInstance(id client) {
-    return new TyperInputSessionParameter(client);
-}
-SKKInputSessionParameter *TyperInputSessionParameter::staticCast() {
-    return static_cast<SKKInputSessionParameter *>(this);
 }

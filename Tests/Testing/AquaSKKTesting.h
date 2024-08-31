@@ -22,3 +22,6 @@ FOUNDATION_EXPORT const unsigned char AquaSKKTestingVersionString[];
 #import <AquaSKKTesting/MockFrontEnd.h>
 #import <AquaSKKTesting/MockInputSessionParameter.h>
 #import <AquaSKKTesting/MockMessenger.h>
+
+#import <AquaSKKTesting/AITInputSession.h>
+#import <AquaSKKTesting/TyperInputSessionParameter.h>

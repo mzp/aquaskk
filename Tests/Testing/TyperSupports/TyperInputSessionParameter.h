@@ -8,8 +8,16 @@
 #ifndef TyperInputSessionParameter_hpp
 #define TyperInputSessionParameter_hpp
 
-#import <AquaSKKCore/SKKInputSessionParameter.h>
 #include <memory>
+
+#import <AquaSKKCore/SKKAnnotator.h>
+#import <AquaSKKCore/SKKCandidateWindow.h>
+#import <AquaSKKCore/SKKClipboard.h>
+#import <AquaSKKCore/SKKConfig.h>
+#import <AquaSKKCore/SKKDynamicCompletor.h>
+#import <AquaSKKCore/SKKFrontEnd.h>
+#import <AquaSKKCore/SKKInputSessionParameter.h>
+#import <AquaSKKCore/SKKMessenger.h>
 
 class TyperInputSessionParameter : public SKKInputSessionParameter {
     std::unique_ptr<SKKConfig> config_;
@@ -30,9 +38,6 @@ public:
     virtual SKKCandidateWindow *CandidateWindow();
     virtual SKKAnnotator *Annotator();
     virtual SKKDynamicCompletor *DynamicCompletor();
-
-    static TyperInputSessionParameter *newInstance(id client);
-    SKKInputSessionParameter *staticCast();
 };
 
 #endif /* TyperInputSessionParameter_hpp */

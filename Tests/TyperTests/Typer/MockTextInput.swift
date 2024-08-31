@@ -11,14 +11,8 @@ import InputMethodKit
 
 class MockTextInput: NSObject {
     var text = SendableText()
-    let sessionParameter = MockInputSessionParameter.newInstance()
     var _selectedRange: NSRange = .init(location: 0, length: 0)
     var _markedRange: NSRange = .init(location: 0, length: 0)
-
-    override init() {
-        super.init()
-
-    }
 }
 
 extension MockTextInput: IMKTextInput {
