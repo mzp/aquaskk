@@ -20,10 +20,10 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 */
+#import "skkserv.h"
 
-#include "jconv.h"
 #import <AquaSKKCore/SKKBackEnd.h>
-#import <AquaSKKCore/skkserv.h>
+#import <AquaSKKCore/SKKEncoding.h>
 #include <cctype>
 #include <iostream>
 #include <string>
@@ -114,7 +114,7 @@ void *skkserv::worker(void *arg) {
             session >> word;
             session.get();
 
-            std::string key = jconv::utf8_from_eucj(word);
+            std::string key = SKKEncoding::utf8_from_eucj(word);
             SKKEntry entry;
             SKKCandidateSuite result;
 
@@ -126,7 +126,7 @@ void *skkserv::worker(void *arg) {
             }
 
             SKKBackEnd::theInstance().Find(entry, result);
-            std::string candidates = jconv::eucj_from_utf8(result.ToString(true));
+            std::string candidates = SKKEncoding::eucj_from_utf8(result.ToString(true));
             if(!candidates.empty()) {
                 session << '1' << candidates << std::endl;
             } else {
