@@ -25,3 +25,5 @@ FOUNDATION_EXPORT const unsigned char AquaSKKTestingVersionString[];
 
 #import <AquaSKKTesting/AITInputSession.h>
 #import <AquaSKKTesting/TyperInputSessionParameter.h>
+
+#import <AquaSKKTesting/jconv.h>

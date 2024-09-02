@@ -21,8 +21,8 @@
 */
 
 #include "SKKRomanKanaConverter.h"
-#include "jconv.h"
 #import <AquaSKKCore/SKKInputQueue.h>
+#import <AquaSKKCore/SKKTransliterate.h>
 #include <cassert>
 
 SKKInputQueue::SKKInputQueue(SKKInputQueueObserver *observer)
@@ -120,7 +120,7 @@ SKKInputQueueObserver::State SKKInputQueue::convert(char code, bool direct) {
         case SKKInputMode::Jisx0208LatinInputMode:
             // ASCII → 全角英数変換
             queue_ += code;
-            jconv::ascii_to_jisx0208_latin(queue_, result.output);
+            SKKTransliterate::ascii_to_jisx0208_latin(queue_, result.output);
             queue_.clear();
             break;
 

@@ -20,9 +20,11 @@
 
 */
 
-#include "jconv.h"
-#import <AquaSKKCore/SKKProxyDictionary.h>
+#import "SKKProxyDictionary.h"
+
 #include <sstream>
+
+#include "SKKEncoding.h"
 
 SKKProxyDictionary::SKKProxyDictionary()
     : active_(false) {}
@@ -61,7 +63,7 @@ bool SKKProxyDictionary::connect() {
 }
 
 bool SKKProxyDictionary::send(const SKKEntry &entry) {
-    session_ << '1' << jconv::eucj_from_utf8(entry.EntryString()) << ' ' << std::flush;
+    session_ << '1' << SKKEncoding::eucj_from_utf8(entry.EntryString()) << ' ' << std::flush;
 
     return (bool)session_;
 }
@@ -83,7 +85,7 @@ void SKKProxyDictionary::recv(SKKCandidateSuite &result) {
         return;
     }
 
-    SKKCandidateSuite suite(jconv::utf8_from_eucj(response.substr(1)));
+    SKKCandidateSuite suite(SKKEncoding::utf8_from_eucj(response.substr(1)));
 
     result.Add(suite);
 }

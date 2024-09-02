@@ -1,5 +1,6 @@
-#include "jconv.h"
+
 #import <AquaSKKCore/SKKCommonDictionary.h>
+#import <AquaSKKCore/SKKEncoding.h>
 #import <AquaSKKCore/SKKProxyDictionary.h>
 #import <XCTest/XCTest.h>
 #include <cassert>
@@ -24,7 +25,7 @@ void session(int fd, SKKCommonDictionary &dict) {
             sock >> word;
             sock.get();
 
-            jconv::convert_eucj_to_utf8(word, key);
+            SKKEncoding::convert_eucj_to_utf8(word, key);
 
             SKKCandidateSuite result;
             SKKEntry entry(key);
@@ -39,7 +40,7 @@ void session(int fd, SKKCommonDictionary &dict) {
             // 見つかった？
             if(!result.IsEmpty()) {
                 std::string candidates;
-                jconv::convert_utf8_to_eucj(result.ToString(), candidates);
+                SKKEncoding::convert_utf8_to_eucj(result.ToString(), candidates);
                 sock << '1' << candidates << std::endl;
             } else {
                 sock << '4' << word << std::endl;

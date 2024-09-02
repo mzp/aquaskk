@@ -20,10 +20,11 @@
 
 */
 
-#include "jconv.h"
+#import "AquaSKKCore/SKKDictionaryKeeper.h"
+
 #include "utf8util.h"
 #import <AquaSKKCore/SKKCandidateParser.h>
-#import <AquaSKKCore/SKKDictionaryKeeper.h>
+#import <AquaSKKCore/SKKEncoding.h>
 
 namespace {
     // 見出し語補完用比較ファンクタ
@@ -177,7 +178,7 @@ bool SKKDictionaryKeeper::ready() {
 
 std::string SKKDictionaryKeeper::eucj_from_utf8(const std::string &src) {
     if(needs_conversion_) {
-        return jconv::eucj_from_utf8(src);
+        return SKKEncoding::eucj_from_utf8(src);
     }
 
     return src;
@@ -185,7 +186,7 @@ std::string SKKDictionaryKeeper::eucj_from_utf8(const std::string &src) {
 
 std::string SKKDictionaryKeeper::utf8_from_eucj(const std::string &src) {
     if(needs_conversion_) {
-        return jconv::utf8_from_eucj(src);
+        return SKKEncoding::utf8_from_eucj(src);
     }
 
     return src;
