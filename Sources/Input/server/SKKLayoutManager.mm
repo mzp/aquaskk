@@ -20,11 +20,11 @@
 
 */
 
+#include <InputMethodKit/InputMethodKit.h>
 #import <AquaSKKInput/SKKLayoutManager.h>
 #import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKUI/AnnotationWindow.h>
 #import <AquaSKKUI/CandidateWindow.h>
-#include <InputMethodKit/InputMethodKit.h>
 
 SKKLayoutManager::SKKLayoutManager(id client)
     : client_(client) {}

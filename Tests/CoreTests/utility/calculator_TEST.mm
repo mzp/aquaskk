@@ -1,10 +1,7 @@
-#import <XCTest/XCTest.h>
-
-#include "calculator.h"
 #include <cassert>
 #include <iostream>
-
 #import <XCTest/XCTest.h>
+#include "calculator.h"
 
 @interface CalculatorTests : XCTestCase
 @end

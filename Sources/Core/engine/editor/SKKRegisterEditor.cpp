@@ -20,8 +20,8 @@
 
 */
 
+#import "SKKRegisterEditor.h"
 #import <AquaSKKCore/SKKInputContext.h>
-#import <AquaSKKCore/SKKRegisterEditor.h>
 
 SKKRegisterEditor::SKKRegisterEditor(SKKInputContext *context)
     : SKKBaseEditor(context), entry_(context->entry) {

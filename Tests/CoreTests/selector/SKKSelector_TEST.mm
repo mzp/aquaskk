@@ -1,13 +1,12 @@
+#include <cassert>
+#import <XCTest/XCTest.h>
 #import <AquaSKKCore/SKKBackEnd.h>
 #import <AquaSKKCore/SKKCandidateWindow.h>
 #import <AquaSKKCore/SKKCommonDictionary.h>
 #import <AquaSKKCore/SKKDictionaryFactory.h>
 #import <AquaSKKCore/SKKSelector.h>
-#include <cassert>
-
 #import <AquaSKKTesting/MockCandidateWindow.h>
 #import <AquaSKKTesting/MockFrontEnd.h>
-#import <XCTest/XCTest.h>
 
 @interface SKKSelectorTests : XCTestCase
 @end

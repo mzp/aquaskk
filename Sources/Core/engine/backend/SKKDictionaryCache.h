@@ -23,8 +23,8 @@
 #ifndef SKKDictionaryCache_h
 #define SKKDictionaryCache_h
 
-#import <AquaSKKCore/SKKDictionaryKey.h>
 #include <map>
+#import <AquaSKKCore/SKKDictionaryKey.h>
 
 class SKKBaseDictionary;
 

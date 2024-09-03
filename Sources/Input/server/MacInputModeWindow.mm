@@ -20,13 +20,13 @@
 
 */
 
+#include <iostream>
+#include <vector>
 #import <AquaSKKCore/SKKFrontEnd.h>
 #import <AquaSKKInput/MacInputModeWindow.h>
 #import <AquaSKKInput/SKKLayoutManager.h>
 #import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKUI/InputModeWindow.h>
-#include <iostream>
-#include <vector>
 
 // MacInputModeWindow::Activate() から呼ばれるユーティリティ群
 namespace {

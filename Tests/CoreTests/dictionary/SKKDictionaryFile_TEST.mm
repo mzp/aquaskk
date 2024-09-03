@@ -1,7 +1,6 @@
-#import <AquaSKKCore/SKKDictionaryFile.h>
 #include <cassert>
-
 #import <XCTest/XCTest.h>
+#import <AquaSKKCore/SKKDictionaryFile.h>
 
 @interface SKKDictionaryFileTests : XCTestCase
 @end

@@ -6,7 +6,6 @@
 //
 
 #import "AITInputSession.h"
-
 #import <AquaSKKInput/SKKInputController_Private.h>
 #import <AquaSKKTesting/MockAnnotator.h>
 #import <AquaSKKTesting/MockCandidateWindow.h>

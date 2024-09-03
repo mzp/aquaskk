@@ -20,12 +20,12 @@
 
 */
 
-#import <AquaSKKCore/SKKKeyState.h>
-#import <AquaSKKInput/SKKPreProcessor.h>
 #include <cassert>
 #include <cctype>
 #include <fstream>
 #include <iostream>
+#import <AquaSKKCore/SKKKeyState.h>
+#import <AquaSKKInput/SKKPreProcessor.h>
 
 SKKPreProcessor::SKKPreProcessor() {}
 

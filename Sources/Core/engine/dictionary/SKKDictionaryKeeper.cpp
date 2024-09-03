@@ -21,10 +21,9 @@
 */
 
 #import "AquaSKKCore/SKKDictionaryKeeper.h"
-
-#include "utf8util.h"
 #import <AquaSKKCore/SKKCandidateParser.h>
 #import <AquaSKKCore/SKKEncoding.h>
+#import <AquaSKKCore/utf8util.h>
 
 namespace {
     // 見出し語補完用比較ファンクタ

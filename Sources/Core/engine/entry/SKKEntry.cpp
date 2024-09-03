@@ -21,7 +21,6 @@
 */
 
 #import "SKKEntry.h"
-
 #import <AquaSKKCore/SKKTransliterate.h>
 
 SKKEntry::SKKEntry() {}

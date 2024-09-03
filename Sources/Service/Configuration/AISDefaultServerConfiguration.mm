@@ -6,8 +6,8 @@
 //
 
 #import "AISDefaultServerConfiguration.h"
-#import <AquaSKKService/SKKConstVars.h>
 #import <os/log.h>
+#import <AquaSKKService/SKKConstVars.h>
 
 // FIXME: /Library/Input Methods/AquaSKK.appとしてインストールしないと動作しない
 @implementation AISDefaultServerConfiguration

@@ -3,8 +3,8 @@
 #ifndef MockCompletionHelper_h
 #define MockCompletionHelper_h
 
-#import <AquaSKKCore/SKKCompletionHelper.h>
 #include <vector>
+#import <AquaSKKCore/SKKCompletionHelper.h>
 
 class MockCompletionHelper : public SKKCompletionHelper {
     std::vector<std::string> result_;

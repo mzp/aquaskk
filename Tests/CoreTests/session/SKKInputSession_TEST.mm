@@ -1,16 +1,14 @@
-#include "SKKRomanKanaConverter.h"
-#import <AquaSKKCore/SKKBackEnd.h>
-#import <AquaSKKCore/SKKInputSession.h>
-#import <AquaSKKCore/SKKKeymap.h>
-
-#include "TestData.h"
-#include <AquaSKKTesting/MockInputSessionParameter.h>
-
-#import <XCTest/XCTest.h>
 #include <cassert>
 #include <fstream>
 #include <ios>
 #include <iostream>
+#import <XCTest/XCTest.h>
+#import <AquaSKKCore/SKKBackEnd.h>
+#import <AquaSKKCore/SKKInputSession.h>
+#import <AquaSKKCore/SKKKeymap.h>
+#include <AquaSKKTesting/MockInputSessionParameter.h>
+#include "SKKRomanKanaConverter.h"
+#include "TestData.h"
 
 @interface SKKInputSessionTests : XCTestCase
 @end

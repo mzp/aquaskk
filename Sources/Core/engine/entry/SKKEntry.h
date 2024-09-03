@@ -23,8 +23,8 @@
 #ifndef SKKEntry_h
 #define SKKEntry_h
 
-#import <AquaSKKCore/SKKInputMode.h>
 #include <string>
+#import <AquaSKKCore/SKKInputMode.h>
 
 // 見出し語
 class SKKEntry {

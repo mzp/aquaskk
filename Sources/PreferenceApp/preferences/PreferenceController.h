@@ -23,7 +23,7 @@
 #ifndef PreferenceController_h
 #define PreferenceController_h
 
-#include <Cocoa/Cocoa.h>
+#import <Cocoa/Cocoa.h>
 
 @class SKKServerProxy;
 

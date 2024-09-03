@@ -20,9 +20,9 @@
 
 */
 
-#include "SKKFrontEnd.h"
+#import "SKKInputSession.h"
 #import <AquaSKKCore/SKKBackEnd.h>
-#import <AquaSKKCore/SKKInputSession.h>
+#import <AquaSKKCore/SKKFrontEnd.h>
 #import <AquaSKKCore/SKKPrimaryEditor.h>
 #import <AquaSKKCore/SKKRecursiveEditor.h>
 #import <AquaSKKCore/SKKRegisterEditor.h>

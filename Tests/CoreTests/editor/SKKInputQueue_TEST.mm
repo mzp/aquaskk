@@ -1,8 +1,8 @@
-#include "SKKRomanKanaConverter.h"
-#import <AquaSKKCore/SKKInputQueue.h>
-#import <XCTest/XCTest.h>
 #include <cassert>
 #include <iostream>
+#import <XCTest/XCTest.h>
+#import <AquaSKKCore/SKKInputQueue.h>
+#include "SKKRomanKanaConverter.h"
 
 @interface SKKInputQueueTests : XCTestCase
 @end

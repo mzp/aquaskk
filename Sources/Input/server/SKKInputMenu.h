@@ -23,8 +23,8 @@
 #ifndef SKKInputMenu_h
 #define SKKInputMenu_h
 
-#import <AquaSKKCore/SKKInputMode.h>
 #include <InputMethodKit/InputMethodKit.h>
+#import <AquaSKKCore/SKKInputMode.h>
 
 @interface SKKInputMenu : NSObject {
     id client_;

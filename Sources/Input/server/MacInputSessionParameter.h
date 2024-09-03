@@ -23,9 +23,9 @@
 #ifndef MacInputSessionParameter_h
 #define MacInputSessionParameter_h
 
+#include <memory>
 #import <AquaSKKCore/SKKInputSessionParameter.h>
 #import <AquaSKKInput/SKKLayoutManager.h>
-#include <memory>
 
 class MacInputSessionParameter : public SKKInputSessionParameter {
     std::unique_ptr<SKKConfig> config_;

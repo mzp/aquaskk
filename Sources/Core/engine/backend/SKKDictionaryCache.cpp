@@ -20,8 +20,8 @@
 
 */
 
+#import "SKKDictionaryCache.h"
 #import <AquaSKKCore/SKKBaseDictionary.h>
-#import <AquaSKKCore/SKKDictionaryCache.h>
 #import <AquaSKKCore/SKKDictionaryFactory.h>
 
 namespace {

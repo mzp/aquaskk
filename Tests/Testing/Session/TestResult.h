@@ -3,9 +3,9 @@
 #ifndef TestResult_h
 #define TestResult_h
 
-#import <AquaSKKCore/SKKInputMode.h>
 #include <iostream>
 #include <string>
+#import <AquaSKKCore/SKKInputMode.h>
 
 // SKKInputSession テスト用のテスト結果
 struct TestResult {

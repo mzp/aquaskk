@@ -20,7 +20,7 @@
 
 */
 
-#include <AquaSKKService/SubRuleDescriptions.h>
+#include "SubRuleDescriptions.h"
 #include <fstream>
 #include <iostream>
 #include <sstream>

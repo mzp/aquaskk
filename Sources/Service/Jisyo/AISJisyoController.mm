@@ -6,11 +6,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <os/log.h>
 #import <AquaSKKService/AISJisyo.h>
 #import <AquaSKKService/AISJisyoController.h>
 #import <AquaSKKService/SKKConstVars.h>
-#import <os/log.h>
 
 namespace {
     // 順番の入れ替えは禁止(追加のみ)

@@ -20,10 +20,7 @@
 
 */
 
-#include <signal.h>
-
 #import <os/log.h>
-
 #import <AquaSKKCore/SKKAutoUpdateDictionary.h>
 #import <AquaSKKCore/SKKBackEnd.h>
 #import <AquaSKKCore/SKKCommonDictionary.h>
@@ -41,6 +38,7 @@
 #import <AquaSKKService/AISDefaultServerConfiguration.h>
 #import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKUI/InputModeWindow.h>
+#include <signal.h>
 
 static os_log_t appLog(void) {
     static os_log_t _serviceLog;

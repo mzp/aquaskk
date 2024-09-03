@@ -9,7 +9,6 @@
 #define TyperInputSessionParameter_hpp
 
 #include <memory>
-
 #import <AquaSKKCore/SKKAnnotator.h>
 #import <AquaSKKCore/SKKCandidateWindow.h>
 #import <AquaSKKCore/SKKClipboard.h>

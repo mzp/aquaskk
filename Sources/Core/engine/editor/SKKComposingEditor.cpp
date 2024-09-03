@@ -20,7 +20,7 @@
 
 */
 
-#import <AquaSKKCore/SKKComposingEditor.h>
+#import "SKKComposingEditor.h"
 #import <AquaSKKCore/SKKInputContext.h>
 
 SKKComposingEditor::SKKComposingEditor(SKKInputContext *context)

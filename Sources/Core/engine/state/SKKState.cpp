@@ -20,11 +20,11 @@
 
 */
 
+#import "SKKState.h"
+#include <cctype>
 #import <AquaSKKCore/SKKConfig.h>
 #import <AquaSKKCore/SKKInputEngine.h>
 #import <AquaSKKCore/SKKMessenger.h>
-#import <AquaSKKCore/SKKState.h>
-#include <cctype>
 
 namespace {
     typedef SKKState::Event Event;

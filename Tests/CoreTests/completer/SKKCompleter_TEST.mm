@@ -1,7 +1,7 @@
+#include <cassert>
+#import <XCTest/XCTest.h>
 #import <AquaSKKCore/SKKBackEnd.h>
 #import <AquaSKKCore/SKKCompleter.h>
-#import <XCTest/XCTest.h>
-#include <cassert>
 
 class TestBuddy : public SKKCompleterBuddy {
     std::string query_;

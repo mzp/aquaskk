@@ -23,9 +23,9 @@
 #ifndef SKKDictionaryFactory_h
 #define SKKDictionaryFactory_h
 
-#import <AquaSKKCore/SKKDictionaryKey.h>
 #include <map>
 #include <string>
+#import <AquaSKKCore/SKKDictionaryKey.h>
 
 class SKKBaseDictionary;
 

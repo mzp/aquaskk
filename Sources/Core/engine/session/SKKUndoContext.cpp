@@ -20,12 +20,10 @@
 
 */
 
-#include "SKKFrontEnd.h"
-
+#import "SKKUndoContext.h"
 #include <functional>
-
 #import <AquaSKKCore/SKKBackEnd.h>
-#import <AquaSKKCore/SKKUndoContext.h>
+#import <AquaSKKCore/SKKFrontEnd.h>
 
 SKKUndoContext::SKKUndoContext(SKKFrontEnd *frontend)
     : frontend_(frontend) {}

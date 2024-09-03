@@ -5,7 +5,7 @@
 //  Created by mzp on 8/31/24.
 //
 
-#include "SKKTransliterate.h"
+#import "SKKTransliterate.h"
 #import <Foundation/Foundation.h>
 
 namespace SKKTransliterate {

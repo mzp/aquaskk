@@ -6,7 +6,6 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import <AquaSKKInput/SKKInputController.h>
 #import <AquaSKKTesting/TyperInputSessionParameter.h>
 

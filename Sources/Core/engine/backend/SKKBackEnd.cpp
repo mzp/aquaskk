@@ -20,14 +20,14 @@
 
 */
 
-#include "utf8util.h"
-#import <AquaSKKCore/SKKBackEnd.h>
+#import "SKKBackEnd.h"
+#include <iostream>
+#include <set>
 #import <AquaSKKCore/SKKCandidateFilter.h>
 #import <AquaSKKCore/SKKCandidateSuite.h>
 #import <AquaSKKCore/SKKLocalUserDictionary.h>
 #import <AquaSKKCore/SKKNumericConverter.h>
-#include <iostream>
-#include <set>
+#include <AquaSKKCore/utf8util.h>
 
 namespace {
     // 検索用ファンクタ

@@ -20,19 +20,17 @@
 
 */
 
+#import <os/log.h>
 #import <AquaSKKCore/SKKBackEnd.h>
 #import <AquaSKKCore/SKKInputSession.h>
 #import <AquaSKKInput/BlacklistApps.h>
-#import <AquaSKKInput/SKKInputController.h>
-#import <AquaSKKInput/SKKLayoutManager.h>
-
 #import <AquaSKKInput/MacInputModeMenu.h>
 #import <AquaSKKInput/MacInputModeWindow.h>
 #import <AquaSKKInput/MacInputSessionParameter.h>
+#import <AquaSKKInput/SKKInputController.h>
+#import <AquaSKKInput/SKKLayoutManager.h>
 #import <AquaSKKInput/SKKPreProcessor.h>
 #import <AquaSKKService/SKKConstVars.h>
-
-#import <os/log.h>
 
 static os_log_t appLog(void) {
     static os_log_t _serviceLog;

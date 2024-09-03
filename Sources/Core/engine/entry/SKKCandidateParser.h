@@ -23,10 +23,10 @@
 #ifndef SKKCandidateParser_h
 #define SKKCandidateParser_h
 
-#import <AquaSKKCore/SKKCandidate.h>
-#import <AquaSKKCore/SKKOkuriHint.h>
 #include <algorithm>
 #include <functional>
+#import <AquaSKKCore/SKKCandidate.h>
+#import <AquaSKKCore/SKKOkuriHint.h>
 
 class SKKCandidateParser {
     SKKCandidateContainer candidates_;

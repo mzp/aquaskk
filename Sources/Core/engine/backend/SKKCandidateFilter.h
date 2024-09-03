@@ -23,8 +23,8 @@
 #ifndef SKKCandidateFilter_h
 #define SKKCandidateFilter_h
 
-#import <AquaSKKCore/SKKCandidate.h>
 #include <functional>
+#import <AquaSKKCore/SKKCandidate.h>
 
 // skk-ignore-dic-word 対応
 

@@ -1,10 +1,10 @@
 #ifndef MockFrontEnd_h
 #define MockFrontEnd_h
 
+#include <sstream>
 #include <AquaSKKCore/SKKFrontEnd.h>
 #import <AquaSKKCore/SKKInputModeListener.h>
 #include <AquaSKKTesting/TestResult.h>
-#include <sstream>
 
 class MockFrontEnd : public SKKFrontEnd, public SKKInputModeListener {
     TestResult result_;

@@ -20,9 +20,9 @@
 
 */
 
-#import <AquaSKKCore/SKKCandidateWindow.h>
-#import <AquaSKKCore/SKKWindowSelector.h>
+#import "SKKWindowSelector.h"
 #include <cassert>
+#import <AquaSKKCore/SKKCandidateWindow.h>
 
 SKKWindowSelector::SKKWindowSelector(SKKCandidateWindow *window)
     : window_(window) {}

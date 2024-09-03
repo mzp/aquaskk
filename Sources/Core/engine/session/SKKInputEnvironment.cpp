@@ -20,7 +20,7 @@
 
 */
 
-#import <AquaSKKCore/SKKInputEnvironment.h>
+#import "SKKInputEnvironment.h"
 
 SKKInputEnvironment::SKKInputEnvironment(
     SKKInputContext *context, SKKInputSessionParameter *param, SKKInputModeListenerCollection *listeners,

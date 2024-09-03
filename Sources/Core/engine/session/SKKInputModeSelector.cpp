@@ -20,7 +20,7 @@
 
 */
 
-#import <AquaSKKCore/SKKInputModeSelector.h>
+#import "SKKInputModeSelector.h"
 #include <algorithm>
 #include <functional>
 

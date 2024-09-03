@@ -20,10 +20,10 @@
 
 */
 
+#include <iostream>
 #import <AquaSKKCore/utf8util.h>
 #import <AquaSKKInput/BlacklistApps.h>
 #import <AquaSKKInput/MacFrontEnd.h>
-#include <iostream>
 
 MacFrontEnd::MacFrontEnd(id client)
     : client_(client) {}

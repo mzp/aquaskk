@@ -23,10 +23,10 @@
 #ifndef SKKInputSession_h
 #define SKKInputSession_h
 
+#include <vector>
 #import <AquaSKKCore/SKKInputContext.h>
 #import <AquaSKKCore/SKKInputModeListener.h>
 #import <AquaSKKCore/SKKStateMachine.h>
-#include <vector>
 
 class SKKInputSessionParameter;
 class SKKRecursiveEditor;

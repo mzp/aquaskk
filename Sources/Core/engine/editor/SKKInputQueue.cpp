@@ -20,10 +20,10 @@
 
 */
 
-#include "SKKRomanKanaConverter.h"
-#import <AquaSKKCore/SKKInputQueue.h>
-#import <AquaSKKCore/SKKTransliterate.h>
+#import "SKKInputQueue.h"
 #include <cassert>
+#import <AquaSKKCore/SKKRomanKanaConverter.h>
+#import <AquaSKKCore/SKKTransliterate.h>
 
 SKKInputQueue::SKKInputQueue(SKKInputQueueObserver *observer)
     : observer_(observer), mode_(SKKInputMode::HirakanaInputMode) {}

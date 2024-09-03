@@ -20,7 +20,7 @@
 
 */
 
-#import <AquaSKKCore/SKKCandidate.h>
+#import "SKKCandidate.h"
 
 static std::string org_table[] = {"[", "/", ";", ""};
 static std::string enc_table[] = {"[5b]", "[2f]", "[3b]", ""};

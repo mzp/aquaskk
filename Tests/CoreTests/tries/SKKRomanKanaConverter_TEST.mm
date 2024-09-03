@@ -1,7 +1,7 @@
-#include "SKKRomanKanaConverter.h"
-#import <XCTest/XCTest.h>
 #include <cassert>
 #include <iostream>
+#import <XCTest/XCTest.h>
+#include "SKKRomanKanaConverter.h"
 
 @interface SKKRomanKanaConverterTests : XCTestCase
 @end

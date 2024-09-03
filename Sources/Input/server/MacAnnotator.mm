@@ -20,15 +20,14 @@
 
 */
 
+#include <iostream>
+#include <CoreServices/CoreServices.h>
+#include <InputMethodKit/InputMethodKit.h>
 #import <AquaSKKCore/utf8util.h>
 #import <AquaSKKInput/MacAnnotator.h>
 #import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKUI/AnnotationWindow.h>
 #import <AquaSKKUI/CandidateWindow.h>
-
-#include <CoreServices/CoreServices.h>
-#include <InputMethodKit/InputMethodKit.h>
-#include <iostream>
 
 MacAnnotator::MacAnnotator(SKKLayoutManager *layout)
     : layout_(layout), definition_(nil), optional_(nil) {

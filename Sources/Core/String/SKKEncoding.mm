@@ -5,8 +5,9 @@
 //  Created by mzp on 8/31/24.
 //
 
-#include "SKKEncoding.h"
+#import "SKKEncoding.h"
 #import <Foundation/Foundation.h>
+
 namespace SKKEncoding {
     void convert_utf8_to_eucj(const std::string &from, std::string &to) {
         to = eucj_from_utf8(from);

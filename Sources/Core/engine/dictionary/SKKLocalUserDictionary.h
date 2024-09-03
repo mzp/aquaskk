@@ -23,10 +23,10 @@
 #ifndef SKKLocalUserDictionary_h
 #define SKKLocalUserDictionary_h
 
-#import <AquaSKKCore/SKKDictionaryFile.h>
-#import <AquaSKKCore/SKKUserDictionary.h>
 #include <ctime>
 #include <vector>
+#import <AquaSKKCore/SKKDictionaryFile.h>
+#import <AquaSKKCore/SKKUserDictionary.h>
 
 class SKKLocalUserDictionary : public SKKUserDictionary {
     std::string path_;

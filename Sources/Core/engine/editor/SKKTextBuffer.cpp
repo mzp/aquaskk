@@ -20,8 +20,8 @@
 
 */
 
-#include "utf8util.h"
-#import <AquaSKKCore/SKKTextBuffer.h>
+#import "SKKTextBuffer.h"
+#include <AquaSKKCore/utf8util.h>
 
 SKKTextBuffer::SKKTextBuffer()
     : cursor_(0) {}

@@ -20,8 +20,8 @@
 
 */
 
+#import "SKKCompleter.h"
 #import <AquaSKKCore/SKKBackEnd.h>
-#import <AquaSKKCore/SKKCompleter.h>
 
 SKKCompleter::SKKCompleter(SKKCompleterBuddy *buddy)
     : buddy_(buddy) {}

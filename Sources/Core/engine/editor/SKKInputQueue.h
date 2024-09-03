@@ -23,8 +23,8 @@
 #ifndef SKKInputQueue_h
 #define SKKInputQueue_h
 
-#import <AquaSKKCore/SKKInputMode.h>
 #include <string>
+#import <AquaSKKCore/SKKInputMode.h>
 
 class SKKInputQueueObserver {
 public:

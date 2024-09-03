@@ -2,7 +2,6 @@
 #define MockCandidateWindow_h
 
 #include <vector>
-
 #import <AquaSKKCore/SKKCandidateWindow.h>
 
 class MockCandidateWindow : public SKKCandidateWindow {

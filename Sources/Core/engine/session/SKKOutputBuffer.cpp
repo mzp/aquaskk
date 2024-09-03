@@ -20,9 +20,9 @@
 
 */
 
-#include "SKKFrontEnd.h"
-#include "utf8util.h"
-#import <AquaSKKCore/SKKOutputBuffer.h>
+#import "SKKOutputBuffer.h"
+#include <AquaSKKCore/SKKFrontEnd.h>
+#include <AquaSKKCore/utf8util.h>
 
 SKKOutputBuffer::SKKOutputBuffer(SKKFrontEnd *frontend)
     : frontend_(frontend) {}

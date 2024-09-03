@@ -1,7 +1,6 @@
-#import <AquaSKKCore/SKKCandidateParser.h>
 #include <cassert>
-
 #import <XCTest/XCTest.h>
+#import <AquaSKKCore/SKKCandidateParser.h>
 
 @interface SKKCandidateParserTests : XCTestCase
 

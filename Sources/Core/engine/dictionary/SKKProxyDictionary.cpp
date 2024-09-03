@@ -21,10 +21,8 @@
 */
 
 #import "SKKProxyDictionary.h"
-
 #include <sstream>
-
-#include "SKKEncoding.h"
+#include <AquaSKKCore/SKKEncoding.h>
 
 SKKProxyDictionary::SKKProxyDictionary()
     : active_(false) {}

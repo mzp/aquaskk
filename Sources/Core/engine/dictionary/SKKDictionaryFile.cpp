@@ -20,7 +20,7 @@
 
 */
 
-#import <AquaSKKCore/SKKDictionaryFile.h>
+#import "SKKDictionaryFile.h"
 #include <algorithm>
 #include <fstream>
 #include <iostream>

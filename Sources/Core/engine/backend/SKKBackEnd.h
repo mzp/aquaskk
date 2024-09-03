@@ -23,13 +23,13 @@
 #ifndef SKKBackEnd_h
 #define SKKBackEnd_h
 
+#include <memory>
+#include <string>
+#include <vector>
 #import <AquaSKKCore/SKKCandidateSuite.h>
 #import <AquaSKKCore/SKKDictionaryCache.h>
 #import <AquaSKKCore/SKKDictionaryKey.h>
 #import <AquaSKKCore/SKKEntry.h>
-#include <memory>
-#include <string>
-#include <vector>
 
 class SKKBaseDictionary;
 class SKKUserDictionary;
@@ -44,7 +44,7 @@ class SKKBackEnd {
     int minimumCompletionLength_;
 
     SKKBackEnd();
-    SKKBackEnd(const SKKBackEnd &);
+    SKKBackEnd(const SKKBackEnd &) = delete;
     SKKBackEnd &operator=(const SKKBackEnd &);
 
     SKKEntry normalize(const SKKEntry &entry);

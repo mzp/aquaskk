@@ -1,8 +1,7 @@
-#import <AquaSKKCore/SKKAutoUpdateDictionary.h>
 #include <cassert>
-#include <sys/stat.h>
-
 #import <XCTest/XCTest.h>
+#include <sys/stat.h>
+#import <AquaSKKCore/SKKAutoUpdateDictionary.h>
 
 @interface SKKAutoUpdateDictionaryTests : XCTestCase
 @end

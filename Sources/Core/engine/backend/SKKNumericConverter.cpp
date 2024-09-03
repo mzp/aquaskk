@@ -20,8 +20,8 @@
 
 */
 
+#import "SKKNumericConverter.h"
 #import <AquaSKKCore/SKKCandidate.h>
-#import <AquaSKKCore/SKKNumericConverter.h>
 
 // ======================================================================
 // 数値変換を実装するユーティリティ関数

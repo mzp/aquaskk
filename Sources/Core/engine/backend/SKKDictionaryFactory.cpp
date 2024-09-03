@@ -20,9 +20,9 @@
 
 */
 
-#import <AquaSKKCore/SKKBaseDictionary.h>
-#import <AquaSKKCore/SKKDictionaryFactory.h>
+#import "SKKDictionaryFactory.h"
 #include <iostream>
+#import <AquaSKKCore/SKKBaseDictionary.h>
 
 // Null 辞書
 class SKKNullDictionary : public SKKBaseDictionary {

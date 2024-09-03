@@ -20,7 +20,7 @@
 
 */
 
-#include "utf8util.h"
+#import "SKKRecursiveEditor.h"
 #import <AquaSKKCore/SKKAnnotator.h>
 #import <AquaSKKCore/SKKBackEnd.h>
 #import <AquaSKKCore/SKKCandidateWindow.h>
@@ -28,7 +28,7 @@
 #import <AquaSKKCore/SKKDynamicCompletor.h>
 #import <AquaSKKCore/SKKInputContext.h>
 #import <AquaSKKCore/SKKInputSessionParameter.h>
-#import <AquaSKKCore/SKKRecursiveEditor.h>
+#include <AquaSKKCore/utf8util.h>
 
 SKKRecursiveEditor::SKKRecursiveEditor(SKKInputEnvironment *env)
     : env_(env),

@@ -1,8 +1,8 @@
-#import <AquaSKKCore/SKKCandidate.h>
-#import <AquaSKKCore/SKKNumericConverter.h>
-#import <XCTest/XCTest.h>
 #include <cassert>
 #include <iostream>
+#import <XCTest/XCTest.h>
+#import <AquaSKKCore/SKKCandidate.h>
+#import <AquaSKKCore/SKKNumericConverter.h>
 
 @interface SKKNumericConverterTests : XCTestCase
 @end
