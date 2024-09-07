@@ -11,6 +11,9 @@ FOUNDATION_EXPORT double AquaSKKCoreVersionNumber;
 
 FOUNDATION_EXPORT const unsigned char AquaSKKCoreVersionString[];
 
+
+#import <AquaSKKCore/IntrusiveRefCounted.h>
+
 #pragma mark - bridge
 
 #import <AquaSKKCore/SKKAnnotator.h>

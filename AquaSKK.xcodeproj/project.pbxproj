@@ -14,6 +14,7 @@
 		1307C23E2C5B47D800B089B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1307C23D2C5B47D800B089B6 /* ContentView.swift */; };
 		1307C2432C5B47DA00B089B6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1307C2422C5B47DA00B089B6 /* Preview Assets.xcassets */; };
 		1307C24E2C5B47DA00B089B6 /* SandboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1307C24D2C5B47DA00B089B6 /* SandboxTests.swift */; };
+		13096C852C8C2D24009F3E6B /* IntrusiveRefCounted.h in Headers */ = {isa = PBXBuildFile; fileRef = 13096C842C8C2D24009F3E6B /* IntrusiveRefCounted.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1310827E2C5B5BDB00C186BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1310827D2C5B5BDB00C186BE /* Images.xcassets */; };
 		131082802C5B5BEC00C186BE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1310827F2C5B5BEC00C186BE /* InfoPlist.strings */; };
 		1315FE8C2C81836F004011B7 /* MockAnnotator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1315FE822C818327004011B7 /* MockAnnotator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -61,8 +62,6 @@
 		13415B362C82865500ED9D0A /* TestResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13415B352C82865500ED9D0A /* TestResult.cpp */; };
 		13415B3E2C82904900ED9D0A /* TyperInputSessionParameter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13415B392C82893400ED9D0A /* TyperInputSessionParameter.mm */; };
 		13415B3F2C82905000ED9D0A /* TyperInputSessionParameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 13415B382C82893400ED9D0A /* TyperInputSessionParameter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		13415B422C82CCA600ED9D0A /* AITInputSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 13415B402C82CCA600ED9D0A /* AITInputSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		13415B432C82CCA600ED9D0A /* AITInputSession.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13415B412C82CCA600ED9D0A /* AITInputSession.mm */; };
 		13415B452C836C3B00ED9D0A /* SKKTransliterateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13415B442C836C3B00ED9D0A /* SKKTransliterateTests.swift */; };
 		1344F55E2C5B28FC00D8C850 /* SKKProxyDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4C82C5B28FC00D8C850 /* SKKProxyDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F55F2C5B28FC00D8C850 /* SKKClipboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F49E2C5B28FC00D8C850 /* SKKClipboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -519,6 +518,7 @@
 		1307C2422C5B47DA00B089B6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1307C24D2C5B47DA00B089B6 /* SandboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxTests.swift; sourceTree = "<group>"; };
 		1307C2672C5B48D600B089B6 /* App-Preference.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-Preference.xcconfig"; sourceTree = "<group>"; };
+		13096C842C8C2D24009F3E6B /* IntrusiveRefCounted.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntrusiveRefCounted.h; sourceTree = "<group>"; };
 		1310827D2C5B5BDB00C186BE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1310827F2C5B5BEC00C186BE /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		131082812C5B5BFC00C186BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -574,8 +574,6 @@
 		13415B352C82865500ED9D0A /* TestResult.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestResult.cpp; sourceTree = "<group>"; };
 		13415B382C82893400ED9D0A /* TyperInputSessionParameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TyperInputSessionParameter.h; sourceTree = "<group>"; };
 		13415B392C82893400ED9D0A /* TyperInputSessionParameter.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TyperInputSessionParameter.mm; sourceTree = "<group>"; };
-		13415B402C82CCA600ED9D0A /* AITInputSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AITInputSession.h; sourceTree = "<group>"; };
-		13415B412C82CCA600ED9D0A /* AITInputSession.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AITInputSession.mm; sourceTree = "<group>"; };
 		13415B442C836C3B00ED9D0A /* SKKTransliterateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKTransliterateTests.swift; sourceTree = "<group>"; };
 		1344F4932C5A92D300D8C850 /* CalculatorTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTesting.swift; sourceTree = "<group>"; };
 		1344F49C2C5B28FC00D8C850 /* SKKAnnotator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKAnnotator.h; sourceTree = "<group>"; };
@@ -1151,6 +1149,14 @@
 			path = PreferenceAppTests;
 			sourceTree = "<group>";
 		};
+		13096C832C8C2CC2009F3E6B /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				13096C842C8C2D24009F3E6B /* IntrusiveRefCounted.h */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
 		1315FE812C8182FA004011B7 /* Session */ = {
 			isa = PBXGroup;
 			children = (
@@ -1358,8 +1364,6 @@
 			children = (
 				13415B382C82893400ED9D0A /* TyperInputSessionParameter.h */,
 				13415B392C82893400ED9D0A /* TyperInputSessionParameter.mm */,
-				13415B402C82CCA600ED9D0A /* AITInputSession.h */,
-				13415B412C82CCA600ED9D0A /* AITInputSession.mm */,
 			);
 			path = TyperSupports;
 			sourceTree = "<group>";
@@ -2216,6 +2220,7 @@
 			isa = PBXGroup;
 			children = (
 				13D756162C5A9049006144F2 /* AquaSKKCore.h */,
+				13096C832C8C2CC2009F3E6B /* Swift */,
 				13F91A1B2C838D5F00E60D63 /* String */,
 				1344F4A62C5B28FC00D8C850 /* bridge */,
 				1344F55D2C5B28FC00D8C850 /* engine */,
@@ -2325,7 +2330,6 @@
 				13415B3F2C82905000ED9D0A /* TyperInputSessionParameter.h in Headers */,
 				1315FE8F2C818377004011B7 /* MockFrontEnd.h in Headers */,
 				1315FE902C818377004011B7 /* MockConfig.h in Headers */,
-				13415B422C82CCA600ED9D0A /* AITInputSession.h in Headers */,
 				1315FE912C818377004011B7 /* MockCandidateWindow.h in Headers */,
 				1315FE922C818377004011B7 /* MockDynamicCompletor.h in Headers */,
 				1315FE932C818377004011B7 /* MockClipboard.h in Headers */,
@@ -2438,6 +2442,7 @@
 				1344F57B2C5B28FC00D8C850 /* SKKCandidateSuite.h in Headers */,
 				1344F57C2C5B28FC00D8C850 /* SKKDictionaryKeeper.h in Headers */,
 				1344F57D2C5B28FC00D8C850 /* SKKBaseDictionary.h in Headers */,
+				13096C852C8C2D24009F3E6B /* IntrusiveRefCounted.h in Headers */,
 				1344F57E2C5B28FC00D8C850 /* SKKInputModeSelector.h in Headers */,
 				1344F57F2C5B28FC00D8C850 /* SKKInputSessionParameter.h in Headers */,
 				1344F5802C5B28FC00D8C850 /* SKKInputContext.h in Headers */,
@@ -3076,7 +3081,6 @@
 				13415B342C82863400ED9D0A /* MockMessenger.cpp in Sources */,
 				13415B2C2C82855400ED9D0A /* MockConfig.cpp in Sources */,
 				13415B242C82840100ED9D0A /* MockAnnotator.cpp in Sources */,
-				13415B432C82CCA600ED9D0A /* AITInputSession.mm in Sources */,
 				13018B262C7696A40045FF13 /* AquaSKKTesting.docc in Sources */,
 				13018B302C769D370045FF13 /* BundledServerConfiguration.swift in Sources */,
 				13415B322C8285CB00ED9D0A /* MockInputSessionParameter.cpp in Sources */,

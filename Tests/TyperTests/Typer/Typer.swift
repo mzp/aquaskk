@@ -19,13 +19,14 @@ class Typer {
             // deinitもMainThreadで実行されるよう、このメソッドの外には出さない
             let controller = SKKInputController()
             defer { controller.deactivateServer(nil) }
-            let sessionParameter = AITInputSession(client: client)
-            sessionParameter.setup(controller)
+            let typerSession = TyperInputSessionParameter.make(client)!
+            let ptr = TyperInputSessionParameter.cast(typerSession)
+            controller._setClient(client, sessionParameter: ptr)
             controller.activateServer(nil)
 
             let typer = Typer(
                 controller: controller,
-                inputSession: sessionParameter,
+                typerSession: typerSession,
                 client: client
             )
             await perform(typer)
@@ -36,15 +37,15 @@ class Typer {
     private let controller: SKKInputController
     private let client: MockTextInput
     private(set) var text = SendableText()
-    private let inputSession: AITInputSession
+    private let typerSession: TyperInputSessionParameter
 
     init(
         controller: SKKInputController,
-        inputSession: AITInputSession,
+        typerSession: TyperInputSessionParameter,
         client: MockTextInput
     ) {
         self.controller = controller
-        self.inputSession = inputSession
+        self.typerSession = typerSession
         self.client = client
     }
 
@@ -88,10 +89,10 @@ class Typer {
     }
 
     func set(pasteString: String) {
-        inputSession.set(pasteString: pasteString)
+        typerSession.SetString(std.string(pasteString))
     }
 
     var candidates: [String] {
-        inputSession.candidates
+        Array(typerSession.Candidates().map { String($0) })
     }
 }
