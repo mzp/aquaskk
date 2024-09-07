@@ -8,8 +8,6 @@
 #ifndef TyperInputSessionParameter_hpp
 #define TyperInputSessionParameter_hpp
 
-#include <memory>
-#include <swift/bridging>
 #import <AquaSKKCore/IntrusiveRefCounted.h>
 #import <AquaSKKCore/SKKAnnotator.h>
 #import <AquaSKKCore/SKKCandidateWindow.h>
@@ -19,8 +17,10 @@
 #import <AquaSKKCore/SKKFrontEnd.h>
 #import <AquaSKKCore/SKKInputSessionParameter.h>
 #import <AquaSKKCore/SKKMessenger.h>
+#include <memory>
+#include <swift/bridging>
 
-class TyperInputSessionParameter : public SKKInputSessionParameter, public IntrusiveRefCounted<TyperInputSessionParameter> {
+class TyperInputSessionParameter : public SKKInputSessionParameter {
     std::unique_ptr<SKKConfig> config_;
     std::unique_ptr<SKKFrontEnd> frontend_;
     std::unique_ptr<SKKMessenger> messenger_;
@@ -42,13 +42,12 @@ public:
     void SetString(std::string pasteString);
     std::vector<std::string> Candidates();
 
-    static TyperInputSessionParameter* make(id client);
-    static SKKInputSessionParameter *cast(TyperInputSessionParameter *params);
-} SWIFT_SHARED_REFERENCE(TISRetain,TISRelease);
+    static TyperInputSessionParameter *Create(id client);
+    static SKKInputSessionParameter *Coerce(TyperInputSessionParameter *params);
+} SWIFT_SHARED_REFERENCE(TISRetain, TISRelease);
 
 void TISRetain(TyperInputSessionParameter *params);
 
 void TISRelease(TyperInputSessionParameter *params);
-
 
 #endif /* TyperInputSessionParameter_hpp */

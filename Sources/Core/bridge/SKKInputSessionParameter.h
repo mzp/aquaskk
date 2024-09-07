@@ -22,6 +22,7 @@
 
 #ifndef SKKInputSessionParameter_h
 #define SKKInputSessionParameter_h
+#import <AquaSKKCore/IntrusiveRefCounted.h>
 
 class SKKConfig;
 class SKKFrontEnd;
@@ -31,7 +32,7 @@ class SKKCandidateWindow;
 class SKKAnnotator;
 class SKKDynamicCompletor;
 
-class SKKInputSessionParameter {
+class SKKInputSessionParameter : public IntrusiveRefCounted<SKKInputSessionParameter> {
 public:
     virtual ~SKKInputSessionParameter() {}
 

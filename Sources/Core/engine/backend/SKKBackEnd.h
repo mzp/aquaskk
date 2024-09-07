@@ -32,7 +32,6 @@
 #import <AquaSKKCore/SKKDictionaryKey.h>
 #import <AquaSKKCore/SKKEntry.h>
 
-
 class SKKBaseDictionary;
 class SKKUserDictionary;
 

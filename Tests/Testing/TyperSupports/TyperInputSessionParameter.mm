@@ -59,30 +59,13 @@ SKKDynamicCompletor *TyperInputSessionParameter::DynamicCompletor() {
     return completor_.get();
 }
 
-void TISRetain(TyperInputSessionParameter *params) {
-    params->retain();
-}
-
-void TISRelease(TyperInputSessionParameter *params) {
-    params->release();
-}
-
-TyperInputSessionParameter* TyperInputSessionParameter::make(id client) {
-    return new TyperInputSessionParameter(client);
-}
-
-SKKInputSessionParameter *TyperInputSessionParameter::cast(TyperInputSessionParameter *params) {
-    return params;
-}
-
 void TyperInputSessionParameter::SetString(std::string pasteString) {
     MockClipboard *clipboard = dynamic_cast<MockClipboard *>(this->Clipboard());
     clipboard->SetString(pasteString);
 }
 
 std::vector<std::string> TyperInputSessionParameter::Candidates() {
-    MockCandidateWindow *candidateWindow =
-    dynamic_cast<MockCandidateWindow *>(this->CandidateWindow());
+    MockCandidateWindow *candidateWindow = dynamic_cast<MockCandidateWindow *>(this->CandidateWindow());
 
     std::vector<std::string> result;
 
@@ -93,4 +76,20 @@ std::vector<std::string> TyperInputSessionParameter::Candidates() {
     });
 
     return result;
+}
+
+TyperInputSessionParameter *TyperInputSessionParameter::Create(id client) {
+    return new TyperInputSessionParameter(client);
+}
+
+SKKInputSessionParameter *TyperInputSessionParameter::Coerce(TyperInputSessionParameter *params) {
+    return params;
+}
+
+void TISRetain(TyperInputSessionParameter *params) {
+    params->retain();
+}
+
+void TISRelease(TyperInputSessionParameter *params) {
+    params->release();
 }
