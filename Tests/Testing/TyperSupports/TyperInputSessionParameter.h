@@ -47,6 +47,10 @@ public:
     int GetCursorOffset();
     bool IsCompletionVisible();
 
+    SKKCandidate GetAnnotation();
+    int GetAnnotationCursor();
+    bool IsAnnotationVisible();
+
     static TyperInputSessionParameter *_Nonnull Create(id _Nonnull client);
     static SKKInputSessionParameter *_Nonnull Coerce(TyperInputSessionParameter *_Nonnull params);
 } SWIFT_SHARED_REFERENCE(TISRetain, TISRelease);

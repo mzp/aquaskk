@@ -49,10 +49,22 @@ struct JisyoTests {
             #expect(completion.completion == "きょう")
             #expect(completion.prefixSize == 3)
             #expect(completion.cursorOffset == 0)
+            #expect(completion.visible == true)
 
             await typer.type(text: "u")
             #expect(typer.markedText == "▽きょう")
             #expect(typer.insertedText == "")
+        }
+    }
+
+    @Test func annotation() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.type(text: "Kyou ")
+
+            let annotation = typer.annotation
+            #expect(annotation.entry == "今日")
+            #expect(annotation.visible == true)
         }
     }
 }

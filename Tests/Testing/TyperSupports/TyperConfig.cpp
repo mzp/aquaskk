@@ -21,7 +21,7 @@ int TyperConfig::DynamicCompletionRange() {
     return 1;
 }
 bool TyperConfig::EnableAnnotation() {
-    return false;
+    return true;
 }
 bool TyperConfig::DisplayShortestMatchOfKanaConversions() {
     return false;

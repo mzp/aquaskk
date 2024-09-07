@@ -96,6 +96,19 @@ bool TyperInputSessionParameter::IsCompletionVisible() {
     return dynamicCompletor->IsVisible();
 }
 
+SKKCandidate TyperInputSessionParameter::GetAnnotation() {
+    MockAnnotator *annotator = dynamic_cast<MockAnnotator *>(this->Annotator());
+    return annotator->GetCandidate();
+}
+int TyperInputSessionParameter::GetAnnotationCursor() {
+    MockAnnotator *annotator = dynamic_cast<MockAnnotator *>(this->Annotator());
+    return annotator->GetCursor();
+}
+bool TyperInputSessionParameter::IsAnnotationVisible() {
+    MockAnnotator *annotator = dynamic_cast<MockAnnotator *>(this->Annotator());
+    return annotator->IsVisible();
+}
+
 TyperInputSessionParameter *TyperInputSessionParameter::Create(id client) {
     return new TyperInputSessionParameter(client);
 }

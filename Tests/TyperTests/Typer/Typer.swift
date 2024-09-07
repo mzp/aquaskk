@@ -15,6 +15,12 @@ struct TyperCompletion {
     var visible: Bool
 }
 
+struct TyperAnnotation {
+    var entry: String
+    var cursorIndex: Int
+    var visible: Bool
+}
+
 class Typer {
     // MARK: - Session
 
@@ -108,6 +114,14 @@ class Typer {
             prefixSize: Int(typerSession.GetCommonPrefixSize()),
             cursorOffset: Int(typerSession.GetCursorOffset()),
             visible: typerSession.IsCompletionVisible()
+        )
+    }
+
+    var annotation: TyperAnnotation {
+        TyperAnnotation(
+            entry: String(typerSession.GetAnnotation().ToString()),
+            cursorIndex: Int(typerSession.GetAnnotationCursor()),
+            visible: typerSession.IsAnnotationVisible()
         )
     }
 }
