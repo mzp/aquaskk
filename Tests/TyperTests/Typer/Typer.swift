@@ -18,7 +18,7 @@ class Typer {
             // SKKInputControllerはMainThread以外からはさわれない
             // deinitもMainThreadで実行されるよう、このメソッドの外には出さない
             let controller = SKKInputController()
-            let typerSession = TyperInputSessionParameter.Create(client)!
+            let typerSession = TyperInputSessionParameter.Create(client)
             let ptr = TyperInputSessionParameter.Coerce(typerSession)
             controller._setClient(client, sessionParameter: ptr)
             controller.activateServer(nil)

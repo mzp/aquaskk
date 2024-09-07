@@ -30,24 +30,24 @@ class TyperInputSessionParameter : public SKKInputSessionParameter {
     std::unique_ptr<SKKDynamicCompletor> completor_;
 
 public:
-    TyperInputSessionParameter(id client);
-    virtual SKKConfig *Config();
-    virtual SKKFrontEnd *FrontEnd();
-    virtual SKKMessenger *Messenger();
-    virtual SKKClipboard *Clipboard();
-    virtual SKKCandidateWindow *CandidateWindow();
-    virtual SKKAnnotator *Annotator();
-    virtual SKKDynamicCompletor *DynamicCompletor();
+    TyperInputSessionParameter(id _Nonnull client);
+    virtual SKKConfig * _Nonnull Config();
+    virtual SKKFrontEnd * _Nonnull FrontEnd();
+    virtual SKKMessenger * _Nonnull Messenger();
+    virtual SKKClipboard * _Nonnull Clipboard();
+    virtual SKKCandidateWindow * _Nonnull CandidateWindow();
+    virtual SKKAnnotator * _Nonnull Annotator();
+    virtual SKKDynamicCompletor * _Nonnull DynamicCompletor();
 
     void SetString(std::string pasteString);
     std::vector<std::string> Candidates();
 
-    static TyperInputSessionParameter *Create(id client);
-    static SKKInputSessionParameter *Coerce(TyperInputSessionParameter *params);
+    static TyperInputSessionParameter * _Nonnull Create(id _Nonnull client);
+    static SKKInputSessionParameter * _Nonnull Coerce(TyperInputSessionParameter * _Nonnull params);
 } SWIFT_SHARED_REFERENCE(TISRetain, TISRelease);
 
-void TISRetain(TyperInputSessionParameter *params);
+void TISRetain(TyperInputSessionParameter * _Nonnull params);
 
-void TISRelease(TyperInputSessionParameter *params);
+void TISRelease(TyperInputSessionParameter * _Nonnull params);
 
 #endif /* TyperInputSessionParameter_hpp */
