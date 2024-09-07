@@ -8,6 +8,13 @@ import AquaSKKInput_Private
 import AquaSKKTesting
 import Foundation
 
+struct TyperCompletion {
+    var completion: String
+    var prefixSize: Int
+    var cursorOffset: Int
+    var visible: Bool
+}
+
 class Typer {
     // MARK: - Session
 
@@ -93,5 +100,14 @@ class Typer {
 
     var candidates: [String] {
         Array(typerSession.Candidates().map { String($0) })
+    }
+
+    var completion: TyperCompletion {
+        TyperCompletion(
+            completion: String(typerSession.GetCompletion()),
+            prefixSize: Int(typerSession.GetCommonPrefixSize()),
+            cursorOffset: Int(typerSession.GetCursorOffset()),
+            visible: typerSession.IsCompletionVisible()
+        )
     }
 }

@@ -9,10 +9,10 @@
 
 #include <vector>
 
+#import "TyperConfig.h"
 #import <AquaSKKInput/MacAnnotator.h>
 #import <AquaSKKInput/MacCandidateWindow.h>
 #import <AquaSKKInput/MacClipboard.h>
-#import <AquaSKKInput/MacConfig.h>
 #import <AquaSKKInput/MacDynamicCompletor.h>
 #import <AquaSKKInput/MacFrontEnd.h>
 #import <AquaSKKInput/MacMessenger.h>
@@ -23,7 +23,7 @@
 #import <AquaSKKTesting/MockMessenger.h>
 
 TyperInputSessionParameter::TyperInputSessionParameter(id client)
-    : config_(new MacConfig()),
+    : config_(new TyperConfig()),
       frontend_(new MacFrontEnd(client)),
       messenger_(new MockMessenger()),
       clipboard_(new MockClipboard()),
@@ -76,6 +76,24 @@ std::vector<std::string> TyperInputSessionParameter::Candidates() {
     });
 
     return result;
+}
+
+std::string TyperInputSessionParameter::GetCompletion() {
+    MockDynamicCompletor *dynamicCompletor = dynamic_cast<MockDynamicCompletor *>(this->DynamicCompletor());
+    return dynamicCompletor->GetCompletion();
+}
+int TyperInputSessionParameter::GetCommonPrefixSize() {
+    MockDynamicCompletor *dynamicCompletor = dynamic_cast<MockDynamicCompletor *>(this->DynamicCompletor());
+    return dynamicCompletor->GetCommonPrefixSize();
+}
+int TyperInputSessionParameter::GetCursorOffset() {
+    MockDynamicCompletor *dynamicCompletor = dynamic_cast<MockDynamicCompletor *>(this->DynamicCompletor());
+    return dynamicCompletor->GetCursorOffset();
+}
+
+bool TyperInputSessionParameter::IsCompletionVisible() {
+    MockDynamicCompletor *dynamicCompletor = dynamic_cast<MockDynamicCompletor *>(this->DynamicCompletor());
+    return dynamicCompletor->IsVisible();
 }
 
 TyperInputSessionParameter *TyperInputSessionParameter::Create(id client) {

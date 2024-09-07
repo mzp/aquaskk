@@ -42,6 +42,11 @@ public:
     void SetString(std::string pasteString);
     std::vector<std::string> Candidates();
 
+    std::string GetCompletion();
+    int GetCommonPrefixSize();
+    int GetCursorOffset();
+    bool IsCompletionVisible();
+
     static TyperInputSessionParameter *_Nonnull Create(id _Nonnull client);
     static SKKInputSessionParameter *_Nonnull Coerce(TyperInputSessionParameter *_Nonnull params);
 } SWIFT_SHARED_REFERENCE(TISRetain, TISRelease);
