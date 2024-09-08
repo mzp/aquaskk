@@ -67,7 +67,9 @@ void notify_ok(void *param) {
 void *normal_server(void *param) {
     SKKCommonDictionary dict;
 
-    dict.Initialize("SKK-JISYO.TEST");
+    NSString *path = [[NSBundle bundleForClass:SKKProxyDictionaryTests.class] pathForResource:@"SKK-JISYO"
+                                                                                       ofType:@"TEST"];
+    dict.Initialize(path.UTF8String);
 
     ushort port = 23000;
     net::socket::tcpserver skkserv(port);
@@ -140,13 +142,14 @@ void spawn_server(void *(*server)(void *param)) {
 
 @implementation SKKProxyDictionaryTests
 
-- (void)testMain {
-    XCTSkip(@"FIXME: doesn't work");
+- (void)setUp {
     spawn_server(normal_server);
     spawn_server(dumb_server);
     spawn_server(mad_server);
     spawn_server(suicide_server);
+}
 
+- (void)testNone {
     SKKProxyDictionary proxy;
     SKKCandidateSuite suite;
 
@@ -155,7 +158,11 @@ void spawn_server(void *(*server)(void *param)) {
 
     proxy.Find(SKKEntry("よi", "い"), suite);
     XCTAssert(suite.IsEmpty());
+}
 
+- (void)testNormal {
+    SKKProxyDictionary proxy;
+    SKKCandidateSuite suite;
     // 正常系テスト
     proxy.Initialize("127.0.0.1:23000");
 
@@ -173,7 +180,11 @@ void spawn_server(void *(*server)(void *param)) {
 
     proxy.Find(SKKEntry("NOT-EXIST"), suite);
     XCTAssert(suite.IsEmpty());
+}
 
+- (void)testNoRespond {
+    SKKProxyDictionary proxy;
+    SKKCandidateSuite suite;
     // だんまりサーバーテスト
     proxy.Initialize("127.0.0.1:33000");
 
@@ -185,6 +196,11 @@ void spawn_server(void *(*server)(void *param)) {
 
     proxy.Find(SKKEntry("かんじ"), suite);
     XCTAssert(suite.IsEmpty());
+}
+
+- (void)testCrash {
+    SKKProxyDictionary proxy;
+    SKKCandidateSuite suite;
 
     // 自殺サーバーテスト
     proxy.Initialize("127.0.0.1:53000");
