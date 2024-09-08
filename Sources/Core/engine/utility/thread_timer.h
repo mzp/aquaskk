@@ -9,7 +9,6 @@
 #define timer_h
 
 #import <Foundation/Foundation.h>
-#include <pthread.h>
 
 namespace pthread {
     class task {
@@ -20,6 +19,7 @@ namespace pthread {
 
     class timer {
         NSTimer *timer_;
+
     public:
         static NSRunLoop *runLoop();
         timer(task *task, long interval, long startup_delay = 0);
