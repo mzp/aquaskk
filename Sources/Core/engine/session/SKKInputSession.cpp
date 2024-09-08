@@ -44,7 +44,7 @@ namespace {
 } // namespace
 
 SKKInputSession::SKKInputSession(SKKInputSessionParameter *param)
-    : param_(param), context_(param->FrontEnd()), inEvent_(false) {
+    : param_(param), context_(param_->FrontEnd()), inEvent_(false) {
     stack_.push_back(createEditor(new SKKPrimaryEditor(&context_)));
 }
 
@@ -166,7 +166,7 @@ SKKRecursiveEditor *SKKInputSession::top() {
 }
 
 SKKRecursiveEditor *SKKInputSession::createEditor(SKKBaseEditor *bottom) {
-    return new SKKRecursiveEditor(new SKKInputEnvironment(&context_, param_.get(), &listeners_, bottom));
+    return new SKKRecursiveEditor(new SKKInputEnvironment(&context_, param_, &listeners_, bottom));
 }
 
 void SKKInputSession::popEditor() {

@@ -92,7 +92,6 @@ static os_log_t appLog(void) {
     activated_ = NO;
     proxy_ = [[SKKServerProxy alloc] init];
     menu_ = [[SKKInputMenu alloc] initWithClient:client];
-
     layout_ = new SKKLayoutManager(client_);
     session_ = new SKKInputSession(parameter);
     modeIcon_ = new MacInputModeWindow(layout_);
