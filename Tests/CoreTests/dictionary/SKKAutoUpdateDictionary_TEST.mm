@@ -21,8 +21,15 @@
     dict1.Initialize("openlab.ring.gr.jp /skk/skk/dic/SKK-JISYO.S SKK-JISYO.S1");
     dict2.Initialize("openlab.ring.gr.jp:80 /skk/skk/dic/SKK-JISYO.S SKK-JISYO.S2");
 
+    NSDate *date = [NSDate date];
+    date = [date dateByAddingTimeInterval:0.1];
+    [pthread::timer::runLoop() runUntilDate:date];
+
     dict1.Find(SKKEntry("dummy", "d"), suite);
     dict2.Find(SKKEntry("dummy", "d"), suite);
+
+    date = [date dateByAddingTimeInterval:0.1];
+    [pthread::timer::runLoop() runUntilDate:date];
 
     struct stat st1, st2;
 

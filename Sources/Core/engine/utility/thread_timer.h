@@ -19,22 +19,9 @@ namespace pthread {
     };
 
     class timer {
-        task *task_;
-        long interval_;
-        long startup_delay_;
-        pthread_t thread_;
-
-        static void *handler(void *param);
-
-        void run();
-
-        void wait(long second);
-
-        timer();
-        timer(const timer &);
-        timer &operator=(const timer &);
-
+        NSTimer *timer_;
     public:
+        static NSRunLoop *runLoop();
         timer(task *task, long interval, long startup_delay = 0);
         ~timer();
     };

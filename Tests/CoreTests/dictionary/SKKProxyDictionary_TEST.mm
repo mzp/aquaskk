@@ -158,6 +158,9 @@ void spawn_server(void *(*server)(NSCondition *param)) {
     // 正常系テスト
     proxy.Initialize("127.0.0.1:23000");
 
+    NSDate *date = [[[NSDate alloc] init] dateByAddingTimeInterval:0.1];
+    [pthread::timer::runLoop() runUntilDate:date];
+
     proxy.Find(SKKEntry("よi", "い"), suite);
     XCTAssert(suite.ToString() == "/良/好/酔/善/");
 

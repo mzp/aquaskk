@@ -27,6 +27,8 @@
 
     const char *jisyoPath = [[bundle pathForResource:@"skk-jisyo" ofType:@"utf8"] UTF8String];
     backend.Initialize(jisyoPath, dicts);
+    NSDate *date = [[[NSDate alloc] init] dateByAddingTimeInterval:0.1];
+    [pthread::timer::runLoop() runUntilDate:date];
 
     std::vector<std::string> result;
     SKKCandidateSuite suite;
