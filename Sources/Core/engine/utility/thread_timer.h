@@ -8,6 +8,7 @@
 #ifndef timer_h
 #define timer_h
 
+#import <Foundation/Foundation.h>
 #include <pthread.h>
 
 namespace pthread {

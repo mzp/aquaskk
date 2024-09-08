@@ -1,5 +1,4 @@
 #import <AquaSKKCore/SKKDistributedUserDictionary.h>
-#import <AquaSKKCore/pthreadutil.h>
 #import <AquaSKKCore/socketutil.h>
 #import <XCTest/XCTest.h>
 
