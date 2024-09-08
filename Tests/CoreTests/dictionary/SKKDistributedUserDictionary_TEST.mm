@@ -31,44 +31,50 @@ public:
     std::string okuri;
 };
 
-class server : public pthread::task {
-    net::socket::tcpserver server_;
+void session(std::iostream &stream) {
+    std::string line;
 
-    void session(std::iostream &stream) {
-        std::string line;
+    while(std::getline(stream, line)) {
+        param param(line);
 
-        while(std::getline(stream, line)) {
-            param param(line);
+        stream << "OK" << "\r\n" << std::flush;
 
-            stream << "OK" << "\r\n" << std::flush;
-
-            if(param.command == "GET" || param.command == "COMPLETE") {
-                stream << "\r\n" << std::flush;
-            }
+        if(param.command == "GET" || param.command == "COMPLETE") {
+            stream << "\r\n" << std::flush;
         }
     }
+}
 
-public:
-    server() {
+@interface Server : NSObject {
+    net::socket::tcpserver server_;
+}
+@end
+
+@implementation Server
+
+- (instancetype)init {
+    self = [super init];
+    if(self) {
         server_.open(10789);
     }
+    return self;
+}
 
-    virtual bool run() {
-        while(int fd = server_.accept()) {
-            net::socket::tcpstream stream(fd);
-
-            session(stream);
-        }
-
-        return false;
+- (void)run:(id)sender {
+    while(int fd = server_.accept()) {
+        net::socket::tcpstream stream(fd);
+        session(stream);
     }
-};
+}
+
+@end
 
 @implementation SKKDistributedUserDictionaryTests
 
 - (void)testMain {
-    server server;
-    pthread::timer timer(&server, 0);
+    Server *server = [[Server alloc] init];
+
+    [NSThread detachNewThreadSelector:@selector(run:) toTarget:server withObject:nil];
     SKKDistributedUserDictionary dict;
     SKKCandidateSuite suite;
     MockCompletionHelper helper;

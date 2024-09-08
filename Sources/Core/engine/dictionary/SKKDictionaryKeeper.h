@@ -23,12 +23,15 @@
 #ifndef SKKDictionaryKeeper_h
 #define SKKDictionaryKeeper_h
 
+#include <memory>
+#include <vector>
+
 #import <AquaSKKCore/SKKCompletionHelper.h>
 #import <AquaSKKCore/SKKDictionaryFile.h>
 #import <AquaSKKCore/SKKDictionaryLoader.h>
-#import <AquaSKKCore/pthreadutil.h>
-#include <memory>
-#include <vector>
+
+#import <AquaSKKCore/thread_condition.h>
+#import <AquaSKKCore/thread_timer.h>
 
 class SKKDictionaryKeeper : public SKKDictionaryLoaderObserver {
     std::unique_ptr<pthread::timer> timer_;

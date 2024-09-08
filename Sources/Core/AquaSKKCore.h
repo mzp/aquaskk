@@ -121,10 +121,12 @@ FOUNDATION_EXPORT const unsigned char AquaSKKCoreVersionString[];
 #pragma mark - utility
 
 #import <AquaSKKCore/calculator.h>
-#import <AquaSKKCore/pthreadutil.h>
 #import <AquaSKKCore/socketutil.h>
 #import <AquaSKKCore/subrange.h>
 #import <AquaSKKCore/utf8util.h>
+
+#import <AquaSKKCore/thread_condition.h>
+#import <AquaSKKCore/thread_timer.h>
 
 #pragma mark - Romankana
 #import <AquaSKKCore/SKKEncoding.h>

@@ -24,7 +24,7 @@
 #define SKKDictionaryLoader_h
 
 #import <AquaSKKCore/SKKDictionaryFile.h>
-#import <AquaSKKCore/pthreadutil.h>
+#import <AquaSKKCore/thread_timer.h>
 
 class SKKDictionaryLoaderObserver {
 public:

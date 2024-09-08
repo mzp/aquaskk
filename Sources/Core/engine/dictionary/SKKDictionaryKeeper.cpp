@@ -22,6 +22,8 @@
 
 #import "AquaSKKCore/SKKDictionaryKeeper.h"
 
+#import <AquaSKKCore/thread_condition.h>
+
 #include "utf8util.h"
 #import <AquaSKKCore/SKKCandidateParser.h>
 #import <AquaSKKCore/SKKEncoding.h>

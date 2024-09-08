@@ -1,10 +1,12 @@
 
+#include <cassert>
+#include <errno.h>
+
+#import <XCTest/XCTest.h>
+
 #import <AquaSKKCore/SKKCommonDictionary.h>
 #import <AquaSKKCore/SKKEncoding.h>
 #import <AquaSKKCore/SKKProxyDictionary.h>
-#import <XCTest/XCTest.h>
-#include <cassert>
-#include <errno.h>
 
 @interface SKKProxyDictionaryTests : XCTestCase
 @end
@@ -56,25 +58,18 @@ void session(int fd, SKKCommonDictionary &dict) {
     sock.close();
 }
 
-void notify_ok(void *param) {
-    auto *condition = (pthread::condition *)param;
-    pthread::lock lock(*condition);
-
-    condition->signal();
-}
-
 // 正常サーバー
-void *normal_server(void *param) {
+void *normal_server(NSCondition *condition) {
     SKKCommonDictionary dict;
 
-    NSString *path = [[NSBundle bundleForClass:SKKProxyDictionaryTests.class] pathForResource:@"SKK-JISYO"
-                                                                                       ofType:@"TEST"];
+    NSBundle *bundle = [NSBundle bundleForClass:SKKProxyDictionaryTests.class];
+    NSString *path = [bundle pathForResource:@"SKK-JISYO" ofType:@"TEST"];
     dict.Initialize(path.UTF8String);
 
     ushort port = 23000;
     net::socket::tcpserver skkserv(port);
 
-    notify_ok(param);
+    [condition signal];
 
     while(true) {
         session(skkserv.accept(), dict);
@@ -84,11 +79,11 @@ void *normal_server(void *param) {
 }
 
 // だんまりサーバー
-void *dumb_server(void *param) {
+void *dumb_server(NSCondition *condition) {
     ushort port = 33000;
     net::socket::tcpserver skkserv(port);
 
-    notify_ok(param);
+    [condition signal];
 
     while(true) {
         skkserv.accept();
@@ -98,11 +93,11 @@ void *dumb_server(void *param) {
 }
 
 // おかしなサーバー
-void *mad_server(void *param) {
+void *mad_server(NSCondition *condition) {
     ushort port = 43000;
     net::socket::tcpserver skkserv(port);
 
-    notify_ok(param);
+    [condition signal];
 
     while(true) {
         auto fd = skkserv.accept();
@@ -115,11 +110,11 @@ void *mad_server(void *param) {
 }
 
 // 自殺サーバー
-void *suicide_server(void *param) {
+void *suicide_server(NSCondition *condition) {
     ushort port = 53000;
     net::socket::tcpserver skkserv(port);
 
-    notify_ok(param);
+    [condition signal];
 
     while(true) {
         close(skkserv.accept());
@@ -129,15 +124,12 @@ void *suicide_server(void *param) {
 }
 
 // サーバー起動
-void spawn_server(void *(*server)(void *param)) {
-    pthread_t thread;
-    pthread::condition ready;
-    pthread::lock lock(ready);
-
-    pthread_create(&thread, 0, server, &ready);
-    pthread_detach(thread);
-
-    ready.wait();
+void spawn_server(void *(*server)(NSCondition *param)) {
+    NSCondition *condition = [[NSCondition alloc] init];
+    [NSThread detachNewThreadWithBlock:^{
+      server(condition);
+    }];
+    [condition wait];
 }
 
 @implementation SKKProxyDictionaryTests
