@@ -24,4 +24,5 @@ pthread::timer::timer(task *task, long interval, long startup_delay) {
 
 pthread::timer::~timer() {
     [timer_ invalidate];
+    timer_ = nil;
 }

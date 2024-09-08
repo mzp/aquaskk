@@ -16,7 +16,9 @@ pthread::condition::condition() {
     condition_ = [[NSCondition alloc] init];
 }
 
-pthread::condition::~condition() {}
+pthread::condition::~condition() {
+    condition_ = nil;
+}
 
 void pthread::condition::lock() {
     [condition_ lock];
