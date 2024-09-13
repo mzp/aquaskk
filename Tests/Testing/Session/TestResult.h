@@ -3,7 +3,7 @@
 #ifndef TestResult_h
 #define TestResult_h
 
-#import <AquaSKKCore/SKKInputMode.h>
+#import <AquaSKKBackend/SKKInputMode.h>
 #include <iostream>
 #include <string>
 

@@ -21,7 +21,7 @@
 */
 
 #include "SKKFrontEnd.h"
-#import <AquaSKKCore/SKKBackEnd.h>
+#import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKCore/SKKInputSession.h>
 #import <AquaSKKCore/SKKPrimaryEditor.h>
 #import <AquaSKKCore/SKKRecursiveEditor.h>

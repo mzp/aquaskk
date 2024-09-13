@@ -24,7 +24,7 @@
     Directory Maneger対応　2002.09.25 Shin_ichi Abe.
 */
 
-#import <AquaSKKCore/SKKCandidate.h>
+#import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKInput/MacKotoeriDictionary.h>
 #include <Carbon/Carbon.h>
 #include <iostream>

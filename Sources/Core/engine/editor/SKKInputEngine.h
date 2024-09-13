@@ -28,7 +28,7 @@
 #import <AquaSKKCore/SKKComposingEditor.h>
 #import <AquaSKKCore/SKKEntryRemoveEditor.h>
 #import <AquaSKKCore/SKKInputEnvironment.h>
-#import <AquaSKKCore/SKKInputMode.h>
+#import <AquaSKKBackend/SKKInputMode.h>
 #import <AquaSKKCore/SKKInputQueue.h>
 #import <AquaSKKCore/SKKOkuriEditor.h>
 #import <AquaSKKCore/SKKSelector.h>

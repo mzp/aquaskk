@@ -8,7 +8,7 @@
 #ifndef AISRomanKanaConverter_h
 #define AISRomanKanaConverter_h
 
-#import <AquaSKKCore/SKKInputMode.h>
+#import <AquaSKKBackend/SKKInputMode.h>
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN

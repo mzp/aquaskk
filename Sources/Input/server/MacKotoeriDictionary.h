@@ -27,7 +27,7 @@
 #ifndef MacKotoeriDictionary_h
 #define MacKotoeriDictionary_h
 
-#import <AquaSKKCore/SKKBaseDictionary.h>
+#import <AquaSKKBackend/SKKBaseDictionary.h>
 
 class KotoeriImpl;
 

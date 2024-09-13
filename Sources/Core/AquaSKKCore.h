@@ -26,36 +26,6 @@ FOUNDATION_EXPORT const unsigned char AquaSKKCoreVersionString[];
 #import <AquaSKKCore/SKKMessenger.h>
 #import <AquaSKKCore/SKKWidget.h>
 
-#pragma mark - backend
-
-#import <AquaSKKCore/SKKAutoUpdateDictionary.h>
-#import <AquaSKKCore/SKKBackend.h>
-#import <AquaSKKCore/SKKBaseDictionary.h>
-#import <AquaSKKCore/SKKCandidateFilter.h>
-#import <AquaSKKCore/SKKCompleter.h>
-#import <AquaSKKCore/SKKDictionaryCache.h>
-#import <AquaSKKCore/SKKDictionaryFactory.h>
-#import <AquaSKKCore/SKKDictionaryKey.h>
-#import <AquaSKKCore/SKKNumericConverter.h>
-
-#pragma mark - dictionary
-
-#import <AquaSKKCore/SKKAutoUpdateDictionary.h>
-#import <AquaSKKCore/SKKBaseDictionary.h>
-#import <AquaSKKCore/SKKCommonDictionary.h>
-#import <AquaSKKCore/SKKCompletionHelper.h>
-#import <AquaSKKCore/SKKDictionaryFile.h>
-#import <AquaSKKCore/SKKDictionaryKeeper.h>
-#import <AquaSKKCore/SKKDictionaryLoader.h>
-#import <AquaSKKCore/SKKDictionaryTemplate.h>
-#import <AquaSKKCore/SKKDistributedUserDictionary.h>
-#import <AquaSKKCore/SKKGadgetDictionary.h>
-#import <AquaSKKCore/SKKHttpDictionaryLoader.h>
-#import <AquaSKKCore/SKKLocalDictionaryLoader.h>
-#import <AquaSKKCore/SKKLocalUserDictionary.h>
-#import <AquaSKKCore/SKKProxyDictionary.h>
-#import <AquaSKKCore/SKKUserDictionary.h>
-
 #pragma mark - editor
 
 #import <AquaSKKCore/SKKBaseEditor.h>
@@ -68,14 +38,6 @@ FOUNDATION_EXPORT const unsigned char AquaSKKCoreVersionString[];
 #import <AquaSKKCore/SKKPrimaryEditor.h>
 #import <AquaSKKCore/SKKRegisterEditor.h>
 #import <AquaSKKCore/SKKTextBuffer.h>
-
-#pragma mark - entry
-
-#import <AquaSKKCore/SKKCandidate.h>
-#import <AquaSKKCore/SKKCandidateParser.h>
-#import <AquaSKKCore/SKKCandidateSuite.h>
-#import <AquaSKKCore/SKKEntry.h>
-#import <AquaSKKCore/SKKOkuriHint.h>
 
 #pragma mark - keymap
 
@@ -94,7 +56,6 @@ FOUNDATION_EXPORT const unsigned char AquaSKKCoreVersionString[];
 
 #import <AquaSKKCore/SKKInputContext.h>
 #import <AquaSKKCore/SKKInputEnvironment.h>
-#import <AquaSKKCore/SKKInputMode.h>
 #import <AquaSKKCore/SKKInputModeSelector.h>
 #import <AquaSKKCore/SKKInputSession.h>
 #import <AquaSKKCore/SKKOutputBuffer.h>
@@ -120,12 +81,4 @@ FOUNDATION_EXPORT const unsigned char AquaSKKCoreVersionString[];
 
 #pragma mark - utility
 
-#import <AquaSKKCore/calculator.h>
-#import <AquaSKKCore/pthreadutil.h>
-#import <AquaSKKCore/socketutil.h>
 #import <AquaSKKCore/subrange.h>
-#import <AquaSKKCore/utf8util.h>
-
-#pragma mark - Romankana
-#import <AquaSKKCore/SKKEncoding.h>
-#import <AquaSKKCore/SKKTransliterate.h>

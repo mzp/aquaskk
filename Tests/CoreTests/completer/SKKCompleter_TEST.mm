@@ -1,4 +1,4 @@
-#import <AquaSKKCore/SKKBackEnd.h>
+#import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKCore/SKKCompleter.h>
 #import <XCTest/XCTest.h>
 #include <cassert>

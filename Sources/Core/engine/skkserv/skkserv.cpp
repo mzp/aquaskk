@@ -22,8 +22,8 @@
 */
 #import "skkserv.h"
 
-#import <AquaSKKCore/SKKBackEnd.h>
-#import <AquaSKKCore/SKKEncoding.h>
+#import <AquaSKKBackend/SKKBackEnd.h>
+#import <AquaSKKBackend/SKKEncoding.h>
 #include <cctype>
 #include <iostream>
 #include <string>

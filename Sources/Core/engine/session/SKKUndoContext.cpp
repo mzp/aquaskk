@@ -24,7 +24,7 @@
 
 #include <functional>
 
-#import <AquaSKKCore/SKKBackEnd.h>
+#import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKCore/SKKUndoContext.h>
 
 SKKUndoContext::SKKUndoContext(SKKFrontEnd *frontend)

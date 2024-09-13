@@ -20,7 +20,7 @@
 
 */
 
-#import <AquaSKKCore/SKKBackEnd.h>
+#import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKCore/SKKClipboard.h>
 #import <AquaSKKCore/SKKConfig.h>
 #import <AquaSKKCore/SKKInputContext.h>

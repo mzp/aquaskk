@@ -24,14 +24,14 @@
 
 #import <os/log.h>
 
-#import <AquaSKKCore/SKKAutoUpdateDictionary.h>
-#import <AquaSKKCore/SKKBackEnd.h>
-#import <AquaSKKCore/SKKCommonDictionary.h>
-#import <AquaSKKCore/SKKDictionaryFactory.h>
-#import <AquaSKKCore/SKKDistributedUserDictionary.h>
-#import <AquaSKKCore/SKKGadgetDictionary.h>
-#import <AquaSKKCore/SKKLocalUserDictionary.h>
-#import <AquaSKKCore/SKKProxyDictionary.h>
+#import <AquaSKKBackend/SKKAutoUpdateDictionary.h>
+#import <AquaSKKBackend/SKKBackEnd.h>
+#import <AquaSKKbackend/SKKCommonDictionary.h>
+#import <AquaSKKbackend/SKKDictionaryFactory.h>
+#import <AquaSKKbackend/SKKDistributedUserDictionary.h>
+#import <AquaSKKbackend/SKKGadgetDictionary.h>
+#import <AquaSKKbackend/SKKLocalUserDictionary.h>
+#import <AquaSKKbackend/SKKProxyDictionary.h>
 #import <AquaSKKCore/SKKRomanKanaConverter.h>
 #import <AquaSKKCore/skkserv.h>
 #import <AquaSKKInput/BlacklistApps.h>
