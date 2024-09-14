@@ -22,6 +22,7 @@
 
 #include <iostream>
 #include <set>
+#include <AquaSKKBackend/AquaSKKBackend-Swift.h>
 #import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKBackend/SKKCandidateFilter.h>
 #import <AquaSKKBackend/SKKCandidateSuite.h>
@@ -59,14 +60,14 @@ namespace {
 
     // 数値変換用ファンクタ
     class NumericConversion {
-        SKKNumericConverter *converter_;
+        AquaSKKBackend::NumericConverter converter_;
 
     public:
         NumericConversion(SKKNumericConverter &converter)
-            : converter_(&converter) {}
+            : converter_(AquaSKKBackend::NumericConverter::init()) {}
 
-        SKKCandidate &operator()(SKKCandidate &candidate) const {
-            converter_->Apply(candidate);
+        SKKCandidate &operator()(SKKCandidate &candidate) {
+            converter_.apply(candidate);
             return candidate;
         }
     };

@@ -25,6 +25,7 @@
 
 #include <deque>
 #include <string>
+#include <swift/bridging>
 
 // 単一の変換候補
 class SKKCandidate {
@@ -72,11 +73,19 @@ public:
         return (variant_.empty() ? Word() : variant_);
     }
 
+    const std::string getVariant() const SWIFT_COMPUTED_PROPERTY {
+        return Variant();
+    }
+
+    const std::string getWord() const SWIFT_COMPUTED_PROPERTY {
+        return Word();
+    }
+
     bool AvoidStudy() const {
         return avoid_study_;
     }
 
-    void SetVariant(const std::string &str) {
+    void SetVariant(const std::string str) SWIFT_COMPUTED_PROPERTY {
         variant_ = str;
     }
 
