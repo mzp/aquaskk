@@ -1,7 +1,7 @@
 #import <AquaSKKBackend/SKKBackEnd.h>
-#import <AquaSKKCore/SKKCandidateWindow.h>
 #import <AquaSKKBackend/SKKCommonDictionary.h>
 #import <AquaSKKBackend/SKKDictionaryFactory.h>
+#import <AquaSKKCore/SKKCandidateWindow.h>
 #import <AquaSKKCore/SKKSelector.h>
 #include <cassert>
 

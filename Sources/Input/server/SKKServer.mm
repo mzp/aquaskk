@@ -26,12 +26,6 @@
 
 #import <AquaSKKBackend/SKKAutoUpdateDictionary.h>
 #import <AquaSKKBackend/SKKBackEnd.h>
-#import <AquaSKKbackend/SKKCommonDictionary.h>
-#import <AquaSKKbackend/SKKDictionaryFactory.h>
-#import <AquaSKKbackend/SKKDistributedUserDictionary.h>
-#import <AquaSKKbackend/SKKGadgetDictionary.h>
-#import <AquaSKKbackend/SKKLocalUserDictionary.h>
-#import <AquaSKKbackend/SKKProxyDictionary.h>
 #import <AquaSKKCore/SKKRomanKanaConverter.h>
 #import <AquaSKKCore/skkserv.h>
 #import <AquaSKKInput/BlacklistApps.h>
@@ -41,6 +35,12 @@
 #import <AquaSKKService/AISDefaultServerConfiguration.h>
 #import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKUI/InputModeWindow.h>
+#import <AquaSKKbackend/SKKCommonDictionary.h>
+#import <AquaSKKbackend/SKKDictionaryFactory.h>
+#import <AquaSKKbackend/SKKDistributedUserDictionary.h>
+#import <AquaSKKbackend/SKKGadgetDictionary.h>
+#import <AquaSKKbackend/SKKLocalUserDictionary.h>
+#import <AquaSKKbackend/SKKProxyDictionary.h>
 
 static os_log_t appLog(void) {
     static os_log_t _serviceLog;

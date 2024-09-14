@@ -21,8 +21,8 @@
 */
 
 #include "utf8util.h"
-#import <AquaSKKCore/SKKAnnotator.h>
 #import <AquaSKKBackend/SKKBackEnd.h>
+#import <AquaSKKCore/SKKAnnotator.h>
 #import <AquaSKKCore/SKKCandidateWindow.h>
 #import <AquaSKKCore/SKKConfig.h>
 #import <AquaSKKCore/SKKDynamicCompletor.h>

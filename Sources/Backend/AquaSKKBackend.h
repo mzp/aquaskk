@@ -13,7 +13,8 @@ FOUNDATION_EXPORT double AquaSKKBackendVersionNumber;
 //! Project version string for AquaSKKBackend.
 FOUNDATION_EXPORT const unsigned char AquaSKKBackendVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <AquaSKKBackend/PublicHeader.h>
+// In this header, you should import all the public headers of your framework using statements like #import
+// <AquaSKKBackend/PublicHeader.h>
 
 #pragma mark - backend
 

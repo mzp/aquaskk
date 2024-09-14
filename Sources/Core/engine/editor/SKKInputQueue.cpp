@@ -21,8 +21,8 @@
 */
 
 #include "SKKRomanKanaConverter.h"
-#import <AquaSKKCore/SKKInputQueue.h>
 #import <AquaSKKBackend/SKKTransliterate.h>
+#import <AquaSKKCore/SKKInputQueue.h>
 #include <cassert>
 
 SKKInputQueue::SKKInputQueue(SKKInputQueueObserver *observer)
