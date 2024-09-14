@@ -23,7 +23,7 @@
 #ifndef SKKCandidateWindow_h
 #define SKKCandidateWindow_h
 
-#import <AquaSKKCore/SKKCandidate.h>
+#import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKCore/SKKWidget.h>
 #include <vector>
 

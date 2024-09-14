@@ -23,7 +23,7 @@
 #ifndef SKKBaseSelector_h
 #define SKKBaseSelector_h
 
-#import <AquaSKKCore/SKKCandidate.h>
+#import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKCore/subrange.h>
 
 // 基底候補選択クラス

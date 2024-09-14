@@ -23,8 +23,8 @@
 #ifndef SKKSelector_h
 #define SKKSelector_h
 
-#import <AquaSKKCore/SKKCandidateSuite.h>
-#import <AquaSKKCore/SKKEntry.h>
+#import <AquaSKKBackend/SKKCandidateSuite.h>
+#import <AquaSKKBackend/SKKEntry.h>
 #import <AquaSKKCore/SKKInlineSelector.h>
 #import <AquaSKKCore/SKKWindowSelector.h>
 #import <AquaSKKCore/subrange.h>

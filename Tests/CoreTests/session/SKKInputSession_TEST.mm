@@ -1,5 +1,5 @@
 #include "SKKRomanKanaConverter.h"
-#import <AquaSKKCore/SKKBackEnd.h>
+#import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKCore/SKKInputSession.h>
 #import <AquaSKKCore/SKKKeymap.h>
 

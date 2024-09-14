@@ -20,7 +20,7 @@
 
 */
 
-#import <AquaSKKCore/utf8util.h>
+#import <AquaSKKBackend/utf8util.h>
 #import <AquaSKKInput/MacAnnotator.h>
 #import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKUI/AnnotationWindow.h>

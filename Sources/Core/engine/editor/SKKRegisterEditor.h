@@ -23,8 +23,8 @@
 #ifndef SKKRegisterFilter_h
 #define SKKRegisterFilter_h
 
+#import <AquaSKKBackend/SKKEntry.h>
 #import <AquaSKKCore/SKKBaseEditor.h>
-#import <AquaSKKCore/SKKEntry.h>
 #import <AquaSKKCore/SKKTextBuffer.h>
 
 class SKKRegisterEditor : public SKKBaseEditor {

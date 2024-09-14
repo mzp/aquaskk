@@ -23,7 +23,7 @@
 #ifndef SKKInputModeListener_h
 #define SKKInputModeListener_h
 
-#import <AquaSKKCore/SKKInputMode.h>
+#import <AquaSKKBackend/SKKInputMode.h>
 #import <AquaSKKCore/SKKWidget.h>
 #include <vector>
 

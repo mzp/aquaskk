@@ -3,7 +3,7 @@
 #ifndef MockCompletionHelper_h
 #define MockCompletionHelper_h
 
-#import <AquaSKKCore/SKKCompletionHelper.h>
+#import <AquaSKKBackend/SKKCompletionHelper.h>
 #include <vector>
 
 class MockCompletionHelper : public SKKCompletionHelper {

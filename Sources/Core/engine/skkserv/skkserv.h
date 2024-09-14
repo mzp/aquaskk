@@ -21,7 +21,7 @@
 
 */
 
-#import <AquaSKKCore/socketutil.h>
+#import <AquaSKKBackend/socketutil.h>
 #include <pthread.h>
 
 class skkserv {

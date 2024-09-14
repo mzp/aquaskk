@@ -23,11 +23,11 @@
 #ifndef SKKState_h
 #define SKKState_h
 
+#import <AquaSKKBackend/SKKInputMode.h>
 #import <AquaSKKCore/GenericStateMachine.h>
 #import <AquaSKKCore/SKKCompleter.h>
 #import <AquaSKKCore/SKKEvent.h>
 #import <AquaSKKCore/SKKInputEnvironment.h>
-#import <AquaSKKCore/SKKInputMode.h>
 #import <AquaSKKCore/SKKSelector.h>
 
 using namespace statemachinecxx_sourceforge_jp;

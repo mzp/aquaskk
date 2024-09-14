@@ -20,7 +20,7 @@
 
 */
 
-#import <AquaSKKCore/SKKBackEnd.h>
+#import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKCore/SKKInputSession.h>
 #import <AquaSKKInput/BlacklistApps.h>
 #import <AquaSKKInput/SKKInputController.h>
