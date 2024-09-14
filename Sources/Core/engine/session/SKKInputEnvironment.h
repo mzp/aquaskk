@@ -23,11 +23,11 @@
 #ifndef SKKInputEnvironment_h
 #define SKKInputEnvironment_h
 
+#include <memory>
 #import <AquaSKKCore/SKKBaseEditor.h>
 #import <AquaSKKCore/SKKInputContext.h>
 #import <AquaSKKCore/SKKInputModeSelector.h>
 #import <AquaSKKCore/SKKInputSessionParameter.h>
-#include <memory>
 
 class SKKInputEnvironment {
     SKKInputContext *context_;

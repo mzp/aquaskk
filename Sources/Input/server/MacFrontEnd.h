@@ -23,8 +23,8 @@
 #ifndef MacFrontEnd_h
 #define MacFrontEnd_h
 
-#import <AquaSKKCore/SKKFrontEnd.h>
 #include <InputMethodKit/InputMethodKit.h>
+#import <AquaSKKCore/SKKFrontEnd.h>
 
 class MacFrontEnd : public SKKFrontEnd {
     id client_;

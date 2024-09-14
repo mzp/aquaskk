@@ -20,14 +20,13 @@
 
 */
 
+#include <InputMethodKit/InputMethodKit.h>
 #import <AquaSKKBackend/utf8util.h>
 #import <AquaSKKInput/MacCandidateWindow.h>
 #import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKUI/CandidateCell.h>
 #import <AquaSKKUI/CandidateView.h>
 #import <AquaSKKUI/CandidateWindow.h>
-
-#include <InputMethodKit/InputMethodKit.h>
 
 MacCandidateWindow::MacCandidateWindow(SKKLayoutManager *layout)
     : layout_(layout) {

@@ -20,10 +20,10 @@
 
 */
 
+#include <iostream>
 #import <AquaSKKCore/SKKEvent.h>
 #import <AquaSKKCore/SKKKeyState.h>
 #import <AquaSKKCore/SKKKeymapEntry.h>
-#include <iostream>
 
 // エントリーのタイプ
 enum KeymapEntryType {

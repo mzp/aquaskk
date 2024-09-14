@@ -23,6 +23,7 @@
 #ifndef SKKInputEngine_h
 #define SKKInputEngine_h
 
+#include <vector>
 #import <AquaSKKBackend/SKKInputMode.h>
 #import <AquaSKKCore/SKKCandidateEditor.h>
 #import <AquaSKKCore/SKKCompleter.h>
@@ -32,7 +33,6 @@
 #import <AquaSKKCore/SKKInputQueue.h>
 #import <AquaSKKCore/SKKOkuriEditor.h>
 #import <AquaSKKCore/SKKSelector.h>
-#include <vector>
 
 class SKKInputEngine : public SKKInputQueueObserver,
                        public SKKCompleterBuddy,

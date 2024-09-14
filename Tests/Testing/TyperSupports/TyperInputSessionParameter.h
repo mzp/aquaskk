@@ -8,6 +8,8 @@
 #ifndef TyperInputSessionParameter_hpp
 #define TyperInputSessionParameter_hpp
 
+#include <memory>
+#include <swift/bridging>
 #import <AquaSKKCore/IntrusiveRefCounted.h>
 #import <AquaSKKCore/SKKAnnotator.h>
 #import <AquaSKKCore/SKKCandidateWindow.h>
@@ -17,8 +19,6 @@
 #import <AquaSKKCore/SKKFrontEnd.h>
 #import <AquaSKKCore/SKKInputSessionParameter.h>
 #import <AquaSKKCore/SKKMessenger.h>
-#include <memory>
-#include <swift/bridging>
 
 class TyperInputSessionParameter : public SKKInputSessionParameter {
     std::unique_ptr<SKKConfig> config_;

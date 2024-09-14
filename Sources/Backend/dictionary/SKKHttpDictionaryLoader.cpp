@@ -20,9 +20,9 @@
 
 */
 
-#import <AquaSKKBackend/SKKHttpDictionaryLoader.h>
 #include <fstream>
 #include <sys/stat.h>
+#import <AquaSKKBackend/SKKHttpDictionaryLoader.h>
 
 SKKHttpDictionaryLoader::SKKHttpDictionaryLoader() {}
 

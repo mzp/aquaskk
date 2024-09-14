@@ -20,11 +20,11 @@
 
 */
 
-#import <AquaSKKBackend/SKKDictionaryFile.h>
 #include <algorithm>
 #include <fstream>
 #include <iostream>
 #include <sys/stat.h>
+#import <AquaSKKBackend/SKKDictionaryFile.h>
 
 static std::string OKURI_ARI_MARK = ";; okuri-ari entries.";
 static std::string OKURI_NASI_MARK = ";; okuri-nasi entries.";

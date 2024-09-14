@@ -1,9 +1,7 @@
-#import <AquaSKKBackend/SKKLocalUserDictionary.h>
 #include <cassert>
 #include <iostream>
-
 #import <XCTest/XCTest.h>
-
+#import <AquaSKKBackend/SKKLocalUserDictionary.h>
 #import <AquaSKKTesting/MockCompletionHelper.h>
 
 @interface SKKUserDictionaryTests : XCTestCase

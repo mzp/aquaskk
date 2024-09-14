@@ -20,12 +20,12 @@
 
 */
 
-#include "SKKFrontEnd.h"
 #import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKCore/SKKInputSession.h>
 #import <AquaSKKCore/SKKPrimaryEditor.h>
 #import <AquaSKKCore/SKKRecursiveEditor.h>
 #import <AquaSKKCore/SKKRegisterEditor.h>
+#include "SKKFrontEnd.h"
 
 namespace {
     class scoped_flag {

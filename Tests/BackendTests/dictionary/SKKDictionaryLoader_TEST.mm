@@ -1,7 +1,6 @@
-#import <AquaSKKBackend/SKKDictionaryLoader.h>
 #include <iostream>
-
 #import <XCTest/XCTest.h>
+#import <AquaSKKBackend/SKKDictionaryLoader.h>
 
 @interface SKKDictionaryLoaderTests : XCTestCase
 @end

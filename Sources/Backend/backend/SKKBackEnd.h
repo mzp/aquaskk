@@ -26,7 +26,6 @@
 #include <memory>
 #include <string>
 #include <vector>
-
 #import <AquaSKKBackend/SKKCandidateSuite.h>
 #import <AquaSKKBackend/SKKDictionaryCache.h>
 #import <AquaSKKBackend/SKKDictionaryKey.h>

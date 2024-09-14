@@ -23,10 +23,10 @@
 #ifndef SKKRecursiveEditor_h
 #define SKKRecursiveEditor_h
 
+#include <memory>
 #import <AquaSKKCore/SKKInputEngine.h>
 #import <AquaSKKCore/SKKInputEnvironment.h>
 #import <AquaSKKCore/SKKStateMachine.h>
-#include <memory>
 
 class SKKWidget;
 class SKKInputContext;

@@ -20,10 +20,9 @@
 
 */
 
+#include <InputMethodKit/InputMethodKit.h>
 #import <AquaSKKInput/MacDynamicCompletor.h>
 #import <AquaSKKUI/CompletionWindow.h>
-
-#include <InputMethodKit/InputMethodKit.h>
 
 MacDynamicCompletor::MacDynamicCompletor(SKKLayoutManager *layout)
     : layout_(layout) {

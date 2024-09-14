@@ -1,7 +1,6 @@
-#include "utf8util.h"
 #include <cassert>
-
 #import <XCTest/XCTest.h>
+#include "utf8util.h"
 
 @interface Utf8UtilTests : XCTestCase
 @end

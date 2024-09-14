@@ -5,8 +5,8 @@
 //  Created by mzp on 8/8/24.
 //
 
-#import <AquaSKKService/AISJisyo.h>
 #import <Foundation/Foundation.h>
+#import <AquaSKKService/AISJisyo.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

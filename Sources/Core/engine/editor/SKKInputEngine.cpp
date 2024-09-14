@@ -20,13 +20,13 @@
 
 */
 
+#include <cctype>
+#include <iostream>
 #import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKCore/SKKClipboard.h>
 #import <AquaSKKCore/SKKConfig.h>
 #import <AquaSKKCore/SKKInputContext.h>
 #import <AquaSKKCore/SKKInputEngine.h>
-#include <cctype>
-#include <iostream>
 
 // ----------------------------------------------------------------------
 

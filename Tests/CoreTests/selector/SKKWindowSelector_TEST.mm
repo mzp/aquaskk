@@ -1,10 +1,8 @@
+#include <cassert>
+#import <XCTest/XCTest.h>
 #import <AquaSKKCore/SKKCandidateWindow.h>
 #import <AquaSKKCore/SKKWindowSelector.h>
-#include <cassert>
-
 #import <AquaSKKTesting/MockCandidateWindow.h>
-
-#import <XCTest/XCTest.h>
 
 @interface SKKWindowSelectorTests : XCTestCase
 @end
