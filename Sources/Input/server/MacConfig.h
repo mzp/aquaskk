@@ -24,7 +24,6 @@
 #define MacConfig_h
 
 #import <Foundation/Foundation.h>
-
 #import <AquaSKKCore/SKKConfig.h>
 
 class MacConfig : public SKKConfig {

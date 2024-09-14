@@ -1,10 +1,9 @@
+#import <XCTest/XCTest.h>
 #import <AquaSKKBackend/SKKDistributedUserDictionary.h>
 #import <AquaSKKBackend/pthreadutil.h>
 #import <AquaSKKBackend/socketutil.h>
-#import <XCTest/XCTest.h>
-
-#include "stringutil.h"
 #import <AquaSKKTesting/MockCompletionHelper.h>
+#include "stringutil.h"
 
 @interface SKKDistributedUserDictionaryTests : XCTestCase
 @end

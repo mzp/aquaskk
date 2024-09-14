@@ -20,9 +20,9 @@
 
 */
 
+#import <AquaSKKService/SKKConstVars.h>
 #include "ObjCUtil.h"
 #import "SandboxShims.h"
-#import <AquaSKKService/SKKConstVars.h>
 
 #define DECLARE_NSStringKey(key) NSString *key = @ #key
 

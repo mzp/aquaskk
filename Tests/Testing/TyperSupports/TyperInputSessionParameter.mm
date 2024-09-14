@@ -6,10 +6,7 @@
 //
 
 #include "TyperInputSessionParameter.h"
-
 #include <vector>
-
-#import "TyperConfig.h"
 #import <AquaSKKInput/MacAnnotator.h>
 #import <AquaSKKInput/MacCandidateWindow.h>
 #import <AquaSKKInput/MacClipboard.h>
@@ -21,6 +18,7 @@
 #import <AquaSKKTesting/MockClipboard.h>
 #import <AquaSKKTesting/MockDynamicCompletor.h>
 #import <AquaSKKTesting/MockMessenger.h>
+#import "TyperConfig.h"
 
 TyperInputSessionParameter::TyperInputSessionParameter(id client)
     : config_(new TyperConfig()),

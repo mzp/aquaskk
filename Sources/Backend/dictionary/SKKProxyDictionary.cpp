@@ -21,9 +21,7 @@
 */
 
 #import "SKKProxyDictionary.h"
-
 #include <sstream>
-
 #include "SKKEncoding.h"
 
 SKKProxyDictionary::SKKProxyDictionary()

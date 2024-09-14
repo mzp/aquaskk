@@ -21,12 +21,11 @@
 
 */
 #import "skkserv.h"
-
-#import <AquaSKKBackend/SKKBackEnd.h>
-#import <AquaSKKBackend/SKKEncoding.h>
 #include <cctype>
 #include <iostream>
 #include <string>
+#import <AquaSKKBackend/SKKBackEnd.h>
+#import <AquaSKKBackend/SKKEncoding.h>
 #include <unistd.h>
 
 namespace {

@@ -23,12 +23,12 @@
 #ifndef SKKBaseDictionary_h
 #define SKKBaseDictionary_h
 
-#import <AquaSKKBackend/SKKCandidateSuite.h>
-#import <AquaSKKBackend/SKKCompletionHelper.h>
-#import <AquaSKKBackend/SKKEntry.h>
 #include <iostream>
 #include <string>
 #include <vector>
+#import <AquaSKKBackend/SKKCandidateSuite.h>
+#import <AquaSKKBackend/SKKCompletionHelper.h>
+#import <AquaSKKBackend/SKKEntry.h>
 
 // ======================================================================
 // 抽象辞書クラス(文字列は UTF-8)

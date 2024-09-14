@@ -20,10 +20,10 @@
 
 */
 
-#include <AquaSKKService/SubRuleDescriptions.h>
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <AquaSKKService/SubRuleDescriptions.h>
 
 SubRuleDescriptions::SubRuleDescriptions(const char *folder) {
     std::string path(std::string(folder) + "/sub-rule.desc");

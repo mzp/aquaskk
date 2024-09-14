@@ -23,9 +23,9 @@
 #ifndef SKKLocalDictionaryLoader_h
 #define SKKLocalDictionaryLoader_h
 
-#import <AquaSKKBackend/SKKDictionaryLoader.h>
 #include <ctime>
 #include <sys/stat.h>
+#import <AquaSKKBackend/SKKDictionaryLoader.h>
 
 // ローカル辞書ローダー
 

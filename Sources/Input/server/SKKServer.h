@@ -24,10 +24,10 @@
 #define SKKServer_h
 
 #include <AppKit/AppKit.h>
+#include <InputMethodKit/InputMethodKit.h>
 #import <AquaSKKService/AISServerConfiguration.h>
 #import <AquaSKKService/AISUserDefaults.h>
 #import <AquaSKKService/SKKSupervisor.h>
-#include <InputMethodKit/InputMethodKit.h>
 
 @interface SKKServer : NSObject <SKKSupervisor> {
     IMKServer *imkserver_;

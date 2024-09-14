@@ -20,9 +20,9 @@
 
 */
 
-#import <AquaSKKCore/SKKInputModeSelector.h>
 #include <algorithm>
 #include <functional>
+#import <AquaSKKCore/SKKInputModeSelector.h>
 
 SKKInputModeSelector::SKKInputModeSelector(SKKInputModeListenerCollection *listeners)
     : SKKWidget(true), listeners_(listeners), mode_(SKKInputMode::InvalidInputMode) {

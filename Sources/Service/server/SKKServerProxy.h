@@ -23,8 +23,8 @@
 #ifndef SKKServerProxy_h
 #define SKKServerProxy_h
 
-#import <AquaSKKService/SKKSupervisor.h>
 #import <Foundation/Foundation.h>
+#import <AquaSKKService/SKKSupervisor.h>
 
 @interface SKKServerProxy : NSObject <SKKSupervisor> {
     id proxy_;

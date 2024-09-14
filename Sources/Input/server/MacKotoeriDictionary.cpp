@@ -24,11 +24,11 @@
     Directory Maneger対応　2002.09.25 Shin_ichi Abe.
 */
 
-#import <AquaSKKBackend/SKKCandidate.h>
-#import <AquaSKKInput/MacKotoeriDictionary.h>
-#include <Carbon/Carbon.h>
 #include <iostream>
 #include <vector>
+#include <Carbon/Carbon.h>
+#import <AquaSKKBackend/SKKCandidate.h>
+#import <AquaSKKInput/MacKotoeriDictionary.h>
 
 // Snow Leopard 以降では Dictionary Manager は非サポート
 class KotoeriImpl {

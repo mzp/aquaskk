@@ -21,12 +21,11 @@
 */
 
 #include "PreferenceController.h"
-#include "DictionaryTypeTransformer.h"
-#include "SubRuleDescriptions.h"
+#include <Carbon/Carbon.h>
 #import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKService/SKKServerProxy.h>
-
-#include <Carbon/Carbon.h>
+#include "DictionaryTypeTransformer.h"
+#include "SubRuleDescriptions.h"
 
 namespace {
     const NSString *SUB_RULE_FOLDER = @"folder";

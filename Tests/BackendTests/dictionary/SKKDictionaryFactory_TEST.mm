@@ -1,9 +1,8 @@
+#include <cassert>
+#import <XCTest/XCTest.h>
 #import <AquaSKKBackend/SKKBaseDictionary.h>
 #import <AquaSKKBackend/SKKCommonDictionary.h>
 #import <AquaSKKBackend/SKKDictionaryFactory.h>
-#include <cassert>
-
-#import <XCTest/XCTest.h>
 
 int main() {
     SKKRegisterFactoryMethod<SKKCommonDictionary>(0);

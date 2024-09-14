@@ -23,8 +23,8 @@
 #ifndef SKKGadgetDictionary_h
 #define SKKGadgetDictionary_h
 
-#import <AquaSKKBackend/SKKBaseDictionary.h>
 #include <map>
+#import <AquaSKKBackend/SKKBaseDictionary.h>
 
 // ======================================================================
 // プログラム実行変換辞書クラス

@@ -23,8 +23,8 @@
 #ifndef SKKEvent_h
 #define SKKEvent_h
 
-#import <AquaSKKCore/GenericStateMachine.h>
 #include <sstream>
+#import <AquaSKKCore/GenericStateMachine.h>
 
 // キー入力イベント
 enum {

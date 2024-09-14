@@ -1,10 +1,9 @@
-#import <AquaSKKBackend/pthreadutil.h>
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <unistd.h>
-
 #import <XCTest/XCTest.h>
+#import <AquaSKKBackend/pthreadutil.h>
+#include <unistd.h>
 
 class debugtask : public pthread::task {
     std::string str_;

@@ -20,10 +20,10 @@
 
 */
 
+#include <fstream>
 #import <AquaSKKCore/SKKKeyState.h>
 #import <AquaSKKCore/SKKKeymap.h>
 #import <AquaSKKCore/SKKKeymapEntry.h>
-#include <fstream>
 
 void SKKKeymap::Initialize(const std::string &path) {
     load(path, true);

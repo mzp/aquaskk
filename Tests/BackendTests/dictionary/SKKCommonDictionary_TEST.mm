@@ -1,7 +1,6 @@
-#import <AquaSKKBackend/SKKCommonDictionary.h>
 #include <cassert>
-
 #import <XCTest/XCTest.h>
+#import <AquaSKKBackend/SKKCommonDictionary.h>
 
 void test(SKKBaseDictionary &dict) {
     SKKCandidateSuite suite;

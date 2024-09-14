@@ -20,11 +20,11 @@
 
 */
 
-#include "ObjCUtil.h"
 #import <AquaSKKCore/SKKFrontEnd.h>
 #import <AquaSKKInput/MacMessenger.h>
 #import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKUI/MessengerWindow.h>
+#include "ObjCUtil.h"
 
 MacMessenger::MacMessenger(SKKLayoutManager *layout)
     : layout_(layout) {}

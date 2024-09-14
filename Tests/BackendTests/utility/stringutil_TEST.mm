@@ -1,9 +1,8 @@
-#include "stringutil.h"
 #include <cassert>
 #include <iostream>
 #include <vector>
-
 #import <XCTest/XCTest.h>
+#include "stringutil.h"
 
 @interface StringUtilTests : XCTestCase
 @end

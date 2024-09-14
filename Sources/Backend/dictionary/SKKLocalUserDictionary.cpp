@@ -20,16 +20,14 @@
 
 */
 
-#include "utf8util.h"
-
 #include <cerrno>
 #include <cstring>
 #include <ctime>
 #include <functional>
 #include <iostream>
-
 #import <AquaSKKBackend/SKKCandidateSuite.h>
 #import <AquaSKKBackend/SKKLocalUserDictionary.h>
+#include "utf8util.h"
 
 namespace {
     static const int MAX_IDLE_COUNT = 20;

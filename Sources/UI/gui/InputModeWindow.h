@@ -24,8 +24,8 @@
 #define InputModeWindow_h
 
 #import <AppKit/AppKit.h>
-#import <AquaSKKBackend/SKKInputMode.h>
 #include <QuartzCore/QuartzCore.h>
+#import <AquaSKKBackend/SKKInputMode.h>
 
 @interface InputModeWindow : NSObject {
     NSWindow *window_;

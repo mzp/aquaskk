@@ -11,3 +11,12 @@ IndentAccessModifiers: false
 PackConstructorInitializers: NextLineOnly
 PointerAlignment: Right
 SpaceAfterControlStatementKeyword: false
+IncludeBlocks: Merge
+IncludeCategories:
+  - Regex:           '<[[:alnum:]]+>'
+    Priority:        1
+  - Regex:           '<AquaSKK'
+    Priority:        3
+  - Regex:           '<([[:alnum:]]+)/'
+    Priority:        2
+

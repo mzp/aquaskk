@@ -20,13 +20,13 @@
 
 */
 
-#include "calculator.h"
-#import <AquaSKKBackend/SKKCandidate.h>
-#import <AquaSKKBackend/SKKCandidateSuite.h>
-#import <AquaSKKBackend/SKKGadgetDictionary.h>
 #include <algorithm>
 #include <ctime>
 #include <stdexcept>
+#import <AquaSKKBackend/SKKCandidate.h>
+#import <AquaSKKBackend/SKKCandidateSuite.h>
+#import <AquaSKKBackend/SKKGadgetDictionary.h>
+#include "calculator.h"
 
 namespace {
     // ======================================================================

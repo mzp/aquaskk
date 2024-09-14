@@ -3,12 +3,12 @@
 #ifndef TestData_h
 #define TestData_h
 
+#include <fstream>
+#include <vector>
+#import <AquaSKKCore/SKKKeyState.h>
 #include "TestEvent.h"
 #include "TestResult.h"
 #include "stringutil.h"
-#import <AquaSKKCore/SKKKeyState.h>
-#include <fstream>
-#include <vector>
 
 struct TestEntry {
     int line;

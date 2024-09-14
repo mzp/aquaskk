@@ -20,8 +20,8 @@
 
 */
 
-#import <AquaSKKCore/SKKInlineSelector.h>
 #include <cassert>
+#import <AquaSKKCore/SKKInlineSelector.h>
 
 void SKKInlineSelector::Initialize(SKKCandidateContainer &container, unsigned inlineCount) {
     range_.set(container, 0, inlineCount);

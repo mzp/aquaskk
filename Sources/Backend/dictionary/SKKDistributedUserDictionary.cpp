@@ -20,15 +20,15 @@
 
 */
 
-#include "stringutil.h"
-#include "utf8util.h"
-#import <AquaSKKBackend/SKKCandidateSuite.h>
-#import <AquaSKKBackend/SKKDistributedUserDictionary.h>
 #include <cerrno>
 #include <cstdlib>
 #include <cstring>
 #include <ctime>
 #include <iostream>
+#import <AquaSKKBackend/SKKCandidateSuite.h>
+#import <AquaSKKBackend/SKKDistributedUserDictionary.h>
+#include "stringutil.h"
+#include "utf8util.h"
 
 namespace {
     class basic_request {

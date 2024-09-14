@@ -22,7 +22,6 @@
 
 #import <AppKit/AppKit.h>
 #import <Foundation/Foundation.h>
-
 #import <AquaSKKInput/MacClipboard.h>
 
 const std::string MacClipboard::PasteString() {

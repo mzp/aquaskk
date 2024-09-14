@@ -1,6 +1,6 @@
-#import <AquaSKKCore/SKKInlineSelector.h>
-#import <XCTest/XCTest.h>
 #include <cassert>
+#import <XCTest/XCTest.h>
+#import <AquaSKKCore/SKKInlineSelector.h>
 
 @interface SKKInlineSelectorTests : XCTestCase
 @end
