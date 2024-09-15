@@ -5,7 +5,7 @@
 //  Created by mzp on 9/13/24.
 //
 
-@testable import AquaSKKBackend
+@testable internal import AquaSKKBackend
 import Testing
 
 struct AquaSKKBackendTests {

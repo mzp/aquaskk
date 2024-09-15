@@ -22,12 +22,13 @@
 
 #include <iostream>
 #include <set>
-#include <AquaSKKBackend/AquaSKKBackend-Swift.h>
+
+class SKKCandidate;
+#import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 #import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKBackend/SKKCandidateFilter.h>
 #import <AquaSKKBackend/SKKCandidateSuite.h>
 #import <AquaSKKBackend/SKKLocalUserDictionary.h>
-#import <AquaSKKBackend/SKKNumericConverter.h>
 #include "utf8util.h"
 
 namespace {
@@ -63,8 +64,8 @@ namespace {
         AquaSKKBackend::NumericConverter converter_;
 
     public:
-        NumericConversion(SKKNumericConverter &converter)
-            : converter_(AquaSKKBackend::NumericConverter::init()) {}
+        NumericConversion(AquaSKKBackend::NumericConverter &converter)
+            : converter_(converter) {}
 
         SKKCandidate &operator()(SKKCandidate &candidate) {
             converter_.apply(candidate);
@@ -188,12 +189,12 @@ bool SKKBackEnd::Find(const SKKEntry &entry, SKKCandidateSuite &result) {
     std::for_each(dicts_.begin(), dicts_.end(), ApplyFind(entry, result));
 
     if(!entry.IsOkuriAri()) {
-        SKKNumericConverter converter;
+        AquaSKKBackend::NumericConverter converter = AquaSKKBackend::NumericConverter::init();
 
-        if(useNumericConversion_ && converter.Setup(entry.EntryString())) {
+        if(useNumericConversion_ && converter.setup(swift::String(entry.EntryString()))) {
             SKKCandidateSuite suite;
 
-            std::for_each(dicts_.begin(), dicts_.end(), ApplyFind(converter.NormalizedKey(), suite));
+            std::for_each(dicts_.begin(), dicts_.end(), ApplyFind((std::string)converter.getNormalizedKey(), suite));
 
             SKKCandidateContainer &cands = suite.Candidates();
 
@@ -201,7 +202,7 @@ bool SKKBackEnd::Find(const SKKEntry &entry, SKKCandidateSuite &result) {
                 cands.begin(), cands.end(), std::back_inserter(result.Candidates()), NumericConversion(converter));
         }
 
-        result.Remove(SKKCandidate(converter.OriginalKey()));
+        result.Remove(SKKCandidate((std::string)converter.getOriginalKey()));
     }
 
     result.RemoveIf(SKKIgnoreDicWord());
@@ -270,13 +271,14 @@ SKKEntry SKKBackEnd::normalize(const SKKEntry &entry) {
         return entry;
     }
 
-    SKKNumericConverter converter;
+    AquaSKKBackend::NumericConverter converter = AquaSKKBackend::NumericConverter::init();
+
     SKKEntry result(entry);
 
     // 単語登録と削除時には、数値だけの見出し語を正規化しない
-    if(useNumericConversion_ && converter.Setup(entry.EntryString())) {
-        if(converter.NormalizedKey() != "#") {
-            result.SetEntry(converter.NormalizedKey());
+    if(useNumericConversion_ && converter.setup(entry.EntryString())) {
+        if((std::string)converter.getNormalizedKey() != "#") {
+            result.SetEntry(converter.getNormalizedKey());
         }
     }
 

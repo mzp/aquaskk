@@ -8,10 +8,11 @@
 import Foundation
 
 public class NumericConverter {
-    var params = [String.UnicodeScalarView]()
+    private var params = [String.UnicodeScalarView]()
     private(set) var original: String = ""
-    var normalized: String = ""
+    private var normalized: String = ""
 
+    /// 検索キーの正規化
     public func setup(_ query: String) -> Bool {
         params.removeAll()
         original = query
@@ -38,7 +39,10 @@ public class NumericConverter {
         return !params.isEmpty
     }
 
+    /// オリジナルのキー
     public var originalKey: String { original }
+
+    /// 正規化されたキー
     public var normalizedKey: String {
         if params.isEmpty {
             return original
@@ -47,6 +51,7 @@ public class NumericConverter {
         }
     }
 
+    /// 数値変換を適用する
     public func apply(candidate: inout SKKCandidate) {
         guard !params.isEmpty else {
             return
@@ -64,19 +69,20 @@ public class NumericConverter {
             }
             if src[src.index(before: found)] == "#" {
                 switch src[found] {
-                case "0":
+                case "0": // 無変換
                     let start = src.index(before: found)
                     src.replaceSubrange(start ... found, with: param)
 
-                case "1":
+                case "1": // 半角→全角変換
+
                     let start = src.index(before: found)
                     src.replaceSubrange(start ... found, with: Self.convertType1(param))
 
-                case "2":
+                case "2": // 漢数字位取りなし
                     let start = src.index(before: found)
                     src.replaceSubrange(start ... found, with: Self.convertType2(param))
 
-                case "3":
+                case "3": // 漢数字位取りあり
                     let start = src.index(before: found)
                     src.replaceSubrange(start ... found, with: Self.convertType3(param))
 
@@ -106,7 +112,14 @@ public class NumericConverter {
 
     public init() {}
 
-    static func convertType1(_ src: String.UnicodeScalarView) -> String.UnicodeScalarView {
+    // ======================================================================
+
+    // MARK: - 数値変換を実装するユーティリティ関数
+
+    // ======================================================================
+
+    ///  1024 → １０２４
+    private static func convertType1(_ src: String.UnicodeScalarView) -> String.UnicodeScalarView {
         var result = ""
 
         for c in src {
@@ -149,7 +162,7 @@ public class NumericConverter {
     }
 
     /// 1024 → 一〇二四
-    static func convertType2(_ src: String.UnicodeScalarView) -> String.UnicodeScalarView {
+    private static func convertType2(_ src: String.UnicodeScalarView) -> String.UnicodeScalarView {
         var result = ""
 
         for c in src {
@@ -193,7 +206,7 @@ public class NumericConverter {
     }
 
     /// 1024 → 千二十四
-    static func convertType3(_ src: String.UnicodeScalarView) -> String.UnicodeScalarView {
+    private static func convertType3(_ src: String.UnicodeScalarView) -> String.UnicodeScalarView {
         let unit1 = ["", "万", "億", "兆", "京", "垓"]
         let unit2 = ["十", "百", "千"]
         var result = ""
@@ -233,7 +246,7 @@ public class NumericConverter {
                 ()
             }
 
-            var distance = src.count - i
+            let distance = src.count - i
 
             if distance > 4 && (distance - 1) % 4 == 0 {
                 if c == "1" {
@@ -266,12 +279,12 @@ public class NumericConverter {
     }
 
     /// 数値再変換(AquaSKK では無視)
-    static func convertType4(_ src: String.UnicodeScalarView) -> String.UnicodeScalarView {
+    private static func convertType4(_ src: String.UnicodeScalarView) -> String.UnicodeScalarView {
         return src
     }
 
     /// 1024 → 壱阡弐拾四
-    static func convertType5(_ src: String.UnicodeScalarView) -> String.UnicodeScalarView {
+    private static func convertType5(_ src: String.UnicodeScalarView) -> String.UnicodeScalarView {
         let unit1 = ["", "萬", "億", "兆", "京", "垓"]
         let unit2 = ["拾", "百", "阡"]
         var result = ""
@@ -328,7 +341,7 @@ public class NumericConverter {
     }
 
     /// 34 → ３四
-    static func convertType9(_ src: String.UnicodeScalarView) -> String.UnicodeScalarView {
+    private static func convertType9(_ src: String.UnicodeScalarView) -> String.UnicodeScalarView {
         let first = src.startIndex
         let second = src.index(after: first)
         let third = src.index(after: second)

@@ -298,11 +298,9 @@
 		138C69112C94C865009FE153 /* AquaSKKBackend.h in Headers */ = {isa = PBXBuildFile; fileRef = 138C69032C94C864009FE153 /* AquaSKKBackend.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		138C69142C94C865009FE153 /* AquaSKKBackend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 138C69012C94C864009FE153 /* AquaSKKBackend.framework */; };
 		138C69152C94C865009FE153 /* AquaSKKBackend.framework in Embeded Frameworks */ = {isa = PBXBuildFile; fileRef = 138C69012C94C864009FE153 /* AquaSKKBackend.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		138C69212C94C8FC009FE153 /* SKKNumericConverter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4B02C5B28FC00D8C850 /* SKKNumericConverter.cpp */; };
 		138C69222C94C8FC009FE153 /* SKKDictionaryFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4AD2C5B28FC00D8C850 /* SKKDictionaryFactory.cpp */; };
 		138C69232C94C8FC009FE153 /* SKKBackEnd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4A82C5B28FC00D8C850 /* SKKBackEnd.cpp */; };
 		138C69242C94C8FC009FE153 /* SKKDictionaryCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4AB2C5B28FC00D8C850 /* SKKDictionaryCache.cpp */; };
-		138C69252C94C909009FE153 /* SKKNumericConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4AF2C5B28FC00D8C850 /* SKKNumericConverter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		138C69262C94C909009FE153 /* SKKDictionaryKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4AE2C5B28FC00D8C850 /* SKKDictionaryKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		138C69272C94C90E009FE153 /* SKKCandidateFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4A92C5B28FC00D8C850 /* SKKCandidateFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		138C69282C94C90E009FE153 /* SKKDictionaryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4AA2C5B28FC00D8C850 /* SKKDictionaryCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -349,7 +347,6 @@
 		138C69522C94CA10009FE153 /* calculator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5512C5B28FC00D8C850 /* calculator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		138C69552C94CBCB009FE153 /* subrange.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F55A2C5B28FC00D8C850 /* subrange.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		138C69562C94CD61009FE153 /* SKKBackEnd_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F52C2C5B28FC00D8C850 /* SKKBackEnd_TEST.mm */; };
-		138C69572C94CD61009FE153 /* SKKNumericConverter_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F53D2C5B28FC00D8C850 /* SKKNumericConverter_TEST.mm */; };
 		138C69582C94CD68009FE153 /* SKKDistributedUserDictionary_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5362C5B28FC00D8C850 /* SKKDistributedUserDictionary_TEST.mm */; };
 		138C69592C94CD68009FE153 /* SKKGadgetDictionary_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5372C5B28FC00D8C850 /* SKKGadgetDictionary_TEST.mm */; };
 		138C695A2C94CD68009FE153 /* SKKCommonDictionary_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5302C5B28FC00D8C850 /* SKKCommonDictionary_TEST.mm */; };
@@ -636,8 +633,6 @@
 		1344F4AC2C5B28FC00D8C850 /* SKKDictionaryFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKDictionaryFactory.h; sourceTree = "<group>"; };
 		1344F4AD2C5B28FC00D8C850 /* SKKDictionaryFactory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKDictionaryFactory.cpp; sourceTree = "<group>"; };
 		1344F4AE2C5B28FC00D8C850 /* SKKDictionaryKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKDictionaryKey.h; sourceTree = "<group>"; };
-		1344F4AF2C5B28FC00D8C850 /* SKKNumericConverter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKNumericConverter.h; sourceTree = "<group>"; };
-		1344F4B02C5B28FC00D8C850 /* SKKNumericConverter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKNumericConverter.cpp; sourceTree = "<group>"; };
 		1344F4B22C5B28FC00D8C850 /* SKKCompleter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKCompleter.h; sourceTree = "<group>"; };
 		1344F4B32C5B28FC00D8C850 /* SKKCompleter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKCompleter.cpp; sourceTree = "<group>"; };
 		1344F4B52C5B28FC00D8C850 /* SKKAutoUpdateDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKAutoUpdateDictionary.h; sourceTree = "<group>"; };
@@ -744,7 +739,6 @@
 		1344F53A2C5B28FC00D8C850 /* SKKInputSession_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKInputSession_TEST.mm; sourceTree = "<group>"; };
 		1344F53B2C5B28FC00D8C850 /* SKKKeymap_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKKeymap_TEST.mm; sourceTree = "<group>"; };
 		1344F53C2C5B28FC00D8C850 /* SKKKeymapEntry_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKKeymapEntry_TEST.mm; sourceTree = "<group>"; };
-		1344F53D2C5B28FC00D8C850 /* SKKNumericConverter_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKNumericConverter_TEST.mm; sourceTree = "<group>"; };
 		1344F53E2C5B28FC00D8C850 /* SKKProxyDictionary_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKProxyDictionary_TEST.mm; sourceTree = "<group>"; };
 		1344F53F2C5B28FC00D8C850 /* SKKRomanKanaConverter_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKRomanKanaConverter_TEST.mm; sourceTree = "<group>"; };
 		1344F5402C5B28FC00D8C850 /* SKKSelector_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKSelector_TEST.mm; sourceTree = "<group>"; };
@@ -1408,7 +1402,6 @@
 			isa = PBXGroup;
 			children = (
 				1344F52C2C5B28FC00D8C850 /* SKKBackEnd_TEST.mm */,
-				1344F53D2C5B28FC00D8C850 /* SKKNumericConverter_TEST.mm */,
 				139BFFC22C95F1DB00665C1D /* NumericConverterTests.swift */,
 			);
 			path = backend;
@@ -1537,8 +1530,6 @@
 				1344F4AC2C5B28FC00D8C850 /* SKKDictionaryFactory.h */,
 				1344F4AD2C5B28FC00D8C850 /* SKKDictionaryFactory.cpp */,
 				1344F4AE2C5B28FC00D8C850 /* SKKDictionaryKey.h */,
-				1344F4AF2C5B28FC00D8C850 /* SKKNumericConverter.h */,
-				1344F4B02C5B28FC00D8C850 /* SKKNumericConverter.cpp */,
 				139BFFC02C95ECCE00665C1D /* NumericConverter.swift */,
 			);
 			path = backend;
@@ -2505,7 +2496,6 @@
 				138C69282C94C90E009FE153 /* SKKDictionaryCache.h in Headers */,
 				138C69292C94C90E009FE153 /* SKKDictionaryFactory.h in Headers */,
 				138C692A2C94C90E009FE153 /* SKKBackEnd.h in Headers */,
-				138C69252C94C909009FE153 /* SKKNumericConverter.h in Headers */,
 				138C69262C94C909009FE153 /* SKKDictionaryKey.h in Headers */,
 				138C694F2C94CA10009FE153 /* stringutil.h in Headers */,
 				138C69502C94CA10009FE153 /* utf8util.h in Headers */,
@@ -3441,7 +3431,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				138C69212C94C8FC009FE153 /* SKKNumericConverter.cpp in Sources */,
 				138C69222C94C8FC009FE153 /* SKKDictionaryFactory.cpp in Sources */,
 				138C69232C94C8FC009FE153 /* SKKBackEnd.cpp in Sources */,
 				138C693A2C94C93E009FE153 /* SKKGadgetDictionary.cpp in Sources */,
@@ -3471,7 +3460,6 @@
 				138C696F2C94CD81009FE153 /* CalculatorTesting.swift in Sources */,
 				138C69702C94CD81009FE153 /* pthreadutil_TEST.mm in Sources */,
 				138C69562C94CD61009FE153 /* SKKBackEnd_TEST.mm in Sources */,
-				138C69572C94CD61009FE153 /* SKKNumericConverter_TEST.mm in Sources */,
 				138C69582C94CD68009FE153 /* SKKDistributedUserDictionary_TEST.mm in Sources */,
 				138C69592C94CD68009FE153 /* SKKGadgetDictionary_TEST.mm in Sources */,
 				138C695A2C94CD68009FE153 /* SKKCommonDictionary_TEST.mm in Sources */,
@@ -3889,10 +3877,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 138C69202C94C89A009FE153 /* Framework-Backend.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -3900,10 +3884,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 138C69202C94C89A009FE153 /* Framework-Backend.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 6.0;
 			};
 			name = Testing;
 		};
@@ -3911,9 +3891,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 138C69202C94C89A009FE153 /* Framework-Backend.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
