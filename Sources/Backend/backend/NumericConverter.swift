@@ -112,11 +112,7 @@ public class NumericConverter {
 
     public init() {}
 
-    // ======================================================================
-
     // MARK: - 数値変換を実装するユーティリティ関数
-
-    // ======================================================================
 
     ///  1024 → １０２４
     private static func convertType1(_ src: String.UnicodeScalarView) -> String.UnicodeScalarView {
