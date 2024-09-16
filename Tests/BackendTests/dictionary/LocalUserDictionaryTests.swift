@@ -5,20 +5,20 @@
 //  Created by mzp on 9/15/24.
 //
 
-import Testing
 import AquaSKKTesting
+import Testing
 @testable internal import AquaSKKBackend
 
 class BackendBundle {}
 
 struct LocalUserDictionaryTests {
     let dict: LocalUserDictionary
-    init() throws {
+    init() async throws {
         let bundle = Bundle(for: BackendBundle.self)
-        let path = try #require(bundle.path(forResource: "skk-jisyo", ofType: "utf8"))
-
-        self.dict = LocalUserDictionary()
-        dict.initialize(path: path)
+        let resource = TestingResource(bundle: bundle)
+        let path = try resource.path("skk-jisyo.utf8", writable: true)
+        dict = LocalUserDictionary()
+        try await dict.initialize(path: path)
     }
 
     @Test func notFound() {
@@ -39,8 +39,8 @@ struct LocalUserDictionaryTests {
         #expect(suite.ToString() == "/漢字/")
     }
 
-    @Test func registerOkuriNasi() {
-        dict.register(entry: SKKEntry("かんり", ""), candidate: SKKCandidate("管理", true))
+    @Test func registerOkuriNasi() throws {
+        try dict.register(entry: SKKEntry("かんり", ""), candidate: SKKCandidate("管理", true))
 
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("かんり", ""), to: &suite)
@@ -48,14 +48,13 @@ struct LocalUserDictionaryTests {
 
         dict.remove(entry: SKKEntry("かんり", ""), candidate: SKKCandidate("管理", true))
 
-
         suite.Clear()
         dict.find(entry: SKKEntry("かんり", ""), to: &suite)
-        #expect(suite.ToString() == "/管理/")
+        #expect(suite.IsEmpty() == true)
     }
 
-    @Test func registerOkuriAri() {
-        dict.register(entry: SKKEntry("おくりあr", "り"), candidate: SKKCandidate("送りあ", true))
+    @Test func registerOkuriAri() throws {
+        try dict.register(entry: SKKEntry("おくりあr", "り"), candidate: SKKCandidate("送りあ", true))
 
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("おくりあr", "り"), to: &suite)
@@ -68,41 +67,49 @@ struct LocalUserDictionaryTests {
         #expect(suite.ToString() == "/送り有/")
     }
 
-    @Test func helper() {
-        var helper = MockCompletionHelper()
-        helper.Initialize("かん")
-//        dict.complete(helper: helper)
-/*        MockCompletionHelper helper;
-        helper.Initialize("かん");
-        dict.Complete(helper);
-        XCTAssert(helper.Result()[0] == "かんり" && helper.Result()[1] == "かんじ");*/
+    @Test func helper() throws {
+        try dict.register(entry: SKKEntry("かんり", ""), candidate: SKKCandidate("管理", true))
 
-        /*
-         helper.Initialize("かんり");
-         dict.Complete(helper);
-         XCTAssert(helper.Result().empty());
-         */
+        let helper = MockCompletionHelper.newInstance()
+        helper.Initialize("かん")
+        dict.complete(helper: helper)
+
+        let candidates = helper.Result()
+        #expect(candidates[0] == "かんり")
+        #expect(candidates[1] == "かんじ")
     }
 
-    @Test func privateMode() {
-        dict.privateMode = true
+    @Test func helperNotFound() throws {
+        let helper = MockCompletionHelper.newInstance()
+        helper.Initialize("かんり")
+        dict.complete(helper: helper)
 
-        dict.register(entry: SKKEntry("おくりあr", "り"), candidate: SKKCandidate("送りあ", true))
+        let candidates = helper.Result()
+        #expect(candidates.isEmpty == true)
+    }
+
+    @Test func privateMode() async throws {
+        try await dict.setPrivateMode(value: true)
+
+        try dict.register(entry: SKKEntry("おくりあr", "り"), candidate: SKKCandidate("送りあ", true))
 
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("おくりあr", "り"), to: &suite)
         #expect(suite.ToString() == "/送りあ/[り/送りあ/]/")
 
-        dict.privateMode = false
+        try await dict.setPrivateMode(value: false)
 
-        suite.Clear();
+        suite.Clear()
         dict.find(entry: SKKEntry("おくりあr", "り"), to: &suite)
         #expect(suite.ToString() == "/送り有/")
     }
 
-    @Test func reverseLookup() {
-        let entry = dict.reverseLookup(candidate: "漢字")
-        #expect(entry == "かんじ")
+    @Test(arguments: [
+        ("漢字", "かんじ"),
+        ("管理", ""),
+    ]) func reverseLookup(candidate: String, entry: String) {
+        let result = dict.reverseLookup(candidate: candidate)
+        #expect(entry == result)
     }
 
     @Test func completion() {
@@ -112,8 +119,8 @@ struct LocalUserDictionaryTests {
         #expect(suite.ToString() == "/補完1/")
     }
 
-    @Test func toggleCompletion() {
-        dict.register(entry: SKKEntry("とぐるほかん", ""), candidate: SKKCandidate("", true))
+    @Test func toggleCompletion() throws {
+        try dict.register(entry: SKKEntry("とぐるほかん", ""), candidate: SKKCandidate("", true))
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("とぐるほかん", ""), to: &suite)
         #expect(suite.IsEmpty() == true)
@@ -123,11 +130,11 @@ struct LocalUserDictionaryTests {
         #expect(suite.IsEmpty() == true)
     }
 
-    @Test func comment() {
-        dict.register(entry: SKKEntry("encode", ""), candidate: SKKCandidate("abc;def", true))
+    @Test func comment() throws {
+        try dict.register(entry: SKKEntry("encode", ""), candidate: SKKCandidate("abc;def", true))
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("encode", ""), to: &suite)
-        #expect(suite.ToString() == "abc;def")
+        #expect(suite.ToString() == "/abc;def/")
 
         dict.remove(entry: SKKEntry("encode", ""), candidate: SKKCandidate("abc;def", true))
         suite.Clear()

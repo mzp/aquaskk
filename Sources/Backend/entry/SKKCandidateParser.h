@@ -23,6 +23,7 @@
 #ifndef SKKCandidateParser_h
 #define SKKCandidateParser_h
 
+#include <swift/bridging>
 #include <algorithm>
 #include <functional>
 #import <AquaSKKBackend/SKKCandidate.h>
@@ -110,6 +111,10 @@ public:
     }
 
     const SKKCandidateContainer &Candidates() const {
+        return candidates_;
+    }
+
+    const SKKCandidateContainer getCandidates() const SWIFT_COMPUTED_PROPERTY {
         return candidates_;
     }
 

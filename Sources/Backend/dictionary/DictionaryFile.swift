@@ -13,18 +13,19 @@ let kOkuriNasiMark = ";; okuri-nasi entries."
 
 struct DictionaryEntry: Equatable, Hashable, Sendable {
     /// 見出し語
-    var key: String
+    var entry: String
 
     /// 変換候補(分解する前の状態)
-    var rawEntry: String
+    var rawValue: String
 }
+typealias DictionaryEntryContainer = [DictionaryEntry]
 
 /// SKK 辞書ファイル
 struct DictionaryFile {
     struct DictionaryFileError: Error {}
 
-    var okuriAri: [DictionaryEntry] = []
-    var okuriNasi: [DictionaryEntry] = []
+    var okuriAri: DictionaryEntryContainer = []
+    var okuriNasi: DictionaryEntryContainer = []
 
     mutating func load(path: String) async throws {
         okuriAri.removeAll()
@@ -58,10 +59,11 @@ struct DictionaryFile {
     private func fetch(from line: String) -> DictionaryEntry {
         let parsed = line.split(separator: " ", maxSplits: 1)
 
-        return .init(key: String(parsed[0]), rawEntry: String(parsed[1]))
+        return .init(entry: String(parsed[0]), rawValue: String(parsed[1]))
     }
 
     func save(path: String) throws {
+        FileManager.default.createFile(atPath: path, contents: nil)
         guard let fileHandle = FileHandle(forWritingAtPath: path) else {
             throw DictionaryFileError()
         }
@@ -78,10 +80,10 @@ struct DictionaryFile {
 
     mutating func sort() {
         okuriAri.sort(by: {
-            $0.key < $1.key
+            $0.entry < $1.entry
         })
         okuriNasi.sort(by: {
-            $0.key < $1.key
+            $0.entry < $1.entry
         })
     }
 
@@ -92,9 +94,9 @@ struct DictionaryFile {
         try handle.write(contentsOf: data)
     }
 
-    private func store(to handle: FileHandle, entries: [DictionaryEntry]) throws {
+    private func store(to handle: FileHandle, entries: DictionaryEntryContainer) throws {
         for entry in entries {
-            try store(to: handle, line: "\(entry.key) \(entry.rawEntry)")
+            try store(to: handle, line: "\(entry.entry) \(entry.rawValue)")
         }
     }
 }

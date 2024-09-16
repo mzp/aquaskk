@@ -44,9 +44,9 @@ public:
     void AppendEntry(const std::string &str);
     void SetOkuri(const std::string &prefix, const std::string &kana);
 
-    const std::string &EntryString() const;
-    const std::string &OkuriString() const;
-    const std::string &PromptString() const;
+    const std::string EntryString() const;
+    const std::string OkuriString() const;
+    const std::string PromptString() const;
 
     std::string ToggleKana(SKKInputMode mode) const;
     std::string ToggleJisx0201Kana(SKKInputMode mode) const;

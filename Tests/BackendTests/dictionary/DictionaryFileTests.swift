@@ -10,12 +10,12 @@ import Testing
 
 struct DictionaryFileTests {
     let okuriAri = [
-        DictionaryEntry(key: "うけとt", rawEntry: "/受け取/受取/"),
-        DictionaryEntry(key: "いあw", rawEntry: "/居合/"),
+        DictionaryEntry(entry: "うけとt", rawValue: "/受け取/受取/"),
+        DictionaryEntry(entry: "いあw", rawValue: "/居合/"),
     ]
     let okuriNasi = [
-        DictionaryEntry(key: "かんじ", rawEntry: "/漢字/官寺/寛治/"),
-        DictionaryEntry(key: "かいはつ", rawEntry: "/開発/"),
+        DictionaryEntry(entry: "かんじ", rawValue: "/漢字/官寺/寛治/"),
+        DictionaryEntry(entry: "かいはつ", rawValue: "/開発/"),
     ]
 
     @Test func isEmpty() {
@@ -47,5 +47,13 @@ struct DictionaryFileTests {
         try await file.load(path: "dict.file")
         #expect(file.okuriAri == okuriAri)
         #expect(file.okuriNasi == okuriNasi)
+    }
+
+    @Test func save() async throws {
+        var file = DictionaryFile()
+        file.okuriAri = okuriAri
+        file.okuriNasi = okuriNasi
+        let uuid = UUID().uuidString
+        try file.save(path: "\(uuid).file")
     }
 }

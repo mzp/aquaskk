@@ -39,6 +39,10 @@ public:
 
     // 補完候補の追加
     virtual void Add(const std::string &completion) = 0;
+
+    virtual const std::string getEntry() const {
+        return Entry();
+    }
 };
 
 #endif

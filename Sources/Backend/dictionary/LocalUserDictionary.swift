@@ -6,38 +6,232 @@
 //
 
 import Foundation
+import OSLog
 
+private let kMaxIdleCount = 20
+private let kMaxSaveInterval: TimeInterval = 60 * 5.0
 
 class LocalUserDictionary {
-    private var path: String? = nil
-    var privateMode: Bool = false
+    private var path: String?
+    private var idleCount = 0
+    private var lastUpdate = Date()
+    private var file = DictionaryFile()
 
-    func initialize(path: String) {
+    private(set) var privateMode: Bool = false
+
+    func initialize(path: String) async throws {
         if let oldPath = self.path {
             if path == oldPath {
                 return
             }
-            save(force: true)
+            try save(force: true)
         }
         self.path = path
+        idleCount = 0
+        lastUpdate = Date()
 
+        do {
+            try await file.load(path: path)
+        } catch {
+            Logger.backend.error("\(#function, privacy: .public) can't load file: \(path, privacy: .private)")
+            throw error
+        }
+        fix()
     }
 
-    func save(force: Bool) {
+    func find(entry: SKKEntry, to result: inout SKKCandidateSuite) {
+        var suite = SKKCandidateSuite()
 
+        if entry.IsOkuriAri() {
+            let rawValue = fetch(entry: entry, from: file.okuriAri)
+            suite.Parse(std.string(rawValue))
+
+            var strict = SKKCandidateSuite()
+            if suite.FindOkuriStrictly(entry.OkuriString(), &strict) {
+                strict.Add(suite.hints)
+                suite = strict
+            }
+        } else {
+            let rawValue = fetch(entry: entry, from: file.okuriNasi)
+            suite.Parse(std.string(rawValue))
+
+            for var candidate in suite.getCandidates() {
+                candidate.Decode()
+            }
+        }
+
+        result.Add(suite)
     }
 
-    func find(entry: SKKEntry, to suite: inout SKKCandidateSuite) {
+    func complete(helper: CompletionHelper) {
+        let query = helper.entry
+        for entry in file.okuriNasi {
+            if !entry.entry.hasPrefix(query) {
+                continue
+            }
+            helper.add(completion: entry.entry)
+
+            if !helper.canContinue {
+                break
+            }
+        }
     }
-
-    func register(entry: SKKEntry, candidate: SKKCandidate) {}
-
-    func remove(entry: SKKEntry, candidate: SKKCandidate) {}
-
-    func complete(helper: SKKCompletionHelper) {}
-//    void Complete(SKKCompletionHelper &helper);
+    //    void Complete(SKKCompletionHelper &helper);
 
     func reverseLookup(candidate: String) -> String {
-        ""
+        let entries = file.okuriNasi.filter { entry in
+            entry.rawValue.contains("/\(candidate)")
+        }
+
+        var parser = SKKCandidateParser()
+        let query = SKKCandidate(std.string(candidate), true)
+        for entry in entries {
+            parser.Parse(std.string(entry.rawValue))
+            if parser.candidates.contains(where: { $0 == query }) {
+                return entry.entry
+            }
+        }
+
+        return ""
+    }
+
+    func register(entry: SKKEntry, candidate: SKKCandidate) throws {
+        if entry.IsOkuriAri() {
+            var hint = SKKOkuriHint(
+                first: entry.OkuriString(),
+                second: .init()
+            )
+            hint.second.push_back(SKKCandidate(candidate.ToString(), true))
+
+            update(entry: entry, at: &file.okuriAri) { suite in
+                suite.Update(hint)
+            }
+        } else {
+            var tmp = candidate
+            tmp.Encode()
+            update(entry: entry, at: &file.okuriNasi) { suite in
+                suite.Update(tmp)
+            }
+        }
+
+        try save(force: false)
+    }
+
+    func remove(entry: SKKEntry, candidate: SKKCandidate) {
+        if entry.IsOkuriAri() {
+            remove(entry: entry, candidate: candidate, from: &file.okuriAri)
+        } else {
+            var tmp = candidate
+            tmp.Encode()
+
+            remove(
+                entry: entry,
+                candidate: tmp,
+                from: &file.okuriNasi
+            )
+        }
+    }
+
+    func setPrivateMode(value: Bool) async throws {
+        if value != privateMode {
+            if value {
+                try save(force: true)
+            } else if let path = path {
+                try await file.load(path: path)
+            }
+            privateMode = value
+        }
+    }
+
+    private func fetch(entry: SKKEntry, from container: DictionaryEntryContainer) -> String {
+        guard let entry = container.first(where: { $0.entry == String(entry.EntryString()) }) else {
+            return ""
+        }
+        return entry.rawValue
+    }
+
+    private func remove(
+        entry: SKKEntry,
+        candidate: SKKCandidate,
+        from container: inout DictionaryEntryContainer
+    ) {
+        let query = String(entry.EntryString())
+        guard let index = container.firstIndex(where: { $0.entry == query }) else {
+            return
+        }
+
+        var suite = SKKCandidateSuite()
+        suite.Parse(std.string(container[index].rawValue))
+        suite.Remove(candidate)
+
+        if suite.IsEmpty() {
+            container.remove(at: index)
+        } else {
+            container[index].rawValue = String(suite.ToString())
+        }
+    }
+
+    private func update(
+        entry: SKKEntry,
+        at container: inout DictionaryEntryContainer,
+        perform: (inout SKKCandidateSuite) -> Void
+    ) {
+        var suite = SKKCandidateSuite()
+        let query = String(entry.EntryString())
+
+        if let index = container.firstIndex(where: { $0.entry == query }) {
+            suite.Parse(std.string(container[index].rawValue))
+            container.remove(at: index)
+        }
+        perform(&suite)
+        container.insert(.init(entry: query, rawValue: String(suite.ToString())), at: 0)
+    }
+
+    private func save(force: Bool) throws {
+        guard let path = path else {
+            return
+        }
+        guard !privateMode  else {
+            return
+        }
+        let now = Date()
+        if !force {
+            self.idleCount += 1
+
+            guard kMaxIdleCount < idleCount else {
+                return
+            }
+            let interval = now.timeIntervalSince(lastUpdate)
+            guard kMaxSaveInterval < interval else {
+                return
+            }
+        }
+
+        idleCount = 0
+        lastUpdate = now
+
+        let tmpPath = "\(path).tmp"
+
+        do {
+            try file.save(path: tmpPath)
+        } catch let error {
+            Logger.backend.error("\(#function, privacy: .public) can't save: \(tmpPath, privacy: .private)")
+            throw error
+        }
+        do {
+            try FileManager.default.removeItem(atPath: path)
+            try FileManager.default.moveItem(atPath: tmpPath, toPath: path)
+            Logger.backend.error("\(#function, privacy: .public) saved")
+        } catch let error {
+            Logger.backend.error("\(#function, privacy: .public) rename failed due to  \(error.localizedDescription, privacy: .public)")
+            throw error
+        }
+    }
+
+    private func fix() {
+        // ユーザー辞書の "#" は無意味なのでまるごと削除する
+        file.okuriNasi.removeAll(where: {
+            $0.entry == "#"
+        })
     }
 }

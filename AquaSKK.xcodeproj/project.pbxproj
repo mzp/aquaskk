@@ -14,7 +14,6 @@
 		1307C23E2C5B47D800B089B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1307C23D2C5B47D800B089B6 /* ContentView.swift */; };
 		1307C2432C5B47DA00B089B6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1307C2422C5B47DA00B089B6 /* Preview Assets.xcassets */; };
 		1307C24E2C5B47DA00B089B6 /* SandboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1307C24D2C5B47DA00B089B6 /* SandboxTests.swift */; };
-		13096C852C8C2D24009F3E6B /* IntrusiveRefCounted.h in Headers */ = {isa = PBXBuildFile; fileRef = 13096C842C8C2D24009F3E6B /* IntrusiveRefCounted.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13096C882C8CAEA1009F3E6B /* TyperConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 13096C862C8CAEA1009F3E6B /* TyperConfig.h */; };
 		13096C892C8CAEA1009F3E6B /* TyperConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13096C872C8CAEA1009F3E6B /* TyperConfig.cpp */; };
 		1310827E2C5B5BDB00C186BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1310827D2C5B5BDB00C186BE /* Images.xcassets */; };
@@ -43,6 +42,10 @@
 		1321D6D22C7A22BD004768B2 /* FormType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1321D6D12C7A22BD004768B2 /* FormType.swift */; };
 		1335E36E2C9744A9002F298B /* LocalUserDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335E36D2C9744A9002F298B /* LocalUserDictionary.swift */; };
 		1335E3702C9744ED002F298B /* LocalUserDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335E36F2C9744ED002F298B /* LocalUserDictionaryTests.swift */; };
+		1335E3762C97F843002F298B /* TestingResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335E3752C97F842002F298B /* TestingResource.swift */; };
+		1335E3782C97FC62002F298B /* IntrusiveRefCounted.h in Headers */ = {isa = PBXBuildFile; fileRef = 13096C842C8C2D24009F3E6B /* IntrusiveRefCounted.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1335E37A2C97FE3C002F298B /* MockCompletionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335E3792C97FE3C002F298B /* MockCompletionHelper.swift */; };
+		1335E37D2C97FE6C002F298B /* CompletionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335E37C2C97FE6C002F298B /* CompletionHelper.swift */; };
 		133834F22C6020CB00D73AD7 /* ModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE982C5F282D00F6BEF8 /* ModeTests.swift */; };
 		133834F32C6020CB00D73AD7 /* InputTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D652C5B3E9D00661AE3 /* InputTests.swift */; };
 		133834F42C6020CB00D73AD7 /* MockTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135EEB9A2C5EE6AB00758672 /* MockTextInput.swift */; };
@@ -599,6 +602,9 @@
 		132B77782C5DB89E00EEC2A5 /* pthreadutil_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = pthreadutil_TEST.mm; sourceTree = "<group>"; };
 		1335E36D2C9744A9002F298B /* LocalUserDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUserDictionary.swift; sourceTree = "<group>"; };
 		1335E36F2C9744ED002F298B /* LocalUserDictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUserDictionaryTests.swift; sourceTree = "<group>"; };
+		1335E3752C97F842002F298B /* TestingResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingResource.swift; sourceTree = "<group>"; };
+		1335E3792C97FE3C002F298B /* MockCompletionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCompletionHelper.swift; sourceTree = "<group>"; };
+		1335E37C2C97FE6C002F298B /* CompletionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionHelper.swift; sourceTree = "<group>"; };
 		133834EC2C60204900D73AD7 /* Tests-Typer.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Typer.xcconfig"; sourceTree = "<group>"; };
 		1338D5032C78C9AE0015DD86 /* Logger+Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Testing.swift"; sourceTree = "<group>"; };
 		133A55152C5DA7910047E911 /* main.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = main.yml; sourceTree = "<group>"; };
@@ -1189,6 +1195,8 @@
 				13018B242C7696A40045FF13 /* AquaSKKTesting.h */,
 				13018B2F2C769D370045FF13 /* BundledServerConfiguration.swift */,
 				1338D5032C78C9AE0015DD86 /* Logger+Testing.swift */,
+				1335E3752C97F842002F298B /* TestingResource.swift */,
+				1335E3792C97FE3C002F298B /* MockCompletionHelper.swift */,
 				13F91A242C83939A00E60D63 /* jconv */,
 				13415B372C82892900ED9D0A /* TyperSupports */,
 				1315FE812C8182FA004011B7 /* Session */,
@@ -1224,14 +1232,6 @@
 				1307C24D2C5B47DA00B089B6 /* SandboxTests.swift */,
 			);
 			path = PreferenceAppTests;
-			sourceTree = "<group>";
-		};
-		13096C832C8C2CC2009F3E6B /* Swift */ = {
-			isa = PBXGroup;
-			children = (
-				13096C842C8C2D24009F3E6B /* IntrusiveRefCounted.h */,
-			);
-			path = Swift;
 			sourceTree = "<group>";
 		};
 		1315FE812C8182FA004011B7 /* Session */ = {
@@ -1614,6 +1614,7 @@
 				1335E36B2C9743CF002F298B /* Implementation */,
 				1335E36C2C974410002F298B /* Helpers */,
 				1368B4BC2C968164008D3BF4 /* DictionaryFile.swift */,
+				1335E37C2C97FE6C002F298B /* CompletionHelper.swift */,
 				1335E36D2C9744A9002F298B /* LocalUserDictionary.swift */,
 			);
 			path = dictionary;
@@ -1755,6 +1756,7 @@
 				13F91A182C838D5B00E60D63 /* SKKEncoding.mm */,
 				13F91A1C2C838D8200E60D63 /* SKKTransliterate.h */,
 				13F91A1D2C838D8200E60D63 /* SKKTransliterate.mm */,
+				13096C842C8C2D24009F3E6B /* IntrusiveRefCounted.h */,
 			);
 			path = utility;
 			sourceTree = "<group>";
@@ -2390,7 +2392,6 @@
 			isa = PBXGroup;
 			children = (
 				13D756162C5A9049006144F2 /* AquaSKKCore.h */,
-				13096C832C8C2CC2009F3E6B /* Swift */,
 				1344F4A62C5B28FC00D8C850 /* bridge */,
 				1344F55D2C5B28FC00D8C850 /* engine */,
 				13D756172C5A9049006144F2 /* AquaSKKCore.docc */,
@@ -2543,6 +2544,7 @@
 				138C69282C94C90E009FE153 /* SKKDictionaryCache.h in Headers */,
 				138C69292C94C90E009FE153 /* SKKDictionaryFactory.h in Headers */,
 				138C692A2C94C90E009FE153 /* SKKBackEnd.h in Headers */,
+				1335E3782C97FC62002F298B /* IntrusiveRefCounted.h in Headers */,
 				138C69262C94C909009FE153 /* SKKDictionaryKey.h in Headers */,
 				138C694F2C94CA10009FE153 /* stringutil.h in Headers */,
 				138C69502C94CA10009FE153 /* utf8util.h in Headers */,
@@ -2634,7 +2636,6 @@
 				1344F5762C5B28FC00D8C850 /* SKKAnnotator.h in Headers */,
 				138C69552C94CBCB009FE153 /* subrange.h in Headers */,
 				1344F5772C5B28FC00D8C850 /* SKKWindowSelector.h in Headers */,
-				13096C852C8C2D24009F3E6B /* IntrusiveRefCounted.h in Headers */,
 				1344F57E2C5B28FC00D8C850 /* SKKInputModeSelector.h in Headers */,
 				1344F57F2C5B28FC00D8C850 /* SKKInputSessionParameter.h in Headers */,
 				1344F5802C5B28FC00D8C850 /* SKKInputContext.h in Headers */,
@@ -3318,10 +3319,12 @@
 				13415B342C82863400ED9D0A /* MockMessenger.cpp in Sources */,
 				13415B2C2C82855400ED9D0A /* MockConfig.cpp in Sources */,
 				13415B242C82840100ED9D0A /* MockAnnotator.cpp in Sources */,
+				1335E37A2C97FE3C002F298B /* MockCompletionHelper.swift in Sources */,
 				13018B262C7696A40045FF13 /* AquaSKKTesting.docc in Sources */,
 				13018B302C769D370045FF13 /* BundledServerConfiguration.swift in Sources */,
 				13415B322C8285CB00ED9D0A /* MockInputSessionParameter.cpp in Sources */,
 				13415B302C82859100ED9D0A /* MockDynamicCompletor.cpp in Sources */,
+				1335E3762C97F843002F298B /* TestingResource.swift in Sources */,
 				13F91A2E2C8393A700E60D63 /* jconv.cpp in Sources */,
 				13415B282C82849500ED9D0A /* MockClipboard.cpp in Sources */,
 				13415B3E2C82904900ED9D0A /* TyperInputSessionParameter.mm in Sources */,
@@ -3485,6 +3488,7 @@
 				138C693C2C94C93E009FE153 /* SKKDistributedUserDictionary.cpp in Sources */,
 				1368B4BD2C968164008D3BF4 /* DictionaryFile.swift in Sources */,
 				138C693D2C94C93E009FE153 /* SKKProxyDictionary.cpp in Sources */,
+				1335E37D2C97FE6C002F298B /* CompletionHelper.swift in Sources */,
 				1368B4C22C969379008D3BF4 /* Logger+Backend.swift in Sources */,
 				1335E36E2C9744A9002F298B /* LocalUserDictionary.swift in Sources */,
 				138C693E2C94C93E009FE153 /* SKKHttpDictionaryLoader.cpp in Sources */,
@@ -3855,6 +3859,7 @@
 			baseConfigurationReference = 138B319F2C5DD40C006424E0 /* All-Testing.xcconfig */;
 			buildSettings = {
 				EAGER_LINKING = YES;
+				ENABLE_DEBUG_DYLIB = YES;
 			};
 			name = Testing;
 		};
@@ -4056,6 +4061,7 @@
 			baseConfigurationReference = 13D7561C2C5A9113006144F2 /* All-Debug.xcconfig */;
 			buildSettings = {
 				EAGER_LINKING = YES;
+				ENABLE_DEBUG_DYLIB = YES;
 			};
 			name = Debug;
 		};
@@ -4064,6 +4070,7 @@
 			baseConfigurationReference = 1393E3C02C6C046400F1E633 /* All-Release.xcconfig */;
 			buildSettings = {
 				EAGER_LINKING = YES;
+				ENABLE_DEBUG_DYLIB = YES;
 			};
 			name = Release;
 		};

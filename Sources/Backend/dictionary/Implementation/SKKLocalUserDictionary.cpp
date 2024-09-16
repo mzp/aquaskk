@@ -123,7 +123,7 @@ void SKKLocalUserDictionary::Find(const SKKEntry &entry, SKKCandidateSuite &resu
     } else {
         suite.Parse(fetch(entry, file_.OkuriNasi()));
 
-        SKKCandidateContainer &candidates = suite.Candidates();
+        SKKCandidateContainer candidates = suite.Candidates();
         std::for_each(candidates.begin(), candidates.end(), std::mem_fn<void(void)>(&SKKCandidate::Decode));
     }
 
