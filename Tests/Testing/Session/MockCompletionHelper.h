@@ -5,10 +5,10 @@
 
 #include <vector>
 #include <swift/bridging>
-#import <AquaSKKBackend/SKKCompletionHelper.h>
 #import <AquaSKKBackend/IntrusiveRefCounted.h>
+#import <AquaSKKBackend/SKKCompletionHelper.h>
 
-class MockCompletionHelper : public SKKCompletionHelper , public IntrusiveRefCounted<MockCompletionHelper> {
+class MockCompletionHelper : public SKKCompletionHelper, public IntrusiveRefCounted<MockCompletionHelper> {
     std::vector<std::string> result_;
     std::string entry_;
 
@@ -23,7 +23,7 @@ public:
 
     bool CanContinue() const;
 
-    static MockCompletionHelper* _Nonnull newInstance() {
+    static MockCompletionHelper *_Nonnull newInstance() {
         return new MockCompletionHelper();
     }
 } SWIFT_SHARED_REFERENCE(SKKRetain, SKKRelease);
@@ -31,6 +31,5 @@ public:
 void SKKRetain(MockCompletionHelper *_Nonnull param);
 
 void SKKRelease(MockCompletionHelper *_Nonnull param);
-
 
 #endif

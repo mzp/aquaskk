@@ -23,9 +23,9 @@
 #ifndef SKKCandidateParser_h
 #define SKKCandidateParser_h
 
-#include <swift/bridging>
 #include <algorithm>
 #include <functional>
+#include <swift/bridging>
 #import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKBackend/SKKOkuriHint.h>
 

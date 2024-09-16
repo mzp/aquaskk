@@ -22,13 +22,11 @@
 
 #include <iostream>
 #include <set>
-
-class SKKCandidate;
-#import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 #import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKBackend/SKKCandidateFilter.h>
 #import <AquaSKKBackend/SKKCandidateSuite.h>
 #import <AquaSKKBackend/SKKLocalUserDictionary.h>
+#import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 #include "utf8util.h"
 
 namespace {

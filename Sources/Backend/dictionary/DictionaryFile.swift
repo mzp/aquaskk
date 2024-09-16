@@ -18,6 +18,7 @@ struct DictionaryEntry: Equatable, Hashable, Sendable {
     /// 変換候補(分解する前の状態)
     var rawValue: String
 }
+
 typealias DictionaryEntryContainer = [DictionaryEntry]
 
 /// SKK 辞書ファイル

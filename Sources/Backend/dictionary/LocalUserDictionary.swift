@@ -11,7 +11,7 @@ import OSLog
 private let kMaxIdleCount = 20
 private let kMaxSaveInterval: TimeInterval = 60 * 5.0
 
-class LocalUserDictionary {
+public class LocalUserDictionary {
     private var path: String?
     private var idleCount = 0
     private var lastUpdate = Date()
@@ -19,7 +19,9 @@ class LocalUserDictionary {
 
     private(set) var privateMode: Bool = false
 
-    func initialize(path: String) async throws {
+    public init() {}
+
+    public func initialize(path: String) async throws {
         if let oldPath = self.path {
             if path == oldPath {
                 return
@@ -39,7 +41,7 @@ class LocalUserDictionary {
         fix()
     }
 
-    func find(entry: SKKEntry, to result: inout SKKCandidateSuite) {
+    public func find(entry: SKKEntry, to result: inout SKKCandidateSuite) {
         var suite = SKKCandidateSuite()
 
         if entry.IsOkuriAri() {
@@ -63,7 +65,7 @@ class LocalUserDictionary {
         result.Add(suite)
     }
 
-    func complete(helper: CompletionHelper) {
+    public func complete(helper: CompletionHelper) {
         let query = helper.entry
         for entry in file.okuriNasi {
             if !entry.entry.hasPrefix(query) {
@@ -76,9 +78,8 @@ class LocalUserDictionary {
             }
         }
     }
-    //    void Complete(SKKCompletionHelper &helper);
 
-    func reverseLookup(candidate: String) -> String {
+    public func reverseLookup(candidate: String) -> String {
         let entries = file.okuriNasi.filter { entry in
             entry.rawValue.contains("/\(candidate)")
         }
@@ -95,7 +96,7 @@ class LocalUserDictionary {
         return ""
     }
 
-    func register(entry: SKKEntry, candidate: SKKCandidate) throws {
+    public func register(entry: SKKEntry, candidate: SKKCandidate) throws {
         if entry.IsOkuriAri() {
             var hint = SKKOkuriHint(
                 first: entry.OkuriString(),
@@ -117,7 +118,7 @@ class LocalUserDictionary {
         try save(force: false)
     }
 
-    func remove(entry: SKKEntry, candidate: SKKCandidate) {
+    public func remove(entry: SKKEntry, candidate: SKKCandidate) {
         if entry.IsOkuriAri() {
             remove(entry: entry, candidate: candidate, from: &file.okuriAri)
         } else {
@@ -132,7 +133,7 @@ class LocalUserDictionary {
         }
     }
 
-    func setPrivateMode(value: Bool) async throws {
+    public func setPrivateMode(value: Bool) async throws {
         if value != privateMode {
             if value {
                 try save(force: true)
@@ -191,12 +192,12 @@ class LocalUserDictionary {
         guard let path = path else {
             return
         }
-        guard !privateMode  else {
+        guard !privateMode else {
             return
         }
         let now = Date()
         if !force {
-            self.idleCount += 1
+            idleCount += 1
 
             guard kMaxIdleCount < idleCount else {
                 return
@@ -214,7 +215,7 @@ class LocalUserDictionary {
 
         do {
             try file.save(path: tmpPath)
-        } catch let error {
+        } catch {
             Logger.backend.error("\(#function, privacy: .public) can't save: \(tmpPath, privacy: .private)")
             throw error
         }
@@ -222,7 +223,7 @@ class LocalUserDictionary {
             try FileManager.default.removeItem(atPath: path)
             try FileManager.default.moveItem(atPath: tmpPath, toPath: path)
             Logger.backend.error("\(#function, privacy: .public) saved")
-        } catch let error {
+        } catch {
             Logger.backend.error("\(#function, privacy: .public) rename failed due to  \(error.localizedDescription, privacy: .public)")
             throw error
         }

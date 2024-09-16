@@ -7,7 +7,7 @@
 
 internal import AquaSKKBackend
 
-extension MockCompletionHelper : CompletionHelper {
+extension MockCompletionHelper: CompletionHelper {
     public var entry: String {
         ""
     }
@@ -19,5 +19,4 @@ extension MockCompletionHelper : CompletionHelper {
     public func add(completion: String) {
         Add(std.string(completion))
     }
-
 }
