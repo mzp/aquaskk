@@ -11,7 +11,7 @@ import OSLog
 private let kMaxIdleCount = 20
 private let kMaxSaveInterval: TimeInterval = 60 * 5.0
 
-public class LocalUserDictionary {
+public class LocalUserDictionary: BaseDictionary {
     private var path: String?
     private var idleCount = 0
     private var lastUpdate = Date()

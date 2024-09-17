@@ -46,6 +46,7 @@
 		1335E3782C97FC62002F298B /* IntrusiveRefCounted.h in Headers */ = {isa = PBXBuildFile; fileRef = 13096C842C8C2D24009F3E6B /* IntrusiveRefCounted.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1335E37A2C97FE3C002F298B /* MockCompletionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335E3792C97FE3C002F298B /* MockCompletionHelper.swift */; };
 		1335E37D2C97FE6C002F298B /* CompletionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335E37C2C97FE6C002F298B /* CompletionHelper.swift */; };
+		1335E3832C988132002F298B /* BaseDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335E3822C988132002F298B /* BaseDictionary.swift */; };
 		133834F22C6020CB00D73AD7 /* ModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE982C5F282D00F6BEF8 /* ModeTests.swift */; };
 		133834F32C6020CB00D73AD7 /* InputTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D652C5B3E9D00661AE3 /* InputTests.swift */; };
 		133834F42C6020CB00D73AD7 /* MockTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135EEB9A2C5EE6AB00758672 /* MockTextInput.swift */; };
@@ -605,6 +606,7 @@
 		1335E3752C97F842002F298B /* TestingResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingResource.swift; sourceTree = "<group>"; };
 		1335E3792C97FE3C002F298B /* MockCompletionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCompletionHelper.swift; sourceTree = "<group>"; };
 		1335E37C2C97FE6C002F298B /* CompletionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionHelper.swift; sourceTree = "<group>"; };
+		1335E3822C988132002F298B /* BaseDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDictionary.swift; sourceTree = "<group>"; };
 		133834EC2C60204900D73AD7 /* Tests-Typer.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Typer.xcconfig"; sourceTree = "<group>"; };
 		1338D5032C78C9AE0015DD86 /* Logger+Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Testing.swift"; sourceTree = "<group>"; };
 		133A55152C5DA7910047E911 /* main.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = main.yml; sourceTree = "<group>"; };
@@ -1615,6 +1617,7 @@
 				1335E36C2C974410002F298B /* Helpers */,
 				1368B4BC2C968164008D3BF4 /* DictionaryFile.swift */,
 				1335E37C2C97FE6C002F298B /* CompletionHelper.swift */,
+				1335E3822C988132002F298B /* BaseDictionary.swift */,
 				1335E36D2C9744A9002F298B /* LocalUserDictionary.swift */,
 			);
 			path = dictionary;
@@ -3484,6 +3487,7 @@
 				138C69222C94C8FC009FE153 /* SKKDictionaryFactory.cpp in Sources */,
 				138C69232C94C8FC009FE153 /* SKKBackEnd.cpp in Sources */,
 				138C693A2C94C93E009FE153 /* SKKGadgetDictionary.cpp in Sources */,
+				1335E3832C988132002F298B /* BaseDictionary.swift in Sources */,
 				138C693B2C94C93E009FE153 /* SKKLocalUserDictionary.cpp in Sources */,
 				138C693C2C94C93E009FE153 /* SKKDistributedUserDictionary.cpp in Sources */,
 				1368B4BD2C968164008D3BF4 /* DictionaryFile.swift in Sources */,
