@@ -9,7 +9,7 @@ internal import AquaSKKBackend
 
 extension MockCompletionHelper: CompletionHelper {
     public var entry: String {
-        ""
+        String(getEntry())
     }
 
     public var canContinue: Bool {

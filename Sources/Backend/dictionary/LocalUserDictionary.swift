@@ -11,7 +11,21 @@ import OSLog
 private let kMaxIdleCount = 20
 private let kMaxSaveInterval: TimeInterval = 60 * 5.0
 
-public class LocalUserDictionary: BaseDictionary {
+extension SKKCompletionHelperBridge: CompletionHelper {
+    public var entry: String {
+        String(getEntry())
+    }
+
+    public var canContinue: Bool {
+        CanContinue()
+    }
+
+    public mutating func add(completion: String) {
+        Add(std.string(completion))
+    }
+}
+
+public class LocalUserDictionary {
     private var path: String?
     private var idleCount = 0
     private var lastUpdate = Date()
@@ -20,6 +34,19 @@ public class LocalUserDictionary: BaseDictionary {
     private(set) var privateMode: Bool = false
 
     public init() {}
+
+    public func initialize(path: String) {
+        let semaphore = DispatchSemaphore(value: 0)
+        Task {
+            do {
+                try await initialize(path: path)
+                semaphore.signal()
+            } catch {
+                Logger.backend.error("\(#function, privacy: .public) can't load file: \(path, privacy: .private) due to \(error)")
+            }
+        }
+        semaphore.wait()
+    }
 
     public func initialize(path: String) async throws {
         if let oldPath = self.path {
@@ -32,12 +59,7 @@ public class LocalUserDictionary: BaseDictionary {
         idleCount = 0
         lastUpdate = Date()
 
-        do {
-            try await file.load(path: path)
-        } catch {
-            Logger.backend.error("\(#function, privacy: .public) can't load file: \(path, privacy: .private)")
-            throw error
-        }
+        try await file.load(path: path)
         fix()
     }
 
@@ -65,7 +87,12 @@ public class LocalUserDictionary: BaseDictionary {
         result.Add(suite)
     }
 
-    public func complete(helper: CompletionHelper) {
+    public func complete(_ helper: inout SKKCompletionHelperBridge) {
+        var tmp: CompletionHelper = helper
+        complete(helper: &tmp)
+    }
+
+    public func complete(helper: inout CompletionHelper) {
         let query = helper.entry
         for entry in file.okuriNasi {
             if !entry.entry.hasPrefix(query) {
@@ -96,7 +123,7 @@ public class LocalUserDictionary: BaseDictionary {
         return ""
     }
 
-    public func register(entry: SKKEntry, candidate: SKKCandidate) throws {
+    public func register(entry: SKKEntry, candidate: SKKCandidate) -> Bool {
         if entry.IsOkuriAri() {
             var hint = SKKOkuriHint(
                 first: entry.OkuriString(),
@@ -115,7 +142,13 @@ public class LocalUserDictionary: BaseDictionary {
             }
         }
 
-        try save(force: false)
+        do {
+            try save(force: false)
+            return true
+        } catch {
+            Logger.backend.error("\(#function, privacy: .public) can't register word due to \(error)")
+            return false
+        }
     }
 
     public func remove(entry: SKKEntry, candidate: SKKCandidate) {
@@ -133,15 +166,20 @@ public class LocalUserDictionary: BaseDictionary {
         }
     }
 
-    public func setPrivateMode(value: Bool) async throws {
-        if value != privateMode {
-            if value {
-                try save(force: true)
-            } else if let path = path {
-                try await file.load(path: path)
+    public func setPrivateMode(value: Bool) {
+        let semaphore = DispatchSemaphore(value: 0)
+        Task {
+            if value != privateMode {
+                if value {
+                    try save(force: true)
+                } else if let path = path {
+                    try await file.load(path: path)
+                }
+                privateMode = value
             }
-            privateMode = value
+            semaphore.signal()
         }
+        semaphore.wait()
     }
 
     private func fetch(entry: SKKEntry, from container: DictionaryEntryContainer) -> String {

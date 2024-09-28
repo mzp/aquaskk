@@ -5,7 +5,7 @@
 //  Created by mzp on 9/15/24.
 //
 
-import AquaSKKTesting
+internal import AquaSKKTesting
 import Testing
 @testable internal import AquaSKKBackend
 
@@ -40,7 +40,8 @@ struct LocalUserDictionaryTests {
     }
 
     @Test func registerOkuriNasi() throws {
-        try dict.register(entry: SKKEntry("かんり", ""), candidate: SKKCandidate("管理", true))
+        let result = dict.register(entry: SKKEntry("かんり", ""), candidate: SKKCandidate("管理", true))
+        #expect(result == true)
 
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("かんり", ""), to: &suite)
@@ -54,7 +55,8 @@ struct LocalUserDictionaryTests {
     }
 
     @Test func registerOkuriAri() throws {
-        try dict.register(entry: SKKEntry("おくりあr", "り"), candidate: SKKCandidate("送りあ", true))
+        let result = dict.register(entry: SKKEntry("おくりあr", "り"), candidate: SKKCandidate("送りあ", true))
+        #expect(result == true)
 
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("おくりあr", "り"), to: &suite)
@@ -67,37 +69,42 @@ struct LocalUserDictionaryTests {
         #expect(suite.ToString() == "/送り有/")
     }
 
-    @Test func helper() throws {
-        try dict.register(entry: SKKEntry("かんり", ""), candidate: SKKCandidate("管理", true))
+    @Test func helper() {
+        let result = dict.register(entry: SKKEntry("かんり", ""), candidate: SKKCandidate("管理", true))
+        #expect(result == true)
 
-        let helper = MockCompletionHelper.newInstance()
-        helper.Initialize("かん")
-        dict.complete(helper: helper)
+        let mock = MockCompletionHelper.newInstance()
+        mock.Initialize("かん")
+        var helper: CompletionHelper = mock
+        dict.complete(helper: &helper)
 
-        let candidates = helper.Result()
+        let candidates = mock.Result()
         #expect(candidates[0] == "かんり")
         #expect(candidates[1] == "かんじ")
     }
 
     @Test func helperNotFound() throws {
-        let helper = MockCompletionHelper.newInstance()
-        helper.Initialize("かんり")
-        dict.complete(helper: helper)
+        var mock = MockCompletionHelper.newInstance()
+        mock.Initialize("かんり")
 
-        let candidates = helper.Result()
+        var helper: CompletionHelper = mock
+        dict.complete(helper: &helper)
+
+        let candidates = mock.Result()
         #expect(candidates.isEmpty == true)
     }
 
     @Test func privateMode() async throws {
-        try await dict.setPrivateMode(value: true)
+        dict.setPrivateMode(value: true)
 
-        try dict.register(entry: SKKEntry("おくりあr", "り"), candidate: SKKCandidate("送りあ", true))
+        let result = dict.register(entry: SKKEntry("おくりあr", "り"), candidate: SKKCandidate("送りあ", true))
+        #expect(result == true)
 
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("おくりあr", "り"), to: &suite)
         #expect(suite.ToString() == "/送りあ/[り/送りあ/]/")
 
-        try await dict.setPrivateMode(value: false)
+        dict.setPrivateMode(value: false)
 
         suite.Clear()
         dict.find(entry: SKKEntry("おくりあr", "り"), to: &suite)
@@ -120,7 +127,8 @@ struct LocalUserDictionaryTests {
     }
 
     @Test func toggleCompletion() throws {
-        try dict.register(entry: SKKEntry("とぐるほかん", ""), candidate: SKKCandidate("", true))
+        let result = dict.register(entry: SKKEntry("とぐるほかん", ""), candidate: SKKCandidate("", true))
+        #expect(result == true)
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("とぐるほかん", ""), to: &suite)
         #expect(suite.IsEmpty() == true)
@@ -131,7 +139,8 @@ struct LocalUserDictionaryTests {
     }
 
     @Test func comment() throws {
-        try dict.register(entry: SKKEntry("encode", ""), candidate: SKKCandidate("abc;def", true))
+        let result = dict.register(entry: SKKEntry("encode", ""), candidate: SKKCandidate("abc;def", true))
+        #expect(result == true)
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("encode", ""), to: &suite)
         #expect(suite.ToString() == "/abc;def/")

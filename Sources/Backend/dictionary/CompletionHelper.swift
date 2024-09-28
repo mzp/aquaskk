@@ -10,5 +10,5 @@ import Foundation
 public protocol CompletionHelper {
     var entry: String { get }
     var canContinue: Bool { get }
-    func add(completion: String)
+    mutating func add(completion: String)
 }
