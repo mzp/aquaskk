@@ -84,7 +84,7 @@ struct LocalUserDictionaryTests {
     }
 
     @Test func helperNotFound() throws {
-        var mock = MockCompletionHelper.newInstance()
+        let mock = MockCompletionHelper.newInstance()
         mock.Initialize("かんり")
 
         var helper: CompletionHelper = mock
