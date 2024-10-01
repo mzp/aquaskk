@@ -169,6 +169,7 @@ public class LocalUserDictionary {
     public func setPrivateMode(value: Bool) {
         let semaphore = DispatchSemaphore(value: 0)
         Task {
+            defer { semaphore.signal() }
             if value != privateMode {
                 if value {
                     try save(force: true)
@@ -177,7 +178,6 @@ public class LocalUserDictionary {
                 }
                 privateMode = value
             }
-            semaphore.signal()
         }
         semaphore.wait()
     }
