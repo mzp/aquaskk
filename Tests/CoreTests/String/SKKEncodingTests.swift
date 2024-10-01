@@ -6,7 +6,7 @@
 //
 
 import AquaSKKCore
-import AquaSKKTesting
+internal import AquaSKKTesting
 import Testing
 
 struct SKKEncodingTests {

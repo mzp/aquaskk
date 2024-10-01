@@ -6,7 +6,7 @@
 //
 
 import AquaSKKInput
-import AquaSKKTesting
+internal import AquaSKKTesting
 import Foundation
 import OSLog
 import SwiftUI

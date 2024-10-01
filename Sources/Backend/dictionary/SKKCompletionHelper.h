@@ -24,6 +24,7 @@
 #define SKKCompletionHelper_h
 
 #include <string>
+#include <swift/bridging>
 
 // 見出し語補完ヘルパー
 
@@ -35,10 +36,44 @@ public:
     virtual const std::string &Entry() const = 0;
 
     // 補完継続可否
-    virtual bool CanContinue() const = 0;
+    virtual bool CanContinue() const {
+        return false;
+    };
 
     // 補完候補の追加
-    virtual void Add(const std::string &completion) = 0;
+    virtual void Add(const std::string &completion) {};
+
+    virtual const std::string getEntry() const {
+        return Entry();
+    }
+};
+
+class SKKCompletionHelperBridge : SKKCompletionHelper {
+    SKKCompletionHelper *impl_;
+
+public:
+    SKKCompletionHelperBridge(SKKCompletionHelper *impl)
+        : impl_(impl) {}
+    ~SKKCompletionHelperBridge() {}
+
+    // 見出し語
+    const std::string &Entry() const {
+        return impl_->Entry();
+    };
+
+    // 補完継続可否
+    bool CanContinue() const {
+        return impl_->CanContinue();
+    };
+
+    // 補完候補の追加
+    void Add(const std::string &completion) {
+        return impl_->Add(completion);
+    };
+
+    const std::string getEntry() const {
+        return impl_->getEntry();
+    }
 };
 
 #endif

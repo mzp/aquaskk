@@ -11,3 +11,5 @@
 OTHER_LDFLAGS = $(inherits) -framework AquaSKKService -framework AquaSKKInput
 
 SWIFT_INSTALL_OBJC_HEADER = YES
+
+BUILD_LIBRARY_FOR_DISTRIBUTION = NO

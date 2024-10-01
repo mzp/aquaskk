@@ -23,6 +23,7 @@
 #ifndef SKKCandidateSuite_h
 #define SKKCandidateSuite_h
 
+#include <swift/bridging>
 #import <AquaSKKBackend/SKKCandidateParser.h>
 
 // 送りヒントの比較は「かな」部分のみ
@@ -113,7 +114,7 @@ public:
         Parse(line);
     }
 
-    void Parse(const std::string &str) {
+    void Parse(const std::string str) {
         parser_.Parse(str);
 
         candidates_ = parser_.Candidates();
@@ -214,6 +215,14 @@ public:
 
     SKKCandidateContainer &Candidates() {
         return candidates_;
+    }
+
+    SKKCandidateContainer getCandidates() SWIFT_COMPUTED_PROPERTY {
+        return candidates_;
+    }
+
+    SKKOkuriHintContainer getHints() SWIFT_COMPUTED_PROPERTY {
+        return hints_;
     }
 
     SKKOkuriHintContainer &Hints() {

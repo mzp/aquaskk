@@ -58,15 +58,15 @@ void SKKEntry::SetOkuri(const std::string &prefix, const std::string &kana) {
     updateEntry();
 }
 
-const std::string &SKKEntry::EntryString() const {
+const std::string SKKEntry::EntryString() const {
     return IsOkuriAri() ? okuri_entry_ : normal_entry_;
 }
 
-const std::string &SKKEntry::OkuriString() const {
+const std::string SKKEntry::OkuriString() const {
     return kana_;
 }
 
-const std::string &SKKEntry::PromptString() const {
+const std::string SKKEntry::PromptString() const {
     return prompt_;
 }
 

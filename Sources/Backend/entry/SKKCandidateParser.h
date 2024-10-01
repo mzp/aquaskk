@@ -25,6 +25,7 @@
 
 #include <algorithm>
 #include <functional>
+#include <swift/bridging>
 #import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKBackend/SKKOkuriHint.h>
 
@@ -110,6 +111,10 @@ public:
     }
 
     const SKKCandidateContainer &Candidates() const {
+        return candidates_;
+    }
+
+    const SKKCandidateContainer getCandidates() const SWIFT_COMPUTED_PROPERTY {
         return candidates_;
     }
 

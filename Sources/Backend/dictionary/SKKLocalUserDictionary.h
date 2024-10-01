@@ -23,22 +23,15 @@
 #ifndef SKKLocalUserDictionary_h
 #define SKKLocalUserDictionary_h
 
-#include <ctime>
-#include <vector>
-#import <AquaSKKBackend/SKKDictionaryFile.h>
 #import <AquaSKKBackend/SKKUserDictionary.h>
+#import <AquaSKKBackend/SwiftObject.h>
+
+namespace AquaSKKBackend {
+    class LocalUserDictionary;
+}
 
 class SKKLocalUserDictionary : public SKKUserDictionary {
-    std::string path_;
-    int idle_count_;
-    std::time_t lastupdate_;
-    SKKDictionaryFile file_;
-    bool privateMode_;
-
-    std::string fetch(const SKKEntry &entry, SKKDictionaryEntryContainer &container);
-    void remove(const SKKEntry &entry, const std::string &kanji, SKKDictionaryEntryContainer &container);
-    void save(bool force = false);
-    void fix();
+    SwiftObject<AquaSKKBackend::LocalUserDictionary> *impl_;
 
 public:
     SKKLocalUserDictionary();

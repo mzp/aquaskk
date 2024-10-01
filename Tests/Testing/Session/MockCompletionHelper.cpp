@@ -12,7 +12,7 @@ void MockCompletionHelper::Initialize(const std::string &entry) {
     result_.clear();
 }
 
-std::vector<std::string> &MockCompletionHelper::Result() {
+std::vector<std::string> MockCompletionHelper::Result() {
     return result_;
 }
 
@@ -26,4 +26,12 @@ void MockCompletionHelper::Add(const std::string &completion) {
 
 bool MockCompletionHelper::CanContinue() const {
     return true;
+}
+
+void SKKRetain(MockCompletionHelper *_Nonnull param) {
+    param->retain();
+}
+
+void SKKRelease(MockCompletionHelper *_Nonnull param) {
+    param->release();
 }

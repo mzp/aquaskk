@@ -10,7 +10,7 @@
 
 #include <memory>
 #include <swift/bridging>
-#import <AquaSKKCore/IntrusiveRefCounted.h>
+#import <AquaSKKBackend/IntrusiveRefCounted.h>
 #import <AquaSKKCore/SKKAnnotator.h>
 #import <AquaSKKCore/SKKCandidateWindow.h>
 #import <AquaSKKCore/SKKClipboard.h>

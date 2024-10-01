@@ -5,7 +5,7 @@
 //  Created by mzp on 8/3/24.
 //
 import AquaSKKInput_Private
-import AquaSKKTesting
+internal import AquaSKKTesting
 import Foundation
 
 struct TyperCompletion {
