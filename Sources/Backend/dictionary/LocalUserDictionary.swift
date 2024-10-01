@@ -38,9 +38,9 @@ public class LocalUserDictionary {
     public func initialize(path: String) {
         let semaphore = DispatchSemaphore(value: 0)
         Task {
+            defer { semaphore.signal() }
             do {
                 try await initialize(path: path)
-                semaphore.signal()
             } catch {
                 Logger.backend.error("\(#function, privacy: .public) can't load file: \(path, privacy: .private) due to \(error)")
             }

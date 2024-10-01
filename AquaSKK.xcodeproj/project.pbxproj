@@ -302,7 +302,6 @@
 		137D058A2C5B5A83009AC591 /* AquaSKKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D05892C5B5A83009AC591 /* AquaSKKTests.swift */; };
 		137EAC932C79913C00A45D57 /* AISUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 137EAC922C79913C00A45D57 /* AISUserDefaults.m */; };
 		137EAC942C79913C00A45D57 /* AISUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 137EAC912C79913C00A45D57 /* AISUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		138C69092C94C865009FE153 /* AquaSKKBackend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 138C69012C94C864009FE153 /* AquaSKKBackend.framework */; };
 		138C69102C94C865009FE153 /* AquaSKKBackendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C690F2C94C865009FE153 /* AquaSKKBackendTests.swift */; };
 		138C69112C94C865009FE153 /* AquaSKKBackend.h in Headers */ = {isa = PBXBuildFile; fileRef = 138C69032C94C864009FE153 /* AquaSKKBackend.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		138C69142C94C865009FE153 /* AquaSKKBackend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 138C69012C94C864009FE153 /* AquaSKKBackend.framework */; };
@@ -479,13 +478,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 137D05742C5B5A81009AC591;
 			remoteInfo = AquaSKK;
-		};
-		138C690A2C94C865009FE153 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 13D368112C5A81290083CAE3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 138C69002C94C864009FE153;
-			remoteInfo = AquaSKKBackend;
 		};
 		138C690C2C94C865009FE153 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1148,7 +1140,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				138C69092C94C865009FE153 /* AquaSKKBackend.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2864,7 +2855,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				138C690B2C94C865009FE153 /* PBXTargetDependency */,
 				138C690D2C94C865009FE153 /* PBXTargetDependency */,
 			);
 			name = BackendTests;
@@ -3613,11 +3603,6 @@
 			isa = PBXTargetDependency;
 			target = 137D05742C5B5A81009AC591 /* AquaSKK */;
 			targetProxy = 1349B7272C651C82002E0CB8 /* PBXContainerItemProxy */;
-		};
-		138C690B2C94C865009FE153 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 138C69002C94C864009FE153 /* AquaSKKBackend */;
-			targetProxy = 138C690A2C94C865009FE153 /* PBXContainerItemProxy */;
 		};
 		138C690D2C94C865009FE153 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
