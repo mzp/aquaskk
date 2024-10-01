@@ -3013,7 +3013,6 @@
 					};
 					138C69072C94C864009FE153 = {
 						CreatedOnToolsVersion = 16.0;
-						TestTargetID = 137D05742C5B5A81009AC591;
 					};
 					139B7B612C60F68100FE5263 = {
 						CreatedOnToolsVersion = 16.0;
