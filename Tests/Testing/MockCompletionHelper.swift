@@ -16,7 +16,7 @@ extension MockCompletionHelper: CompletionHelper {
         CanContinue()
     }
 
-    public func add(completion: String) {
+    public func append(completion: String) {
         Add(std.string(completion))
     }
 }

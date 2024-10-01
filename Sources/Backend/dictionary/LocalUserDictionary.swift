@@ -20,7 +20,7 @@ extension SKKCompletionHelperBridge: CompletionHelper {
         CanContinue()
     }
 
-    public mutating func add(completion: String) {
+    public mutating func append(completion: String) {
         Add(std.string(completion))
     }
 }
@@ -98,7 +98,7 @@ public class LocalUserDictionary {
             if !entry.entry.hasPrefix(query) {
                 continue
             }
-            helper.add(completion: entry.entry)
+            helper.append(completion: entry.entry)
 
             if !helper.canContinue {
                 break
