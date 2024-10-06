@@ -35,3 +35,8 @@ void SKKRetain(MockCompletionHelper *_Nonnull param) {
 void SKKRelease(MockCompletionHelper *_Nonnull param) {
     param->release();
 }
+
+
+MockCompletionHelper *_Nonnull MockCompletionHelper::newInstance() {
+    return new MockCompletionHelper();
+}

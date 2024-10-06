@@ -23,9 +23,7 @@ public:
 
     bool CanContinue() const;
 
-    static MockCompletionHelper *_Nonnull newInstance() {
-        return new MockCompletionHelper();
-    }
+    static MockCompletionHelper *_Nonnull newInstance();
 } SWIFT_SHARED_REFERENCE(SKKRetain, SKKRelease);
 
 void SKKRetain(MockCompletionHelper *_Nonnull param);

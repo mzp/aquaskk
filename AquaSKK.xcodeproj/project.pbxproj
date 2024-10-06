@@ -443,6 +443,8 @@
 		13B7BE972C5F245000F6BEF8 /* SKKServer_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B7BE962C5F245000F6BEF8 /* SKKServer_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		13B7BEC52C5F5CF900F6BEF8 /* AquaSKKService.docc in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BEC42C5F5CF900F6BEF8 /* AquaSKKService.docc */; };
 		13B7BED32C5F5CF900F6BEF8 /* AquaSKKService.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B7BEC32C5F5CF900F6BEF8 /* AquaSKKService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		13CB725A2CB31FAB009CF089 /* BinarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CB72592CB31FAB009CF089 /* BinarySearch.swift */; };
+		13CB725C2CB3215C009CF089 /* BinarySearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CB725B2CB3215C009CF089 /* BinarySearchTests.swift */; };
 		13D756192C5A9049006144F2 /* AquaSKKCore.docc in Sources */ = {isa = PBXBuildFile; fileRef = 13D756172C5A9049006144F2 /* AquaSKKCore.docc */; };
 		13D7561A2C5A9049006144F2 /* AquaSKKCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 13D756162C5A9049006144F2 /* AquaSKKCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13EB86642C5EA7DD00B47DCD /* SupervisorMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EB86632C5EA7DD00B47DCD /* SupervisorMonitor.swift */; };
@@ -1035,6 +1037,8 @@
 		13B7BEC42C5F5CF900F6BEF8 /* AquaSKKService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKService.docc; sourceTree = "<group>"; };
 		13B7BEE12C5F5D1A00F6BEF8 /* Framework-Service.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Service.xcconfig"; sourceTree = "<group>"; };
 		13B7BEE22C5F5D2000F6BEF8 /* Tests-Service.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Service.xcconfig"; sourceTree = "<group>"; };
+		13CB72592CB31FAB009CF089 /* BinarySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearch.swift; sourceTree = "<group>"; };
+		13CB725B2CB3215C009CF089 /* BinarySearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearchTests.swift; sourceTree = "<group>"; };
 		13CEB8292C5DC48E0052B7ED /* Cpp.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Cpp.xcconfig; sourceTree = "<group>"; };
 		13CFD1B22C6818F9000A67E9 /* Frameworks.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Frameworks.xctestplan; sourceTree = "<group>"; };
 		13CFD1B32C68198D000A67E9 /* App.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = App.xctestplan; sourceTree = "<group>"; };
@@ -1389,6 +1393,7 @@
 			children = (
 				1368B4BE2C96818F008D3BF4 /* DictionaryFileTests.swift */,
 				1335E36F2C9744ED002F298B /* LocalUserDictionaryTests.swift */,
+				13CB725B2CB3215C009CF089 /* BinarySearchTests.swift */,
 				1344F52B2C5B28FC00D8C850 /* SKKAutoUpdateDictionary_TEST.mm */,
 				1344F5302C5B28FC00D8C850 /* SKKCommonDictionary_TEST.mm */,
 				1344F5322C5B28FC00D8C850 /* SKKDictionaryFactory_TEST.mm */,
@@ -1564,9 +1569,10 @@
 			children = (
 				1335E37C2C97FE6C002F298B /* CompletionHelper.swift */,
 				1368B4BC2C968164008D3BF4 /* DictionaryFile.swift */,
-				1335E36D2C9744A9002F298B /* LocalUserDictionary.swift */,
-				13F26C412CABA10100825A95 /* DictionaryLoader.swift */,
 				13F26C462CABC33000825A95 /* DictionaryKeeper.swift */,
+				13CB72592CB31FAB009CF089 /* BinarySearch.swift */,
+				13F26C412CABA10100825A95 /* DictionaryLoader.swift */,
+				1335E36D2C9744A9002F298B /* LocalUserDictionary.swift */,
 				1344F4B52C5B28FC00D8C850 /* SKKAutoUpdateDictionary.h */,
 				1344F4B62C5B28FC00D8C850 /* SKKBaseDictionary.h */,
 				1344F4B72C5B28FC00D8C850 /* SKKCommonDictionary.h */,
@@ -3468,6 +3474,7 @@
 				139BFFC12C95ECCE00665C1D /* NumericConverter.swift in Sources */,
 				138C693F2C94C93E009FE153 /* SKKDictionaryKeeper.cpp in Sources */,
 				138C69402C94C93E009FE153 /* SKKDictionaryFile.cpp in Sources */,
+				13CB725A2CB31FAB009CF089 /* BinarySearch.swift in Sources */,
 				138C694A2C94C96E009FE153 /* SKKTransliterate.mm in Sources */,
 				138C694B2C94C96E009FE153 /* SKKEncoding.mm in Sources */,
 				138C69242C94C8FC009FE153 /* SKKDictionaryCache.cpp in Sources */,
@@ -3495,6 +3502,7 @@
 				138C69582C94CD68009FE153 /* SKKDistributedUserDictionary_TEST.mm in Sources */,
 				138C69592C94CD68009FE153 /* SKKGadgetDictionary_TEST.mm in Sources */,
 				138C695A2C94CD68009FE153 /* SKKCommonDictionary_TEST.mm in Sources */,
+				13CB725C2CB3215C009CF089 /* BinarySearchTests.swift in Sources */,
 				138C69622C94CD6E009FE153 /* SKKCandidate_TEST.mm in Sources */,
 				138C69632C94CD6E009FE153 /* SKKCandidateSuite_TEST.mm in Sources */,
 				138C69642C94CD6E009FE153 /* SKKCandidateParser_TEST.mm in Sources */,

@@ -75,7 +75,7 @@ struct LocalUserDictionaryTests {
 
         let mock = MockCompletionHelper.newInstance()
         mock.Initialize("かん")
-        var helper: CompletionHelper = mock
+        var helper: CompletionHelper = mock.bridge()
         dict.complete(helper: &helper)
 
         let candidates = mock.Result()

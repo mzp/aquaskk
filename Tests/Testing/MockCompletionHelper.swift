@@ -19,4 +19,8 @@ extension MockCompletionHelper: CompletionHelper {
     public func append(completion: String) {
         Add(std.string(completion))
     }
+
+    public func bridge() -> CompletionHelper {
+        return self
+    }
 }
