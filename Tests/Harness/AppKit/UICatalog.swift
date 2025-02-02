@@ -5,7 +5,7 @@
 //  Created by mzp on 8/27/24.
 //
 
-import AquaSKKUI
+internal import AquaSKKUI
 import SwiftUI
 
 enum WindowType {
@@ -17,11 +17,11 @@ enum WindowType {
 }
 
 struct UICatalog: View {
-    var annotation = AnnotationWindow.shared()!
-    var candidate = CandidateWindow.shared()!
-    var completion = CompletionWindow.shared()!
-    var inputMode = InputModeWindow.shared()!
-    var messenger = MessengerWindow.shared()!
+    var annotation = AnnotationWindow.shared()
+    var candidate = CandidateWindow.shared()
+    var completion = CompletionWindow.shared()
+    var inputMode = InputModeWindow.shared()
+    var messenger = MessengerWindow.shared()
 
     @State var point: CGPoint = .zero
     @State var selection: WindowType = .annotation
@@ -48,7 +48,7 @@ struct UICatalog: View {
                     switch selection {
                     case .annotation:
                         annotation.setAnnotation("annotation", optional: "optional")
-                        annotation.show(at: point, level: 0)
+                        annotation.show(at: point, level: .normal)
 
                     case .candidate:
                         candidate
@@ -63,21 +63,21 @@ struct UICatalog: View {
                             "xyzzy",
                         ], selectedIndex: 0)
                         candidate.setPage(NSRange(location: 1, length: 5))
-                        candidate.show(at: point, level: 0)
+                        candidate.show(at: point, level: .normal)
 
                     case .completion:
                         completion
                             .showCompletion(
                                 NSAttributedString("Completion"),
                                 at: point,
-                                level: 0
+                                level: .normal
                             )
 
                     case .inputMode:
-                        inputMode.show(at: point, level: 0)
+                        inputMode.show(at: point, level: .normal)
 
                     case .messenger:
-                        messenger.showMessage("Hello World", at: point, level: 0)
+                        messenger.showMessage("Hello World", at: point, level: .normal)
                     }
                 }
                 Button("Hide") {

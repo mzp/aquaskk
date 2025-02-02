@@ -26,8 +26,7 @@
 #import <AquaSKKBackend/utf8util.h>
 #import <AquaSKKInput/MacAnnotator.h>
 #import <AquaSKKService/SKKConstVars.h>
-#import <AquaSKKUI/AnnotationWindow.h>
-#import <AquaSKKUI/CandidateWindow.h>
+#import <AquaSKKUI/AquaSKKUI-Swift.h>
 
 MacAnnotator::MacAnnotator(SKKLayoutManager *layout)
     : layout_(layout), definition_(nil), optional_(nil) {

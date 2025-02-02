@@ -31,13 +31,13 @@
 #import <AquaSKKInput/SKKServer.h>
 #import <AquaSKKService/AISDefaultServerConfiguration.h>
 #import <AquaSKKService/SKKConstVars.h>
-#import <AquaSKKUI/InputModeWindow.h>
 #import <AquaSKKbackend/SKKCommonDictionary.h>
 #import <AquaSKKbackend/SKKDictionaryFactory.h>
 #import <AquaSKKbackend/SKKDistributedUserDictionary.h>
 #import <AquaSKKbackend/SKKGadgetDictionary.h>
 #import <AquaSKKbackend/SKKLocalUserDictionary.h>
 #import <AquaSKKbackend/SKKProxyDictionary.h>
+#import <AquaSKKUI/AquaSKKUI-Swift.h>
 #include <signal.h>
 
 static os_log_t appLog(void) {

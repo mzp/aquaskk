@@ -95,19 +95,19 @@ void test(const char *msg, TestData *suite) {
 - (void)testMain {
     TestData normal[] = {
         {"初期ロード", false, "SKK-JISYO.TEST", true,  false},
-        {"未更新",       false, "SKK-JISYO.TEST", false, false},
-        {"更新通知",    true,  "SKK-JISYO.TEST", true,  false},
+        {"未更新",     false, "SKK-JISYO.TEST", false, false},
+        {"更新通知",   true,  "SKK-JISYO.TEST", true,  false},
 
-        {0,                 false, "",               false, false}
+        {0,            false, "",               false, false}
     };
 
     TestData download[] = {
-        {"初期ロード",       false, "/dev/null",      true,  true },
+        {"初期ロード",     false, "/dev/null",      true,  true },
         {"空ファイル通知", false, "SKK-JISYO.TEST", true,  true },
-        {"更新通知",          true,  "SKK-JISYO.TEST", true,  false},
-        {"未更新",             false, "SKK-JISYO.TEST", false, false},
+        {"更新通知",       true,  "SKK-JISYO.TEST", true,  false},
+        {"未更新",         false, "SKK-JISYO.TEST", false, false},
 
-        {0,                       false, "",               false, false}
+        {0,                false, "",               false, false}
     };
 
     test("正常パターン", normal);

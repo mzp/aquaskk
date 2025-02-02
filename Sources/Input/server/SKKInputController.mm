@@ -76,7 +76,7 @@ static os_log_t appLog(void) {
     activated_ = NO;
     proxy_ = [[SKKServerProxy alloc] init];
     menu_ = [[SKKInputMenu alloc] initWithClient:client];
-
+    layout_ = new SKKLayoutManager(client_);
     session_ = new SKKInputSession(new MacInputSessionParameter(client_, layout_));
     modeIcon_ = new MacInputModeWindow(layout_);
 
@@ -230,19 +230,19 @@ static os_log_t appLog(void) {
         SEL handler;
         SEL state;
     } items[] = {
-        {"環境設定",                         @selector(showPreferences:),   0                     },
-        {"直接入力モード",                @selector(toggleDirectMode:),  @selector(directMode) },
-        {"プライベートモード",          @selector(togglePrivateMode:), @selector(privateMode)},
+        {"環境設定",                 @selector(showPreferences:),   0                     },
+        {"直接入力モード",           @selector(toggleDirectMode:),  @selector(directMode) },
+        {"プライベートモード",       @selector(togglePrivateMode:), @selector(privateMode)},
         {"設定ファイルの再読み込み", @selector(reloadComponents:),  0                     },
 #ifdef SKK_DEBUG
-        {"デバッグ情報",                   @selector(showDebugInfo:),     0                     },
+        {"デバッグ情報",             @selector(showDebugInfo:),     0                     },
 #endif
-        {"separator",                            0,                             0                     },
-        {"Web::日本語を快適に",           @selector(webHome:),           0                     },
-        {"Web::SourceForge.JP",                  @selector(webSourceForge:),    0                     },
-        {"Web::Wiki",                            @selector(webWiki:),           0                     },
-        {"Web::Github[forked]",                  @selector(github:),            0                     },
-        {0,                                      0,                             0                     }
+        {"separator",                0,                             0                     },
+        {"Web::日本語を快適に",      @selector(webHome:),           0                     },
+        {"Web::SourceForge.JP",      @selector(webSourceForge:),    0                     },
+        {"Web::Wiki",                @selector(webWiki:),           0                     },
+        {"Web::Github[forked]",      @selector(github:),            0                     },
+        {0,                          0,                             0                     }
     };
 
     NSMenu *inputMenu = [[[NSMenu alloc] initWithTitle:@"AquaSKK"] autorelease];

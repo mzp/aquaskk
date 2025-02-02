@@ -58,7 +58,9 @@ class InputMethodKitAdapter: NSObject, IMKTextInput {
         inputClient.characterIndex(for: point)
     }
 
-    func attributes(forCharacterIndex _: Int, lineHeightRectangle _: UnsafeMutablePointer<NSRect>!) -> [AnyHashable: Any]! {
+    @objc func attributes(forCharacterIndex characterIndex: Int, lineHeightRectangle: UnsafeMutablePointer<NSRect>!) -> [AnyHashable: Any]! {
+        let rect = inputClient.firstRect(forCharacterRange: .init(location: characterIndex, length: 0), actualRange: nil)
+        lineHeightRectangle.pointee = rect
         return [:]
     }
 
