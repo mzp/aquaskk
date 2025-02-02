@@ -18,6 +18,7 @@ func newGuide(string: String) -> NSAttributedString {
     ])
 }
 
+@objc(CompletionView)
 public class CompletionView: NSView {
     var completion: NSAttributedString
     let guide: NSAttributedString

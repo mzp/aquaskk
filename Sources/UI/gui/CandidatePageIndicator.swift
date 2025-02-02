@@ -7,7 +7,8 @@
 
 import AppKit
 
-@objc(CandidatePageIndicator) public class CandidatePageIndicator: NSObject {
+@objc(CandidatePageIndicator)
+public class CandidatePageIndicator: NSObject {
     private var attribuets: [NSAttributedString.Key: Any]
     private var indicator: NSAttributedString
     private var plate: NSBezierPath

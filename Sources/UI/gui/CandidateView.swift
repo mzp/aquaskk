@@ -7,9 +7,10 @@
 
 import AppKit
 
-let kCellSpacing: CGFloat = 4.0
+private let kCellSpacing: CGFloat = 4.0
 
-@objc(CandidateView) public class CandidateView: NSView {
+@objc(CandidateView)
+public class CandidateView: NSView {
     private var labels: String
     private var indicator: CandidatePageIndicator
     private var candidateCells: [CandidateCell]
@@ -87,7 +88,7 @@ let kCellSpacing: CGFloat = 4.0
         for (index, candidate) in candidates.enumerated() {
             let cell = newCandidateCell()
             let label = labelArray[index]
-            cell.setString(candidate, withLabel: String(label.value))
+            cell.setString(candidate, withLabel: String(label))
             candidateCells.append(cell)
         }
         selected = cursor

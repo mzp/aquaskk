@@ -8,7 +8,8 @@
 import AppKit
 import os
 
-@objc(CandidateWindow) public class CandidateWindow: NSObject {
+@objc(CandidateWindow)
+public class CandidateWindow: NSObject {
     private static let sharedInstance = CandidateWindow()
 
     @objc(sharedWindow)

@@ -7,7 +7,8 @@
 
 import AppKit
 
-@objc(AnnotationWindow) public class AnnotationWindow: NSObject {
+@objc(AnnotationWindow)
+public class AnnotationWindow: NSObject {
     private static let sharedInstance = AnnotationWindow()
     @objc(sharedWindow)
     public static func shared() -> AnnotationWindow {

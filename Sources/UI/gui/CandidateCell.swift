@@ -8,7 +8,8 @@ import AppKit
 
 private let kMargin: CGFloat = 2.0
 
-@objc(CandidateCell) public class CandidateCell: NSObject {
+@objc(CandidateCell)
+public class CandidateCell: NSObject {
     private var entry: NSMutableAttributedString
     private var attributes: [NSAttributedString.Key: Any]
     private var focusSize: CGSize

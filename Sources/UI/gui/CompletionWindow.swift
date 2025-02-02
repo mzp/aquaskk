@@ -8,7 +8,8 @@
 import AppKit
 import os
 
-@objc public class CompletionWindow: NSObject {
+@objc(CompletionWindow)
+public class CompletionWindow: NSObject {
     private static let sharedInstance = CompletionWindow()
 
     @objc(sharedWindow)
