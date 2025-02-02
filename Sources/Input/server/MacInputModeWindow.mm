@@ -26,7 +26,7 @@
 #import <AquaSKKInput/MacInputModeWindow.h>
 #import <AquaSKKInput/SKKLayoutManager.h>
 #import <AquaSKKService/SKKConstVars.h>
-#import <AquaSKKUI/InputModeWindow.h>
+#import <AquaSKKUI/AquaSKKUI-Swift.h>
 
 // MacInputModeWindow::Activate() から呼ばれるユーティリティ群
 namespace {
@@ -137,7 +137,7 @@ namespace {
 }
 
 - (void)changeMode:(SKKInputMode)mode {
-    [window_ changeMode:mode];
+    [window_ changeMode:(int)mode];
 }
 
 - (void)show {

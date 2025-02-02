@@ -23,7 +23,7 @@
 #import <AquaSKKCore/SKKFrontEnd.h>
 #import <AquaSKKInput/MacMessenger.h>
 #import <AquaSKKService/SKKConstVars.h>
-#import <AquaSKKUI/MessengerWindow.h>
+#import <AquaSKKUI/AquaSKKUI-Swift.h>
 #include "ObjCUtil.h"
 
 MacMessenger::MacMessenger(SKKLayoutManager *layout)

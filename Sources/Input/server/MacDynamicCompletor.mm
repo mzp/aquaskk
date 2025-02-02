@@ -22,7 +22,7 @@
 
 #include <InputMethodKit/InputMethodKit.h>
 #import <AquaSKKInput/MacDynamicCompletor.h>
-#import <AquaSKKUI/CompletionWindow.h>
+#import <AquaSKKUI/AquaSKKUI-Swift.h>
 
 MacDynamicCompletor::MacDynamicCompletor(SKKLayoutManager *layout)
     : layout_(layout) {

@@ -5,7 +5,7 @@
 //  Created by mzp on 8/5/24.
 //
 
-@testable import AquaSKKUI
+@testable internal import AquaSKKUI
 import Testing
 
 struct AquaSKKUITests {

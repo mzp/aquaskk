@@ -5,7 +5,7 @@
 //  Created by mzp on 8/27/24.
 //
 
-import AquaSKKUI
+internal import AquaSKKUI
 import SwiftUI
 
 struct AppKitAnnotationView: NSViewRepresentable {

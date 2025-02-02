@@ -24,9 +24,7 @@
 #import <AquaSKKBackend/utf8util.h>
 #import <AquaSKKInput/MacCandidateWindow.h>
 #import <AquaSKKService/SKKConstVars.h>
-#import <AquaSKKUI/CandidateCell.h>
-#import <AquaSKKUI/CandidateView.h>
-#import <AquaSKKUI/CandidateWindow.h>
+#import <AquaSKKUI/AquaSKKUI-Swift.h>
 
 MacCandidateWindow::MacCandidateWindow(SKKLayoutManager *layout)
     : layout_(layout) {
@@ -57,7 +55,7 @@ void MacCandidateWindow::Setup(SKKCandidateIterator begin, SKKCandidateIterator 
         } else {
             NSString *string = [NSString stringWithUTF8String:candidate.c_str()];
 
-            [cell setString:string withLabel:'A'];
+            [cell setString:string withLabel:@"A"];
 
             width = [cell size].width;
         }
