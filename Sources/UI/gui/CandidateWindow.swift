@@ -18,7 +18,7 @@ public class CandidateWindow: NSObject {
     }
 
     private let view: CandidateView
-    private let window: NSWindow
+    public private(set) var window: NSWindow
     private var labels: String
     override public init() {
         view = CandidateView(frame: .zero)

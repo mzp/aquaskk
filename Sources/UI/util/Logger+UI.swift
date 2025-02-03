@@ -1,5 +1,5 @@
 //
-//  Logger+Logging.swift
+//  Logger+UI.swift
 //  AquaSKKBackend
 //
 //  Created by mzp on 9/14/24.

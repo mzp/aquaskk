@@ -16,7 +16,7 @@ public class AnnotationWindow: NSObject {
     }
 
     private let view: AnnotationView
-    private let window: NSWindow
+    public let window: NSWindow
 
     override init() {
         view = .init()

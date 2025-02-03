@@ -5,7 +5,7 @@
 //  Created by mzp on 8/3/24.
 //
 
-module AquaSKKInput_Private {
+framework module AquaSKKInput_Private {
     umbrella "PrivateHeaders"
 
     export *

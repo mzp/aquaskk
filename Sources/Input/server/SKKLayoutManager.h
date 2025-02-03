@@ -26,17 +26,14 @@
 #include <Foundation/Foundation.h>
 #include <InputMethodKit/InputMethodKit.h>
 
-class SKKLayoutManager {
-    id client_;
+@class SKKLayoutManagerImpl;
 
-    BOOL putUpward() const;
-    NSRect inputFrame(int index) const;
-    NSRect screenFrame(const NSRect &input) const;
-    NSPoint fit(const NSRect &screen, const NSRect &window) const;
-    int margin() const;
+class SKKLayoutManager {
+    SKKLayoutManagerImpl *impl_;
 
 public:
     SKKLayoutManager(id client);
+    virtual ~SKKLayoutManager();
 
     // 入力位置の原点
     NSPoint InputOrigin(int index = 0) const;
