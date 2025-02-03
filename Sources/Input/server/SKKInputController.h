@@ -24,7 +24,6 @@
 #define SKKInputController_h
 
 #import <InputMethodKit/InputMethodKit.h>
-#import <AquaSKKInput/SKKInputMenu.h>
 #import <AquaSKKService/AquaSKKService.h>
 
 class SKKLayoutManager;

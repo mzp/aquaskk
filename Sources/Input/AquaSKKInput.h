@@ -26,7 +26,6 @@ FOUNDATION_EXPORT const unsigned char AquaSKKInputVersionString[];
 #import <AquaSKKInput/MacKotoeriDictionary.h>
 #import <AquaSKKInput/MacMessenger.h>
 #import <AquaSKKInput/SKKInputController.h>
-#import <AquaSKKInput/SKKInputMenu.h>
 #import <AquaSKKInput/SKKLayoutManager.h>
 #import <AquaSKKInput/SKKPreProcessor.h>
 #import <AquaSKKInput/SKKServer.h>

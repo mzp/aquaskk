@@ -31,6 +31,7 @@
 #import <AquaSKKInput/SKKLayoutManager.h>
 #import <AquaSKKInput/SKKPreProcessor.h>
 #import <AquaSKKService/SKKConstVars.h>
+#import <AquaSKKInput/AquaSKKInput-Swift.h>
 
 static os_log_t appLog(void) {
     static os_log_t _serviceLog;

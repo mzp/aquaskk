@@ -2,7 +2,7 @@
 
   MacOS X implementation of the SKK input method.
 
-  Copyright (C) 2008 Tomotaka SUWA <t.suwa@mac.com>
+  Copyright (C) 2009 Tomotaka SUWA <t.suwa@mac.com>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -20,28 +20,28 @@
 
 */
 
-#ifndef SKKInputMenu_h
-#define SKKInputMenu_h
+#import <AquaSKKInput/SKKLayoutManager.h>
+#import <AquaSKKInput/AquaSKKInput-Swift.h>
 
-#include <InputMethodKit/InputMethodKit.h>
-#import <AquaSKKBackend/SKKInputMode.h>
-
-@interface SKKInputMenu : NSObject {
-    id client_;
-    BOOL activation_;
-    SKKInputMode currentInputMode_;
+SKKLayoutManager::SKKLayoutManager(id client) {
+    impl_ = [[SKKLayoutManagerImpl alloc] initWithClient:client];
 }
 
-- (id)initWithClient:(id)client;
-- (void)updateMenu:(SKKInputMode)mode;
-- (NSString *)convertInputModeToId:(SKKInputMode)mode;
-- (int)convertIdToEventId:(NSString *)identifier;
-- (void)activation;
-- (void)deactivation;
-- (SKKInputMode)convertIdToInputMode:(NSString *)identifier;
-- (SKKInputMode)currentInputMode;
-- (SKKInputMode)unifiedInputMode;
+SKKLayoutManager::~SKKLayoutManager() {
+    [impl_ release];
+}
+NSPoint SKKLayoutManager::InputOrigin(int index) const {
+    return [impl_ inputOriginWithIndex:index];
+}
 
-@end
+NSPoint SKKLayoutManager::CandidateWindowOrigin() const {
+    return [impl_ candidateWindowOrigin];
+}
 
-#endif
+NSPoint SKKLayoutManager::AnnotationWindowOrigin(int mark) const {
+    return [impl_ annotationWindowOriginWithMark:mark];
+}
+
+int SKKLayoutManager::WindowLevel() const {
+    return static_cast<int>([impl_ windowLevel]);
+}

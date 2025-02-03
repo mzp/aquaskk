@@ -20,6 +20,7 @@
 
 */
 
+#import <AquaSKKBackend/SKKInputMode.h>
 #import <AquaSKKInput/SKKLayoutManager.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 

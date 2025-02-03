@@ -20,8 +20,10 @@
 
 */
 
+#import <AppKit/AppKit.h>
+#import <AquaSKKBackend/SKKInputMode.h>
 #import <AquaSKKInput/MacInputModeMenu.h>
-#import <AquaSKKInput/SKKInputMenu.h>
+#import <AquaSKKInput/AquaSKKInput-Swift.h>
 
 MacInputModeMenu::MacInputModeMenu(SKKInputMenu *menu)
     : menu_(menu), active_(false) {}
