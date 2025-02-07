@@ -451,6 +451,7 @@
 		13F89D5A2D55AB68003177FA /* MacMessenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F89D592D55AB68003177FA /* MacMessenger.swift */; };
 		13F89D5C2D55DC73003177FA /* SKKModeTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F89D5B2D55DC73003177FA /* SKKModeTips.swift */; };
 		13F89D5E2D55E3F1003177FA /* MacInputModeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F89D5D2D55E3F1003177FA /* MacInputModeWindow.swift */; };
+		13F89D622D55E6DE003177FA /* MacAnnotator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F89D602D55E6DE003177FA /* MacAnnotator.swift */; };
 		13F91A222C83923000E60D63 /* SKKEncodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F91A212C83923000E60D63 /* SKKEncodingTests.swift */; };
 		13F91A2A2C8393A700E60D63 /* jconv_ucs2eucj-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 13F91A292C8393A700E60D63 /* jconv_ucs2eucj-inl.h */; };
 		13F91A2B2C8393A700E60D63 /* jconv.h in Headers */ = {isa = PBXBuildFile; fileRef = 13F91A252C8393A700E60D63 /* jconv.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1036,6 +1037,7 @@
 		13F89D592D55AB68003177FA /* MacMessenger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacMessenger.swift; sourceTree = "<group>"; };
 		13F89D5B2D55DC73003177FA /* SKKModeTips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKModeTips.swift; sourceTree = "<group>"; };
 		13F89D5D2D55E3F1003177FA /* MacInputModeWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacInputModeWindow.swift; sourceTree = "<group>"; };
+		13F89D602D55E6DE003177FA /* MacAnnotator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacAnnotator.swift; sourceTree = "<group>"; };
 		13F91A172C838D5B00E60D63 /* SKKEncoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKEncoding.h; sourceTree = "<group>"; };
 		13F91A182C838D5B00E60D63 /* SKKEncoding.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKEncoding.mm; sourceTree = "<group>"; };
 		13F91A1C2C838D8200E60D63 /* SKKTransliterate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SKKTransliterate.h; path = Sources/Backend/utility/SKKTransliterate.h; sourceTree = SOURCE_ROOT; };
@@ -1860,7 +1862,8 @@
 				13B7BE942C5F236700F6BEF8 /* AquaSKKInput_Private.h */,
 				13B7BE922C5F236000F6BEF8 /* AquaSKKInput.modulemap */,
 				13B7BE932C5F236000F6BEF8 /* AquaSKKInput.Private.modulemap */,
-				135C3D932C5B3F1D00661AE3 /* server */,
+				13F89D612D55E6DE003177FA /* skk */,
+				135C3D932C5B3F1D00661AE3 /* mac */,
 				13BDCB642D50424F0031BB3A /* util */,
 				135C3D5E2C5B3E9600661AE3 /* AquaSKKIM.docc */,
 			);
@@ -1875,13 +1878,14 @@
 			path = InputTests;
 			sourceTree = "<group>";
 		};
-		135C3D932C5B3F1D00661AE3 /* server */ = {
+		135C3D932C5B3F1D00661AE3 /* mac */ = {
 			isa = PBXGroup;
 			children = (
 				135C3D682C5B3F1D00661AE3 /* BlacklistApps.h */,
 				135C3D692C5B3F1D00661AE3 /* BlacklistApps.m */,
 				135C3D6A2C5B3F1D00661AE3 /* MacAnnotator.h */,
 				135C3D6B2C5B3F1D00661AE3 /* MacAnnotator.mm */,
+				13F89D602D55E6DE003177FA /* MacAnnotator.swift */,
 				135C3D6C2C5B3F1D00661AE3 /* MacCandidateWindow.h */,
 				135C3D6D2C5B3F1D00661AE3 /* MacCandidateWindow.mm */,
 				135C3D6E2C5B3F1D00661AE3 /* MacClipboard.h */,
@@ -1904,22 +1908,8 @@
 				135C3D7E2C5B3F1D00661AE3 /* MacMessenger.h */,
 				135C3D7F2C5B3F1D00661AE3 /* MacMessenger.mm */,
 				13F89D592D55AB68003177FA /* MacMessenger.swift */,
-				135C3D812C5B3F1D00661AE3 /* ObjCUtil.h */,
-				135C3D842C5B3F1D00661AE3 /* SKKInputController.h */,
-				135C3D852C5B3F1D00661AE3 /* SKKInputController.mm */,
-				13B7BE902C5F228300F6BEF8 /* SKKInputController_Private.h */,
-				13BDCB6D2D5091840031BB3A /* SKKInputMenu.swift */,
-				135C3D882C5B3F1D00661AE3 /* SKKLayoutManager.h */,
-				135C3D892C5B3F1D00661AE3 /* SKKLayoutManager.mm */,
-				13BDCB622D50396D0031BB3A /* SKKLayoutManager.swift */,
-				13F89D5B2D55DC73003177FA /* SKKModeTips.swift */,
-				135C3D8A2C5B3F1D00661AE3 /* SKKPreProcessor.h */,
-				135C3D8B2C5B3F1D00661AE3 /* SKKPreProcessor.mm */,
-				135C3D8E2C5B3F1D00661AE3 /* SKKServer.h */,
-				135C3D8F2C5B3F1D00661AE3 /* SKKServer.mm */,
-				13B7BE962C5F245000F6BEF8 /* SKKServer_Private.h */,
 			);
-			path = server;
+			path = mac;
 			sourceTree = "<group>";
 		};
 		135EEBA02C5EEA5100758672 /* Typer */ = {
@@ -2336,6 +2326,7 @@
 		13BDCB642D50424F0031BB3A /* util */ = {
 			isa = PBXGroup;
 			children = (
+				135C3D812C5B3F1D00661AE3 /* ObjCUtil.h */,
 				13BDCB652D5042570031BB3A /* Logger+Input.swift */,
 			);
 			path = util;
@@ -2420,6 +2411,26 @@
 				138C69082C94C864009FE153 /* BackendTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		13F89D612D55E6DE003177FA /* skk */ = {
+			isa = PBXGroup;
+			children = (
+				135C3D842C5B3F1D00661AE3 /* SKKInputController.h */,
+				135C3D852C5B3F1D00661AE3 /* SKKInputController.mm */,
+				13B7BE902C5F228300F6BEF8 /* SKKInputController_Private.h */,
+				13BDCB6D2D5091840031BB3A /* SKKInputMenu.swift */,
+				135C3D882C5B3F1D00661AE3 /* SKKLayoutManager.h */,
+				135C3D892C5B3F1D00661AE3 /* SKKLayoutManager.mm */,
+				13BDCB622D50396D0031BB3A /* SKKLayoutManager.swift */,
+				13F89D5B2D55DC73003177FA /* SKKModeTips.swift */,
+				135C3D8A2C5B3F1D00661AE3 /* SKKPreProcessor.h */,
+				135C3D8B2C5B3F1D00661AE3 /* SKKPreProcessor.mm */,
+				135C3D8E2C5B3F1D00661AE3 /* SKKServer.h */,
+				135C3D8F2C5B3F1D00661AE3 /* SKKServer.mm */,
+				13B7BE962C5F245000F6BEF8 /* SKKServer_Private.h */,
+			);
+			path = skk;
 			sourceTree = "<group>";
 		};
 		13F91A202C838FDF00E60D63 /* String */ = {
@@ -3396,6 +3407,7 @@
 				135C3D9F2C5B3F1D00661AE3 /* MacInputSessionParameter.mm in Sources */,
 				135C3DA02C5B3F1D00661AE3 /* MacMessenger.mm in Sources */,
 				135C3DA12C5B3F1D00661AE3 /* BlacklistApps.m in Sources */,
+				13F89D622D55E6DE003177FA /* MacAnnotator.swift in Sources */,
 				135C3DA32C5B3F1D00661AE3 /* SKKLayoutManager.mm in Sources */,
 				135C3DA42C5B3F1D00661AE3 /* MacInputModeWindow.mm in Sources */,
 				13F89D5C2D55DC73003177FA /* SKKModeTips.swift in Sources */,
