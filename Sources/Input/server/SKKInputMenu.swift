@@ -77,10 +77,10 @@ private let kInputModeTable: [(Int, SKKInputMode, String)] = [
         return nil
     }
 
-    func eventId(modeIdentifier: String) -> Int {
-        for (eventId, _, identifier) in kInputModeTable {
+    func eventID(modeIdentifier: String) -> Int {
+        for (eventID, _, identifier) in kInputModeTable {
             if identifier.caseInsensitiveCompare(modeIdentifier) == .orderedSame {
-                return eventId
+                return eventID
             }
         }
         return 0
@@ -98,18 +98,18 @@ private let kInputModeTable: [(Int, SKKInputMode, String)] = [
         return Self.unifiedInputMode
     }
 
-    @objc(convertIdToInputMode:)
-    public func convertIdToInputMode(modeIdentifier: String) -> SKKInputMode {
+    @objc(convertIDToInputMode:)
+    public func convertIDToInputMode(modeIdentifier: String) -> SKKInputMode {
         return inputMode(modeIdentifier: modeIdentifier) ?? .InvalidInputMode
     }
 
-    @objc(convertIdToEventId:)
-    public func convertIdToEventId(modeIdentifier: String) -> Int {
-        return eventId(modeIdentifier: modeIdentifier)
+    @objc(convertIDToEventID:)
+    public func convertIDToEventID(modeIdentifier: String) -> Int {
+        return eventID(modeIdentifier: modeIdentifier)
     }
 
-    @objc(convertInputModeToId:)
-    public func convertInputModeToId(inputMode: SKKInputMode) -> String {
+    @objc(convertInputModeToID:)
+    public func convertInputModeToID(inputMode: SKKInputMode) -> String {
         return modeIdentifier(inputMode: inputMode) ?? ""
     }
 }
