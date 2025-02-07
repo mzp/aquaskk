@@ -6,13 +6,14 @@
 //
 
 import Foundation
-@objc public class MacInputModeWindowImpl : NSObject {
+
+@objc public class MacInputModeWindowImpl: NSObject {
     private let layoutManager: SKKLayoutManagerImpl
     private let tips: SKKModeTipsImpl
 
     @objc(initWithLayoutManager:) public init(layoutManager: SKKLayoutManagerImpl) {
         self.layoutManager = layoutManager
-        self.tips = SKKModeTipsImpl(layoutManager: layoutManager)
+        tips = SKKModeTipsImpl(layoutManager: layoutManager)
         super.init()
     }
 
@@ -25,8 +26,10 @@ import Foundation
         return defaults.bool(forKey: SKKUserDefaultKeys.show_input_mode_icon)
     }
 
-   @objc public func skkWidgetShow() {
-        guard enabled else { return }
+    @objc public func skkWidgetShow() {
+        guard enabled else {
+            return
+        }
         tips.show()
     }
 

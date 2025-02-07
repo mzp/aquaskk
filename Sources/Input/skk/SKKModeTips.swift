@@ -5,8 +5,8 @@
 //  Created by mzp on 2/6/25.
 //
 
-import CoreGraphics
 import AquaSKKUI
+import CoreGraphics
 
 @objc public class SKKModeTipsImpl: NSObject {
     private var timer: Timer? = nil
@@ -15,7 +15,7 @@ import AquaSKKUI
 
     public init(layoutManager: SKKLayoutManagerImpl) {
         self.layoutManager = layoutManager
-        self.window = InputModeWindow.shared()
+        window = InputModeWindow.shared()
         super.init()
     }
 
@@ -36,7 +36,7 @@ import AquaSKKUI
         if !found {
             return
         }
-        
+
         window.show(at: point, level: layoutManager.windowLevel())
     }
 
@@ -52,7 +52,7 @@ import AquaSKKUI
     public func show() {
         cancel()
 
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector (activate), userInfo: nil, repeats: false)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(activate), userInfo: nil, repeats: false)
     }
 
     func cancel() {
@@ -61,13 +61,13 @@ import AquaSKKUI
     }
 
     public func hide() {
-        self.cancel()
+        cancel()
         window.hide()
     }
 
     // MARK: MacInputModeWindow::Activate() から呼ばれるユーティリティ群
 
-    // 左下原点を左上原点に変換する
+    /// 左下原点を左上原点に変換する
     private func flip(point: CGPoint) -> CGPoint {
         let frame = NSScreen.main?.frame ?? .zero
         return CGPoint(x: point.x, y: frame.height - point.y)
@@ -75,10 +75,9 @@ import AquaSKKUI
 
     private func activeProcessID() -> pid_t? {
         return NSWorkspace.shared.frontmostApplication?.processIdentifier
-
     }
 
-    // プロセス ID に関連したウィンドウ矩形群の取得
+    /// プロセス ID に関連したウィンドウ矩形群の取得
     private func windowRects(ofProcess processID: pid_t) -> [CGRect] {
         var result = [CGRect]()
         let array = CGWindowListCopyWindowInfo(.optionOnScreenOnly, kCGNullWindowID)
@@ -86,18 +85,21 @@ import AquaSKKUI
         for info in array as! [[CFString: Any]] {
             // 引数のプロセス ID でフィルタ
             if let owner = info[kCGWindowOwnerPID] as? Int,
-               owner != processID {
+               owner != processID
+            {
                 continue
             }
 
             // デスクトップ全面を覆う Finder のウィンドウは除外
             if let level = info[kCGWindowLayer] as? Int,
-               level == CGWindowLevel.min {
+               level == CGWindowLevel.min
+            {
                 continue
             }
 
             if let bounds = info[kCGWindowBounds] as? NSDictionary,
-               let rect = CGRect(dictionaryRepresentation: bounds) {
+               let rect = CGRect(dictionaryRepresentation: bounds)
+            {
                 result.append(rect)
             }
         }

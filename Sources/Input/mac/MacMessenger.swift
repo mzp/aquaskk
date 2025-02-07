@@ -5,9 +5,9 @@
 //  Created by mzp on 2/6/25.
 //
 
-import Foundation
 import AppKit
 import AquaSKKUI
+import Foundation
 
 public class MacMessengerImpl: NSObject {
     let layoutManager: SKKLayoutManagerImpl
@@ -24,13 +24,12 @@ public class MacMessengerImpl: NSObject {
         topLeft.y -= 2
 
         window.showMessage(message, at: topLeft, level: layoutManager.windowLevel())
-
     }
+
     @objc public func beep() {
         let defaults = UserDefaults.standard
         if defaults.bool(forKey: SKKUserDefaultKeys.beep_on_registration) {
             NSSound.beep()
         }
     }
-
 }

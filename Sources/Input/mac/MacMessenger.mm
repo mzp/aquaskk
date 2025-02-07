@@ -20,10 +20,10 @@
 
 */
 
-#import <AquaSKKInput/MacMessenger.h>
 #import <AquaSKKBackend/SKKInputMode.h>
-#import <AquaSKKUI/AquaSKKUI-Swift.h>
+#import <AquaSKKInput/MacMessenger.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
+#import <AquaSKKUI/AquaSKKUI-Swift.h>
 
 MacMessenger::MacMessenger(SKKLayoutManager *layout) {
     impl_ = [[MacMessengerImpl alloc] initWithLayoutManager:layout->getImpl()];
