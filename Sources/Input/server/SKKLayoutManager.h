@@ -43,6 +43,8 @@ public:
     NSPoint AnnotationWindowOrigin(int mark) const;
 
     int WindowLevel() const;
+
+    SKKLayoutManagerImpl *getImpl();
 };
 
 #endif

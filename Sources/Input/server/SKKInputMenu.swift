@@ -98,18 +98,18 @@ private let kInputModeTable: [(Int, SKKInputMode, String)] = [
         return Self.unifiedInputMode
     }
 
-    @objc(convertIDToInputMode:)
-    public func convertIDToInputMode(modeIdentifier: String) -> SKKInputMode {
+    @objc(convertIdToInputMode:)
+    public func convertIdToInputMode(modeIdentifier: String) -> SKKInputMode {
         return inputMode(modeIdentifier: modeIdentifier) ?? .InvalidInputMode
     }
 
-    @objc(convertIDToEventID:)
-    public func convertIDToEventID(modeIdentifier: String) -> Int {
+    @objc(convertIdToEventId:)
+    public func convertIdToEventId(modeIdentifier: String) -> Int {
         return eventID(modeIdentifier: modeIdentifier)
     }
 
-    @objc(convertInputModeToID:)
-    public func convertInputModeToID(inputMode: SKKInputMode) -> String {
+    @objc(convertInputModeToId:)
+    public func convertInputModeToId(inputMode: SKKInputMode) -> String {
         return modeIdentifier(inputMode: inputMode) ?? ""
     }
 }

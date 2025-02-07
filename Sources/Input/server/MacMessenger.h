@@ -26,8 +26,10 @@
 #import <AquaSKKCore/SKKMessenger.h>
 #import <AquaSKKInput/SKKLayoutManager.h>
 
+@class MacMessengerImpl;
+
 class MacMessenger : public SKKMessenger {
-    SKKLayoutManager *layout_;
+    MacMessengerImpl *impl_;
 
 public:
     MacMessenger(SKKLayoutManager *layout);

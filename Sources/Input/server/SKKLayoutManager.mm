@@ -46,3 +46,7 @@ NSPoint SKKLayoutManager::AnnotationWindowOrigin(int mark) const {
 int SKKLayoutManager::WindowLevel() const {
     return static_cast<int>([impl_ windowLevel]);
 }
+
+SKKLayoutManagerImpl *SKKLayoutManager::getImpl() {
+    return impl_;
+}
