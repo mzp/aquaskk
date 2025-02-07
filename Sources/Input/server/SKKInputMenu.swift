@@ -25,9 +25,9 @@ private let kInputModeTable: [(Int, SKKInputMode, String)] = [
 @objc(SKKInputMenu) public class SKKInputMenu: NSObject {
     @MainActor static var unifiedInputMode: SKKInputMode = .HirakanaInputMode
 
-    let client: IMKTextInput
-    var activated: Bool = true
-    var currentInputMode: SKKInputMode = .HirakanaInputMode
+    private let client: IMKTextInput
+    private var activated: Bool = true
+    public private(set) var currentInputMode: SKKInputMode = .HirakanaInputMode
 
     @objc(initWithClient:) public init(with client: IMKTextInput) {
         self.client = client
@@ -77,10 +77,10 @@ private let kInputModeTable: [(Int, SKKInputMode, String)] = [
         return nil
     }
 
-    func eventID(modeIdentifier: String) -> Int {
-        for (eventID, _, identifier) in kInputModeTable {
+    func eventId(modeIdentifier: String) -> Int {
+        for (eventId, _, identifier) in kInputModeTable {
             if identifier.caseInsensitiveCompare(modeIdentifier) == .orderedSame {
-                return eventID
+                return eventId
             }
         }
         return 0
@@ -98,18 +98,18 @@ private let kInputModeTable: [(Int, SKKInputMode, String)] = [
         return Self.unifiedInputMode
     }
 
-    @objc(convertIDToInputMode:)
-    public func convertIDToInputMode(modeIdentifier: String) -> SKKInputMode {
-        return inputMode(modeIdentifier: modeIdentifier) ?? SKKInputMode(rawValue: 0)!
+    @objc(convertIdToInputMode:)
+    public func convertIdToInputMode(modeIdentifier: String) -> SKKInputMode {
+        return inputMode(modeIdentifier: modeIdentifier) ?? .InvalidInputMode
     }
 
-    @objc(convertIDToEventID:)
-    public func convertIDToEventID(modeIdentifier: String) -> Int {
-        return eventID(modeIdentifier: modeIdentifier)
+    @objc(convertIdToEventId:)
+    public func convertIdToEventId(modeIdentifier: String) -> Int {
+        return eventId(modeIdentifier: modeIdentifier)
     }
 
-    @objc(convertInputModeToID:)
-    public func convertInputModeToID(inputMode: SKKInputMode) -> String {
+    @objc(convertInputModeToId:)
+    public func convertInputModeToId(inputMode: SKKInputMode) -> String {
         return modeIdentifier(inputMode: inputMode) ?? ""
     }
 }
