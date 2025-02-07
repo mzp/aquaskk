@@ -17,6 +17,10 @@ private let kMargin: CGFloat = 1.0
         self.client = client
     }
 
+    @MainActor public func inputOrigin() -> CGPoint {
+        return inputOrigin(index: 0)
+    }
+
     @MainActor @objc public func inputOrigin(index: Int) -> CGPoint {
         let frame = inputFrame(at: index)
         return frame.origin

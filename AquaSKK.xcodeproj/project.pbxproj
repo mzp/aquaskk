@@ -191,7 +191,7 @@
 		135C3DA02C5B3F1D00661AE3 /* MacMessenger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D7F2C5B3F1D00661AE3 /* MacMessenger.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		135C3DA12C5B3F1D00661AE3 /* BlacklistApps.m in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D692C5B3F1D00661AE3 /* BlacklistApps.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		135C3DA32C5B3F1D00661AE3 /* SKKLayoutManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D892C5B3F1D00661AE3 /* SKKLayoutManager.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		135C3DA42C5B3F1D00661AE3 /* MacInputModeWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D792C5B3F1D00661AE3 /* MacInputModeWindow.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		135C3DA42C5B3F1D00661AE3 /* MacInputModeWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D792C5B3F1D00661AE3 /* MacInputModeWindow.mm */; };
 		135C3DA52C5B3F1D00661AE3 /* SKKServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D8F2C5B3F1D00661AE3 /* SKKServer.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		135C3DA72C5B3F1D00661AE3 /* MacAnnotator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D6B2C5B3F1D00661AE3 /* MacAnnotator.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		135C3DA82C5B3F1D00661AE3 /* MacInputModeMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D772C5B3F1D00661AE3 /* MacInputModeMenu.mm */; };
@@ -449,6 +449,8 @@
 		13EDDCF32C5B395B0062A0DA /* SKKInputSession_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F53A2C5B28FC00D8C850 /* SKKInputSession_TEST.mm */; };
 		13F53D9C2C6C39CA00403F65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F53D9B2C6C39CA00403F65 /* AppDelegate.swift */; };
 		13F89D5A2D55AB68003177FA /* MacMessenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F89D592D55AB68003177FA /* MacMessenger.swift */; };
+		13F89D5C2D55DC73003177FA /* SKKModeTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F89D5B2D55DC73003177FA /* SKKModeTips.swift */; };
+		13F89D5E2D55E3F1003177FA /* MacInputModeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F89D5D2D55E3F1003177FA /* MacInputModeWindow.swift */; };
 		13F91A222C83923000E60D63 /* SKKEncodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F91A212C83923000E60D63 /* SKKEncodingTests.swift */; };
 		13F91A2A2C8393A700E60D63 /* jconv_ucs2eucj-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 13F91A292C8393A700E60D63 /* jconv_ucs2eucj-inl.h */; };
 		13F91A2B2C8393A700E60D63 /* jconv.h in Headers */ = {isa = PBXBuildFile; fileRef = 13F91A252C8393A700E60D63 /* jconv.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1032,6 +1034,8 @@
 		13EC79062D3F579900D6E623 /* MessengerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerView.swift; sourceTree = "<group>"; };
 		13F53D9B2C6C39CA00403F65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13F89D592D55AB68003177FA /* MacMessenger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacMessenger.swift; sourceTree = "<group>"; };
+		13F89D5B2D55DC73003177FA /* SKKModeTips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKModeTips.swift; sourceTree = "<group>"; };
+		13F89D5D2D55E3F1003177FA /* MacInputModeWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacInputModeWindow.swift; sourceTree = "<group>"; };
 		13F91A172C838D5B00E60D63 /* SKKEncoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKEncoding.h; sourceTree = "<group>"; };
 		13F91A182C838D5B00E60D63 /* SKKEncoding.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKEncoding.mm; sourceTree = "<group>"; };
 		13F91A1C2C838D8200E60D63 /* SKKTransliterate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SKKTransliterate.h; path = Sources/Backend/utility/SKKTransliterate.h; sourceTree = SOURCE_ROOT; };
@@ -1874,7 +1878,6 @@
 		135C3D932C5B3F1D00661AE3 /* server */ = {
 			isa = PBXGroup;
 			children = (
-				13BDCB692D5043E50031BB3A /* shims */,
 				135C3D682C5B3F1D00661AE3 /* BlacklistApps.h */,
 				135C3D692C5B3F1D00661AE3 /* BlacklistApps.m */,
 				135C3D6A2C5B3F1D00661AE3 /* MacAnnotator.h */,
@@ -1893,24 +1896,28 @@
 				135C3D772C5B3F1D00661AE3 /* MacInputModeMenu.mm */,
 				135C3D782C5B3F1D00661AE3 /* MacInputModeWindow.h */,
 				135C3D792C5B3F1D00661AE3 /* MacInputModeWindow.mm */,
+				13F89D5D2D55E3F1003177FA /* MacInputModeWindow.swift */,
 				135C3D7A2C5B3F1D00661AE3 /* MacInputSessionParameter.h */,
 				135C3D7B2C5B3F1D00661AE3 /* MacInputSessionParameter.mm */,
 				135C3D7C2C5B3F1D00661AE3 /* MacKotoeriDictionary.h */,
 				135C3D7D2C5B3F1D00661AE3 /* MacKotoeriDictionary.cpp */,
 				135C3D7E2C5B3F1D00661AE3 /* MacMessenger.h */,
-				13F89D592D55AB68003177FA /* MacMessenger.swift */,
 				135C3D7F2C5B3F1D00661AE3 /* MacMessenger.mm */,
+				13F89D592D55AB68003177FA /* MacMessenger.swift */,
 				135C3D812C5B3F1D00661AE3 /* ObjCUtil.h */,
 				135C3D842C5B3F1D00661AE3 /* SKKInputController.h */,
-				13B7BE902C5F228300F6BEF8 /* SKKInputController_Private.h */,
 				135C3D852C5B3F1D00661AE3 /* SKKInputController.mm */,
+				13B7BE902C5F228300F6BEF8 /* SKKInputController_Private.h */,
 				13BDCB6D2D5091840031BB3A /* SKKInputMenu.swift */,
+				135C3D882C5B3F1D00661AE3 /* SKKLayoutManager.h */,
+				135C3D892C5B3F1D00661AE3 /* SKKLayoutManager.mm */,
 				13BDCB622D50396D0031BB3A /* SKKLayoutManager.swift */,
+				13F89D5B2D55DC73003177FA /* SKKModeTips.swift */,
 				135C3D8A2C5B3F1D00661AE3 /* SKKPreProcessor.h */,
 				135C3D8B2C5B3F1D00661AE3 /* SKKPreProcessor.mm */,
 				135C3D8E2C5B3F1D00661AE3 /* SKKServer.h */,
-				13B7BE962C5F245000F6BEF8 /* SKKServer_Private.h */,
 				135C3D8F2C5B3F1D00661AE3 /* SKKServer.mm */,
+				13B7BE962C5F245000F6BEF8 /* SKKServer_Private.h */,
 			);
 			path = server;
 			sourceTree = "<group>";
@@ -2332,15 +2339,6 @@
 				13BDCB652D5042570031BB3A /* Logger+Input.swift */,
 			);
 			path = util;
-			sourceTree = "<group>";
-		};
-		13BDCB692D5043E50031BB3A /* shims */ = {
-			isa = PBXGroup;
-			children = (
-				135C3D882C5B3F1D00661AE3 /* SKKLayoutManager.h */,
-				135C3D892C5B3F1D00661AE3 /* SKKLayoutManager.mm */,
-			);
-			name = shims;
 			sourceTree = "<group>";
 		};
 		13D368102C5A81290083CAE3 = {
@@ -3400,12 +3398,14 @@
 				135C3DA12C5B3F1D00661AE3 /* BlacklistApps.m in Sources */,
 				135C3DA32C5B3F1D00661AE3 /* SKKLayoutManager.mm in Sources */,
 				135C3DA42C5B3F1D00661AE3 /* MacInputModeWindow.mm in Sources */,
+				13F89D5C2D55DC73003177FA /* SKKModeTips.swift in Sources */,
 				135C3DA52C5B3F1D00661AE3 /* SKKServer.mm in Sources */,
 				13BDCB6E2D5091840031BB3A /* SKKInputMenu.swift in Sources */,
 				135C3DA72C5B3F1D00661AE3 /* MacAnnotator.mm in Sources */,
 				135C3DA82C5B3F1D00661AE3 /* MacInputModeMenu.mm in Sources */,
 				135C3D602C5B3E9600661AE3 /* AquaSKKIM.docc in Sources */,
 				13F89D5A2D55AB68003177FA /* MacMessenger.swift in Sources */,
+				13F89D5E2D55E3F1003177FA /* MacInputModeWindow.swift in Sources */,
 				13BDCB662D5042570031BB3A /* Logger+Input.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

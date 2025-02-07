@@ -10,20 +10,20 @@ import AppKit
 import AquaSKKUI
 
 public class MacMessengerImpl: NSObject {
-    let layout: SKKLayoutManagerImpl
+    let layoutManager: SKKLayoutManagerImpl
 
-    @objc(initWithLayout:)
-    public init(layout: SKKLayoutManagerImpl) {
-        self.layout = layout
+    @objc(initWithLayoutManager:)
+    public init(layoutManager: SKKLayoutManagerImpl) {
+        self.layoutManager = layoutManager
     }
 
     @objc @MainActor public func send(message: String) {
         let window = MessengerWindow.shared()
 
-        var topLeft = layout.inputOrigin(index: 0)
+        var topLeft = layoutManager.inputOrigin()
         topLeft.y -= 2
 
-        window.showMessage(message, at: topLeft, level: layout.windowLevel())
+        window.showMessage(message, at: topLeft, level: layoutManager.windowLevel())
 
     }
     @objc public func beep() {

@@ -26,7 +26,7 @@
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 
 MacMessenger::MacMessenger(SKKLayoutManager *layout) {
-    impl_ = [[MacMessengerImpl alloc] initWithLayout:layout->getImpl()];
+    impl_ = [[MacMessengerImpl alloc] initWithLayoutManager:layout->getImpl()];
 }
 
 void MacMessenger::SendMessage(const std::string &msg) {

@@ -26,15 +26,10 @@
 #import <AquaSKKCore/SKKInputModeListener.h>
 
 class SKKLayoutManager;
-
-@class InputModeWindow;
-@class SKKModeTips;
+@class MacInputModeWindowImpl;
 
 class MacInputModeWindow : public SKKInputModeListener {
-    SKKModeTips *tips_;
-
-    bool enabled() const;
-
+    MacInputModeWindowImpl *impl_;
     virtual void SKKWidgetShow();
     virtual void SKKWidgetHide();
 
