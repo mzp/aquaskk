@@ -438,6 +438,7 @@
 		13D7561A2C5A9049006144F2 /* AquaSKKCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 13D756162C5A9049006144F2 /* AquaSKKCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13E6376D2D5653E30040DAAC /* MacInputModeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E6376C2D5653E30040DAAC /* MacInputModeMenu.swift */; };
 		13E6376F2D56E6620040DAAC /* MacFrontEnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E6376E2D56E6620040DAAC /* MacFrontEnd.swift */; };
+		13E637712D56EEF60040DAAC /* MacDynamicCompletor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E637702D56EEF60040DAAC /* MacDynamicCompletor.swift */; };
 		13EB86642C5EA7DD00B47DCD /* SupervisorMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EB86632C5EA7DD00B47DCD /* SupervisorMonitor.swift */; };
 		13EC79072D3F579900D6E623 /* MessengerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EC79062D3F579900D6E623 /* MessengerView.swift */; };
 		13EDDCCC2C5B2ED70062A0DA /* SKKWindowSelector_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5432C5B28FC00D8C850 /* SKKWindowSelector_TEST.mm */; };
@@ -1032,6 +1033,7 @@
 		13D7561C2C5A9113006144F2 /* All-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "All-Debug.xcconfig"; sourceTree = "<group>"; };
 		13E6376C2D5653E30040DAAC /* MacInputModeMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacInputModeMenu.swift; sourceTree = "<group>"; };
 		13E6376E2D56E6620040DAAC /* MacFrontEnd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacFrontEnd.swift; sourceTree = "<group>"; };
+		13E637702D56EEF60040DAAC /* MacDynamicCompletor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacDynamicCompletor.swift; sourceTree = "<group>"; };
 		13E6605E2C6834BA000896F6 /* Taskfile.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = Taskfile.yml; sourceTree = "<group>"; };
 		13E6605F2C6852B3000896F6 /* .clang-format */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".clang-format"; sourceTree = "<group>"; };
 		13E660602C6852B3000896F6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -1898,6 +1900,7 @@
 				135C3D712C5B3F1D00661AE3 /* MacConfig.mm */,
 				135C3D722C5B3F1D00661AE3 /* MacDynamicCompletor.h */,
 				135C3D732C5B3F1D00661AE3 /* MacDynamicCompletor.mm */,
+				13E637702D56EEF60040DAAC /* MacDynamicCompletor.swift */,
 				135C3D742C5B3F1D00661AE3 /* MacFrontEnd.h */,
 				135C3D752C5B3F1D00661AE3 /* MacFrontEnd.mm */,
 				13E6376E2D56E6620040DAAC /* MacFrontEnd.swift */,
@@ -3404,6 +3407,7 @@
 				135C3D962C5B3F1D00661AE3 /* MacClipboard.mm in Sources */,
 				135C3D972C5B3F1D00661AE3 /* MacConfig.mm in Sources */,
 				13E6376D2D5653E30040DAAC /* MacInputModeMenu.swift in Sources */,
+				13E637712D56EEF60040DAAC /* MacDynamicCompletor.swift in Sources */,
 				135C3D982C5B3F1D00661AE3 /* MacCandidateWindow.mm in Sources */,
 				13BDCB632D50396D0031BB3A /* SKKLayoutManager.swift in Sources */,
 				135C3D992C5B3F1D00661AE3 /* MacKotoeriDictionary.cpp in Sources */,

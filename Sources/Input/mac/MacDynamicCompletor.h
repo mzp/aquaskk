@@ -27,21 +27,16 @@
 #import <AquaSKKInput/SKKLayoutManager.h>
 
 @class CompletionWindow;
+@class MacDynamicCompletorImpl;
 
 class MacDynamicCompletor : public SKKDynamicCompletor {
-    SKKLayoutManager *layout_;
-    CompletionWindow *window_;
-    std::string completion_;
-    int commonPrefixLength_;
-    int cursorOffset_;
-
-    NSAttributedString *makeAttributedString();
-
+    MacDynamicCompletorImpl *impl_;
     virtual void SKKWidgetShow();
     virtual void SKKWidgetHide();
 
 public:
     MacDynamicCompletor(SKKLayoutManager *layout);
+    ~MacDynamicCompletor();
 
     virtual void Update(const std::string &completion, int commonPrefixLength, int cursorOffset);
 };

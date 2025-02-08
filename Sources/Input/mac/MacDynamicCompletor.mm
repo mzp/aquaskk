@@ -20,60 +20,33 @@
 
 */
 
-#include <InputMethodKit/InputMethodKit.h>
 #import <AquaSKKInput/MacDynamicCompletor.h>
-#import <AquaSKKUI/AquaSKKUI-Swift.h>
+#import <AppKit/AppKit.h>
+#import <AquaSKKBackend/SKKInputMode.h>
+#import <AquaSKKInput/AquaSKKInput-Swift.h>
 
-MacDynamicCompletor::MacDynamicCompletor(SKKLayoutManager *layout)
-    : layout_(layout) {
-    window_ = [CompletionWindow sharedWindow];
+MacDynamicCompletor::MacDynamicCompletor(SKKLayoutManager *layout) {
+    impl_ = [[MacDynamicCompletorImpl alloc] initWithLayoutManager:layout->getImpl()];
+}
+
+MacDynamicCompletor::~MacDynamicCompletor() {
+    [impl_ release];
 }
 
 void MacDynamicCompletor::Update(const std::string &completion, int commonPrefixLength, int cursorOffset) {
-    completion_ = completion;
-    commonPrefixLength_ = commonPrefixLength;
-    cursorOffset_ = cursorOffset;
+    NSString *string = [NSString stringWithUTF8String:completion.c_str()];
+
+    [impl_ updateWithCompletion:string
+             commonPrefixLength:commonPrefixLength cursorOffset:cursorOffset];
+
 }
 
 // ------------------------------------------------------------
 
 void MacDynamicCompletor::SKKWidgetShow() {
-    if(completion_.empty()) {
-        SKKWidgetHide();
-        return;
-    }
-
-    [window_ showCompletion:makeAttributedString()
-                         at:layout_->InputOrigin(cursorOffset_ + 1)
-                      level:layout_->WindowLevel()];
+    [impl_ skkWidgetShow];
 }
 
 void MacDynamicCompletor::SKKWidgetHide() {
-    [window_ hide];
-}
-
-NSAttributedString *MacDynamicCompletor::makeAttributedString() {
-    NSDictionary *bold = [[NSDictionary dictionaryWithObject:[NSFont boldSystemFontOfSize:0.0]
-                                                      forKey:NSFontAttributeName] retain];
-    NSMutableAttributedString *result =
-        [[NSMutableAttributedString alloc] initWithString:[NSString stringWithUTF8String:completion_.c_str()]];
-
-    [result addAttribute:NSFontAttributeName value:[NSFont systemFontOfSize:0.0] range:NSMakeRange(0, [result length])];
-
-    NSRange diff = NSMakeRange(-1, 1);
-    do {
-        diff.location += commonPrefixLength_ + 1;
-
-        if(diff.location < [result length]) {
-            [result setAttributes:bold range:diff];
-        }
-
-        NSString *str = [result string];
-
-        diff = [str rangeOfString:@"\n" options:0 range:NSMakeRange(diff.location, [str length] - diff.location)];
-    } while(diff.location != NSNotFound);
-
-    [bold release];
-
-    return [result autorelease];
+    [impl_ skkWidgetHide];
 }
