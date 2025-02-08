@@ -5,7 +5,6 @@
 //  Created by mzp on 2/7/25.
 //
 
-
 @objc(MacInputModeMenuImpl)
 public class MacInputModeMenuImpl: NSObject {
     private let menu: SKKInputMenu
@@ -13,7 +12,7 @@ public class MacInputModeMenuImpl: NSObject {
 
     @objc public init(menu: SKKInputMenu) {
         self.menu = menu
-        self.active = false
+        active = false
         super.init()
     }
 

@@ -6,8 +6,8 @@
 //
 
 import AquaSKKUI
-
 import Foundation
+
 @objc(MacDynamicCompletorImpl)
 public class MacDynamicCompletorImpl: NSObject {
     private let layoutManager: SKKLayoutManagerImpl
@@ -19,7 +19,7 @@ public class MacDynamicCompletorImpl: NSObject {
 
     @objc public init(layoutManager: SKKLayoutManagerImpl) {
         self.layoutManager = layoutManager
-        self.window = CompletionWindow()
+        window = CompletionWindow()
         completion = ""
         commonPrefixLength = 0
         cursorOffset = 0
@@ -44,7 +44,7 @@ public class MacDynamicCompletorImpl: NSObject {
         window.hide()
     }
 
-   private var markedAttributedString: NSAttributedString {
+    private var markedAttributedString: NSAttributedString {
         let result = NSMutableAttributedString(string: completion)
         result.addAttribute(.font, value: NSFont.systemFont(ofSize: 0), range: NSRange(location: 0, length: result.length))
 
@@ -56,7 +56,7 @@ public class MacDynamicCompletorImpl: NSObject {
             }
             let str = result.string as NSString
 
-            diff = str.range(of: "\n", options: [], range:NSRange(location: 0, length: 0))
+            diff = str.range(of: "\n", options: [], range: NSRange(location: 0, length: 0))
         } while diff.location != NSNotFound
         return result
     }

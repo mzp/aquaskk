@@ -29,6 +29,7 @@
 
 class MacFrontEnd : public SKKFrontEnd {
     MacFrontEndImpl *impl_;
+
 public:
     MacFrontEnd(id client);
     ~MacFrontEnd();

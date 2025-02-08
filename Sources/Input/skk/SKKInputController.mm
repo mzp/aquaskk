@@ -23,7 +23,6 @@
 #import <os/log.h>
 #import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKCore/SKKInputSession.h>
-#import <AquaSKKInput/BlacklistApps.h>
 #import <AquaSKKInput/MacInputModeMenu.h>
 #import <AquaSKKInput/MacInputModeWindow.h>
 #import <AquaSKKInput/MacInputSessionParameter.h>
@@ -117,7 +116,7 @@ static os_log_t appLog(void) {
 
     SKKInputMode current = [menu_ currentInputMode];
 
-    if([[BlacklistApps sharedManager] isSyncInputSource:[self currentBundle]]) {
+    if([[BlacklistApps sharedManager] needsSyncInputSource:[self currentBundle]]) {
         current = [self syncInputSource];
     }
 
@@ -424,7 +423,7 @@ static os_log_t appLog(void) {
         return NO;
     }
 
-    return [[BlacklistApps sharedManager] isInsertEmptyString:bundle];
+    return [[BlacklistApps sharedManager] needsInsertEmptyString:bundle];
 }
 
 #pragma clang diagnostic push

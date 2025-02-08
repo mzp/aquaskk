@@ -20,9 +20,9 @@
 
 */
 
-#import <AquaSKKInput/MacDynamicCompletor.h>
 #import <AppKit/AppKit.h>
 #import <AquaSKKBackend/SKKInputMode.h>
+#import <AquaSKKInput/MacDynamicCompletor.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 
 MacDynamicCompletor::MacDynamicCompletor(SKKLayoutManager *layout) {
@@ -36,9 +36,7 @@ MacDynamicCompletor::~MacDynamicCompletor() {
 void MacDynamicCompletor::Update(const std::string &completion, int commonPrefixLength, int cursorOffset) {
     NSString *string = [NSString stringWithUTF8String:completion.c_str()];
 
-    [impl_ updateWithCompletion:string
-             commonPrefixLength:commonPrefixLength cursorOffset:cursorOffset];
-
+    [impl_ updateWithCompletion:string commonPrefixLength:commonPrefixLength cursorOffset:cursorOffset];
 }
 
 // ------------------------------------------------------------

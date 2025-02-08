@@ -22,7 +22,7 @@ public class MacFrontEndImpl: NSObject {
     }
 
     @objc(insertString:)
-    public func insert(string: String) {
+    @MainActor public func insert(string: String) {
         if !string.isEmpty {
             willInsertText(string)
         }
@@ -36,14 +36,15 @@ public class MacFrontEndImpl: NSObject {
         // *** FIXME ***
         // Carbon アプリで見出し語を入力すると、なぜか文字のベースラインが下にずれる
         // 一旦 "▽" だけ入力すると回避できるが、正解かどうかは不明
-        if(string == "▽") {
+        if string == "▽" {
             client.setMarkedText("▽", selectionRange: .skkNotFound, replacementRange: .skkNotFound)
         }
         client.setMarkedText(marked, selectionRange: cursorPos, replacementRange: .skkNotFound)
     }
 
     @objc public func composeString(_ string: String,
-                       candidateStart: Int, candidateLength: Int) {
+                                    candidateStart: Int, candidateLength: Int)
+    {
         let marked = markedText(string, cursorOffset: 0)
         let cursorPos = NSRange(location: marked.length, length: 0)
         let segment = NSRange(location: candidateStart, length: candidateLength)
@@ -56,7 +57,7 @@ public class MacFrontEndImpl: NSObject {
 
     @objc public func selectedString() -> String {
         let range = client.selectedRange()
-        let text =  client.attributedSubstring(from: range)
+        let text = client.attributedSubstring(from: range)
         guard let string = text?.string else {
             return ""
         }
@@ -72,11 +73,14 @@ public class MacFrontEndImpl: NSObject {
     }
 
     // MARK: - Workaround
+
+    @MainActor
     private func willInsertText(_ string: String) {
         guard let bundleIdentifier = client.bundleIdentifier() else {
+            Logger.skkInput.warning("\(#function)  client.bundleIdentifier is nil")
             return
         }
-        guard  (BlacklistApps.sharedManager().isInsertMarkedText(bundleIdentifier)) else {
+        guard BlacklistApps.shared().needsInsertMarkedText(bundleIdentifier: bundleIdentifier) else {
             return
         }
 

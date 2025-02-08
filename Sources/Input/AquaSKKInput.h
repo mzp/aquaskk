@@ -13,7 +13,6 @@ FOUNDATION_EXPORT double AquaSKKInputVersionNumber;
 //! Project version string for AquaSKKServer.
 FOUNDATION_EXPORT const unsigned char AquaSKKInputVersionString[];
 
-#import <AquaSKKInput/BlacklistApps.h>
 #import <AquaSKKInput/MacAnnotator.h>
 #import <AquaSKKInput/MacCandidateWindow.h>
 #import <AquaSKKInput/MacClipboard.h>

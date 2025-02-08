@@ -23,20 +23,20 @@
 #import <os/log.h>
 #import <AquaSKKBackend/SKKAutoUpdateDictionary.h>
 #import <AquaSKKBackend/SKKBackEnd.h>
+#import <AquaSKKBackend/SKKCommonDictionary.h>
+#import <AquaSKKBackend/SKKDictionaryFactory.h>
+#import <AquaSKKBackend/SKKDistributedUserDictionary.h>
+#import <AquaSKKBackend/SKKGadgetDictionary.h>
+#import <AquaSKKBackend/SKKLocalUserDictionary.h>
+#import <AquaSKKBackend/SKKProxyDictionary.h>
 #import <AquaSKKCore/SKKRomanKanaConverter.h>
 #import <AquaSKKCore/skkserv.h>
-#import <AquaSKKInput/BlacklistApps.h>
 #import <AquaSKKInput/MacKotoeriDictionary.h>
 #import <AquaSKKInput/SKKPreProcessor.h>
 #import <AquaSKKInput/SKKServer.h>
 #import <AquaSKKService/AISDefaultServerConfiguration.h>
 #import <AquaSKKService/SKKConstVars.h>
-#import <AquaSKKbackend/SKKCommonDictionary.h>
-#import <AquaSKKbackend/SKKDictionaryFactory.h>
-#import <AquaSKKbackend/SKKDistributedUserDictionary.h>
-#import <AquaSKKbackend/SKKGadgetDictionary.h>
-#import <AquaSKKbackend/SKKLocalUserDictionary.h>
-#import <AquaSKKbackend/SKKProxyDictionary.h>
+#import <AquaSKKInput/AquaSKKInput-Swift.h>
 #import <AquaSKKUI/AquaSKKUI-Swift.h>
 #include <signal.h>
 

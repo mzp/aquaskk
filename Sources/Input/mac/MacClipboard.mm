@@ -22,16 +22,19 @@
 
 #import <AppKit/AppKit.h>
 #import <Foundation/Foundation.h>
+#import <AquaSKKBackend/SKKInputMode.h>
 #import <AquaSKKInput/MacClipboard.h>
+#import <AquaSKKInput/AquaSKKInput-Swift.h>
+
+MacClipboard::MacClipboard() {
+    impl_ = [[MacClipboardImpl alloc] init];
+}
+
+MacClipboard::~MacClipboard() {
+    [impl_ release];
+}
 
 const std::string MacClipboard::PasteString() {
-    NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    if([[pasteboard types] containsObject:NSStringPboardType] == YES) {
-        NSString *str = [pasteboard stringForType:NSStringPboardType];
-        return [str UTF8String];
-    }
-#pragma clang diagnostic pop
-    return "";
+    NSString *str = [impl_ pasteString];
+    return [str UTF8String];
 }

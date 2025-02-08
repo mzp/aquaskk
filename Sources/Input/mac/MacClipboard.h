@@ -25,8 +25,14 @@
 
 #import <AquaSKKCore/SKKClipboard.h>
 
+@class MacClipboardImpl;
+
 class MacClipboard : public SKKClipboard {
+    MacClipboardImpl *impl_;
+
 public:
+    MacClipboard();
+    ~MacClipboard();
     virtual const std::string PasteString();
 };
 
