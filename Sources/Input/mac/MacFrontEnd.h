@@ -23,20 +23,15 @@
 #ifndef MacFrontEnd_h
 #define MacFrontEnd_h
 
-#include <InputMethodKit/InputMethodKit.h>
 #import <AquaSKKCore/SKKFrontEnd.h>
 
+@class MacFrontEndImpl;
+
 class MacFrontEnd : public SKKFrontEnd {
-    id client_;
-
-    NSRange notFound() const;
-    NSMutableAttributedString *createMarkedText(const std::string &str, int cursorOffset);
-
-    void workaroundForBlacklistApp(NSString *string);
-    bool isBlacklistApp() const;
-
+    MacFrontEndImpl *impl_;
 public:
     MacFrontEnd(id client);
+    ~MacFrontEnd();
 
     virtual void InsertString(const std::string &str);
     virtual void ComposeString(const std::string &str, int cursorOffset = 0);

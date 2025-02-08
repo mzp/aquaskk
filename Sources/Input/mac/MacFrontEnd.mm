@@ -20,101 +20,37 @@
 
 */
 
-#include <iostream>
-#import <AquaSKKBackend/utf8util.h>
-#import <AquaSKKInput/BlacklistApps.h>
+#import <AppKit/AppKit.h>
+
+#import <AquaSKKBackend/SKKInputMode.h>
 #import <AquaSKKInput/MacFrontEnd.h>
 
-MacFrontEnd::MacFrontEnd(id client)
-    : client_(client) {}
+#import <AquaSKKInput/AquaSKKInput-Swift.h>
+
+MacFrontEnd::MacFrontEnd(id client) {
+    impl_ = [[MacFrontEndImpl alloc] initWithClient:client];
+}
+
+MacFrontEnd::~MacFrontEnd() {
+    [impl_ release];
+}
 
 void MacFrontEnd::InsertString(const std::string &str) {
-    NSString *string = @"";
-
-    if(!str.empty()) {
-        string = [NSString stringWithUTF8String:str.c_str()];
-
-        workaroundForBlacklistApp(string);
-    }
-
-    [client_ insertText:string replacementRange:notFound()];
+    NSString *string = [NSString stringWithUTF8String:str.c_str()];
+    [impl_ insertString:string];
 }
 
 void MacFrontEnd::ComposeString(const std::string &str, int cursorOffset) {
-    NSMutableAttributedString *marked = createMarkedText(str, cursorOffset);
-    NSRange cursorPos = NSMakeRange([marked length] + cursorOffset, 0);
-
-    // *** FIXME ***
-    // Carbon アプリで見出し語を入力すると、なぜか文字のベースラインが下にずれる
-    // 一旦 "▽" だけ入力すると回避できるが、正解かどうかは不明
-    if(utf8::length(str) == 2 && str.find("▽") == 0) {
-        [client_ setMarkedText:@"▽" selectionRange:notFound() replacementRange:notFound()];
-    }
-
-    [client_ setMarkedText:marked selectionRange:cursorPos replacementRange:notFound()];
-
-    [marked release];
+    NSString *string = [NSString stringWithUTF8String:str.c_str()];
+    [impl_ composeString:string cursorOffset:cursorOffset];
 }
 
 void MacFrontEnd::ComposeString(const std::string &str, int candidateStart, int candidateLength) {
-    NSMutableAttributedString *marked = createMarkedText(str, 0);
-    NSRange cursorPos = NSMakeRange([marked length] + 0, 0);
-    NSRange segment = NSMakeRange(candidateStart, candidateLength);
-
-    [marked addAttribute:NSMarkedClauseSegmentAttributeName value:[NSNumber numberWithInt:0] range:segment];
-
-    [marked addAttribute:NSUnderlineStyleAttributeName
-                   value:[NSNumber numberWithInt:NSUnderlineStyleThick]
-                   range:segment];
-
-    [client_ setMarkedText:marked selectionRange:cursorPos replacementRange:notFound()];
-
-    [marked release];
+    NSString *string = [NSString stringWithUTF8String:str.c_str()];
+    [impl_ composeString:string candidateStart:candidateStart candidateLength:candidateLength];
 }
 
 std::string MacFrontEnd::SelectedString() {
-    NSRange range = [client_ selectedRange];
-    NSAttributedString *text = [client_ attributedSubstringFromRange:range];
-
-    if(text) {
-        return [[text string] UTF8String];
-    }
-
-    return "";
-}
-
-// ------------------------------------------------------------
-
-NSRange MacFrontEnd::notFound() const {
-    return NSMakeRange(NSNotFound, NSNotFound);
-}
-
-NSMutableAttributedString *MacFrontEnd::createMarkedText(const std::string &str, int cursorOffset) {
-    NSString *source = [NSString stringWithUTF8String:str.c_str()];
-    NSMutableAttributedString *marked = [[NSMutableAttributedString alloc] initWithString:source];
-
-    [marked addAttribute:NSCursorAttributeName
-                   value:[NSCursor IBeamCursor]
-                   range:NSMakeRange([marked length] + cursorOffset, 0)];
-
-    [marked addAttribute:NSUnderlineStyleAttributeName
-                   value:[NSNumber numberWithInt:NSUnderlineStyleSingle]
-                   range:NSMakeRange(0, [marked length])];
-
-    return marked;
-}
-
-void MacFrontEnd::workaroundForBlacklistApp(NSString *string) {
-    // 確定前に、非確定文字列に確定予定文字列をセットするとうまくいく
-    if(isBlacklistApp()) {
-        NSLog(@"insert marked text");
-        NSRange range = notFound();
-        [client_ setMarkedText:string selectionRange:range replacementRange:range];
-    }
-    // 正しいかどうかは不明
-}
-
-// workaroundが必要なアプリかどうかを判定する
-bool MacFrontEnd::isBlacklistApp() const {
-    return [[BlacklistApps sharedManager] isInsertMarkedText:[client_ bundleIdentifier]];
+    NSString *string = [impl_ selectedString];
+    return [string UTF8String];
 }
