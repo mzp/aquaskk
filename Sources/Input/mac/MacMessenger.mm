@@ -29,6 +29,10 @@ MacMessenger::MacMessenger(SKKLayoutManager *layout) {
     impl_ = [[MacMessengerImpl alloc] initWithLayoutManager:layout->getImpl()];
 }
 
+MacMessenger::~MacMessenger() {
+    [impl_ release];
+}
+
 void MacMessenger::SendMessage(const std::string &msg) {
     NSString *str = [NSString stringWithUTF8String:msg.c_str()];
     [impl_ sendWithMessage:str];

@@ -26,16 +26,16 @@
 #import <AquaSKKCore/SKKInputModeListener.h>
 
 @class SKKInputMenu;
+@class MacInputModeMenuImpl;
 
 class MacInputModeMenu : public SKKInputModeListener {
-    SKKInputMenu *menu_;
-    bool active_;
-
+    MacInputModeMenuImpl *impl_;
     virtual void SKKWidgetShow();
     virtual void SKKWidgetHide();
 
 public:
     MacInputModeMenu(SKKInputMenu *menu);
+    ~MacInputModeMenu();
 
     virtual void SelectInputMode(SKKInputMode mode);
 };

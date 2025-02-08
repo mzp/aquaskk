@@ -33,7 +33,9 @@ MacInputModeWindow::MacInputModeWindow(SKKLayoutManager *layout) {
     impl_ = [[MacInputModeWindowImpl alloc] initWithLayoutManager:layout->getImpl()];
 }
 
-MacInputModeWindow::~MacInputModeWindow() {}
+MacInputModeWindow::~MacInputModeWindow() {
+    [impl_ release];
+}
 
 void MacInputModeWindow::SelectInputMode(SKKInputMode mode) {
     [impl_ selectWithInputMode:mode];

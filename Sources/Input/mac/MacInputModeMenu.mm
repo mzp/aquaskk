@@ -21,23 +21,25 @@
 */
 
 #import <AppKit/AppKit.h>
-#import <AquaSKKBackend/SKKInputMode.h>
 #import <AquaSKKInput/MacInputModeMenu.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 
-MacInputModeMenu::MacInputModeMenu(SKKInputMenu *menu)
-    : menu_(menu), active_(false) {}
+MacInputModeMenu::MacInputModeMenu(SKKInputMenu *menu) {
+    impl_ = [[MacInputModeMenuImpl alloc] initWithMenu:menu];
+}
+
+MacInputModeMenu::~MacInputModeMenu() {
+    [impl_ release];
+}
 
 void MacInputModeMenu::SelectInputMode(SKKInputMode mode) {
-    if(active_) {
-        [menu_ updateMenu:mode];
-    }
+    [impl_ selectInputMode:mode];
 }
 
 void MacInputModeMenu::SKKWidgetShow() {
-    active_ = true;
+    [impl_ skkWidgetShow];
 }
 
 void MacInputModeMenu::SKKWidgetHide() {
-    active_ = false;
+    [impl_ skkWidgetHide];
 }

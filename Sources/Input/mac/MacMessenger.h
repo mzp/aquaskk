@@ -33,7 +33,7 @@ class MacMessenger : public SKKMessenger {
 
 public:
     MacMessenger(SKKLayoutManager *layout);
-
+    ~MacMessenger();
     virtual void SendMessage(const std::string &msg);
     virtual void Beep();
 };
