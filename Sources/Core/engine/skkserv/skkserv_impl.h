@@ -21,11 +21,27 @@
 
 */
 
-class skkserv_impl;
+#ifndef skkserv_impl_h
+#define skkserv_impl_h
 
-class skkserv {
-    skkserv_impl *impl_;
+#import <AquaSKKBackend/socketutil.h>
+#include <pthread.h>
+
+class skkserv_impl {
+    pthread_t thread_;
+    net::socket::tcpserver server_;
+    net::socket::monitor incoming_;
+    bool localonly_;
+
+    static void *listener(void *param);
+    static void *worker(void *param);
+
+    void accept();
+
 public:
-    skkserv(unsigned short port, bool localonly);
-    ~skkserv();
+    skkserv_impl(unsigned short port, bool localonly);
+
+    ~skkserv_impl();
 };
+
+#endif /* skkserv_impl_h */

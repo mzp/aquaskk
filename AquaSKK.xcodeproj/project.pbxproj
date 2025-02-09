@@ -422,6 +422,10 @@
 		13A685442C698312001BABA2 /* CoreTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A685432C698312001BABA2 /* CoreTesting.swift */; };
 		13A6A1392C6D6D2F004B3587 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A6A1382C6D6D2F004B3587 /* main.m */; };
 		13A835262C7988BD003BF62F /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13A835252C7988BD003BF62F /* UserDefaults.plist */; };
+		13B4A9B02D57E5C5002453BA /* SKKServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B4A9AF2D57E5C5002453BA /* SKKServer.swift */; };
+		13B4A9B32D57E909002453BA /* skkserv_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B4A9B12D57E909002453BA /* skkserv_impl.h */; };
+		13B4A9B42D57E909002453BA /* skkserv_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13B4A9B22D57E909002453BA /* skkserv_impl.cpp */; };
+		13B4A9B52D57E909002453BA /* skkserv_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B4A9B12D57E909002453BA /* skkserv_impl.h */; };
 		13B7BE832C5EFCEF00F6BEF8 /* SKKStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE822C5EFCEF00F6BEF8 /* SKKStateStore.swift */; };
 		13B7BE882C5F1E9100F6BEF8 /* SKKServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE872C5F1E9100F6BEF8 /* SKKServerTests.swift */; };
 		13B7BE912C5F229D00F6BEF8 /* SKKInputController_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B7BE902C5F228300F6BEF8 /* SKKInputController_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -1006,6 +1010,9 @@
 		13A685432C698312001BABA2 /* CoreTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTesting.swift; sourceTree = "<group>"; };
 		13A6A1382C6D6D2F004B3587 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		13A835252C7988BD003BF62F /* UserDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
+		13B4A9AF2D57E5C5002453BA /* SKKServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKServer.swift; sourceTree = "<group>"; };
+		13B4A9B12D57E909002453BA /* skkserv_impl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = skkserv_impl.h; sourceTree = "<group>"; };
+		13B4A9B22D57E909002453BA /* skkserv_impl.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = skkserv_impl.cpp; sourceTree = "<group>"; };
 		13B7BE822C5EFCEF00F6BEF8 /* SKKStateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStateStore.swift; sourceTree = "<group>"; };
 		13B7BE872C5F1E9100F6BEF8 /* SKKServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKServerTests.swift; sourceTree = "<group>"; };
 		13B7BE902C5F228300F6BEF8 /* SKKInputController_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKInputController_Private.h; sourceTree = "<group>"; };
@@ -1674,6 +1681,8 @@
 			children = (
 				1344F5062C5B28FC00D8C850 /* skkserv.h */,
 				1344F5072C5B28FC00D8C850 /* skkserv.cpp */,
+				13B4A9B12D57E909002453BA /* skkserv_impl.h */,
+				13B4A9B22D57E909002453BA /* skkserv_impl.cpp */,
 			);
 			path = skkserv;
 			sourceTree = "<group>";
@@ -2441,6 +2450,7 @@
 				135C3D8E2C5B3F1D00661AE3 /* SKKServer.h */,
 				135C3D8F2C5B3F1D00661AE3 /* SKKServer.mm */,
 				13B7BE962C5F245000F6BEF8 /* SKKServer_Private.h */,
+				13B4A9AF2D57E5C5002453BA /* SKKServer.swift */,
 			);
 			path = skk;
 			sourceTree = "<group>";
@@ -2497,6 +2507,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13B4A9B52D57E909002453BA /* skkserv_impl.h in Headers */,
 				135C3DA92C5B3F1D00661AE3 /* MacInputSessionParameter.h in Headers */,
 				135C3DAA2C5B3F1D00661AE3 /* ObjCUtil.h in Headers */,
 				135C3DAB2C5B3F1D00661AE3 /* MacClipboard.h in Headers */,
@@ -2597,6 +2608,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13B4A9B32D57E909002453BA /* skkserv_impl.h in Headers */,
 				1344F55F2C5B28FC00D8C850 /* SKKClipboard.h in Headers */,
 				1344F5642C5B28FC00D8C850 /* SKKRegisterEditor.h in Headers */,
 				1344F5652C5B28FC00D8C850 /* SKKComposingEditor.h in Headers */,
@@ -3420,6 +3432,7 @@
 				135C3D9F2C5B3F1D00661AE3 /* MacInputSessionParameter.mm in Sources */,
 				13E637732D56F2C00040DAAC /* MacClipboardImpl.swift in Sources */,
 				13E637752D56F40F0040DAAC /* MacCandidateWindow.swift in Sources */,
+				13B4A9B02D57E5C5002453BA /* SKKServer.swift in Sources */,
 				135C3DA02C5B3F1D00661AE3 /* MacMessenger.mm in Sources */,
 				13F89D622D55E6DE003177FA /* MacAnnotator.swift in Sources */,
 				135C3DA32C5B3F1D00661AE3 /* SKKLayoutManager.mm in Sources */,
@@ -3591,6 +3604,7 @@
 				13D756192C5A9049006144F2 /* AquaSKKCore.docc in Sources */,
 				135FB6D92C6998E800A6480A /* RomanKanaConverter.swift in Sources */,
 				135FB6E12C69AA7E00A6480A /* Trie.swift in Sources */,
+				13B4A9B42D57E909002453BA /* skkserv_impl.cpp in Sources */,
 				1344F5CF2C5B28FC00D8C850 /* SKKInputEnvironment.cpp in Sources */,
 				1344F5D12C5B28FC00D8C850 /* SKKPrimaryEditor.cpp in Sources */,
 				1344F5D22C5B28FC00D8C850 /* SKKRomanKanaConverter.mm in Sources */,
