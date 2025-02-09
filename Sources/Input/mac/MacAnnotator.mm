@@ -20,17 +20,14 @@
 
 */
 
-#import <AquaSKKInput/MacAnnotator.h>
-#import <AquaSKKBackend/SKKInputMode.h>
 #import <AppKit/AppKit.h>
 #import <AquaSKKBackend/SKKCandidateBridge.h>
-#import <AquaSKKUI/AquaSKKUI-Swift.h>
+#import <AquaSKKBackend/SKKInputMode.h>
+#import <AquaSKKInput/MacAnnotator.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
+#import <AquaSKKUI/AquaSKKUI-Swift.h>
 
-MacAnnotator::MacAnnotator(SKKLayoutManager *layout)
-    : layout_(layout), definition_(nil), optional_(nil) {
-    window_ = [AnnotationWindow sharedWindow];
-
+MacAnnotator::MacAnnotator(SKKLayoutManager *layout) {
     impl_ = [[MacAnnotatorImpl alloc] initWithLayoutManager:layout->getImpl()];
 }
 

@@ -31,16 +31,6 @@
 
 class MacAnnotator : public SKKAnnotator {
     MacAnnotatorImpl *impl_;
-
-    SKKLayoutManager *layout_;
-    NSString *definition_;
-    NSString *optional_;
-    AnnotationWindow *window_;
-    SKKCandidate candidate_;
-    int cursor_;
-
-    void release(NSString *&str);
-
     virtual void SKKWidgetShow();
     virtual void SKKWidgetHide();
 

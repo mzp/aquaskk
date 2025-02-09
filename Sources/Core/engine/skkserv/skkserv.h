@@ -25,6 +25,7 @@ class skkserv_impl;
 
 class skkserv {
     skkserv_impl *impl_;
+
 public:
     skkserv(unsigned short port, bool localonly);
     ~skkserv();

@@ -443,7 +443,7 @@
 		13E6376D2D5653E30040DAAC /* MacInputModeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E6376C2D5653E30040DAAC /* MacInputModeMenu.swift */; };
 		13E6376F2D56E6620040DAAC /* MacFrontEnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E6376E2D56E6620040DAAC /* MacFrontEnd.swift */; };
 		13E637712D56EEF60040DAAC /* MacDynamicCompletor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E637702D56EEF60040DAAC /* MacDynamicCompletor.swift */; };
-		13E637732D56F2C00040DAAC /* MacClipboardImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E637722D56F2C00040DAAC /* MacClipboardImpl.swift */; };
+		13E637732D56F2C00040DAAC /* MacClipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E637722D56F2C00040DAAC /* MacClipboard.swift */; };
 		13E637752D56F40F0040DAAC /* MacCandidateWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E637742D56F40F0040DAAC /* MacCandidateWindow.swift */; };
 		13E637772D56F58A0040DAAC /* BlacklistApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E637762D56F58A0040DAAC /* BlacklistApps.swift */; };
 		13EB86642C5EA7DD00B47DCD /* SupervisorMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EB86632C5EA7DD00B47DCD /* SupervisorMonitor.swift */; };
@@ -1044,7 +1044,7 @@
 		13E6376C2D5653E30040DAAC /* MacInputModeMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacInputModeMenu.swift; sourceTree = "<group>"; };
 		13E6376E2D56E6620040DAAC /* MacFrontEnd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacFrontEnd.swift; sourceTree = "<group>"; };
 		13E637702D56EEF60040DAAC /* MacDynamicCompletor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacDynamicCompletor.swift; sourceTree = "<group>"; };
-		13E637722D56F2C00040DAAC /* MacClipboardImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacClipboardImpl.swift; sourceTree = "<group>"; };
+		13E637722D56F2C00040DAAC /* MacClipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacClipboard.swift; sourceTree = "<group>"; };
 		13E637742D56F40F0040DAAC /* MacCandidateWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacCandidateWindow.swift; sourceTree = "<group>"; };
 		13E637762D56F58A0040DAAC /* BlacklistApps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlacklistApps.swift; sourceTree = "<group>"; };
 		13E6605E2C6834BA000896F6 /* Taskfile.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = Taskfile.yml; sourceTree = "<group>"; };
@@ -1909,7 +1909,7 @@
 				135C3D6D2C5B3F1D00661AE3 /* MacCandidateWindow.mm */,
 				135C3D6E2C5B3F1D00661AE3 /* MacClipboard.h */,
 				135C3D6F2C5B3F1D00661AE3 /* MacClipboard.mm */,
-				13E637722D56F2C00040DAAC /* MacClipboardImpl.swift */,
+				13E637722D56F2C00040DAAC /* MacClipboard.swift */,
 				135C3D702C5B3F1D00661AE3 /* MacConfig.h */,
 				135C3D712C5B3F1D00661AE3 /* MacConfig.mm */,
 				135C3D722C5B3F1D00661AE3 /* MacDynamicCompletor.h */,
@@ -3453,7 +3453,7 @@
 				135C3D9D2C5B3F1D00661AE3 /* SKKInputController.mm in Sources */,
 				135C3D9E2C5B3F1D00661AE3 /* MacFrontEnd.mm in Sources */,
 				135C3D9F2C5B3F1D00661AE3 /* MacInputSessionParameter.mm in Sources */,
-				13E637732D56F2C00040DAAC /* MacClipboardImpl.swift in Sources */,
+				13E637732D56F2C00040DAAC /* MacClipboard.swift in Sources */,
 				13E637752D56F40F0040DAAC /* MacCandidateWindow.swift in Sources */,
 				13B4A9B02D57E5C5002453BA /* SKKServer.swift in Sources */,
 				135C3DA02C5B3F1D00661AE3 /* MacMessenger.mm in Sources */,

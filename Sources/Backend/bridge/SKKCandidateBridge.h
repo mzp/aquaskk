@@ -15,7 +15,7 @@ class SKKCandidate;
 
 + (instancetype)candidateFromCpp:(const SKKCandidate *)candidate;
 
-@property(nonatomic, readonly) const SKKCandidate* rawValue;
+@property(nonatomic, readonly) const SKKCandidate *rawValue;
 
 @end
 

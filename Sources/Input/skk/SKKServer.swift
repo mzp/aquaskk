@@ -5,28 +5,27 @@
 //  Created by mzp on 2/8/25.
 //
 
-import OSLog
-import AquaSKKService
 import AquaSKKCore
+import AquaSKKService
 import Foundation
+import OSLog
 
-func terminate(_ signal: Int32) {
+func terminate(_: Int32) {
     Task {
         await MainActor.run {
             NSApp.terminate(nil)
         }
     }
-
 }
 
 public class SKKServer2: NSObject {
     private var imkServer: IMKServer? = nil
     private var configuration: ServerConfiguration? = nil
-    private var userDefaults : AISUserDefaults? = nil
+    private var userDefaults: AISUserDefaults? = nil
     private var skkserv: skkserv? = nil
     private var connection: NSXPCConnection? = nil
 
-    public override func awakeFromNib() {
+    override public func awakeFromNib() {
         start()
         imkServer = newIMKServer()
     }
@@ -37,8 +36,8 @@ public class SKKServer2: NSObject {
 
     @_spi(Testing) public func start(with configuration: ServerConfiguration) {
         self.configuration = configuration
-        self.userDefaults = .init(serverConfiguration: configuration)
-        self.skkserv = nil
+        userDefaults = .init(serverConfiguration: configuration)
+        skkserv = nil
     }
 
     func newIMKServer() -> IMKServer {
@@ -72,7 +71,7 @@ public class SKKServer2: NSObject {
         if !fm.fileExists(atPath: path) {
             do {
                 try fm.createDirectory(atPath: path, withIntermediateDirectories: true)
-            } catch let error {
+            } catch {
                 Logger.skkInput.error("\(#function, privacy: .public) create directory[\(path, privacy: .private)] failed: \(error.localizedDescription, privacy: .public)")
             }
         }
@@ -109,30 +108,22 @@ public class SKKServer2: NSObject {
                 Logger.skkInput.warning("\(#function, privacy: .public) \(userDictionarySet, privacy: .public) doesn't exist. Copy from \(factoryDictionarySet)")
                 try FileManager.default.copyItem(atPath: factoryDictionarySet, toPath: userDictionarySet)
             }
-        } catch let error {
+        } catch {
             Logger.skkInput.error("\(#function, privacy: .public) \(error.localizedDescription, privacy: .public)")
         }
     }
 
     // MARK: - Supervisor
 
-    public func reloadBlacklistApps() {
+    public func reloadBlacklistApps() {}
 
-    }
-    
-    public func reloadUserDefaults() {
+    public func reloadUserDefaults() {}
 
-    }
-    
-    public func reloadDictionarySet() {
+    public func reloadDictionarySet() {}
 
-    }
-    
-    public func reloadComponents() {
+    public func reloadComponents() {}
 
-    }
-    
-    public func createDictionaryTypes() -> [[AnyHashable : Any]]! {
+    public func createDictionaryTypes() -> [[AnyHashable: Any]]! {
         return []
     }
 }

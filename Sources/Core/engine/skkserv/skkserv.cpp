@@ -24,8 +24,7 @@
 #import "skkserv_impl.h"
 
 skkserv::skkserv(unsigned short port, bool localonly)
-: impl_(new skkserv_impl(port, localonly)) {
-}
+    : impl_(new skkserv_impl(port, localonly)) {}
 
 skkserv::~skkserv() {
     delete impl_;

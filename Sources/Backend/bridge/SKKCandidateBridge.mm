@@ -8,7 +8,7 @@
 #import "SKKCandidateBridge.h"
 #import <AquaSKKBackend/SKKCandidate.h>
 
-@interface SKKCandidateBridge()
+@interface SKKCandidateBridge ()
 
 - (instancetype)initWithCandidate:(const SKKCandidate *)candidate;
 
@@ -18,7 +18,7 @@
 
 - (instancetype)initWithCandidate:(const SKKCandidate *)candidate {
     self = [super init];
-    if (self) {
+    if(self) {
         _rawValue = candidate;
     }
     return self;
