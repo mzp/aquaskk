@@ -9,5 +9,5 @@ import Foundation
 import OSLog
 
 extension Logger {
-    static let backend = Logger(subsystem: "com.aquaskk.inputmethod", category: "Backend")
+    static public let backend = Logger(subsystem: "com.aquaskk.inputmethod", category: "Backend")
 }

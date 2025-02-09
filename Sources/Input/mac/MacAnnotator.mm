@@ -20,56 +20,34 @@
 
 */
 
-#include <iostream>
-#include <CoreServices/CoreServices.h>
-#include <InputMethodKit/InputMethodKit.h>
-#import <AquaSKKBackend/utf8util.h>
 #import <AquaSKKInput/MacAnnotator.h>
-#import <AquaSKKService/SKKConstVars.h>
+#import <AquaSKKBackend/SKKInputMode.h>
+#import <AppKit/AppKit.h>
+#import <AquaSKKBackend/SKKCandidateBridge.h>
 #import <AquaSKKUI/AquaSKKUI-Swift.h>
+#import <AquaSKKInput/AquaSKKInput-Swift.h>
 
 MacAnnotator::MacAnnotator(SKKLayoutManager *layout)
     : layout_(layout), definition_(nil), optional_(nil) {
     window_ = [AnnotationWindow sharedWindow];
+
+    impl_ = [[MacAnnotatorImpl alloc] initWithLayoutManager:layout->getImpl()];
+}
+
+MacAnnotator::~MacAnnotator() {
+    [impl_ release];
 }
 
 void MacAnnotator::Update(const SKKCandidate &candidate, int cursorOffset) {
-    candidate_ = candidate;
-    cursor_ = cursorOffset;
 
-    release(definition_);
-    release(optional_);
-
-    NSString *str = [NSString stringWithUTF8String:candidate_.Variant().c_str()];
-    CFRange range = CFRangeMake(0, [str length]);
-    definition_ = (NSString *)DCSCopyTextDefinition(0, (CFStringRef)str, range);
-
-    if(!candidate_.Annotation().empty()) {
-        optional_ = [NSString stringWithUTF8String:candidate_.Annotation().c_str()];
-        [optional_ retain];
-    }
-}
-
-// ------------------------------------------------------------
-
-void MacAnnotator::release(NSString *&str) {
-    if(str) {
-        [str release];
-    }
-
-    str = nil;
+    SKKCandidateBridge *bridge = [SKKCandidateBridge candidateFromCpp:&candidate];
+    [impl_ update:bridge cursorOffset:cursorOffset];
 }
 
 void MacAnnotator::SKKWidgetShow() {
-    [window_ setAnnotation:definition_ optional:optional_];
-
-    if(!definition_ && !optional_) {
-        SKKWidgetHide();
-    }
-
-    [window_ showAt:layout_->AnnotationWindowOrigin(cursor_) level:layout_->WindowLevel()];
+    [impl_ skkWidgetShow];
 }
 
 void MacAnnotator::SKKWidgetHide() {
-    [window_ hide];
+    [impl_ skkWidgetHide];
 }

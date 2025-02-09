@@ -27,8 +27,11 @@
 #import <AquaSKKInput/SKKLayoutManager.h>
 
 @class AnnotationWindow;
+@class MacAnnotatorImpl;
 
 class MacAnnotator : public SKKAnnotator {
+    MacAnnotatorImpl *impl_;
+
     SKKLayoutManager *layout_;
     NSString *definition_;
     NSString *optional_;
@@ -43,6 +46,7 @@ class MacAnnotator : public SKKAnnotator {
 
 public:
     MacAnnotator(SKKLayoutManager *layout);
+    ~MacAnnotator();
 
     virtual void Update(const SKKCandidate &candidate, int cursorOffset);
 };

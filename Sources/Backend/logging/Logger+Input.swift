@@ -8,5 +8,5 @@
 import os
 
 extension Logger {
-    static let skkInput = Logger(subsystem: "com.aquaskk.inputmethod", category: "Input")
+    static public let skkInput = Logger(subsystem: "com.aquaskk.inputmethod", category: "Input")
 }
