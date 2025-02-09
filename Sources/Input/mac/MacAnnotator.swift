@@ -51,7 +51,6 @@ public class MacAnnotatorImpl: NSObject {
             skkWidgetHide()
         }
         window.show(at: layoutManager.annotationWindowOrigin(mark: cursorOffset), level: layoutManager.windowLevel())
-
     }
 
     @objc public func skkWidgetHide() {

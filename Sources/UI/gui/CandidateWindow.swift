@@ -32,7 +32,7 @@ public class CandidateWindow: NSObject {
     @objc(prepareWithFont:labels:)
     public func prepare(with font: NSFont, labels: NSString) {
         guard Thread.isMainThread else {
-            Logger.skkUI.fault("\(#function) must be called ifrom main therad only")
+            Logger.skkUI.fault("\(#function, privacy: .public) must be called ifrom main therad only")
             assertionFailure("Must be used from main therad only")
             return
         }

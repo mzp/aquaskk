@@ -20,12 +20,11 @@
 
 */
 
-#include <cassert>
-#include <cctype>
-#include <fstream>
-#include <iostream>
+#import <AppKit/AppKit.h>
+#import <AquaSKKBackend/SKKInputMode.h>
 #import <AquaSKKCore/SKKKeyState.h>
 #import <AquaSKKInput/SKKPreProcessor.h>
+#import <AquaSKKInput/AquaSKKInput-Swift.h>
 
 SKKPreProcessor::SKKPreProcessor() {}
 
@@ -35,57 +34,15 @@ SKKPreProcessor &SKKPreProcessor::theInstance() {
 }
 
 void SKKPreProcessor::Initialize(const std::string &path) {
-    keymap_.Initialize(path);
+    NSString *string = [NSString stringWithUTF8String:path.c_str()];
+    [[SKKPreProcessorImpl shared] initializeWithPath:string];
 }
 
 void SKKPreProcessor::Patch(const std::string &path) {
-    keymap_.Patch(path);
+    NSString *string = [NSString stringWithUTF8String:path.c_str()];
+    [[SKKPreProcessorImpl shared] patchWithPath:string];
 }
 
 SKKEvent SKKPreProcessor::Execute(const NSEvent *event) {
-    NSString *diststr = [event characters];
-    int dispchar = diststr ? *[diststr UTF8String] : 0;
-    NSString *charstr = [event charactersIgnoringModifiers];
-    int charcode = charstr ? *[charstr UTF8String] : 0;
-    int keycode = [event keyCode];
-    int mods = 0;
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    if([event modifierFlags] & NSShiftKeyMask) {
-        if(std::isgraph(dispchar)) { // 空白類を除いた英数字記号
-            charcode = dispchar;
-        }
-        mods += SKKKeyState::SHIFT;
-    }
-
-    if([event modifierFlags] & NSControlKeyMask) {
-        mods += SKKKeyState::CTRL;
-    }
-
-    if([event modifierFlags] & NSAlternateKeyMask) {
-        mods += SKKKeyState::ALT;
-    }
-
-    if([event modifierFlags] & NSCommandKeyMask) {
-        mods += SKKKeyState::META;
-    }
-
-    // 英数キー、かなキーの文字コードがスペースのため、0 にする
-    if(keycode == 0x66 || keycode == 0x68) {
-        charcode = 0x00;
-    }
-
-    SKKEvent result = keymap_.Fetch(charcode, keycode, mods);
-
-    if([event modifierFlags] & NSAlphaShiftKeyMask) {
-        result.option |= CapsLock;
-    }
-#pragma clang diagnostic pop
-
-#ifdef SKK_DEBUG
-    NSLog(@"%@", [event description]);
-    NSLog(@"%s", result.dump().c_str());
-#endif
-
-    return result;
+    return [[SKKPreProcessorImpl shared] executeWithEvent:const_cast<NSEvent *>(event)];
 }

@@ -43,7 +43,7 @@ public class CompletionWindow: NSObject {
 
     @objc public func hide() {
         guard Thread.isMainThread else {
-            Logger.skkUI.fault("\(#function) must be called ifrom main therad only")
+            Logger.skkUI.fault("\(#function, privacy: .public) must be called ifrom main therad only")
             assertionFailure("Must be used from main therad only")
             return
         }

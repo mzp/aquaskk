@@ -26,9 +26,11 @@
 #include <AppKit/AppKit.h>
 #import <AquaSKKCore/SKKKeymap.h>
 
+@class SKKPreProcessorImpl;
+
 // キー入力前処理クラス
 class SKKPreProcessor {
-    SKKKeymap keymap_;
+    SKKPreProcessorImpl *impl_;
 
     SKKPreProcessor();
     SKKPreProcessor(const SKKPreProcessor &);

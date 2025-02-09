@@ -44,7 +44,7 @@ public class InputModeWindow: NSObject {
     private func prepareLayer() {
         rootLayer.opacity = 0
         guard let view = window.contentView else {
-            Logger.skkUI.error("\(#function) can't get content view")
+            Logger.skkUI.error("\(#function, privacy: .public) can't get content view")
             return
         }
         view.layer = rootLayer
@@ -71,7 +71,7 @@ public class InputModeWindow: NSObject {
 
     private func updateFrame() {
         guard Thread.isMainThread else {
-            Logger.skkUI.fault("\(#function) must be called ifrom main therad only")
+            Logger.skkUI.fault("\(#function, privacy: .public) must be called ifrom main therad only")
             assertionFailure("Must be used from main therad only")
             return
         }
@@ -105,16 +105,16 @@ public class InputModeWindow: NSObject {
     private func updateImage() {
         let inputMode = self.inputMode
         guard let image = modeIcons[inputMode] else {
-            Logger.skkUI.warning("\(#function) no image for \(inputMode.rawValue)")
+            Logger.skkUI.warning("\(#function, privacy: .public) no image for \(inputMode.rawValue)")
             return
         }
         guard let data = image.tiffRepresentation else {
-            Logger.skkUI.error("\(#function) no data for \(inputMode.rawValue)")
+            Logger.skkUI.error("\(#function, privacy: .public) no data for \(inputMode.rawValue)")
             return
         }
         let rep = NSBitmapImageRep(data: data)
         guard let cgImage = rep?.cgImage else {
-            Logger.skkUI.error("\(#function) no cgimage for \(inputMode.rawValue)")
+            Logger.skkUI.error("\(#function, privacy: .public) no cgimage for \(inputMode.rawValue)")
             return
         }
         CATransaction.begin()
@@ -159,7 +159,7 @@ public class InputModeWindow: NSObject {
 
     @objc public func changeMode(_ mode: Int32) {
         guard let inputMode = SKKInputMode(rawValue: mode) else {
-            Logger.skkUI.fault("\(#function) unsupported mode \(mode)")
+            Logger.skkUI.fault("\(#function, privacy: .public) unsupported mode \(mode, privacy: .public)")
             return
         }
         self.inputMode = inputMode

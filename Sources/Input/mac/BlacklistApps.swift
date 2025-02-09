@@ -33,7 +33,7 @@ public class BlacklistApps: NSObject {
                 return bool(entry: entry, key: "insertEmptyString")
             }
         } else {
-            Logger.skkInput.warning("Could not get bundle identifier from bundle \(bundle)")
+            Logger.skkInput.warning("Could not get bundle identifier from bundle \(bundle, privacy: .private)")
         }
 
         if isJavaApp(bundle: bundle) {
@@ -60,7 +60,7 @@ public class BlacklistApps: NSObject {
     @objc(needsSyncInputSource:)
     public func needsSyncInputSource(bundle: Bundle) -> Bool {
         guard let bundleIdentifier = bundle.bundleIdentifier else {
-            Logger.skkInput.warning("Failed to get bundleIdentifier from \(bundle)")
+            Logger.skkInput.warning("Failed to get bundleIdentifier from \(bundle, privacy: .private)")
             return false
         }
         guard let entry = entry(bundleIdentifier: bundleIdentifier) else {

@@ -23,7 +23,7 @@ struct RomanKanaRule: Equatable, Hashable {
         case .Jisx0201KanaInputMode:
             return jisx0201kana
         default:
-            logger.error("invalid input mode: \(inputMode.rawValue)")
+            logger.error("invalid input mode: \(inputMode.rawValue, privacy: .public)")
             return ""
         }
     }
@@ -48,7 +48,7 @@ class RomanKanaConverter: NSObject {
 
     @objc(appendPath:error:)
     func append(path: String) throws {
-        logger.log("\(#function): Load \(path)")
+        logger.log("\(#function, privacy: .public): Load \(path, privacy: .private)")
         let url = URL(fileURLWithPath: path)
         let data = try Data(contentsOf: url)
         guard let content = String(data: data, encoding: .japaneseEUC) else {
@@ -63,7 +63,7 @@ class RomanKanaConverter: NSObject {
             }
 
             if rows.count < 4 || rows.count > 5 {
-                logger.error("Invalid format: \(line) at \(n)")
+                logger.error("Invalid format: \(line, privacy: .private) at \(n, privacy: .private)")
             } else {
                 let roman = rows[0]
                 let rule = RomanKanaRule(

@@ -1,5 +1,5 @@
 //
-//  MacClipboardImpl.swift
+//  MacClipboard.swift
 //  AquaSKKInput
 //
 //  Created by mzp on 2/7/25.

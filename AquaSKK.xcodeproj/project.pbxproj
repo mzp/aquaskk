@@ -429,6 +429,7 @@
 		13B4A9BB2D583EC2002453BA /* SKKCandidateBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B4A9B82D583D30002453BA /* SKKCandidateBridge.mm */; };
 		13B4A9BC2D583EC8002453BA /* SKKCandidateBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B4A9B72D583D30002453BA /* SKKCandidateBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13B4A9BF2D583F37002453BA /* Logger+Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDCB652D5042570031BB3A /* Logger+Input.swift */; };
+		13B4A9C12D593241002453BA /* SKKPreProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B4A9C02D593241002453BA /* SKKPreProcessor.swift */; };
 		13B7BE832C5EFCEF00F6BEF8 /* SKKStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE822C5EFCEF00F6BEF8 /* SKKStateStore.swift */; };
 		13B7BE882C5F1E9100F6BEF8 /* SKKServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE872C5F1E9100F6BEF8 /* SKKServerTests.swift */; };
 		13B7BE912C5F229D00F6BEF8 /* SKKInputController_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B7BE902C5F228300F6BEF8 /* SKKInputController_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -438,6 +439,7 @@
 		13B7BED32C5F5CF900F6BEF8 /* AquaSKKService.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B7BEC32C5F5CF900F6BEF8 /* AquaSKKService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13BDCB632D50396D0031BB3A /* SKKLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDCB622D50396D0031BB3A /* SKKLayoutManager.swift */; };
 		13BDCB6E2D5091840031BB3A /* SKKInputMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDCB6D2D5091840031BB3A /* SKKInputMenu.swift */; };
+		13C3BCBF2D5937FA007980A6 /* SKKKeyModifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B4A9C22D5937CC002453BA /* SKKKeyModifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13D756192C5A9049006144F2 /* AquaSKKCore.docc in Sources */ = {isa = PBXBuildFile; fileRef = 13D756172C5A9049006144F2 /* AquaSKKCore.docc */; };
 		13D7561A2C5A9049006144F2 /* AquaSKKCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 13D756162C5A9049006144F2 /* AquaSKKCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13E6376D2D5653E30040DAAC /* MacInputModeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E6376C2D5653E30040DAAC /* MacInputModeMenu.swift */; };
@@ -1017,6 +1019,8 @@
 		13B4A9B22D57E909002453BA /* skkserv_impl.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = skkserv_impl.cpp; sourceTree = "<group>"; };
 		13B4A9B72D583D30002453BA /* SKKCandidateBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SKKCandidateBridge.h; path = Sources/Backend/bridge/SKKCandidateBridge.h; sourceTree = SOURCE_ROOT; };
 		13B4A9B82D583D30002453BA /* SKKCandidateBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = SKKCandidateBridge.mm; path = Sources/Backend/bridge/SKKCandidateBridge.mm; sourceTree = SOURCE_ROOT; };
+		13B4A9C02D593241002453BA /* SKKPreProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKPreProcessor.swift; sourceTree = "<group>"; };
+		13B4A9C22D5937CC002453BA /* SKKKeyModifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKKeyModifier.h; sourceTree = "<group>"; };
 		13B7BE822C5EFCEF00F6BEF8 /* SKKStateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStateStore.swift; sourceTree = "<group>"; };
 		13B7BE872C5F1E9100F6BEF8 /* SKKServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKServerTests.swift; sourceTree = "<group>"; };
 		13B7BE902C5F228300F6BEF8 /* SKKInputController_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKInputController_Private.h; sourceTree = "<group>"; };
@@ -1640,6 +1644,7 @@
 				1344F4E92C5B28FC00D8C850 /* SKKKeymap.cpp */,
 				1344F4EA2C5B28FC00D8C850 /* SKKKeymapEntry.h */,
 				1344F4EB2C5B28FC00D8C850 /* SKKKeymapEntry.cpp */,
+				13B4A9C22D5937CC002453BA /* SKKKeyModifier.h */,
 				1344F4EC2C5B28FC00D8C850 /* SKKKeyState.h */,
 			);
 			path = keymap;
@@ -2468,6 +2473,7 @@
 				13BDCB622D50396D0031BB3A /* SKKLayoutManager.swift */,
 				13F89D5B2D55DC73003177FA /* SKKModeTips.swift */,
 				135C3D8A2C5B3F1D00661AE3 /* SKKPreProcessor.h */,
+				13B4A9C02D593241002453BA /* SKKPreProcessor.swift */,
 				135C3D8B2C5B3F1D00661AE3 /* SKKPreProcessor.mm */,
 				135C3D8E2C5B3F1D00661AE3 /* SKKServer.h */,
 				135C3D8F2C5B3F1D00661AE3 /* SKKServer.mm */,
@@ -2634,6 +2640,7 @@
 				13B4A9B32D57E909002453BA /* skkserv_impl.h in Headers */,
 				1344F55F2C5B28FC00D8C850 /* SKKClipboard.h in Headers */,
 				1344F5642C5B28FC00D8C850 /* SKKRegisterEditor.h in Headers */,
+				13C3BCBF2D5937FA007980A6 /* SKKKeyModifier.h in Headers */,
 				1344F5652C5B28FC00D8C850 /* SKKComposingEditor.h in Headers */,
 				1344F5682C5B28FC00D8C850 /* SKKStateMachine.h in Headers */,
 				1344F5692C5B28FC00D8C850 /* SKKPrimaryEditor.h in Headers */,
@@ -3461,6 +3468,7 @@
 				135C3DA32C5B3F1D00661AE3 /* SKKLayoutManager.mm in Sources */,
 				135C3DA42C5B3F1D00661AE3 /* MacInputModeWindow.mm in Sources */,
 				13E637772D56F58A0040DAAC /* BlacklistApps.swift in Sources */,
+				13B4A9C12D593241002453BA /* SKKPreProcessor.swift in Sources */,
 				13F89D5C2D55DC73003177FA /* SKKModeTips.swift in Sources */,
 				135C3DA52C5B3F1D00661AE3 /* SKKServer.mm in Sources */,
 				13BDCB6E2D5091840031BB3A /* SKKInputMenu.swift in Sources */,

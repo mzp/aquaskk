@@ -32,7 +32,7 @@ public struct BundledFileConfiguration: FileConfiguration {
         try fileManager.createDirectory(atPath: applicationSupportPath, withIntermediateDirectories: true)
 
         let targetPath = applicationSupportPath
-        logger.info("Application Support = \(targetPath)")
+        logger.info("Application Support = \(targetPath, privacy: .private)")
 
         for file in files {
             let path = targetPath.appending("/\(file)")

@@ -31,7 +31,7 @@ public class TestingResource {
             try fm.createDirectory(atPath: tempDir, withIntermediateDirectories: true)
 
             let tempPath = tempDir.appending("/\(filename)")
-            Logger.testing.log("Copy \(path) to \(tempPath)")
+            Logger.testing.log("Copy \(path, privacy: .public) to \(tempPath, privacy: .public)")
             _ = try? fm.removeItem(atPath: tempPath)
             try fm.copyItem(atPath: path, toPath: tempPath)
             return tempPath

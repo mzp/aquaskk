@@ -42,18 +42,18 @@ private let kInputModeTable: [(Int, SKKInputMode, String)] = [
         currentInputMode = mode
         Self.unifiedInputMode = mode
         if activated {
-            Logger.skkInput.log("\(#function): selectMode(\(identifier)")
+            Logger.skkInput.log("\(#function, privacy: .public): selectMode(\(identifier, privacy: .public)")
             client.selectMode(identifier)
         }
     }
 
     @objc public func activation() {
-        Logger.skkInput.log("\(#function)")
+        Logger.skkInput.log("\(#function, privacy: .public)")
         activated = true
     }
 
     @objc public func deactivation() {
-        Logger.skkInput.log("\(#function)")
+        Logger.skkInput.log("\(#function, privacy: .public)")
         activated = false
     }
 
