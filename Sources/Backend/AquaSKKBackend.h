@@ -68,6 +68,7 @@ FOUNDATION_EXPORT const unsigned char AquaSKKBackendVersionString[];
 #pragma mark - bridge
 
 #import <AquaSKKBackend/IntrusiveRefCounted.h>
+#import <AquaSKKBackend/SKKBackendBridge.h>
 #import <AquaSKKBackend/SKKCandidateBridge.h>
 
 #pragma mark - Encoding

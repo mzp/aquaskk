@@ -80,7 +80,7 @@ namespace {
     return [[self class] displayNameForJisyoType:self.type];
 }
 
-+ (NSArray *)dictionaryTypes {
++ (NSArray<NSDictionary *> *)dictionaryTypes {
     static NSArray *__dictionaryTypes;
 
     static dispatch_once_t onceToken;

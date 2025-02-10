@@ -7,8 +7,10 @@
 
 import AquaSKKCore
 import AquaSKKService
+import AquaSKKBackend
 import Foundation
 import OSLog
+import AquaSKKUI
 
 func terminate(_: Int32) {
     Task {
@@ -18,7 +20,7 @@ func terminate(_: Int32) {
     }
 }
 
-public class SKKServer2: NSObject {
+@objc(SKKServerImpl) public class SKKServer2: NSObject {
     private var imkServer: IMKServer? = nil
     private var configuration: ServerConfiguration? = nil
     private var userDefaults: AISUserDefaults? = nil
@@ -38,6 +40,19 @@ public class SKKServer2: NSObject {
         self.configuration = configuration
         userDefaults = .init(serverConfiguration: configuration)
         skkserv = nil
+
+        prepareSignalHandler()
+        prepareDirectory()
+        prepareConnection()
+        prepareUserDefaults()
+        prepareDictionarySet()
+        prepareDictionary()
+        prepareBlacklistApps()
+
+        reloadBlacklistApps()
+        reloadDictionarySet()
+        reloadUserDefaults()
+        reloadComponents()
     }
 
     func newIMKServer() -> IMKServer {
@@ -55,7 +70,7 @@ public class SKKServer2: NSObject {
 
     // MARK: - Preparation
 
-    func prepareSignalHandler() {
+    private func prepareSignalHandler() {
         Logger.skkInput.log("\(#function, privacy: .public)")
         signal(SIGHUP, terminate)
         signal(SIGINT, terminate)
@@ -63,7 +78,7 @@ public class SKKServer2: NSObject {
         signal(SIGPIPE, SIG_IGN)
     }
 
-    func prepareDirectory() {
+    private func prepareDirectory() {
         Logger.skkInput.log("\(#function, privacy: .public)")
         let path = SKKFilePaths.ApplicationSupportFolder
 
@@ -77,7 +92,7 @@ public class SKKServer2: NSObject {
         }
     }
 
-    func prepareConnection() {
+    private func prepareConnection() {
         Logger.skkInput.log("\(#function, privacy: .public)")
         // TODO: Migrate from NSConnection
         let interface = NSXPCInterface(with: SKKSupervisor.self)
@@ -90,23 +105,86 @@ public class SKKServer2: NSObject {
         self.connection = connection
     }
 
-    func prepareUserDefaults() {
+    private func prepareUserDefaults() {
         Logger.skkInput.log("\(#function, privacy: .public)")
         userDefaults?.prepare()
     }
 
-    func prepareDictionarySet() {
+    private func prepareDictionarySet() {
         Logger.skkInput.log("\(#function, privacy: .public)")
-        guard let factoryDictionarySet = configuration?.systemPath(forName: "DictionarySet.plist") else {
-            Logger.skkInput.error("\(#function, privacy: .public) failed to get system path for DictionarySet.plist (fallback)")
+        guard let templatePath = configuration?.systemPath(forName: "DictionarySet.plist") else {
+            Logger.skkInput.error("\(#function, privacy: .public) failed to get system path")
             return
         }
-        let userDictionarySet = SKKFilePaths.DictionarySet
+        let path = SKKFilePaths.DictionarySet
 
         do {
-            if !FileManager.default.fileExists(atPath: userDictionarySet) {
-                Logger.skkInput.warning("\(#function, privacy: .public) \(userDictionarySet, privacy: .public) doesn't exist. Copy from \(factoryDictionarySet)")
-                try FileManager.default.copyItem(atPath: factoryDictionarySet, toPath: userDictionarySet)
+            let fm = FileManager.default
+            if !fm.fileExists(atPath: path) {
+                Logger.skkInput.warning("\(#function, privacy: .public) \(path, privacy: .public) doesn't exist. Copy from \(templatePath)")
+                try FileManager.default.copyItem(atPath: templatePath, toPath: path)
+            }
+        } catch {
+            Logger.skkInput.error("\(#function, privacy: .public) \(error.localizedDescription, privacy: .public)")
+        }
+
+        // TODO: SKKRegisterFactoryMethod from Swift
+        // SKKRegisterFactoryMethod<SKKCommonDictionary>(DictionaryTypes::Common);
+        // SKKRegisterFactoryMethod<SKKCommonDictionaryUTF8>(DictionaryTypes::CommonUTF8);
+        // SKKRegisterFactoryMethod<SKKAutoUpdateDictionary>(DictionaryTypes::AutoUpdate);
+        // SKKRegisterFactoryMethod<SKKProxyDictionary>(DictionaryTypes::Proxy);
+        // SKKRegisterFactoryMethod<MacKotoeriDictionary>(DictionaryTypes::Kotoeri);
+        // SKKRegisterFactoryMethod<SKKGadgetDictionary>(DictionaryTypes::Gadget);
+    }
+
+    private func prepareDictionary() {
+        Logger.skkInput.log("\(#function, privacy: .public)")
+        guard let configuration = configuration else {
+            return
+        }
+        let fm = FileManager.default
+        for jisyo in configuration.systemDictionaries() {
+            guard let location = jisyo[SKKDictionarySetKeys.location] as? String
+            else {
+                Logger
+                    .skkInput.error("unexpected dictionary format: \(jisyo, privacy: .public)")
+                continue
+            }
+
+            let path = configuration.systemPath(forName: location)
+            guard fm.fileExists(atPath: path) else {
+                Logger.skkInput.error("\(#function, privacy: .public) can't find \(path, privacy: .public); Skipping.")
+                continue
+            }
+            let filename = (path as NSString).lastPathComponent
+            let userPath = configuration.userPath(forName: filename)
+            if fm.fileExists(atPath: userPath) {
+                Logger.skkInput.log("\(#function, privacy: .public) \(userPath, privacy: .public) already exists. Skipping.")
+                continue
+            }
+
+            do {
+                try fm.copyItem(atPath: path, toPath: userPath)
+                Logger.skkInput.log("\(#function, privacy: .public) copied \(path, privacy: .public) to \(userPath, privacy: .public)")
+            } catch {
+                Logger.skkInput.error("\(#function, privacy: .public) can't copy \(path, privacy: .public) to \(userPath, privacy: .public) due to \(error.localizedDescription, privacy: .public)")
+            }
+        }
+    }
+
+    private func prepareBlacklistApps() {
+        Logger.skkInput.log("\(#function, privacy: .public)")
+        guard let templatePath = configuration?.systemPath(forName: "BlacklistApps.plist") else {
+            Logger.skkInput.error("\(#function, privacy: .public) failed to get system path")
+            return
+        }
+        let path = SKKFilePaths.DictionarySet
+
+        do {
+            let fm = FileManager.default
+            if !fm.fileExists(atPath: path) {
+                Logger.skkInput.warning("\(#function, privacy: .public) \(path, privacy: .public) doesn't exist. Copy from \(templatePath)")
+                try FileManager.default.copyItem(atPath: templatePath, toPath: path)
             }
         } catch {
             Logger.skkInput.error("\(#function, privacy: .public) \(error.localizedDescription, privacy: .public)")
@@ -115,15 +193,141 @@ public class SKKServer2: NSObject {
 
     // MARK: - Supervisor
 
-    public func reloadBlacklistApps() {}
+    public func reloadBlacklistApps() {
+        Logger.skkInput.log("\(#function, privacy: .public)")
+        guard let array = NSArray(contentsOfFile: SKKFilePaths.BlacklistApps) else {
+            Logger.skkInput.error("\(#function, privacy: .public) can't read BlacklistApps.plist")
+            return
+        }
+        guard let entries = array as? [BlacklistApps.AppEntry] else {
+            Logger.skkInput.error("\(#function, privacy: .public) BlacklistApps.plist has incorrect data format")
+            return
+        }
+        Task { @MainActor in
+            BlacklistApps.shared().load(entries)
+        }
+    }
 
-    public func reloadUserDefaults() {}
+    public func reloadUserDefaults() {
+        Logger.skkInput.log("\(#function, privacy: .public)")
+        skkserv = nil
 
-    public func reloadDictionarySet() {}
+        userDefaults?.reload()
+        guard let defaults = userDefaults?.standard else {
+            return
+        }
 
-    public func reloadComponents() {}
+        if defaults.bool(forKey: SKKUserDefaultKeys.enable_skkserv) {
+            let port = defaults.integer(forKey: SKKUserDefaultKeys.skkserv_port)
+            let isLocalOnly = defaults.bool(forKey: SKKUserDefaultKeys.skkserv_localonly)
+            skkserv = .init(UInt16(port), isLocalOnly)
+        }
+        let backend = SKKBackEndBridge.sharedInstance()
+
+        let numericConversion = defaults.bool(forKey: SKKUserDefaultKeys.use_numeric_conversion)
+        backend.setNumericConversionEnabled(numericConversion)
+
+        let extendedCompletion = defaults.bool(forKey: SKKUserDefaultKeys.enable_extended_completion)
+        backend.setExtendedCompletionEnabled(extendedCompletion)
+
+        let privateModeEnabled = defaults.bool(forKey: SKKUserDefaultKeys.enable_private_mode)
+        backend.setPrivateModeEnabled(privateModeEnabled)
+
+        let length = defaults.integer(forKey: SKKUserDefaultKeys.minimum_completion_length)
+        backend.setMinimumCompletionLength(length)
+    }
+
+    public func reloadDictionarySet() {
+        Logger.skkInput.log("\(#function, privacy: .public)")
+
+        guard let configuration = configuration else {
+            return
+        }
+        guard let defaults = userDefaults?.standard else {
+            return
+        }
+
+        var keys = [[Any]]()
+        for entry in configuration.systemDictionaries() {
+            let active = entry[SKKDictionarySetKeys.active]
+            if (active as? Bool) == true {
+                guard let type = entry[SKKDictionarySetKeys.type] as? Int else {
+                    continue
+                }
+                let location: String
+                if let value = entry[SKKDictionarySetKeys.location] as? String, !value.isEmpty {
+                    if type == JisyoType.autoUpdate.rawValue {
+                        guard let host = defaults.string(forKey: SKKUserDefaultKeys.openlab_host) else {
+                            Logger.skkInput.error("\(#function, privacy: .public): No openlab host")
+                            continue
+                        }
+                        guard let path = defaults.string(forKey: SKKUserDefaultKeys.openlab_path) else {
+                            Logger.skkInput.error("\(#function, privacy: .public): No openlab path")
+                            continue
+                        }
+                        let basename = (value as NSString)   .lastPathComponent
+                        let localPath = configuration.path(forName: basename)
+
+                        location = "\(host) \(path)/\(basename) \(localPath)"
+                    } else {
+                        location = (value as NSString).expandingTildeInPath
+                    }
+                } else {
+                    location = "[location was not specified]"
+                }
+                Logger.skkInput.log("\(#function, privacy: .public) loading \(type) from \(location, privacy: .private)")
+                keys.append([type, location])
+            }
+        }
+        SKKBackEndBridge.sharedInstance().initialize(
+            withUserDictionaryPath: configuration.userDictionaryPath,
+            systemDictionaries: keys
+        )
+    }
+
+    public func reloadComponents() {
+        Logger.skkInput.log("\(#function, privacy: .public)")
+
+        guard let configuration = configuration else {
+            return
+        }
+        guard let defaults = userDefaults?.standard else {
+            return
+        }
+
+        let keymap = configuration.path(forName: "keymap.conf")
+        let subKeymaps = defaults.array(forKey: SKKUserDefaultKeys.sub_keymaps) as? [String]
+
+        Task { @MainActor in
+                Logger.skkInput.log("\(#function, privacy: .public) loading keymap: \(keymap, privacy: .public)")
+            SKKPreProcessorImpl.shared().initialize(path: keymap)
+
+            for subKeymap in subKeymaps ?? [] {
+                Logger.skkInput.log("\(#function, privacy: .public) loading custom keymap: \(subKeymap, privacy: .public)")
+                SKKPreProcessorImpl.shared().patch(path: subKeymap)
+            }
+        }
+
+        let kanaRule = configuration.path(forName: "kana-rule.conf")
+        let subRules = defaults.array(forKey: SKKUserDefaultKeys.sub_rules) as? [String]
+        // TODO: SKKRomanKanaConverter
+
+        self.initializeInputModeIcons()
+    }
+
+    private func initializeInputModeIcons() {
+        let modes : [SKKInputMode: NSImage] = [
+            .HirakanaInputMode: NSImage(named: "AquaSKK-Hirakana")!,
+            .KatakanaInputMode: NSImage(named: "AquaSKK-Katakana")!,
+            .Jisx0201KanaInputMode: NSImage(named: "AquaSKK-Jisx0201Kana")!,
+            .AsciiInputMode: NSImage(named: "AquaSKK-Ascii")!,
+            .Jisx0208LatinInputMode: NSImage(named: "AquaSKK-Jisx0208Latin")!,
+        ]
+        InputModeWindow.shared().setModeIcons(modes as NSDictionary)
+    }
 
     public func createDictionaryTypes() -> [[AnyHashable: Any]]! {
-        return []
+        Logger.skkInput.log("\(#function, privacy: .public)")
+        return Jisyo.dictionaryTypes()
     }
 }
