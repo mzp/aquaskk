@@ -21,6 +21,7 @@
 */
 
 #import <AquaSKKInput/MacInputModeWindow.h>
+#import <AquaSKKService/SKKSupervisor.h>
 #import <AquaSKKInput/SKKLayoutManager.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 #import <AquaSKKUI/AquaSKKUI-Swift.h>

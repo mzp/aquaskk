@@ -5,7 +5,7 @@
 //  Created by mzp on 8/2/24.
 //
 
-internal import AquaSKKInput
+@_spi(Testing) internal import AquaSKKInput
 internal import AquaSKKTesting
 import Foundation
 import OSLog

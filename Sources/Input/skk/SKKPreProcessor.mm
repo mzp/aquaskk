@@ -24,6 +24,7 @@
 #import <AquaSKKBackend/SKKInputMode.h>
 #import <AquaSKKCore/SKKKeyState.h>
 #import <AquaSKKInput/SKKPreProcessor.h>
+#import <AquaSKKService/SKKSupervisor.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 
 SKKPreProcessor::SKKPreProcessor() {}

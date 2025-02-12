@@ -16,7 +16,7 @@
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        instance = [[SKKBackEndBridge alloc] init];
+      instance = [[SKKBackEndBridge alloc] init];
     });
     return instance;
 }
@@ -24,10 +24,10 @@
 - (void)initializeWithUserDictionaryPath:(NSString *)path systemDictionaries:(NSArray *)keys {
     SKKDictionaryKeyContainer container;
 
-    for (NSArray *entry in keys) {
+    for(NSArray *entry in keys) {
         NSNumber *type = entry[0];
         NSString *location = entry[1];
-       container.push_back(SKKDictionaryKey([type intValue], [location UTF8String]));
+        container.push_back(SKKDictionaryKey([type intValue], [location UTF8String]));
     }
     SKKBackEnd::theInstance().Initialize([path UTF8String], container);
 }
@@ -49,6 +49,5 @@
 - (void)setMinimumCompletionLength:(NSInteger)length {
     SKKBackEnd::theInstance().SetMinimumCompletionLength(static_cast<int>(length));
 }
-
 
 @end

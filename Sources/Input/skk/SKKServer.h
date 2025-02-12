@@ -23,23 +23,6 @@
 #ifndef SKKServer_h
 #define SKKServer_h
 
-#include <AppKit/AppKit.h>
-#include <InputMethodKit/InputMethodKit.h>
-#import <AquaSKKService/AISServerConfiguration.h>
-#import <AquaSKKService/AISUserDefaults.h>
-#import <AquaSKKService/SKKSupervisor.h>
-
-@interface SKKServer : NSObject <SKKSupervisor> {
-    IMKServer *imkserver_;
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    NSConnection *connection_;
-#pragma clang diagnostic pop
-    class skkserv *skkserv_;
-    id<AISServerConfiguration> configuration_;
-    AISUserDefaults *userDefaults_;
-}
-
-@end
+void SKKServerRegisterDictionaries(void);
 
 #endif

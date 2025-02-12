@@ -5,12 +5,12 @@
 //  Created by mzp on 2/8/25.
 //
 
+import AquaSKKBackend
 import AquaSKKCore
 import AquaSKKService
-import AquaSKKBackend
+import AquaSKKUI
 import Foundation
 import OSLog
-import AquaSKKUI
 
 func terminate(_: Int32) {
     Task {
@@ -20,7 +20,7 @@ func terminate(_: Int32) {
     }
 }
 
-@objc(SKKServerImpl) public class SKKServer2: NSObject {
+@objc(SKKServer) public class SKKServer: NSObject, SKKSupervisor {
     private var imkServer: IMKServer? = nil
     private var configuration: ServerConfiguration? = nil
     private var userDefaults: AISUserDefaults? = nil
@@ -28,15 +28,15 @@ func terminate(_: Int32) {
     private var connection: NSXPCConnection? = nil
 
     override public func awakeFromNib() {
-        start()
+        _start()
         imkServer = newIMKServer()
     }
 
-    @_spi(Testing) public func start() {
-        start(with: DefaultServerConfiguration())
+    @_spi(Testing) public func _start() {
+        _start(with: DefaultServerConfiguration())
     }
 
-    @_spi(Testing) public func start(with configuration: ServerConfiguration) {
+    @_spi(Testing) public func _start(with configuration: ServerConfiguration) {
         self.configuration = configuration
         userDefaults = .init(serverConfiguration: configuration)
         skkserv = nil
@@ -135,6 +135,7 @@ func terminate(_: Int32) {
         // SKKRegisterFactoryMethod<SKKProxyDictionary>(DictionaryTypes::Proxy);
         // SKKRegisterFactoryMethod<MacKotoeriDictionary>(DictionaryTypes::Kotoeri);
         // SKKRegisterFactoryMethod<SKKGadgetDictionary>(DictionaryTypes::Gadget);
+        SKKServerRegisterDictionaries()
     }
 
     private func prepareDictionary() {
@@ -265,7 +266,7 @@ func terminate(_: Int32) {
                             Logger.skkInput.error("\(#function, privacy: .public): No openlab path")
                             continue
                         }
-                        let basename = (value as NSString)   .lastPathComponent
+                        let basename = (value as NSString).lastPathComponent
                         let localPath = configuration.path(forName: basename)
 
                         location = "\(host) \(path)/\(basename) \(localPath)"
@@ -298,25 +299,31 @@ func terminate(_: Int32) {
         let keymap = configuration.path(forName: "keymap.conf")
         let subKeymaps = defaults.array(forKey: SKKUserDefaultKeys.sub_keymaps) as? [String]
 
+        let kanaRule = configuration.path(forName: "kana-rule.conf")
+        let subRules = defaults.array(forKey: SKKUserDefaultKeys.sub_rules) as? [String]
+
         Task { @MainActor in
-                Logger.skkInput.log("\(#function, privacy: .public) loading keymap: \(keymap, privacy: .public)")
+            Logger.skkInput.log("\(#function, privacy: .public) loading keymap: \(keymap, privacy: .public)")
             SKKPreProcessorImpl.shared().initialize(path: keymap)
 
             for subKeymap in subKeymaps ?? [] {
                 Logger.skkInput.log("\(#function, privacy: .public) loading custom keymap: \(subKeymap, privacy: .public)")
                 SKKPreProcessorImpl.shared().patch(path: subKeymap)
             }
+
+            RomanKanaConverterImpl.shared().initialize(from: kanaRule)
+
+            for subRule in subRules ?? [] {
+                Logger.skkInput.log("\(#function, privacy: .public) loading custom kana rule: \(subRule, privacy: .public)")
+                RomanKanaConverterImpl.shared().patch(from: subRule)
+            }
         }
 
-        let kanaRule = configuration.path(forName: "kana-rule.conf")
-        let subRules = defaults.array(forKey: SKKUserDefaultKeys.sub_rules) as? [String]
-        // TODO: SKKRomanKanaConverter
-
-        self.initializeInputModeIcons()
+        initializeInputModeIcons()
     }
 
     private func initializeInputModeIcons() {
-        let modes : [SKKInputMode: NSImage] = [
+        let modes: [SKKInputMode: NSImage] = [
             .HirakanaInputMode: NSImage(named: "AquaSKK-Hirakana")!,
             .KatakanaInputMode: NSImage(named: "AquaSKK-Katakana")!,
             .Jisx0201KanaInputMode: NSImage(named: "AquaSKK-Jisx0201Kana")!,

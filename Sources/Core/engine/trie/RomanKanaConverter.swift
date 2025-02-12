@@ -29,24 +29,43 @@ struct RomanKanaRule: Equatable, Hashable {
     }
 }
 
-@objc(AICRomanKanaResult) class RomanKanaResult: NSObject {
-    @objc var output: String = ""
-    @objc var intermediate: String = ""
-    @objc var next: String = ""
-    @objc var converted: Bool = false
+@objc(AICRomanKanaResult)
+public class RomanKanaResult: NSObject {
+    @objc public var output: String = ""
+    @objc public var intermediate: String = ""
+    @objc public var next: String = ""
+    @objc public var converted: Bool = false
 }
 
 @objc(AICRomanKanaConverter)
-class RomanKanaConverter: NSObject {
+public class RomanKanaConverterImpl: NSObject {
     var root = Trie<RomanKanaRule>()
 
-    @objc(initWithPath:error:)
-    init(path: String) throws {
-        super.init()
-        try append(path: path)
+    @MainActor
+    static let sharedInstance = RomanKanaConverterImpl()
+
+    @MainActor
+    @objc(sharedInstance) public static func shared() -> RomanKanaConverterImpl {
+        return sharedInstance
     }
 
-    @objc(appendPath:error:)
+    @objc(initialize:) public func initialize(from path: String) {
+        do {
+            root = Trie<RomanKanaRule>()
+            try append(path: path)
+        } catch {
+            logger.error("\(#function, privacy: .public) failed: \(error.localizedDescription, privacy: .public)")
+        }
+    }
+
+    @objc(patch:) public func patch(from path: String) {
+        do {
+            try append(path: path)
+        } catch {
+            logger.error("\(#function, privacy: .public) failed: \(error.localizedDescription, privacy: .public)")
+        }
+    }
+
     func append(path: String) throws {
         logger.log("\(#function, privacy: .public): Load \(path, privacy: .private)")
         let url = URL(fileURLWithPath: path)
@@ -83,7 +102,8 @@ class RomanKanaConverter: NSObject {
     /// @param input ローマ字文字列
     /// @param state 変換結果
     /// @return 変換に成功した場合はtrue、さもなければfalse
-    @objc(convert:inputMode:) func convert(_ string: String, inputMode: SKKInputMode) -> RomanKanaResult? {
+    @objc(convert:inputMode:)
+    public func convert(_ string: String, inputMode: SKKInputMode) -> RomanKanaResult? {
         let result = RomanKanaResult()
 
         let input = TrieInput(string)

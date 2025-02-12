@@ -75,7 +75,6 @@ FOUNDATION_EXPORT const unsigned char AquaSKKCoreVersionString[];
 
 #pragma mark - utility
 
-#import <AquaSKKCore/AISRomanKanaConverter.h>
 #import <AquaSKKCore/SKKRomanKanaConverter.h>
 
 #pragma mark - utility

@@ -23,6 +23,7 @@
 #import <AppKit/AppKit.h>
 #import <AquaSKKBackend/SKKInputMode.h>
 #import <AquaSKKInput/MacDynamicCompletor.h>
+#import <AquaSKKService/SKKSupervisor.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 
 MacDynamicCompletor::MacDynamicCompletor(SKKLayoutManager *layout) {
