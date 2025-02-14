@@ -8,6 +8,7 @@
 import AquaSKKUI
 import InputMethodKit
 import os
+import AquaSKKService
 
 private let kMargin: CGFloat = 1.0
 

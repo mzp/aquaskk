@@ -21,6 +21,7 @@
 */
 
 #import <AppKit/AppKit.h>
+#import <InputMethodKit/InputMethodKit.h>
 #import <AquaSKKBackend/SKKCandidateBridge.h>
 #import <AquaSKKBackend/SKKInputMode.h>
 #import <AquaSKKInput/MacAnnotator.h>

@@ -7,6 +7,7 @@
 
 internal import AquaSKKInput
 import SwiftUI
+import AquaSKKService
 
 struct SupervisorMonitor: View {
     var supervisor: SKKSupervisor

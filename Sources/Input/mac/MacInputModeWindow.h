@@ -38,6 +38,8 @@ public:
     ~MacInputModeWindow();
 
     virtual void SelectInputMode(SKKInputMode mode);
+
+    MacInputModeWindowImpl *getImpl() { return impl_; }
 };
 
 #endif

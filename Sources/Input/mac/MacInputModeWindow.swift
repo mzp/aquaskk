@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AquaSKKService
 
 @objc public class MacInputModeWindowImpl: NSObject {
     private let layoutManager: SKKLayoutManagerImpl

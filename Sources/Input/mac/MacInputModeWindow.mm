@@ -20,6 +20,7 @@
 
 */
 
+#import <InputMethodKit/InputMethodKit.h>
 #import <AquaSKKInput/MacInputModeWindow.h>
 #import <AquaSKKService/SKKSupervisor.h>
 #import <AquaSKKInput/SKKLayoutManager.h>

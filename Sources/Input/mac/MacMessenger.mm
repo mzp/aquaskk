@@ -20,6 +20,7 @@
 
 */
 
+#import <InputMethodKit/InputMethodKit.h>
 #import <AquaSKKBackend/SKKInputMode.h>
 #import <AquaSKKService/SKKSupervisor.h>
 #import <AquaSKKInput/MacMessenger.h>

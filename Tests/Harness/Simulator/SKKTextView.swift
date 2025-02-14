@@ -6,7 +6,7 @@
 //
 
 import AppKit
-import AquaSKKInput_Private
+@_spi(Testing) internal import AquaSKKInput
 import Foundation
 import InputMethodKit
 import OSLog

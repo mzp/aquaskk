@@ -21,6 +21,7 @@
 */
 
 #import <os/log.h>
+#import <InputMethodKit/InputMethodKit.h>
 #import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKCore/SKKInputSession.h>
 #import <AquaSKKInput/MacInputModeMenu.h>
@@ -32,7 +33,7 @@
 #import <AquaSKKService/SKKConstVars.h>
 #import <AquaSKKService/SKKSupervisor.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
-
+/*
 static os_log_t appLog(void) {
     static os_log_t _serviceLog;
 
@@ -479,3 +480,4 @@ static os_log_t appLog(void) {
 }
 
 @end
+*/

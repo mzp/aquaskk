@@ -28,3 +28,4 @@ FOUNDATION_EXPORT const unsigned char AquaSKKInputVersionString[];
 #import <AquaSKKInput/SKKLayoutManager.h>
 #import <AquaSKKInput/SKKPreProcessor.h>
 #import <AquaSKKInput/SKKServer.h>
+#import <AquaSKKInput/SKKInputSessionBridge.h>

@@ -19,6 +19,7 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 */
+/*
 
 #ifndef SKKInputController_h
 #define SKKInputController_h
@@ -45,3 +46,4 @@ class MacInputModeWindow;
 @end
 
 #endif
+*/

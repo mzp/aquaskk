@@ -4,7 +4,7 @@
 //
 //  Created by mzp on 8/3/24.
 //
-
+/*
 #ifndef SKKInputController_Private_h
 #define SKKInputController_Private_h
 
@@ -19,4 +19,6 @@
 - (void)_setClient:(id)client sessionParameter:(SKKInputSessionParameter *)parameter;
 @end
 
-#endif /* SKKInputController_Private_h */
+#endif
+ */
+

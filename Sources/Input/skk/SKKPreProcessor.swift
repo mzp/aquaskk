@@ -10,11 +10,14 @@ import Foundation
 import OSLog
 
 @objc(SKKPreProcessorImpl)
-@MainActor public class SKKPreProcessorImpl: NSObject {
+public class SKKPreProcessorImpl: NSObject {
     private var keymap: SKKKeymap
 
     // シングルトン
+    @MainActor
     public static let sharedInstance = SKKPreProcessorImpl()
+
+    @MainActor
     @objc public static func shared() -> SKKPreProcessorImpl {
         return sharedInstance
     }

@@ -21,6 +21,7 @@
 */
 
 #import <AppKit/AppKit.h>
+#import <InputMethodKit/InputMethodKit.h>
 #import <Foundation/Foundation.h>
 #import <AquaSKKBackend/SKKInputMode.h>
 #import <AquaSKKInput/MacClipboard.h>
