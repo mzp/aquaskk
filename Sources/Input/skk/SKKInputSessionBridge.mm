@@ -7,11 +7,11 @@
 
 #import "SKKInputSessionBridge.h"
 #import <AquaSKKCore/SKKInputSession.h>
-#import <AquaSKKInput/MacInputSessionParameter.h>
-#import <AquaSKKInput/MacInputModeWindow.h>
 #import <AquaSKKInput/MacInputModeMenu.h>
+#import <AquaSKKInput/MacInputModeWindow.h>
+#import <AquaSKKInput/MacInputSessionParameter.h>
 
-@interface SKKInputSessionBridge() {
+@interface SKKInputSessionBridge () {
     SKKInputSession *impl;
 }
 @end
@@ -21,44 +21,38 @@
 - (instancetype)initWithClient:(id)client layoutManager:(SKKLayoutManager *)layoutManager;
 {
     self = [super init];
-    if (self) {
+    if(self) {
         impl = new SKKInputSession(new MacInputSessionParameter(client, layoutManager));
     }
     return self;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     delete impl;
 }
 
-- (void)commit
-{
+- (void)commit {
     impl->Commit();
 }
 
-- (void)activate
-{
+- (void)activate {
     impl->Activate();
 }
 
-- (void)deactivate
-{
+- (void)deactivate {
     impl->Deactivate();
 }
 
-- (BOOL)handle:(SKKEvent *)event
-{
+- (BOOL)handle:(SKKEvent *)event {
     return impl->HandleEvent(*event);
 }
 
-- (void)addListenerWithInputModeMenu:(MacInputModeMenu *)menu
-{
+- (void)addListenerWithInputModeMenu:(MacInputModeMenu *)menu {
     impl->AddInputModeListener(menu);
 }
 
-- (void)addListenerWithInputModeWindow:(MacInputModeWindow *)window
-{
+- (void)addListenerWithInputModeWindow:(MacInputModeWindow *)window {
+    window->SKKWidgetShow();
     impl->AddInputModeListener(window);
 }
 @end

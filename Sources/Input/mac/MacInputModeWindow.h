@@ -30,16 +30,20 @@ class SKKLayoutManager;
 
 class MacInputModeWindow : public SKKInputModeListener {
     MacInputModeWindowImpl *impl_;
+
+public:
     virtual void SKKWidgetShow();
     virtual void SKKWidgetHide();
 
-public:
     MacInputModeWindow(SKKLayoutManager *layout);
+    MacInputModeWindow(const MacInputModeWindow &other);
     ~MacInputModeWindow();
 
     virtual void SelectInputMode(SKKInputMode mode);
 
-    MacInputModeWindowImpl *getImpl() { return impl_; }
+    MacInputModeWindowImpl *getImpl() {
+        return impl_;
+    }
 };
 
 #endif

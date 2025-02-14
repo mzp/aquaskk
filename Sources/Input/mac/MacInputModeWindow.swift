@@ -5,8 +5,8 @@
 //  Created by mzp on 2/6/25.
 //
 
-import Foundation
 import AquaSKKService
+import Foundation
 
 @objc public class MacInputModeWindowImpl: NSObject {
     private let layoutManager: SKKLayoutManagerImpl
@@ -17,6 +17,8 @@ import AquaSKKService
         tips = SKKModeTipsImpl(layoutManager: layoutManager)
         super.init()
     }
+
+    deinit {}
 
     @objc public func select(inputMode: SKKInputMode) {
         tips.inputMode = inputMode

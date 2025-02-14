@@ -13,7 +13,7 @@ import OSLog
 public class SKKPreProcessorImpl: NSObject {
     private var keymap: SKKKeymap
 
-    // シングルトン
+    /// シングルトン
     @MainActor
     public static let sharedInstance = SKKPreProcessorImpl()
 

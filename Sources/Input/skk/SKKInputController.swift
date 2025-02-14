@@ -5,10 +5,10 @@
 //  Created by mzp on 2/12/25.
 //
 
+import AquaSKKService
 import Foundation
 import InputMethodKit
 import OSLog
-import AquaSKKService
 
 public class SKKInputController: IMKInputController {
     private var client: IMKTextInput?
@@ -17,16 +17,17 @@ public class SKKInputController: IMKInputController {
     private var proxy: SKKServerProxy?
     private var skkMenu: SKKInputMenu?
     private var layoutManager: SKKLayoutManagerImpl?
-    private var modeIcon: MacInputModeWindowImpl?
+    private var modeIcon: MacInputModeWindow?
+    private var inputModeMenu: MacInputModeMenu?
     private var blacklistApps: BlacklistApps?
     private var preProcessor: SKKPreProcessorImpl?
     private var session: SKKInputSessionBridge?
 
-    public override init() {
+    override public init() {
         super.init()
     }
 
-    public override init!(server: IMKServer!, delegate: Any!, client inputClient: Any!) {
+    override public init!(server: IMKServer!, delegate: Any!, client inputClient: Any!) {
         super.init(server: server, delegate: delegate, client: inputClient)
     }
 
@@ -34,9 +35,9 @@ public class SKKInputController: IMKInputController {
     @objc(_setClient:) @_spi(Testing)
     public func _setClient(_ client: Any) {
         if let client = client as? NSTextInputClient {
-            self.context = NSTextInputContext(client: client)
+            context = NSTextInputContext(client: client)
         } else {
-            self.context = nil
+            context = nil
         }
         activated = false
         proxy = SKKServerProxy()
@@ -44,23 +45,25 @@ public class SKKInputController: IMKInputController {
             let skkMenu = SKKInputMenu(with: client)
 
             var layoutManager = SKKLayoutManager(client)
-            session = SKKInputSessionBridge(client: client, layoutManager: &layoutManager)
-            var modeIcon = MacInputModeWindow(&layoutManager)
-
-
-            var inputModeMenu = MacInputModeMenu(skkMenu)
-            session?.addListener(with: &modeIcon)
-            session?.addListener(with: &inputModeMenu)
-
+            let session = SKKInputSessionBridge(client: client, layoutManager: &layoutManager)
             self.client = client
+            self.session = session
             self.skkMenu = skkMenu
-            self.modeIcon = modeIcon.getImpl()
+            modeIcon = MacInputModeWindow(&layoutManager)
+            inputModeMenu = MacInputModeMenu(skkMenu)
             self.layoutManager = layoutManager.getImpl()
+
+            session.addListener(with: &modeIcon!)
+            session.addListener(with: &inputModeMenu!)
         } else {
             self.client = nil
+            session = nil
             skkMenu = nil
             modeIcon = nil
+            inputModeMenu = nil
             layoutManager = nil
+
+            // TODO: Remove listers from session
         }
 
         blacklistApps = BlacklistApps.shared()
@@ -68,9 +71,10 @@ public class SKKInputController: IMKInputController {
     }
 
     // MARK: - IMKServerInput
-    public override func handle(_ event: NSEvent!, client sender: Any!) -> Bool {
+
+    override public func handle(_ event: NSEvent!, client _: Any!) -> Bool {
         Logger.skkInput.log("\(#function, privacy: .public)")
-        guard !self.directMode else {
+        guard !directMode else {
             return false
         }
         var inputMode = skkMenu?.currentInputMode
@@ -89,20 +93,22 @@ public class SKKInputController: IMKInputController {
             return false
         }
         var param = preProcessor.execute(event: event)
-        let result = self.session?.handle(&param)
+        modeIcon?.SelectInputMode(.InvalidInputMode)
+        let result = session?.handle(&param)
         if inputMode != skkMenu?.currentInputMode || param.id == SKK_JMODE {
             workaroundForSpecificApplications()
         }
         return result ?? false
     }
 
-    public override func commitComposition(_ sender: Any!) {
+    override public func commitComposition(_: Any!) {
         Logger.skkInput.log("\(#function, privacy: .public)")
         session?.commit()
     }
 
     // MARK: - IMKStateSetting
-    public override func activateServer(_ sender: Any!) {
+
+    override public func activateServer(_: Any!) {
         Logger.skkInput.log("\(#function, privacy: .public)")
         UserDefaults.resetStandardUserDefaults()
 
@@ -112,7 +118,7 @@ public class SKKInputController: IMKInputController {
         session?.activate()
     }
 
-    public override func deactivateServer(_ sender: Any!) {
+    override public func deactivateServer(_: Any!) {
         Logger.skkInput.log("\(#function, privacy: .public)")
 
         guard !directMode else {
@@ -121,25 +127,25 @@ public class SKKInputController: IMKInputController {
         session?.deactivate()
     }
 
-    public override func setValue(_ value: Any!, forTag tag: Int, client sender: Any!) {
+    override public func setValue(_ value: Any!, forTag tag: Int, client _: Any!) {
         Logger.skkInput.log("\(#function, privacy: .public) value: \(String(describing: value), privacy: .public), tag: \(tag, privacy: .public)")
-
         guard !directMode else {
             return
         }
         guard tag == kTextServiceInputModePropertyTag else {
             return
         }
+
         guard let value = value as? String else {
             return
         }
+
         guard let skkMenu = skkMenu else {
             return
         }
 
         // 「AquaSKK 統合」の場合
-        if skkMenu.convertIDToEventID(modeIdentifier: value) == SKK_NULL
-        {
+        if skkMenu.convertIDToEventID(modeIdentifier: value) == SKK_NULL {
             let indivisual = UserDefaults.standard.bool(forKey: SKKUserDefaultKeys.use_individual_input_mode)
 
             // SelectInputMode → setValue の無限ループが発生するため、
@@ -151,11 +157,14 @@ public class SKKInputController: IMKInputController {
                     let identifier = skkMenu.convertInputModeToID(inputMode: skkMenu.currentInputMode)
                     var param = SKKEvent()
                     param.id = Int32(skkMenu.convertIDToEventID(modeIdentifier: identifier))
-                    //
+                    session?.handle(&param)
 
-                    modeIcon?.select(inputMode: skkMenu.currentInputMode)
+                    modeIcon?.getImpl().select(inputMode: skkMenu.currentInputMode)
                 } else {
-//                    let identifier = skkMenu.convertInputModeToID(inputMode: skkMenu.getUnifiedInputMode())
+                    let identifier = skkMenu.convertInputModeToID(inputMode: skkMenu.unifiedInputMode)
+                    var param = SKKEvent()
+                    param.id = Int32(skkMenu.convertIDToEventID(modeIdentifier: identifier))
+                    session?.handle(&param)
                 }
             }
         } else {
@@ -165,9 +174,11 @@ public class SKKInputController: IMKInputController {
     }
 
     // MARK: - IMKInputController
-    public override func menu() -> NSMenu! {
+
+    override public func menu() -> NSMenu! {
         func item(title: String, action: Selector, isOn: (() -> Bool)? = nil) -> NSMenuItem {
             let item = NSMenuItem(title: title, action: action, keyEquivalent: "")
+            item.target = self
             if let isOn = isOn, isOn() {
                 item.state = .on
             }
@@ -177,7 +188,8 @@ public class SKKInputController: IMKInputController {
         let workspace = NSWorkspace.shared
         var title = "直接入力モード"
         if let bundleIdentifier = client?.bundleIdentifier(),
-           let url = workspace.urlForApplication(withBundleIdentifier: bundleIdentifier) {
+           let url = workspace.urlForApplication(withBundleIdentifier: bundleIdentifier)
+        {
             let name = FileManager.default.displayName(atPath: url.path)
             title = "\(name)では直接入力"
         }
@@ -185,7 +197,7 @@ public class SKKInputController: IMKInputController {
         let inputMenu = NSMenu(title: "AquaSKK")
 
         for item in [
-            item(title: "環境設定", action: #selector(showPreferences(_:))),
+            item(title: "環境設定", action: #selector(launchPreferences)),
             item(title: title, action: #selector(toggleDirectMode), isOn: { self.directMode }),
             item(title: "プライベートモード", action: #selector(togglePrivateMode), isOn: { self.privateMode }),
             item(title: "設定ファイルの再読み込み", action: #selector(releodComponents)),
@@ -198,7 +210,7 @@ public class SKKInputController: IMKInputController {
         return inputMenu
     }
 
-    public override func showPreferences(_ sender: Any!) {
+    @objc public func launchPreferences() {
         guard let path = Bundle.main.sharedSupportPath else {
             Logger.skkInput.error("\(#function, privacy: .public) sharedSupportPath is nil")
             return
@@ -214,16 +226,16 @@ public class SKKInputController: IMKInputController {
         var rect: NSRect = .zero
         let attributes = client?.attributes(forCharacterIndex: 0, lineHeightRectangle: &rect)
         let info = """
-            bundleIdentifier = \(String(describing: client?.bundleIdentifier()))
-            attributes = \(String(describing: attributes))
-            inline rect = \(rect)
-            selected range = \(String(describing: client?.selectedRange()))
-            marked range = \(String(describing: client?.markedRange()))
-            supports unicode = \(String(describing: client?.supportsUnicode()))
-            window level = \(String(describing: client?.windowLevel()))
-            length = \(String(describing: client?.length()))
-            valid attributes = \(String(describing: client?.validAttributesForMarkedText()))
-            """
+        bundleIdentifier = \(client?.bundleIdentifier() ?? "")
+        attributes = \(String(describing: attributes))
+        inline rect = \(rect)
+        selected range = \(String(describing: client?.selectedRange()))
+        marked range = \(String(describing: client?.markedRange()))
+        supports unicode = \(String(describing: client?.supportsUnicode()))
+        window level = \(String(describing: client?.windowLevel()))
+        length = \(String(describing: client?.length()))
+        valid attributes = \(client?.validAttributesForMarkedText().debugDescription ?? "")
+        """
 
         Task { @MainActor in
             let alert = NSAlert()
@@ -250,7 +262,6 @@ public class SKKInputController: IMKInputController {
         }
     }
 
-
     // MARK: - Workaround
 
     func isBlacklistedApp(bundle: Bundle) -> Bool {
@@ -268,45 +279,45 @@ public class SKKInputController: IMKInputController {
     }
 
     func syncInputSource() -> SKKInputMode? {
-       guard let modeIdentifier =  context?.selectedKeyboardInputSource else {
-           return nil
-       }
-       let system = skkMenu?.convertIDToInputMode(modeIdentifier: modeIdentifier)
-       let current = skkMenu?.currentInputMode
+        guard let modeIdentifier = context?.selectedKeyboardInputSource else {
+            return nil
+        }
+        let system = skkMenu?.convertIDToInputMode(modeIdentifier: modeIdentifier)
+        let current = skkMenu?.currentInputMode
 
-       // AquaSKK統合の場合、systemがSKKInputMode::InvalidInputModeになるので、そのときは無視する
-       if system == .InvalidInputMode {
-           return current
-       }
+        // AquaSKK統合の場合、systemがSKKInputMode::InvalidInputModeになるので、そのときは無視する
+        if system == .InvalidInputMode {
+            return current
+        }
 
-       // AquaSKKの制御外で入力モードが変更されている
+        // AquaSKKの制御外で入力モードが変更されている
         if system != current, let inputSourceID = context?.selectedKeyboardInputSource {
-           changeInputMode(inputSourceID)
-           return system
-       }
+            changeInputMode(inputSourceID)
+            return system
+        }
 
-       return nil
-   }
+        return nil
+    }
 
-   func changeInputMode(_ identifier: String) {
-       guard let skkMenu = skkMenu else {
-           Logger.skkInput.error("\(#function, privacy: .public): skkMenu is nil")
-           return
-       }
-       var event = SKKEvent()
+    func changeInputMode(_ identifier: String) {
+        guard let skkMenu = skkMenu else {
+            Logger.skkInput.error("\(#function, privacy: .public): skkMenu is nil")
+            return
+        }
+        var event = SKKEvent()
 
-       // ex) "com.apple.inputmethod.Roman" => SKK_ASCII_MODE
-       event.id = Int32(skkMenu.convertIDToEventID(modeIdentifier: identifier))
+        // ex) "com.apple.inputmethod.Roman" => SKK_ASCII_MODE
+        event.id = Int32(skkMenu.convertIDToEventID(modeIdentifier: identifier))
 
-       // setValue内でメニューの更新があると、 selectInputMode -> setValueの無限ループが発生するため、
-       // 更新を停止する
-       skkMenu.deactivation()
-       defer { skkMenu.activation() }
-       if event.id == SKKInputMode.InvalidInputMode.rawValue {
-               let inputMode = skkMenu.convertIDToInputMode(modeIdentifier: identifier)
-           modeIcon?.select(inputMode: inputMode)
-       }
-   }
+        // setValue内でメニューの更新があると、 selectInputMode -> setValueの無限ループが発生するため、
+        // 更新を停止する
+        skkMenu.deactivation()
+        defer { skkMenu.activation() }
+        if event.id == SKKInputMode.InvalidInputMode.rawValue {
+            let inputMode = skkMenu.convertIDToInputMode(modeIdentifier: identifier)
+            modeIcon?.getImpl().select(inputMode: inputMode)
+        }
+    }
 
     func isBlacklisted() -> Bool {
         guard let bundle = currentBundle else {
@@ -329,20 +340,20 @@ public class SKKInputController: IMKInputController {
             Logger.skkInput.warning("\(#function, privacy: .public): BlacklistApps is nil")
             return
         }
-        
+
         guard blacklistApps.needsInsertEmptyString(bundle: bundle) else {
             return
         }
         Logger.skkInput.log("\(#function, privacy: .public): cancel key event")
-        
+
         // Ctrl-L を強制挿入することで、アプリケーション側のキー処理を無効化する
-        let null = NSString(format: "%c", 0x0c)
+        let null = NSString(format: "%c", 0x0C)
         client().setMarkedText(null, selectionRange: .skkNotFound, replacementRange: .skkNotFound)
         client().setMarkedText("", selectionRange: .skkNotFound, replacementRange: .skkNotFound)
-        
     }
 
     // MARK: - Property
+
     var privateMode: Bool {
         get {
             UserDefaults.standard.bool(forKey: SKKUserDefaultKeys.enable_private_mode)
@@ -359,7 +370,7 @@ public class SKKInputController: IMKInputController {
     }
 
     @objc func toggleDirectMode() {
-        self.directMode.toggle()
+        directMode.toggle()
     }
 
     var directMode: Bool {
@@ -395,7 +406,7 @@ public class SKKInputController: IMKInputController {
             return nil
         }
         let workspace = NSWorkspace.shared
-        guard let path =  workspace.urlForApplication(withBundleIdentifier: identifier) else {
+        guard let path = workspace.urlForApplication(withBundleIdentifier: identifier) else {
             return nil
         }
         return Bundle(url: path)

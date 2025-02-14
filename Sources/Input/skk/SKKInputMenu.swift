@@ -23,11 +23,14 @@ private let kInputModeTable: [(Int, SKKInputMode, String)] = [
 ]
 
 @objc(SKKInputMenu) public class SKKInputMenu: NSObject {
-    @MainActor static var unifiedInputMode: SKKInputMode = .HirakanaInputMode
+    nonisolated(unsafe) static var unifiedInputMode: SKKInputMode = .HirakanaInputMode
 
     private let client: IMKTextInput
     private var activated: Bool = true
     public private(set) var currentInputMode: SKKInputMode = .HirakanaInputMode
+    public var unifiedInputMode: SKKInputMode {
+        Self.unifiedInputMode
+    }
 
     @objc(initWithClient:) public init(with client: IMKTextInput) {
         self.client = client
@@ -94,7 +97,7 @@ private let kInputModeTable: [(Int, SKKInputMode, String)] = [
     }
 
     @objc(unifiedInputMode)
-    @MainActor public func getUnifiedInputMode() -> SKKInputMode {
+    public func getUnifiedInputMode() -> SKKInputMode {
         return Self.unifiedInputMode
     }
 

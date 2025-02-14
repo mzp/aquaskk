@@ -5,10 +5,10 @@
 //  Created by mzp on 2/2/25.
 //
 // import AppKit
+import AquaSKKService
 import AquaSKKUI
 import InputMethodKit
 import os
-import AquaSKKService
 
 private let kMargin: CGFloat = 1.0
 

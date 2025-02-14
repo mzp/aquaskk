@@ -6,9 +6,9 @@
 //
 
 import AppKit
+import AquaSKKService
 import AquaSKKUI
 import Foundation
-import AquaSKKService
 
 public class MacMessengerImpl: NSObject {
     let layoutManager: SKKLayoutManagerImpl

@@ -140,9 +140,7 @@ public class InputModeWindow: NSObject {
     @objc public func setModeIcons(_ dictionary: NSDictionary) {
         var modeIcons = [SKKInputMode: NSImage]()
         for key in dictionary.allKeys {
-            guard let int = key as? Int32,
-                  let inputMode = SKKInputMode(rawValue: int)
-            else {
+            guard let inputMode = key as? SKKInputMode else {
                 Logger.skkUI.fault("\(#function) unsupported key")
                 continue
             }

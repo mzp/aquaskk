@@ -5,7 +5,7 @@
 //  Created by mzp on 8/31/24.
 //
 
-import AquaSKKCore
+internal import AquaSKKCore
 internal import AquaSKKTesting
 import Testing
 

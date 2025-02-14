@@ -5,13 +5,16 @@
 //  Created by mzp on 8/12/24.
 //
 
-@testable import AquaSKKCore
+@testable internal import AquaSKKCore
 import Testing
 
+@MainActor
 struct RomanKanaConverterTests {
-    func romanKana() throws -> RomanKanaConverter {
+    func romanKana() throws -> RomanKanaConverterImpl {
         let path = try CoreTesting.shared.path("kana-rule.conf")
-        return try RomanKanaConverter(path: path)
+        let instance = RomanKanaConverterImpl.shared()
+        instance.initialize(from: path)
+        return instance
     }
 
     @Test("input mode", arguments: [
