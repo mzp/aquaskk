@@ -5,7 +5,7 @@
 //  Created by mzp on 7/31/24.
 //
 
-import AquaSKKCore
+internal import AquaSKKCore
 import Testing
 
 struct CalculatorTesting {

@@ -27,17 +27,11 @@
 #import <AquaSKKInput/SKKLayoutManager.h>
 
 @class CandidateWindow;
+@class MacCandidateWindowImpl;
 
 class MacCandidateWindow : public SKKCandidateWindow {
-    SKKLayoutManager *layout_;
-    bool putUpward_;
-    NSMutableArray *candidates_;
-    NSRange page_;
-    int cursor_;
-    int cellCount_;
-    CandidateWindow *window_;
+    MacCandidateWindowImpl *impl_;
 
-    void reloadUserDefaults();
     virtual void SKKWidgetShow();
     virtual void SKKWidgetHide();
 
