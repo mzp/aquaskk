@@ -8,7 +8,6 @@
 import AquaSKKLogging
 import OSLog
 
-
 @objc(MacInputModeMenuImpl)
 public class MacInputModeMenuImpl: NSObject {
     private let menu: SKKInputMenu
@@ -23,7 +22,6 @@ public class MacInputModeMenuImpl: NSObject {
     deinit {
         Logger.skkMemory.debug("\(#function, privacy: .public))")
     }
-
 
     @MainActor @objc public func selectInputMode(_ inputMode: SKKInputMode) {
         if active {
