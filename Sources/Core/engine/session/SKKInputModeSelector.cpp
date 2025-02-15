@@ -33,9 +33,15 @@ void SKKInputModeSelector::Select(SKKInputMode mode) {
     using namespace std::placeholders;
     needsUpdate_ = mode_ != mode;
     mode_ = mode;
-    std::for_each(
-        listeners_->begin(), listeners_->end(),
-        std::bind(std::mem_fn(&SKKInputModeListener::SelectInputMode), _1, mode_));
+
+    for(SKKInputModeListenerCollection::iterator it = listeners_->begin(); it != listeners_->end(); it++) {
+        SKKInputModeListener *listener = *it;
+        listener->SelectInputMode(mode_);
+    }
+
+    /*    std::for_each(
+            listeners_->begin(), listeners_->end(),
+            std::bind(std::mem_fn(&SKKInputModeListener::SelectInputMode), _1, mode_));*/
 }
 
 void SKKInputModeSelector::Notify() {

@@ -37,6 +37,8 @@ NS_SWIFT_NAME(Jisyo)
 - (instancetype)initWithType:(AISJisyoType)type location:(NSString *)location enabled:(BOOL)enabled;
 
 + (NSString *)displayNameForJisyoType:(AISJisyoType)jisyoType;
+
++ (NSArray<NSDictionary *> *)dictionaryTypes;
 @end
 
 NS_ASSUME_NONNULL_END

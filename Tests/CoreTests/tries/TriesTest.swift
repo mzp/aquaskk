@@ -5,7 +5,7 @@
 //  Created by mzp on 8/12/24.
 //
 
-@testable import AquaSKKCore
+@testable internal import AquaSKKCore
 import Testing
 
 struct TriesTest {

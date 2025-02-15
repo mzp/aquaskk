@@ -5,7 +5,8 @@
 //  Created by mzp on 8/3/24.
 //
 
-import AquaSKKInput
+internal import AquaSKKInput
+import AquaSKKService
 import SwiftUI
 
 struct SupervisorMonitor: View {

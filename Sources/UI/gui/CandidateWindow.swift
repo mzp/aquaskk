@@ -18,7 +18,7 @@ public class CandidateWindow: NSObject {
     }
 
     private let view: CandidateView
-    private let window: NSWindow
+    public private(set) var window: NSWindow
     private var labels: String
     override public init() {
         view = CandidateView(frame: .zero)
@@ -32,7 +32,7 @@ public class CandidateWindow: NSObject {
     @objc(prepareWithFont:labels:)
     public func prepare(with font: NSFont, labels: NSString) {
         guard Thread.isMainThread else {
-            Logger.skkUI.fault("\(#function) must be called ifrom main therad only")
+            Logger.skkUI.fault("\(#function, privacy: .public) must be called ifrom main therad only")
             assertionFailure("Must be used from main therad only")
             return
         }

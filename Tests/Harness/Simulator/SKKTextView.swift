@@ -6,7 +6,7 @@
 //
 
 import AppKit
-import AquaSKKInput_Private
+@_spi(Testing) internal import AquaSKKInput
 import Foundation
 import InputMethodKit
 import OSLog
@@ -38,7 +38,7 @@ class SKKTextViewAppKit: NSTextView {
     }
 
     override func keyDown(with event: NSEvent) {
-        logger.info("\(#function): \(event)")
+        logger.info("\(#function, privacy: .public): \(event, privacy: .private)")
 
         var handled = false
         if let controller = controller, let client = client {

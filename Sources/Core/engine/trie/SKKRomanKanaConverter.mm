@@ -21,10 +21,11 @@
 */
 
 #include "SKKRomanKanaConverter.h"
-#import <AquaSKKCore/AISRomanKanaConverter.h>
+#import <AquaSKKCore/AquaSKKCore-Swift.h>
 
-SKKRomanKanaConverter::SKKRomanKanaConverter()
-    : impl(NULL) {}
+SKKRomanKanaConverter::SKKRomanKanaConverter() {
+    impl = [AICRomanKanaConverter sharedInstance];
+}
 
 SKKRomanKanaConverter::SKKRomanKanaConverter(const SKKRomanKanaConverter &romanKana)
     : impl(romanKana.impl) {}
@@ -36,19 +37,14 @@ SKKRomanKanaConverter &SKKRomanKanaConverter::theInstance() {
 
 void SKKRomanKanaConverter::Initialize(const std::string &path) {
     NSString *nsPath = [NSString stringWithCString:path.c_str() encoding:NSUTF8StringEncoding];
-    AICRomanKanaConverter *impl = [[AICRomanKanaConverter alloc] initWithPath:nsPath error:nil];
-
-    AICRomanKanaConverter *oldImpl = (AICRomanKanaConverter *)impl;
-    this->impl = (void *)[impl retain];
-    if(oldImpl != NULL) {
-        [oldImpl release];
-    }
+    AICRomanKanaConverter *impl = (AICRomanKanaConverter *)this->impl;
+    [impl initialize:nsPath];
 }
 
 void SKKRomanKanaConverter::Patch(const std::string &path) {
     NSString *nsPath = [NSString stringWithCString:path.c_str() encoding:NSUTF8StringEncoding];
     AICRomanKanaConverter *impl = (AICRomanKanaConverter *)this->impl;
-    [impl appendPath:nsPath error:nil];
+    [impl patch:nsPath];
 }
 
 bool SKKRomanKanaConverter::Convert(SKKInputMode mode, const std::string &str, SKKRomanKanaConversionResult &result) {

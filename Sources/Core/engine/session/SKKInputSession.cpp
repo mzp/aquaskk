@@ -52,11 +52,6 @@ SKKInputSession::~SKKInputSession() {
     while(!stack_.empty()) {
         popEditor();
     }
-
-    while(!listeners_.empty()) {
-        delete listeners_.back();
-        listeners_.pop_back();
-    }
 }
 
 void SKKInputSession::AddInputModeListener(SKKInputModeListener *listener) {

@@ -5,7 +5,7 @@
 //  Created by mzp on 8/2/24.
 //
 
-import AquaSKKInput
+internal import AquaSKKInput
 import SwiftUI
 
 struct ContentView: View {

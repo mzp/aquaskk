@@ -73,6 +73,10 @@ public:
         return (variant_.empty() ? Word() : variant_);
     }
 
+    const std::string getAnnotation() const SWIFT_COMPUTED_PROPERTY {
+        return Annotation();
+    }
+
     const std::string getVariant() const SWIFT_COMPUTED_PROPERTY {
         return Variant();
     }

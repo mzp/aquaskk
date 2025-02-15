@@ -38,7 +38,7 @@ class ServiceTesting {
             try fm.createDirectory(atPath: tempDir, withIntermediateDirectories: true)
 
             let tempPath = tempDir.appending("/\(filename)")
-            logger.log("Copy \(path) to \(tempPath)")
+            logger.log("Copy \(path, privacy: .public) to \(tempPath, privacy: .public)")
             _ = try? fm.removeItem(atPath: tempPath)
             try fm.copyItem(atPath: path, toPath: tempPath)
             return tempPath

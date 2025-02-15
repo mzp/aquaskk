@@ -4,7 +4,7 @@
 //
 //  Created by mzp on 8/3/24.
 //
-import AquaSKKInput_Private
+@_spi(Testing) internal import AquaSKKInput
 internal import AquaSKKTesting
 import Foundation
 
@@ -82,7 +82,7 @@ class Typer {
     }
 
     @MainActor func handle(event: SendableEvent) {
-        controller.handle(event.nsEvent, client: client)
+        _ = controller.handle(event.nsEvent, client: client)
         text = client.text
     }
 

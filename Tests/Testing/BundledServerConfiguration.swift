@@ -14,7 +14,7 @@ public class BundledServerConfiguration: ServerConfiguration {
     private let bundle: Bundle
 
     public init(bundle: Bundle) throws {
-        Logger.testing.log("\(#function): \(bundle)")
+        Logger.testing.log("\(#function, privacy: .public): \(bundle, privacy: .public)")
         self.bundle = bundle
 
         applicationSupportPath = NSTemporaryDirectory().appending("\(UUID().uuidString)/")
@@ -57,7 +57,7 @@ public class BundledServerConfiguration: ServerConfiguration {
         let basename = (name as NSString).deletingPathExtension
         let ext = (name as NSString).pathExtension
         guard let path = bundle.path(forResource: basename, ofType: ext) else {
-            logger.error("Can't find \(name)")
+            logger.error("Can't find \(name, privacy: .public)")
             return ""
         }
         return path
@@ -76,7 +76,7 @@ public class BundledServerConfiguration: ServerConfiguration {
         try fileManager.createDirectory(atPath: applicationSupportPath, withIntermediateDirectories: true)
 
         let targetPath = applicationSupportPath
-        Logger.testing.log("Application Support = \(targetPath)")
+        Logger.testing.log("Application Support = \(targetPath, privacy: .private)")
 
         for file in files {
             let path = targetPath.appending("/\(file)")

@@ -69,7 +69,7 @@ class InputMethodKitAdapter: NSObject, IMKTextInput {
     }
 
     func overrideKeyboard(withKeyboardNamed keyboardUniqueName: String!) {
-        logger.log("\(#function): \(keyboardUniqueName)")
+        logger.log("\(#function, privacy: .public): \(keyboardUniqueName, privacy: .public)")
         stateStore.keyboardLayout = keyboardUniqueName
     }
 
@@ -90,7 +90,7 @@ class InputMethodKitAdapter: NSObject, IMKTextInput {
     }
 
     func supportsProperty(_ property: TSMDocumentPropertyTag) -> Bool {
-        logger.warning("\(#function): \(property)")
+        logger.warning("\(#function, privacy: .public): \(property, privacy: .public)")
         return true
     }
 

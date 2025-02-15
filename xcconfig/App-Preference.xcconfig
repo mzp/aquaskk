@@ -12,6 +12,6 @@
 CODE_SIGN_ENTITLEMENTS = Sources/PreferenceApp/Support files/PreferenceApp.entitlements
 DEVELOPMENT_ASSET_PATHS = "Sources/PreferenceApp/Preview Content"
 
-OTHER_LDFLAGS = -framework AquaSKKService -framework Carbon
+OTHER_LDFLAGS = $(inherits) -framework AquaSKKService -framework Carbon
 
 REGISTER_APP_GROUPS = YES
