@@ -98,9 +98,8 @@ public class RomanKanaConverterImpl: NSObject {
 
     /// ローマ字かな変換
     ///
-    /// @param inputMode 入力モード
     /// @param string ローマ字文字列
-    /// @param state
+    /// @param inputMode 入力モード
     /// @return 変換結果
     @objc(convert:inputMode:)
     public func convert(_ string: String, inputMode: SKKInputMode) -> RomanKanaResult? {
