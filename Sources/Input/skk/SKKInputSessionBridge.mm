@@ -19,10 +19,12 @@
 @implementation SKKInputSessionBridge
 
 - (instancetype)initWithClient:(id)client layoutManager:(SKKLayoutManager *)layoutManager;
-{
+{ return [self initWithParameter:new MacInputSessionParameter(client, layoutManager)]; }
+
+- (instancetype)initWithParameter:(SKKInputSessionParameter *)parameter {
     self = [super init];
     if(self) {
-        impl = new SKKInputSession(new MacInputSessionParameter(client, layoutManager));
+        impl = new SKKInputSession(parameter);
     }
     return self;
 }

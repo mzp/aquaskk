@@ -36,7 +36,8 @@ MacInputModeWindow::MacInputModeWindow(SKKLayoutManager *layout) {
 }
 
 MacInputModeWindow::MacInputModeWindow(const MacInputModeWindow &other) {
-    impl_ = [other.impl_ retain];
+    impl_ = other.impl_;
+    [impl_ retain];
 }
 
 MacInputModeWindow::~MacInputModeWindow() {

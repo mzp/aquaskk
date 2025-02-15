@@ -5,6 +5,10 @@
 //  Created by mzp on 2/7/25.
 //
 
+import AquaSKKLogging
+import OSLog
+
+
 @objc(MacInputModeMenuImpl)
 public class MacInputModeMenuImpl: NSObject {
     private let menu: SKKInputMenu
@@ -15,6 +19,11 @@ public class MacInputModeMenuImpl: NSObject {
         active = false
         super.init()
     }
+
+    deinit {
+        Logger.skkMemory.debug("\(#function, privacy: .public))")
+    }
+
 
     @MainActor @objc public func selectInputMode(_ inputMode: SKKInputMode) {
         if active {

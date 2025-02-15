@@ -5,6 +5,7 @@
 //  Created by mzp on 2/12/25.
 //
 
+import AquaSKKCore
 import AquaSKKService
 import Foundation
 import InputMethodKit
@@ -31,9 +32,22 @@ public class SKKInputController: IMKInputController {
         super.init(server: server, delegate: delegate, client: inputClient)
     }
 
-    @MainActor
-    @objc(_setClient:) @_spi(Testing)
+    @_spi(Testing) @MainActor
+    public func _setClient(_ client: IMKTextInput, sessionParameter: OpaquePointer) {
+        let session = SKKInputSessionBridge(parameter: sessionParameter)
+        setClient(client, session: session)
+    }
+
+    @_spi(Testing) @MainActor @objc(_setClient:)
     public func _setClient(_ client: Any) {
+        guard let client = client as? IMKTextInput else {
+            return
+        }
+        setClient(client, session: nil)
+    }
+
+    @MainActor
+    private func setClient(_ client: Any, session: SKKInputSessionBridge?) {
         if let client = client as? NSTextInputClient {
             context = NSTextInputContext(client: client)
         } else {
@@ -45,29 +59,36 @@ public class SKKInputController: IMKInputController {
             let skkMenu = SKKInputMenu(with: client)
 
             var layoutManager = SKKLayoutManager(client)
-            let session = SKKInputSessionBridge(client: client, layoutManager: &layoutManager)
             self.client = client
-            self.session = session
+            self.session = session ?? SKKInputSessionBridge(client: client, layoutManager: &layoutManager)
             self.skkMenu = skkMenu
             modeIcon = MacInputModeWindow(&layoutManager)
             inputModeMenu = MacInputModeMenu(skkMenu)
             self.layoutManager = layoutManager.getImpl()
 
-            session.addListener(with: &modeIcon!)
-            session.addListener(with: &inputModeMenu!)
+            self.session?.addListener(with: &modeIcon!)
+            self.session?.addListener(with: &inputModeMenu!)
         } else {
             self.client = nil
-            session = nil
+            self.session = nil
             skkMenu = nil
             modeIcon = nil
             inputModeMenu = nil
             layoutManager = nil
-
-            // TODO: Remove listers from session
         }
 
         blacklistApps = BlacklistApps.shared()
         preProcessor = SKKPreProcessorImpl.shared()
+    }
+
+    deinit {
+        Logger.skkMemory.debug("\(#function, privacy: .public))")
+
+        // SKKInputSessionのデストラクタで各リスナーのSKKWidgetHide()を呼ぶので先に解放する
+        session = nil
+
+        modeIcon = nil
+        inputModeMenu = nil
     }
 
     // MARK: - IMKServerInput

@@ -5,9 +5,9 @@
 //  Created by mzp on 9/14/24.
 //
 
+import AquaSKKLogging
 import Foundation
 import OSLog
-import AquaSKKLogging
 
 let kOkuriAriMark = ";; okuri-ari entries."
 let kOkuriNasiMark = ";; okuri-nasi entries."

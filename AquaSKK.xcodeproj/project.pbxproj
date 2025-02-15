@@ -47,7 +47,6 @@
 		1321D6D22C7A22BD004768B2 /* FormType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1321D6D12C7A22BD004768B2 /* FormType.swift */; };
 		1323659D2CA87EDD00BF11CC /* SwiftObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 1323659C2CA87EDD00BF11CC /* SwiftObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		132CBC032D5F95B200E4D875 /* AquaSKKLogging.docc in Sources */ = {isa = PBXBuildFile; fileRef = 132CBC002D5F95B200E4D875 /* AquaSKKLogging.docc */; };
-		132CBC042D5F95B200E4D875 /* AquaSKKLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132CBC012D5F95B200E4D875 /* AquaSKKLogging.swift */; };
 		132CBC072D5F966500E4D875 /* Logger+AquaSKK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132CBC062D5F966500E4D875 /* Logger+AquaSKK.swift */; };
 		1335E36E2C9744A9002F298B /* LocalUserDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335E36D2C9744A9002F298B /* LocalUserDictionary.swift */; };
 		1335E3702C9744ED002F298B /* LocalUserDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335E36F2C9744ED002F298B /* LocalUserDictionaryTests.swift */; };
@@ -606,7 +605,6 @@
 		132B77782C5DB89E00EEC2A5 /* pthreadutil_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = pthreadutil_TEST.mm; sourceTree = "<group>"; };
 		132CBBF62D5F95A700E4D875 /* AquaSKKLogging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AquaSKKLogging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		132CBC002D5F95B200E4D875 /* AquaSKKLogging.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKLogging.docc; sourceTree = "<group>"; };
-		132CBC012D5F95B200E4D875 /* AquaSKKLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKKLogging.swift; sourceTree = "<group>"; };
 		132CBC052D5F95C700E4D875 /* Framework-Logging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Logging.xcconfig"; sourceTree = "<group>"; };
 		132CBC062D5F966500E4D875 /* Logger+AquaSKK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+AquaSKK.swift"; sourceTree = "<group>"; };
 		1335E36D2C9744A9002F298B /* LocalUserDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUserDictionary.swift; sourceTree = "<group>"; };
@@ -1369,7 +1367,6 @@
 			isa = PBXGroup;
 			children = (
 				132CBC002D5F95B200E4D875 /* AquaSKKLogging.docc */,
-				132CBC012D5F95B200E4D875 /* AquaSKKLogging.swift */,
 				132CBC062D5F966500E4D875 /* Logger+AquaSKK.swift */,
 			);
 			path = Logging;
@@ -3426,7 +3423,6 @@
 			files = (
 				132CBC072D5F966500E4D875 /* Logger+AquaSKK.swift in Sources */,
 				132CBC032D5F95B200E4D875 /* AquaSKKLogging.docc in Sources */,
-				132CBC042D5F95B200E4D875 /* AquaSKKLogging.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

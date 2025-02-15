@@ -5,8 +5,10 @@
 //  Created by mzp on 2/6/25.
 //
 
+import AquaSKKLogging
 import AquaSKKService
 import Foundation
+import OSLog
 
 @objc public class MacInputModeWindowImpl: NSObject {
     private let layoutManager: SKKLayoutManagerImpl
@@ -16,9 +18,12 @@ import Foundation
         self.layoutManager = layoutManager
         tips = SKKModeTipsImpl(layoutManager: layoutManager)
         super.init()
+        Logger.skkMemory.debug("\(#function, privacy: .public))")
     }
 
-    deinit {}
+    deinit {
+        Logger.skkMemory.debug("\(#function, privacy: .public))")
+    }
 
     @objc public func select(inputMode: SKKInputMode) {
         tips.inputMode = inputMode

@@ -8,12 +8,18 @@
 import OSLog
 
 private let subsystem = "com.aquaskk.inputmethod"
-extension Logger {
-    public static let skkTesting = Logger(subsystem: subsystem, category: "Testing")
-    public static let skkBackend = Logger(subsystem: subsystem, category: "Backend")
-    public static let skkInput = Logger(subsystem: subsystem, category: "Input")
-    public static let skkUI = Logger(subsystem: subsystem, category: "UI")
+public extension Logger {
+    static let skkTesting = Logger(subsystem: subsystem, category: "Testing")
+    static let skkBackend = Logger(subsystem: subsystem, category: "Backend")
+    static let skkInput = Logger(subsystem: subsystem, category: "Input")
+    static let skkUI = Logger(subsystem: subsystem, category: "UI")
 
-    public static let testing = skkTesting
-    public static let backend = skkBackend
+    // MARK: Special purpose
+
+    static let skkMemory = Logger(subsystem: subsystem, category: "MemoryDebug")
+
+    // MARK: Compatibility
+
+    static let testing = skkTesting
+    static let backend = skkBackend
 }
