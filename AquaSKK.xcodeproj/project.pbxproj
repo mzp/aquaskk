@@ -1469,28 +1469,10 @@
 		1344F4972C5B27DB00D8C850 /* xcconfig */ = {
 			isa = PBXGroup;
 			children = (
-				13D7561C2C5A9113006144F2 /* All-Debug.xcconfig */,
-				1393E3C02C6C046400F1E633 /* All-Release.xcconfig */,
-				138B319F2C5DD40C006424E0 /* All-Testing.xcconfig */,
-				13D7561B2C5A905E006144F2 /* All.xcconfig */,
-				1352C9E32C5DF8330056261D /* App-Harness.xcconfig */,
-				1307C2672C5B48D600B089B6 /* App-Preference.xcconfig */,
-				137D05A02C5B5AFB009AC591 /* App.xcconfig */,
-				138C69202C94C89A009FE153 /* Framework-Backend.xcconfig */,
-				138F45102C5CA19D000B03FC /* Framework-Core.xcconfig */,
-				135C3DBF2C5B3FEC00661AE3 /* Framework-Input.xcconfig */,
-				132CBC052D5F95C700E4D875 /* Framework-Logging.xcconfig */,
-				13B7BEE12C5F5D1A00F6BEF8 /* Framework-Service.xcconfig */,
-				13018B2C2C7696B40045FF13 /* Framework-Testing.xcconfig */,
-				139B7B812C60F69E00FE5263 /* Framework-UI.xcconfig */,
-				138F45122C5CA1D7000B03FC /* Tests-App.xcconfig */,
-				138C691F2C94C88C009FE153 /* Tests-Backend.xcconfig */,
-				13931D0E2C5B4C6B00B11EEE /* Tests-Core.xcconfig */,
-				138F45112C5CA1B6000B03FC /* Tests-Input.xcconfig */,
-				13931D0C2C5B49C200B11EEE /* Tests-Preference.xcconfig */,
-				13B7BEE22C5F5D2000F6BEF8 /* Tests-Service.xcconfig */,
-				133834EC2C60204900D73AD7 /* Tests-Typer.xcconfig */,
-				139B7B822C60F69E00FE5263 /* Tests-UI.xcconfig */,
+				13BBA2BE2D604F8D0098CC74 /* All */,
+				13BBA2C02D604FAB0098CC74 /* App */,
+				13BBA2BF2D604FA30098CC74 /* Framework */,
+				13BBA2C12D604FAF0098CC74 /* Tests */,
 				138F45152C5CA2F1000B03FC /* Include */,
 			);
 			path = xcconfig;
@@ -2211,7 +2193,6 @@
 				1344F4E72C5B28FC00D8C850 /* entry */,
 				138C69532C94CA25009FE153 /* session */,
 				1344F55C2C5B28FC00D8C850 /* utility */,
-				13B4A9BE2D583F18002453BA /* logging */,
 				13B4A9BD2D583ED2002453BA /* bridge */,
 			);
 			path = Backend;
@@ -2335,13 +2316,6 @@
 			path = bridge;
 			sourceTree = "<group>";
 		};
-		13B4A9BE2D583F18002453BA /* logging */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = logging;
-			sourceTree = "<group>";
-		};
 		13B7BE862C5F1E8400F6BEF8 /* server */ = {
 			isa = PBXGroup;
 			children = (
@@ -2375,6 +2349,56 @@
 				1377D0862C678E6D005F21AE /* ServiceTesting.swift */,
 			);
 			path = ServiceTests;
+			sourceTree = "<group>";
+		};
+		13BBA2BE2D604F8D0098CC74 /* All */ = {
+			isa = PBXGroup;
+			children = (
+				13D7561C2C5A9113006144F2 /* All-Debug.xcconfig */,
+				1393E3C02C6C046400F1E633 /* All-Release.xcconfig */,
+				138B319F2C5DD40C006424E0 /* All-Testing.xcconfig */,
+				13D7561B2C5A905E006144F2 /* All.xcconfig */,
+			);
+			name = All;
+			sourceTree = "<group>";
+		};
+		13BBA2BF2D604FA30098CC74 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				138C69202C94C89A009FE153 /* Framework-Backend.xcconfig */,
+				138F45102C5CA19D000B03FC /* Framework-Core.xcconfig */,
+				135C3DBF2C5B3FEC00661AE3 /* Framework-Input.xcconfig */,
+				132CBC052D5F95C700E4D875 /* Framework-Logging.xcconfig */,
+				13B7BEE12C5F5D1A00F6BEF8 /* Framework-Service.xcconfig */,
+				13018B2C2C7696B40045FF13 /* Framework-Testing.xcconfig */,
+				139B7B812C60F69E00FE5263 /* Framework-UI.xcconfig */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
+		13BBA2C02D604FAB0098CC74 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1352C9E32C5DF8330056261D /* App-Harness.xcconfig */,
+				1307C2672C5B48D600B089B6 /* App-Preference.xcconfig */,
+				137D05A02C5B5AFB009AC591 /* App.xcconfig */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		13BBA2C12D604FAF0098CC74 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				138F45122C5CA1D7000B03FC /* Tests-App.xcconfig */,
+				138C691F2C94C88C009FE153 /* Tests-Backend.xcconfig */,
+				13931D0E2C5B4C6B00B11EEE /* Tests-Core.xcconfig */,
+				138F45112C5CA1B6000B03FC /* Tests-Input.xcconfig */,
+				13931D0C2C5B49C200B11EEE /* Tests-Preference.xcconfig */,
+				13B7BEE22C5F5D2000F6BEF8 /* Tests-Service.xcconfig */,
+				133834EC2C60204900D73AD7 /* Tests-Typer.xcconfig */,
+				139B7B822C60F69E00FE5263 /* Tests-UI.xcconfig */,
+			);
+			name = Tests;
 			sourceTree = "<group>";
 		};
 		13D368102C5A81290083CAE3 = {
