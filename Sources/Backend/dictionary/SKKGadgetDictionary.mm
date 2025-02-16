@@ -26,6 +26,7 @@
 #import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKBackend/SKKCandidateSuite.h>
 #import <AquaSKKBackend/SKKGadgetDictionary.h>
+#import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 #include "calculator.h"
 
 namespace {
@@ -81,15 +82,18 @@ namespace {
     // =(32768+64)*1024
     //
     void calculate(const std::string &entry, std::vector<std::string> &result) {
-        calculator::engine calc;
-        std::ostringstream buf;
+        NSString *nsString = [NSString stringWithUTF8String:entry.substr(1).c_str()];
 
-        try {
-            buf << calc.run(entry.substr(1));
+        SKKCalculator *calc = [SKKCalculator engine];
+        NSError *error;
+        NSNumber *value = [calc run:nsString error:&error];
+        if (error == nil) {
+            std::ostringstream buf;
+            buf << value.floatValue;
             result.push_back(buf.str());
-        } catch(const std::logic_error &ex) {
-            result.push_back(ex.what());
-        } catch(...) {
+        } else {
+            const char *reason = [error localizedDescription].UTF8String;
+            result.push_back(std::string(reason));
         }
     }
 } // namespace

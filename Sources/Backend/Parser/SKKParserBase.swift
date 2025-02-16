@@ -1,0 +1,64 @@
+//
+//  SKKParserBase.swift
+//  AquaSKKBackend
+//
+//  Created by mzp on 2/15/25.
+//
+
+import Foundation
+
+public class SKKParserBase {
+    struct UnexpectedTokenError: Error {}
+
+    private var content: any StringProtocol
+
+    public init(source: String) {
+        content = source
+    }
+
+    // MARK: Primitive
+
+    func peek<T>(with parser: () throws -> T) -> T? {
+        let original = content
+        defer { self.content = original }
+        return try? parser()
+    }
+
+    func consume(where predicate: (Character) -> Bool) throws -> Character {
+        guard let character = content.first else {
+            throw UnexpectedTokenError()
+        }
+        guard predicate(character) else {
+            throw UnexpectedTokenError()
+        }
+        content = content.dropFirst()
+        return character
+    }
+
+    // MARK: Predicate
+
+    func expect(character: Character) throws -> Character {
+        return try self.consume {
+            $0 == character
+        }
+    }
+
+    func oneOf(_ string: String) throws -> Character {
+        return try consume {
+            string.contains($0)
+        }
+    }
+
+    // MARK: - Collection
+
+    func many<T>(parser: () throws -> T) -> [T] {
+        var result = [T]()
+        do {
+            while true {
+                let value = try parser()
+                result.append(value)
+            }
+        } catch {}
+        return result
+    }
+}
