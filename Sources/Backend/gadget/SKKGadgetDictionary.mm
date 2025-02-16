@@ -22,12 +22,12 @@
 
 #include <algorithm>
 #include <ctime>
+#include <sstream>
 #include <stdexcept>
 #import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKBackend/SKKCandidateSuite.h>
 #import <AquaSKKBackend/SKKGadgetDictionary.h>
 #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
-#include "calculator.h"
 
 namespace {
     // ======================================================================
@@ -87,7 +87,7 @@ namespace {
         SKKCalculator *calc = [SKKCalculator engine];
         NSError *error;
         NSNumber *value = [calc run:nsString error:&error];
-        if (error == nil) {
+        if(error == nil) {
             std::ostringstream buf;
             buf << value.floatValue;
             result.push_back(buf.str());

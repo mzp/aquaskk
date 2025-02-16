@@ -1,5 +1,5 @@
 //
-//  SKKParserBase.swift
+//  SKKParsersBase.swift
 //  AquaSKKBackend
 //
 //  Created by mzp on 2/15/25.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-public class SKKParserBase {
+class SKKParsersBase {
     struct UnexpectedTokenError: Error {}
 
     private var content: any StringProtocol
 
-    public init(source: String) {
+    init(source: String) {
         content = source
     }
 

@@ -1,5 +1,5 @@
 //
-//  SKKCalculator.swift
+//  SKKArithmeticExpressionParsers.swift
 //  AquaSKKBackend
 //
 //  Created by mzp on 2/15/25.
@@ -7,17 +7,11 @@
 
 import Foundation
 
-public enum SKKCalculatorError: Error {
-    case invalidCharacter
-    case zeroDivision
-    case fatal
-}
-
 /// expression = term { ('+' | '-') term };
 /// term       = primary { ('*' | '/' | '%' ) primary };
 /// primary    = [ '+' | '-' ] number | '(' expression ')';
 /// number     = floating-point-literal;
-class SKKExpressionParser: SKKParserBase {
+class SKKArithmeticExpressionParsers: SKKParsersBase {
     enum Token: Equatable, Hashable {
         case keywoard(kind: String)
         case number(value: Float)
@@ -130,19 +124,5 @@ class SKKExpressionParser: SKKParserBase {
         default:
             throw SKKCalculatorError.invalidCharacter
         }
-    }
-}
-
-@objc(SKKCalculator) public class SKKCalculator: NSObject {
-    @objc public static let engine = SKKCalculator()
-
-    public func run(_ expression: String) throws -> Float {
-        let parser = SKKExpressionParser(source: expression)
-        return try parser.expression()
-    }
-
-    @objc(run:error:) public func runObjC(_ str: String) throws -> NSNumber {
-        let float = try run(str)
-        return .init(value: float)
     }
 }

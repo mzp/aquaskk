@@ -59,7 +59,6 @@ FOUNDATION_EXPORT const unsigned char AquaSKKBackendVersionString[];
 
 #pragma mark - utility
 
-#import <AquaSKKBackend/calculator.h>
 #import <AquaSKKBackend/pthreadutil.h>
 #import <AquaSKKBackend/socketutil.h>
 #import <AquaSKKBackend/stringutil.h>
