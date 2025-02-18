@@ -116,3 +116,7 @@ bool SKKDictionaryFile::store(std::ostream &os, const SKKDictionaryEntryContaine
 void SKKDictionaryFile::sort(SKKDictionaryEntryContainer &container) {
     std::sort(container.begin(), container.end(), SKKDictionaryEntryCompare());
 }
+
+std::string SKKUnsafeString(const uint8_t array[]) {
+    return std::string((char *)array);
+}

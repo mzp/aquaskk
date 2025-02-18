@@ -48,6 +48,8 @@
 		1323659D2CA87EDD00BF11CC /* SwiftObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 1323659C2CA87EDD00BF11CC /* SwiftObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		132CBC032D5F95B200E4D875 /* AquaSKKLogging.docc in Sources */ = {isa = PBXBuildFile; fileRef = 132CBC002D5F95B200E4D875 /* AquaSKKLogging.docc */; };
 		132CBC072D5F966500E4D875 /* Logger+AquaSKK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132CBC062D5F966500E4D875 /* Logger+AquaSKK.swift */; };
+		133021A72D64308100BFE102 /* SKKDictionaryFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133021A62D64308100BFE102 /* SKKDictionaryFile.swift */; };
+		133021A92D64332100BFE102 /* SKKDictionaryFileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133021A82D64332100BFE102 /* SKKDictionaryFileTests.swift */; };
 		1335E36E2C9744A9002F298B /* LocalUserDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335E36D2C9744A9002F298B /* LocalUserDictionary.swift */; };
 		1335E3702C9744ED002F298B /* LocalUserDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335E36F2C9744ED002F298B /* LocalUserDictionaryTests.swift */; };
 		1335E3762C97F843002F298B /* TestingResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335E3752C97F842002F298B /* TestingResource.swift */; };
@@ -609,6 +611,8 @@
 		132CBC002D5F95B200E4D875 /* AquaSKKLogging.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKLogging.docc; sourceTree = "<group>"; };
 		132CBC052D5F95C700E4D875 /* Framework-Logging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Logging.xcconfig"; sourceTree = "<group>"; };
 		132CBC062D5F966500E4D875 /* Logger+AquaSKK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+AquaSKK.swift"; sourceTree = "<group>"; };
+		133021A62D64308100BFE102 /* SKKDictionaryFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKDictionaryFile.swift; sourceTree = "<group>"; };
+		133021A82D64332100BFE102 /* SKKDictionaryFileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKDictionaryFileTests.swift; sourceTree = "<group>"; };
 		1335E36D2C9744A9002F298B /* LocalUserDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUserDictionary.swift; sourceTree = "<group>"; };
 		1335E36F2C9744ED002F298B /* LocalUserDictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUserDictionaryTests.swift; sourceTree = "<group>"; };
 		1335E3752C97F842002F298B /* TestingResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingResource.swift; sourceTree = "<group>"; };
@@ -1410,6 +1414,7 @@
 			isa = PBXGroup;
 			children = (
 				1368B4BE2C96818F008D3BF4 /* DictionaryFileTests.swift */,
+				133021A82D64332100BFE102 /* SKKDictionaryFileTests.swift */,
 				1335E36F2C9744ED002F298B /* LocalUserDictionaryTests.swift */,
 				1344F52B2C5B28FC00D8C850 /* SKKAutoUpdateDictionary_TEST.mm */,
 				1344F5302C5B28FC00D8C850 /* SKKCommonDictionary_TEST.mm */,
@@ -1568,6 +1573,7 @@
 			children = (
 				1335E37C2C97FE6C002F298B /* CompletionHelper.swift */,
 				1368B4BC2C968164008D3BF4 /* DictionaryFile.swift */,
+				133021A62D64308100BFE102 /* SKKDictionaryFile.swift */,
 				1335E36D2C9744A9002F298B /* LocalUserDictionary.swift */,
 				1344F4B52C5B28FC00D8C850 /* SKKAutoUpdateDictionary.h */,
 				1344F4B62C5B28FC00D8C850 /* SKKBaseDictionary.h */,
@@ -3601,6 +3607,7 @@
 				138C693D2C94C93E009FE153 /* SKKProxyDictionary.cpp in Sources */,
 				1335E37D2C97FE6C002F298B /* CompletionHelper.swift in Sources */,
 				13C1CD362D6189BC00455773 /* SKKCalculator.swift in Sources */,
+				133021A72D64308100BFE102 /* SKKDictionaryFile.swift in Sources */,
 				13C672B92D5A5FC2000F4F6E /* SKKBackendBridge.mm in Sources */,
 				1335E36E2C9744A9002F298B /* LocalUserDictionary.swift in Sources */,
 				138C693E2C94C93E009FE153 /* SKKHttpDictionaryLoader.cpp in Sources */,
@@ -3623,6 +3630,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				138C696B2C94CD81009FE153 /* stringutil_TEST.mm in Sources */,
+				133021A92D64332100BFE102 /* SKKDictionaryFileTests.swift in Sources */,
 				138C696D2C94CD81009FE153 /* utf8util_TEST.mm in Sources */,
 				138C696E2C94CD81009FE153 /* socketutil_TEST.mm in Sources */,
 				1335E3702C9744ED002F298B /* LocalUserDictionaryTests.swift in Sources */,

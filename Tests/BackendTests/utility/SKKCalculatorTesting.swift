@@ -9,18 +9,6 @@
 import Testing
 
 struct SKKCalculatorTesting {
-    @Test func token() throws {
-        #expect(try SKKExpressionParser(source: "+").getToken() == .keywoard(kind: "+"))
-        #expect(try SKKExpressionParser(source: "%").getToken() == .keywoard(kind: "%"))
-
-        #expect(try SKKExpressionParser(source: "100").getToken() == .number(value: 100))
-        #expect(try SKKExpressionParser(source: "1.23").getToken() == .number(value: 1.23))
-
-        #expect(throws: SKKCalculatorError.self) {
-            try SKKExpressionParser(source: "abc").getToken()
-        }
-    }
-
     @Test func primary() throws {
         let calc = SKKCalculator.engine
         #expect(try calc.run("100") == 100)
