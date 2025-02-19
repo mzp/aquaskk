@@ -123,6 +123,6 @@ std::string SKKRawString(const uint8_t array[]) {
 
 std::vector<uint8_t> SKKRawArray(const std::string string) {
     std::vector<uint8_t> buffer;
-    std::copy( string.begin(), string.end(), std::back_inserter(buffer));
+    std::copy(string.begin(), string.end(), std::back_inserter(buffer));
     return buffer;
 }

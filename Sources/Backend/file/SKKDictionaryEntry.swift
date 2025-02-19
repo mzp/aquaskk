@@ -14,9 +14,11 @@ struct SKKDictionaryEntryImpl: Equatable, CustomDebugStringConvertible {
     func entryString(using encoding: String.Encoding) -> String? {
         String(data: Data(entry), encoding: encoding)
     }
+
     func valueString(using encoding: String.Encoding) -> String? {
         String(data: Data(value), encoding: encoding)
     }
+
     var valueStdString: std.string {
         get {
             SKKRawString(value)

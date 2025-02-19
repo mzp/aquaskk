@@ -59,7 +59,7 @@ public class SKKDictionaryFileImpl: NSObject {
             let (okuriAri, okuriNasi) = try await parser.entries()
             self.okuriAri = okuriAri
             self.okuriNasi = okuriNasi
-        } catch let error {
+        } catch {
             Logger.skkBackend
                 .error(
                     "\(#function, privacy: .public): can't open: \(error, privacy: .public)")
