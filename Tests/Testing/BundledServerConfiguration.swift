@@ -35,6 +35,7 @@ public class BundledServerConfiguration: ServerConfiguration {
         let path = bundle.path(forResource: "SKK-JISYO.S", ofType: "txt")!
         return [
             Jisyo(type: .common, location: path, enabled: true).dictionary,
+            Jisyo(type: .gadget, location: "", enabled: true).dictionary,
         ]
     }
 

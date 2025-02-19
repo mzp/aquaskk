@@ -79,4 +79,8 @@ public:
     }
 };
 
+// std::stringはcharからしか作れないはずだが、unsigned charが格納されることを前提としたコードになっている。
+// Swiftではうまく作れなかったので、C側で無理やり作る。
+std::string SKKRawString(const uint8_t array[]);
+std::vector<uint8_t> SKKRawArray(const std::string string);
 #endif

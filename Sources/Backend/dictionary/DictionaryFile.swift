@@ -6,6 +6,7 @@
 //
 
 import AquaSKKLogging
+import Combine
 import Foundation
 import OSLog
 
@@ -23,13 +24,13 @@ struct DictionaryEntry: Equatable, Hashable, Sendable {
 typealias DictionaryEntryContainer = [DictionaryEntry]
 
 /// SKK 辞書ファイル
-struct DictionaryFile {
+public struct DictionaryFile {
     struct DictionaryFileError: Error {}
 
     var okuriAri: DictionaryEntryContainer = []
     var okuriNasi: DictionaryEntryContainer = []
 
-    mutating func load(path: String) async throws {
+    public mutating func load(path: String) async throws {
         okuriAri.removeAll()
         okuriNasi.removeAll()
 
@@ -64,7 +65,7 @@ struct DictionaryFile {
         return .init(entry: String(parsed[0]), rawValue: String(parsed[1]))
     }
 
-    func save(path: String) throws {
+    public func save(path: String) throws {
         FileManager.default.createFile(atPath: path, contents: nil)
         guard let fileHandle = FileHandle(forWritingAtPath: path) else {
             throw DictionaryFileError()
@@ -76,7 +77,7 @@ struct DictionaryFile {
         try store(to: fileHandle, entries: okuriNasi)
     }
 
-    var isEmpty: Bool {
+    public var isEmpty: Bool {
         okuriAri.isEmpty && okuriNasi.isEmpty
     }
 

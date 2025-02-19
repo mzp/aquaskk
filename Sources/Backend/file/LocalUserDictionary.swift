@@ -29,7 +29,7 @@ public class LocalUserDictionary {
     private var path: String?
     private var idleCount = 0
     private var lastUpdate = Date()
-    private var file = DictionaryFile()
+    private var file = SKKDictionaryFileImpl()
 
     private(set) var privateMode: Bool = false
 
@@ -59,7 +59,7 @@ public class LocalUserDictionary {
         idleCount = 0
         lastUpdate = Date()
 
-        try await file.load(path: path)
+        _ = try await file.load(path: path)
         fix()
     }
 
@@ -95,10 +95,14 @@ public class LocalUserDictionary {
     public func complete(helper: inout CompletionHelper) {
         let query = helper.entry
         for entry in file.okuriNasi {
-            if !entry.entry.hasPrefix(query) {
+            guard let entryString = entry.entryString(using: .utf8) else {
+                Logger.skkBackend.error("\(#function, privacy: .public) invalid encoding")
                 continue
             }
-            helper.add(completion: entry.entry)
+            guard entryString.hasPrefix(query) else {
+                continue
+            }
+            helper.add(completion: entryString)
 
             if !helper.canContinue {
                 break
@@ -108,15 +112,18 @@ public class LocalUserDictionary {
 
     public func reverseLookup(candidate: String) -> String {
         let entries = file.okuriNasi.filter { entry in
-            entry.rawValue.contains("/\(candidate)")
+            entry.valueString(using: .utf8)?.contains("/\(candidate)") ?? false
         }
 
         var parser = SKKCandidateParser()
         let query = SKKCandidate(std.string(candidate), true)
         for entry in entries {
-            parser.Parse(std.string(entry.rawValue))
+            guard let valueString = entry.valueString(using: .utf8) else {
+                continue
+            }
+            parser.Parse(std.string(valueString))
             if parser.candidates.contains(where: { $0 == query }) {
-                return entry.entry
+                return entry.entryString(using: .utf8) ?? ""
             }
         }
 
@@ -182,48 +189,48 @@ public class LocalUserDictionary {
         semaphore.wait()
     }
 
-    private func fetch(entry: SKKEntry, from container: DictionaryEntryContainer) -> String {
-        guard let entry = container.first(where: { $0.entry == String(entry.EntryString()) }) else {
+    private func fetch(entry: SKKEntry, from container: [SKKDictionaryEntryImpl]) -> String {
+        guard let entry = container.first(where: { $0.entryString(using: .utf8) == String(entry.EntryString()) }) else {
             return ""
         }
-        return entry.rawValue
+        return entry.valueString(using: .utf8) ?? ""
     }
 
     private func remove(
         entry: SKKEntry,
         candidate: SKKCandidate,
-        from container: inout DictionaryEntryContainer
+        from container: inout [SKKDictionaryEntryImpl]
     ) {
         let query = String(entry.EntryString())
-        guard let index = container.firstIndex(where: { $0.entry == query }) else {
+        guard let index = container.firstIndex(where: { $0.entryString(using: .utf8) == query }) else {
             return
         }
 
         var suite = SKKCandidateSuite()
-        suite.Parse(std.string(container[index].rawValue))
+        suite.Parse(container[index].valueStdString)
         suite.Remove(candidate)
 
         if suite.IsEmpty() {
             container.remove(at: index)
         } else {
-            container[index].rawValue = String(suite.ToString())
+            container[index].valueStdString = suite.ToString()
         }
     }
 
     private func update(
         entry: SKKEntry,
-        at container: inout DictionaryEntryContainer,
+        at container: inout [SKKDictionaryEntryImpl],
         perform: (inout SKKCandidateSuite) -> Void
     ) {
         var suite = SKKCandidateSuite()
         let query = String(entry.EntryString())
 
-        if let index = container.firstIndex(where: { $0.entry == query }) {
-            suite.Parse(std.string(container[index].rawValue))
+        if let index = container.firstIndex(where: { $0.entryString(using: .utf8) == query }) {
+            suite.Parse(container[index].valueStdString)
             container.remove(at: index)
         }
         perform(&suite)
-        container.insert(.init(entry: query, rawValue: String(suite.ToString())), at: 0)
+        container.insert(.init(entry: query, value: String(suite.ToString())), at: 0)
     }
 
     private func save(force: Bool) throws {
@@ -270,7 +277,7 @@ public class LocalUserDictionary {
     private func fix() {
         // ユーザー辞書の "#" は無意味なのでまるごと削除する
         file.okuriNasi.removeAll(where: {
-            $0.entry == "#"
+            $0.entryString(using: .utf8)?.hasPrefix("#") ?? false
         })
     }
 }
