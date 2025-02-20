@@ -189,7 +189,6 @@
 		135C3D982C5B3F1D00661AE3 /* MacCandidateWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D6D2C5B3F1D00661AE3 /* MacCandidateWindow.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		135C3D992C5B3F1D00661AE3 /* MacKotoeriDictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D7D2C5B3F1D00661AE3 /* MacKotoeriDictionary.cpp */; };
 		135C3D9A2C5B3F1D00661AE3 /* MacDynamicCompletor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D732C5B3F1D00661AE3 /* MacDynamicCompletor.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		135C3D9B2C5B3F1D00661AE3 /* SKKPreProcessor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D8B2C5B3F1D00661AE3 /* SKKPreProcessor.mm */; };
 		135C3D9E2C5B3F1D00661AE3 /* MacFrontEnd.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D752C5B3F1D00661AE3 /* MacFrontEnd.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		135C3D9F2C5B3F1D00661AE3 /* MacInputSessionParameter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D7B2C5B3F1D00661AE3 /* MacInputSessionParameter.mm */; };
 		135C3DA02C5B3F1D00661AE3 /* MacMessenger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D7F2C5B3F1D00661AE3 /* MacMessenger.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -209,7 +208,6 @@
 		135C3DB92C5B3F1D00661AE3 /* MacInputModeWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D782C5B3F1D00661AE3 /* MacInputModeWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DBB2C5B3F1D00661AE3 /* MacDynamicCompletor.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D722C5B3F1D00661AE3 /* MacDynamicCompletor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DBD2C5B3F1D00661AE3 /* MacFrontEnd.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D742C5B3F1D00661AE3 /* MacFrontEnd.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		135C3DBE2C5B3F1D00661AE3 /* SKKPreProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D8A2C5B3F1D00661AE3 /* SKKPreProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135EEB972C5EE3E100758672 /* InputMethodKitAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135EEB962C5EE3E100758672 /* InputMethodKitAdapter.swift */; };
 		135F893C2D61B0F30032AA24 /* SKKCalculatorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135F893B2D61B0F30032AA24 /* SKKCalculatorError.swift */; };
 		135F893E2D61B11C0032AA24 /* SKKArithmeticExpressionParsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135F893D2D61B11C0032AA24 /* SKKArithmeticExpressionParsers.swift */; };
@@ -849,8 +847,6 @@
 		135C3D7F2C5B3F1D00661AE3 /* MacMessenger.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MacMessenger.mm; sourceTree = "<group>"; };
 		135C3D882C5B3F1D00661AE3 /* SKKLayoutManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKLayoutManager.h; sourceTree = "<group>"; };
 		135C3D892C5B3F1D00661AE3 /* SKKLayoutManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKLayoutManager.mm; sourceTree = "<group>"; };
-		135C3D8A2C5B3F1D00661AE3 /* SKKPreProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKPreProcessor.h; sourceTree = "<group>"; };
-		135C3D8B2C5B3F1D00661AE3 /* SKKPreProcessor.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKPreProcessor.mm; sourceTree = "<group>"; };
 		135C3DBF2C5B3FEC00661AE3 /* Framework-Input.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Input.xcconfig"; sourceTree = "<group>"; };
 		135EEB962C5EE3E100758672 /* InputMethodKitAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputMethodKitAdapter.swift; sourceTree = "<group>"; };
 		135EEB9A2C5EE6AB00758672 /* MockTextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTextInput.swift; sourceTree = "<group>"; };
@@ -2531,8 +2527,6 @@
 				135C3D892C5B3F1D00661AE3 /* SKKLayoutManager.mm */,
 				13BDCB622D50396D0031BB3A /* SKKLayoutManager.swift */,
 				13F89D5B2D55DC73003177FA /* SKKModeTips.swift */,
-				135C3D8A2C5B3F1D00661AE3 /* SKKPreProcessor.h */,
-				135C3D8B2C5B3F1D00661AE3 /* SKKPreProcessor.mm */,
 				13B4A9C02D593241002453BA /* SKKPreProcessor.swift */,
 				13C672BC2D5C4F86000F4F6E /* SKKServer.h */,
 				13C672BF2D5C4F8D000F4F6E /* SKKServer.mm */,
@@ -2615,7 +2609,6 @@
 				135C3DB92C5B3F1D00661AE3 /* MacInputModeWindow.h in Headers */,
 				135C3DBB2C5B3F1D00661AE3 /* MacDynamicCompletor.h in Headers */,
 				135C3DBD2C5B3F1D00661AE3 /* MacFrontEnd.h in Headers */,
-				135C3DBE2C5B3F1D00661AE3 /* SKKPreProcessor.h in Headers */,
 				135C3D612C5B3E9600661AE3 /* AquaSKKInput.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3556,7 +3549,6 @@
 				13BDCB632D50396D0031BB3A /* SKKLayoutManager.swift in Sources */,
 				135C3D992C5B3F1D00661AE3 /* MacKotoeriDictionary.cpp in Sources */,
 				135C3D9A2C5B3F1D00661AE3 /* MacDynamicCompletor.mm in Sources */,
-				135C3D9B2C5B3F1D00661AE3 /* SKKPreProcessor.mm in Sources */,
 				135C3D9E2C5B3F1D00661AE3 /* MacFrontEnd.mm in Sources */,
 				135C3D9F2C5B3F1D00661AE3 /* MacInputSessionParameter.mm in Sources */,
 				13C672C12D5C4F8D000F4F6E /* SKKServer.mm in Sources */,
@@ -3805,10 +3797,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13018B2C2C7696B40045FF13 /* Framework-Testing.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -3816,10 +3804,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13018B2C2C7696B40045FF13 /* Framework-Testing.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 6.0;
 			};
 			name = Testing;
 		};
@@ -3827,9 +3811,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13018B2C2C7696B40045FF13 /* Framework-Testing.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
@@ -3928,8 +3909,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1352C9E32C5DF8330056261D /* App-Harness.xcconfig */;
 			buildSettings = {
-				OTHER_CFLAGS = "-stdlib=libc++";
-				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug;
 		};
@@ -3937,8 +3916,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1352C9E32C5DF8330056261D /* App-Harness.xcconfig */;
 			buildSettings = {
-				OTHER_CFLAGS = "-stdlib=libc++";
-				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Testing;
 		};
@@ -3946,8 +3923,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1352C9E32C5DF8330056261D /* App-Harness.xcconfig */;
 			buildSettings = {
-				OTHER_CFLAGS = "-stdlib=libc++";
-				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Release;
 		};
@@ -3955,10 +3930,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 135C3DBF2C5B3FEC00661AE3 /* Framework-Input.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -3966,9 +3937,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 135C3DBF2C5B3FEC00661AE3 /* Framework-Input.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
@@ -4032,10 +4000,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 138F45102C5CA19D000B03FC /* Framework-Core.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 6.0;
 			};
 			name = Testing;
 		};
@@ -4050,10 +4014,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 135C3DBF2C5B3FEC00661AE3 /* Framework-Input.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 6.0;
 			};
 			name = Testing;
 		};
@@ -4142,7 +4102,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 139B7B812C60F69E00FE5263 /* Framework-UI.xcconfig */;
 			buildSettings = {
-				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug;
 		};
@@ -4150,7 +4109,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 139B7B812C60F69E00FE5263 /* Framework-UI.xcconfig */;
 			buildSettings = {
-				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Testing;
 		};
@@ -4158,7 +4116,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 139B7B812C60F69E00FE5263 /* Framework-UI.xcconfig */;
 			buildSettings = {
-				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Release;
 		};
@@ -4249,10 +4206,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 138F45102C5CA19D000B03FC /* Framework-Core.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -4260,9 +4213,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 138F45102C5CA19D000B03FC /* Framework-Core.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
