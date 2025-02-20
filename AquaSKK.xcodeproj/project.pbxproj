@@ -3990,9 +3990,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 138B319F2C5DD40C006424E0 /* All-Testing.xcconfig */;
 			buildSettings = {
-				COMPILER_INDEX_STORE_ENABLE = YES;
-				EAGER_LINKING = YES;
-				ENABLE_DEBUG_DYLIB = YES;
 			};
 			name = Testing;
 		};
@@ -4186,9 +4183,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13D7561C2C5A9113006144F2 /* All-Debug.xcconfig */;
 			buildSettings = {
-				COMPILER_INDEX_STORE_ENABLE = YES;
-				EAGER_LINKING = YES;
-				ENABLE_DEBUG_DYLIB = YES;
 			};
 			name = Debug;
 		};
@@ -4196,9 +4190,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1393E3C02C6C046400F1E633 /* All-Release.xcconfig */;
 			buildSettings = {
-				COMPILER_INDEX_STORE_ENABLE = YES;
-				EAGER_LINKING = YES;
-				ENABLE_DEBUG_DYLIB = YES;
 			};
 			name = Release;
 		};
