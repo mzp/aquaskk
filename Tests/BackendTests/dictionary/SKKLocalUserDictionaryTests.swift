@@ -11,13 +11,13 @@ import Testing
 
 class BackendBundle {}
 
-struct LocalUserDictionaryTests {
-    let dict: LocalUserDictionary
+struct SKKLocalUserDictionaryTests {
+    let dict: SKKLocalUserDictionaryImpl
     init() async throws {
         let bundle = Bundle(for: BackendBundle.self)
         let resource = TestingResource(bundle: bundle)
         let path = try resource.path("skk-jisyo.utf8", writable: true)
-        dict = LocalUserDictionary()
+        dict = SKKLocalUserDictionaryImpl()
         try await dict.initialize(path: path)
     }
 

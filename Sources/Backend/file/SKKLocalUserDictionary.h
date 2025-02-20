@@ -27,11 +27,11 @@
 #import <AquaSKKBackend/SwiftObject.h>
 
 namespace AquaSKKBackend {
-    class LocalUserDictionary;
+    class SKKLocalUserDictionaryImpl;
 }
 
 class SKKLocalUserDictionary : public SKKUserDictionary {
-    SwiftObject<AquaSKKBackend::LocalUserDictionary> *impl_;
+    SwiftObject<AquaSKKBackend::SKKLocalUserDictionaryImpl> *impl_;
 
 public:
     SKKLocalUserDictionary();

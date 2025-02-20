@@ -7,6 +7,9 @@
 
 import Foundation
 
+let kOkuriAriMark = ";; okuri-ari entries."
+let kOkuriNasiMark = ";; okuri-nasi entries."
+
 class DictionaryEntryParser<T: AsyncIteratorProtocol> where T.Element == UInt8 {
     typealias Element = T.Element
     struct UnexpectedTokenError: Error {}
