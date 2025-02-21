@@ -10,7 +10,6 @@ import Combine
 import Foundation
 import OSLog
 
-/// 標準的な SKK 辞書実装
 public class SKKDictionaryReloadAdapter: SKKBaseDictionaryProtocol {
     private let baseDictionary: SKKBaseDictionaryProtocol
     private let source: SKKDictionarySourceFileProtocol
@@ -52,23 +51,5 @@ public class SKKDictionaryReloadAdapter: SKKBaseDictionaryProtocol {
 
     public func reverseLookup(candidate: String) -> String {
         return baseDictionary.reverseLookup(candidate: candidate)
-    }
-}
-
-public class SKKCommonDictionaryUTF8: SKKDictionaryReloadAdapter {
-    public init() {
-        super.init(
-            baseDictionary: SKKEncodingDictionary(encoding: .utf8),
-            source: SKKLocalDictionaryFileSource()
-        )
-    }
-}
-
-public class SKKCommonDictionaryEUCJP: SKKDictionaryReloadAdapter {
-    public init() {
-        super.init(
-            baseDictionary: SKKEncodingDictionary(encoding: .japaneseEUC),
-            source: SKKLocalDictionaryFileSource()
-        )
     }
 }

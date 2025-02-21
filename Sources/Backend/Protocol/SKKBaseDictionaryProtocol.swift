@@ -18,7 +18,7 @@ public protocol SKKBaseDictionaryProtocol {
 }
 
 public extension SKKBaseDictionaryProtocol {
-    func complete(_ helper: inout SKKCompletionHelperBridge) {
+    public func complete(_ helper: inout SKKCompletionHelperBridge) {
         var tmp: SKKCompletionHelperProtocol = helper
         complete(helper: &tmp)
     }

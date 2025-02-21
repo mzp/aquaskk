@@ -36,16 +36,13 @@ public class SKKLocalUserDictionaryImpl: SKKBaseDictionaryProtocol {
     public init() {}
 
     public func initialize(path: String) {
-        let semaphore = DispatchSemaphore(value: 0)
-        Task {
-            defer { semaphore.signal() }
+        SKKTask.perfromAndWait {
             do {
-                try await initialize(path: path)
+                try await self.initialize(path: path)
             } catch {
                 Logger.backend.error("\(#function, privacy: .public) can't load file: \(path, privacy: .private) due to \(error)")
             }
         }
-        semaphore.wait()
     }
 
     public func initialize(path: String) async throws {
