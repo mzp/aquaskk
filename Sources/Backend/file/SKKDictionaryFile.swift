@@ -9,7 +9,7 @@ import AquaSKKLogging
 import Foundation
 import OSLog
 
-public class SKKDictionaryFileImpl: NSObject {
+public class SKKDictionaryFileImpl: NSObject, SKKDictionaryDataSource {
     struct SKKDictionaryFileError: Error {}
 
     var okuriAri: [SKKDictionaryEntryImpl] = []

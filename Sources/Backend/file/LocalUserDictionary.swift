@@ -1,5 +1,5 @@
 //
-//  SKKLocalUserDictionaryImpl.swift
+//  LocalUserDictionary.swift
 //  AquaSKKBackend
 //
 //  Created by mzp on 9/15/24.
@@ -11,7 +11,7 @@ import OSLog
 private let kMaxIdleCount = 20
 private let kMaxSaveInterval: TimeInterval = 60 * 5.0
 
-extension SKKCompletionHelperBridge: SKKCompletionHelperProtocol {
+extension SKKCompletionHelperBridge: CompletionHelper {
     public var entry: String {
         String(getEntry())
     }
@@ -25,7 +25,7 @@ extension SKKCompletionHelperBridge: SKKCompletionHelperProtocol {
     }
 }
 
-public class SKKLocalUserDictionaryImpl: SKKBaseDictionaryProtocol {
+public class LocalUserDictionary {
     private var path: String?
     private var idleCount = 0
     private var lastUpdate = Date()
@@ -88,11 +88,11 @@ public class SKKLocalUserDictionaryImpl: SKKBaseDictionaryProtocol {
     }
 
     public func complete(_ helper: inout SKKCompletionHelperBridge) {
-        var tmp: SKKCompletionHelperProtocol = helper
+        var tmp: CompletionHelper = helper
         complete(helper: &tmp)
     }
 
-    public func complete(helper: inout SKKCompletionHelperProtocol) {
+    public func complete(helper: inout CompletionHelper) {
         let query = helper.entry
         for entry in file.okuriNasi {
             guard let entryString = entry.entryString(using: .utf8) else {

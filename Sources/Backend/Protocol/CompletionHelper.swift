@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol CompletionHelper {
+public protocol SKKCompletionHelperProtocol {
     var entry: String { get }
     var canContinue: Bool { get }
     mutating func add(completion: String)

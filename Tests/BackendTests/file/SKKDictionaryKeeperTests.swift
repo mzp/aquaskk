@@ -6,6 +6,7 @@
 //
 
 import Testing
+internal import AquaSKKTesting
 @testable internal import AquaSKKBackend
 
 struct SKKDictionaryKeeperTestsDataSource: SKKDictionaryDataSource {
@@ -20,16 +21,33 @@ struct SKKDictionaryKeeperTestsDataSource: SKKDictionaryDataSource {
 }
 
 struct SKKDictionaryKeeperTests {
+    var keeper: SKKDictionaryReader
+    init() {
+        self.keeper = SKKDictionaryReader(encoding: .utf8)
+        keeper.dataSource = SKKDictionaryKeeperTestsDataSource()
+    }
+
     @Test func findOkuriNasi() {
-        let keeper = SKKDictionaryKeeper(encoding: .utf8)
         keeper.dataSource = SKKDictionaryKeeperTestsDataSource()
         #expect(keeper.findOkuriNasi(query: "かんじ") == "/漢字/官寺/寛治/")
     }
 
     @Test func findOkuriAri() {
-        let keeper = SKKDictionaryKeeper(encoding: .utf8)
         keeper.dataSource = SKKDictionaryKeeperTestsDataSource()
         #expect(keeper.findOkuriAri(query: "うけとt") == "/受け取/受取/")
     }
 
+    @Test func reverseLookup() {
+        #expect(keeper.reverseLookup(candidate: "官寺") == "かんじ")
+    }
+
+    @Test func completion() {
+        let mock = MockCompletionHelper.newInstance()
+        mock.Initialize("かん")
+        var helper: SKKCompletionHelperProtocol = mock
+        keeper.complete(helper: &helper)
+
+        let candidates = Array(mock.Result())
+        #expect(candidates == ["かんじ"])
+    }
 }
