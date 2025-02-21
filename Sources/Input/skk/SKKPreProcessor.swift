@@ -9,16 +9,16 @@ import AquaSKKCore
 import Foundation
 import OSLog
 
-@objc(SKKPreProcessorImpl)
-public class SKKPreProcessorImpl: NSObject {
+@objc(SKKPreProcessor)
+public class SKKPreProcessor: NSObject {
     private var keymap: SKKKeymap
 
     /// シングルトン
     @MainActor
-    public static let sharedInstance = SKKPreProcessorImpl()
+    public static let sharedInstance = SKKPreProcessor()
 
     @MainActor
-    @objc public static func shared() -> SKKPreProcessorImpl {
+    @objc public static func shared() -> SKKPreProcessor {
         return sharedInstance
     }
 

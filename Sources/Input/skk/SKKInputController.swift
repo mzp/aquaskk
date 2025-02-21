@@ -21,7 +21,7 @@ public class SKKInputController: IMKInputController {
     private var modeIcon: MacInputModeWindow?
     private var inputModeMenu: MacInputModeMenu?
     private var blacklistApps: BlacklistApps?
-    private var preProcessor: SKKPreProcessorImpl?
+    private var preProcessor: SKKPreProcessor?
     private var session: SKKInputSessionBridge?
 
     override public init() {
@@ -78,7 +78,7 @@ public class SKKInputController: IMKInputController {
         }
 
         blacklistApps = BlacklistApps.shared()
-        preProcessor = SKKPreProcessorImpl.shared()
+        preProcessor = SKKPreProcessor.shared()
     }
 
     deinit {

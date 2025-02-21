@@ -52,8 +52,8 @@
 		133021A92D64332100BFE102 /* SKKDictionaryFileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133021A82D64332100BFE102 /* SKKDictionaryFileTests.swift */; };
 		133021AD2D646C9900BFE102 /* SKKDictionaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133021AC2D646C9900BFE102 /* SKKDictionaryEntry.swift */; };
 		133021AF2D646CB400BFE102 /* DictionaryEntryParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133021AE2D646CB400BFE102 /* DictionaryEntryParser.swift */; };
-		1335E36E2C9744A9002F298B /* LocalUserDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335E36D2C9744A9002F298B /* LocalUserDictionary.swift */; };
-		1335E3702C9744ED002F298B /* LocalUserDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335E36F2C9744ED002F298B /* LocalUserDictionaryTests.swift */; };
+		1335E36E2C9744A9002F298B /* SKKLocalUserDictionaryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335E36D2C9744A9002F298B /* SKKLocalUserDictionaryImpl.swift */; };
+		1335E3702C9744ED002F298B /* SKKLocalUserDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335E36F2C9744ED002F298B /* SKKLocalUserDictionaryTests.swift */; };
 		1335E3762C97F843002F298B /* TestingResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335E3752C97F842002F298B /* TestingResource.swift */; };
 		1335E3782C97FC62002F298B /* IntrusiveRefCounted.h in Headers */ = {isa = PBXBuildFile; fileRef = 13096C842C8C2D24009F3E6B /* IntrusiveRefCounted.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1335E37A2C97FE3C002F298B /* MockCompletionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335E3792C97FE3C002F298B /* MockCompletionHelper.swift */; };
@@ -189,7 +189,6 @@
 		135C3D982C5B3F1D00661AE3 /* MacCandidateWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D6D2C5B3F1D00661AE3 /* MacCandidateWindow.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		135C3D992C5B3F1D00661AE3 /* MacKotoeriDictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D7D2C5B3F1D00661AE3 /* MacKotoeriDictionary.cpp */; };
 		135C3D9A2C5B3F1D00661AE3 /* MacDynamicCompletor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D732C5B3F1D00661AE3 /* MacDynamicCompletor.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		135C3D9B2C5B3F1D00661AE3 /* SKKPreProcessor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D8B2C5B3F1D00661AE3 /* SKKPreProcessor.mm */; };
 		135C3D9E2C5B3F1D00661AE3 /* MacFrontEnd.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D752C5B3F1D00661AE3 /* MacFrontEnd.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		135C3D9F2C5B3F1D00661AE3 /* MacInputSessionParameter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D7B2C5B3F1D00661AE3 /* MacInputSessionParameter.mm */; };
 		135C3DA02C5B3F1D00661AE3 /* MacMessenger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D7F2C5B3F1D00661AE3 /* MacMessenger.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -209,7 +208,6 @@
 		135C3DB92C5B3F1D00661AE3 /* MacInputModeWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D782C5B3F1D00661AE3 /* MacInputModeWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DBB2C5B3F1D00661AE3 /* MacDynamicCompletor.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D722C5B3F1D00661AE3 /* MacDynamicCompletor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DBD2C5B3F1D00661AE3 /* MacFrontEnd.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D742C5B3F1D00661AE3 /* MacFrontEnd.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		135C3DBE2C5B3F1D00661AE3 /* SKKPreProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D8A2C5B3F1D00661AE3 /* SKKPreProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135EEB972C5EE3E100758672 /* InputMethodKitAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135EEB962C5EE3E100758672 /* InputMethodKitAdapter.swift */; };
 		135F893C2D61B0F30032AA24 /* SKKCalculatorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135F893B2D61B0F30032AA24 /* SKKCalculatorError.swift */; };
 		135F893E2D61B11C0032AA24 /* SKKArithmeticExpressionParsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135F893D2D61B11C0032AA24 /* SKKArithmeticExpressionParsers.swift */; };
@@ -217,8 +215,6 @@
 		135FB6D92C6998E800A6480A /* RomanKanaConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135FB6D82C6998E800A6480A /* RomanKanaConverter.swift */; };
 		135FB6E12C69AA7E00A6480A /* Trie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135FB6E02C69AA7E00A6480A /* Trie.swift */; };
 		135FB6E32C69B06B00A6480A /* TriesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135FB6E22C69B06B00A6480A /* TriesTest.swift */; };
-		1368B4BD2C968164008D3BF4 /* DictionaryFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1368B4BC2C968164008D3BF4 /* DictionaryFile.swift */; };
-		1368B4BF2C96818F008D3BF4 /* DictionaryFileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1368B4BE2C96818F008D3BF4 /* DictionaryFileTests.swift */; };
 		13706E5A2C6C5089004EC879 /* SKK-JISYO.L in Resources */ = {isa = PBXBuildFile; fileRef = 13706E582C6C492E004EC879 /* SKK-JISYO.L */; };
 		1371A74F2C5B5D0300E06348 /* DictionarySet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74D2C5B5D0300E06348 /* DictionarySet.plist */; };
 		1371A7502C5B5D0300E06348 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74E2C5B5D0300E06348 /* UserDefaults.plist */; };
@@ -617,8 +613,8 @@
 		133021A82D64332100BFE102 /* SKKDictionaryFileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKDictionaryFileTests.swift; sourceTree = "<group>"; };
 		133021AC2D646C9900BFE102 /* SKKDictionaryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKDictionaryEntry.swift; sourceTree = "<group>"; };
 		133021AE2D646CB400BFE102 /* DictionaryEntryParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEntryParser.swift; sourceTree = "<group>"; };
-		1335E36D2C9744A9002F298B /* LocalUserDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUserDictionary.swift; sourceTree = "<group>"; };
-		1335E36F2C9744ED002F298B /* LocalUserDictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUserDictionaryTests.swift; sourceTree = "<group>"; };
+		1335E36D2C9744A9002F298B /* SKKLocalUserDictionaryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKLocalUserDictionaryImpl.swift; sourceTree = "<group>"; };
+		1335E36F2C9744ED002F298B /* SKKLocalUserDictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKLocalUserDictionaryTests.swift; sourceTree = "<group>"; };
 		1335E3752C97F842002F298B /* TestingResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingResource.swift; sourceTree = "<group>"; };
 		1335E3792C97FE3C002F298B /* MockCompletionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCompletionHelper.swift; sourceTree = "<group>"; };
 		1335E37C2C97FE6C002F298B /* CompletionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionHelper.swift; sourceTree = "<group>"; };
@@ -849,8 +845,6 @@
 		135C3D7F2C5B3F1D00661AE3 /* MacMessenger.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MacMessenger.mm; sourceTree = "<group>"; };
 		135C3D882C5B3F1D00661AE3 /* SKKLayoutManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKLayoutManager.h; sourceTree = "<group>"; };
 		135C3D892C5B3F1D00661AE3 /* SKKLayoutManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKLayoutManager.mm; sourceTree = "<group>"; };
-		135C3D8A2C5B3F1D00661AE3 /* SKKPreProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKPreProcessor.h; sourceTree = "<group>"; };
-		135C3D8B2C5B3F1D00661AE3 /* SKKPreProcessor.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKPreProcessor.mm; sourceTree = "<group>"; };
 		135C3DBF2C5B3FEC00661AE3 /* Framework-Input.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Input.xcconfig"; sourceTree = "<group>"; };
 		135EEB962C5EE3E100758672 /* InputMethodKitAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputMethodKitAdapter.swift; sourceTree = "<group>"; };
 		135EEB9A2C5EE6AB00758672 /* MockTextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTextInput.swift; sourceTree = "<group>"; };
@@ -861,8 +855,6 @@
 		135FB6D82C6998E800A6480A /* RomanKanaConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanKanaConverter.swift; sourceTree = "<group>"; };
 		135FB6E02C69AA7E00A6480A /* Trie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trie.swift; sourceTree = "<group>"; };
 		135FB6E22C69B06B00A6480A /* TriesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriesTest.swift; sourceTree = "<group>"; };
-		1368B4BC2C968164008D3BF4 /* DictionaryFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryFile.swift; sourceTree = "<group>"; };
-		1368B4BE2C96818F008D3BF4 /* DictionaryFileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryFileTests.swift; sourceTree = "<group>"; };
 		13706E582C6C492E004EC879 /* SKK-JISYO.L */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 3; lineEnding = 0; path = "SKK-JISYO.L"; sourceTree = "<group>"; };
 		1371A74C2C5B5D0300E06348 /* BlacklistApps.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BlacklistApps.plist; sourceTree = "<group>"; };
 		1371A74D2C5B5D0300E06348 /* DictionarySet.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DictionarySet.plist; sourceTree = "<group>"; };
@@ -1390,8 +1382,10 @@
 			children = (
 				133021A62D64308100BFE102 /* SKKDictionaryFile.swift */,
 				133021AC2D646C9900BFE102 /* SKKDictionaryEntry.swift */,
-				1335E36D2C9744A9002F298B /* LocalUserDictionary.swift */,
+				1335E36D2C9744A9002F298B /* SKKLocalUserDictionaryImpl.swift */,
 				133021AE2D646CB400BFE102 /* DictionaryEntryParser.swift */,
+				1344F4C62C5B28FC00D8C850 /* SKKLocalUserDictionary.h */,
+				1344F4C72C5B28FC00D8C850 /* SKKLocalUserDictionary.cpp */,
 			);
 			path = file;
 			sourceTree = "<group>";
@@ -1428,9 +1422,8 @@
 		133A551F2C5DB8240047E911 /* dictionary */ = {
 			isa = PBXGroup;
 			children = (
-				1368B4BE2C96818F008D3BF4 /* DictionaryFileTests.swift */,
 				133021A82D64332100BFE102 /* SKKDictionaryFileTests.swift */,
-				1335E36F2C9744ED002F298B /* LocalUserDictionaryTests.swift */,
+				1335E36F2C9744ED002F298B /* SKKLocalUserDictionaryTests.swift */,
 				1344F52B2C5B28FC00D8C850 /* SKKAutoUpdateDictionary_TEST.mm */,
 				1344F5302C5B28FC00D8C850 /* SKKCommonDictionary_TEST.mm */,
 				1344F5322C5B28FC00D8C850 /* SKKDictionaryFactory_TEST.mm */,
@@ -1587,7 +1580,6 @@
 			isa = PBXGroup;
 			children = (
 				1335E37C2C97FE6C002F298B /* CompletionHelper.swift */,
-				1368B4BC2C968164008D3BF4 /* DictionaryFile.swift */,
 				1344F4B52C5B28FC00D8C850 /* SKKAutoUpdateDictionary.h */,
 				1344F4B62C5B28FC00D8C850 /* SKKBaseDictionary.h */,
 				1344F4B72C5B28FC00D8C850 /* SKKCommonDictionary.h */,
@@ -1603,8 +1595,6 @@
 				1344F4C32C5B28FC00D8C850 /* SKKHttpDictionaryLoader.h */,
 				1344F4C42C5B28FC00D8C850 /* SKKHttpDictionaryLoader.cpp */,
 				1344F4C52C5B28FC00D8C850 /* SKKLocalDictionaryLoader.h */,
-				1344F4C62C5B28FC00D8C850 /* SKKLocalUserDictionary.h */,
-				1344F4C72C5B28FC00D8C850 /* SKKLocalUserDictionary.cpp */,
 				1344F4C82C5B28FC00D8C850 /* SKKProxyDictionary.h */,
 				1344F4C92C5B28FC00D8C850 /* SKKProxyDictionary.cpp */,
 				1344F4CA2C5B28FC00D8C850 /* SKKUserDictionary.h */,
@@ -2531,8 +2521,6 @@
 				135C3D892C5B3F1D00661AE3 /* SKKLayoutManager.mm */,
 				13BDCB622D50396D0031BB3A /* SKKLayoutManager.swift */,
 				13F89D5B2D55DC73003177FA /* SKKModeTips.swift */,
-				135C3D8A2C5B3F1D00661AE3 /* SKKPreProcessor.h */,
-				135C3D8B2C5B3F1D00661AE3 /* SKKPreProcessor.mm */,
 				13B4A9C02D593241002453BA /* SKKPreProcessor.swift */,
 				13C672BC2D5C4F86000F4F6E /* SKKServer.h */,
 				13C672BF2D5C4F8D000F4F6E /* SKKServer.mm */,
@@ -2615,7 +2603,6 @@
 				135C3DB92C5B3F1D00661AE3 /* MacInputModeWindow.h in Headers */,
 				135C3DBB2C5B3F1D00661AE3 /* MacDynamicCompletor.h in Headers */,
 				135C3DBD2C5B3F1D00661AE3 /* MacFrontEnd.h in Headers */,
-				135C3DBE2C5B3F1D00661AE3 /* SKKPreProcessor.h in Headers */,
 				135C3D612C5B3E9600661AE3 /* AquaSKKInput.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3556,7 +3543,6 @@
 				13BDCB632D50396D0031BB3A /* SKKLayoutManager.swift in Sources */,
 				135C3D992C5B3F1D00661AE3 /* MacKotoeriDictionary.cpp in Sources */,
 				135C3D9A2C5B3F1D00661AE3 /* MacDynamicCompletor.mm in Sources */,
-				135C3D9B2C5B3F1D00661AE3 /* SKKPreProcessor.mm in Sources */,
 				135C3D9E2C5B3F1D00661AE3 /* MacFrontEnd.mm in Sources */,
 				135C3D9F2C5B3F1D00661AE3 /* MacInputSessionParameter.mm in Sources */,
 				13C672C12D5C4F8D000F4F6E /* SKKServer.mm in Sources */,
@@ -3619,13 +3605,12 @@
 				138C693C2C94C93E009FE153 /* SKKDistributedUserDictionary.cpp in Sources */,
 				133021AD2D646C9900BFE102 /* SKKDictionaryEntry.swift in Sources */,
 				133021AF2D646CB400BFE102 /* DictionaryEntryParser.swift in Sources */,
-				1368B4BD2C968164008D3BF4 /* DictionaryFile.swift in Sources */,
 				138C693D2C94C93E009FE153 /* SKKProxyDictionary.cpp in Sources */,
 				1335E37D2C97FE6C002F298B /* CompletionHelper.swift in Sources */,
 				13C1CD362D6189BC00455773 /* SKKCalculator.swift in Sources */,
 				133021A72D64308100BFE102 /* SKKDictionaryFile.swift in Sources */,
 				13C672B92D5A5FC2000F4F6E /* SKKBackendBridge.mm in Sources */,
-				1335E36E2C9744A9002F298B /* LocalUserDictionary.swift in Sources */,
+				1335E36E2C9744A9002F298B /* SKKLocalUserDictionaryImpl.swift in Sources */,
 				138C693E2C94C93E009FE153 /* SKKHttpDictionaryLoader.cpp in Sources */,
 				13C1CD392D61A21700455773 /* SKKParsersBase.swift in Sources */,
 				139BFFC12C95ECCE00665C1D /* NumericConverter.swift in Sources */,
@@ -3649,8 +3634,7 @@
 				133021A92D64332100BFE102 /* SKKDictionaryFileTests.swift in Sources */,
 				138C696D2C94CD81009FE153 /* utf8util_TEST.mm in Sources */,
 				138C696E2C94CD81009FE153 /* socketutil_TEST.mm in Sources */,
-				1335E3702C9744ED002F298B /* LocalUserDictionaryTests.swift in Sources */,
-				1368B4BF2C96818F008D3BF4 /* DictionaryFileTests.swift in Sources */,
+				1335E3702C9744ED002F298B /* SKKLocalUserDictionaryTests.swift in Sources */,
 				138C696F2C94CD81009FE153 /* SKKCalculatorTesting.swift in Sources */,
 				138C69702C94CD81009FE153 /* pthreadutil_TEST.mm in Sources */,
 				138C69562C94CD61009FE153 /* SKKBackEnd_TEST.mm in Sources */,
@@ -3805,10 +3789,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13018B2C2C7696B40045FF13 /* Framework-Testing.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -3816,10 +3796,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13018B2C2C7696B40045FF13 /* Framework-Testing.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 6.0;
 			};
 			name = Testing;
 		};
@@ -3827,9 +3803,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13018B2C2C7696B40045FF13 /* Framework-Testing.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
@@ -3928,8 +3901,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1352C9E32C5DF8330056261D /* App-Harness.xcconfig */;
 			buildSettings = {
-				OTHER_CFLAGS = "-stdlib=libc++";
-				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug;
 		};
@@ -3937,8 +3908,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1352C9E32C5DF8330056261D /* App-Harness.xcconfig */;
 			buildSettings = {
-				OTHER_CFLAGS = "-stdlib=libc++";
-				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Testing;
 		};
@@ -3946,8 +3915,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1352C9E32C5DF8330056261D /* App-Harness.xcconfig */;
 			buildSettings = {
-				OTHER_CFLAGS = "-stdlib=libc++";
-				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Release;
 		};
@@ -3955,10 +3922,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 135C3DBF2C5B3FEC00661AE3 /* Framework-Input.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -3966,9 +3929,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 135C3DBF2C5B3FEC00661AE3 /* Framework-Input.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
@@ -4022,9 +3982,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 138B319F2C5DD40C006424E0 /* All-Testing.xcconfig */;
 			buildSettings = {
-				COMPILER_INDEX_STORE_ENABLE = YES;
-				EAGER_LINKING = YES;
-				ENABLE_DEBUG_DYLIB = YES;
 			};
 			name = Testing;
 		};
@@ -4032,10 +3989,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 138F45102C5CA19D000B03FC /* Framework-Core.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 6.0;
 			};
 			name = Testing;
 		};
@@ -4050,10 +4003,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 135C3DBF2C5B3FEC00661AE3 /* Framework-Input.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 6.0;
 			};
 			name = Testing;
 		};
@@ -4142,7 +4091,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 139B7B812C60F69E00FE5263 /* Framework-UI.xcconfig */;
 			buildSettings = {
-				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug;
 		};
@@ -4150,7 +4098,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 139B7B812C60F69E00FE5263 /* Framework-UI.xcconfig */;
 			buildSettings = {
-				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Testing;
 		};
@@ -4158,7 +4105,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 139B7B812C60F69E00FE5263 /* Framework-UI.xcconfig */;
 			buildSettings = {
-				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Release;
 		};
@@ -4229,9 +4175,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13D7561C2C5A9113006144F2 /* All-Debug.xcconfig */;
 			buildSettings = {
-				COMPILER_INDEX_STORE_ENABLE = YES;
-				EAGER_LINKING = YES;
-				ENABLE_DEBUG_DYLIB = YES;
 			};
 			name = Debug;
 		};
@@ -4239,9 +4182,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1393E3C02C6C046400F1E633 /* All-Release.xcconfig */;
 			buildSettings = {
-				COMPILER_INDEX_STORE_ENABLE = YES;
-				EAGER_LINKING = YES;
-				ENABLE_DEBUG_DYLIB = YES;
 			};
 			name = Release;
 		};
@@ -4249,10 +4189,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 138F45102C5CA19D000B03FC /* Framework-Core.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -4260,9 +4196,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 138F45102C5CA19D000B03FC /* Framework-Core.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};

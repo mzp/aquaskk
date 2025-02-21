@@ -304,11 +304,11 @@ func terminate(_: Int32) {
 
         Task { @MainActor in
             Logger.skkInput.log("\(#function, privacy: .public) loading keymap: \(keymap, privacy: .public)")
-            SKKPreProcessorImpl.shared().initialize(path: keymap)
+            SKKPreProcessor.shared().initialize(path: keymap)
 
             for subKeymap in subKeymaps ?? [] {
                 Logger.skkInput.log("\(#function, privacy: .public) loading custom keymap: \(subKeymap, privacy: .public)")
-                SKKPreProcessorImpl.shared().patch(path: subKeymap)
+                SKKPreProcessor.shared().patch(path: subKeymap)
             }
 
             RomanKanaConverterImpl.shared().initialize(from: kanaRule)
