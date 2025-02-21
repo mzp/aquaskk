@@ -22,7 +22,7 @@ public class MacFrontEndImpl: NSObject {
     }
 
     @objc(insertString:)
-    @MainActor public func insert(string: String) {
+    public func insert(string: String) {
         if !string.isEmpty {
             willInsertText(string)
         }
@@ -74,7 +74,6 @@ public class MacFrontEndImpl: NSObject {
 
     // MARK: - Workaround
 
-    @MainActor
     private func willInsertText(_ string: String) {
         guard let bundleIdentifier = client.bundleIdentifier() else {
             Logger.skkInput.warning("\(#function)  client.bundleIdentifier is nil")

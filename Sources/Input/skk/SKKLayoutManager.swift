@@ -18,16 +18,16 @@ private let kMargin: CGFloat = 1.0
         self.client = client
     }
 
-    @MainActor public func inputOrigin() -> CGPoint {
+    public func inputOrigin() -> CGPoint {
         return inputOrigin(index: 0)
     }
 
-    @MainActor @objc public func inputOrigin(index: Int) -> CGPoint {
+    @objc public func inputOrigin(index: Int) -> CGPoint {
         let frame = inputFrame(at: index)
         return frame.origin
     }
 
-    @MainActor @objc public func candidateWindowOrigin() -> CGPoint {
+    @objc public func candidateWindowOrigin() -> CGPoint {
         let input = inputFrame(at: 0)
         var candidate = CandidateWindow.shared().window.frame
         let screen = screenFrame(input: input)
@@ -56,7 +56,7 @@ private let kMargin: CGFloat = 1.0
         return point
     }
 
-    @MainActor @objc public func annotationWindowOrigin(mark: Int) -> CGPoint {
+    @objc public func annotationWindowOrigin(mark: Int) -> CGPoint {
         let input = inputFrame(at: mark)
         let annotation = AnnotationWindow.shared().window.frame
         let screen = screenFrame(input: input)
@@ -89,7 +89,7 @@ private let kMargin: CGFloat = 1.0
         return NSWindow.Level(Int(client.windowLevel()) + 1)
     }
 
-    @MainActor func inputFrame(at index: Int) -> CGRect {
+    func inputFrame(at index: Int) -> CGRect {
         var frame = CGRect.zero
 
         let candidate = CandidateWindow.shared().window.frame

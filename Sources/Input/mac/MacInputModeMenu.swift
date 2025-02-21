@@ -23,7 +23,7 @@ public class MacInputModeMenuImpl: NSObject {
         Logger.skkMemory.debug("\(#function, privacy: .public))")
     }
 
-    @MainActor @objc public func selectInputMode(_ inputMode: SKKInputMode) {
+    @objc public func selectInputMode(_ inputMode: SKKInputMode) {
         if active {
             menu.updateMenu(inputMode)
         }

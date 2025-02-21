@@ -7,7 +7,6 @@
 
 import Foundation
 
-@MainActor
 @objc(MacAnnotatorImpl)
 public class MacAnnotatorImpl: NSObject {
     private let window: AnnotationWindow

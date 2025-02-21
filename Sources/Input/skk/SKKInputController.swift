@@ -32,13 +32,13 @@ public class SKKInputController: IMKInputController {
         super.init(server: server, delegate: delegate, client: inputClient)
     }
 
-    @_spi(Testing) @MainActor
+    @_spi(Testing)
     public func _setClient(_ client: IMKTextInput, sessionParameter: OpaquePointer) {
         let session = SKKInputSessionBridge(parameter: sessionParameter)
         setClient(client, session: session)
     }
 
-    @_spi(Testing) @MainActor @objc(_setClient:)
+    @_spi(Testing) @objc(_setClient:)
     public func _setClient(_ client: Any) {
         guard let client = client as? IMKTextInput else {
             return
@@ -46,7 +46,6 @@ public class SKKInputController: IMKInputController {
         setClient(client, session: nil)
     }
 
-    @MainActor
     private func setClient(_ client: Any, session: SKKInputSessionBridge?) {
         if let client = client as? NSTextInputClient {
             context = NSTextInputContext(client: client)
@@ -258,19 +257,17 @@ public class SKKInputController: IMKInputController {
         valid attributes = \(client?.validAttributesForMarkedText().debugDescription ?? "")
         """
 
-        Task { @MainActor in
-            let alert = NSAlert()
-            alert.addButton(withTitle: "OK")
-            alert.messageText = "デバッグ情報"
-            alert.informativeText = info
-            alert.alertStyle = .informational
-            alert.icon = NSImage(named: NSImage.infoName)
-            alert.window.level = .popUpMenu
-            alert.window.title = "AquaSKK"
-            if let window = NSApplication.shared.mainWindow {
-                // TODO: pass nil
-                alert.beginSheetModal(for: window)
-            }
+        let alert = NSAlert()
+        alert.addButton(withTitle: "OK")
+        alert.messageText = "デバッグ情報"
+        alert.informativeText = info
+        alert.alertStyle = .informational
+        alert.icon = NSImage(named: NSImage.infoName)
+        alert.window.level = .popUpMenu
+        alert.window.title = "AquaSKK"
+        if let window = NSApplication.shared.mainWindow {
+            // TODO: pass nil
+            alert.beginSheetModal(for: window)
         }
         let pb = NSPasteboard.general
         pb.declareTypes([.string], owner: self)

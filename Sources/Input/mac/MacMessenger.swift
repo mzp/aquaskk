@@ -18,7 +18,7 @@ public class MacMessengerImpl: NSObject {
         self.layoutManager = layoutManager
     }
 
-    @objc @MainActor public func send(message: String) {
+    @objc public func send(message: String) {
         let window = MessengerWindow.shared()
 
         var topLeft = layoutManager.inputOrigin()
