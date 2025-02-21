@@ -12,13 +12,13 @@ public protocol SKKBaseDictionaryProtocol {
 
     func find(entry: SKKEntry, to result: inout SKKCandidateSuite)
     func complete(_ helper: inout SKKCompletionHelperBridge)
-    
+
     func complete(helper: inout SKKCompletionHelperProtocol)
     func reverseLookup(candidate: String) -> String
 }
 
-extension SKKBaseDictionaryProtocol {
-    public func complete(_ helper: inout SKKCompletionHelperBridge) {
+public extension SKKBaseDictionaryProtocol {
+    func complete(_ helper: inout SKKCompletionHelperBridge) {
         var tmp: SKKCompletionHelperProtocol = helper
         complete(helper: &tmp)
     }

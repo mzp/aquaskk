@@ -7,19 +7,33 @@
 
 import Foundation
 
-struct SKKDictionaryEntryImpl: Equatable, CustomDebugStringConvertible {
-    var entry: [UInt8]
-    var value: [UInt8]
+public struct SKKDictionaryEntryImpl: Equatable, CustomDebugStringConvertible {
+    public var entry: [UInt8]
+    public var value: [UInt8]
 
-    func entryString(using encoding: String.Encoding) -> String? {
+    public init(entry: [UInt8], value: [UInt8]) {
+        self.entry = entry
+        self.value = value
+    }
+
+    public init(entry: String, value: String) {
+        self.entry = Array(entry.utf8)
+        self.value = Array(value.utf8)
+    }
+
+    // MARK: - Entry
+
+    public func entryString(using encoding: String.Encoding) -> String? {
         String(data: Data(entry), encoding: encoding)
     }
 
-    func valueString(using encoding: String.Encoding) -> String? {
+    // MARK: - Value
+
+    public func valueString(using encoding: String.Encoding) -> String? {
         String(data: Data(value), encoding: encoding)
     }
 
-    var valueStdString: std.string {
+    public var valueStdString: std.string {
         get {
             SKKRawString(value)
         } set {
@@ -28,15 +42,7 @@ struct SKKDictionaryEntryImpl: Equatable, CustomDebugStringConvertible {
         }
     }
 
-    init(entry: [UInt8], value: [UInt8]) {
-        self.entry = entry
-        self.value = value
-    }
-
-    init(entry: String, value: String) {
-        self.entry = Array(entry.utf8)
-        self.value = Array(value.utf8)
-    }
+    // MARK: -
 
     func takeBridgeObject() -> SKKDictionaryEntry {
         return .init(
@@ -45,7 +51,7 @@ struct SKKDictionaryEntryImpl: Equatable, CustomDebugStringConvertible {
         )
     }
 
-    var debugDescription: String {
+    public var debugDescription: String {
         """
         DictionaryEntry("\(entryString(using: .utf8) ?? "?")", "\(valueString(using: .utf8) ?? "?")")
         """

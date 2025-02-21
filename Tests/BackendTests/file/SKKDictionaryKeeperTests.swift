@@ -7,7 +7,7 @@
 
 import Testing
 internal import AquaSKKTesting
-@testable internal import AquaSKKBackend
+@_spi(Testing) @testable internal import AquaSKKBackend
 
 struct SKKDictionaryKeeperTestsDataSource: SKKDictionaryDataSource {
     let okuriAri: [SKKDictionaryEntryImpl] = [
@@ -21,9 +21,9 @@ struct SKKDictionaryKeeperTestsDataSource: SKKDictionaryDataSource {
 }
 
 struct SKKDictionaryKeeperTests {
-    var keeper: SKKDictionaryReader
+    var keeper: SKKEncodingDictionary
     init() {
-        self.keeper = SKKDictionaryReader(encoding: .utf8)
+        keeper = SKKEncodingDictionary(encoding: .utf8)
         keeper.dataSource = SKKDictionaryKeeperTestsDataSource()
     }
 

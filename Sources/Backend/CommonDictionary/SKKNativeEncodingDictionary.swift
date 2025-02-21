@@ -1,21 +1,21 @@
 //
-//  SKKDictionaryReader.swift
+//  SKKNativeEncodingDictionary.swift
 //  AquaSKKBackend
 //
 //  Created by mzp on 2/20/25.
 //
 
+import AquaSKKLogging
 import Foundation
 import OSLog
-import AquaSKKLogging
 
 protocol SKKDictionaryDataSource {
     var okuriAri: [SKKDictionaryEntryImpl] { get }
     var okuriNasi: [SKKDictionaryEntryImpl] { get }
 }
 
-// 辞書の読み書き w/ 文字コード変換
-class SKKDictionaryReader {
+/// 辞書の読み書き w/ 文字コード変換
+class SKKEncodingDictionary {
     var dataSource: SKKDictionaryDataSource?
 
     let encoding: String.Encoding
@@ -81,6 +81,5 @@ class SKKDictionaryReader {
                 break
             }
         }
-
     }
 }

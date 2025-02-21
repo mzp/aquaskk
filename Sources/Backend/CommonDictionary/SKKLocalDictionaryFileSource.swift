@@ -1,14 +1,14 @@
 //
-//  SKKDictionaryLocalSource.swift
+//  SKKLocalDictionaryFileSource.swift
 //  AquaSKK
 //
 //  Created by mzp on 2/21/25.
 //
 
-import OSLog
 import AquaSKKLogging
+import OSLog
 
-class SKKDictionaryLocalSource: SKKDictionarySourceProtocol {
+class SKKLocalDictionaryFileSource: SKKDictionarySourceFileProtocol {
     var path: String?
 
     func initialize(location: String) {
@@ -18,11 +18,12 @@ class SKKDictionaryLocalSource: SKKDictionarySourceProtocol {
     var interval: TimeInterval {
         60.0
     }
+
     var timeout: TimeInterval {
         1.0
     }
 
-    var date: Date?
+    private var date: Date?
 
     var needsUpdate: Bool {
         guard let path = path else {
@@ -41,7 +42,7 @@ class SKKDictionaryLocalSource: SKKDictionarySourceProtocol {
             }
             self.date = date
             return needsUpdate
-        } catch let error {
+        } catch {
             Logger.skkBackend.error("\(#function, privacy: .public) \(error.localizedDescription, privacy: .public)")
             return false
         }

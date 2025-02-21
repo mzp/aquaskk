@@ -1,5 +1,5 @@
 //
-//  CompletionHelper.swift
+//  SKKCompletionHelperProtocol.swift
 //  AquaSKKBackend
 //
 //  Created by mzp on 9/15/24.

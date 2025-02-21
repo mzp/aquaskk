@@ -12,8 +12,8 @@ import OSLog
 public class SKKDictionaryFileImpl: NSObject, SKKDictionaryDataSource {
     struct SKKDictionaryFileError: Error {}
 
-    var okuriAri: [SKKDictionaryEntryImpl] = []
-    var okuriNasi: [SKKDictionaryEntryImpl] = []
+    public internal(set) var okuriAri: [SKKDictionaryEntryImpl] = []
+    public internal(set) var okuriNasi: [SKKDictionaryEntryImpl] = []
 
     @objc public func save(path: String) throws {
         let space = Character(" ").asciiValue!
