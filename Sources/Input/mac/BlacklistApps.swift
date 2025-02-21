@@ -17,8 +17,8 @@ public class BlacklistApps: NSObject {
         apps = []
     }
 
-    @MainActor private static let sharedInstance = BlacklistApps()
-    @MainActor @objc(sharedManager) public static func shared() -> BlacklistApps {
+    private static let sharedInstance = BlacklistApps()
+    @objc(sharedManager) public static func shared() -> BlacklistApps {
         return sharedInstance
     }
 

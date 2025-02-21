@@ -14,10 +14,8 @@ public class SKKPreProcessor: NSObject {
     private var keymap: SKKKeymap
 
     /// シングルトン
-    @MainActor
     public static let sharedInstance = SKKPreProcessor()
 
-    @MainActor
     @objc public static func shared() -> SKKPreProcessor {
         return sharedInstance
     }

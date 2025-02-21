@@ -32,7 +32,6 @@ public class MacCandidateWindowImpl: NSObject {
         reloadUserDefaults()
     }
 
-    @MainActor
     @objc public func setup(candidates: [String]) -> [Int] {
         reloadUserDefaults()
         let cell = window.newCandidateCell()
@@ -105,7 +104,6 @@ public class MacCandidateWindowImpl: NSObject {
         window.prepare(with: font, labels: labels as NSString)
     }
 
-    @MainActor
     @objc public func skkWidgetShow() {
         window.setCandidates(candidates, selectedIndex: cursorIndex)
         window.setPage(page)

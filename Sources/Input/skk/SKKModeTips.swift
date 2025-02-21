@@ -23,7 +23,7 @@ import CoreGraphics
         cancel()
     }
 
-    @MainActor @objc public func activate() {
+    @objc public func activate() {
         let point = layoutManager.inputOrigin()
         let cursor = flip(point: point)
         guard let pid = activeProcessID() else {

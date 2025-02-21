@@ -32,7 +32,7 @@ public class MacDynamicCompletorImpl: NSObject {
         self.cursorOffset = cursorOffset
     }
 
-    @MainActor @objc public func skkWidgetShow() {
+    @objc public func skkWidgetShow() {
         if completion.isEmpty {
             skkWidgetHide()
         } else {

@@ -37,7 +37,7 @@ private let kInputModeTable: [(Int, SKKInputMode, String)] = [
         super.init()
     }
 
-    @MainActor @objc public func updateMenu(_ mode: SKKInputMode) {
+    @objc public func updateMenu(_ mode: SKKInputMode) {
         guard let identifier = modeIdentifier(inputMode: mode) else {
             return
         }

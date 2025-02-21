@@ -41,10 +41,8 @@ public class RomanKanaResult: NSObject {
 public class RomanKanaConverterImpl: NSObject {
     var root = Trie<RomanKanaRule>()
 
-    @MainActor
     static let sharedInstance = RomanKanaConverterImpl()
 
-    @MainActor
     @objc(sharedInstance) public static func shared() -> RomanKanaConverterImpl {
         return sharedInstance
     }

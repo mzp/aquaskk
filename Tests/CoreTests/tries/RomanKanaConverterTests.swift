@@ -8,6 +8,7 @@
 @testable internal import AquaSKKCore
 import Testing
 
+/// MainActorで実行しないとテストが失敗する。理由は忘れた。
 @MainActor
 struct RomanKanaConverterTests {
     func romanKana() throws -> RomanKanaConverterImpl {

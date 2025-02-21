@@ -204,9 +204,7 @@ func terminate(_: Int32) {
             Logger.skkInput.error("\(#function, privacy: .public) BlacklistApps.plist has incorrect data format")
             return
         }
-        Task { @MainActor in
-            BlacklistApps.shared().load(entries)
-        }
+        BlacklistApps.shared().load(entries)
     }
 
     public func reloadUserDefaults() {
@@ -302,21 +300,19 @@ func terminate(_: Int32) {
         let kanaRule = configuration.path(forName: "kana-rule.conf")
         let subRules = defaults.array(forKey: SKKUserDefaultKeys.sub_rules) as? [String]
 
-        Task { @MainActor in
-            Logger.skkInput.log("\(#function, privacy: .public) loading keymap: \(keymap, privacy: .public)")
-            SKKPreProcessor.shared().initialize(path: keymap)
+        Logger.skkInput.log("\(#function, privacy: .public) loading keymap: \(keymap, privacy: .public)")
+        SKKPreProcessor.shared().initialize(path: keymap)
 
-            for subKeymap in subKeymaps ?? [] {
-                Logger.skkInput.log("\(#function, privacy: .public) loading custom keymap: \(subKeymap, privacy: .public)")
-                SKKPreProcessor.shared().patch(path: subKeymap)
-            }
+        for subKeymap in subKeymaps ?? [] {
+            Logger.skkInput.log("\(#function, privacy: .public) loading custom keymap: \(subKeymap, privacy: .public)")
+            SKKPreProcessor.shared().patch(path: subKeymap)
+        }
 
-            RomanKanaConverterImpl.shared().initialize(from: kanaRule)
+        RomanKanaConverterImpl.shared().initialize(from: kanaRule)
 
-            for subRule in subRules ?? [] {
-                Logger.skkInput.log("\(#function, privacy: .public) loading custom kana rule: \(subRule, privacy: .public)")
-                RomanKanaConverterImpl.shared().patch(from: subRule)
-            }
+        for subRule in subRules ?? [] {
+            Logger.skkInput.log("\(#function, privacy: .public) loading custom kana rule: \(subRule, privacy: .public)")
+            RomanKanaConverterImpl.shared().patch(from: subRule)
         }
 
         initializeInputModeIcons()
