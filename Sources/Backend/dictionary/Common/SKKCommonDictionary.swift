@@ -5,11 +5,11 @@
 //  Created by mzp on 2/21/25.
 //
 
+import AquaSKKLogging
 import Foundation
 import OSLog
-import AquaSKKLogging
 
-/// 標準的な SKK 辞書実装
+// 標準的な SKK 辞書実装
 
 public class SKKCommonDictionaryUTF8: SKKDictionaryReloadAdapter {
     public init() {

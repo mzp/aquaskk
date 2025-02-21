@@ -24,17 +24,18 @@
 #ifndef SKKCommonDictionary_h
 #define SKKCommonDictionary_h
 
-#import <AquaSKKBackend/SwiftObject.h>
 #import <AquaSKKBackend/SKKBaseDictionary.h>
+#import <AquaSKKBackend/SwiftObject.h>
 
 namespace AquaSKKBackend {
     class SKKCommonDictionaryEUCJP;
     class SKKCommonDictionaryUTF8;
-}
+} // namespace AquaSKKBackend
 
 // SKK 共有辞書(EUC-JP 版)
-class SKKCommonDictionary: public SKKBaseDictionary {
+class SKKCommonDictionary : public SKKBaseDictionary {
     SwiftObject<AquaSKKBackend::SKKCommonDictionaryEUCJP> *impl_;
+
 public:
     SKKCommonDictionary();
     virtual ~SKKCommonDictionary();
@@ -45,8 +46,9 @@ public:
 };
 
 // SKK 共有辞書(UTF-8 版)
-class SKKCommonDictionaryUTF8: public SKKBaseDictionary {
+class SKKCommonDictionaryUTF8 : public SKKBaseDictionary {
     SwiftObject<AquaSKKBackend::SKKCommonDictionaryUTF8> *impl_;
+
 public:
     SKKCommonDictionaryUTF8();
     virtual ~SKKCommonDictionaryUTF8();
@@ -55,6 +57,5 @@ public:
     virtual std::string ReverseLookup(const std::string &candidate);
     virtual void Complete(SKKCompletionHelper &helper);
 };
-
 
 #endif

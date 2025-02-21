@@ -5,9 +5,9 @@
 //  Created by mzp on 2/21/25.
 //
 
+import AquaSKKLogging
 import Foundation
 import OSLog
-import AquaSKKLogging
 
 enum SKKTask {
     static func perfromAndWait(run: @escaping () async -> Void) {

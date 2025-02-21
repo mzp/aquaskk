@@ -9,7 +9,7 @@
 #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 
 SKKCommonDictionary::SKKCommonDictionary()
-: impl_(new SwiftObject<AquaSKKBackend::SKKCommonDictionaryEUCJP>()) {}
+    : impl_(new SwiftObject<AquaSKKBackend::SKKCommonDictionaryEUCJP>()) {}
 
 SKKCommonDictionary::~SKKCommonDictionary() {
     delete impl_;
@@ -29,9 +29,8 @@ void SKKCommonDictionary::Complete(SKKCompletionHelper &helper) {
     (*impl_)->complete(bridge);
 }
 
-
 SKKCommonDictionaryUTF8::SKKCommonDictionaryUTF8()
-: impl_(new SwiftObject<AquaSKKBackend::SKKCommonDictionaryUTF8>()) {}
+    : impl_(new SwiftObject<AquaSKKBackend::SKKCommonDictionaryUTF8>()) {}
 
 SKKCommonDictionaryUTF8::~SKKCommonDictionaryUTF8() {
     delete impl_;

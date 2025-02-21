@@ -16,6 +16,7 @@ public protocol SKKDictionaryDataSource {
 
 /// 辞書の読み書き w/ 文字コード変換
 class SKKEncodingDictionary: SKKBaseDictionaryProtocol {
+    
     @_spi(Testing)
     public var dataSource: SKKDictionaryDataSource?
 
