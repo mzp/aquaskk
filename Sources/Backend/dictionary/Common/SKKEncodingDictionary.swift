@@ -35,17 +35,19 @@ class SKKEncodingDictionary: SKKBaseDictionaryProtocol {
         var suite = SKKCandidateSuite()
         let query = String(entry.EntryString())
         if entry.IsOkuriAri() {
-            let rawValue = findOkuriAri(query: query)
-            suite.Parse(std.string(rawValue))
+            if let rawValue = findOkuriAri(query: query) {
+                suite.Parse(std.string(rawValue))
 
-            var strict = SKKCandidateSuite()
-            if suite.FindOkuriStrictly(entry.OkuriString(), &strict) {
-                strict.Add(suite.hints)
-                suite = strict
+                var strict = SKKCandidateSuite()
+                if suite.FindOkuriStrictly(entry.OkuriString(), &strict) {
+                    strict.Add(suite.hints)
+                    suite = strict
+                }
             }
         } else {
-            let rawValue = findOkuriNasi(query: query)
-            suite.Parse(std.string(rawValue))
+            if let rawValue = findOkuriNasi(query: query) {
+                suite.Parse(std.string(rawValue))
+            }
         }
         result.Add(suite)
     }
@@ -77,7 +79,9 @@ class SKKEncodingDictionary: SKKBaseDictionaryProtocol {
         }
         var parser = SKKCandidateParser()
         for entry in entries {
-            let valueString = entry.valueString(using: encoding)
+            guard let valueString = entry.valueString(using: encoding) else {
+                continue
+            }
             parser.Parse(std.string(valueString))
             if parser.candidates.first(where: {
                 String($0.variant) == candidate
