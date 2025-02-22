@@ -139,7 +139,7 @@ void spawn_server(void *(*server)(void *param)) {
 @implementation SKKProxyDictionaryTests
 
 - (void)testMain {
-    XCTSkip(@"FIXME: doesn't work");
+ //   XCTSkip(@"FIXME: doesn't work");
     spawn_server(normal_server);
     spawn_server(dumb_server);
     spawn_server(mad_server);

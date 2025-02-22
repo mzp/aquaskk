@@ -13,13 +13,13 @@ public class SKKHttpDictionaryFileSource: SKKDictionarySourceFileProtocol {
     var path: String?
     let session: URLSession
     public init() {
-        var configuration = URLSessionConfiguration.default
+        let configuration = URLSessionConfiguration.default
         configuration.requestCachePolicy = .returnCacheDataElseLoad
         session = URLSession(configuration: configuration)
     }
 
     var url: URL?
-    ///
+
     /// 引数の形式は "host:port url path" とする。":port" は省略化。
     ///
     /// 例)

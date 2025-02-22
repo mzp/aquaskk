@@ -75,7 +75,7 @@ struct SKKLocalUserDictionaryTests {
 
         let mock = MockCompletionHelper.newInstance()
         mock.Initialize("かん")
-        var helper: CompletionHelper = mock
+        var helper: SKKCompletionHelperProtocol = mock
         dict.complete(helper: &helper)
 
         let candidates = mock.Result()
@@ -87,7 +87,7 @@ struct SKKLocalUserDictionaryTests {
         let mock = MockCompletionHelper.newInstance()
         mock.Initialize("かんり")
 
-        var helper: CompletionHelper = mock
+        var helper: SKKCompletionHelperProtocol = mock
         dict.complete(helper: &helper)
 
         let candidates = mock.Result()
