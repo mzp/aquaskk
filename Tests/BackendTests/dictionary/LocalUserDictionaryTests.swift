@@ -1,5 +1,5 @@
 //
-//  SKKLocalUserDictionaryTests.swift
+//  LocalUserDictionaryTests.swift
 //  BackendTests
 //
 //  Created by mzp on 9/15/24.
@@ -11,13 +11,13 @@ import Testing
 
 class BackendBundle {}
 
-struct SKKLocalUserDictionaryTests {
-    let dict: SKKLocalUserDictionaryImpl
+struct LocalUserDictionaryTests {
+    let dict: LocalUserDictionary
     init() async throws {
         let bundle = Bundle(for: BackendBundle.self)
         let resource = TestingResource(bundle: bundle)
         let path = try resource.path("skk-jisyo.utf8", writable: true)
-        dict = SKKLocalUserDictionaryImpl()
+        dict = LocalUserDictionary()
         try await dict.initialize(path: path)
     }
 
@@ -75,7 +75,7 @@ struct SKKLocalUserDictionaryTests {
 
         let mock = MockCompletionHelper.newInstance()
         mock.Initialize("かん")
-        var helper: SKKCompletionHelperProtocol = mock
+        var helper: CompletionHelper = mock
         dict.complete(helper: &helper)
 
         let candidates = mock.Result()
@@ -87,7 +87,7 @@ struct SKKLocalUserDictionaryTests {
         let mock = MockCompletionHelper.newInstance()
         mock.Initialize("かんり")
 
-        var helper: SKKCompletionHelperProtocol = mock
+        var helper: CompletionHelper = mock
         dict.complete(helper: &helper)
 
         let candidates = mock.Result()

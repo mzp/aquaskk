@@ -7,7 +7,7 @@
 
 internal import AquaSKKBackend
 
-extension MockCompletionHelper: CompletionHelper {
+extension MockCompletionHelper: SKKCompletionHelperProtocol {
     public var entry: String {
         String(getEntry())
     }

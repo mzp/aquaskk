@@ -1,5 +1,5 @@
 //
-//  SKKLocalUserDictionaryImpl.swift
+//  LocalUserDictionary.swift
 //  AquaSKKBackend
 //
 //  Created by mzp on 9/15/24.
@@ -25,7 +25,7 @@ extension SKKCompletionHelperBridge: CompletionHelper {
     }
 }
 
-public class SKKLocalUserDictionaryImpl {
+public class LocalUserDictionary {
     private var path: String?
     private var idleCount = 0
     private var lastUpdate = Date()

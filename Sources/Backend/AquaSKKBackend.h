@@ -33,14 +33,8 @@ FOUNDATION_EXPORT const unsigned char AquaSKKBackendVersionString[];
 #import <AquaSKKBackend/SKKBaseDictionary.h>
 #import <AquaSKKBackend/SKKCommonDictionary.h>
 #import <AquaSKKBackend/SKKCompletionHelper.h>
-#import <AquaSKKBackend/SKKDictionaryFile.h>
-#import <AquaSKKBackend/SKKDictionaryKeeper.h>
-#import <AquaSKKBackend/SKKDictionaryLoader.h>
-#import <AquaSKKBackend/SKKDictionaryTemplate.h>
 #import <AquaSKKBackend/SKKDistributedUserDictionary.h>
 #import <AquaSKKBackend/SKKGadgetDictionary.h>
-#import <AquaSKKBackend/SKKHttpDictionaryLoader.h>
-#import <AquaSKKBackend/SKKLocalDictionaryLoader.h>
 #import <AquaSKKBackend/SKKLocalUserDictionary.h>
 #import <AquaSKKBackend/SKKProxyDictionary.h>
 #import <AquaSKKBackend/SKKUserDictionary.h>

@@ -23,11 +23,24 @@
 #ifndef SKKAutoUpdateDictionary_h
 #define SKKAutoUpdateDictionary_h
 
-#import <AquaSKKBackend/SKKDictionaryTemplate.h>
-#import <AquaSKKBackend/SKKHttpDictionaryLoader.h>
+#import <AquaSKKBackend/SKKBaseDictionary.h>
+#import <AquaSKKBackend/SwiftObject.h>
+
+namespace AquaSKKBackend {
+    class SKKAutoUpdateDictionary;
+} // namespace AquaSKKBackend
 
 // SKK 自動更新辞書
+class SKKAutoUpdateDictionary : public SKKBaseDictionary {
+    SwiftObject<AquaSKKBackend::SKKAutoUpdateDictionary> *impl_;
 
-typedef SKKDictionaryTemplate<SKKHttpDictionaryLoader> SKKAutoUpdateDictionary;
+public:
+    SKKAutoUpdateDictionary();
+    virtual ~SKKAutoUpdateDictionary();
+    virtual void Initialize(const std::string &path);
+    virtual void Find(const SKKEntry &entry, SKKCandidateSuite &result);
+    virtual std::string ReverseLookup(const std::string &candidate);
+    virtual void Complete(SKKCompletionHelper &helper);
+};
 
 #endif
