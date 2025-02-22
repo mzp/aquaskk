@@ -12,7 +12,7 @@ struct SKKAutoUpdateDictionaryTests {
     @Test func test() async throws {
         let dict = SKKAutoUpdateDictionary()
         try await dict.initialize(path: "raw.githubusercontent.com /skk-dev/dict/refs/heads/master/SKK-JISYO.S SKK-JISYO.S1")
-        try await dict.source.refresh()
+        try await dict.refresh()
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("dummy", "d"), to: &suite)
         #expect(suite.IsEmpty() == true)

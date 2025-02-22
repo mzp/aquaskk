@@ -64,8 +64,7 @@ public class SKKCommonDictionaryEUCJP: SKKDictionaryReloadAdapter {
 }
 
 public class SKKAutoUpdateDictionary: SKKDictionaryReloadAdapter {
-    @_spi(Testing)
-    public let source: SKKHttpDictionaryFileSource
+    private let source: SKKHttpDictionaryFileSource
 
     public init() {
         source = SKKHttpDictionaryFileSource()
@@ -90,5 +89,11 @@ public class SKKAutoUpdateDictionary: SKKDictionaryReloadAdapter {
     public func complete(_ helper: inout SKKCompletionHelperBridge) {
         var tmp: SKKCompletionHelperProtocol = helper
         complete(helper: &tmp)
+    }
+
+    // MARK: - For unittest
+
+    @_spi(Testing) public func refresh() async throws {
+        try await source.refresh()
     }
 }
