@@ -62,3 +62,33 @@ public class SKKCommonDictionaryEUCJP: SKKDictionaryReloadAdapter {
         complete(helper: &tmp)
     }
 }
+
+public class SKKAutoUpdateDictionary: SKKDictionaryReloadAdapter {
+    @_spi(Testing)
+    public let source: SKKHttpDictionaryFileSource
+
+    public init() {
+        source = SKKHttpDictionaryFileSource()
+        super.init(
+            baseDictionary: SKKEncodingDictionary(encoding: .japaneseEUC),
+            source: source
+        )
+    }
+
+    // MARK: - C++ Adapter
+
+    public func initialize(path: String) {
+        SKKTask.perfromAndWait {
+            do {
+                try await self.initialize(path: path)
+            } catch {
+                Logger.backend.error("\(#function, privacy: .public) can't load file: \(path, privacy: .private) due to \(error)")
+            }
+        }
+    }
+
+    public func complete(_ helper: inout SKKCompletionHelperBridge) {
+        var tmp: SKKCompletionHelperProtocol = helper
+        complete(helper: &tmp)
+    }
+}

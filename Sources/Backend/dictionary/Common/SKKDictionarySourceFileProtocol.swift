@@ -10,5 +10,5 @@ protocol SKKDictionarySourceFileProtocol {
     func initialize(location: String)
     var interval: TimeInterval { get }
     var timeout: TimeInterval { get }
-    var needsUpdate: Bool { get }
+    func refresh() async throws
 }

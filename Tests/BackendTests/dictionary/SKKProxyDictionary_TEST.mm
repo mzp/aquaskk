@@ -1,9 +1,7 @@
 
 #include <cassert>
 #import <XCTest/XCTest.h>
-#import <AquaSKKBackend/SKKCommonDictionary.h>
-#import <AquaSKKBackend/SKKEncoding.h>
-#import <AquaSKKBackend/SKKProxyDictionary.h>
+#import <AquaSKKBackend/AquaSKKBackend.h>
 #include <errno.h>
 
 @interface SKKProxyDictionaryTests : XCTestCase

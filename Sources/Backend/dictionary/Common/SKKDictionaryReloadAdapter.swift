@@ -24,21 +24,40 @@ public class SKKDictionaryReloadAdapter: SKKBaseDictionaryProtocol {
 
         source.initialize(location: path)
         timer = .scheduledTimer(withTimeInterval: source.interval, repeats: true) { [weak self] _ in
-            if self?.source.needsUpdate == true {
-                Task { try await self?.loadIfNeeded(force: false) }
+            Task {
+                try await self?.loadIfNeeded(force: false)
             }
         }
+
         try await loadIfNeeded(force: true)
     }
 
+    private var date: Date?
     private func loadIfNeeded(force: Bool) async throws {
+        try await source.refresh()
+
         guard let path = source.path else {
+            Logger.skkBackend.log("\(#function, privacy: .public) path is nil. skip reload")
             return
         }
-        guard source.needsUpdate || force else {
-            return
+        if force {
+            try await baseDictionary.initialize(path: path)
+        } else {
+            let attributes = try FileManager.default.attributesOfItem(atPath: path)
+            if let date = attributes[FileAttributeKey.modificationDate] as? Date {
+                if let prevDate = self.date {
+                    if date > prevDate {
+                        Logger.skkBackend.log("\(#function, privacy: .public) reload dictionary")
+                        try await baseDictionary.initialize(path: path)
+                    } else {
+                        Logger.skkBackend.info("\(#function, privacy: .public) skip reload")
+                    }
+                }
+                self.date = date
+            }
+
+            try await baseDictionary.initialize(path: path)
         }
-        try await baseDictionary.initialize(path: path)
     }
 
     public func find(entry: SKKEntry, to result: inout SKKCandidateSuite) {

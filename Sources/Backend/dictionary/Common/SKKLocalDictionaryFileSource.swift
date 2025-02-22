@@ -23,28 +23,7 @@ class SKKLocalDictionaryFileSource: SKKDictionarySourceFileProtocol {
         1.0
     }
 
-    private var date: Date?
-
-    var needsUpdate: Bool {
-        guard let path = path else {
-            return false
-        }
-        do {
-            let attributes = try FileManager.default.attributesOfItem(atPath: path)
-            guard let date = attributes[FileAttributeKey.modificationDate] as? Date else {
-                return true
-            }
-            let needsUpdate: Bool
-            if let prevDate = self.date {
-                needsUpdate = date > prevDate
-            } else {
-                needsUpdate = true
-            }
-            self.date = date
-            return needsUpdate
-        } catch {
-            Logger.skkBackend.error("\(#function, privacy: .public) \(error.localizedDescription, privacy: .public)")
-            return false
-        }
+    func refresh() async {
+        // DO NOTHING
     }
 }
