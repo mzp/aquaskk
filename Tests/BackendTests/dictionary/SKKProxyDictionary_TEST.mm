@@ -1,6 +1,7 @@
 
 #include <cassert>
 #import <XCTest/XCTest.h>
+#import <os/log.h>
 #import <AquaSKKBackend/AquaSKKBackend.h>
 #include <errno.h>
 
@@ -15,6 +16,7 @@ void session(int fd, SKKCommonDictionary &dict) {
         cmd = sock.get();
         switch(cmd) {
         case '0': // 切断
+            os_log_error(OS_LOG_DEFAULT, "%s: disconnect", __FUNCTION__);
             break;
 
         case '1': { // 検索
@@ -32,21 +34,24 @@ void session(int fd, SKKCommonDictionary &dict) {
             if(1 < key.size() && 0x7f < (unsigned)key[0] && std::isalpha(key[key.size() - 1])) {
                 entry = SKKEntry(key, "dummy");
             }
-
+            os_log_error(OS_LOG_DEFAULT, "%s: lookup with %s", __FUNCTION__, entry.EntryString().c_str());
             dict.Find(entry, result);
 
             // 見つかった？
             if(!result.IsEmpty()) {
+                os_log_error(OS_LOG_DEFAULT, "%s: Found", __FUNCTION__);
                 std::string candidates;
                 SKKEncoding::convert_utf8_to_eucj(result.ToString(), candidates);
                 sock << '1' << candidates << std::endl;
             } else {
+                os_log_error(OS_LOG_DEFAULT, "%s: Not found", __FUNCTION__);
                 sock << '4' << word << std::endl;
             }
             sock << std::flush;
         } break;
 
         default: // 無効なコマンド
+            os_log_error(OS_LOG_DEFAULT, "%s: invalid", __FUNCTION__);
             sock << '0' << std::flush;
             break;
         }
@@ -65,11 +70,6 @@ void notify_ok(void *param) {
 void *normal_server(void *param) {
     SKKCommonDictionary dict;
 
-    /*
-     let bundle = Bundle(for: BackendBundle.self)
-     let resource = TestingResource(bundle: bundle)
-     let path = try resource.path(path, writable: true)
-     */
     NSBundle *bundle = [NSBundle bundleForClass:SKKProxyDictionaryTests.class];
     NSString *path = [bundle pathForResource:@"SKK-JISYO" ofType:@"TEST"];
     dict.Initialize(path.UTF8String);

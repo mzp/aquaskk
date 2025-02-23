@@ -24,7 +24,6 @@
 #define SKKProxyDictionary_h
 #import <AquaSKKBackend/SKKBaseDictionary.h>
 #import <AquaSKKBackend/SwiftObject.h>
-#import <AquaSKKBackend/socketutil.h>
 
 namespace AquaSKKBackend {
     class SKKProxyDictionary;
@@ -33,15 +32,6 @@ namespace AquaSKKBackend {
 // 外部 skkserv 辞書
 class SKKProxyDictionary : public SKKBaseDictionary {
     SwiftObject<AquaSKKBackend::SKKProxyDictionary> *impl_;
-
-    net::socket::endpoint remote_;
-    net::socket::tcpstream session_;
-    bool active_;
-
-    bool connect();
-    bool send(const SKKEntry &entry);
-    bool ready();
-    void recv(SKKCandidateSuite &result);
 
 public:
     SKKProxyDictionary();

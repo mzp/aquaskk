@@ -21,75 +21,19 @@
 */
 
 #import "SKKProxyDictionary.h"
-#include <sstream>
 #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
-#include "SKKEncoding.h"
 
 SKKProxyDictionary::SKKProxyDictionary()
-    : active_(false), impl_(new SwiftObject<AquaSKKBackend::SKKProxyDictionary>()) {}
+    : impl_(new SwiftObject<AquaSKKBackend::SKKProxyDictionary>()) {}
 
 SKKProxyDictionary::~SKKProxyDictionary() {
-    session_.close();
     delete impl_;
 }
 
 void SKKProxyDictionary::Initialize(const std::string &location) {
-    remote_.parse(location, "1178");
-
-    session_.close();
-
-//    (*impl_)->initialize(location);
+    (*impl_)->initialize(location);
 }
 
 void SKKProxyDictionary::Find(const SKKEntry &entry, SKKCandidateSuite &result) {
     (*impl_)->find(entry, result);
-
-    // 再入でループするのを防ぐ
-    if(!active_) {
-        active_ = true;
-
-        if(connect() && send(entry) && ready()) {
-            recv(result);
-        }
-
-        active_ = false;
-    }
-}
-
-// ----------------------------------------------------------------------
-
-bool SKKProxyDictionary::connect() {
-    if(!session_) {
-        session_.open(remote_);
-    }
-
-    return (bool)session_;
-}
-
-bool SKKProxyDictionary::send(const SKKEntry &entry) {
-    session_ << '1' << SKKEncoding::eucj_from_utf8(entry.EntryString()) << ' ' << std::flush;
-
-    return (bool)session_;
-}
-
-bool SKKProxyDictionary::ready() {
-    net::socket::monitor monitor;
-    auto fd = session_.socket();
-    auto type = net::socket::monitor::READ;
-
-    monitor.add(fd, type);
-
-    return monitor.wait(1) == 1 && monitor.test(fd, type);
-}
-
-void SKKProxyDictionary::recv(SKKCandidateSuite &result) {
-    std::string response;
-
-    if(std::getline(session_, response).eof() || response.size() < 2 || response[0] != '1') {
-        return;
-    }
-
-    SKKCandidateSuite suite(SKKEncoding::utf8_from_eucj(response.substr(1)));
-
-    result.Add(suite);
 }

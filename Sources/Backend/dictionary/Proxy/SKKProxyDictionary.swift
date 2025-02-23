@@ -11,9 +11,11 @@ import Network
 import OSLog
 
 public class SKKProxyDictionary: SKKBaseDictionaryProtocol {
-    var connect: NWConnection?
+    static let queue = DispatchQueue(label: "SKKProxyDictionary")
+    private var connect: NWConnection?
 
     public init() {}
+
     public func initialize(path: String) async throws {
         connect?.cancel()
 
@@ -47,16 +49,62 @@ public class SKKProxyDictionary: SKKBaseDictionaryProtocol {
                 ()
             }
         }
-        connect.start(queue: .main)
-        // remote_.parse(location, "1178");
-        //
-        // session_.close();
-        //
+        connect.start(queue: Self.queue)
+        self.connect = connect
     }
 
-    public func find(entry _: SKKEntry, to _: inout SKKCandidateSuite) {
-        guard let connect = connect else {
-            return
+    deinit {
+        connect?.cancel()
+    }
+
+    public func find(entry: SKKEntry, to result: inout SKKCandidateSuite) {
+        let suite = SKKTask.perfromAndWait(timeout: .now().advanced(by: .seconds(1))) {
+            await self.find(entry: entry)
+        }
+        if let suite = suite {
+            result.Add(suite)
+        }
+    }
+
+    public func find(entry: SKKEntry) async -> SKKCandidateSuite? {
+        var data = Data()
+        if let lookup = "1".data(using: .utf8) {
+            data.append(lookup)
+        }
+        let entryString = SKKRawArray(SKKEncoding.eucj_from_utf8(entry.EntryString()))
+        data.append(contentsOf: entryString)
+        if let term = " ".data(using: .utf8) {
+            data.append(term)
+        }
+        Logger.skkBackend.debug("\(#function, privacy: .public) Looking up:\(entry.EntryString())")
+
+        guard let response = await send(data: data),
+              let content = String(data: response, encoding: .japaneseEUC),
+              content.first != "0"
+        else {
+            Logger.skkBackend.error("\(#function, privacy: .public) Invalid response")
+            return nil
+        }
+        let string = String(content.dropFirst())
+        return SKKCandidateSuite(std.string(string))
+    }
+
+    func send(data: Data) async -> Data? {
+        await withCheckedContinuation { continuation in
+            guard let connect = connect else {
+                return
+            }
+            connect.send(content: data, completion: .contentProcessed { error in
+                if let error = error {
+                    Logger.skkBackend.error("\(#function, privacy: .public) error=\(error.localizedDescription, privacy: .private)")
+                }
+            })
+            connect.receive(minimumIncompleteLength: 2, maximumLength: 1024 * 1024) { content, _, _, error in
+                if let error = error {
+                    Logger.skkBackend.error("\(#function, privacy: .public) error=\(error.localizedDescription, privacy: .private)")
+                }
+                continuation.resume(returning: content)
+            }
         }
     }
 

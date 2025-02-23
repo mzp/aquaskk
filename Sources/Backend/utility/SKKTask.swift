@@ -10,12 +10,14 @@ import Foundation
 import OSLog
 
 enum SKKTask {
-    static func perfromAndWait(run: @escaping () async -> Void) {
+    static func perfromAndWait<T>(timeout: DispatchTime = .distantFuture, run: @escaping () async -> T?) -> T? {
+        var value: T?
         let semaphore = DispatchSemaphore(value: 0)
         Task {
             defer { semaphore.signal() }
-            await run()
+            value = await run()
         }
-        semaphore.wait()
+        _ = semaphore.wait(timeout: timeout)
+        return value
     }
 }
