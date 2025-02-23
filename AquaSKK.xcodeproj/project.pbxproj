@@ -40,6 +40,7 @@
 		13185CC82C5B57DF001CF24D /* PathFormatter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13185CBC2C5B57DF001CF24D /* PathFormatter.mm */; };
 		131CBB102D4E87DD009012CB /* CandidateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131CBB0F2D4E87DD009012CB /* CandidateCell.swift */; };
 		131F479B2D6AECB2001187BF /* SKKDictionaryEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 131F479A2D6AECB2001187BF /* SKKDictionaryEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		131F479D2D6AEDDB001187BF /* SKKGadgetDictionaryTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131F479C2D6AEDDA001187BF /* SKKGadgetDictionaryTesting.swift */; };
 		131FC6742C7ECC0C00C261CC /* UICatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131FC6732C7ECC0C00C261CC /* UICatalog.swift */; };
 		131FC6772C7ED2F400C261CC /* AppKitAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131FC6762C7ED2F400C261CC /* AppKitAnnotationView.swift */; };
 		131FC67B2C7ED5C900C261CC /* AppKitCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131FC67A2C7ED5C900C261CC /* AppKitCompletionView.swift */; };
@@ -358,7 +359,6 @@
 		138C69552C94CBCB009FE153 /* subrange.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F55A2C5B28FC00D8C850 /* subrange.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		138C69562C94CD61009FE153 /* SKKBackEnd_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F52C2C5B28FC00D8C850 /* SKKBackEnd_TEST.mm */; };
 		138C69582C94CD68009FE153 /* SKKDistributedUserDictionary_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5362C5B28FC00D8C850 /* SKKDistributedUserDictionary_TEST.mm */; };
-		138C69592C94CD68009FE153 /* SKKGadgetDictionary_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5372C5B28FC00D8C850 /* SKKGadgetDictionary_TEST.mm */; };
 		138C695A2C94CD68009FE153 /* SKKCommonDictionary_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5302C5B28FC00D8C850 /* SKKCommonDictionary_TEST.mm */; };
 		138C695B2C94CD68009FE153 /* SKKDictionaryFactory_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5322C5B28FC00D8C850 /* SKKDictionaryFactory_TEST.mm */; };
 		138C695C2C94CD68009FE153 /* SKKProxyDictionary_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F53E2C5B28FC00D8C850 /* SKKProxyDictionary_TEST.mm */; };
@@ -602,6 +602,7 @@
 		13185CC02C5B57DF001CF24D /* SubRuleDescriptions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SubRuleDescriptions.cpp; sourceTree = "<group>"; };
 		131CBB0F2D4E87DD009012CB /* CandidateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateCell.swift; sourceTree = "<group>"; };
 		131F479A2D6AECB2001187BF /* SKKDictionaryEntry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKDictionaryEntry.h; sourceTree = "<group>"; };
+		131F479C2D6AEDDA001187BF /* SKKGadgetDictionaryTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKGadgetDictionaryTesting.swift; sourceTree = "<group>"; };
 		131FC6732C7ECC0C00C261CC /* UICatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICatalog.swift; sourceTree = "<group>"; };
 		131FC6762C7ED2F400C261CC /* AppKitAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKitAnnotationView.swift; sourceTree = "<group>"; };
 		131FC67A2C7ED5C900C261CC /* AppKitCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKitCompletionView.swift; sourceTree = "<group>"; };
@@ -752,7 +753,6 @@
 		1344F5312C5B28FC00D8C850 /* SKKCompleter_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKCompleter_TEST.mm; sourceTree = "<group>"; };
 		1344F5322C5B28FC00D8C850 /* SKKDictionaryFactory_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKDictionaryFactory_TEST.mm; sourceTree = "<group>"; };
 		1344F5362C5B28FC00D8C850 /* SKKDistributedUserDictionary_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKDistributedUserDictionary_TEST.mm; sourceTree = "<group>"; };
-		1344F5372C5B28FC00D8C850 /* SKKGadgetDictionary_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKGadgetDictionary_TEST.mm; sourceTree = "<group>"; };
 		1344F5382C5B28FC00D8C850 /* SKKInlineSelector_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKInlineSelector_TEST.mm; sourceTree = "<group>"; };
 		1344F5392C5B28FC00D8C850 /* SKKInputQueue_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKInputQueue_TEST.mm; sourceTree = "<group>"; };
 		1344F53A2C5B28FC00D8C850 /* SKKInputSession_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKInputSession_TEST.mm; sourceTree = "<group>"; };
@@ -1432,7 +1432,7 @@
 				1344F5302C5B28FC00D8C850 /* SKKCommonDictionary_TEST.mm */,
 				1344F5322C5B28FC00D8C850 /* SKKDictionaryFactory_TEST.mm */,
 				1344F5362C5B28FC00D8C850 /* SKKDistributedUserDictionary_TEST.mm */,
-				1344F5372C5B28FC00D8C850 /* SKKGadgetDictionary_TEST.mm */,
+				131F479C2D6AEDDA001187BF /* SKKGadgetDictionaryTesting.swift */,
 				1344F53E2C5B28FC00D8C850 /* SKKProxyDictionary_TEST.mm */,
 				1344F5422C5B28FC00D8C850 /* SKKUserDictionary_TEST.mm */,
 				1386297F2D694A6600C7A078 /* SKKAutoUpdateDictionaryTests.swift */,
@@ -3692,9 +3692,9 @@
 				138629802D694A6600C7A078 /* SKKAutoUpdateDictionaryTests.swift in Sources */,
 				138C69562C94CD61009FE153 /* SKKBackEnd_TEST.mm in Sources */,
 				138C69582C94CD68009FE153 /* SKKDistributedUserDictionary_TEST.mm in Sources */,
-				138C69592C94CD68009FE153 /* SKKGadgetDictionary_TEST.mm in Sources */,
 				138C695A2C94CD68009FE153 /* SKKCommonDictionary_TEST.mm in Sources */,
 				138C69622C94CD6E009FE153 /* SKKCandidate_TEST.mm in Sources */,
+				131F479D2D6AEDDB001187BF /* SKKGadgetDictionaryTesting.swift in Sources */,
 				138C69632C94CD6E009FE153 /* SKKCandidateSuite_TEST.mm in Sources */,
 				138C69642C94CD6E009FE153 /* SKKCandidateParser_TEST.mm in Sources */,
 				138C695B2C94CD68009FE153 /* SKKDictionaryFactory_TEST.mm in Sources */,
