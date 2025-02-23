@@ -2,7 +2,7 @@
 
   MacOS X implementation of the SKK input method.
 
-  Copyright (C) 2009 Tomotaka SUWA <t.suwa@mac.com>
+  Copyright (C) 2006-2010 Tomotaka SUWA <tomotaka.suwa@gmail.com>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -20,30 +20,26 @@
 
 */
 
-#ifndef SKKGadgetDictionary_h
-#define SKKGadgetDictionary_h
-
+#ifndef SKKProxyDictionary_h
+#define SKKProxyDictionary_h
 #import <AquaSKKBackend/SKKBaseDictionary.h>
 #import <AquaSKKBackend/SwiftObject.h>
+
 namespace AquaSKKBackend {
-    class SKKGadgetDictionaryImpl;
+    class SKKProxyDictionary;
 }
 
-// ======================================================================
-// プログラム実行変換辞書クラス
-// ======================================================================
-class SKKGadgetDictionary : public SKKBaseDictionary {
-    SwiftObject<AquaSKKBackend::SKKGadgetDictionaryImpl> *impl_;
+// 外部 skkserv 辞書
+class SKKProxyDictionary : public SKKBaseDictionary {
+    SwiftObject<AquaSKKBackend::SKKProxyDictionary> *impl_;
 
 public:
-    SKKGadgetDictionary();
-    ~SKKGadgetDictionary();
+    SKKProxyDictionary();
+    virtual ~SKKProxyDictionary();
 
-    virtual void Initialize(const std::string &location);
+    virtual void Initialize(const std::string &path);
 
     virtual void Find(const SKKEntry &entry, SKKCandidateSuite &result);
-
-    virtual void Complete(SKKCompletionHelper &helper);
 };
 
 #endif

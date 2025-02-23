@@ -1,4 +1,4 @@
-/* -*- C++ -*-
+/*
 
   MacOS X implementation of the SKK input method.
 
@@ -20,30 +20,20 @@
 
 */
 
-#ifndef SKKProxyDictionary_h
-#define SKKProxyDictionary_h
+#import "SKKProxyDictionary.h"
+#import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 
-#import <AquaSKKBackend/SKKBaseDictionary.h>
-#import <AquaSKKBackend/socketutil.h>
+SKKProxyDictionary::SKKProxyDictionary()
+    : impl_(new SwiftObject<AquaSKKBackend::SKKProxyDictionary>()) {}
 
-// 外部 skkserv 辞書
-class SKKProxyDictionary : public SKKBaseDictionary {
-    net::socket::endpoint remote_;
-    net::socket::tcpstream session_;
-    bool active_;
+SKKProxyDictionary::~SKKProxyDictionary() {
+    delete impl_;
+}
 
-    bool connect();
-    bool send(const SKKEntry &entry);
-    bool ready();
-    void recv(SKKCandidateSuite &result);
+void SKKProxyDictionary::Initialize(const std::string &location) {
+    (*impl_)->initialize(location);
+}
 
-public:
-    SKKProxyDictionary();
-    virtual ~SKKProxyDictionary();
-
-    virtual void Initialize(const std::string &path);
-
-    virtual void Find(const SKKEntry &entry, SKKCandidateSuite &result);
-};
-
-#endif
+void SKKProxyDictionary::Find(const SKKEntry &entry, SKKCandidateSuite &result) {
+    (*impl_)->find(entry, result);
+}

@@ -25,7 +25,7 @@ extension SKKCompletionHelperBridge: SKKCompletionHelperProtocol {
     }
 }
 
-public class SKKLocalUserDictionaryImpl: SKKBaseDictionaryProtocol {
+public class SKKLocalUserDictionaryImpl: SKKBaseDictionaryProtocol, SKKUserDictionaryProtocol {
     private var path: String?
     private var idleCount = 0
     private var lastUpdate = Date()

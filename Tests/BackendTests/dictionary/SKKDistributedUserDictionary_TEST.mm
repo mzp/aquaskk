@@ -1,4 +1,5 @@
 #import <XCTest/XCTest.h>
+#import <os/log.h>
 #import <AquaSKKBackend/SKKDistributedUserDictionary.h>
 #import <AquaSKKBackend/pthreadutil.h>
 #import <AquaSKKBackend/socketutil.h>
@@ -38,7 +39,7 @@ class server : public pthread::task {
 
         while(std::getline(stream, line)) {
             param param(line);
-
+            os_log_error(OS_LOG_DEFAULT, "%s: received: %s", __FUNCTION__, line.c_str());
             stream << "OK" << "\r\n" << std::flush;
 
             if(param.command == "GET" || param.command == "COMPLETE") {
