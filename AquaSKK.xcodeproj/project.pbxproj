@@ -302,6 +302,8 @@
 		1377D08F2C678E6D005F21AE /* DictionarySet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1377D07A2C678E6D005F21AE /* DictionarySet.plist */; };
 		1377D0902C678E6D005F21AE /* sub-rule.desc in Resources */ = {isa = PBXBuildFile; fileRef = 1377D0822C678E6D005F21AE /* sub-rule.desc */; };
 		137B65F32D6A9C7500469F55 /* SKKProxyDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137B65F22D6A9C7500469F55 /* SKKProxyDictionary.swift */; };
+		137B65F52D6AB7DA00469F55 /* SKKDistributedUserDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137B65F42D6AB7DA00469F55 /* SKKDistributedUserDictionary.swift */; };
+		137B65F72D6AB81400469F55 /* SKKUserDictionaryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137B65F62D6AB81400469F55 /* SKKUserDictionaryProtocol.swift */; };
 		137D057C2C5B5A82009AC591 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137D057B2C5B5A82009AC591 /* Assets.xcassets */; };
 		137D057F2C5B5A82009AC591 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137D057E2C5B5A82009AC591 /* Preview Assets.xcassets */; };
 		137D058A2C5B5A83009AC591 /* AquaSKKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D05892C5B5A83009AC591 /* AquaSKKTests.swift */; };
@@ -945,6 +947,8 @@
 		1377D0842C678E6D005F21AE /* SubRuleDescriptionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubRuleDescriptionsTests.swift; sourceTree = "<group>"; };
 		1377D0862C678E6D005F21AE /* ServiceTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTesting.swift; sourceTree = "<group>"; };
 		137B65F22D6A9C7500469F55 /* SKKProxyDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKProxyDictionary.swift; sourceTree = "<group>"; };
+		137B65F42D6AB7DA00469F55 /* SKKDistributedUserDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKDistributedUserDictionary.swift; sourceTree = "<group>"; };
+		137B65F62D6AB81400469F55 /* SKKUserDictionaryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKUserDictionaryProtocol.swift; sourceTree = "<group>"; };
 		137D057B2C5B5A82009AC591 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		137D057E2C5B5A82009AC591 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		137D05802C5B5A82009AC591 /* AquaSKK.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AquaSKK.entitlements; sourceTree = "<group>"; };
@@ -1476,6 +1480,7 @@
 			children = (
 				1335E37C2C97FE6C002F298B /* SKKCompletionHelperProtocol.swift */,
 				135DDD972D68D56700E6FDDE /* SKKBaseDictionaryProtocol.swift */,
+				137B65F62D6AB81400469F55 /* SKKUserDictionaryProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1591,8 +1596,7 @@
 				1344F4B62C5B28FC00D8C850 /* SKKBaseDictionary.h */,
 				13FDBD682D6A319E0075C14A /* Proxy */,
 				1344F4B82C5B28FC00D8C850 /* SKKCompletionHelper.h */,
-				1344F4BF2C5B28FC00D8C850 /* SKKDistributedUserDictionary.h */,
-				1344F4C02C5B28FC00D8C850 /* SKKDistributedUserDictionary.cpp */,
+				137B65F82D6AB8B400469F55 /* DistributedUser */,
 				1344F4CA2C5B28FC00D8C850 /* SKKUserDictionary.h */,
 			);
 			path = dictionary;
@@ -2170,6 +2174,16 @@
 				130225DA2D4ECF1300E2FB84 /* NSParagraphStyle+Mutable.swift */,
 			);
 			path = util;
+			sourceTree = "<group>";
+		};
+		137B65F82D6AB8B400469F55 /* DistributedUser */ = {
+			isa = PBXGroup;
+			children = (
+				1344F4BF2C5B28FC00D8C850 /* SKKDistributedUserDictionary.h */,
+				137B65F42D6AB7DA00469F55 /* SKKDistributedUserDictionary.swift */,
+				1344F4C02C5B28FC00D8C850 /* SKKDistributedUserDictionary.cpp */,
+			);
+			path = DistributedUser;
 			sourceTree = "<group>";
 		};
 		137D05762C5B5A81009AC591 /* App */ = {
@@ -3647,6 +3661,7 @@
 				13E338942D677550009FABC2 /* SKKEncodingDictionary.swift in Sources */,
 				1386297C2D69496000C7A078 /* SKKHttpDictionaryFileSource.swift in Sources */,
 				13C672B92D5A5FC2000F4F6E /* SKKBackendBridge.mm in Sources */,
+				137B65F52D6AB7DA00469F55 /* SKKDistributedUserDictionary.swift in Sources */,
 				1335E36E2C9744A9002F298B /* SKKLocalUserDictionaryImpl.swift in Sources */,
 				133ADFF22D68E74000DCA0DA /* SKKLocalDictionaryFileSource.swift in Sources */,
 				13C1CD392D61A21700455773 /* SKKParsersBase.swift in Sources */,
@@ -3655,6 +3670,7 @@
 				138C694B2C94C96E009FE153 /* SKKEncoding.mm in Sources */,
 				135F893E2D61B11C0032AA24 /* SKKArithmeticExpressionParsers.swift in Sources */,
 				138C69242C94C8FC009FE153 /* SKKDictionaryCache.cpp in Sources */,
+				137B65F72D6AB81400469F55 /* SKKUserDictionaryProtocol.swift in Sources */,
 				13A0CF3B2D6941AD00489953 /* SKKCommonDictionary.swift in Sources */,
 				135F893C2D61B0F30032AA24 /* SKKCalculatorError.swift in Sources */,
 				138C69462C94C948009FE153 /* SKKEntry.cpp in Sources */,

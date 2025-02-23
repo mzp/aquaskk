@@ -28,8 +28,6 @@ public class SKKProxyDictionary: SKKBaseDictionaryProtocol {
         } else {
             port = 1178
         }
-        let endpoint = NWEndpoint.hostPort(host: .init(host), port: .init(port.description) ?? .any)
-        Logger.skkBackend.log("\(#function, privacy: .public) endpoint=\(endpoint.debugDescription, privacy: .private)")
         let connect = NWConnection(host: .init(host), port: .init(port.description) ?? .any, using: .tcp)
         connect.stateUpdateHandler = { state in
             switch state {
@@ -90,10 +88,10 @@ public class SKKProxyDictionary: SKKBaseDictionaryProtocol {
     }
 
     func send(data: Data) async -> Data? {
-        await withCheckedContinuation { continuation in
-            guard let connect = connect else {
-                return
-            }
+        guard let connect = connect else {
+            return nil
+        }
+        return await withCheckedContinuation { continuation in
             connect.send(content: data, completion: .contentProcessed { error in
                 if let error = error {
                     Logger.skkBackend.error("\(#function, privacy: .public) error=\(error.localizedDescription, privacy: .private)")

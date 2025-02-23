@@ -24,7 +24,7 @@
 #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 
 SKKLocalUserDictionary::SKKLocalUserDictionary()
-    : impl_(new SwiftObject<AquaSKKBackend::SKKLocalUserDictionaryImpl>()) {}
+: impl_(new SwiftObject<AquaSKKBackend::SKKLocalUserDictionaryImpl>()) {}
 
 SKKLocalUserDictionary::~SKKLocalUserDictionary() {
     delete impl_;
