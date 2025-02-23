@@ -1746,22 +1746,6 @@
 			path = utility;
 			sourceTree = "<group>";
 		};
-		1344F55D2C5B28FC00D8C850 /* engine */ = {
-			isa = PBXGroup;
-			children = (
-				138C69542C94CBBF009FE153 /* utility */,
-				1344F4B42C5B28FC00D8C850 /* completer */,
-				1344F4DF2C5B28FC00D8C850 /* editor */,
-				1344F4ED2C5B28FC00D8C850 /* keymap */,
-				1344F4F52C5B28FC00D8C850 /* selector */,
-				1344F5052C5B28FC00D8C850 /* session */,
-				1344F5082C5B28FC00D8C850 /* skkserv */,
-				1344F5122C5B28FC00D8C850 /* state */,
-				1344F5502C5B28FC00D8C850 /* trie */,
-			);
-			path = engine;
-			sourceTree = "<group>";
-		};
 		1344F6202C5B2C9C00D8C850 /* CoreTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -2445,10 +2429,18 @@
 		13D756182C5A9049006144F2 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				13D756172C5A9049006144F2 /* AquaSKKCore.docc */,
 				13D756162C5A9049006144F2 /* AquaSKKCore.h */,
 				1344F4A62C5B28FC00D8C850 /* bridge */,
-				1344F55D2C5B28FC00D8C850 /* engine */,
-				13D756172C5A9049006144F2 /* AquaSKKCore.docc */,
+				1344F4B42C5B28FC00D8C850 /* completer */,
+				1344F4DF2C5B28FC00D8C850 /* editor */,
+				1344F4ED2C5B28FC00D8C850 /* keymap */,
+				1344F4F52C5B28FC00D8C850 /* selector */,
+				1344F5052C5B28FC00D8C850 /* session */,
+				1344F5082C5B28FC00D8C850 /* skkserv */,
+				1344F5122C5B28FC00D8C850 /* state */,
+				1344F5502C5B28FC00D8C850 /* trie */,
+				138C69542C94CBBF009FE153 /* utility */,
 			);
 			path = Core;
 			sourceTree = "<group>";
