@@ -22,6 +22,7 @@
 
 #import <AquaSKKBackend/SKKDictionaryKey.h>
 #import <AquaSKKBackend/SKKLocalUserDictionary.h>
+#import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 
 SKKLocalUserDictionary::SKKLocalUserDictionary()

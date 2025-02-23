@@ -103,7 +103,7 @@ public class SKKBackend {
         }
     }
 
-    public func complete(key: String, limit: Int) -> [String] {
+    public func complete(key: String, limit: Int, to result: inout SKKCompletionResult) -> Bool {
         let backendHelper = SKKBackendCompletionHelper(entry: key, minimumLength: minimumCompletionLength, limit: limit)
 
         if key.isEmpty || !extendedCompletionEnabled {
@@ -115,7 +115,10 @@ public class SKKBackend {
                 dictionary.complete(helper: &helper)
             }
         }
-        return backendHelper.result
+        for entry in backendHelper.result {
+            result.push_back(std.string(entry))
+        }
+        return backendHelper.result.count > 0
     }
 
     public func reverseLookup(candidate: String) -> String {

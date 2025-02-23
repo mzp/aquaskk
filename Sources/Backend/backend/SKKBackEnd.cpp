@@ -38,11 +38,7 @@ void SKKBackEnd::Initialize(const std::string &userdict_path, const SKKDictionar
 }
 
 bool SKKBackEnd::Complete(const std::string &key, std::vector<std::string> &result, unsigned limit) {
-    auto entries = (*impl_)->complete(key, limit);
-    for(auto entry : entries) {
-        result.push_back(entry);
-    }
-    return !result.empty();
+    return (*impl_)->complete(key, limit, result);
 }
 
 bool SKKBackEnd::Find(const SKKEntry &entry, SKKCandidateSuite &result) {

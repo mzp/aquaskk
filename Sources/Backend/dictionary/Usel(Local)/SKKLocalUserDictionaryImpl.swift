@@ -56,7 +56,7 @@ public class SKKLocalUserDictionaryImpl: SKKBaseDictionaryProtocol, SKKUserDicti
         idleCount = 0
         lastUpdate = Date()
 
-        _ = try await file.load(path: path)
+        _ = try? await file.load(path: path)
         fix()
     }
 

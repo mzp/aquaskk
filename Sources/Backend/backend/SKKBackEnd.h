@@ -31,7 +31,7 @@
 namespace AquaSKKBackend {
     class SKKBackend;
 }
-
+typedef std::vector<std::string> SKKCompletionResult;
 class SKKBackEnd {
     SwiftObject<AquaSKKBackend::SKKBackend> *impl_;
 
@@ -45,7 +45,7 @@ public:
     void Initialize(const std::string &userdict_path, const SKKDictionaryKeyContainer &keys);
 
     // 補完
-    bool Complete(const std::string &key, std::vector<std::string> &result, unsigned limit = 0);
+    bool Complete(const std::string &key, SKKCompletionResult &result, unsigned limit = 0);
 
     // 検索
     bool Find(const SKKEntry &entry, SKKCandidateSuite &result);
