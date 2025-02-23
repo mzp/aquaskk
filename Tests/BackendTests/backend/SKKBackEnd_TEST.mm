@@ -3,7 +3,6 @@
 #import <XCTest/XCTest.h>
 #import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKBackend/SKKCommonDictionary.h>
-#import <AquaSKKBackend/SKKDictionaryFactory.h>
 
 @interface SKKBackEndTests : XCTestCase
 @end
@@ -11,8 +10,6 @@
 @implementation SKKBackEndTests
 
 - (void)testMain {
-    SKKRegisterFactoryMethod<SKKCommonDictionary>(0);
-
     SKKDictionaryKeyContainer dicts;
 
     NSBundle *bundle = [NSBundle bundleForClass:SKKBackEndTests.class];

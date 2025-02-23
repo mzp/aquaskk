@@ -127,15 +127,6 @@ func terminate(_: Int32) {
         } catch {
             Logger.skkInput.error("\(#function, privacy: .public) \(error.localizedDescription, privacy: .public)")
         }
-
-        // TODO: SKKRegisterFactoryMethod from Swift
-        // SKKRegisterFactoryMethod<SKKCommonDictionary>(DictionaryTypes::Common);
-        // SKKRegisterFactoryMethod<SKKCommonDictionaryUTF8>(DictionaryTypes::CommonUTF8);
-        // SKKRegisterFactoryMethod<SKKAutoUpdateDictionary>(DictionaryTypes::AutoUpdate);
-        // SKKRegisterFactoryMethod<SKKProxyDictionary>(DictionaryTypes::Proxy);
-        // SKKRegisterFactoryMethod<MacKotoeriDictionary>(DictionaryTypes::Kotoeri);
-        // SKKRegisterFactoryMethod<SKKGadgetDictionary>(DictionaryTypes::Gadget);
-        SKKServerRegisterDictionaries()
     }
 
     private func prepareDictionary() {
