@@ -60,6 +60,4 @@ public:
     friend bool operator==(const SKKEntry &left, const SKKEntry &right);
 };
 
-
-
 #endif

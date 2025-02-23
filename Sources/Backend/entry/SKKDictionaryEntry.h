@@ -18,5 +18,4 @@ typedef std::pair<std::string, std::string> SKKDictionaryEntry;
 typedef std::deque<SKKDictionaryEntry> SKKDictionaryEntryContainer;
 typedef SKKDictionaryEntryContainer::iterator SKKDictionaryEntryIterator;
 
-
 #endif /* SKKDictionaryEntry_h */
