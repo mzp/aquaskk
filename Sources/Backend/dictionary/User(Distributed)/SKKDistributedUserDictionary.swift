@@ -96,7 +96,7 @@ public class SKKDistributedUserDictionary: SKKBaseDictionaryProtocol, SKKUserDic
     public func remove(entry: SKKEntry, candidate: SKKCandidate) {
         var tmp = candidate
         tmp.Encode()
-        let response = SKKTask.perfromAndWait(timeout: .now().advanced(by: .seconds(1))) {
+        _ = SKKTask.perfromAndWait(timeout: .now().advanced(by: .seconds(1))) {
             _ = await self.send(commands: ["DELETE", String(entry.EntryString()), String(tmp.ToString()), String(entry.OkuriString())])
             return true
         }

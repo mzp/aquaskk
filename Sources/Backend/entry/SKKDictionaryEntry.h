@@ -8,9 +8,6 @@
 #ifndef SKKDictionaryEntry_h
 #define SKKDictionaryEntry_h
 
-#ifndef SKKDicitonaryEntry_h
-#define SKKDictionaryEntry_h
-
 #include <deque>
 #include <string>
 
