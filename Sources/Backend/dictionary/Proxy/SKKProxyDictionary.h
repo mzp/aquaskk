@@ -37,7 +37,6 @@ class SKKProxyDictionary : public SKKBaseDictionary {
     net::socket::endpoint remote_;
     net::socket::tcpstream session_;
     bool active_;
-    
 
     bool connect();
     bool send(const SKKEntry &entry);

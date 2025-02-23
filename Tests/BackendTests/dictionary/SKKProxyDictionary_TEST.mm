@@ -145,24 +145,25 @@ void spawn_server(void *(*server)(void *param)) {
 
 @implementation SKKProxyDictionaryTests
 
-- (void)testMain {
-    spawn_server(normal_server);
-    spawn_server(dumb_server);
-    spawn_server(mad_server);
-    spawn_server(suicide_server);
-
+- (void)testNoExist {
     SKKProxyDictionary proxy;
     SKKCandidateSuite suite;
 
     // 存在しないサーバーテスト
     proxy.Initialize("127.0.0.1:33333");
-
+    [NSRunLoop.mainRunLoop runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.05]];
     proxy.Find(SKKEntry("よi", "い"), suite);
     XCTAssert(suite.IsEmpty());
+}
+
+- (void)testNormal {
+    spawn_server(normal_server);
+    SKKProxyDictionary proxy;
+    SKKCandidateSuite suite;
 
     // 正常系テスト
     proxy.Initialize("127.0.0.1:23000");
-
+    [NSRunLoop.mainRunLoop runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.05]];
     proxy.Find(SKKEntry("よi", "い"), suite);
     XCTAssert(suite.ToString() == "/良/好/酔/善/");
 
@@ -177,21 +178,42 @@ void spawn_server(void *(*server)(void *param)) {
 
     proxy.Find(SKKEntry("NOT-EXIST"), suite);
     XCTAssert(suite.IsEmpty());
+}
+
+- (void)testDump {
+    spawn_server(dumb_server);
+    SKKProxyDictionary proxy;
+    SKKCandidateSuite suite;
 
     // だんまりサーバーテスト
     proxy.Initialize("127.0.0.1:33000");
+    [NSRunLoop.mainRunLoop runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.05]];
 
     proxy.Find(SKKEntry("かんじ"), suite);
     XCTAssert(suite.IsEmpty());
+}
+
+- (void)testMad {
+    spawn_server(mad_server);
+    SKKProxyDictionary proxy;
+    SKKCandidateSuite suite;
 
     // おかしなサーバーテスト
     proxy.Initialize("127.0.0.1:43000");
+    [NSRunLoop.mainRunLoop runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.05]];
 
     proxy.Find(SKKEntry("かんじ"), suite);
     XCTAssert(suite.IsEmpty());
+}
+
+- (void)testSuicide {
+    spawn_server(suicide_server);
+    SKKProxyDictionary proxy;
+    SKKCandidateSuite suite;
 
     // 自殺サーバーテスト
     proxy.Initialize("127.0.0.1:53000");
+    [NSRunLoop.mainRunLoop runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.05]];
 
     proxy.Find(SKKEntry("かんじ"), suite);
     XCTAssert(suite.IsEmpty());
