@@ -21,7 +21,7 @@
     return instance;
 }
 
-- (void)initializeWithUserDictionaryPath:(NSString *)path systemDictionaries:(NSArray *)keys {
+- (void)initializeWithUserDictionaryPath:(NSString *)path systemDictionaries:(NSArray<NSArray *> *)keys {
     SKKDictionaryKeyContainer container;
 
     for(NSArray *entry in keys) {

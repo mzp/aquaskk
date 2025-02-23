@@ -21,6 +21,7 @@
 */
 
 #import <AquaSKKBackend/SKKGadgetDictionary.h>
+#import <AquaSKKBackend/SKKDictionaryKey.h>
 #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 
 SKKGadgetDictionary::SKKGadgetDictionary()

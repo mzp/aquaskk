@@ -26,6 +26,7 @@
 #import <AquaSKKBackend/SKKCandidateFilter.h>
 #import <AquaSKKBackend/SKKCandidateSuite.h>
 #import <AquaSKKBackend/SKKLocalUserDictionary.h>
+#import <AquaSKKBackend/SKKDictionaryKey.h>
 #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 #include "utf8util.h"
 
@@ -116,7 +117,11 @@ namespace {
 } // namespace
 
 SKKBackEnd::SKKBackEnd()
-    : userdict_(nullptr), useNumericConversion_(false), enableExtendedCompletion_(false), minimumCompletionLength_(0) {}
+    : userdict_(nullptr),
+      useNumericConversion_(false),
+      enableExtendedCompletion_(false),
+      minimumCompletionLength_(0),
+      impl_(new SwiftObject<AquaSKKBackend::SKKBackend>()) {}
 
 SKKBackEnd &SKKBackEnd::theInstance() {
     static SKKBackEnd obj;
@@ -124,6 +129,7 @@ SKKBackEnd &SKKBackEnd::theInstance() {
 }
 
 void SKKBackEnd::Initialize(const std::string &userdict_path, const SKKDictionaryKeyContainer &keys) {
+    (*impl_)->initialize(userdict_path, keys);
     if(userdict_.get() == 0) {
         userdict_.reset(new SKKLocalUserDictionary());
     }
@@ -168,6 +174,9 @@ void SKKBackEnd::Initialize(SKKUserDictionary *dictionary, const SKKDictionaryKe
 }
 
 bool SKKBackEnd::Complete(const std::string &key, std::vector<std::string> &result, unsigned limit) {
+    (*impl_)->complete(key, limit);
+
+
     CompletionHelper helper(key, minimumCompletionLength_, limit);
 
     if(key.empty() || !enableExtendedCompletion_) {
@@ -183,7 +192,7 @@ bool SKKBackEnd::Complete(const std::string &key, std::vector<std::string> &resu
 
 bool SKKBackEnd::Find(const SKKEntry &entry, SKKCandidateSuite &result) {
     result.Clear();
-
+    (*impl_)->find(entry, result);
     std::for_each(dicts_.begin(), dicts_.end(), ApplyFind(entry, result));
 
     if(!entry.IsOkuriAri()) {
@@ -209,6 +218,7 @@ bool SKKBackEnd::Find(const SKKEntry &entry, SKKCandidateSuite &result) {
 }
 
 std::string SKKBackEnd::ReverseLookup(const std::string &candidate) {
+    (*impl_)->reverseLookup(candidate);
     if(candidate.empty())
         return "";
 
@@ -224,6 +234,7 @@ std::string SKKBackEnd::ReverseLookup(const std::string &candidate) {
 }
 
 void SKKBackEnd::Register(const SKKEntry &entry, const SKKCandidate &candidate) {
+    (*impl_)->register_(entry, candidate);
     if(entry.EntryString().empty() || (entry.IsOkuriAri() && (entry.OkuriString().empty() || candidate.IsEmpty()))) {
         std::cerr << "SKKBackEnd: Invalid registration received" << std::endl;
         return;
@@ -237,6 +248,7 @@ void SKKBackEnd::Register(const SKKEntry &entry, const SKKCandidate &candidate) 
 }
 
 void SKKBackEnd::Remove(const SKKEntry &entry, const SKKCandidate &candidate) {
+    (*impl_)->remove(entry, candidate);
     if(entry.EntryString().empty()) {
         std::cerr << "SKKBackEnd: Invalid removal received" << std::endl;
         return;
@@ -246,18 +258,22 @@ void SKKBackEnd::Remove(const SKKEntry &entry, const SKKCandidate &candidate) {
 }
 
 void SKKBackEnd::UseNumericConversion(bool flag) {
+    (*impl_)->setNumericConversionEnabled(flag);
     useNumericConversion_ = flag;
 }
 
 void SKKBackEnd::EnableExtendedCompletion(bool flag) {
+    (*impl_)->setExtendedCompletionEnabled(flag);
     enableExtendedCompletion_ = flag;
 }
 
 void SKKBackEnd::EnablePrivateMode(bool flag) {
+    (*impl_)->setPrivateModeEnabled(flag);
     userdict_->SetPrivateMode(flag);
 }
 
 void SKKBackEnd::SetMinimumCompletionLength(int length) {
+    (*impl_)->setMinimumCompletionLength(length);
     minimumCompletionLength_ = length;
 }
 

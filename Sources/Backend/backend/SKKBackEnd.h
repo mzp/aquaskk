@@ -30,11 +30,18 @@
 #import <AquaSKKBackend/SKKDictionaryCache.h>
 #import <AquaSKKBackend/SKKDictionaryKey.h>
 #import <AquaSKKBackend/SKKEntry.h>
+#import <AquaSKKBackend/SwiftObject.h>
+
+namespace AquaSKKBackend {
+    class SKKBackend;
+}
 
 class SKKBaseDictionary;
 class SKKUserDictionary;
 
 class SKKBackEnd {
+    SwiftObject<AquaSKKBackend::SKKBackend> *impl_;
+
     std::unique_ptr<SKKUserDictionary> userdict_;
     std::vector<SKKBaseDictionary *> dicts_;
     SKKDictionaryKeyContainer actives_;

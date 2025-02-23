@@ -6,6 +6,7 @@
 //
 
 #include "SKKAutoUpdateDictionary.h"
+#import <AquaSKKBackend/SKKDictionaryKey.h>
 #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 
 SKKAutoUpdateDictionary::SKKAutoUpdateDictionary()
