@@ -104,6 +104,7 @@ public class SKKBackend {
     }
 
     public func complete(key: String, limit: Int, to result: inout SKKCompletionResult) -> Bool {
+        result = SKKCompletionResult()
         let backendHelper = SKKBackendCompletionHelper(entry: key, minimumLength: minimumCompletionLength, limit: limit)
 
         if key.isEmpty || !extendedCompletionEnabled {
@@ -118,7 +119,7 @@ public class SKKBackend {
         for entry in backendHelper.result {
             result.push_back(std.string(entry))
         }
-        return backendHelper.result.count > 0
+        return !backendHelper.result.isEmpty
     }
 
     public func reverseLookup(candidate: String) -> String {

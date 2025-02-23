@@ -19,7 +19,7 @@ class SKKBackendCompletionHelper: SKKCompletionHelperProtocol {
         self.minimumLength = minimumLength
         self.limit = limit
         result = []
-        found = Set()
+        found = Set([entry])
     }
 
     var canContinue: Bool {

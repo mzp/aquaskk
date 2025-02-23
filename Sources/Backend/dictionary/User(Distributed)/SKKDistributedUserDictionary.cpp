@@ -20,9 +20,9 @@
 
 */
 
+#import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKBackend/SKKDictionaryKey.h>
 #import <AquaSKKBackend/SKKDistributedUserDictionary.h>
-#import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 
 SKKDistributedUserDictionary::SKKDistributedUserDictionary()

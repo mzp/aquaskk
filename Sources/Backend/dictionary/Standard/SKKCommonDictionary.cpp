@@ -6,8 +6,8 @@
 //
 
 #include "SKKCommonDictionary.h"
-#import <AquaSKKBackend/SKKDictionaryKey.h>
 #import <AquaSKKBackend/SKKBackEnd.h>
+#import <AquaSKKBackend/SKKDictionaryKey.h>
 #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 
 SKKCommonDictionary::SKKCommonDictionary()
