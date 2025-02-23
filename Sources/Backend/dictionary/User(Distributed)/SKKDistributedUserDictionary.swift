@@ -5,16 +5,15 @@
 //  Created by mzp on 2025/02/22.
 //
 
-import Foundation
 import AquaSKKLogging
-import OSLog
-
+import Foundation
 import Network
+import OSLog
 
 public class SKKDistributedUserDictionary: SKKBaseDictionaryProtocol, SKKUserDictionaryProtocol {
     static let queue = DispatchQueue(label: "SKKDistributedUserDictionary")
     private var connect: NWConnection?
-    
+
     public init() {}
     public func initialize(path: String) async throws {
         connect?.cancel()
@@ -46,7 +45,7 @@ public class SKKDistributedUserDictionary: SKKBaseDictionaryProtocol, SKKUserDic
         self.connect = connect
     }
 
-    public func find(entry: SKKEntry, to result: inout SKKCandidateSuite)  {
+    public func find(entry: SKKEntry, to result: inout SKKCandidateSuite) {
         let suite = SKKTask.perfromAndWait(timeout: .now().advanced(by: .seconds(1))) {
             await self.find(entry: entry)
         }
@@ -58,7 +57,7 @@ public class SKKDistributedUserDictionary: SKKBaseDictionaryProtocol, SKKUserDic
     }
 
     public func find(entry: SKKEntry) async -> SKKCandidateSuite? {
-        guard let response = await self.send(commands: ["GET", String(entry.EntryString()), String(entry.OkuriString())]) else {
+        guard let response = await send(commands: ["GET", String(entry.EntryString()), String(entry.OkuriString())]) else {
             return nil
         }
         return SKKCandidateSuite(std.string(response))
@@ -79,11 +78,11 @@ public class SKKDistributedUserDictionary: SKKBaseDictionaryProtocol, SKKUserDic
         }
     }
 
-    public func reverseLookup(candidate: String) -> String {
+    public func reverseLookup(candidate _: String) -> String {
         // サポートしない
         return ""
     }
-    
+
     public func register(entry: SKKEntry, candidate: SKKCandidate) -> Bool {
         var tmp = candidate
         tmp.Encode()
@@ -93,7 +92,7 @@ public class SKKDistributedUserDictionary: SKKBaseDictionaryProtocol, SKKUserDic
         }
         return response ?? false
     }
-    
+
     public func remove(entry: SKKEntry, candidate: SKKCandidate) {
         var tmp = candidate
         tmp.Encode()
@@ -102,12 +101,10 @@ public class SKKDistributedUserDictionary: SKKBaseDictionaryProtocol, SKKUserDic
             return true
         }
     }
-    
-    public func setPrivateMode(value: Bool) {
-    }
+
+    public func setPrivateMode(value _: Bool) {}
 
     // MARK: - Network
-
 
     func send(commands: [String]) async -> String? {
         guard let connect = connect else {
@@ -115,7 +112,7 @@ public class SKKDistributedUserDictionary: SKKBaseDictionaryProtocol, SKKUserDic
         }
         guard let data = (commands.joined(separator: "\t") + "\r\n").data(using: .utf8) else {
             return nil
-          }
+        }
         return await withCheckedContinuation { continuation in
 
             connect.send(content: data, completion: .contentProcessed { error in
@@ -128,7 +125,8 @@ public class SKKDistributedUserDictionary: SKKBaseDictionaryProtocol, SKKUserDic
                     Logger.skkBackend.error("\(#function, privacy: .public) error=\(error.localizedDescription, privacy: .private)")
                 }
                 if let content = content,
-                   let string = String(data: content, encoding: .utf8) {
+                   let string = String(data: content, encoding: .utf8)
+                {
                     let lines = string.split(separator: "\r\n", maxSplits: 2)
                     if lines.first == "OK", lines.count > 1 {
                         continuation.resume(returning: String(lines[1]))

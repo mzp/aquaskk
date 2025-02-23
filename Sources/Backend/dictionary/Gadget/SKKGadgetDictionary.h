@@ -23,39 +23,22 @@
 #ifndef SKKGadgetDictionary_h
 #define SKKGadgetDictionary_h
 
-#include <map>
 #import <AquaSKKBackend/SKKBaseDictionary.h>
+#import <AquaSKKBackend/SwiftObject.h>
+namespace AquaSKKBackend {
+    class SKKGadgetDictionaryImpl;
+}
 
 // ======================================================================
 // プログラム実行変換辞書クラス
 // ======================================================================
 class SKKGadgetDictionary : public SKKBaseDictionary {
-    typedef void (*DispatchHandler)(const std::string &, std::vector<std::string> &);
-    typedef std::pair<std::string, DispatchHandler> DispatchPair;
-    typedef std::vector<DispatchPair> DispatchTable;
-
-    struct Match;
-    struct Search;
-    struct Comp;
-    struct Store;
-
-    DispatchTable table_;
-
-    DispatchTable selectHandlers(const std::string &entry, bool complete = false) const;
-
-    template <typename Predicate, typename Func> void apply(Predicate pred, Func func) {
-        DispatchTable::iterator first = table_.begin();
-        DispatchTable::iterator last = table_.end();
-
-        while(first != last) {
-            if(pred(*first)) {
-                func(*first);
-            }
-            ++first;
-        }
-    }
+    SwiftObject<AquaSKKBackend::SKKGadgetDictionaryImpl> *impl_;
 
 public:
+    SKKGadgetDictionary();
+    ~SKKGadgetDictionary();
+
     virtual void Initialize(const std::string &location);
 
     virtual void Find(const SKKEntry &entry, SKKCandidateSuite &result);

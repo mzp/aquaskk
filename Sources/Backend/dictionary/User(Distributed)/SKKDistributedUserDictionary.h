@@ -24,9 +24,8 @@
 #define SKKDistributedUserDictionary_h
 
 #import <AquaSKKBackend/SKKUserDictionary.h>
-#import <AquaSKKBackend/socketutil.h>
-
 #import <AquaSKKBackend/SwiftObject.h>
+#import <AquaSKKBackend/socketutil.h>
 
 namespace AquaSKKBackend {
     class SKKDistributedUserDictionary;
@@ -39,7 +38,7 @@ class SKKDistributedUserDictionary : public SKKUserDictionary {
 public:
     SKKDistributedUserDictionary();
     ~SKKDistributedUserDictionary();
-    
+
     // path の形式は port
     virtual void Initialize(const std::string &path);
 

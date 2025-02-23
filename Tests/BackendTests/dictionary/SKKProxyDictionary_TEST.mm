@@ -51,7 +51,7 @@ void session(int fd, SKKCommonDictionary &dict) {
         } break;
 
         default: // 無効なコマンド
-                os_log_error(OS_LOG_DEFAULT, "%s: invalid", __FUNCTION__);
+            os_log_error(OS_LOG_DEFAULT, "%s: invalid", __FUNCTION__);
             sock << '0' << std::flush;
             break;
         }

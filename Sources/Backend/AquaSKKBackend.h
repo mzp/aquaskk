@@ -18,14 +18,12 @@ FOUNDATION_EXPORT const unsigned char AquaSKKBackendVersionString[];
 
 #pragma mark - backend
 
-#import <AquaSKKBackend/SKKAutoUpdateDictionary.h>
 #import <AquaSKKBackend/SKKBackend.h>
 #import <AquaSKKBackend/SKKBaseDictionary.h>
 #import <AquaSKKBackend/SKKCandidateFilter.h>
 #import <AquaSKKBackend/SKKDictionaryCache.h>
 #import <AquaSKKBackend/SKKDictionaryFactory.h>
 #import <AquaSKKBackend/SKKDictionaryKey.h>
-// #import <AquaSKKBackend/SKKNumericConverter.h>
 
 #pragma mark - dictionary
 
@@ -41,10 +39,11 @@ FOUNDATION_EXPORT const unsigned char AquaSKKBackendVersionString[];
 
 #pragma mark - entry
 
-#import <AquaSKKbackend/SKKCandidate.h>
-#import <AquaSKKbackend/SKKCandidateParser.h>
-#import <AquaSKKbackend/SKKCandidateSuite.h>
-#import <AquaSKKbackend/SKKEntry.h>
+#import <AquaSKKBackend/SKKCandidate.h>
+#import <AquaSKKBackend/SKKCandidateParser.h>
+#import <AquaSKKBackend/SKKCandidateSuite.h>
+#import <AquaSKKBackend/SKKEntry.h>
+#import <AquaSKKBackend/SKKDictionaryEntry.h>
 #import <AquaSKKbackend/SKKOkuriHint.h>
 
 #pragma mark - session

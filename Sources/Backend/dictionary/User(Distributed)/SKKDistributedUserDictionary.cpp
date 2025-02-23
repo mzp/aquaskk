@@ -20,13 +20,15 @@
 
 */
 
-#import <AquaSKKBackend/SKKCandidateSuite.h>
 #import <AquaSKKBackend/SKKDistributedUserDictionary.h>
 #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
-#include "stringutil.h"
-#include "utf8util.h"
 
+SKKDistributedUserDictionary::SKKDistributedUserDictionary()
+    : impl_(new SwiftObject<AquaSKKBackend::SKKDistributedUserDictionary>()) {}
 
+SKKDistributedUserDictionary::~SKKDistributedUserDictionary() {
+    delete impl_;
+}
 
 void SKKDistributedUserDictionary::Initialize(const std::string &path) {
     (*impl_)->initialize(path);
@@ -42,7 +44,8 @@ std::string SKKDistributedUserDictionary::ReverseLookup(const std::string &candi
 }
 
 void SKKDistributedUserDictionary::Complete(SKKCompletionHelper &helper) {
-    (*impl_)->complete(helper);
+    auto bridge = SKKCompletionHelperBridge(&helper);
+    (*impl_)->complete(bridge);
 }
 
 void SKKDistributedUserDictionary::Register(const SKKEntry &entry, const SKKCandidate &candidate) {
@@ -55,11 +58,4 @@ void SKKDistributedUserDictionary::Remove(const SKKEntry &entry, const SKKCandid
 
 void SKKDistributedUserDictionary::SetPrivateMode(bool flag) {
     // FIXME: to be done
-}
-
-SKKDistributedUserDictionary::SKKDistributedUserDictionary()
-: impl_(new SwiftObject<AquaSKKBackend::SKKDistributedUserDictionary>()) {}
-
-SKKDistributedUserDictionary::~SKKDistributedUserDictionary() {
-    delete impl_;
 }
