@@ -23,21 +23,29 @@
 #import "SKKProxyDictionary.h"
 #include <sstream>
 #include "SKKEncoding.h"
+#import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 
 SKKProxyDictionary::SKKProxyDictionary()
-    : active_(false) {}
+    : active_(false),
+    impl_(new SwiftObject<AquaSKKBackend::SKKProxyDictionary>())
+{}
 
 SKKProxyDictionary::~SKKProxyDictionary() {
     session_.close();
+    delete impl_;
 }
 
 void SKKProxyDictionary::Initialize(const std::string &location) {
     remote_.parse(location, "1178");
 
     session_.close();
+
+    (*impl_)->initialize(location);
 }
 
 void SKKProxyDictionary::Find(const SKKEntry &entry, SKKCandidateSuite &result) {
+    (*impl_)->find(entry, result);
+
     // 再入でループするのを防ぐ
     if(!active_) {
         active_ = true;

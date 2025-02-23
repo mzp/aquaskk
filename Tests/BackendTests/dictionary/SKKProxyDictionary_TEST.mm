@@ -65,7 +65,14 @@ void notify_ok(void *param) {
 void *normal_server(void *param) {
     SKKCommonDictionary dict;
 
-    dict.Initialize("SKK-JISYO.TEST");
+    /*
+     let bundle = Bundle(for: BackendBundle.self)
+     let resource = TestingResource(bundle: bundle)
+     let path = try resource.path(path, writable: true)
+     */
+    NSBundle *bundle = [NSBundle bundleForClass:SKKProxyDictionaryTests.class];
+    NSString *path = [bundle pathForResource:@"SKK-JISYO" ofType:@"TEST"];
+    dict.Initialize(path.UTF8String);
 
     ushort port = 23000;
     net::socket::tcpserver skkserv(port);
@@ -139,7 +146,6 @@ void spawn_server(void *(*server)(void *param)) {
 @implementation SKKProxyDictionaryTests
 
 - (void)testMain {
-    XCTSkip(@"FIXME: doesn't work");
     spawn_server(normal_server);
     spawn_server(dumb_server);
     spawn_server(mad_server);
