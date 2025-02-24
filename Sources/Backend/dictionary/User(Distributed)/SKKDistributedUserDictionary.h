@@ -25,7 +25,6 @@
 
 #import <AquaSKKBackend/SKKUserDictionary.h>
 #import <AquaSKKBackend/SwiftObject.h>
-#import <AquaSKKBackend/socketutil.h>
 
 namespace AquaSKKBackend {
     class SKKDistributedUserDictionary;
@@ -33,7 +32,6 @@ namespace AquaSKKBackend {
 
 class SKKDistributedUserDictionary : public SKKUserDictionary {
     SwiftObject<AquaSKKBackend::SKKDistributedUserDictionary> *impl_;
-    net::socket::tcpstream server_;
 
 public:
     SKKDistributedUserDictionary();

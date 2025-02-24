@@ -22,7 +22,7 @@
 
 #ifndef SKKInputSessionParameter_h
 #define SKKInputSessionParameter_h
-#import <AquaSKKBackend/IntrusiveRefCounted.h>
+#import <AquaSKKCore/IntrusiveRefCounted.h>
 
 class SKKConfig;
 class SKKFrontEnd;

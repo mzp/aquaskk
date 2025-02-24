@@ -62,10 +62,6 @@ FOUNDATION_EXPORT const unsigned char AquaSKKCoreVersionString[];
 #import <AquaSKKCore/SKKRegistration.h>
 #import <AquaSKKCore/SKKUndoContext.h>
 
-#pragma mark - skkserv
-
-#import <AquaSKKCore/skkserv.h>
-
 #pragma mark - state
 
 #import <AquaSKKCore/GenericStateMachine.h>
@@ -73,10 +69,12 @@ FOUNDATION_EXPORT const unsigned char AquaSKKCoreVersionString[];
 #import <AquaSKKCore/SKKState.h>
 #import <AquaSKKCore/SKKStateMachine.h>
 
-#pragma mark - utility
+#pragma mark - tries
 
 #import <AquaSKKCore/SKKRomanKanaConverter.h>
 
 #pragma mark - utility
 
 #import <AquaSKKCore/subrange.h>
+#import <AquaSKKCore/utf8util.h>
+#import <AquaSKKCore/IntrusiveRefCounted.h>

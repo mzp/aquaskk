@@ -24,7 +24,7 @@
 #ifndef skkserv_impl_h
 #define skkserv_impl_h
 
-#import <AquaSKKBackend/socketutil.h>
+#import <AquaSKKServer/socketutil.h>
 #include <pthread.h>
 
 class skkserv_impl {

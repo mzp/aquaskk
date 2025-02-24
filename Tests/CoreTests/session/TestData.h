@@ -8,7 +8,7 @@
 #import <AquaSKKCore/SKKKeyState.h>
 #include "TestEvent.h"
 #include "TestResult.h"
-#include "stringutil.h"
+#include <AquaSKKTesting/stringutil.h>
 
 struct TestEntry {
     int line;
