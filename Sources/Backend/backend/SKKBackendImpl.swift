@@ -177,7 +177,7 @@ public class SKKBackendImpl {
     }
 
     public func complete_(key: String, limit: Int) -> SKKCompletionResult {
-        let result = self.complete(key: key, limit: limit)
+        let result = complete(key: key, limit: limit)
         return .init(result.map { std.string($0) })
     }
 }
