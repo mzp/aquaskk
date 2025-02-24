@@ -26,12 +26,6 @@ public class SKKBackendImpl {
         minimumCompletionLength = 0
     }
 
-    public func initialize(path: String, dictionaries: SKKDictionaryKeyContainer) {
-        SKKTask.perfromAndWait {
-            await self.initialize(path: path, configurations: dictionaries.compactMap { .init(from: $0) })
-        }
-    }
-
     func initialize(path: String, configurations: [SKKDictionaryConfiguration]) async {
         do {
             try await userDictionary.initialize(path: path)
@@ -103,7 +97,7 @@ public class SKKBackendImpl {
         }
     }
 
-    public func complete_(key: String, limit: Int) -> SKKCompletionResult {
+    public func complete(key: String, limit: Int) -> [String] {
         let backendHelper = SKKBackendCompletionHelper(entry: key, minimumLength: minimumCompletionLength, limit: limit)
 
         if key.isEmpty || !extendedCompletionEnabled {
@@ -115,7 +109,7 @@ public class SKKBackendImpl {
                 dictionary.complete(helper: &helper)
             }
         }
-        return .init(backendHelper.result.map { std.string($0) })
+        return backendHelper.result
     }
 
     public func reverseLookup(candidate: String) -> String {
@@ -173,4 +167,17 @@ public class SKKBackendImpl {
     public var extendedCompletionEnabled: Bool
     public var privateModeEnabled: Bool
     public var minimumCompletionLength: Int
+
+    // MARK: - Bridge
+
+    public func initialize(path: String, dictionaries: SKKDictionaryKeyContainer) {
+        SKKTask.perfromAndWait {
+            await self.initialize(path: path, configurations: dictionaries.compactMap { .init(from: $0) })
+        }
+    }
+
+    public func complete_(key: String, limit: Int) -> SKKCompletionResult {
+        let result = self.complete(key: key, limit: limit)
+        return .init(result.map { std.string($0) })
+    }
 }
