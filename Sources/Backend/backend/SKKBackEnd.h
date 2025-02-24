@@ -29,11 +29,11 @@
 #import <AquaSKKBackend/SwiftObject.h>
 
 namespace AquaSKKBackend {
-    class SKKBackend;
+    class SKKBackendImpl;
 }
 typedef std::vector<std::string> SKKCompletionResult;
 class SKKBackEnd {
-    SwiftObject<AquaSKKBackend::SKKBackend> *impl_;
+    SwiftObject<AquaSKKBackend::SKKBackendImpl> *impl_;
 
     SKKBackEnd();
     SKKBackEnd(const SKKBackEnd &);

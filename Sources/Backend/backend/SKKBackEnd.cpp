@@ -26,7 +26,7 @@
 #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 
 SKKBackEnd::SKKBackEnd()
-    : impl_(new SwiftObject<AquaSKKBackend::SKKBackend>()) {}
+    : impl_(new SwiftObject<AquaSKKBackend::SKKBackendImpl>()) {}
 
 SKKBackEnd &SKKBackEnd::theInstance() {
     static SKKBackEnd obj;

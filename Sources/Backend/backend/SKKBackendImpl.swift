@@ -1,5 +1,5 @@
 //
-//  SKKBackend.swift
+//  SKKBackendImpl.swift
 //  AquaSKKBackend
 //
 //  Created by mzp on 2025/02/23.
@@ -10,9 +10,9 @@ import AquaSKKService
 import Foundation
 import OSLog
 
-public class SKKBackend {
-    static let sharedInstance = SKKBackend()
-    static func shared() -> SKKBackend { sharedInstance }
+public class SKKBackendImpl {
+    static let sharedInstance = SKKBackendImpl()
+    static func shared() -> SKKBackendImpl { sharedInstance }
 
     var userDictionary: SKKLocalUserDictionaryImpl
     var dictionaries: [SKKBaseDictionaryProtocol]
