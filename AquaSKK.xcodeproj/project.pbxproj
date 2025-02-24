@@ -1401,6 +1401,68 @@
 			path = Logging;
 			sourceTree = "<group>";
 		};
+		132F4D332D6C08FC0081022E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				137D05762C5B5A81009AC591 /* App */,
+				1307C23A2C5B47D800B089B6 /* PreferenceApp */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		132F4D342D6C09080081022E /* Core Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				138C69022C94C864009FE153 /* Backend */,
+				13D756182C5A9049006144F2 /* Core */,
+				135C3D5F2C5B3E9600661AE3 /* Input */,
+				139B7B632C60F68100FE5263 /* UI */,
+			);
+			name = "Core Frameworks";
+			sourceTree = "<group>";
+		};
+		132F4D352D6C090D0081022E /* Supports framework */ = {
+			isa = PBXGroup;
+			children = (
+				132CBC022D5F95B200E4D875 /* Logging */,
+				13DCD5252D6C01F3008C27A9 /* Server */,
+				13B7BEC22C5F5CF900F6BEF8 /* Service */,
+			);
+			name = "Supports framework";
+			sourceTree = "<group>";
+		};
+		132F4D362D6C09A00081022E /* Frameworks Tests */ = {
+			isa = PBXGroup;
+			children = (
+				13CFD1B22C6818F9000A67E9 /* Frameworks.xctestplan */,
+				138C690E2C94C865009FE153 /* BackendTests */,
+				1344F6202C5B2C9C00D8C850 /* CoreTests */,
+				135C3D662C5B3E9D00661AE3 /* InputTests */,
+				13B7BED02C5F5CF900F6BEF8 /* ServiceTests */,
+				139B7B712C60F68100FE5263 /* UITests */,
+			);
+			name = "Frameworks Tests";
+			sourceTree = "<group>";
+		};
+		132F4D372D6C09D20081022E /* App Tests */ = {
+			isa = PBXGroup;
+			children = (
+				13CFD1B32C68198D000A67E9 /* App.xctestplan */,
+				137D05882C5B5A83009AC591 /* AppTests */,
+				1307C24C2C5B47DA00B089B6 /* PreferenceAppTests */,
+			);
+			name = "App Tests";
+			sourceTree = "<group>";
+		};
+		132F4D382D6C09F20081022E /* Integration Tests */ = {
+			isa = PBXGroup;
+			children = (
+				13CFD1B42C681A61000A67E9 /* Integration.xctestplan */,
+				133834E22C60203900D73AD7 /* TyperTests */,
+			);
+			name = "Integration Tests";
+			sourceTree = "<group>";
+		};
 		133021AB2D646C6700BFE102 /* file */ = {
 			isa = PBXGroup;
 			children = (
@@ -1532,20 +1594,12 @@
 		1344F4992C5B282200D8C850 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				13CFD1B32C68198D000A67E9 /* App.xctestplan */,
 				13CFD1B72C681B6C000A67E9 /* CI.xctestplan */,
-				13CFD1B22C6818F9000A67E9 /* Frameworks.xctestplan */,
-				13CFD1B42C681A61000A67E9 /* Integration.xctestplan */,
-				137D05882C5B5A83009AC591 /* AppTests */,
-				138C690E2C94C865009FE153 /* BackendTests */,
-				1344F6202C5B2C9C00D8C850 /* CoreTests */,
+				132F4D372D6C09D20081022E /* App Tests */,
+				132F4D362D6C09A00081022E /* Frameworks Tests */,
 				1352C9DE2C5DF8160056261D /* Harness */,
+				132F4D382D6C09F20081022E /* Integration Tests */,
 				13018B232C7696A40045FF13 /* Testing */,
-				135C3D662C5B3E9D00661AE3 /* InputTests */,
-				1307C24C2C5B47DA00B089B6 /* PreferenceAppTests */,
-				13B7BED02C5F5CF900F6BEF8 /* ServiceTests */,
-				133834E22C60203900D73AD7 /* TyperTests */,
-				139B7B712C60F68100FE5263 /* UITests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1553,16 +1607,10 @@
 		1344F49B2C5B284C00D8C850 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				137D05762C5B5A81009AC591 /* App */,
-				138C69022C94C864009FE153 /* Backend */,
-				13D756182C5A9049006144F2 /* Core */,
-				135C3D5F2C5B3E9600661AE3 /* Input */,
+				132F4D332D6C08FC0081022E /* App */,
+				132F4D342D6C09080081022E /* Core Frameworks */,
 				1352B29B2C6DAE14001EF7F6 /* Installer */,
-				132CBC022D5F95B200E4D875 /* Logging */,
-				1307C23A2C5B47D800B089B6 /* PreferenceApp */,
-				13DCD5252D6C01F3008C27A9 /* Server */,
-				13B7BEC22C5F5CF900F6BEF8 /* Service */,
-				139B7B632C60F68100FE5263 /* UI */,
+				132F4D352D6C090D0081022E /* Supports framework */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
