@@ -20,9 +20,6 @@ FOUNDATION_EXPORT const unsigned char AquaSKKBackendVersionString[];
 
 #import <AquaSKKBackend/SKKBackend.h>
 #import <AquaSKKBackend/SKKBaseDictionary.h>
-#import <AquaSKKBackend/SKKCandidateFilter.h>
-#import <AquaSKKBackend/SKKDictionaryCache.h>
-#import <AquaSKKBackend/SKKDictionaryFactory.h>
 #import <AquaSKKBackend/SKKDictionaryKey.h>
 
 #pragma mark - dictionary

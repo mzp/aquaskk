@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)sharedInstance;
 
 // 初期化
-- (void)initializeWithUserDictionaryPath:(NSString *)path systemDictionaries:(NSArray *)keys;
+- (void)initializeWithUserDictionaryPath:(NSString *)path systemDictionaries:(NSArray<NSArray *> *)keys;
 
 // オプション：数値変換
 - (void)setNumericConversionEnabled:(BOOL)enabled;

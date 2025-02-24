@@ -23,42 +23,23 @@
 #ifndef SKKBackEnd_h
 #define SKKBackEnd_h
 
-#include <memory>
-#include <string>
-#include <vector>
 #import <AquaSKKBackend/SKKCandidateSuite.h>
-#import <AquaSKKBackend/SKKDictionaryCache.h>
 #import <AquaSKKBackend/SKKDictionaryKey.h>
 #import <AquaSKKBackend/SKKEntry.h>
 
-class SKKBaseDictionary;
-class SKKUserDictionary;
-
+typedef std::vector<std::string> SKKCompletionResult;
 class SKKBackEnd {
-    std::unique_ptr<SKKUserDictionary> userdict_;
-    std::vector<SKKBaseDictionary *> dicts_;
-    SKKDictionaryKeyContainer actives_;
-    SKKDictionaryCache cache_;
-    bool useNumericConversion_;
-    bool enableExtendedCompletion_;
-    int minimumCompletionLength_;
-
     SKKBackEnd();
     SKKBackEnd(const SKKBackEnd &);
     SKKBackEnd &operator=(const SKKBackEnd &);
-
-    SKKEntry normalize(const SKKEntry &entry);
 
 public:
     static SKKBackEnd &theInstance();
 
     void Initialize(const std::string &userdict_path, const SKKDictionaryKeyContainer &keys);
 
-    // 初期化
-    void Initialize(SKKUserDictionary *dictionary, const SKKDictionaryKeyContainer &keys);
-
     // 補完
-    bool Complete(const std::string &key, std::vector<std::string> &result, unsigned limit = 0);
+    bool Complete(const std::string &key, SKKCompletionResult &result, unsigned limit = 0);
 
     // 検索
     bool Find(const SKKEntry &entry, SKKCandidateSuite &result);

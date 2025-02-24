@@ -2,7 +2,6 @@
 #import <XCTest/XCTest.h>
 #import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKBackend/SKKCommonDictionary.h>
-#import <AquaSKKBackend/SKKDictionaryFactory.h>
 #import <AquaSKKCore/SKKCandidateWindow.h>
 #import <AquaSKKCore/SKKSelector.h>
 #import <AquaSKKTesting/MockCandidateWindow.h>
@@ -35,8 +34,6 @@ public:
     MockBuddy buddy;
     SKKSelector selector(&buddy, &test_window);
     SKKDictionaryKeyContainer dicts;
-
-    SKKRegisterFactoryMethod<SKKCommonDictionary>(0);
 
     NSBundle *bundle = [NSBundle bundleForClass:SKKSelectorTests.class];
     const char *path = [bundle pathForResource:@"SKK-JISYO" ofType:@"TEST"].UTF8String;

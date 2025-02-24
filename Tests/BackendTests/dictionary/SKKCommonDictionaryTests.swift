@@ -13,7 +13,7 @@ struct SKKCommonDictionaryTests {
     func dict(path: String, encoding: String.Encoding) async throws -> SKKDictionaryReloadAdapter {
         let bundle = Bundle(for: BackendBundle.self)
         let resource = TestingResource(bundle: bundle)
-        let path = try resource.path(path, writable: true)
+        let path = try resource.path(path, writable: false)
         let dict = SKKDictionaryReloadAdapter(
             baseDictionary: SKKEncodingDictionary(encoding: encoding),
             source: SKKLocalDictionaryFileSource()

@@ -20,7 +20,10 @@
 
 */
 
+#import <AquaSKKBackend/SKKBackEnd.h>
+#import <AquaSKKBackend/SKKDictionaryKey.h>
 #import <AquaSKKBackend/SKKGadgetDictionary.h>
+#import <AquaSKKService/AquaSKKService.h>
 #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 
 SKKGadgetDictionary::SKKGadgetDictionary()

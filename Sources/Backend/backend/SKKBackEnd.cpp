@@ -20,103 +20,12 @@
 
 */
 
-#include <iostream>
-#include <set>
 #import <AquaSKKBackend/SKKBackEnd.h>
-#import <AquaSKKBackend/SKKCandidateFilter.h>
-#import <AquaSKKBackend/SKKCandidateSuite.h>
-#import <AquaSKKBackend/SKKLocalUserDictionary.h>
+#import <AquaSKKBackend/SKKCompletionHelper.h>
+#import <AquaSKKBackend/SKKDictionaryKey.h>
 #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
-#include "utf8util.h"
 
-namespace {
-    // 検索用ファンクタ
-    class ApplyFind {
-        SKKEntry entry_;
-        SKKCandidateSuite *result_;
-
-    public:
-        ApplyFind(const SKKEntry &entry, SKKCandidateSuite &result)
-            : entry_(entry), result_(&result) {}
-
-        void operator()(SKKBaseDictionary *dict) const {
-            dict->Find(entry_, *result_);
-        }
-    };
-
-    // 補完用ファンクタ
-    class ApplyComplete {
-        SKKCompletionHelper *helper_;
-
-    public:
-        ApplyComplete(SKKCompletionHelper &helper)
-            : helper_(&helper) {}
-
-        void operator()(SKKBaseDictionary *dict) const {
-            dict->Complete(*helper_);
-        }
-    };
-
-    // 数値変換用ファンクタ
-    class NumericConversion {
-        AquaSKKBackend::NumericConverter converter_;
-
-    public:
-        NumericConversion(AquaSKKBackend::NumericConverter &converter)
-            : converter_(converter) {}
-
-        SKKCandidate &operator()(SKKCandidate &candidate) {
-            converter_.apply(candidate);
-            return candidate;
-        }
-    };
-
-    // 補完ヘルパー
-    class CompletionHelper : public SKKCompletionHelper {
-        std::set<std::string> check_;
-        std::vector<std::string> result_;
-        std::string entry_;
-        unsigned minimumLength_;
-        unsigned completionLimit_;
-        bool needsLengthCheck_;
-
-    public:
-        CompletionHelper(const std::string &entry, int minimumLength, int completionLimit)
-            : entry_(entry), minimumLength_(minimumLength), completionLimit_(completionLimit) {
-            needsLengthCheck_ = utf8::length(entry) < minimumLength_;
-            check_.insert(entry_);
-        }
-
-        virtual const std::string &Entry() const {
-            return entry_;
-        }
-
-        virtual void Add(const std::string &completion) {
-            if(!CanContinue())
-                return;
-
-            if(needsLengthCheck_ && utf8::length(completion) <= minimumLength_) {
-                return;
-            }
-
-            if(check_.find(completion) == check_.end()) {
-                check_.insert(completion);
-                result_.push_back(completion);
-            }
-        }
-
-        virtual bool CanContinue() const {
-            return completionLimit_ == 0 || result_.size() < completionLimit_;
-        }
-
-        operator std::vector<std::string> &() {
-            return result_;
-        }
-    };
-} // namespace
-
-SKKBackEnd::SKKBackEnd()
-    : userdict_(nullptr), useNumericConversion_(false), enableExtendedCompletion_(false), minimumCompletionLength_(0) {}
+SKKBackEnd::SKKBackEnd() {}
 
 SKKBackEnd &SKKBackEnd::theInstance() {
     static SKKBackEnd obj;
@@ -124,161 +33,44 @@ SKKBackEnd &SKKBackEnd::theInstance() {
 }
 
 void SKKBackEnd::Initialize(const std::string &userdict_path, const SKKDictionaryKeyContainer &keys) {
-    if(userdict_.get() == 0) {
-        userdict_.reset(new SKKLocalUserDictionary());
-    }
-
-    userdict_->Initialize(userdict_path);
-
-    // 不要な辞書を破棄する
-    for(unsigned i = 0; i < actives_.size(); ++i) {
-        if(std::find(keys.begin(), keys.end(), actives_[i]) == keys.end()) {
-            cache_.Clear(actives_[i]);
-        }
-    }
-
-    // 辞書を初期化する
-    dicts_.clear();
-    dicts_.push_back(userdict_.get());
-    for(unsigned i = 0; i < keys.size(); ++i) {
-        dicts_.push_back(cache_.Get(keys[i]));
-    }
-
-    actives_ = keys;
-}
-
-void SKKBackEnd::Initialize(SKKUserDictionary *dictionary, const SKKDictionaryKeyContainer &keys) {
-    userdict_.reset(dictionary);
-
-    // 不要な辞書を破棄する
-    for(unsigned i = 0; i < actives_.size(); ++i) {
-        if(std::find(keys.begin(), keys.end(), actives_[i]) == keys.end()) {
-            cache_.Clear(actives_[i]);
-        }
-    }
-
-    // 辞書を初期化する
-    dicts_.clear();
-    dicts_.push_back(userdict_.get());
-    for(unsigned i = 0; i < keys.size(); ++i) {
-        dicts_.push_back(cache_.Get(keys[i]));
-    }
-
-    actives_ = keys;
+    AquaSKKBackend::createBackendImpl().initialize(userdict_path, keys);
 }
 
 bool SKKBackEnd::Complete(const std::string &key, std::vector<std::string> &result, unsigned limit) {
-    CompletionHelper helper(key, minimumCompletionLength_, limit);
-
-    if(key.empty() || !enableExtendedCompletion_) {
-        userdict_->Complete(helper);
-    } else {
-        std::for_each(dicts_.begin(), dicts_.end(), ApplyComplete(helper));
-    }
-
-    result = helper;
-
-    return !result.empty();
+    result = AquaSKKBackend::createBackendImpl().complete_(key, limit);
+    return result.size() > 0;
 }
 
 bool SKKBackEnd::Find(const SKKEntry &entry, SKKCandidateSuite &result) {
     result.Clear();
-
-    std::for_each(dicts_.begin(), dicts_.end(), ApplyFind(entry, result));
-
-    if(!entry.IsOkuriAri()) {
-        AquaSKKBackend::NumericConverter converter = AquaSKKBackend::NumericConverter::init();
-
-        if(useNumericConversion_ && converter.setup(swift::String(entry.EntryString()))) {
-            SKKCandidateSuite suite;
-
-            std::for_each(dicts_.begin(), dicts_.end(), ApplyFind((std::string)converter.getNormalizedKey(), suite));
-
-            SKKCandidateContainer &cands = suite.Candidates();
-
-            std::transform(
-                cands.begin(), cands.end(), std::back_inserter(result.Candidates()), NumericConversion(converter));
-        }
-
-        result.Remove(SKKCandidate((std::string)converter.getOriginalKey()));
-    }
-
-    result.RemoveIf(SKKIgnoreDicWord());
-
+    AquaSKKBackend::createBackendImpl().find(entry, result);
     return !result.IsEmpty();
 }
 
 std::string SKKBackEnd::ReverseLookup(const std::string &candidate) {
-    if(candidate.empty())
-        return "";
-
-    for(unsigned i = 0; i < dicts_.size(); ++i) {
-        std::string entry(dicts_[i]->ReverseLookup(candidate));
-
-        if(!entry.empty()) {
-            return entry;
-        }
-    }
-
-    return "";
+    return AquaSKKBackend::createBackendImpl().reverseLookup(candidate);
 }
 
 void SKKBackEnd::Register(const SKKEntry &entry, const SKKCandidate &candidate) {
-    if(entry.EntryString().empty() || (entry.IsOkuriAri() && (entry.OkuriString().empty() || candidate.IsEmpty()))) {
-        std::cerr << "SKKBackEnd: Invalid registration received" << std::endl;
-        return;
-    }
-
-    if(candidate.AvoidStudy()) {
-        return;
-    }
-
-    userdict_->Register(normalize(entry), candidate);
+    AquaSKKBackend::createBackendImpl().register_(entry, candidate);
 }
 
 void SKKBackEnd::Remove(const SKKEntry &entry, const SKKCandidate &candidate) {
-    if(entry.EntryString().empty()) {
-        std::cerr << "SKKBackEnd: Invalid removal received" << std::endl;
-        return;
-    }
-
-    userdict_->Remove(normalize(entry), candidate);
+    AquaSKKBackend::createBackendImpl().remove(entry, candidate);
 }
 
 void SKKBackEnd::UseNumericConversion(bool flag) {
-    useNumericConversion_ = flag;
+    AquaSKKBackend::createBackendImpl().setNumericConversionEnabled(flag);
 }
 
 void SKKBackEnd::EnableExtendedCompletion(bool flag) {
-    enableExtendedCompletion_ = flag;
+    AquaSKKBackend::createBackendImpl().setExtendedCompletionEnabled(flag);
 }
 
 void SKKBackEnd::EnablePrivateMode(bool flag) {
-    userdict_->SetPrivateMode(flag);
+    AquaSKKBackend::createBackendImpl().setPrivateModeEnabled(flag);
 }
 
 void SKKBackEnd::SetMinimumCompletionLength(int length) {
-    minimumCompletionLength_ = length;
-}
-
-// ----------------------------------------------------------------------
-
-SKKEntry SKKBackEnd::normalize(const SKKEntry &entry) {
-    // 送りありなら何もしない
-    if(entry.IsOkuriAri()) {
-        return entry;
-    }
-
-    AquaSKKBackend::NumericConverter converter = AquaSKKBackend::NumericConverter::init();
-
-    SKKEntry result(entry);
-
-    // 単語登録と削除時には、数値だけの見出し語を正規化しない
-    if(useNumericConversion_ && converter.setup(entry.EntryString())) {
-        if((std::string)converter.getNormalizedKey() != "#") {
-            result.SetEntry(converter.getNormalizedKey());
-        }
-    }
-
-    return result;
+    AquaSKKBackend::createBackendImpl().setMinimumCompletionLength(length);
 }
