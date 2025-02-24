@@ -21,7 +21,7 @@
 */
 
 #include <iostream>
-#import <AquaSKKCore/SKKEvent.h>
+#import <AquaSKKEngine/SKKEvent.h>
 #import <AquaSKKInput/SKKKeyState.h>
 #import <AquaSKKInput/SKKKeymapEntry.h>
 

@@ -13,7 +13,11 @@ DEVELOPMENT_ASSET_PATHS = "Sources/App/Preview Content"
 
 REGISTER_APP_GROUPS = YES
 
-OTHER_LDFLAGS = $(inherited) -framework AquaSKKCore -framework AquaSKKInput -framework Carbon
+OTHER_LDFLAGS = $(inherited) \
+    -framework Carbon \
+    -framework AquaSKKEngine \
+    -framework AquaSKKInput \
+
 
 GENERATE_INFOPLIST_FILE = YES
 INFOPLIST_KEY_LSBackgroundOnly = 1

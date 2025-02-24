@@ -23,7 +23,7 @@
 #ifndef MacFrontEnd_h
 #define MacFrontEnd_h
 
-#import <AquaSKKCore/SKKFrontEnd.h>
+#import <AquaSKKEngine/SKKFrontEnd.h>
 
 @class MacFrontEndImpl;
 

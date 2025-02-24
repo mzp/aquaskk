@@ -3,7 +3,7 @@
 #ifndef MockConfig_h
 #define MockConfig_h
 
-#import <AquaSKKCore/SKKConfig.h>
+#import <AquaSKKEngine/SKKConfig.h>
 
 class MockConfig : public SKKConfig {
     virtual bool FixIntermediateConversion();

@@ -24,7 +24,7 @@
 #define MacConfig_h
 
 #import <Foundation/Foundation.h>
-#import <AquaSKKCore/SKKConfig.h>
+#import <AquaSKKEngine/SKKConfig.h>
 
 class MacConfig : public SKKConfig {
     int integerConfig(NSString *key);

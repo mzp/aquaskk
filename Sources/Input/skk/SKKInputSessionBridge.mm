@@ -6,7 +6,7 @@
 //
 
 #import "SKKInputSessionBridge.h"
-#import <AquaSKKCore/SKKInputSession.h>
+#import <AquaSKKEngine/SKKInputSession.h>
 #import <AquaSKKInput/MacInputModeMenu.h>
 #import <AquaSKKInput/MacInputModeWindow.h>
 #import <AquaSKKInput/MacInputSessionParameter.h>

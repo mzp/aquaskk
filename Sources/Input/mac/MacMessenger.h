@@ -23,7 +23,7 @@
 #ifndef MacMessenger_h
 #define MacMessenger_h
 
-#import <AquaSKKCore/SKKMessenger.h>
+#import <AquaSKKEngine/SKKMessenger.h>
 #import <AquaSKKInput/SKKLayoutManager.h>
 
 @class MacMessengerImpl;

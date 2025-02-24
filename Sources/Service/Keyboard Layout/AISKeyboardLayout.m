@@ -1,6 +1,6 @@
 //
 //  AISKeyboardLayout.m
-//  AquaSKKCore
+//  AquaSKKEngine
 //
 //  Created by mzp on 8/6/24.
 //

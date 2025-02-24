@@ -25,7 +25,7 @@
 
 #include <map>
 #include <string>
-#import <AquaSKKCore/SKKEvent.h>
+#import <AquaSKKEngine/SKKEvent.h>
 
 // キーマップ
 class SKKKeymap {

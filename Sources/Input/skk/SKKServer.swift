@@ -6,7 +6,7 @@
 //
 
 import AquaSKKBackend
-import AquaSKKCore
+import AquaSKKEngine
 import AquaSKKService
 import AquaSKKServer
 import AquaSKKUI

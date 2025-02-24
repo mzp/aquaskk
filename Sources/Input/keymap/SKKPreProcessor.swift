@@ -5,7 +5,7 @@
 //  Created by mzp on 2/9/25.
 //
 
-import AquaSKKCore
+import AquaSKKEngine
 import Foundation
 import OSLog
 
