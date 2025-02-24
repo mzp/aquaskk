@@ -26,15 +26,9 @@
 #import <AquaSKKBackend/SKKCandidateSuite.h>
 #import <AquaSKKBackend/SKKDictionaryKey.h>
 #import <AquaSKKBackend/SKKEntry.h>
-#import <AquaSKKBackend/SwiftObject.h>
 
-namespace AquaSKKBackend {
-    class SKKBackendImpl;
-}
 typedef std::vector<std::string> SKKCompletionResult;
 class SKKBackEnd {
-    SwiftObject<AquaSKKBackend::SKKBackendImpl> *impl_;
-
     SKKBackEnd();
     SKKBackEnd(const SKKBackEnd &);
     SKKBackEnd &operator=(const SKKBackEnd &);

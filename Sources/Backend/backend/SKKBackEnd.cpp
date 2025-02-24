@@ -25,53 +25,50 @@
 #import <AquaSKKBackend/SKKDictionaryKey.h>
 #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 
-SKKBackEnd::SKKBackEnd()
-    : impl_(new SwiftObject<AquaSKKBackend::SKKBackendImpl>()) {}
-
 SKKBackEnd &SKKBackEnd::theInstance() {
     static SKKBackEnd obj;
     return obj;
 }
 
 void SKKBackEnd::Initialize(const std::string &userdict_path, const SKKDictionaryKeyContainer &keys) {
-    (*impl_)->initialize(userdict_path, keys);
+    AquaSKKBackend::createBackendImpl().initialize(userdict_path, keys);
 }
 
 bool SKKBackEnd::Complete(const std::string &key, std::vector<std::string> &result, unsigned limit) {
-    result = (*impl_)->complete_(key, limit);
+    result = AquaSKKBackend::createBackendImpl().complete_(key, limit);
     return result.size() > 0;
 }
 
 bool SKKBackEnd::Find(const SKKEntry &entry, SKKCandidateSuite &result) {
     result.Clear();
-    (*impl_)->find(entry, result);
+    AquaSKKBackend::createBackendImpl().find(entry, result);
     return !result.IsEmpty();
 }
 
 std::string SKKBackEnd::ReverseLookup(const std::string &candidate) {
-    return (*impl_)->reverseLookup(candidate);
+    return AquaSKKBackend::createBackendImpl().reverseLookup(candidate);
 }
 
 void SKKBackEnd::Register(const SKKEntry &entry, const SKKCandidate &candidate) {
-    (*impl_)->register_(entry, candidate);
+    AquaSKKBackend::createBackendImpl().register_(entry, candidate);
 }
 
 void SKKBackEnd::Remove(const SKKEntry &entry, const SKKCandidate &candidate) {
-    (*impl_)->remove(entry, candidate);
+    AquaSKKBackend::createBackendImpl().remove(entry, candidate);
 }
 
 void SKKBackEnd::UseNumericConversion(bool flag) {
-    (*impl_)->setNumericConversionEnabled(flag);
+    AquaSKKBackend::createBackendImpl().setNumericConversionEnabled(flag);
 }
 
 void SKKBackEnd::EnableExtendedCompletion(bool flag) {
-    (*impl_)->setExtendedCompletionEnabled(flag);
+    AquaSKKBackend::createBackendImpl().setExtendedCompletionEnabled(flag);
 }
 
 void SKKBackEnd::EnablePrivateMode(bool flag) {
-    (*impl_)->setPrivateModeEnabled(flag);
+    AquaSKKBackend::createBackendImpl().setPrivateModeEnabled(flag);
 }
 
 void SKKBackEnd::SetMinimumCompletionLength(int length) {
-    (*impl_)->setMinimumCompletionLength(length);
+    AquaSKKBackend::createBackendImpl().setMinimumCompletionLength(length);
 }

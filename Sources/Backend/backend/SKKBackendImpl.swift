@@ -10,6 +10,10 @@ import AquaSKKService
 import Foundation
 import OSLog
 
+public func createBackendImpl() -> SKKBackendImpl {
+    return SKKBackendImpl.shared()
+}
+
 public class SKKBackendImpl {
     static let sharedInstance = SKKBackendImpl()
     static func shared() -> SKKBackendImpl { sharedInstance }
