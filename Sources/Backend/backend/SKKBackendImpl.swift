@@ -115,7 +115,7 @@ public class SKKBackendImpl {
                 dictionary.complete(helper: &helper)
             }
         }
-        return .init(backendHelper.result.map{ std.string($0) })
+        return .init(backendHelper.result.map { std.string($0) })
     }
 
     public func reverseLookup(candidate: String) -> String {
