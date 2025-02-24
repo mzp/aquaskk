@@ -38,7 +38,7 @@ void SKKBackEnd::Initialize(const std::string &userdict_path, const SKKDictionar
 }
 
 bool SKKBackEnd::Complete(const std::string &key, std::vector<std::string> &result, unsigned limit) {
-    result = (*impl_)->complete(key, limit);
+    result = (*impl_)->complete_WithKey(key, limit);
     return result.size() > 0;
 }
 

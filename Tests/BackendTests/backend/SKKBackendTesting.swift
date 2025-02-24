@@ -26,7 +26,7 @@ struct SKKBackendTesting {
     }
 
     @Test func complete() {
-        let result = backend.complete(key: "か", limit: 0)
+        let result = backend.complete_(key: "か", limit: 0)
         #expect(result.first == "かんじ")
     }
 
@@ -59,7 +59,7 @@ struct SKKBackendTesting {
         backend.register(entry: SKKEntry("かなめ", ""), candidate: SKKCandidate("要", true))
 
         // 補完
-        var result = backend.complete(key: "か", limit: 0)
+        var result = backend.complete_(key: "か", limit: 0)
         #expect(result[0] == "かなめ")
         #expect(result[1] == "かんじ")
 
@@ -77,7 +77,7 @@ struct SKKBackendTesting {
         backend.remove(entry: SKKEntry("あr", "り"), candidate: SKKCandidate("有", true))
         backend.remove(entry: SKKEntry("かなめ", ""), candidate: SKKCandidate("要", true))
 
-        result = backend.complete(key: "か", limit: 0)
+        result = backend.complete_(key: "か", limit: 0)
         #expect(result[0] != "かなめ")
 
         backend.find(entry: SKKEntry("あk", "り"), to: &suite)

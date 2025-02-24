@@ -103,7 +103,7 @@ public class SKKBackendImpl {
         }
     }
 
-    public func complete(key: String, limit: Int) -> SKKCompletionResult {
+    public func complete_(key: String, limit: Int) -> SKKCompletionResult {
         let backendHelper = SKKBackendCompletionHelper(entry: key, minimumLength: minimumCompletionLength, limit: limit)
 
         if key.isEmpty || !extendedCompletionEnabled {
