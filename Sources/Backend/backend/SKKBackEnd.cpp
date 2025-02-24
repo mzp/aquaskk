@@ -25,6 +25,8 @@
 #import <AquaSKKBackend/SKKDictionaryKey.h>
 #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 
+SKKBackEnd::SKKBackEnd() {}
+
 SKKBackEnd &SKKBackEnd::theInstance() {
     static SKKBackEnd obj;
     return obj;
