@@ -21,9 +21,9 @@
 */
 
 #include <fstream>
-#import <AquaSKKCore/SKKKeyState.h>
-#import <AquaSKKCore/SKKKeymap.h>
-#import <AquaSKKCore/SKKKeymapEntry.h>
+#import <AquaSKKInput/SKKKeyState.h>
+#import <AquaSKKInput/SKKKeymap.h>
+#import <AquaSKKInput/SKKKeymapEntry.h>
 
 void SKKKeymap::Initialize(const std::string &path) {
     load(path, true);

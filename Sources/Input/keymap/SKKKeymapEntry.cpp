@@ -22,8 +22,8 @@
 
 #include <iostream>
 #import <AquaSKKCore/SKKEvent.h>
-#import <AquaSKKCore/SKKKeyState.h>
-#import <AquaSKKCore/SKKKeymapEntry.h>
+#import <AquaSKKInput/SKKKeyState.h>
+#import <AquaSKKInput/SKKKeymapEntry.h>
 
 // エントリーのタイプ
 enum KeymapEntryType {

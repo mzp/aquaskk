@@ -37,13 +37,6 @@ FOUNDATION_EXPORT const unsigned char AquaSKKCoreVersionString[];
 #import <AquaSKKCore/SKKRegisterEditor.h>
 #import <AquaSKKCore/SKKTextBuffer.h>
 
-#pragma mark - keymap
-
-#import <AquaSKKCore/SKKKeyModifier.h>
-#import <AquaSKKCore/SKKKeyState.h>
-#import <AquaSKKCore/SKKKeymap.h>
-#import <AquaSKKCore/SKKKeymapEntry.h>
-
 #pragma mark - selector
 
 #import <AquaSKKCore/SKKBaseSelector.h>

@@ -8,7 +8,7 @@
 #ifndef SKKKeyModifier_h
 #define SKKKeyModifier_h
 
-#include <AquaSKKCore/SKKKeyState.h>
+#include <AquaSKKInput/SKKKeyState.h>
 
 enum class SKKKeyModifier {
     shift = SKKKeyState::SHIFT,
