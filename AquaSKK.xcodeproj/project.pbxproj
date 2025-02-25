@@ -156,15 +156,8 @@
 		1344F6082C5B28FC00D8C850 /* SKKUndoContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5042C5B28FC00D8C850 /* SKKUndoContext.cpp */; };
 		1344F6102C5B28FC00D8C850 /* SKKCandidateEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4CE2C5B28FC00D8C850 /* SKKCandidateEditor.cpp */; };
 		134778592C5DB98F007B1DFB /* period.rule in Resources */ = {isa = PBXBuildFile; fileRef = 1347784F2C5DB98F007B1DFB /* period.rule */; };
-		1347785A2C5DB98F007B1DFB /* SKK-JISYO.S2 in Resources */ = {isa = PBXBuildFile; fileRef = 134778532C5DB98F007B1DFB /* SKK-JISYO.S2 */; };
 		1347785B2C5DB98F007B1DFB /* kana-rule.conf in Resources */ = {isa = PBXBuildFile; fileRef = 1347784C2C5DB98F007B1DFB /* kana-rule.conf */; };
-		1347785C2C5DB98F007B1DFB /* skk-jisyo.utf8 in Resources */ = {isa = PBXBuildFile; fileRef = 134778512C5DB98F007B1DFB /* skk-jisyo.utf8 */; };
 		1347785D2C5DB98F007B1DFB /* test.dat in Resources */ = {isa = PBXBuildFile; fileRef = 134778562C5DB98F007B1DFB /* test.dat */; };
-		1347785E2C5DB98F007B1DFB /* dict.file in Resources */ = {isa = PBXBuildFile; fileRef = 1347784B2C5DB98F007B1DFB /* dict.file */; };
-		134778612C5DB98F007B1DFB /* SKK-JISYO.TEST.UTF8 in Resources */ = {isa = PBXBuildFile; fileRef = 134778552C5DB98F007B1DFB /* SKK-JISYO.TEST.UTF8 */; };
-		134778622C5DB98F007B1DFB /* skk.jisyo in Resources */ = {isa = PBXBuildFile; fileRef = 134778502C5DB98F007B1DFB /* skk.jisyo */; };
-		134778632C5DB98F007B1DFB /* SKK-JISYO.S1 in Resources */ = {isa = PBXBuildFile; fileRef = 134778522C5DB98F007B1DFB /* SKK-JISYO.S1 */; };
-		134778642C5DB98F007B1DFB /* SKK-JISYO.TEST in Resources */ = {isa = PBXBuildFile; fileRef = 134778542C5DB98F007B1DFB /* SKK-JISYO.TEST */; };
 		1347C2012C5E12A500414DE2 /* SKKTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1347C2002C5E12A500414DE2 /* SKKTextView.swift */; };
 		1347C2112C5E1ACE00414DE2 /* AquaSKK-Ascii.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347C2052C5E1ACE00414DE2 /* AquaSKK-Ascii.png */; };
 		1347C2122C5E1ACE00414DE2 /* AquaSKK-Katakana.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347C20F2C5E1ACE00414DE2 /* AquaSKK-Katakana.png */; };
@@ -411,6 +404,8 @@
 		13A6A1392C6D6D2F004B3587 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A6A1382C6D6D2F004B3587 /* main.m */; };
 		13A835262C7988BD003BF62F /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13A835252C7988BD003BF62F /* UserDefaults.plist */; };
 		13A920122D6958F8009B9B91 /* SKKLocalUserDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A920112D6958F8009B9B91 /* SKKLocalUserDictionaryTests.swift */; };
+		13AD65042D6D564900884E29 /* skk-jisyo.utf8 in Resources */ = {isa = PBXBuildFile; fileRef = 13AD65032D6D564900884E29 /* skk-jisyo.utf8 */; };
+		13AD65062D6D565C00884E29 /* SKK-JISYO.TEST in Resources */ = {isa = PBXBuildFile; fileRef = 13AD65052D6D565C00884E29 /* SKK-JISYO.TEST */; };
 		13B4A9B02D57E5C5002453BA /* SKKServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B4A9AF2D57E5C5002453BA /* SKKServer.swift */; };
 		13B4A9BB2D583EC2002453BA /* SKKCandidateBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B4A9B82D583D30002453BA /* SKKCandidateBridge.mm */; };
 		13B4A9BC2D583EC8002453BA /* SKKCandidateBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B4A9B72D583D30002453BA /* SKKCandidateBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -775,17 +770,10 @@
 		1344F5592C5B28FC00D8C850 /* stringutil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stringutil.h; sourceTree = "<group>"; };
 		1344F55A2C5B28FC00D8C850 /* subrange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = subrange.h; sourceTree = "<group>"; };
 		1344F55B2C5B28FC00D8C850 /* utf8util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utf8util.h; sourceTree = "<group>"; };
-		1347784B2C5DB98F007B1DFB /* dict.file */ = {isa = PBXFileReference; lastKnownFileType = text; path = dict.file; sourceTree = "<group>"; };
 		1347784C2C5DB98F007B1DFB /* kana-rule.conf */ = {isa = PBXFileReference; lastKnownFileType = text; path = "kana-rule.conf"; sourceTree = "<group>"; };
 		1347784D2C5DB98F007B1DFB /* keymap.conf */ = {isa = PBXFileReference; lastKnownFileType = text; path = keymap.conf; sourceTree = "<group>"; };
 		1347784E2C5DB98F007B1DFB /* keymap_patch.conf */ = {isa = PBXFileReference; lastKnownFileType = text; path = keymap_patch.conf; sourceTree = "<group>"; };
 		1347784F2C5DB98F007B1DFB /* period.rule */ = {isa = PBXFileReference; lastKnownFileType = text; path = period.rule; sourceTree = "<group>"; };
-		134778502C5DB98F007B1DFB /* skk.jisyo */ = {isa = PBXFileReference; lastKnownFileType = text; path = skk.jisyo; sourceTree = "<group>"; };
-		134778512C5DB98F007B1DFB /* skk-jisyo.utf8 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "skk-jisyo.utf8"; sourceTree = "<group>"; };
-		134778522C5DB98F007B1DFB /* SKK-JISYO.S1 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "SKK-JISYO.S1"; sourceTree = "<group>"; };
-		134778532C5DB98F007B1DFB /* SKK-JISYO.S2 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "SKK-JISYO.S2"; sourceTree = "<group>"; };
-		134778542C5DB98F007B1DFB /* SKK-JISYO.TEST */ = {isa = PBXFileReference; lastKnownFileType = text; path = "SKK-JISYO.TEST"; sourceTree = "<group>"; };
-		134778552C5DB98F007B1DFB /* SKK-JISYO.TEST.UTF8 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "SKK-JISYO.TEST.UTF8"; sourceTree = "<group>"; };
 		134778562C5DB98F007B1DFB /* test.dat */ = {isa = PBXFileReference; lastKnownFileType = text; path = test.dat; sourceTree = "<group>"; };
 		1347C2002C5E12A500414DE2 /* SKKTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKTextView.swift; sourceTree = "<group>"; };
 		1347C2052C5E1ACE00414DE2 /* AquaSKK-Ascii.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AquaSKK-Ascii.png"; sourceTree = "<group>"; };
@@ -1018,6 +1006,8 @@
 		13A6A1382C6D6D2F004B3587 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		13A835252C7988BD003BF62F /* UserDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
 		13A920112D6958F8009B9B91 /* SKKLocalUserDictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKLocalUserDictionaryTests.swift; sourceTree = "<group>"; };
+		13AD65032D6D564900884E29 /* skk-jisyo.utf8 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "skk-jisyo.utf8"; sourceTree = "<group>"; };
+		13AD65052D6D565C00884E29 /* SKK-JISYO.TEST */ = {isa = PBXFileReference; lastKnownFileType = text; path = "SKK-JISYO.TEST"; sourceTree = "<group>"; };
 		13B4A9AF2D57E5C5002453BA /* SKKServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKServer.swift; sourceTree = "<group>"; };
 		13B4A9B12D57E909002453BA /* skkserv_impl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = skkserv_impl.h; sourceTree = "<group>"; };
 		13B4A9B22D57E909002453BA /* skkserv_impl.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = skkserv_impl.cpp; sourceTree = "<group>"; };
@@ -1830,15 +1820,10 @@
 		134778572C5DB98F007B1DFB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1347784B2C5DB98F007B1DFB /* dict.file */,
+				13AD65052D6D565C00884E29 /* SKK-JISYO.TEST */,
+				13AD65032D6D564900884E29 /* skk-jisyo.utf8 */,
 				1347784C2C5DB98F007B1DFB /* kana-rule.conf */,
 				1347784F2C5DB98F007B1DFB /* period.rule */,
-				134778502C5DB98F007B1DFB /* skk.jisyo */,
-				134778512C5DB98F007B1DFB /* skk-jisyo.utf8 */,
-				134778522C5DB98F007B1DFB /* SKK-JISYO.S1 */,
-				134778532C5DB98F007B1DFB /* SKK-JISYO.S2 */,
-				134778542C5DB98F007B1DFB /* SKK-JISYO.TEST */,
-				134778552C5DB98F007B1DFB /* SKK-JISYO.TEST.UTF8 */,
 				134778562C5DB98F007B1DFB /* test.dat */,
 			);
 			path = Resources;
@@ -3373,15 +3358,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				134778592C5DB98F007B1DFB /* period.rule in Resources */,
-				1347785A2C5DB98F007B1DFB /* SKK-JISYO.S2 in Resources */,
 				1347785B2C5DB98F007B1DFB /* kana-rule.conf in Resources */,
-				1347785C2C5DB98F007B1DFB /* skk-jisyo.utf8 in Resources */,
+				13AD65062D6D565C00884E29 /* SKK-JISYO.TEST in Resources */,
 				1347785D2C5DB98F007B1DFB /* test.dat in Resources */,
-				1347785E2C5DB98F007B1DFB /* dict.file in Resources */,
-				134778612C5DB98F007B1DFB /* SKK-JISYO.TEST.UTF8 in Resources */,
-				134778622C5DB98F007B1DFB /* skk.jisyo in Resources */,
-				134778632C5DB98F007B1DFB /* SKK-JISYO.S1 in Resources */,
-				134778642C5DB98F007B1DFB /* SKK-JISYO.TEST in Resources */,
+				13AD65042D6D564900884E29 /* skk-jisyo.utf8 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
