@@ -3,7 +3,7 @@
 #ifndef MockDynamicCompletor_h
 #define MockDynamicCompletor_h
 
-#import <AquaSKKCore/SKKDynamicCompletor.h>
+#import <AquaSKKEngine/SKKDynamicCompletor.h>
 
 class MockDynamicCompletor : public SKKDynamicCompletor {
 private:

@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AquaSKKCore/SKKEvent.h>
+#import <AquaSKKEngine/SKKEvent.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

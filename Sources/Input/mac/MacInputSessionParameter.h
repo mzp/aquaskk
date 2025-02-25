@@ -24,7 +24,7 @@
 #define MacInputSessionParameter_h
 
 #include <memory>
-#import <AquaSKKCore/SKKInputSessionParameter.h>
+#import <AquaSKKEngine/SKKInputSessionParameter.h>
 #import <AquaSKKInput/SKKLayoutManager.h>
 
 class MacInputSessionParameter : public SKKInputSessionParameter {

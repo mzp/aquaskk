@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 #import <XCTest/XCTest.h>
-#include "stringutil.h"
+#include <AquaSKKTesting/stringutil.h>
 
 @interface StringUtilTests : XCTestCase
 @end

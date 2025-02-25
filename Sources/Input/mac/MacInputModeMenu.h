@@ -23,7 +23,7 @@
 #ifndef MacInputModeMenu_h
 #define MacInputModeMenu_h
 
-#import <AquaSKKCore/SKKInputModeListener.h>
+#import <AquaSKKEngine/SKKInputModeListener.h>
 
 @class SKKInputMenu;
 @class MacInputModeMenuImpl;

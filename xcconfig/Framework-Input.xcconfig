@@ -14,7 +14,8 @@
 OTHER_LDFLAGS = $(inherited) \
     -framework AppKit \
     -framework InputMethodKit \
-    -framework AquaSKKCore \
+    -framework AquaSKKEngine \
     -framework AquaSKKService \
     -framework AquaSKKUI \
-    -framework AquaSKKBackend
+    -framework AquaSKKBackend \
+    -framework AquaSKKServer

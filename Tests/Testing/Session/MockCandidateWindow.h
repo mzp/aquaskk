@@ -2,7 +2,7 @@
 #define MockCandidateWindow_h
 
 #include <vector>
-#import <AquaSKKCore/SKKCandidateWindow.h>
+#import <AquaSKKEngine/SKKCandidateWindow.h>
 
 class MockCandidateWindow : public SKKCandidateWindow {
     virtual void SKKWidgetShow();

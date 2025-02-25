@@ -41,25 +41,12 @@ FOUNDATION_EXPORT const unsigned char AquaSKKBackendVersionString[];
 #import <AquaSKKBackend/SKKCandidateSuite.h>
 #import <AquaSKKBackend/SKKDictionaryEntry.h>
 #import <AquaSKKBackend/SKKEntry.h>
-#import <AquaSKKbackend/SKKOkuriHint.h>
-
-#pragma mark - session
-
 #import <AquaSKKBackend/SKKInputMode.h>
+#import <AquaSKKbackend/SKKOkuriHint.h>
 
 #pragma mark - utility
 
-#import <AquaSKKBackend/pthreadutil.h>
-#import <AquaSKKBackend/socketutil.h>
-#import <AquaSKKBackend/stringutil.h>
-#import <AquaSKKBackend/utf8util.h>
-
-#pragma mark - bridge
-
-#import <AquaSKKBackend/IntrusiveRefCounted.h>
 #import <AquaSKKBackend/SKKBackendBridge.h>
 #import <AquaSKKBackend/SKKCandidateBridge.h>
-
-#pragma mark - Encoding
 #import <AquaSKKBackend/SKKEncoding.h>
 #import <AquaSKKBackend/SKKTransliterate.h>

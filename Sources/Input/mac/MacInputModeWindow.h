@@ -23,7 +23,7 @@
 #ifndef MacInputModeWindow_h
 #define MacInputModeWindow_h
 
-#import <AquaSKKCore/SKKInputModeListener.h>
+#import <AquaSKKEngine/SKKInputModeListener.h>
 
 class SKKLayoutManager;
 @class MacInputModeWindowImpl;

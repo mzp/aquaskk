@@ -1,9 +1,9 @@
 #include <cassert>
 #include <iostream>
 #import <XCTest/XCTest.h>
-#import <AquaSKKEngine/SKKKeyState.h>
-#import <AquaSKKEngine/SKKKeymap.h>
-#import <AquaSKKEngine/SKKKeymapEntry.h>
+#import <AquaSKKInput/SKKKeyState.h>
+#import <AquaSKKInput/SKKKeymap.h>
+#import <AquaSKKInput/SKKKeymapEntry.h>
 
 @interface SKKKeymapTests : XCTestCase
 @end

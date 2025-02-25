@@ -58,8 +58,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13D7560A2C5A9043006144F2"
-               BuildableName = "AquaSKKCore.framework"
-               BlueprintName = "AquaSKKCore"
+               BuildableName = "AquaSKKEngine.framework"
+               BlueprintName = "AquaSKKEngine"
                ReferencedContainer = "container:AquaSKK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

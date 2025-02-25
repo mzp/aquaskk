@@ -1,5 +1,5 @@
 #import <XCTest/XCTest.h>
-#import <AquaSKKBackend/socketutil.h>
+#import <AquaSKKServer/socketutil.h>
 
 @interface SocketUtilTests : XCTestCase
 @end

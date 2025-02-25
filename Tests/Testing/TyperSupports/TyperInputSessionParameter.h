@@ -10,15 +10,15 @@
 
 #include <memory>
 #include <swift/bridging>
-#import <AquaSKKBackend/IntrusiveRefCounted.h>
-#import <AquaSKKCore/SKKAnnotator.h>
-#import <AquaSKKCore/SKKCandidateWindow.h>
-#import <AquaSKKCore/SKKClipboard.h>
-#import <AquaSKKCore/SKKConfig.h>
-#import <AquaSKKCore/SKKDynamicCompletor.h>
-#import <AquaSKKCore/SKKFrontEnd.h>
-#import <AquaSKKCore/SKKInputSessionParameter.h>
-#import <AquaSKKCore/SKKMessenger.h>
+#import <AquaSKKEngine/IntrusiveRefCounted.h>
+#import <AquaSKKEngine/SKKAnnotator.h>
+#import <AquaSKKEngine/SKKCandidateWindow.h>
+#import <AquaSKKEngine/SKKClipboard.h>
+#import <AquaSKKEngine/SKKConfig.h>
+#import <AquaSKKEngine/SKKDynamicCompletor.h>
+#import <AquaSKKEngine/SKKFrontEnd.h>
+#import <AquaSKKEngine/SKKInputSessionParameter.h>
+#import <AquaSKKEngine/SKKMessenger.h>
 
 class TyperInputSessionParameter : public SKKInputSessionParameter {
     std::unique_ptr<SKKConfig> config_;

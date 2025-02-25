@@ -12,4 +12,5 @@
 #include "./Include/SwiftFramework.xcconfig"
 
 OTHER_LDFLAGS = $(inherited) \
-    -framework AquaSKKLogging
+    -framework AquaSKKLogging \
+    -framework AquaSKKService

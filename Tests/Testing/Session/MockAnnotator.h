@@ -3,7 +3,7 @@
 #ifndef MockAnnotator_h
 #define MockAnnotator_h
 
-#import <AquaSKKCore/SKKAnnotator.h>
+#import <AquaSKKEngine/SKKAnnotator.h>
 
 class MockAnnotator : public SKKAnnotator {
     SKKCandidate candidate_;

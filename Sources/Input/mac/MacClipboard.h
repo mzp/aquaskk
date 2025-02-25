@@ -23,7 +23,7 @@
 #ifndef MacClipboard_h
 #define MacClipboard_h
 
-#import <AquaSKKCore/SKKClipboard.h>
+#import <AquaSKKEngine/SKKClipboard.h>
 
 @class MacClipboardImpl;
 

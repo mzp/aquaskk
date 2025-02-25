@@ -3,7 +3,7 @@
 #ifndef MockInputSessionParameter_h
 #define MockInputSessionParameter_h
 
-#import <AquaSKKCore/SKKInputSessionParameter.h>
+#import <AquaSKKEngine/SKKInputSessionParameter.h>
 #import <AquaSKKTesting/MockAnnotator.h>
 #import <AquaSKKTesting/MockCandidateWindow.h>
 #import <AquaSKKTesting/MockClipboard.h>

@@ -3,6 +3,8 @@
 #import <XCTest/XCTest.h>
 #import <os/log.h>
 #import <AquaSKKBackend/AquaSKKBackend.h>
+#import <AquaSKKServer/socketutil.h>
+#import <AquaSKKTesting/pthreadutil.h>
 #include <errno.h>
 
 @interface SKKProxyDictionaryTests : XCTestCase

@@ -2,7 +2,7 @@
 #include <sstream>
 #include <string>
 #import <XCTest/XCTest.h>
-#import <AquaSKKBackend/pthreadutil.h>
+#import <AquaSKKTesting/pthreadutil.h>
 #include <unistd.h>
 
 class debugtask : public pthread::task {

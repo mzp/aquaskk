@@ -2,8 +2,8 @@
 #include <iostream>
 #import <XCTest/XCTest.h>
 #import <AquaSKKEngine/SKKEvent.h>
-#import <AquaSKKEngine/SKKKeyState.h>
-#import <AquaSKKEngine/SKKKeymapEntry.h>
+#import <AquaSKKInput/SKKKeyState.h>
+#import <AquaSKKInput/SKKKeymapEntry.h>
 
 @interface SKKKeymapEntryTests : XCTestCase
 @end
