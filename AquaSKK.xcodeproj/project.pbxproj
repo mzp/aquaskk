@@ -1406,6 +1406,7 @@
 			children = (
 				137D05762C5B5A81009AC591 /* App */,
 				1307C23A2C5B47D800B089B6 /* PreferenceApp */,
+				1352B29B2C6DAE14001EF7F6 /* Installer */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -1609,7 +1610,6 @@
 			children = (
 				132F4D332D6C08FC0081022E /* App */,
 				132F4D342D6C09080081022E /* Core Frameworks */,
-				1352B29B2C6DAE14001EF7F6 /* Installer */,
 				132F4D352D6C090D0081022E /* Supports framework */,
 			);
 			path = Sources;
