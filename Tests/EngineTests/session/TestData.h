@@ -5,7 +5,7 @@
 
 #include <fstream>
 #include <vector>
-#import <AquaSKKEngine/SKKKeyState.h>
+#import <AquaSKKInput/SKKKeyState.h>
 #include <AquaSKKTesting/stringutil.h>
 #include "TestEvent.h"
 #include "TestResult.h"

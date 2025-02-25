@@ -161,8 +161,6 @@
 		1347785C2C5DB98F007B1DFB /* skk-jisyo.utf8 in Resources */ = {isa = PBXBuildFile; fileRef = 134778512C5DB98F007B1DFB /* skk-jisyo.utf8 */; };
 		1347785D2C5DB98F007B1DFB /* test.dat in Resources */ = {isa = PBXBuildFile; fileRef = 134778562C5DB98F007B1DFB /* test.dat */; };
 		1347785E2C5DB98F007B1DFB /* dict.file in Resources */ = {isa = PBXBuildFile; fileRef = 1347784B2C5DB98F007B1DFB /* dict.file */; };
-		1347785F2C5DB98F007B1DFB /* keymap_patch.conf in Resources */ = {isa = PBXBuildFile; fileRef = 1347784E2C5DB98F007B1DFB /* keymap_patch.conf */; };
-		134778602C5DB98F007B1DFB /* keymap.conf in Resources */ = {isa = PBXBuildFile; fileRef = 1347784D2C5DB98F007B1DFB /* keymap.conf */; };
 		134778612C5DB98F007B1DFB /* SKK-JISYO.TEST.UTF8 in Resources */ = {isa = PBXBuildFile; fileRef = 134778552C5DB98F007B1DFB /* SKK-JISYO.TEST.UTF8 */; };
 		134778622C5DB98F007B1DFB /* skk.jisyo in Resources */ = {isa = PBXBuildFile; fileRef = 134778502C5DB98F007B1DFB /* skk.jisyo */; };
 		134778632C5DB98F007B1DFB /* SKK-JISYO.S1 in Resources */ = {isa = PBXBuildFile; fileRef = 134778522C5DB98F007B1DFB /* SKK-JISYO.S1 */; };
@@ -180,6 +178,8 @@
 		1347C21A2C5E1ACE00414DE2 /* AquaSKK-Ascii@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347C2062C5E1ACE00414DE2 /* AquaSKK-Ascii@2x.png */; };
 		1347C21B2C5E1ACE00414DE2 /* AquaSKK-Hirakana@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347C2082C5E1ACE00414DE2 /* AquaSKK-Hirakana@2x.png */; };
 		1347C21C2C5E1ACE00414DE2 /* AquaSKK-Jisx0208Latin.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347C20D2C5E1ACE00414DE2 /* AquaSKK-Jisx0208Latin.png */; };
+		134F109C2D6D543E00527967 /* SKKKeymap_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134F10992D6D543E00527967 /* SKKKeymap_TEST.mm */; };
+		134F109D2D6D543E00527967 /* SKKKeymapEntry_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 134F109A2D6D543E00527967 /* SKKKeymapEntry_TEST.mm */; };
 		1352C9DF2C5DF8160056261D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1352C9D82C5DF8160056261D /* Preview Assets.xcassets */; };
 		1352C9E02C5DF8160056261D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1352C9DA2C5DF8160056261D /* Assets.xcassets */; };
 		1352C9E12C5DF8160056261D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1352C9DB2C5DF8160056261D /* ContentView.swift */; };
@@ -427,6 +427,8 @@
 		13C672BA2D5A5FC2000F4F6E /* SKKBackendBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 13C672B72D5A5FC2000F4F6E /* SKKBackendBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13D756192C5A9049006144F2 /* AquaSKKEngine.docc in Sources */ = {isa = PBXBuildFile; fileRef = 13D756172C5A9049006144F2 /* AquaSKKEngine.docc */; };
 		13D7561A2C5A9049006144F2 /* AquaSKKEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 13D756162C5A9049006144F2 /* AquaSKKEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		13D8D3812D6D551700CF12D7 /* keymap_patch.conf in Resources */ = {isa = PBXBuildFile; fileRef = 1347784E2C5DB98F007B1DFB /* keymap_patch.conf */; };
+		13D8D3822D6D551700CF12D7 /* keymap.conf in Resources */ = {isa = PBXBuildFile; fileRef = 1347784D2C5DB98F007B1DFB /* keymap.conf */; };
 		13DCD5052D6B95B2008C27A9 /* SKKBackendCompletionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DCD5042D6B95B2008C27A9 /* SKKBackendCompletionHelper.swift */; };
 		13DCD5072D6BA956008C27A9 /* SKKDictionaryKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 13DCD5062D6BA956008C27A9 /* SKKDictionaryKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13DCD5092D6BAADD008C27A9 /* SKKDictionaryConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DCD5082D6BAADD008C27A9 /* SKKDictionaryConfiguration.swift */; };
@@ -452,8 +454,6 @@
 		13EDDCCC2C5B2ED70062A0DA /* SKKWindowSelector_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5432C5B28FC00D8C850 /* SKKWindowSelector_TEST.mm */; };
 		13EDDCE42C5B37830062A0DA /* SKKCompleter_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5312C5B28FC00D8C850 /* SKKCompleter_TEST.mm */; };
 		13EDDCE82C5B395B0062A0DA /* SKKInlineSelector_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5382C5B28FC00D8C850 /* SKKInlineSelector_TEST.mm */; };
-		13EDDCEC2C5B395B0062A0DA /* SKKKeymap_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F53B2C5B28FC00D8C850 /* SKKKeymap_TEST.mm */; };
-		13EDDCEF2C5B395B0062A0DA /* SKKKeymapEntry_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F53C2C5B28FC00D8C850 /* SKKKeymapEntry_TEST.mm */; };
 		13EDDCF02C5B395B0062A0DA /* SKKRomanKanaConverter_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F53F2C5B28FC00D8C850 /* SKKRomanKanaConverter_TEST.mm */; };
 		13EDDCF12C5B395B0062A0DA /* SKKSelector_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5402C5B28FC00D8C850 /* SKKSelector_TEST.mm */; };
 		13EDDCF22C5B395B0062A0DA /* SKKInputQueue_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5392C5B28FC00D8C850 /* SKKInputQueue_TEST.mm */; };
@@ -757,8 +757,6 @@
 		1344F5382C5B28FC00D8C850 /* SKKInlineSelector_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKInlineSelector_TEST.mm; sourceTree = "<group>"; };
 		1344F5392C5B28FC00D8C850 /* SKKInputQueue_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKInputQueue_TEST.mm; sourceTree = "<group>"; };
 		1344F53A2C5B28FC00D8C850 /* SKKInputSession_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKInputSession_TEST.mm; sourceTree = "<group>"; };
-		1344F53B2C5B28FC00D8C850 /* SKKKeymap_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKKeymap_TEST.mm; sourceTree = "<group>"; };
-		1344F53C2C5B28FC00D8C850 /* SKKKeymapEntry_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKKeymapEntry_TEST.mm; sourceTree = "<group>"; };
 		1344F53E2C5B28FC00D8C850 /* SKKProxyDictionary_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKProxyDictionary_TEST.mm; sourceTree = "<group>"; };
 		1344F53F2C5B28FC00D8C850 /* SKKRomanKanaConverter_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKRomanKanaConverter_TEST.mm; sourceTree = "<group>"; };
 		1344F5402C5B28FC00D8C850 /* SKKSelector_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKSelector_TEST.mm; sourceTree = "<group>"; };
@@ -802,6 +800,8 @@
 		1347C20E2C5E1ACE00414DE2 /* AquaSKK-Jisx0208Latin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AquaSKK-Jisx0208Latin@2x.png"; sourceTree = "<group>"; };
 		1347C20F2C5E1ACE00414DE2 /* AquaSKK-Katakana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AquaSKK-Katakana.png"; sourceTree = "<group>"; };
 		1347C2102C5E1ACE00414DE2 /* AquaSKK-Katakana@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AquaSKK-Katakana@2x.png"; sourceTree = "<group>"; };
+		134F10992D6D543E00527967 /* SKKKeymap_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKKeymap_TEST.mm; sourceTree = "<group>"; };
+		134F109A2D6D543E00527967 /* SKKKeymapEntry_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKKeymapEntry_TEST.mm; sourceTree = "<group>"; };
 		1352B29A2C6DAE14001EF7F6 /* install.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install.sh; sourceTree = "<group>"; };
 		1352C9D82C5DF8160056261D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1352C9DA2C5DF8160056261D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1440,6 +1440,7 @@
 				1344F6202C5B2C9C00D8C850 /* EngineTests */,
 				135C3D662C5B3E9D00661AE3 /* InputTests */,
 				13B7BED02C5F5CF900F6BEF8 /* ServiceTests */,
+				13018B232C7696A40045FF13 /* Testing */,
 				139B7B712C60F68100FE5263 /* UITests */,
 			);
 			name = "Frameworks Tests";
@@ -1537,15 +1538,6 @@
 			path = backend;
 			sourceTree = "<group>";
 		};
-		133A55222C5DB8580047E911 /* keymap */ = {
-			isa = PBXGroup;
-			children = (
-				1344F53B2C5B28FC00D8C850 /* SKKKeymap_TEST.mm */,
-				1344F53C2C5B28FC00D8C850 /* SKKKeymapEntry_TEST.mm */,
-			);
-			path = keymap;
-			sourceTree = "<group>";
-		};
 		133A55232C5DB85C0047E911 /* selector */ = {
 			isa = PBXGroup;
 			children = (
@@ -1600,7 +1592,6 @@
 				132F4D362D6C09A00081022E /* Frameworks Tests */,
 				1352C9DE2C5DF8160056261D /* Harness */,
 				132F4D382D6C09F20081022E /* Integration Tests */,
-				13018B232C7696A40045FF13 /* Testing */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1820,7 +1811,6 @@
 				13F91A202C838FDF00E60D63 /* String */,
 				133A55202C5DB8390047E911 /* completer */,
 				1347782F2C5DB95A007B1DFB /* editor */,
-				133A55222C5DB8580047E911 /* keymap */,
 				133A55232C5DB85C0047E911 /* selector */,
 				132B777E2C5DB90B00EEC2A5 /* session */,
 				132B777C2C5DB8C700EEC2A5 /* tries */,
@@ -1842,8 +1832,6 @@
 			children = (
 				1347784B2C5DB98F007B1DFB /* dict.file */,
 				1347784C2C5DB98F007B1DFB /* kana-rule.conf */,
-				1347784D2C5DB98F007B1DFB /* keymap.conf */,
-				1347784E2C5DB98F007B1DFB /* keymap_patch.conf */,
 				1347784F2C5DB98F007B1DFB /* period.rule */,
 				134778502C5DB98F007B1DFB /* skk.jisyo */,
 				134778512C5DB98F007B1DFB /* skk-jisyo.utf8 */,
@@ -1906,6 +1894,17 @@
 			path = gui;
 			sourceTree = "<group>";
 		};
+		134F109B2D6D543E00527967 /* keymap */ = {
+			isa = PBXGroup;
+			children = (
+				134F10992D6D543E00527967 /* SKKKeymap_TEST.mm */,
+				134F109A2D6D543E00527967 /* SKKKeymapEntry_TEST.mm */,
+				1347784D2C5DB98F007B1DFB /* keymap.conf */,
+				1347784E2C5DB98F007B1DFB /* keymap_patch.conf */,
+			);
+			path = keymap;
+			sourceTree = "<group>";
+		};
 		1352B29B2C6DAE14001EF7F6 /* Installer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1952,6 +1951,7 @@
 			isa = PBXGroup;
 			children = (
 				13B7BE862C5F1E8400F6BEF8 /* server */,
+				134F109B2D6D543E00527967 /* keymap */,
 			);
 			path = InputTests;
 			sourceTree = "<group>";
@@ -3378,8 +3378,6 @@
 				1347785C2C5DB98F007B1DFB /* skk-jisyo.utf8 in Resources */,
 				1347785D2C5DB98F007B1DFB /* test.dat in Resources */,
 				1347785E2C5DB98F007B1DFB /* dict.file in Resources */,
-				1347785F2C5DB98F007B1DFB /* keymap_patch.conf in Resources */,
-				134778602C5DB98F007B1DFB /* keymap.conf in Resources */,
 				134778612C5DB98F007B1DFB /* SKK-JISYO.TEST.UTF8 in Resources */,
 				134778622C5DB98F007B1DFB /* skk.jisyo in Resources */,
 				134778632C5DB98F007B1DFB /* SKK-JISYO.S1 in Resources */,
@@ -3425,6 +3423,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13D8D3812D6D551700CF12D7 /* keymap_patch.conf in Resources */,
+				13D8D3822D6D551700CF12D7 /* keymap.conf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3653,9 +3653,7 @@
 				13EDDCE82C5B395B0062A0DA /* SKKInlineSelector_TEST.mm in Sources */,
 				13415B452C836C3B00ED9D0A /* SKKTransliterateTests.swift in Sources */,
 				13F91A222C83923000E60D63 /* SKKEncodingTests.swift in Sources */,
-				13EDDCEC2C5B395B0062A0DA /* SKKKeymap_TEST.mm in Sources */,
 				13A685422C69826A001BABA2 /* RomanKanaConverterTests.swift in Sources */,
-				13EDDCEF2C5B395B0062A0DA /* SKKKeymapEntry_TEST.mm in Sources */,
 				13EDDCF02C5B395B0062A0DA /* SKKRomanKanaConverter_TEST.mm in Sources */,
 				13EDDCF12C5B395B0062A0DA /* SKKSelector_TEST.mm in Sources */,
 				13EDDCF22C5B395B0062A0DA /* SKKInputQueue_TEST.mm in Sources */,
@@ -3727,6 +3725,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B7BE882C5F1E9100F6BEF8 /* SKKServerTests.swift in Sources */,
+				134F109C2D6D543E00527967 /* SKKKeymap_TEST.mm in Sources */,
+				134F109D2D6D543E00527967 /* SKKKeymapEntry_TEST.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

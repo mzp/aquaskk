@@ -12,4 +12,5 @@
 
 OTHER_LDFLAGS = $(inherited) \
     -framework AquaSKKEngine \
-    -framework AquaSKKTesting
+    -framework AquaSKKTesting \
+    -framework AquaSKKInput

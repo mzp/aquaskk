@@ -5,7 +5,7 @@
 #import <XCTest/XCTest.h>
 #import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKEngine/SKKInputSession.h>
-#import <AquaSKKEngine/SKKKeymap.h>
+#import <AquaSKKInput/SKKKeymap.h>
 #include <AquaSKKTesting/MockInputSessionParameter.h>
 #include "SKKRomanKanaConverter.h"
 #include "TestData.h"
