@@ -6,9 +6,9 @@
 #include <fstream>
 #include <vector>
 #import <AquaSKKEngine/SKKKeyState.h>
+#include <AquaSKKTesting/stringutil.h>
 #include "TestEvent.h"
 #include "TestResult.h"
-#include <AquaSKKTesting/stringutil.h>
 
 struct TestEntry {
     int line;

@@ -27,7 +27,6 @@ FOUNDATION_EXPORT const unsigned char AquaSKKInputVersionString[];
 #import <AquaSKKInput/SKKInputSessionBridge.h>
 #import <AquaSKKInput/SKKLayoutManager.h>
 
-
 #pragma mark - keymap
 
 #import <AquaSKKInput/SKKKeyModifier.h>

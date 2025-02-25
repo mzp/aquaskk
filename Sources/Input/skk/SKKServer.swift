@@ -7,8 +7,8 @@
 
 import AquaSKKBackend
 import AquaSKKEngine
-import AquaSKKService
 import AquaSKKServer
+import AquaSKKService
 import AquaSKKUI
 import Foundation
 import OSLog
