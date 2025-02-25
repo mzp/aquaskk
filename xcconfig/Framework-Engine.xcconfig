@@ -10,3 +10,6 @@
 
 #include "./Include/Internal.xcconfig"
 #include "./Include/SwiftFramework.xcconfig"
+
+OTHER_LDFLAGS = $(inherited) \
+    -framework AquaSKKBackend
