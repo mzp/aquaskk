@@ -12,3 +12,9 @@ extension SKKKeyState: CustomDebugStringConvertible {
         return "<SKKKeyState: \(rawValue)>"
     }
 }
+
+extension SKKKeyState: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(rawValue)
+    }
+}

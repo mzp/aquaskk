@@ -25,7 +25,9 @@
     XCTAssert(keymap.Fetch(0x09, 0, 0) == SKKEvent(SKK_TAB, 0x09, 0));
     XCTAssert(keymap.Fetch('i', 0, SKKKeyState::CTRL) == SKKEvent(SKK_TAB, 'i', 0));
     XCTAssert(keymap.Fetch('g', 0, SKKKeyState::CTRL) == SKKEvent(SKK_CANCEL, 'g', 0));
-    XCTAssert(keymap.Fetch(0x1c, 0, 0) == SKKEvent(SKK_LEFT, 0x1c, 0));
+    auto x = keymap.Fetch(0x1c, 0, 0);
+    auto y =  SKKEvent(SKK_LEFT, 0x1c, 0);
+    XCTAssert(x == y);
 
     param = keymap.Fetch('b', 0, 0);
     XCTAssert(param == SKKEvent(SKK_CHAR, 'b', InputChars));
