@@ -25,6 +25,7 @@
 #import <AquaSKKBackend/SKKInputMode.h>
 #import <AquaSKKInput/MacDynamicCompletor.h>
 #import <AquaSKKService/SKKSupervisor.h>
+#import <AquaSKKEngine/SKKEvent.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 
 MacDynamicCompletor::MacDynamicCompletor(SKKLayoutManager *layout) {

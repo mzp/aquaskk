@@ -23,27 +23,27 @@ enum SKKTask {
     }
 }
 
-class SKKKeymapImpl {
+public class SKKKeymapImpl {
     var events: [SKKKeyState: Int] = [:]
     var attributes: [SKKKeyState: Int] = [:]
     var option: [SKKKeyState: Int] = [:]
 
     // MARK: - Load
+    public init() {}
 
     // 初期化
-    func initialize(path: String)  {
+    public func initialize(path: String)  {
         events = [:]
         SKKTask.perfromAndWait {
             try? await self.load(path: path)
         }
     }
     // 追加の読み込み
-    func patch(path: String) {
+    public func patch(path: String) {
         SKKTask.perfromAndWait {
             try? await self.load(path: path)
         }
     }
-
 
     private func load(path: String) async throws {
         for try await line in URL(fileURLWithPath: path).lines {
@@ -86,7 +86,7 @@ class SKKKeymapImpl {
     // MARK: - Loookup
 
     // 検索
-    func fetch(charCode: Int, keyCode: Int, modifiers: Int) -> SKKEvent {
+    public func fetch(charCode: Int, keyCode: Int, modifiers: Int) -> SKKEvent {
         var event = SKKEvent()
         event.code = UInt8(charCode)
         event.id = Int32(find(charCode: charCode, keyCode: keyCode, modifiers: modifiers, from: events) ?? SKK_CHAR)

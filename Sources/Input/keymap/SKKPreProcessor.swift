@@ -11,7 +11,7 @@ import OSLog
 
 @objc(SKKPreProcessor)
 public class SKKPreProcessor: NSObject {
-    private var keymap: SKKKeymap
+    private var keymap: SKKKeymapImpl
 
     /// シングルトン
     public static let sharedInstance = SKKPreProcessor()
@@ -27,12 +27,12 @@ public class SKKPreProcessor: NSObject {
 
     /// キーマップのロード
     @objc public func initialize(path: String) {
-        keymap.Initialize(std.string(path))
+        keymap.initialize(path: path)
     }
 
     /// キーマップの追加ロード
     @objc public func patch(path: String) {
-        keymap.Patch(std.string(path))
+        keymap.patch(path: path)
     }
 
     /// NSEvent → SKKEvent 変換
@@ -66,7 +66,7 @@ public class SKKPreProcessor: NSObject {
         if keycode == 0x66 || keycode == 0x68 {
             charcode = nil
         }
-        var result = keymap.Fetch(Int32(charcode?.asciiValue ?? 0), keycode, mods)
+        var result = keymap.fetch(charCode: Int(charcode?.asciiValue ?? 0), keyCode: Int(keycode), modifiers: Int(mods))
 
         if modifierFlags.contains(.capsLock) {
             result.option |= Int32(CapsLock)

@@ -24,6 +24,7 @@
 #import <AquaSKKBackend/AquaSKKBackend.h>
 #import <AquaSKKInput/MacCandidateWindow.h>
 #import <AquaSKKService/AquaSKKService.h>
+#import <AquaSKKEngine/SKKEvent.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 
 MacCandidateWindow::MacCandidateWindow(SKKLayoutManager *layout) {

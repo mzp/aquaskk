@@ -25,6 +25,7 @@
 #import <AquaSKKBackend/SKKInputMode.h>
 #import <AquaSKKInput/MacFrontEnd.h>
 #import <AquaSKKService/SKKSupervisor.h>
+#import <AquaSKKEngine/SKKEvent.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 
 MacFrontEnd::MacFrontEnd(id client) {

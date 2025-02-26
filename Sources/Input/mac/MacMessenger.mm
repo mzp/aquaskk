@@ -24,6 +24,7 @@
 #import <AquaSKKBackend/SKKInputMode.h>
 #import <AquaSKKInput/MacMessenger.h>
 #import <AquaSKKService/SKKSupervisor.h>
+#import <AquaSKKEngine/SKKEvent.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 #import <AquaSKKUI/AquaSKKUI-Swift.h>
 
