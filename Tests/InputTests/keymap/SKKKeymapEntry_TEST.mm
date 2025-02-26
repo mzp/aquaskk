@@ -19,51 +19,51 @@
 
     entry = SKKKeymapEntry("SKK_JMODE", "a");
     entry >> key;
-    XCTAssert(key == SKKKeyState::CharCode('a', false));
+    XCTAssert(key == (int)SKKKeyState::CharCode('a', false));
     XCTAssert(entry.Symbol() == SKK_JMODE);
     XCTAssert(!(entry >> key));
 
     entry = SKKKeymapEntry("SKK_JMODE", "keycode::0x0a");
     entry >> key;
-    XCTAssert(key == SKKKeyState::KeyCode(0x0a, false));
+    XCTAssert(key == (int)SKKKeyState::KeyCode(0x0a, false));
 
     entry = SKKKeymapEntry("SKK_ENTER", "hex::0x03");
     entry >> key;
-    XCTAssert(key == SKKKeyState::CharCode(0x03, false));
+    XCTAssert(key == (int)SKKKeyState::CharCode(0x03, false));
 
     entry = SKKKeymapEntry("SKK_ENTER", "ctrl::m");
     entry >> key;
-    XCTAssert(key == SKKKeyState::CharCode('m', SKKKeyState::CTRL));
+    XCTAssert(key == (int)SKKKeyState::CharCode('m', SKKKeyState::CTRL));
 
     entry = SKKKeymapEntry("Direct", "group::a,c,d-f");
     XCTAssert(!entry.IsNot());
     XCTAssert(!entry.IsEvent());
     XCTAssert(entry.Symbol() == Direct);
     entry >> key;
-    XCTAssert(key == SKKKeyState::CharCode('a', false));
+    XCTAssert(key == (int)SKKKeyState::CharCode('a', false));
     entry >> key;
-    XCTAssert(key == SKKKeyState::CharCode('c', false));
+    XCTAssert(key == (int)SKKKeyState::CharCode('c', false));
     entry >> key;
-    XCTAssert(key == SKKKeyState::CharCode('d', false));
+    XCTAssert(key == (int)SKKKeyState::CharCode('d', false));
     entry >> key;
-    XCTAssert(key == SKKKeyState::CharCode('e', false));
+    XCTAssert(key == (int)SKKKeyState::CharCode('e', false));
     entry >> key;
-    XCTAssert(key == SKKKeyState::CharCode('f', false));
+    XCTAssert(key == (int)SKKKeyState::CharCode('f', false));
 
     entry = SKKKeymapEntry("NotDirect", "group::a,c,d-f");
     XCTAssert(entry.IsNot());
     XCTAssert(!entry.IsEvent());
     XCTAssert(entry.Symbol() == Direct);
     entry >> key;
-    XCTAssert(key == SKKKeyState::CharCode('a', false));
+    XCTAssert(key == (int)SKKKeyState::CharCode('a', false));
     entry >> key;
-    XCTAssert(key == SKKKeyState::CharCode('c', false));
+    XCTAssert(key == (int)SKKKeyState::CharCode('c', false));
     entry >> key;
-    XCTAssert(key == SKKKeyState::CharCode('d', false));
+    XCTAssert(key == (int)SKKKeyState::CharCode('d', false));
     entry >> key;
-    XCTAssert(key == SKKKeyState::CharCode('e', false));
+    XCTAssert(key == (int)SKKKeyState::CharCode('e', false));
     entry >> key;
-    XCTAssert(key == SKKKeyState::CharCode('f', false));
+    XCTAssert(key == (int)SKKKeyState::CharCode('f', false));
 }
 
 @end

@@ -23,6 +23,8 @@
 #ifndef SKKKeyState_h
 #define SKKKeyState_h
 
+#include <swift/bridging>
+
 // 以下のようなキー状態を作り出すユーティリティクラス
 //
 //  31       23       15       7      0 bit
@@ -35,7 +37,6 @@
 class SKKKeyState {
     int state_;
 
-    SKKKeyState();
     SKKKeyState(int charcode, int keycode, short mods) {
         state_ = (mods << 16) | ((0xff & keycode) << 8) | (0xff & charcode);
     }
@@ -51,7 +52,18 @@ public:
         return SKKKeyState(code, 0, mods);
     }
 
+    SKKKeyState(int state)
+        : state_(state) {}
+
     operator int() const {
+        return state_;
+    }
+
+    bool operator==(const SKKKeyState &rhs) const {
+        return this->state_ == (int)rhs;
+    }
+
+    const int getRawValue() const SWIFT_COMPUTED_PROPERTY {
         return state_;
     }
 };
