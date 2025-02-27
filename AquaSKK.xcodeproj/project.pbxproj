@@ -409,7 +409,6 @@
 		13B4A9BC2D583EC8002453BA /* SKKCandidateBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B4A9B72D583D30002453BA /* SKKCandidateBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13B4A9C12D593241002453BA /* SKKPreProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B4A9C02D593241002453BA /* SKKPreProcessor.swift */; };
 		13B7BE832C5EFCEF00F6BEF8 /* SKKStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE822C5EFCEF00F6BEF8 /* SKKStateStore.swift */; };
-		13B7BE882C5F1E9100F6BEF8 /* SKKServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE872C5F1E9100F6BEF8 /* SKKServerTests.swift */; };
 		13B7BEC52C5F5CF900F6BEF8 /* AquaSKKService.docc in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BEC42C5F5CF900F6BEF8 /* AquaSKKService.docc */; };
 		13B7BED32C5F5CF900F6BEF8 /* AquaSKKService.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B7BEC32C5F5CF900F6BEF8 /* AquaSKKService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13BDCB632D50396D0031BB3A /* SKKLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDCB622D50396D0031BB3A /* SKKLayoutManager.swift */; };
@@ -1014,7 +1013,6 @@
 		13B4A9C02D593241002453BA /* SKKPreProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKPreProcessor.swift; sourceTree = "<group>"; };
 		13B4A9C22D5937CC002453BA /* SKKKeyModifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKKeyModifier.h; sourceTree = "<group>"; };
 		13B7BE822C5EFCEF00F6BEF8 /* SKKStateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStateStore.swift; sourceTree = "<group>"; };
-		13B7BE872C5F1E9100F6BEF8 /* SKKServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKServerTests.swift; sourceTree = "<group>"; };
 		13B7BE982C5F282D00F6BEF8 /* ModeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeTests.swift; sourceTree = "<group>"; };
 		13B7BEC32C5F5CF900F6BEF8 /* AquaSKKService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKService.h; sourceTree = "<group>"; };
 		13B7BEC42C5F5CF900F6BEF8 /* AquaSKKService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKService.docc; sourceTree = "<group>"; };
@@ -1935,7 +1933,6 @@
 		135C3D662C5B3E9D00661AE3 /* InputTests */ = {
 			isa = PBXGroup;
 			children = (
-				13B7BE862C5F1E8400F6BEF8 /* server */,
 				134F109B2D6D543E00527967 /* keymap */,
 			);
 			path = InputTests;
@@ -2368,14 +2365,6 @@
 				1371A77B2C5B5D3E00E06348 /* data */,
 			);
 			path = "Support files";
-			sourceTree = "<group>";
-		};
-		13B7BE862C5F1E8400F6BEF8 /* server */ = {
-			isa = PBXGroup;
-			children = (
-				13B7BE872C5F1E9100F6BEF8 /* SKKServerTests.swift */,
-			);
-			path = server;
 			sourceTree = "<group>";
 		};
 		13B7BEC22C5F5CF900F6BEF8 /* Service */ = {
@@ -3704,7 +3693,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13B7BE882C5F1E9100F6BEF8 /* SKKServerTests.swift in Sources */,
 				13F3C9F82D6ED4390085600C /* SKKKeymapEntryTesting.swift in Sources */,
 				13A4FDBE2D6F5D0100AA0BFF /* SKKKeymapTesting.swift in Sources */,
 			);

@@ -19,3 +19,4 @@ OTHER_LDFLAGS = $(inherited) \
     -framework AquaSKKUI \
     -framework AquaSKKBackend \
     -framework AquaSKKServer
+
