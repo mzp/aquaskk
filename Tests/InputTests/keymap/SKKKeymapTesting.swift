@@ -13,7 +13,7 @@ internal import AquaSKKEngine
 class InputTestBundle: NSObject {}
 
 struct SKKKeymapTesting {
-    var keymap : SKKKeymapImpl
+    var keymap: SKKKeymapImpl
     let kCtrl = Int(SKKKeyModifier.control.rawValue)
     let kShift = Int(SKKKeyModifier.shift.rawValue)
     let kMeta = Int(SKKKeyModifier.command.rawValue)
@@ -22,11 +22,11 @@ struct SKKKeymapTesting {
         let bundle = Bundle(for: InputTestBundle.self)
         let resource = TestingResource(bundle: bundle)
         let path = try resource.path("keymap.conf")
-        self.keymap = SKKKeymapImpl()
+        keymap = SKKKeymapImpl()
         keymap.initialize(path: path)
     }
 
-    func charCode(_ c : Character) -> Int { Int(c.asciiValue ?? 0) }
+    func charCode(_ c: Character) -> Int { Int(c.asciiValue ?? 0) }
 
     @Test func main() {
         #expect(keymap.fetch(charCode: 0, keyCode: 0, modifiers: 0) == SKKEvent(Int32(SKK_CHAR), 0, 0))
@@ -35,7 +35,7 @@ struct SKKKeymapTesting {
     }
 
     @Test func option() throws {
-        #expect(keymap.fetch(charCode: 0x1c, keyCode: 0, modifiers: 0) == SKKEvent(Int32(SKK_LEFT), 0x1c, 0))
+        #expect(keymap.fetch(charCode: 0x1C, keyCode: 0, modifiers: 0) == SKKEvent(Int32(SKK_LEFT), 0x1C, 0))
     }
 
     @Test func attribute() {
@@ -72,5 +72,4 @@ struct SKKKeymapTesting {
         #expect(keymap.fetch(charCode: charCode("q"), keyCode: 0, modifiers: 0) == SKKEvent(Int32(SKK_CHAR), UInt8(charCode("q")), Int32(InputChars)))
         #expect(keymap.fetch(charCode: charCode("\""), keyCode: 0, modifiers: 0) == SKKEvent(Int32(SKK_CHAR), UInt8(charCode("\"")), Int32(UpperCases | InputChars)))
     }
-
 }

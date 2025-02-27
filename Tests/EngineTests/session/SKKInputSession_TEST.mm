@@ -2,16 +2,13 @@
 #include <fstream>
 #include <ios>
 #include <iostream>
-#import <XCTest/XCTest.h>
 #import <InputMethodKit/InputMethodKit.h>
-
+#import <XCTest/XCTest.h>
 #import <AquaSKKBackend/SKKBackEnd.h>
+#import <AquaSKKEngine/AquaSKKEngine.h>
 #import <AquaSKKService/AquaSKKService.h>
 #import <AquaSKKTesting/AquaSKKTesting.h>
-#import <AquaSKKEngine/AquaSKKEngine.h>
-
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
-
 #include "SKKRomanKanaConverter.h"
 #include "TestData.h"
 
@@ -81,8 +78,7 @@ class TestRunner {
 
 public:
     TestRunner(const std::string &path)
-        : param(new MockInputSessionParameter()), session(param),
-    map(AquaSKKInput::SKKKeymapImpl::init()) {
+        : param(new MockInputSessionParameter()), session(param), map(AquaSKKInput::SKKKeymapImpl::init()) {
         initialize();
         test.Load(path);
     }
