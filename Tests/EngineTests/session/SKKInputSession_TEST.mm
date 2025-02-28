@@ -2,11 +2,13 @@
 #include <fstream>
 #include <ios>
 #include <iostream>
+#import <InputMethodKit/InputMethodKit.h>
 #import <XCTest/XCTest.h>
 #import <AquaSKKBackend/SKKBackEnd.h>
-#import <AquaSKKEngine/SKKInputSession.h>
-#import <AquaSKKInput/SKKKeymap.h>
-#include <AquaSKKTesting/MockInputSessionParameter.h>
+#import <AquaSKKEngine/AquaSKKEngine.h>
+#import <AquaSKKService/AquaSKKService.h>
+#import <AquaSKKTesting/AquaSKKTesting.h>
+#import <AquaSKKInput/AquaSKKInput-Swift.h>
 #include "SKKRomanKanaConverter.h"
 #include "TestData.h"
 
@@ -16,13 +18,13 @@
 class TestRunner {
     MockInputSessionParameter *param;
     SKKInputSession session;
-    SKKKeymap map;
+    AquaSKKInput::SKKKeymapImpl map;
     TestData test;
 
     SKKEvent getEvent(TestEntry &entry) {
         TestEvent &input = entry.input;
 
-        return map.Fetch(input.code, 0, input.mods);
+        return map.fetch(input.code, 0, input.mods);
     }
 
     void initialize() {
@@ -35,7 +37,7 @@ class TestRunner {
 
         SKKRomanKanaConverter::theInstance().Initialize("kana-rule.conf");
 
-        map.Initialize("keymap.conf");
+        map.initialize("keymap.conf");
 
         session.AddInputModeListener(param->Listener());
     }
@@ -76,7 +78,7 @@ class TestRunner {
 
 public:
     TestRunner(const std::string &path)
-        : param(new MockInputSessionParameter()), session(param) {
+        : param(new MockInputSessionParameter()), session(param), map(AquaSKKInput::SKKKeymapImpl::init()) {
         initialize();
         test.Load(path);
     }

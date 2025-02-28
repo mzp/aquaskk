@@ -23,6 +23,7 @@
 #import <AppKit/AppKit.h>
 #import <InputMethodKit/InputMethodKit.h>
 #import <AquaSKKBackend/SKKInputMode.h>
+#import <AquaSKKEngine/SKKEvent.h>
 #import <AquaSKKInput/MacDynamicCompletor.h>
 #import <AquaSKKService/SKKSupervisor.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>

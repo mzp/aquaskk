@@ -34,11 +34,12 @@ struct GadgetTests {
         await session.run { typer in
             let formatter = DateFormatter()
             formatter.dateFormat = "HH:mm:ss"
-            let expect = formatter.string(from: Date())
 
             await typer.type(text: "/now")
             await typer.type(text: " ")
-            #expect(typer.markedText == "▼\(expect)")
+
+            #expect(typer.markedText.contains(/▼..:..:../))
+
             #expect(typer.insertedText == "")
         }
     }

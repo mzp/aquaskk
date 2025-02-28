@@ -24,6 +24,7 @@
 #import <Foundation/Foundation.h>
 #import <InputMethodKit/InputMethodKit.h>
 #import <AquaSKKBackend/SKKInputMode.h>
+#import <AquaSKKEngine/SKKEvent.h>
 #import <AquaSKKInput/MacClipboard.h>
 #import <AquaSKKService/SKKSupervisor.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>

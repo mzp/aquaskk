@@ -31,5 +31,3 @@ FOUNDATION_EXPORT const unsigned char AquaSKKInputVersionString[];
 
 #import <AquaSKKInput/SKKKeyModifier.h>
 #import <AquaSKKInput/SKKKeyState.h>
-#import <AquaSKKInput/SKKKeymap.h>
-#import <AquaSKKInput/SKKKeymapEntry.h>
