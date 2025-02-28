@@ -76,6 +76,8 @@ enum {
 };
 
 // 処理オプション
+// mzp: ビット演算してるが、AlwaysHandled|PseudoHandledとCapsLockを区別できないはず。
+//      どういう挙動をするのがいい？
 enum {
     Default,
     AlwaysHandled, // 強制的に「処理済み」にする
@@ -86,13 +88,16 @@ enum {
 // イベントパラメータ
 class SKKEvent {
 public:
-    int id;             // イベント(冗長だが仕方がない)
+    int id;             // イベント(冗長だが仕方がない) ← mpz: 何と重複してて冗長だと言ってる？
     unsigned char code; // 文字そのもの
     int attribute;      // SKK_CHAR 属性
     int option;         // 処理オプション
 
     SKKEvent()
-        : id(0), code(0), attribute(0), option(0) {}
+        : id(0), code(0), attribute(0), option(0) {
+            // mzp: 0に対応するSKKEventはないがどういう挙動？
+
+        }
     SKKEvent(int e, unsigned char c, int a = None)
         : id(e), code(c), attribute(a), option(0) {}
 
