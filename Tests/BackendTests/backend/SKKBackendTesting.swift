@@ -16,8 +16,8 @@ struct SKKBackendTesting {
     init() async throws {
         let bundle = Bundle(for: BackendBundle.self)
         let resource = TestingResource(bundle: bundle)
-        let jisyoPath = try resource.path("skk-jisyo.utf8", writable: true)
-        let testJisyoPath = try resource.path("SKK-JISYO.TEST", writable: true)
+        let jisyoPath = try resource.path("skk-jisyo.utf8", writable: false)
+        let testJisyoPath = try resource.path("SKK-JISYO.TEST", writable: false)
 
         await backend.initialize(path: jisyoPath, configurations: [
             .init(type: .common, location: testJisyoPath),
