@@ -11,7 +11,7 @@ import AquaSKKService
 @testable internal import AquaSKKBackend
 
 struct SKKBackendTesting {
-    let backend: SKKBackendImpl = .shared()
+    let backend: SKKBackendImpl = .init()
 
     init() async throws {
         let bundle = Bundle(for: BackendBundle.self)

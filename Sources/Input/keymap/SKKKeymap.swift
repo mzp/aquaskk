@@ -34,17 +34,26 @@ public class SKKKeymapImpl {
 
     /// 初期化
     public func initialize(path: String) {
-        events = [:]
         SKKTask.perfromAndWait {
-            try? await self.load(path: path)
+            try? await self.initialize(path: path)
         }
+    }
+
+    public func initialize(path: String) async throws {
+        events = [:]
+        try await load(path: path)
     }
 
     /// 追加の読み込み
     public func patch(path: String) {
         SKKTask.perfromAndWait {
-            try? await self.load(path: path)
+            try? await self.patch(path: path)
         }
+    }
+
+    /// 追加の読み込み
+    public func patch(path: String) async throws {
+        try await load(path: path)
     }
 
     private func load(path: String) async throws {

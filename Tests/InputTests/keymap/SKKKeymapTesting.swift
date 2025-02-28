@@ -18,12 +18,12 @@ struct SKKKeymapTesting {
     let kShift = Int(SKKKeyModifier.shift.rawValue)
     let kMeta = Int(SKKKeyModifier.command.rawValue)
 
-    init() throws {
+    init() async throws {
         let bundle = Bundle(for: InputTestBundle.self)
         let resource = TestingResource(bundle: bundle)
         let path = try resource.path("keymap.conf")
         keymap = SKKKeymapImpl()
-        keymap.initialize(path: path)
+        try await keymap.initialize(path: path)
     }
 
     func charCode(_ c: Character) -> Int { Int(c.asciiValue ?? 0) }
@@ -32,9 +32,7 @@ struct SKKKeymapTesting {
         #expect(keymap.fetch(charCode: 0, keyCode: 0, modifiers: 0) == SKKEvent(Int32(SKK_CHAR), 0, 0))
         #expect(keymap.fetch(charCode: 0x03, keyCode: 0, modifiers: 0) == SKKEvent(Int32(SKK_ENTER), 0x03, 0))
         #expect(keymap.fetch(charCode: 0x09, keyCode: 0, modifiers: 0) == SKKEvent(Int32(SKK_TAB), 0x09, 0))
-    }
 
-    @Test func option() throws {
         #expect(keymap.fetch(charCode: 0x1C, keyCode: 0, modifiers: 0) == SKKEvent(Int32(SKK_LEFT), 0x1C, 0))
     }
 
