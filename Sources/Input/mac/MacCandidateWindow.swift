@@ -11,7 +11,7 @@ import Foundation
 import OSLog
 
 @objc(MacCandidateWindowImpl)
-public class MacCandidateWindowImpl: NSObject {
+public class MacCandidateWindowImpl: NSObject, CandidateWindowPresenter {
     let layoutManager: SKKLayoutManagerImpl
     let window: CandidateWindow
     var candidates: [String]

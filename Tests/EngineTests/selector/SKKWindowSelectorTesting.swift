@@ -10,24 +10,23 @@ internal import AquaSKKBackend
 @testable internal import AquaSKKEngine
 
 class NullCandidateWindow: CandidateWindowPresenter {
-    func setup(candidates: some Collection<SKKCandidate>) -> [Int] {
+    func skkWidgetShow() {
+
+    }
+
+    func skkWidgetHide() {
+
+    }
+
+    func setup(candidates: [String]) -> [Int] {
         return [candidates.count]
     }
 
-    func labelIndex(label: Character) -> Int {
+    func labelIndex(of _: Int) -> Int {
         0
     }
 
-    func update(candidates: some Collection<SKKCandidate>, cursor: Int, position: Int, max: Int) {
-    }
-
-    
-    func show() {
-
-    }
-    
-    func hide() {
-
+    func update(candidates: [String], cursor: Int, position: Int, max: Int) {
     }
 }
 

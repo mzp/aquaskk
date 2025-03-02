@@ -7,12 +7,12 @@
 
 
 // <Placeholder> SKKCandidateWindow の適切なメソッド定義が必要
-protocol CandidateWindowPresenter {
-    func setup(candidates: some Collection<SKKCandidate>) -> [Int]
-    func labelIndex(label: Character) -> Int
-    func update(candidates: some Collection<SKKCandidate>, cursor: Int, position: Int, max: Int)
-    func show()
-    func hide()
+public protocol CandidateWindowPresenter {
+    func setup(candidates: [String]) -> [Int]
+    func labelIndex(of: Int) -> Int
+    func update(candidates: [String], cursor: Int, position: Int, max: Int)
+    func skkWidgetShow()
+    func skkWidgetHide()
 }
 
 
@@ -36,9 +36,16 @@ class SKKWindowSelectorImpl {
         self.visibles = candidates
     }
 
+    // SKKCandidateはObjective-C <-> Swift間ではやり取りできないので、必要な情報だけ抜き出す
+    func bridgeArray(_ value: any Collection<SKKCandidate>) -> [String] {
+        value.map  {
+            String($0.variant)
+        }
+    }
+
     func setup(container: some Collection<SKKCandidate>, inlineCount: Int) {
         candidates = AnyCollection(Array(container.dropFirst(inlineCount)))
-        countPerSection = presenter.setup(candidates: candidates)
+        countPerSection = presenter.setup(candidates: bridgeArray(candidates))
         self.indexPath.section = 0
         self.indexPath.item = 0
         offset = 0
@@ -112,7 +119,7 @@ class SKKWindowSelectorImpl {
     }
 
     func select(label: Character) -> Bool {
-        let index = presenter.labelIndex(label: label)
+        let index = presenter.labelIndex(of: Int(label.asciiValue ?? 0))
         if index >= 0 && index < visibles.count {
             self.indexPath.item = index
             show()
@@ -122,12 +129,12 @@ class SKKWindowSelectorImpl {
     }
 
     func show() {
-        presenter.update(candidates: visibles, cursor: self.indexPath.item, position: self.indexPath.section + 1, max: countPerSection.count)
-        presenter.show()
+        presenter.update(candidates: bridgeArray(visibles), cursor: self.indexPath.item, position: self.indexPath.section + 1, max: countPerSection.count)
+        presenter.skkWidgetShow()
     }
 
     func hide() {
-        presenter.hide()
+        presenter.skkWidgetHide()
     }
 
     private func refresh() {
