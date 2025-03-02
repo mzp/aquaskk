@@ -5,40 +5,27 @@
 //  Created by mzp on 2025/03/01.
 //
 
-
-// <Placeholder> SKKCandidateWindow の適切なメソッド定義が必要
-public protocol CandidateWindowPresenter {
-    func setup(candidates: [String]) -> [Int]
-    func labelIndex(of: Int) -> Int
-    func update(candidates: [String], cursor: Int, position: Int, max: Int)
-    func skkWidgetShow()
-    func skkWidgetHide()
-}
-
-
 class SKKWindowSelectorImpl {
-    private var presenter: CandidateWindowPresenter
+    private var presenter: SKKCandidateWindowPresenter
 
     // candidates.begin + offset = visibles.begin
-    private var candidates:AnyCollection<SKKCandidate>
+    private var candidates: AnyCollection<SKKCandidate>
     private var offset: Int = 0
     private var visibles: AnyCollection<SKKCandidate>
 
     private var countPerSection: [Int] = []
     private var indexPath: IndexPath
 
-
-
-    init(presenter: CandidateWindowPresenter) {
+    init(presenter: SKKCandidateWindowPresenter) {
         self.presenter = presenter
-        self.indexPath = IndexPath(item: 0, section: 0)
-        self.candidates = AnyCollection([])
-        self.visibles = candidates
+        indexPath = IndexPath(item: 0, section: 0)
+        candidates = AnyCollection([])
+        visibles = candidates
     }
 
-    // SKKCandidateはObjective-C <-> Swift間ではやり取りできないので、必要な情報だけ抜き出す
+    /// SKKCandidateはObjective-C <-> Swift間ではやり取りできないので、必要な情報だけ抜き出す
     func bridgeArray(_ value: any Collection<SKKCandidate>) -> [String] {
-        value.map  {
+        value.map {
             String($0.variant)
         }
     }
@@ -46,21 +33,21 @@ class SKKWindowSelectorImpl {
     func setup(container: some Collection<SKKCandidate>, inlineCount: Int) {
         candidates = AnyCollection(Array(container.dropFirst(inlineCount)))
         countPerSection = presenter.setup(candidates: bridgeArray(candidates))
-        self.indexPath.section = 0
-        self.indexPath.item = 0
+        indexPath.section = 0
+        indexPath.item = 0
         offset = 0
 
         refresh()
     }
 
     func next() -> Bool {
-        if self.indexPath.section == maxPage() {
+        if indexPath.section == maxPage() {
             return false
         }
 
-        offset += countPerSection[self.indexPath.section]
-        self.indexPath.section += 1
-        self.indexPath.item = 0
+        offset += countPerSection[indexPath.section]
+        indexPath.section += 1
+        indexPath.item = 0
 
         refresh()
         show()
@@ -69,13 +56,13 @@ class SKKWindowSelectorImpl {
     }
 
     func prev() -> Bool {
-        if self.indexPath.section == minPage() {
+        if indexPath.section == minPage() {
             return false
         }
 
-        self.indexPath.section -= 1
-        offset -= countPerSection[self.indexPath.section]
-        self.indexPath.item = 0
+        indexPath.section -= 1
+        offset -= countPerSection[indexPath.section]
+        indexPath.item = 0
 
         refresh()
         show()
@@ -83,11 +70,11 @@ class SKKWindowSelectorImpl {
         return true
     }
 
-    var current : SKKCandidate? {
+    var current: SKKCandidate? {
         guard !visibles.isEmpty else {
             return nil
         }
-        return visibles[AnyIndex(self.indexPath.item)]
+        return visibles[AnyIndex(indexPath.item)]
     }
 
     var isEmpty: Bool {
@@ -95,33 +82,33 @@ class SKKWindowSelectorImpl {
     }
 
     func cursorLeft() {
-        if self.indexPath.item != minPosition() {
-            self.indexPath.item -= 1
+        if indexPath.item != minPosition() {
+            indexPath.item -= 1
             show()
         }
     }
 
     func cursorRight() {
-        if self.indexPath.item != maxPosition() {
-            self.indexPath.item += 1
+        if indexPath.item != maxPosition() {
+            indexPath.item += 1
             show()
         }
     }
 
     func cursorUp() {
-        self.indexPath.item = minPosition()
+        indexPath.item = minPosition()
         show()
     }
 
     func cursorDown() {
-        self.indexPath.item = maxPosition()
+        indexPath.item = maxPosition()
         show()
     }
 
-    func select(label: Character) -> Bool {
-        let index = presenter.labelIndex(of: Int(label.asciiValue ?? 0))
+    func select(label: Int) -> Bool {
+        let index = presenter.labelIndex(of: label)
         if index >= 0 && index < visibles.count {
-            self.indexPath.item = index
+            indexPath.item = index
             show()
             return true
         }
@@ -129,17 +116,17 @@ class SKKWindowSelectorImpl {
     }
 
     func show() {
-        presenter.update(candidates: bridgeArray(visibles), cursor: self.indexPath.item, position: self.indexPath.section + 1, max: countPerSection.count)
-        presenter.skkWidgetShow()
+        presenter.update(candidates: bridgeArray(visibles), cursor: indexPath.item, position: indexPath.section + 1, max: countPerSection.count)
+        presenter.show()
     }
 
     func hide() {
-        presenter.skkWidgetHide()
+        presenter.hide()
     }
 
     private func refresh() {
         if !countPerSection.isEmpty {
-            let limit = countPerSection[self.indexPath.section]
+            let limit = countPerSection[indexPath.section]
             let visibleRange = AnyIndex(offset) ..< AnyIndex(min(offset + limit, candidates.count))
             visibles = candidates[visibleRange]
         }
@@ -161,8 +148,8 @@ class SKKWindowSelectorImpl {
         return visibles.count - 1
     }
 
-    // <Placeholder> PageRangeの実装が必要
+    /// <Placeholder> PageRangeの実装が必要
     private func pageRange(range: [SKKCandidate], offset: Int, limit: Int) -> AnyCollection<SKKCandidate> {
-        return AnyCollection(range[offset..<min(offset + limit, range.count)])
+        return AnyCollection(range[offset ..< min(offset + limit, range.count)])
     }
 }

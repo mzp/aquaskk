@@ -9,7 +9,6 @@ import Testing
 @testable internal import AquaSKKEngine
 
 struct SKKInlnlineSelectorTesting {
-
     @Test func main() throws {
         var container: [SKKCandidate] = []
         container.append(SKKCandidate("候補1", true))

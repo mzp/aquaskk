@@ -9,14 +9,10 @@ import Testing
 internal import AquaSKKBackend
 @testable internal import AquaSKKEngine
 
-class NullCandidateWindow: CandidateWindowPresenter {
-    func skkWidgetShow() {
+class NullCandidateWindow: SKKCandidateWindowPresenter {
+    func show() {}
 
-    }
-
-    func skkWidgetHide() {
-
-    }
+    func hide() {}
 
     func setup(candidates: [String]) -> [Int] {
         return [candidates.count]
@@ -26,12 +22,10 @@ class NullCandidateWindow: CandidateWindowPresenter {
         0
     }
 
-    func update(candidates: [String], cursor: Int, position: Int, max: Int) {
-    }
+    func update(candidates _: [String], cursor _: Int, position _: Int, max _: Int) {}
 }
 
 struct SKKWindowSelectorTesting {
-
     @Test func main() throws {
         var container: [SKKCandidate] = []
         let testWindow = NullCandidateWindow()
@@ -48,11 +42,11 @@ struct SKKWindowSelectorTesting {
 
         #expect(!selector.isEmpty)
         #expect(!selector.prev())
-        #expect(String(try #require(selector.current).variant) == "候補4")
+        #expect(try String(#require(selector.current).variant) == "候補4")
 
         selector.cursorRight()
         selector.cursorRight()
 
-        #expect(String(try #require(selector.current).variant) == "候補6")
+        #expect(try String(#require(selector.current).variant) == "候補6")
     }
 }

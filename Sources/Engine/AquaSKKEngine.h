@@ -39,10 +39,7 @@ FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 
 #pragma mark - selector
 
-#import <AquaSKKEngine/SKKBaseSelector.h>
-#import <AquaSKKEngine/SKKInlineSelector.h>
 #import <AquaSKKEngine/SKKSelector.h>
-#import <AquaSKKEngine/SKKWindowSelector.h>
 
 #pragma mark - session
 

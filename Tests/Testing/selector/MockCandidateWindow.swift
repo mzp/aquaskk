@@ -13,16 +13,13 @@ public class MockCandidateWindow: SKKCandidateWindowPresenter {
         return [candidates.count]
     }
 
-    public func labelIndex(label: Character) -> Int {
+    public func labelIndex(label _: Character) -> Int {
         0
     }
 
-    public func update(candidates: any Collection<SKKCandidate>, cursor: Int, position: Int, max: Int) {
-    }
+    public func update(candidates _: any Collection<SKKCandidate>, cursor _: Int, position _: Int, max _: Int) {}
 
     public func skkWidgetShow() {}
 
     public func skkWidgetHide() {}
-
-
 }

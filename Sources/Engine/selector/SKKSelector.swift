@@ -7,27 +7,28 @@
 
 import AquaSKKBackend
 
-class SKKSelectorImpl {
+public class SKKSelectorImpl {
     enum SelectorType {
         case inline
         case window
     }
+
     private var activeSelectorType: SelectorType = .inline
     private var buddy: SKKSelectorBuddy
     private var inlineSelector = SKKInlineSelectorImpl()
     private var windowSelector: SKKWindowSelectorImpl
     private var suite = SKKCandidateSuite()
 
-    init(buddy: SKKSelectorBuddy, window: CandidateWindowPresenter) {
+    public init(buddy: SKKSelectorBuddy, presenter: SKKCandidateWindowPresenter) {
         self.buddy = buddy
-        self.windowSelector = SKKWindowSelectorImpl(presenter: window)
+        windowSelector = SKKWindowSelectorImpl(presenter: presenter)
     }
 
-    var isInline: Bool {
+    public var isInline: Bool {
         return activeSelectorType == .inline
     }
 
-    func execute(inlineCount: Int) -> Bool {
+    public func execute(inlineCount: Int) -> Bool {
         let entry = SKKSelectorBuddy.invokeSKKSelectorQueryEntry(buddy)
         suite.Clear()
 
@@ -48,7 +49,7 @@ class SKKSelectorImpl {
         return !suite.IsEmpty()
     }
 
-    func next() -> Bool {
+    public func next() -> Bool {
         let result = activeSelectorType == .inline ? inlineSelector.next() : windowSelector.next()
         if !result {
             if !isInline || windowSelector.isEmpty {
@@ -62,7 +63,7 @@ class SKKSelectorImpl {
         return true
     }
 
-    func prev() -> Bool {
+    public func prev() -> Bool {
         let result = activeSelectorType == .inline ? inlineSelector.prev() : windowSelector.prev()
         if !result {
             if isInline || inlineSelector.isEmpty {
@@ -76,35 +77,35 @@ class SKKSelectorImpl {
         return true
     }
 
-    func cursorLeft() {
+    public func cursorLeft() {
         if activeSelectorType == .window {
             windowSelector.cursorLeft()
         }
         notify()
     }
 
-    func cursorRight() {
+    public func cursorRight() {
         if activeSelectorType == .window {
             windowSelector.cursorRight()
         }
         notify()
     }
 
-    func cursorUp() {
+    public func cursorUp() {
         if activeSelectorType == .window {
             windowSelector.cursorUp()
         }
         notify()
     }
 
-    func cursorDown() {
+    public func cursorDown() {
         if activeSelectorType == .window {
             windowSelector.cursorDown()
         }
         notify()
     }
 
-    func select(label: Character) -> Bool {
+    public func select(label: Int) -> Bool {
         if isInline {
             return false
         }
@@ -117,7 +118,7 @@ class SKKSelectorImpl {
         return false
     }
 
-    func show() {
+    public func show() {
         if isInline {
             return
         }
@@ -125,7 +126,7 @@ class SKKSelectorImpl {
         windowSelector.show()
     }
 
-    func hide() {
+    public func hide() {
         if isInline {
             return
         }

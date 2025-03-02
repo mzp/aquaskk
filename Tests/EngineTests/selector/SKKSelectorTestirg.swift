@@ -13,7 +13,6 @@ internal import AquaSKKTesting
 class EngineBundle {}
 
 struct SKKSelectorTestirg {
-
     init() async throws {
         let bundle = Bundle(for: EngineBundle.self)
         let resource = TestingResource(bundle: bundle)
@@ -23,12 +22,12 @@ struct SKKSelectorTestirg {
             .init(type: .common, location: testJisyoPath),
         ])
     }
-    
+
     @Test func main() async throws {
         let buddy = MockSelectorBuddy.newInstance()
-        let selector = SKKSelectorImpl(buddy: MockSelectorBuddy.Coerce(buddy), window: NullCandidateWindow())
+        let selector = SKKSelectorImpl(buddy: MockSelectorBuddy.Coerce(buddy), presenter: NullCandidateWindow())
         #expect(selector.execute(inlineCount: 3) == true)
 
-        #expect(String(buddy.current.variant) ==  "漢字" )
+        #expect(String(buddy.current.variant) == "漢字")
     }
 }

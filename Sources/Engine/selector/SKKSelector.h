@@ -24,26 +24,22 @@
 #define SKKSelector_h
 
 #import <AquaSKKBackend/SKKCandidateSuite.h>
-#import <AquaSKKBackend/SKKEntry.h>
-#import <AquaSKKEngine/SKKInlineSelector.h>
-#import <AquaSKKEngine/SKKWindowSelector.h>
-#import <AquaSKKEngine/subrange.h>
+#import <AquaSKKBackend/SwiftObject.h>
 #import <AquaSKKEngine/SKKSelectorBuddy.h>
 
 class SKKCandidateWindow;
+class SKKSelectorBuddy;
+
+namespace AquaSKKEngine {
+class SKKSelectorImpl;
+}
 
 // 変換候補選択クラス
 class SKKSelector {
-    SKKSelectorBuddy *buddy_;
-    SKKBaseSelector *selector_;
-    SKKInlineSelector inlineSelector_;
-    SKKWindowSelector windowSelector_;
-    SKKCandidateSuite suite_;
-
-    void notify();
-
+    SwiftObject<AquaSKKEngine::SKKSelectorImpl> *impl_;
 public:
     SKKSelector(SKKSelectorBuddy *buddy, SKKCandidateWindow *window);
+    ~SKKSelector();
 
     // インラインかどうか
     bool IsInline() const;

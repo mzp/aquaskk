@@ -11,7 +11,7 @@ import Foundation
 import OSLog
 
 @objc(MacCandidateWindowImpl)
-public class MacCandidateWindowImpl: NSObject, CandidateWindowPresenter {
+public class MacCandidateWindowImpl: NSObject, SKKCandidateWindowPresenter {
     let layoutManager: SKKLayoutManagerImpl
     let window: CandidateWindow
     var candidates: [String]
@@ -104,13 +104,13 @@ public class MacCandidateWindowImpl: NSObject, CandidateWindowPresenter {
         window.prepare(with: font, labels: labels as NSString)
     }
 
-    @objc public func skkWidgetShow() {
+    @objc public func show() {
         window.setCandidates(candidates, selectedIndex: cursorIndex)
         window.setPage(page)
         window.show(at: layoutManager.candidateWindowOrigin(), level: layoutManager.windowLevel())
     }
 
-    @objc public func skkWidgetHide() {
+    @objc public func hide() {
         window.hide()
     }
 }
