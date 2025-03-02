@@ -6,32 +6,16 @@
 #import <AquaSKKEngine/SKKSelector.h>
 #import <AquaSKKTesting/MockCandidateWindow.h>
 #import <AquaSKKTesting/MockFrontEnd.h>
+#import <AquaSKKTesting/MockSelectorBuddy.h>
 
 @interface SKKSelectorTests : XCTestCase
 @end
-
-class MockBuddy : public SKKSelectorBuddy {
-    SKKCandidate candidate_;
-
-    virtual const SKKEntry SKKSelectorQueryEntry() {
-        return SKKEntry("かんじ");
-    }
-
-    virtual void SKKSelectorUpdate(const SKKCandidate &candidate) {
-        candidate_ = candidate;
-    }
-
-public:
-    SKKCandidate &Current() {
-        return candidate_;
-    }
-};
 
 @implementation SKKSelectorTests
 
 - (void)testMain {
     MockCandidateWindow test_window;
-    MockBuddy buddy;
+    MockSelectorBuddy buddy;
     SKKSelector selector(&buddy, &test_window);
     SKKDictionaryKeyContainer dicts;
 

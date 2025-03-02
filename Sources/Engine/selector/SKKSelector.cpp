@@ -133,3 +133,11 @@ void SKKSelector::notify() {
 
     buddy_->SKKSelectorUpdate(selector_->Current());
 }
+
+void retainSKKSelectorBuddy(SKKSelectorBuddy *_Nonnull obj) {
+    obj->retain();
+}
+
+void releaseSKKSelectorBuddy(SKKSelectorBuddy *_Nonnull obj) {
+    obj->release();
+}

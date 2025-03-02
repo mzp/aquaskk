@@ -28,17 +28,7 @@
 #import <AquaSKKEngine/SKKInlineSelector.h>
 #import <AquaSKKEngine/SKKWindowSelector.h>
 #import <AquaSKKEngine/subrange.h>
-
-// SKKSelector の相棒クラス
-struct SKKSelectorBuddy {
-    virtual ~SKKSelectorBuddy() {}
-
-    // SKKSelector::Execute() 時に呼び出される
-    virtual const SKKEntry SKKSelectorQueryEntry() = 0;
-
-    // SKKSelector で現在選択中の候補が変更された場合に呼び出される
-    virtual void SKKSelectorUpdate(const SKKCandidate &candidate) = 0;
-};
+#import <AquaSKKEngine/SKKSelectorBuddy.h>
 
 class SKKCandidateWindow;
 

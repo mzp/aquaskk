@@ -16,7 +16,7 @@ public func createBackendImpl() -> SKKBackendImpl {
 
 public class SKKBackendImpl {
     static let sharedInstance = SKKBackendImpl()
-    static func shared() -> SKKBackendImpl { sharedInstance }
+    public static func shared() -> SKKBackendImpl { sharedInstance }
 
     var userDictionary: SKKLocalUserDictionaryImpl
     var dictionaries: [SKKBaseDictionaryProtocol]
@@ -30,7 +30,7 @@ public class SKKBackendImpl {
         minimumCompletionLength = 0
     }
 
-    func initialize(path: String, configurations: [SKKDictionaryConfiguration]) async {
+    public func initialize(path: String, configurations: [SKKDictionaryConfiguration]) async {
         do {
             try await userDictionary.initialize(path: path)
 

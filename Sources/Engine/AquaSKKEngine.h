@@ -71,3 +71,5 @@ FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 #import <AquaSKKEngine/IntrusiveRefCounted.h>
 #import <AquaSKKEngine/subrange.h>
 #import <AquaSKKEngine/utf8util.h>
+
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
