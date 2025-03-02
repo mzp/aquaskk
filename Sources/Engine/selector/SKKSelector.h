@@ -31,12 +31,13 @@ class SKKCandidateWindow;
 class SKKSelectorBuddy;
 
 namespace AquaSKKEngine {
-class SKKSelectorImpl;
+    class SKKSelectorImpl;
 }
 
 // 変換候補選択クラス
 class SKKSelector {
     SwiftObject<AquaSKKEngine::SKKSelectorImpl> *impl_;
+
 public:
     SKKSelector(SKKSelectorBuddy *buddy, SKKCandidateWindow *window);
     ~SKKSelector();

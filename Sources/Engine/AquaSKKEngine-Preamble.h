@@ -9,7 +9,7 @@
 #define AquaSKKEngine_Preamble_h
 
 #import <AquaSKKBackend/SKKCandidate.h>
-#import <AquaSKKEngine/SKKSelectorBuddy.h>
 #import <AquaSKKEngine/SKKCandidateWindow.h>
+#import <AquaSKKEngine/SKKSelectorBuddy.h>
 
 #endif /* AquaSKKEngine_Preamble_h */

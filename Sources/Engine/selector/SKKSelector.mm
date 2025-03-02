@@ -20,15 +20,15 @@
 
 */
 
-#import <AquaSKKEngine/SKKSelector.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/SKKCandidateWindow.h>
 #import <AquaSKKEngine/SKKCandidateWindowBridge.h>
-#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
+#import <AquaSKKEngine/SKKSelector.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKSelector::SKKSelector(SKKSelectorBuddy *buddy, SKKCandidateWindow *window) {
     auto bridge = [[SKKCandidateWindowBridge alloc] initWithImpl:window];
-    impl_ = new SwiftObject<AquaSKKEngine::SKKSelectorImpl>(buddy, bridge);
+    impl_ = new SwiftObject(AquaSKKEngine::SKKSelectorImpl::init(buddy, bridge));
 }
 
 SKKSelector::~SKKSelector() {

@@ -47,7 +47,9 @@ public:
     SKKCandidate getCurrent() const SWIFT_COMPUTED_PROPERTY {
         return candidate_;
     }
-    static SKKSelectorBuddy*_Nonnull Coerce(MockSelectorBuddy *_Nonnull buddy) { return buddy; }
+    static SKKSelectorBuddy *_Nonnull Coerce(MockSelectorBuddy *_Nonnull buddy) {
+        return buddy;
+    }
 
     static MockSelectorBuddy *_Nonnull newInstance();
 } SWIFT_SHARED_REFERENCE(retainMockSelectorBuddy, releaseMockSelectorBuddy);
@@ -55,6 +57,5 @@ public:
 void retainMockSelectorBuddy(SKKSelectorBuddy *_Nonnull obj);
 
 void releaseMockSelectorBuddy(SKKSelectorBuddy *_Nonnull obj);
-
 
 #endif /* MockBuddy_h */

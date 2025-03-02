@@ -22,8 +22,7 @@
 
 #include "MockSelectorBuddy.h"
 
-MockSelectorBuddy::MockSelectorBuddy() {
-}
+MockSelectorBuddy::MockSelectorBuddy() {}
 
 MockSelectorBuddy *MockSelectorBuddy::newInstance() {
     return new MockSelectorBuddy();

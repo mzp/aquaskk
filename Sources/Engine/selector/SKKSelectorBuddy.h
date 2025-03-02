@@ -25,7 +25,7 @@
 #import <AquaSKKEngine/IntrusiveRefCounted.h>
 
 // SKKSelector の相棒クラス
-struct SKKSelectorBuddy: public IntrusiveRefCounted<SKKSelectorBuddy> {
+struct SKKSelectorBuddy : public IntrusiveRefCounted<SKKSelectorBuddy> {
     virtual ~SKKSelectorBuddy() {}
 
     // SKKSelector::Execute() 時に呼び出される

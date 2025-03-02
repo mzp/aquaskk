@@ -5,10 +5,10 @@
 #import <InputMethodKit/InputMethodKit.h>
 #import <XCTest/XCTest.h>
 #import <AquaSKKBackend/SKKBackEnd.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine.h>
 #import <AquaSKKService/AquaSKKService.h>
 #import <AquaSKKTesting/AquaSKKTesting.h>
-#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 #include "SKKRomanKanaConverter.h"

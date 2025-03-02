@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SKKCandidateWindowBridge : NSObject<SKKCandidateWindowPresenter> {
+@interface SKKCandidateWindowBridge : NSObject <SKKCandidateWindowPresenter> {
     SKKCandidateWindow *impl_;
 }
 
