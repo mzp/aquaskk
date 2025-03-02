@@ -19,6 +19,10 @@
     return self;
 }
 
+- (void)dealloc
+{
+}
+
 - (NSInteger)labelIndexOf:(NSInteger)label {
     return impl_->LabelIndex(label);
 }

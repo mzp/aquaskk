@@ -44,6 +44,9 @@ class SKKWindowSelectorImpl {
         if indexPath.section == maxPage() {
             return false
         }
+        guard countPerSection.isEmpty == false else {
+            return false
+        }
 
         offset += countPerSection[indexPath.section]
         indexPath.section += 1
