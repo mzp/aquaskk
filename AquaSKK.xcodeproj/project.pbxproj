@@ -335,7 +335,6 @@
 		138C694A2C94C96E009FE153 /* SKKTransliterate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13F91A1D2C838D8200E60D63 /* SKKTransliterate.mm */; };
 		138C694B2C94C96E009FE153 /* SKKEncoding.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13F91A182C838D5B00E60D63 /* SKKEncoding.mm */; };
 		138C694C2C94C9A6009FE153 /* SKKInputMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4F92C5B28FC00D8C850 /* SKKInputMode.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		138C69552C94CBCB009FE153 /* subrange.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F55A2C5B28FC00D8C850 /* subrange.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		138C69562C94CD61009FE153 /* SKKBackEnd_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F52C2C5B28FC00D8C850 /* SKKBackEnd_TEST.mm */; };
 		138C69582C94CD68009FE153 /* SKKDistributedUserDictionary_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5362C5B28FC00D8C850 /* SKKDistributedUserDictionary_TEST.mm */; };
 		138C695A2C94CD68009FE153 /* SKKCommonDictionary_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5302C5B28FC00D8C850 /* SKKCommonDictionary_TEST.mm */; };
@@ -763,7 +762,6 @@
 		1344F5572C5B28FC00D8C850 /* pthreadutil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pthreadutil.h; sourceTree = "<group>"; };
 		1344F5582C5B28FC00D8C850 /* socketutil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = socketutil.h; sourceTree = "<group>"; };
 		1344F5592C5B28FC00D8C850 /* stringutil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stringutil.h; sourceTree = "<group>"; };
-		1344F55A2C5B28FC00D8C850 /* subrange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = subrange.h; sourceTree = "<group>"; };
 		1344F55B2C5B28FC00D8C850 /* utf8util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utf8util.h; sourceTree = "<group>"; };
 		1347784C2C5DB98F007B1DFB /* kana-rule.conf */ = {isa = PBXFileReference; lastKnownFileType = text; path = "kana-rule.conf"; sourceTree = "<group>"; };
 		1347784D2C5DB98F007B1DFB /* keymap.conf */ = {isa = PBXFileReference; lastKnownFileType = text; path = keymap.conf; sourceTree = "<group>"; };
@@ -2294,7 +2292,6 @@
 			isa = PBXGroup;
 			children = (
 				1344F55B2C5B28FC00D8C850 /* utf8util.h */,
-				1344F55A2C5B28FC00D8C850 /* subrange.h */,
 				13096C842C8C2D24009F3E6B /* IntrusiveRefCounted.h */,
 			);
 			path = utility;
@@ -2817,7 +2814,6 @@
 				1344F5732C5B28FC00D8C850 /* SKKRegistration.h in Headers */,
 				1344F5752C5B28FC00D8C850 /* SKKFrontEnd.h in Headers */,
 				1344F5762C5B28FC00D8C850 /* SKKAnnotator.h in Headers */,
-				138C69552C94CBCB009FE153 /* subrange.h in Headers */,
 				1344F57E2C5B28FC00D8C850 /* SKKInputModeSelector.h in Headers */,
 				1344F57F2C5B28FC00D8C850 /* SKKInputSessionParameter.h in Headers */,
 				1344F5802C5B28FC00D8C850 /* SKKInputContext.h in Headers */,

@@ -35,7 +35,7 @@
     std::vector<int> pages;
     impl_->Setup(container.begin(), container.end(), pages);
 
-    NSMutableArray<NSNumber *> *result;
+    NSMutableArray<NSNumber *> *result = [NSMutableArray array];
     for (int page : pages) {
         [result addObject:@(page)];
     }

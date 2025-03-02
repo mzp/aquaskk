@@ -77,7 +77,7 @@ class SKKWindowSelectorImpl {
         guard !visibles.isEmpty else {
             return nil
         }
-        return visibles[AnyIndex(indexPath.item)]
+        return Array(visibles)[indexPath.item]
     }
 
     var isEmpty: Bool {
