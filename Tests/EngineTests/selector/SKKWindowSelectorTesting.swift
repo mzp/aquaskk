@@ -9,7 +9,7 @@ import Testing
 internal import AquaSKKBackend
 @testable internal import AquaSKKEngine
 
-class NullCandidateWindow: SKKCandidateWindowPresenter {
+class NullCandidateWindow: SKKCandidatePresenter {
     func show() {}
 
     func hide() {}
