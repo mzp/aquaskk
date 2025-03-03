@@ -19,6 +19,10 @@ public class SKKSelectorImpl {
     private var windowSelector: SKKWindowSelectorImpl
     private var suite = SKKCandidateSuite()
 
+    public static func create(buddy: SKKSelectorBuddy, presenter: SKKCandidateWindowPresenter) -> SKKSelectorImpl {
+        return SKKSelectorImpl(buddy: buddy, presenter: presenter)
+    }
+
     public init(buddy: SKKSelectorBuddy, presenter: SKKCandidateWindowPresenter) {
         self.buddy = buddy
         windowSelector = SKKWindowSelectorImpl(presenter: presenter)

@@ -28,7 +28,7 @@
 
 SKKSelector::SKKSelector(SKKSelectorBuddy *buddy, SKKCandidateWindow *window) {
     auto bridge = [[SKKCandidateWindowBridge alloc] initWithImpl:window];
-    impl_ = new SwiftObject(AquaSKKEngine::SKKSelectorImpl::init(buddy, bridge));
+    impl_ = new SwiftObject(AquaSKKEngine::SKKSelectorImpl::create(buddy, bridge));
 }
 
 SKKSelector::~SKKSelector() {
