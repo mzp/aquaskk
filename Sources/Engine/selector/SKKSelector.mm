@@ -27,11 +27,13 @@
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKSelector::SKKSelector(SKKSelectorBuddy *buddy, SKKCandidateWindow *window) {
-    impl_ = new SwiftObject(AquaSKKEngine::SKKSelectorImpl::createBridge(buddy, new SKKCandidateWindowBridge(window)));
+    bridge_ = new SKKCandidateWindowBridge(window);
+    impl_ = new SwiftObject(AquaSKKEngine::SKKSelectorImpl::createBridge(buddy, bridge_));
 }
 
 SKKSelector::~SKKSelector() {
     delete impl_;
+    releaseSKKCandidateWindowBridge(bridge_);
 }
 
 bool SKKSelector::IsInline() const {

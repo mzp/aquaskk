@@ -8,26 +8,23 @@
 #import <AquaSKKEngine/IntrusiveRefCounted.h>
 #import <AquaSKKEngine/SKKCandidateWindow.h>
 
+// 純粋仮装関数を持つクラスはSwiftからは攫われないのでブリッジする。
 class SKKCandidateWindowBridge : public IntrusiveRefCounted<SKKCandidateWindowBridge>, public SKKCandidateWindow {
-    SKKCandidateWindow* impl_;
+    SKKCandidateWindow *impl_;
+
 public:
-    SKKCandidateWindowBridge(SKKCandidateWindow *impl): impl_(impl) {}
-    virtual ~SKKCandidateWindowBridge() {}
+    SKKCandidateWindowBridge(SKKCandidateWindow *impl);
+    virtual ~SKKCandidateWindowBridge();
 
-    // 各ページ毎に表示可能な候補数を求める
-    virtual void Setup(SKKCandidateIterator begin, SKKCandidateIterator end, std::vector<int> &pages) {
-        impl_->Setup(begin, end, pages);
-    }
+    virtual void Setup(SKKCandidateIterator begin, SKKCandidateIterator end, std::vector<int> &pages);
+    virtual void Update(SKKCandidateIterator begin, SKKCandidateIterator end, int cursor, int page_pos, int page_max);
+    virtual int LabelIndex(char label);
+    virtual void Show();
+    virtual void Hide();
 
-    virtual void
-    Update(SKKCandidateIterator begin, SKKCandidateIterator end, int cursor, int page_pos, int page_max) {
-        impl_->Update(begin, end, cursor, page_pos, page_max);
-    }
-
-    // 候補ラベルのインデックス取得(一致しない場合には -1)
-    virtual int LabelIndex(char label) {
-        return impl_->LabelIndex(label);
-    }
+    // Swiftから使いやすくするためのメンバ関数
+    std::vector<int> Setup(SKKCandidateContainer container);
+    void Update(SKKCandidateContainer container, int cursor, int page_pos, int page_max);
 } SWIFT_SHARED_REFERENCE(retainSKKCandidateWindowBridge, releaseSKKCandidateWindowBridge);
 
 void retainSKKCandidateWindowBridge(SKKCandidateWindowBridge *obj);

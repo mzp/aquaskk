@@ -6,7 +6,7 @@
 //
 
 class SKKWindowSelectorImpl {
-    private var presenter: SKKCandidateWindowPresenter
+    private var presenter: SKKCandidatePresenter
 
     // candidates.begin + offset = visibles.begin
     private var candidates: AnyCollection<SKKCandidate>
@@ -16,7 +16,7 @@ class SKKWindowSelectorImpl {
     private var countPerSection: [Int] = []
     private var indexPath: IndexPath
 
-    init(presenter: SKKCandidateWindowPresenter) {
+    init(presenter: SKKCandidatePresenter) {
         self.presenter = presenter
         indexPath = IndexPath(item: 0, section: 0)
         candidates = AnyCollection([])

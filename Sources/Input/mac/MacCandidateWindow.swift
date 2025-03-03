@@ -11,7 +11,7 @@ import Foundation
 import OSLog
 
 @objc(MacCandidateWindowImpl)
-public class MacCandidateWindowImpl: NSObject, SKKCandidateWindowPresenter {
+public class MacCandidateWindowImpl: NSObject, SKKCandidatePresenter {
     public func show() {}
 
     public func hide() {}

@@ -162,8 +162,8 @@
 		1347C21A2C5E1ACE00414DE2 /* AquaSKK-Ascii@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347C2062C5E1ACE00414DE2 /* AquaSKK-Ascii@2x.png */; };
 		1347C21B2C5E1ACE00414DE2 /* AquaSKK-Hirakana@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347C2082C5E1ACE00414DE2 /* AquaSKK-Hirakana@2x.png */; };
 		1347C21C2C5E1ACE00414DE2 /* AquaSKK-Jisx0208Latin.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347C20D2C5E1ACE00414DE2 /* AquaSKK-Jisx0208Latin.png */; };
-		13513C452D74BBB100C00A4E /* SKKCandidateWindowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13513C442D74BBB100C00A4E /* SKKCandidateWindowPresenter.swift */; };
-		13513C482D74C9B300C00A4E /* SKKCandidateWindowBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13513C472D74C9B300C00A4E /* SKKCandidateWindowBridge.mm */; };
+		13513C452D74BBB100C00A4E /* SKKCandidatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13513C442D74BBB100C00A4E /* SKKCandidatePresenter.swift */; };
+		13513C482D74C9B300C00A4E /* SKKCandidateWindowBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13513C472D74C9B300C00A4E /* SKKCandidateWindowBridge.cpp */; };
 		13513C492D74C9B300C00A4E /* SKKCandidateWindowBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 13513C462D74C9B300C00A4E /* SKKCandidateWindowBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13513C4D2D74D00D00C00A4E /* SKKSelectorBuddy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13513C4B2D74D00D00C00A4E /* SKKSelectorBuddy.cpp */; };
 		1352C9DF2C5DF8160056261D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1352C9D82C5DF8160056261D /* Preview Assets.xcassets */; };
@@ -355,6 +355,7 @@
 		138C69872C94CDE4009FE153 /* skk-jisyo.utf8 in Resources */ = {isa = PBXBuildFile; fileRef = 138C69792C94CDE4009FE153 /* skk-jisyo.utf8 */; };
 		138C69882C94CDE4009FE153 /* dict.file in Resources */ = {isa = PBXBuildFile; fileRef = 138C69732C94CDE4009FE153 /* dict.file */; };
 		138C698B2C94CDE4009FE153 /* SKK-JISYO.TEST in Resources */ = {isa = PBXBuildFile; fileRef = 138C697C2C94CDE4009FE153 /* SKK-JISYO.TEST */; };
+		1390FCF52D75575200059E87 /* SKKCandidateWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1390FCF42D75575200059E87 /* SKKCandidateWindow.swift */; };
 		1393E32C2C6B19C300F1E633 /* SKK-JISYO.S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1393E32B2C6B19C300F1E633 /* SKK-JISYO.S.txt */; };
 		1393E32E2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393E32D2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift */; };
 		1393E3312C6B201500F1E633 /* JisyoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393E3302C6B201500F1E633 /* JisyoTests.swift */; };
@@ -781,9 +782,9 @@
 		1347C20E2C5E1ACE00414DE2 /* AquaSKK-Jisx0208Latin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AquaSKK-Jisx0208Latin@2x.png"; sourceTree = "<group>"; };
 		1347C20F2C5E1ACE00414DE2 /* AquaSKK-Katakana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AquaSKK-Katakana.png"; sourceTree = "<group>"; };
 		1347C2102C5E1ACE00414DE2 /* AquaSKK-Katakana@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AquaSKK-Katakana@2x.png"; sourceTree = "<group>"; };
-		13513C442D74BBB100C00A4E /* SKKCandidateWindowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKCandidateWindowPresenter.swift; sourceTree = "<group>"; };
+		13513C442D74BBB100C00A4E /* SKKCandidatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKCandidatePresenter.swift; sourceTree = "<group>"; };
 		13513C462D74C9B300C00A4E /* SKKCandidateWindowBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKCandidateWindowBridge.h; sourceTree = "<group>"; };
-		13513C472D74C9B300C00A4E /* SKKCandidateWindowBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKCandidateWindowBridge.mm; sourceTree = "<group>"; };
+		13513C472D74C9B300C00A4E /* SKKCandidateWindowBridge.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKCandidateWindowBridge.cpp; sourceTree = "<group>"; };
 		13513C4B2D74D00D00C00A4E /* SKKSelectorBuddy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKSelectorBuddy.cpp; sourceTree = "<group>"; };
 		1352B29A2C6DAE14001EF7F6 /* install.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install.sh; sourceTree = "<group>"; };
 		1352C9D82C5DF8160056261D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -964,6 +965,7 @@
 		138F45102C5CA19D000B03FC /* Framework-Engine.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Engine.xcconfig"; sourceTree = "<group>"; };
 		138F45112C5CA1B6000B03FC /* Tests-Input.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Input.xcconfig"; sourceTree = "<group>"; };
 		138F45122C5CA1D7000B03FC /* Tests-App.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-App.xcconfig"; sourceTree = "<group>"; };
+		1390FCF42D75575200059E87 /* SKKCandidateWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKCandidateWindow.swift; sourceTree = "<group>"; };
 		13931D0C2C5B49C200B11EEE /* Tests-Preference.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Preference.xcconfig"; sourceTree = "<group>"; };
 		13931D0E2C5B4C6B00B11EEE /* Tests-Engine.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Engine.xcconfig"; sourceTree = "<group>"; };
 		1393E32B2C6B19C300F1E633 /* SKK-JISYO.S.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "SKK-JISYO.S.txt"; sourceTree = "<group>"; };
@@ -1614,8 +1616,9 @@
 				1344F49C2C5B28FC00D8C850 /* SKKAnnotator.h */,
 				1344F49D2C5B28FC00D8C850 /* SKKCandidateWindow.h */,
 				13513C462D74C9B300C00A4E /* SKKCandidateWindowBridge.h */,
-				13513C472D74C9B300C00A4E /* SKKCandidateWindowBridge.mm */,
-				13513C442D74BBB100C00A4E /* SKKCandidateWindowPresenter.swift */,
+				13513C472D74C9B300C00A4E /* SKKCandidateWindowBridge.cpp */,
+				13513C442D74BBB100C00A4E /* SKKCandidatePresenter.swift */,
+				1390FCF42D75575200059E87 /* SKKCandidateWindow.swift */,
 				1344F49E2C5B28FC00D8C850 /* SKKClipboard.h */,
 				1344F49F2C5B28FC00D8C850 /* SKKConfig.h */,
 				1344F4A02C5B28FC00D8C850 /* SKKDynamicCompletor.h */,
@@ -3886,6 +3889,7 @@
 			files = (
 				13D756192C5A9049006144F2 /* AquaSKKEngine.docc in Sources */,
 				135FB6D92C6998E800A6480A /* RomanKanaConverter.swift in Sources */,
+				1390FCF52D75575200059E87 /* SKKCandidateWindow.swift in Sources */,
 				135FB6E12C69AA7E00A6480A /* Trie.swift in Sources */,
 				1344F5CF2C5B28FC00D8C850 /* SKKInputEnvironment.cpp in Sources */,
 				1344F5D12C5B28FC00D8C850 /* SKKPrimaryEditor.cpp in Sources */,
@@ -3893,7 +3897,7 @@
 				1344F5D42C5B28FC00D8C850 /* SKKInputSession.cpp in Sources */,
 				1344F5D92C5B28FC00D8C850 /* SKKInputModeSelector.cpp in Sources */,
 				139E88BE2D73F6760065CFA2 /* SKKWindowSelector.swift in Sources */,
-				13513C482D74C9B300C00A4E /* SKKCandidateWindowBridge.mm in Sources */,
+				13513C482D74C9B300C00A4E /* SKKCandidateWindowBridge.cpp in Sources */,
 				1344F5DB2C5B28FC00D8C850 /* SKKEntryRemoveEditor.cpp in Sources */,
 				1344F5DC2C5B28FC00D8C850 /* SKKRegisterEditor.cpp in Sources */,
 				1344F5E22C5B28FC00D8C850 /* SKKRecursiveEditor.cpp in Sources */,
@@ -3902,7 +3906,7 @@
 				1344F5ED2C5B28FC00D8C850 /* SKKInputQueue.cpp in Sources */,
 				1344F5F42C5B28FC00D8C850 /* SKKCompleter.cpp in Sources */,
 				1344F5FA2C5B28FC00D8C850 /* SKKOutputBuffer.cpp in Sources */,
-				13513C452D74BBB100C00A4E /* SKKCandidateWindowPresenter.swift in Sources */,
+				13513C452D74BBB100C00A4E /* SKKCandidatePresenter.swift in Sources */,
 				1344F5FC2C5B28FC00D8C850 /* SKKTextBuffer.cpp in Sources */,
 				1344F5FF2C5B28FC00D8C850 /* SKKInputEngine.cpp in Sources */,
 				139E88B72D73F2FA0065CFA2 /* SKKInlineSelector.swift in Sources */,

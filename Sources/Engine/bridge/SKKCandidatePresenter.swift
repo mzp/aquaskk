@@ -6,7 +6,7 @@
 //
 import Foundation
 
-@objc public protocol SKKCandidateWindowPresenter {
+public protocol SKKCandidatePresenter {
     func setup(candidates: [String]) -> [Int]
     func labelIndex(of: Int) -> Int
     func update(candidates: [String], cursor: Int, position: Int, max: Int)

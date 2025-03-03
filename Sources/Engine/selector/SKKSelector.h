@@ -29,6 +29,7 @@
 
 class SKKCandidateWindow;
 class SKKSelectorBuddy;
+class SKKCandidateWindowBridge;
 
 namespace AquaSKKEngine {
     class SKKSelectorImpl;
@@ -37,6 +38,7 @@ namespace AquaSKKEngine {
 // 変換候補選択クラス
 class SKKSelector {
     SwiftObject<AquaSKKEngine::SKKSelectorImpl> *impl_;
+    SKKCandidateWindowBridge *bridge_;
 
 public:
     SKKSelector(SKKSelectorBuddy *buddy, SKKCandidateWindow *window);
