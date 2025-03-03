@@ -20,7 +20,7 @@ public class SKKSelectorImpl {
     private var suite = SKKCandidateSuite()
 
     public static func createBridge(buddy: SKKSelectorBuddy, window: SKKCandidateWindowBridge) -> SKKSelectorImpl {
-        .init(buddy: buddy, presenter: window)
+        .init(buddy: buddy, presenter: SKKCandidateWindowBridgeAdapter(window))
     }
 
     public init(buddy: SKKSelectorBuddy, presenter: SKKCandidatePresenter) {
