@@ -5,17 +5,30 @@
 //  Created by mzp on 2025/03/02.
 //
 
-#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
-#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
+#import <AquaSKKEngine/IntrusiveRefCounted.h>
+#import <AquaSKKEngine/SKKCandidateWindow.h>
 
-NS_ASSUME_NONNULL_BEGIN
+class SKKCandidateWindowBridge : public IntrusiveRefCounted<SKKCandidateWindowBridge>, public SKKCandidateWindow {
+    SKKCandidateWindow* impl_;
+public:
+    SKKCandidateWindowBridge(SKKCandidateWindow *impl): impl_(impl) {}
+    virtual ~SKKCandidateWindowBridge() {}
 
-@interface SKKCandidateWindowBridge : NSObject <SKKCandidateWindowPresenter> {
-    SKKCandidateWindow *impl_;
-}
+    // 各ページ毎に表示可能な候補数を求める
+    virtual void Setup(SKKCandidateIterator begin, SKKCandidateIterator end, std::vector<int> &pages) {
+        impl_->Setup(begin, end, pages);
+    }
 
-- (instancetype)initWithImpl:(SKKCandidateWindow *)impl;
+    virtual void
+    Update(SKKCandidateIterator begin, SKKCandidateIterator end, int cursor, int page_pos, int page_max) {
+        impl_->Update(begin, end, cursor, page_pos, page_max);
+    }
 
-@end
+    // 候補ラベルのインデックス取得(一致しない場合には -1)
+    virtual int LabelIndex(char label) {
+        return impl_->LabelIndex(label);
+    }
+} SWIFT_SHARED_REFERENCE(retainSKKCandidateWindowBridge, releaseSKKCandidateWindowBridge);
 
-NS_ASSUME_NONNULL_END
+void retainSKKCandidateWindowBridge(SKKCandidateWindowBridge *obj);
+void releaseSKKCandidateWindowBridge(SKKCandidateWindowBridge *obj);

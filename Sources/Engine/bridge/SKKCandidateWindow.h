@@ -47,4 +47,5 @@ public:
     virtual int LabelIndex(char label) = 0;
 };
 
+
 #endif

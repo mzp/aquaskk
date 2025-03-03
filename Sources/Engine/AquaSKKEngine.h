@@ -15,6 +15,7 @@ FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 
 #import <AquaSKKEngine/SKKAnnotator.h>
 #import <AquaSKKEngine/SKKCandidateWindow.h>
+#import <AquaSKKEngine/SKKCandidateWindowBridge.h>
 #import <AquaSKKEngine/SKKClipboard.h>
 #import <AquaSKKEngine/SKKConfig.h>
 #import <AquaSKKEngine/SKKDynamicCompletor.h>
