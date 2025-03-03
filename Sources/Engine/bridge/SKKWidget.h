@@ -28,8 +28,8 @@ class SKKWidget {
     bool visible_;
 
     // 派生クラスで実装すべきメソッド(NVI パターン)
-    virtual void SKKWidgetShow() = 0;
-    virtual void SKKWidgetHide() = 0;
+    virtual void SKKWidgetShow() {}
+    virtual void SKKWidgetHide() {}
 
 public:
     SKKWidget(bool visible = false)

@@ -19,47 +19,21 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 */
+/*
+#include "MockSelectorBuddy.h"
 
-#include <cassert>
-#import <AquaSKKEngine/SKKInlineSelector.h>
-
-void SKKInlineSelector::Initialize(SKKCandidateContainer &container, unsigned inlineCount) {
-    range_.set(container, 0, inlineCount);
-    pos_ = 0;
+MockSelectorBuddy::MockSelectorBuddy() {
 }
 
-bool SKKInlineSelector::Next() {
-    if(IsEmpty() || pos_ == maxPosition()) {
-        return false;
-    }
-
-    ++pos_;
-    return true;
+MockSelectorBuddy *MockSelectorBuddy::newInstance() {
+    return new MockSelectorBuddy();
 }
 
-bool SKKInlineSelector::Prev() {
-    if(IsEmpty() || pos_ == minPosition()) {
-        return false;
-    }
-
-    --pos_;
-    return true;
+void retainMockSelectorBuddy(SKKSelectorBuddy *_Nonnull obj) {
+    obj->retain();
 }
 
-const SKKCandidate &SKKInlineSelector::Current() const {
-    assert(!IsEmpty());
-
-    return range_[pos_];
+void releaseMockSelectorBuddy(SKKSelectorBuddy *_Nonnull obj) {
+    obj->release();
 }
-
-bool SKKInlineSelector::IsEmpty() const {
-    return range_.empty();
-}
-
-int SKKInlineSelector::minPosition() const {
-    return 0;
-}
-
-int SKKInlineSelector::maxPosition() const {
-    return range_.size() - 1;
-}
+*/

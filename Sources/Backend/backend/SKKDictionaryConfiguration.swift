@@ -7,11 +7,11 @@
 
 import AquaSKKService
 
-struct SKKDictionaryConfiguration {
+public struct SKKDictionaryConfiguration {
     var type: JisyoType
     var location: String
 
-    init?(from key: SKKDictionaryKey) {
+    public init?(from key: SKKDictionaryKey) {
         guard let type = JisyoType(rawValue: Int(key.first)) else {
             return nil
         }

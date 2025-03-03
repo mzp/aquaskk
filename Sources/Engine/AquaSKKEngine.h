@@ -15,6 +15,7 @@ FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 
 #import <AquaSKKEngine/SKKAnnotator.h>
 #import <AquaSKKEngine/SKKCandidateWindow.h>
+#import <AquaSKKEngine/SKKCandidateWindowBridge.h>
 #import <AquaSKKEngine/SKKClipboard.h>
 #import <AquaSKKEngine/SKKConfig.h>
 #import <AquaSKKEngine/SKKDynamicCompletor.h>
@@ -39,10 +40,7 @@ FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 
 #pragma mark - selector
 
-#import <AquaSKKEngine/SKKBaseSelector.h>
-#import <AquaSKKEngine/SKKInlineSelector.h>
 #import <AquaSKKEngine/SKKSelector.h>
-#import <AquaSKKEngine/SKKWindowSelector.h>
 
 #pragma mark - session
 
@@ -68,6 +66,6 @@ FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 
 #pragma mark - utility
 
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/IntrusiveRefCounted.h>
-#import <AquaSKKEngine/subrange.h>
 #import <AquaSKKEngine/utf8util.h>

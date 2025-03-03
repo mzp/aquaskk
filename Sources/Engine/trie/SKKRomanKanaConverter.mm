@@ -21,6 +21,7 @@
 */
 
 #include "SKKRomanKanaConverter.h"
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKRomanKanaConverter::SKKRomanKanaConverter() {

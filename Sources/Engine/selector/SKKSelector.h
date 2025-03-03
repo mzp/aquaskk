@@ -24,36 +24,25 @@
 #define SKKSelector_h
 
 #import <AquaSKKBackend/SKKCandidateSuite.h>
-#import <AquaSKKBackend/SKKEntry.h>
-#import <AquaSKKEngine/SKKInlineSelector.h>
-#import <AquaSKKEngine/SKKWindowSelector.h>
-#import <AquaSKKEngine/subrange.h>
-
-// SKKSelector の相棒クラス
-struct SKKSelectorBuddy {
-    virtual ~SKKSelectorBuddy() {}
-
-    // SKKSelector::Execute() 時に呼び出される
-    virtual const SKKEntry SKKSelectorQueryEntry() = 0;
-
-    // SKKSelector で現在選択中の候補が変更された場合に呼び出される
-    virtual void SKKSelectorUpdate(const SKKCandidate &candidate) = 0;
-};
+#import <AquaSKKBackend/SwiftObject.h>
+#import <AquaSKKEngine/SKKSelectorBuddy.h>
 
 class SKKCandidateWindow;
+class SKKSelectorBuddy;
+class SKKCandidateWindowBridge;
+
+namespace AquaSKKEngine {
+    class SKKSelectorImpl;
+}
 
 // 変換候補選択クラス
 class SKKSelector {
-    SKKSelectorBuddy *buddy_;
-    SKKBaseSelector *selector_;
-    SKKInlineSelector inlineSelector_;
-    SKKWindowSelector windowSelector_;
-    SKKCandidateSuite suite_;
-
-    void notify();
+    SwiftObject<AquaSKKEngine::SKKSelectorImpl> *impl_;
+    SKKCandidateWindowBridge *bridge_;
 
 public:
     SKKSelector(SKKSelectorBuddy *buddy, SKKCandidateWindow *window);
+    ~SKKSelector();
 
     // インラインかどうか
     bool IsInline() const;

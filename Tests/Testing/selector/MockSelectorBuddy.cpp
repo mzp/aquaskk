@@ -20,27 +20,18 @@
 
 */
 
-#ifndef SKKInlineSelector_h
-#define SKKInlineSelector_h
+#include "MockSelectorBuddy.h"
 
-#import <AquaSKKEngine/SKKBaseSelector.h>
+MockSelectorBuddy::MockSelectorBuddy() {}
 
-class SKKInlineSelector : public SKKBaseSelector {
-    Range range_;
-    int pos_;
+MockSelectorBuddy *MockSelectorBuddy::newInstance() {
+    return new MockSelectorBuddy();
+}
 
-    int minPosition() const;
-    int maxPosition() const;
+void retainMockSelectorBuddy(SKKSelectorBuddy *_Nonnull obj) {
+    obj->retain();
+}
 
-public:
-    void Initialize(SKKCandidateContainer &container, unsigned inlineCount);
-
-    virtual bool Next();
-    virtual bool Prev();
-
-    virtual const SKKCandidate &Current() const;
-
-    virtual bool IsEmpty() const;
-};
-
-#endif
+void releaseMockSelectorBuddy(SKKSelectorBuddy *_Nonnull obj) {
+    obj->release();
+}

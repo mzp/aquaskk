@@ -14,6 +14,10 @@ template <class T> class SwiftObject {
 public:
     SwiftObject()
         : impl_(T::init()) {}
+
+    SwiftObject(T impl)
+        : impl_(impl) {}
+
     T *operator->() {
         return &impl_;
     }
