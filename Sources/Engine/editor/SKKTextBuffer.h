@@ -24,17 +24,19 @@
 #define SKKTextBuffer_h
 
 #include <string>
+#import <AquaSKKBackend/SwiftObject.h>
+
+namespace AquaSKKEngine {
+    class SKKTextBufferImpl;
+}
 
 // カーソル移動をサポートするテキストバッファ
 class SKKTextBuffer {
-    std::string buf_;
-    int cursor_;
-
-    int minCursorPosition() const;
-    int maxCursorPosition() const;
+    SwiftObject<AquaSKKEngine::SKKTextBufferImpl> *impl_;
 
 public:
     SKKTextBuffer();
+    ~SKKTextBuffer();
 
     void Insert(const std::string &str);
     void BackSpace();

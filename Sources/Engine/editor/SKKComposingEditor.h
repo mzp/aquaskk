@@ -24,15 +24,17 @@
 #define SKKComposingEditor_h
 
 #import <AquaSKKEngine/SKKBaseEditor.h>
-#import <AquaSKKEngine/SKKTextBuffer.h>
+
+class SKKTextBuffer;
 
 class SKKComposingEditor : public SKKBaseEditor {
-    SKKTextBuffer composing_;
+    SKKTextBuffer *composing_;
 
     void update();
 
 public:
     SKKComposingEditor(SKKInputContext *context);
+    ~SKKComposingEditor();
 
     virtual void ReadContext();
     virtual void WriteContext();
