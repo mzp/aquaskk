@@ -22,20 +22,25 @@
 
 #import <AquaSKKEngine/SKKComposingEditor.h>
 #import <AquaSKKEngine/SKKInputContext.h>
+#import "SKKTextBuffer.h"
 
 SKKComposingEditor::SKKComposingEditor(SKKInputContext *context)
-    : SKKBaseEditor(context) {}
+    : SKKBaseEditor(context), composing_(new SKKTextBuffer()) {}
+
+SKKComposingEditor::~SKKComposingEditor() {
+    delete composing_;
+}
 
 void SKKComposingEditor::ReadContext() {
-    composing_.Clear();
+    composing_->Clear();
 
     if(context()->entry.IsEmpty()) {
         // 直接入力モードからの遷移
-        composing_.Insert(context()->undo.Entry());
+        composing_->Insert(context()->undo.Entry());
     } else {
         // 変換モードからの遷移なので、見出し語を復元する
         context()->entry.SetOkuri("", "");
-        composing_.Insert(context()->entry.EntryString());
+        composing_->Insert(context()->entry.EntryString());
     }
 
     context()->dynamic_completion = true;
@@ -43,13 +48,13 @@ void SKKComposingEditor::ReadContext() {
 
 void SKKComposingEditor::WriteContext() {
     context()->output.SetMark();
-    context()->output.Compose("▽" + composing_.String(), composing_.CursorPosition());
+    context()->output.Compose("▽" + composing_->String(), composing_->CursorPosition());
 
     update();
 }
 
 void SKKComposingEditor::Input(const std::string &ascii) {
-    composing_.Insert(ascii);
+    composing_->Insert(ascii);
 
     update();
 }
@@ -61,30 +66,30 @@ void SKKComposingEditor::Input(const std::string &fixed, const std::string &, ch
 void SKKComposingEditor::Input(SKKBaseEditor::Event event) {
     switch(event) {
     case BackSpace:
-        if(composing_.IsEmpty()) {
+        if(composing_->IsEmpty()) {
             context()->needs_setback = true;
         }
-        composing_.BackSpace();
+        composing_->BackSpace();
         break;
 
     case Delete:
-        composing_.Delete();
+        composing_->Delete();
         break;
 
     case CursorLeft:
-        composing_.CursorLeft();
+        composing_->CursorLeft();
         break;
 
     case CursorRight:
-        composing_.CursorRight();
+        composing_->CursorRight();
         break;
 
     case CursorUp:
-        composing_.CursorUp();
+        composing_->CursorUp();
         break;
 
     case CursorDown:
-        composing_.CursorDown();
+        composing_->CursorDown();
         break;
     }
 
@@ -92,14 +97,14 @@ void SKKComposingEditor::Input(SKKBaseEditor::Event event) {
 }
 
 void SKKComposingEditor::Commit(std::string &queue) {
-    queue = composing_.String();
+    queue = composing_->String();
 }
 
 // ----------------------------------------------------------------------
 
 void SKKComposingEditor::SetEntry(const std::string &entry) {
-    composing_.Clear();
-    composing_.Insert(entry);
+    composing_->Clear();
+    composing_->Insert(entry);
 
     update();
 }
@@ -107,5 +112,5 @@ void SKKComposingEditor::SetEntry(const std::string &entry) {
 // ----------------------------------------------------------------------
 
 void SKKComposingEditor::update() {
-    context()->entry = SKKEntry(composing_.LeftString());
+    context()->entry = SKKEntry(composing_->LeftString());
 }

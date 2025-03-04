@@ -22,10 +22,15 @@
 
 #import <AquaSKKEngine/SKKInputContext.h>
 #import <AquaSKKEngine/SKKRegisterEditor.h>
+#import "SKKTextBuffer.h"
 
 SKKRegisterEditor::SKKRegisterEditor(SKKInputContext *context)
-    : SKKBaseEditor(context), entry_(context->entry) {
+    : SKKBaseEditor(context), entry_(context->entry), word_(new SKKTextBuffer()) {
     prompt_ = "[登録：" + entry_.PromptString() + "]";
+}
+
+SKKRegisterEditor::~SKKRegisterEditor() {
+    delete word_;
 }
 
 void SKKRegisterEditor::ReadContext() {
@@ -36,11 +41,11 @@ void SKKRegisterEditor::ReadContext() {
 }
 
 void SKKRegisterEditor::WriteContext() {
-    context()->output.Compose(prompt_ + word_.String(), word_.CursorPosition());
+    context()->output.Compose(prompt_ + word_->String(), word_->CursorPosition());
 }
 
 void SKKRegisterEditor::Input(const std::string &ascii) {
-    word_.Insert(ascii);
+    word_->Insert(ascii);
 }
 
 void SKKRegisterEditor::Input(const std::string &fixed, const std::string &, char) {
@@ -50,27 +55,27 @@ void SKKRegisterEditor::Input(const std::string &fixed, const std::string &, cha
 void SKKRegisterEditor::Input(SKKBaseEditor::Event event) {
     switch(event) {
     case BackSpace:
-        word_.BackSpace();
+        word_->BackSpace();
         break;
 
     case Delete:
-        word_.Delete();
+        word_->Delete();
         break;
 
     case CursorLeft:
-        word_.CursorLeft();
+        word_->CursorLeft();
         break;
 
     case CursorRight:
-        word_.CursorRight();
+        word_->CursorRight();
         break;
 
     case CursorUp:
-        word_.CursorUp();
+        word_->CursorUp();
         break;
 
     case CursorDown:
-        word_.CursorDown();
+        word_->CursorDown();
         break;
 
     default:
@@ -79,8 +84,8 @@ void SKKRegisterEditor::Input(SKKBaseEditor::Event event) {
 }
 
 void SKKRegisterEditor::Commit(std::string &queue) {
-    word_.Insert(queue);
-    queue = word_.String();
+    word_->Insert(queue);
+    queue = word_->String();
 
     context()->entry = entry_;
 }

@@ -20,83 +20,69 @@
 
 */
 
-#import <AquaSKKEngine/SKKTextBuffer.h>
-#include "utf8util.h"
+#import "SKKTextBuffer.h"
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKTextBuffer::SKKTextBuffer()
-    : cursor_(0) {}
+    : impl_(new SwiftObject(AquaSKKEngine::SKKTextBufferImpl::init())) {}
+
+SKKTextBuffer::~SKKTextBuffer() {
+    delete impl_;
+}
 
 void SKKTextBuffer::Insert(const std::string &str) {
-    utf8::push(buf_, str, cursor_);
+    (*impl_)->insert(str);
 }
 
 void SKKTextBuffer::BackSpace() {
-    if(cursor_ != minCursorPosition()) {
-        utf8::pop(buf_, cursor_);
-    }
+    (*impl_)->backSpace();
 }
 
 void SKKTextBuffer::Delete() {
-    if(cursor_ != maxCursorPosition()) {
-        CursorRight();
-        BackSpace();
-    }
+    (*impl_)->delete_();
 }
 
 void SKKTextBuffer::Clear() {
-    buf_.clear();
-    cursor_ = 0;
+    (*impl_)->clear();
 }
 
 void SKKTextBuffer::CursorLeft() {
-    if(cursor_ != minCursorPosition()) {
-        --cursor_;
-    }
+    (*impl_)->cursorLeft();
 }
 
 void SKKTextBuffer::CursorRight() {
-    if(cursor_ != maxCursorPosition()) {
-        ++cursor_;
-    }
+    (*impl_)->cursorRight();
 }
 
 void SKKTextBuffer::CursorUp() {
-    cursor_ = minCursorPosition();
+    (*impl_)->cursorUp();
 }
 
 void SKKTextBuffer::CursorDown() {
-    cursor_ = maxCursorPosition();
+    (*impl_)->cursorDown();
 }
 
 int SKKTextBuffer::CursorPosition() const {
-    return cursor_;
+    return static_cast<int>((*impl_)->getCursorPosition());
 }
 
 bool SKKTextBuffer::IsEmpty() const {
-    return buf_.empty();
+    return (*impl_)->isEmpty();
 }
 
 bool SKKTextBuffer::operator==(const std::string &str) const {
-    return buf_ == str;
+    return std::string((*impl_)->getString()) == str;
 }
 
 std::string SKKTextBuffer::String() const {
-    return buf_;
+    return std::string((*impl_)->getString());
 }
 
 std::string SKKTextBuffer::LeftString() const {
-    return utf8::left(buf_, cursor_);
+    return std::string((*impl_)->getLeftString());
 }
 
 std::string SKKTextBuffer::RightString() const {
-    return utf8::right(buf_, cursor_);
-}
-
-int SKKTextBuffer::minCursorPosition() const {
-    // 今のところ毎回計算する(最適化しない)
-    return -utf8::length(buf_);
-}
-
-int SKKTextBuffer::maxCursorPosition() const {
-    return 0;
+    return std::string((*impl_)->getRightString());
 }

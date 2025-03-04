@@ -25,12 +25,13 @@
 
 #import <AquaSKKBackend/SKKEntry.h>
 #import <AquaSKKEngine/SKKBaseEditor.h>
-#import <AquaSKKEngine/SKKTextBuffer.h>
+
+class SKKTextBuffer;
 
 class SKKRegisterEditor : public SKKBaseEditor {
     std::string prompt_;
     SKKEntry entry_;
-    SKKTextBuffer word_;
+    SKKTextBuffer *word_;
 
     SKKRegisterEditor();
     SKKRegisterEditor(const SKKRegisterEditor &);
@@ -38,6 +39,7 @@ class SKKRegisterEditor : public SKKBaseEditor {
 
 public:
     SKKRegisterEditor(SKKInputContext *context);
+    ~SKKRegisterEditor();
 
     virtual void ReadContext();
     virtual void WriteContext();
