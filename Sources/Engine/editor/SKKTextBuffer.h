@@ -22,13 +22,15 @@
 
 // このファイルをAquaSKKEngineの公開ヘッダにすると
 //
-// /Users/mzp/ghq/github.com/mzp/aquaskk/Sources/Backend/utility/SwiftObject.h:12:7: error: field has incomplete type 'AquaSKKEngine::SKKTextBufferImpl'
+// /Users/mzp/ghq/github.com/mzp/aquaskk/Sources/Backend/utility/SwiftObject.h:12:7: error: field has incomplete type
+// 'AquaSKKEngine::SKKTextBufferImpl'
 //    T impl_;
 //       ^
-// /Users/mzp/ghq/github.com/mzp/aquaskk/Sources/Backend/utility/SwiftObject.h:11:26: note: in instantiation of template class 'SwiftObject<AquaSKKEngine::SKKTextBufferImpl>' requested here
-// template <class T> class SwiftObject {
+// /Users/mzp/ghq/github.com/mzp/aquaskk/Sources/Backend/utility/SwiftObject.h:11:26: note: in instantiation of template
+// class 'SwiftObject<AquaSKKEngine::SKKTextBufferImpl>' requested here template <class T> class SwiftObject {
 //                          ^
-// /Users/mzp/ghq/github.com/mzp/aquaskk/Sources/Engine/editor/SKKTextBuffer.h:30:11: note: forward declaration of 'AquaSKKEngine::SKKTextBufferImpl'
+// /Users/mzp/ghq/github.com/mzp/aquaskk/Sources/Engine/editor/SKKTextBuffer.h:30:11: note: forward declaration of
+// 'AquaSKKEngine::SKKTextBufferImpl'
 //    class SKKTextBufferImpl;
 //          ^
 // というエラーが出る。
