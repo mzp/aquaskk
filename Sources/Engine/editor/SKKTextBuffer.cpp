@@ -23,7 +23,6 @@
 #import "SKKTextBuffer.h"
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
-#include "utf8util.h"
 
 SKKTextBuffer::SKKTextBuffer()
     : impl_(new SwiftObject(AquaSKKEngine::SKKTextBufferImpl::init())) {}
