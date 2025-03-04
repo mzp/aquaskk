@@ -25,29 +25,15 @@
 
 #include <string>
 #import <AquaSKKBackend/SKKInputMode.h>
+#import <AquaSKKBackend/SwiftObject.h>
+#import <AquaSKKEngine/SKKInputQueueObserver.h>
 
-class SKKInputQueueObserver {
-public:
-    // 入力状態
-    struct State {
-        std::string fixed;        // 確定した文字
-        std::string intermediate; // 最小マッチした文字
-        std::string queue;        // 入力バッファ
-        char code;                // 入力文字
-    };
-
-    virtual ~SKKInputQueueObserver() {}
-
-    virtual void SKKInputQueueUpdate(const State &state) = 0;
+namespace AquaSKKEngine {
+    class SKKInputQueueImpl;
 };
 
 class SKKInputQueue {
-    SKKInputQueueObserver *observer_;
-    SKKInputMode mode_;
-    std::string queue_;
-
-    SKKInputQueueObserver::State convert(char code, bool direct);
-    SKKInputQueueObserver::State terminate();
+    SwiftObject<AquaSKKEngine::SKKInputQueueImpl> *impl_;
 
 public:
     SKKInputQueue(SKKInputQueueObserver *observer);
@@ -65,7 +51,7 @@ public:
     void Clear();
 
     bool IsEmpty() const;
-    const std::string &QueueString() const;
+    const std::string QueueString() const;
 
     // 変換可能かどうか
     bool CanConvert(char code) const;

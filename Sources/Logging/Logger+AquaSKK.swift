@@ -13,6 +13,7 @@ public extension Logger {
     static let skkBackend = Logger(subsystem: subsystem, category: "Backend")
     static let skkInput = Logger(subsystem: subsystem, category: "Input")
     static let skkUI = Logger(subsystem: subsystem, category: "UI")
+    static let skkEngine = Logger(subsystem: subsystem, category: "Engine")
 
     // MARK: Special purpose
 
