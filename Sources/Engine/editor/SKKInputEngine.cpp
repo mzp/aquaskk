@@ -261,7 +261,7 @@ void SKKInputEngine::initialize() {
     context_->dynamic_completion = false;
     context_->annotation = false;
 
-    if(context_->registration == SKKRegistration::Aborted) {
+    if(context_->registration == SKKRegistrationAborted) {
         context_->registration.Clear();
         env_->InputModeSelector()->Refresh();
     }

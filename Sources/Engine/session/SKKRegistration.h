@@ -25,34 +25,46 @@
 
 #include <string>
 
+enum SKKRegistrationState {
+    SKKRegistrationNone,
+    SKKRegistrationStarted,
+    SKKRegistrationFinished,
+    SKKRegistrationAborted
+};
+
 class SKKRegistration {
 public:
-    enum State { None, Started, Finished, Aborted };
-
     SKKRegistration()
-        : state_(None) {}
+        : state_(SKKRegistrationNone) {}
 
     void Start() {
-        state_ = Started;
+        state_ = SKKRegistrationStarted;
     }
 
     void Finish(const std::string &str) {
-        state_ = Finished;
+        state_ = SKKRegistrationFinished;
         word_ = str;
     }
 
     void Abort() {
-        state_ = Aborted;
+        state_ = SKKRegistrationAborted;
         word_.clear();
     }
 
     void Clear() {
-        state_ = None;
+        state_ = SKKRegistrationNone;
         word_.clear();
     }
 
-    operator State() const {
+    operator SKKRegistrationState() const {
         return state_;
+    }
+
+    const SKKRegistrationState getState() const SWIFT_COMPUTED_PROPERTY {
+        return state_;
+    }
+    const std::string getWord() const SWIFT_COMPUTED_PROPERTY {
+        return word_;
     }
 
     const std::string &Word() const {
@@ -60,7 +72,7 @@ public:
     }
 
 private:
-    State state_;
+    SKKRegistrationState state_;
     std::string word_;
 };
 
