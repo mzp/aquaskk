@@ -68,23 +68,4 @@ struct SKKTextBufferTests {
         #expect(buffer.leftString == "ab")
         #expect(buffer.rightString == "c")
     }
-    // void Insert(const std::string &str);
-    // void BackSpace();
-    // void Delete();
-    // void Clear();
-    //
-    // void CursorLeft();
-    // void CursorRight();
-    // void CursorUp();
-    // void CursorDown();
-    //
-    // int CursorPosition() const;
-    //
-    // bool IsEmpty() const;
-    //
-    // bool operator==(const std::string &str) const;
-    //
-    // std::string String() const;
-    // std::string LeftString() const;
-    // std::string RightString() const;
 }
