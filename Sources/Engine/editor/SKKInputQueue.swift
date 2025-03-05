@@ -9,9 +9,9 @@ import AquaSKKLogging
 import OSLog
 
 public class SKKInputQueueImpl {
-    var inputMode: SKKInputMode
-    var observer: SKKInputQueueObserver
-    var queue: String
+    private var inputMode: SKKInputMode
+    private var observer: SKKInputQueueObserver
+    private var queue: String
 
     public init(observer: SKKInputQueueObserver) {
         inputMode = .HirakanaInputMode
@@ -20,7 +20,7 @@ public class SKKInputQueueImpl {
     }
 
     /// 入力モードを変更する
-    public func selectInputMode_(_ inputMode: SKKInputMode) {
+    public func selectInputMode_(inputMode: SKKInputMode) {
         self.inputMode = inputMode
         clear()
     }
