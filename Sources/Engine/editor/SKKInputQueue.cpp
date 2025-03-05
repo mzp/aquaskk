@@ -28,7 +28,7 @@ SKKInputQueue::SKKInputQueue(SKKInputQueueObserver *observer)
     : impl_(new SwiftObject(AquaSKKEngine::SKKInputQueueImpl::init(observer))) {}
 
 void SKKInputQueue::SelectInputMode(SKKInputMode mode) {
-    (*impl_)->selectInputMode_(mode);
+    (*impl_)->bridgedSelectInputMode((int32_t)mode);
 }
 
 void SKKInputQueue::AddChar(char code, bool direct) {

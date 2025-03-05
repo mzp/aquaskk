@@ -20,7 +20,14 @@ public class SKKInputQueueImpl {
     }
 
     /// 入力モードを変更する
-    public func selectInputMode_(inputMode: SKKInputMode) {
+    public func bridgedSelectInputMode(_ inputMode: Int32) {
+        if let inputMode = SKKInputMode(rawValue: inputMode) {
+            selectInputMode(inputMode: inputMode)
+        }
+    }
+
+    /// 入力モードを変更する
+    public func selectInputMode(inputMode: SKKInputMode) {
         self.inputMode = inputMode
         clear()
     }
