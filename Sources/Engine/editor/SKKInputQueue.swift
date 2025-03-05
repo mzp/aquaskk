@@ -59,7 +59,9 @@ public class SKKInputQueueImpl {
 
             case .Jisx0208LatinInputMode:
                 // ASCII → 全角英数変換
-                queue += String(character)
+                if let newElement = Unicode.Scalar(UInt32(character)) {
+                    queue += String(newElement)
+                }
                 let output = queue.applyingTransform(.fullwidthToHalfwidth, reverse: true)
                 state.fixed = std.string(output)
                 queue.removeAll()
@@ -141,9 +143,10 @@ public class SKKInputQueueImpl {
              .KatakanaInputMode:
             var tmpQueue = queue
             if let newElement = Unicode.Scalar(UInt32(code)) {
-                tmpQueue += String(newElement)
+                tmpQueue += String(newElement).lowercased()
             }
-            return converter.convert(tmpQueue, inputMode: inputMode) != nil
+            let result = converter.convert(tmpQueue, inputMode: inputMode)
+            return result?.converted ?? false
 
         case .AsciiInputMode,
              .Jisx0208LatinInputMode:
