@@ -7,7 +7,7 @@
 
 import AquaSKKBackend
 
-public class SKKEntryRemoveEditorImpl {
+public class SKKEntryRemoveEditorImpl: SKKEditorProtocol {
     let context: SKKInputContext
     var input: String
     var prompt: String
@@ -41,6 +41,11 @@ public class SKKEntryRemoveEditorImpl {
 
     public func input(fixed: String, input _: String, code _: CChar) {
         input += fixed
+    }
+
+    public func bridgeInputEvent(_ rawValue: UInt32) {
+        let event = SKKBaseEditorEvent(rawValue: rawValue)
+        inputEvent(event: event)
     }
 
     public func inputEvent(event: SKKBaseEditorEvent) {

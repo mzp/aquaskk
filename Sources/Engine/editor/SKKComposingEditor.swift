@@ -9,7 +9,7 @@ import AquaSKKLogging
 import Foundation
 import OSLog
 
-public class SKKComposingEditorImpl {
+public class SKKComposingEditorImpl: SKKEditorProtocol {
     let context: SKKInputContext
     var composing: SKKTextBufferImpl
 
@@ -48,6 +48,11 @@ public class SKKComposingEditorImpl {
 
     public func input(fixed: String, input _: String, code _: CChar) {
         composing.insert(fixed)
+    }
+
+    public func bridgeInputEvent(_ rawValue: UInt32) {
+        let event = SKKBaseEditorEvent(rawValue: rawValue)
+        inputEvent(event: event)
     }
 
     public func inputEvent(event: SKKBaseEditorEvent) {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class SKKOkuriEditorImpl {
+public class SKKOkuriEditorImpl: SKKEditorProtocol {
     let context: SKKInputContext
     let listener: SKKOkuriListener
     var first: Bool
@@ -34,6 +34,8 @@ public class SKKOkuriEditorImpl {
         context.output.Compose(std.string("*\(okuri)"), 0)
         update()
     }
+
+    public func input(ascii _: String) {}
 
     public func input(fixed: String, input: String, code: CChar) {
         self.input = input
@@ -78,6 +80,11 @@ public class SKKOkuriEditorImpl {
         update()
     }
 
+    public func bridgeInputEvent(_ rawValue: UInt32) {
+        let event = SKKBaseEditorEvent(rawValue: rawValue)
+        inputEvent(event: event)
+    }
+
     public func inputEvent(event: SKKBaseEditorEvent) {
         if event == SKKBaseEditorEventBackSpace {
             if okuri.isEmpty {
@@ -89,9 +96,10 @@ public class SKKOkuriEditorImpl {
         update()
     }
 
-    public func commit(queue _: String) {
+    public func commit(queue: String) -> String {
         prefix.removeAll()
         okuri.removeAll()
+        return queue
     }
 
     public func isOkuriComplete() -> Bool {

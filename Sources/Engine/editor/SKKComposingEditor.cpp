@@ -49,7 +49,7 @@ void SKKComposingEditor::Input(const std::string &fixed, const std::string &inpu
 }
 
 void SKKComposingEditor::Input(SKKBaseEditorEvent event) {
-    (*impl_)->inputEvent(event);
+    (*impl_)->bridgeInputEvent(event);
 }
 
 void SKKComposingEditor::Commit(std::string &queue) {

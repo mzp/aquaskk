@@ -8,7 +8,7 @@
 import AquaSKKBackend
 import Foundation
 
-public class SKKCandidateEditorImpl {
+public class SKKCandidateEditorImpl: SKKEditorProtocol {
     let context: SKKInputContext
     private var entry: SKKEntry
     private var candidate: SKKCandidate
@@ -31,6 +31,12 @@ public class SKKCandidateEditorImpl {
         context.output.SetMark()
         context.output.Convert(std.string("▼\(str)"))
     }
+
+    public func input(ascii _: String) {}
+
+    public func input(fixed _: String, input _: String, code _: CChar) {}
+
+    public func inputEvent(event _: SKKBaseEditorEvent) {}
 
     public func commit(queue _: String) -> String {
         SKKBackendImpl.shared().register(entry: entry, candidate: candidate)

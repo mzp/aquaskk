@@ -26,15 +26,12 @@
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKRegisterEditor::SKKRegisterEditor(SKKInputContext *context)
-    : SKKBaseEditor(context),
-      impl_(new SwiftObject(AquaSKKEngine::SKKRegisterEditorImpl::init(context))) {
-}
+    : SKKBaseEditor(context), impl_(new SwiftObject(AquaSKKEngine::SKKRegisterEditorImpl::init(context))) {}
 
-SKKRegisterEditor::~SKKRegisterEditor() {
-}
+SKKRegisterEditor::~SKKRegisterEditor() {}
 
 void SKKRegisterEditor::ReadContext() {
-    (*impl_)->readConext();
+    (*impl_)->readContext();
 }
 
 void SKKRegisterEditor::WriteContext() {

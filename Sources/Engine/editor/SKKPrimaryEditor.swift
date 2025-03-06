@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class SKKPrimaryEditorImpl {
+public class SKKPrimaryEditorImpl: SKKEditorProtocol {
     let context: SKKInputContext
 
     public init(context: SKKInputContext) {
@@ -23,6 +23,8 @@ public class SKKPrimaryEditorImpl {
         }
     }
 
+    public func writeContext() {}
+
     public func input(ascii _: String) {
         context.event_handled = false
     }
@@ -36,7 +38,7 @@ public class SKKPrimaryEditorImpl {
         inputEvent(event: event)
     }
 
-    func inputEvent(event _: SKKBaseEditorEvent) {
+    public func inputEvent(event _: SKKBaseEditorEvent) {
         context.event_handled = false
     }
 

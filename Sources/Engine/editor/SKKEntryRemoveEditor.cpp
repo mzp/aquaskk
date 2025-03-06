@@ -45,7 +45,7 @@ void SKKEntryRemoveEditor::Input(const std::string &fixed, const std::string &in
 }
 
 void SKKEntryRemoveEditor::Input(SKKBaseEditorEvent event) {
-    (*impl_)->inputEvent(event);
+    (*impl_)->bridgeInputEvent(event);
 }
 
 void SKKEntryRemoveEditor::Commit(std::string &queue) {

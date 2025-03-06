@@ -10,7 +10,7 @@ import AquaSKKLogging
 import Foundation
 import OSLog
 
-public class SKKRegisterEditorImpl {
+public class SKKRegisterEditorImpl: SKKEditorProtocol {
     private let context: SKKInputContext
     private var entry: SKKEntry
     private var word: SKKTextBufferImpl
@@ -23,7 +23,7 @@ public class SKKRegisterEditorImpl {
         prompt = "[登録：\(String(entry.PromptString()))]"
     }
 
-    public func readConext() {
+    public func readContext() {
         context.entry = .init()
         word.insert(String(context.registration.word))
         context.registration.Clear()
@@ -46,7 +46,7 @@ public class SKKRegisterEditorImpl {
         inputEvent(event: event)
     }
 
-    func inputEvent(event: SKKBaseEditorEvent) {
+    public func inputEvent(event: SKKBaseEditorEvent) {
         switch event {
         case SKKBaseEditorEventBackSpace:
             word.backSpace()
