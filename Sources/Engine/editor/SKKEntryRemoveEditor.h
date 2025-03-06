@@ -23,8 +23,8 @@
 #ifndef SKKEntryRemoveEditor_h
 #define SKKEntryRemoveEditor_h
 
-#import <AquaSKKEngine/SKKBaseEditor.h>
 #import <AquaSKKBackend/SwiftObject.h>
+#import <AquaSKKEngine/SKKBaseEditor.h>
 
 namespace AquaSKKEngine {
     class SKKEntryRemoveEditorImpl;

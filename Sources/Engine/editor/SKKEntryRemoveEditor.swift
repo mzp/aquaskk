@@ -21,7 +21,7 @@ public class SKKEntryRemoveEditorImpl {
         entry = SKKEntry()
         candidate = SKKCandidate()
     }
-    
+
     public func readContext() {
         entry = context.entry
         candidate = context.candidate
@@ -44,12 +44,12 @@ public class SKKEntryRemoveEditorImpl {
     }
 
     public func inputEvent(event: SKKBaseEditorEvent) {
-        if event == SKKBaseEditorEventBackSpace  , !input.isEmpty {
+        if event == SKKBaseEditorEventBackSpace, !input.isEmpty {
             input.removeLast()
         }
     }
 
-    public func commit(queue: String) -> String {
+    public func commit(queue _: String) -> String {
         if input == "yes" {
             context.needs_setback = true
         } else {

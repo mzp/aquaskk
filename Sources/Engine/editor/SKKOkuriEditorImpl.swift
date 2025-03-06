@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 public class SKKOkuriEditorImpl {
     let context: SKKInputContext
     let listener: SKKOkuriListener
@@ -77,12 +78,21 @@ public class SKKOkuriEditorImpl {
         update()
     }
 
+    public func inputEvent(event: SKKBaseEditorEvent) {
+        if event == SKKBaseEditorEventBackSpace {
+            if okuri.isEmpty {
+                context.needs_setback = true
+            } else {
+                okuri.removeLast()
+            }
+        }
+        update()
+    }
 
-    public func commit(queue: String) {
+    public func commit(queue _: String) {
         prefix.removeAll()
         okuri.removeAll()
     }
-
 
     public func isOkuriComplete() -> Bool {
         return !okuri.isEmpty && input.isEmpty
@@ -91,5 +101,4 @@ public class SKKOkuriEditorImpl {
     private func update() {
         context.entry.SetOkuri(std.string(prefix), std.string(okuri))
     }
-
 }

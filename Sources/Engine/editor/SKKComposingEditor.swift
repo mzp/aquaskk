@@ -5,9 +5,9 @@
 //  Created by mzp on 2025/03/05.
 //
 
+import AquaSKKLogging
 import Foundation
 import OSLog
-import AquaSKKLogging
 
 public class SKKComposingEditorImpl {
     let context: SKKInputContext
@@ -57,23 +57,29 @@ public class SKKComposingEditorImpl {
                 context.needs_setback = true
             }
             composing.backSpace()
+
         case SKKBaseEditorEventDelete:
             composing.delete()
+
         case SKKBaseEditorEventCursorLeft:
             composing.cursorLeft()
+
         case SKKBaseEditorEventCursorRight:
             composing.cursorRight()
+
         case SKKBaseEditorEventCursorUp:
             composing.cursorUp()
+
         case SKKBaseEditorEventCursorDown:
             composing.cursorDown()
+
         default:
             Logger.skkEngine.error("\(#function, privacy: .public) unkwon event")
         }
         update()
     }
 
-    public func commit(queue: String) -> String {
+    public func commit(queue _: String) -> String {
         return composing.string
     }
 

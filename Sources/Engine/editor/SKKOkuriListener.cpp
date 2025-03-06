@@ -7,8 +7,10 @@
 
 #include <AquaSKKEngine/SKKOkuriListener.h>
 
-void retainSKKOkuriListener(SKKOkuriListener *obj) { obj->retain(); }
+void retainSKKOkuriListener(SKKOkuriListener *obj) {
+    obj->retain();
+}
 
-void releaseSKKOkuriListener(SKKOkuriListener *obj) { obj->release(); }
-
-
+void releaseSKKOkuriListener(SKKOkuriListener *obj) {
+    obj->release();
+}

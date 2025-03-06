@@ -23,8 +23,8 @@
 #ifndef SKKComposingEditor_h
 #define SKKComposingEditor_h
 
-#import <AquaSKKEngine/SKKBaseEditor.h>
 #import <AquaSKKBackend/SwiftObject.h>
+#import <AquaSKKEngine/SKKBaseEditor.h>
 
 namespace AquaSKKEngine {
     class SKKComposingEditorImpl;
@@ -32,6 +32,7 @@ namespace AquaSKKEngine {
 
 class SKKComposingEditor : public SKKBaseEditor {
     SwiftObject<AquaSKKEngine::SKKComposingEditorImpl> *impl_;
+
 public:
     SKKComposingEditor(SKKInputContext *context);
     ~SKKComposingEditor();

@@ -20,20 +20,17 @@
 
 */
 
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/SKKComposingEditor.h>
 #import <AquaSKKEngine/SKKInputContext.h>
-#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
-
 
 SKKComposingEditor::SKKComposingEditor(SKKInputContext *context)
     : SKKBaseEditor(context),
-impl_(new SwiftObject<AquaSKKEngine::SKKComposingEditorImpl>(
-    AquaSKKEngine::SKKComposingEditorImpl::init(context)))
-{}
+      impl_(new SwiftObject<AquaSKKEngine::SKKComposingEditorImpl>(
+          AquaSKKEngine::SKKComposingEditorImpl::init(context))) {}
 
-SKKComposingEditor::~SKKComposingEditor() {
-}
+SKKComposingEditor::~SKKComposingEditor() {}
 
 void SKKComposingEditor::ReadContext() {
     (*impl_)->readContext();

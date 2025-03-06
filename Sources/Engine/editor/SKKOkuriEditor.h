@@ -23,17 +23,16 @@
 #ifndef SKKOkuriEditor_h
 #define SKKOkuriEditor_h
 
+#import <AquaSKKBackend/SwiftObject.h>
 #import <AquaSKKEngine/SKKBaseEditor.h>
 #import <AquaSKKEngine/SKKOkuriListener.h>
 
-class SKKOkuriEditor : public SKKBaseEditor {
-    SKKOkuriListener *listener_;
-    bool first_;
-    std::string prefix_;
-    std::string okuri_;
-    std::string input_;
+namespace AquaSKKEngine {
+    class SKKOkuriEditorImpl;
+}
 
-    void update();
+class SKKOkuriEditor : public SKKBaseEditor {
+    SwiftObject<AquaSKKEngine::SKKOkuriEditorImpl> *impl_;
 
 public:
     SKKOkuriEditor(SKKInputContext *context, SKKOkuriListener *listener);

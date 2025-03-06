@@ -12,7 +12,7 @@
 #include <swift/bridging>
 #include <AquaSKKEngine/IntrusiveRefCounted.h>
 
-class SKKOkuriListener: public IntrusiveRefCounted<SKKOkuriListener> {
+class SKKOkuriListener : public IntrusiveRefCounted<SKKOkuriListener> {
 public:
     virtual ~SKKOkuriListener() {}
 
@@ -22,6 +22,5 @@ public:
 void retainSKKOkuriListener(SKKOkuriListener *obj);
 
 void releaseSKKOkuriListener(SKKOkuriListener *obj);
-
 
 #endif /* SKKOkuriListener_h */

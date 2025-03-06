@@ -20,92 +20,34 @@
 
 */
 
-#include <cctype>
-#include <exception>
-#include <iostream>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/SKKInputContext.h>
 #import <AquaSKKEngine/SKKOkuriEditor.h>
-#include "utf8util.h"
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKOkuriEditor::SKKOkuriEditor(SKKInputContext *context, SKKOkuriListener *listener)
-    : SKKBaseEditor(context), listener_(listener) {}
+    : SKKBaseEditor(context), impl_(new SwiftObject(AquaSKKEngine::SKKOkuriEditorImpl::init(context, listener))) {}
 
 void SKKOkuriEditor::ReadContext() {
-    first_ = true;
-
-    prefix_.clear();
-    okuri_.clear();
+    (*impl_)->readContext();
 }
 
 void SKKOkuriEditor::WriteContext() {
-    context()->output.Compose("*" + okuri_);
-
-    update();
+    (*impl_)->writeContext();
 }
 
 void SKKOkuriEditor::Input(const std::string &fixed, const std::string &input, char code) {
-    input_ = input;
-
-    if(first_) {
-        first_ = false;
-        prefix_ += std::tolower(code);
-
-        // KesSi 対応
-        if(!fixed.empty() && !input.empty()) {
-            listener_->SKKOkuriListenerAppendEntry(fixed);
-            update();
-            return;
-        }
-    }
-
-    // fixed が ascii の場合には送りとはみなさない
-    // 文字種で判断したいところだが、とりあえず長さで判断
-    if(utf8::length(fixed) != fixed.size()) {
-        okuri_ += fixed;
-    }
-
-    // OWsa 対応
-    if(okuri_.empty()) {
-        prefix_.clear();
-        if(input.empty()) {
-            if(code != 0) {
-                prefix_ += std::tolower(code);
-            }
-        } else {
-            prefix_ += std::tolower(input[0]);
-        }
-    } else {
-        if(prefix_.empty() && code != 0) {
-            prefix_ += std::tolower(code);
-        }
-    }
-
-    update();
+    (*impl_)->input(fixed, input, code);
 }
 
 void SKKOkuriEditor::Input(SKKBaseEditorEvent event) {
-    if(event == SKKBaseEditorEventBackSpace) {
-        if(okuri_.empty()) {
-            context()->needs_setback = true;
-        } else {
-            utf8::pop(okuri_);
-        }
-    }
-
-    update();
+    (*impl_)->inputEvent(event);
 }
 
-void SKKOkuriEditor::Commit(std::string &) {
-    prefix_.clear();
-    okuri_.clear();
+void SKKOkuriEditor::Commit(std::string &queue) {
+    (*impl_)->commit(queue);
 }
 
 bool SKKOkuriEditor::IsOkuriComplete() const {
-    return !okuri_.empty() && input_.empty();
-}
-
-// ----------------------------------------------------------------------
-
-void SKKOkuriEditor::update() {
-    context()->entry.SetOkuri(prefix_, okuri_);
+    return (*impl_)->isOkuriComplete();
 }

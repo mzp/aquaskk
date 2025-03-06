@@ -14,7 +14,7 @@
 #import <AquaSKKEngine/SKKCandidateWindowBridge.h>
 #import <AquaSKKEngine/SKKInputContext.h>
 #import <AquaSKKEngine/SKKInputQueueObserver.h>
-#import <AquaSKKEngine/SKKSelectorBuddy.h>
 #import <AquaSKKEngine/SKKOkuriListener.h>
+#import <AquaSKKEngine/SKKSelectorBuddy.h>
 
 #endif /* AquaSKKEngine_Preamble_h */
