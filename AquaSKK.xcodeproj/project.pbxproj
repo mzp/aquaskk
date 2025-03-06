@@ -1855,7 +1855,7 @@
 				13A685432C698312001BABA2 /* CoreTesting.swift */,
 				13F91A202C838FDF00E60D63 /* String */,
 				133A55202C5DB8390047E911 /* completer */,
-				1347782F2C5DB95A007B1DFB /* editor */,
+				1347782F2C5DB95A007B1DFB /* buffer */,
 				133A55232C5DB85C0047E911 /* selector */,
 				132B777E2C5DB90B00EEC2A5 /* session */,
 				132B777C2C5DB8C700EEC2A5 /* tries */,
@@ -1864,13 +1864,13 @@
 			path = EngineTests;
 			sourceTree = "<group>";
 		};
-		1347782F2C5DB95A007B1DFB /* editor */ = {
+		1347782F2C5DB95A007B1DFB /* buffer */ = {
 			isa = PBXGroup;
 			children = (
 				13A648842D7687C900FB52C5 /* SKKTextBufferTests.swift */,
 				1344F5392C5B28FC00D8C850 /* SKKInputQueue_TEST.mm */,
 			);
-			path = editor;
+			path = buffer;
 			sourceTree = "<group>";
 		};
 		134778572C5DB98F007B1DFB /* Resources */ = {
@@ -2348,6 +2348,7 @@
 			children = (
 				1344F55B2C5B28FC00D8C850 /* utf8util.h */,
 				13096C842C8C2D24009F3E6B /* IntrusiveRefCounted.h */,
+				139E88BB2D73F44B0065CFA2 /* AquaSKKEngine-Preamble.h */,
 			);
 			path = utility;
 			sourceTree = "<group>";
@@ -2555,7 +2556,6 @@
 			isa = PBXGroup;
 			children = (
 				13D756172C5A9049006144F2 /* AquaSKKEngine.docc */,
-				139E88BB2D73F44B0065CFA2 /* AquaSKKEngine-Preamble.h */,
 				13D756162C5A9049006144F2 /* AquaSKKEngine.h */,
 				1344F4A62C5B28FC00D8C850 /* bridge */,
 				134D25672D7A0B1B0014ACD5 /* buffer */,
