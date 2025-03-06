@@ -20,148 +20,49 @@
 
 */
 
-#include <cassert>
-#import <AquaSKKBackend/SKKTransliterate.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/SKKInputQueue.h>
-#include "SKKRomanKanaConverter.h"
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKInputQueue::SKKInputQueue(SKKInputQueueObserver *observer)
-    : observer_(observer), mode_(SKKInputMode::HirakanaInputMode) {}
+    : impl_(new SwiftObject(AquaSKKEngine::SKKInputQueueImpl::init(observer))) {}
 
 void SKKInputQueue::SelectInputMode(SKKInputMode mode) {
-    mode_ = mode;
-
-    Clear();
+    (*impl_)->bridgedSelectInputMode((int32_t)mode);
 }
 
 void SKKInputQueue::AddChar(char code, bool direct) {
-    observer_->SKKInputQueueUpdate(convert(code, direct));
+    (*impl_)->addChar(code, direct);
 }
 
 void SKKInputQueue::RemoveChar() {
-    if(IsEmpty())
-        return;
-
-    queue_.erase(queue_.size() - 1);
-
-    SKKInputQueueObserver::State state;
-
-    state.queue = queue_;
-    state.code = 0;
-
-    observer_->SKKInputQueueUpdate(state);
+    (*impl_)->removeChar();
 }
 
 void SKKInputQueue::Terminate() {
-    if(IsEmpty())
-        return;
-
-    observer_->SKKInputQueueUpdate(terminate());
+    (*impl_)->terminate();
 }
 
 void SKKInputQueue::Clear() {
-    queue_.clear();
-
-    observer_->SKKInputQueueUpdate(SKKInputQueueObserver::State());
+    (*impl_)->clear();
 }
 
 bool SKKInputQueue::IsEmpty() const {
-    return queue_.empty();
+    return (*impl_)->isEmpty();
 }
 
-const std::string &SKKInputQueue::QueueString() const {
-    return queue_;
+const std::string SKKInputQueue::QueueString() const {
+    return (*impl_)->getQueryString();
 }
 
 bool SKKInputQueue::CanConvert(char code) const {
-    SKKRomanKanaConverter &converter = SKKRomanKanaConverter::theInstance();
-    SKKRomanKanaConversionResult result;
-    std::string tmp_queue(queue_);
-
-    switch(mode_) {
-    case SKKInputMode::HirakanaInputMode:
-    case SKKInputMode::KatakanaInputMode:
-    case SKKInputMode::Jisx0201KanaInputMode:
-        // ローマ字 → かな変換
-        tmp_queue += std::tolower(code);
-        return converter.Convert(mode_, tmp_queue, result);
-
-    case SKKInputMode::Jisx0208LatinInputMode:
-    case SKKInputMode::AsciiInputMode:
-        break;
-
-    case SKKInputMode::InvalidInputMode:
-        assert(false);
-    }
-
-    return false;
+    return (*impl_)->canConvert(code);
 }
 
-// ------------------------------------------------------------
-
-SKKInputQueueObserver::State SKKInputQueue::convert(char code, bool direct) {
-    SKKRomanKanaConverter &converter = SKKRomanKanaConverter::theInstance();
-    SKKRomanKanaConversionResult result;
-    SKKInputQueueObserver::State state;
-
-    if(direct || mode_ == SKKInputMode::AsciiInputMode) {
-        result.output += code;
-    } else {
-        switch(mode_) {
-        case SKKInputMode::HirakanaInputMode:
-        case SKKInputMode::KatakanaInputMode:
-        case SKKInputMode::Jisx0201KanaInputMode:
-            // ローマ字 → かな変換
-            queue_ += std::tolower(code);
-            converter.Convert(mode_, queue_, result);
-            queue_ = result.next;
-            break;
-
-        case SKKInputMode::Jisx0208LatinInputMode:
-            // ASCII → 全角英数変換
-            queue_ += code;
-            SKKTransliterate::ascii_to_jisx0208_latin(queue_, result.output);
-            queue_.clear();
-            break;
-
-        default:
-            break;
-        }
-    }
-
-    state.fixed = result.output;
-    state.intermediate = result.intermediate;
-    state.queue = queue_;
-    state.code = code;
-
-    return state;
+void retainSKKInputQueueObserver(SKKInputQueueObserver *obj) {
+    obj->retain();
 }
 
-SKKInputQueueObserver::State SKKInputQueue::terminate() {
-    SKKRomanKanaConverter &converter = SKKRomanKanaConverter::theInstance();
-    SKKRomanKanaConversionResult result;
-    SKKInputQueueObserver::State state;
-
-    switch(mode_) {
-    case SKKInputMode::HirakanaInputMode:
-    case SKKInputMode::KatakanaInputMode:
-    case SKKInputMode::Jisx0201KanaInputMode:
-        // ローマ字 → かな変換
-        converter.Convert(mode_, queue_, result);
-        break;
-
-    case SKKInputMode::Jisx0208LatinInputMode:
-    case SKKInputMode::AsciiInputMode:
-        break;
-
-    case SKKInputMode::InvalidInputMode:
-        assert(false);
-    }
-
-    queue_.clear();
-
-    state.fixed = result.output + result.intermediate;
-    state.code = 0;
-
-    return state;
+void releaseSKKInputQueueObserver(SKKInputQueueObserver *obj) {
+    obj->release();
 }

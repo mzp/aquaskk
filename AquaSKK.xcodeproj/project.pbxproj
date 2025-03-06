@@ -408,6 +408,8 @@
 		13A4FDC12D6F5DAF00AA0BFF /* SKKKeymap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A4FDC02D6F5DAF00AA0BFF /* SKKKeymap.swift */; };
 		13A648872D76881F00FB52C5 /* SKKTextBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A648862D76881F00FB52C5 /* SKKTextBuffer.swift */; };
 		13A648882D769C6F00FB52C5 /* SKKTextBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A648842D7687C900FB52C5 /* SKKTextBufferTests.swift */; };
+		13A6488A2D76D82900FB52C5 /* SKKInputQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A648892D76D82900FB52C5 /* SKKInputQueue.swift */; };
+		13A6488C2D76DEED00FB52C5 /* SKKInputQueueObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 13A6488B2D76DEED00FB52C5 /* SKKInputQueueObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13A685422C69826A001BABA2 /* RomanKanaConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A685412C69826A001BABA2 /* RomanKanaConverterTests.swift */; };
 		13A685442C698312001BABA2 /* CoreTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A685432C698312001BABA2 /* CoreTesting.swift */; };
 		13A6A1392C6D6D2F004B3587 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A6A1382C6D6D2F004B3587 /* main.m */; };
@@ -1016,6 +1018,8 @@
 		13A4FDC02D6F5DAF00AA0BFF /* SKKKeymap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKKeymap.swift; sourceTree = "<group>"; };
 		13A648842D7687C900FB52C5 /* SKKTextBufferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKTextBufferTests.swift; sourceTree = "<group>"; };
 		13A648862D76881F00FB52C5 /* SKKTextBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKTextBuffer.swift; sourceTree = "<group>"; };
+		13A648892D76D82900FB52C5 /* SKKInputQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKInputQueue.swift; sourceTree = "<group>"; };
+		13A6488B2D76DEED00FB52C5 /* SKKInputQueueObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKInputQueueObserver.h; sourceTree = "<group>"; };
 		13A685412C69826A001BABA2 /* RomanKanaConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanKanaConverterTests.swift; sourceTree = "<group>"; };
 		13A685432C698312001BABA2 /* CoreTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTesting.swift; sourceTree = "<group>"; };
 		13A6A1382C6D6D2F004B3587 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1686,6 +1690,8 @@
 				1344F4D42C5B28FC00D8C850 /* SKKInputEngine.cpp */,
 				1344F4D52C5B28FC00D8C850 /* SKKInputQueue.h */,
 				1344F4D62C5B28FC00D8C850 /* SKKInputQueue.cpp */,
+				13A648892D76D82900FB52C5 /* SKKInputQueue.swift */,
+				13A6488B2D76DEED00FB52C5 /* SKKInputQueueObserver.h */,
 				1344F4D72C5B28FC00D8C850 /* SKKOkuriEditor.h */,
 				1344F4D82C5B28FC00D8C850 /* SKKOkuriEditor.cpp */,
 				1344F4D92C5B28FC00D8C850 /* SKKPrimaryEditor.h */,
@@ -2814,6 +2820,7 @@
 				1344F5652C5B28FC00D8C850 /* SKKComposingEditor.h in Headers */,
 				1344F5682C5B28FC00D8C850 /* SKKStateMachine.h in Headers */,
 				1344F5692C5B28FC00D8C850 /* SKKPrimaryEditor.h in Headers */,
+				13A6488C2D76DEED00FB52C5 /* SKKInputQueueObserver.h in Headers */,
 				139E88BC2D73F44B0065CFA2 /* AquaSKKEngine-Preamble.h in Headers */,
 				1344F56A2C5B28FC00D8C850 /* SKKConfig.h in Headers */,
 				1344F56E2C5B28FC00D8C850 /* SKKInputQueue.h in Headers */,
@@ -3914,6 +3921,7 @@
 				1344F5ED2C5B28FC00D8C850 /* SKKInputQueue.cpp in Sources */,
 				1344F5F42C5B28FC00D8C850 /* SKKCompleter.cpp in Sources */,
 				1344F5FA2C5B28FC00D8C850 /* SKKOutputBuffer.cpp in Sources */,
+				13A6488A2D76D82900FB52C5 /* SKKInputQueue.swift in Sources */,
 				13513C452D74BBB100C00A4E /* SKKCandidatePresenter.swift in Sources */,
 				1344F5FC2C5B28FC00D8C850 /* SKKTextBuffer.cpp in Sources */,
 				1344F5FF2C5B28FC00D8C850 /* SKKInputEngine.cpp in Sources */,
