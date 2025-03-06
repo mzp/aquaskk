@@ -41,7 +41,12 @@ public class SKKRegisterEditorImpl {
         word.insert(fixed)
     }
 
-    public func inputEvent(event: SKKBaseEditorEvent) {
+    public func bridgeInputEvent(_ rawValue: UInt32) {
+        let event = SKKBaseEditorEvent(rawValue: rawValue)
+        inputEvent(event: event)
+    }
+
+    func inputEvent(event: SKKBaseEditorEvent) {
         switch event {
         case SKKBaseEditorEventBackSpace:
             word.backSpace()

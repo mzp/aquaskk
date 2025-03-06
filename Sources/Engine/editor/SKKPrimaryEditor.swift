@@ -33,10 +33,10 @@ public class SKKPrimaryEditorImpl {
 
     public func bridgeInputEvent(_ rawValue: UInt32) {
         let event = SKKBaseEditorEvent(rawValue: rawValue)
-        inputEvent(event)
+        inputEvent(event: event)
     }
 
-    func inputEvent(_: SKKBaseEditorEvent) {
+    func inputEvent(event _: SKKBaseEditorEvent) {
         context.event_handled = false
     }
 
