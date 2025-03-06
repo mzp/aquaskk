@@ -38,7 +38,7 @@ public class SKKComposingEditorImpl {
         update()
     }
 
-    func update() {
+    private func update() {
         context.entry = SKKEntry(std.string(composing.leftString), "")
     }
 

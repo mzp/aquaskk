@@ -26,8 +26,14 @@
 #import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKBackend/SKKEntry.h>
 #import <AquaSKKEngine/SKKBaseEditor.h>
+#import <AquaSKKBackend/SwiftObject.h>
+
+namespace AquaSKKEngine {
+    class SKKEntryRemoveEditorImpl;
+}
 
 class SKKEntryRemoveEditor : public SKKBaseEditor {
+    SwiftObject<AquaSKKEngine::SKKEntryRemoveEditorImpl> *impl_;
     std::string input_;
     std::string prompt_;
     SKKEntry entry_;

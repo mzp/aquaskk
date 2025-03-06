@@ -304,6 +304,7 @@
 		137EAC942C79913C00A45D57 /* AISUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 137EAC912C79913C00A45D57 /* AISUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		138198F62D792F15009C29E7 /* SKKCandidateEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138198F52D792F15009C29E7 /* SKKCandidateEditor.swift */; };
 		138198F82D79340C009C29E7 /* SKKComposingEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138198F72D79340C009C29E7 /* SKKComposingEditor.swift */; };
+		138198FA2D793A56009C29E7 /* SKKEntryRemoveEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138198F92D793A56009C29E7 /* SKKEntryRemoveEditor.swift */; };
 		1386297C2D69496000C7A078 /* SKKHttpDictionaryFileSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1386297B2D69496000C7A078 /* SKKHttpDictionaryFileSource.swift */; };
 		138629802D694A6600C7A078 /* SKKAutoUpdateDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1386297F2D694A6600C7A078 /* SKKAutoUpdateDictionaryTests.swift */; };
 		138C69102C94C865009FE153 /* AquaSKKBackendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C690F2C94C865009FE153 /* AquaSKKBackendTests.swift */; };
@@ -956,6 +957,7 @@
 		137EAC922C79913C00A45D57 /* AISUserDefaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AISUserDefaults.m; sourceTree = "<group>"; };
 		138198F52D792F15009C29E7 /* SKKCandidateEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKCandidateEditor.swift; sourceTree = "<group>"; };
 		138198F72D79340C009C29E7 /* SKKComposingEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKComposingEditor.swift; sourceTree = "<group>"; };
+		138198F92D793A56009C29E7 /* SKKEntryRemoveEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKEntryRemoveEditor.swift; sourceTree = "<group>"; };
 		1386297B2D69496000C7A078 /* SKKHttpDictionaryFileSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKHttpDictionaryFileSource.swift; sourceTree = "<group>"; };
 		1386297F2D694A6600C7A078 /* SKKAutoUpdateDictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKAutoUpdateDictionaryTests.swift; sourceTree = "<group>"; };
 		138B319F2C5DD40C006424E0 /* All-Testing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "All-Testing.xcconfig"; sourceTree = "<group>"; };
@@ -1696,6 +1698,7 @@
 				138198F72D79340C009C29E7 /* SKKComposingEditor.swift */,
 				1344F4D12C5B28FC00D8C850 /* SKKEntryRemoveEditor.h */,
 				1344F4D22C5B28FC00D8C850 /* SKKEntryRemoveEditor.cpp */,
+				138198F92D793A56009C29E7 /* SKKEntryRemoveEditor.swift */,
 				1344F4D32C5B28FC00D8C850 /* SKKInputEngine.h */,
 				1344F4D42C5B28FC00D8C850 /* SKKInputEngine.cpp */,
 				1344F4D52C5B28FC00D8C850 /* SKKInputQueue.h */,
@@ -3922,6 +3925,7 @@
 				1344F5CF2C5B28FC00D8C850 /* SKKInputEnvironment.cpp in Sources */,
 				1344F5D12C5B28FC00D8C850 /* SKKPrimaryEditor.cpp in Sources */,
 				1344F5D22C5B28FC00D8C850 /* SKKRomanKanaConverter.mm in Sources */,
+				138198FA2D793A56009C29E7 /* SKKEntryRemoveEditor.swift in Sources */,
 				1344F5D42C5B28FC00D8C850 /* SKKInputSession.cpp in Sources */,
 				1344F5D92C5B28FC00D8C850 /* SKKInputModeSelector.cpp in Sources */,
 				139E88BE2D73F6760065CFA2 /* SKKWindowSelector.swift in Sources */,
