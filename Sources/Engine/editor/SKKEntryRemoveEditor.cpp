@@ -20,7 +20,6 @@
 
 */
 
-#import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKEngine/SKKEntryRemoveEditor.h>
 #import <AquaSKKEngine/SKKInputContext.h>
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
@@ -30,47 +29,25 @@ SKKEntryRemoveEditor::SKKEntryRemoveEditor(SKKInputContext *context)
     : SKKBaseEditor(context), impl_(new SwiftObject(AquaSKKEngine::SKKEntryRemoveEditorImpl::init(context))) {}
 
 void SKKEntryRemoveEditor::ReadContext() {
-/*    entry_ = context()->entry;
-    candidate_ = context()->candidate;
-
-    input_.clear();
-
-    prompt_ = entry_.EntryString() + " /" + candidate_.ToString() + "/ を削除しますか？(yes/no) ";*/
     (*impl_)->readContext();
 }
 
 void SKKEntryRemoveEditor::WriteContext() {
     (*impl_)->writeContext();
-/*    context()->output.Clear();
-    context()->output.Compose(prompt_ + input_);
-
-    context()->entry = entry_;*/
 }
 
 void SKKEntryRemoveEditor::Input(const std::string &ascii) {
-//    input_ += ascii;
     (*impl_)->input(ascii);
 }
 
 void SKKEntryRemoveEditor::Input(const std::string &fixed, const std::string &input, char code) {
-//    Input(fixed);
     (*impl_)->input(fixed, input, code);
 }
 
 void SKKEntryRemoveEditor::Input(SKKBaseEditorEvent event) {
-/*    if(event == SKKBaseEditorEventBackSpace && !input_.empty()) {
-        input_.erase(input_.end() - 1);
-    }*/
     (*impl_)->inputEvent(event);
 }
 
 void SKKEntryRemoveEditor::Commit(std::string &queue) {
-/*    if(input_ != "yes") {
-        context()->needs_setback = true;
-    } else {
-        SKKBackEnd::theInstance().Remove(entry_, candidate_);
-    }
-
-    queue.clear();*/
     queue = (*impl_)->commit(queue);
 }

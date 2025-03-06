@@ -24,13 +24,7 @@
 #define SKKOkuriEditor_h
 
 #import <AquaSKKEngine/SKKBaseEditor.h>
-
-class SKKOkuriListener {
-public:
-    virtual ~SKKOkuriListener() {}
-
-    virtual void SKKOkuriListenerAppendEntry(const std::string &fixed) = 0;
-};
+#import <AquaSKKEngine/SKKOkuriListener.h>
 
 class SKKOkuriEditor : public SKKBaseEditor {
     SKKOkuriListener *listener_;
