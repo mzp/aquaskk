@@ -83,8 +83,8 @@ void SKKOkuriEditor::Input(const std::string &fixed, const std::string &input, c
     update();
 }
 
-void SKKOkuriEditor::Input(SKKBaseEditor::Event event) {
-    if(event == BackSpace) {
+void SKKOkuriEditor::Input(SKKBaseEditorEvent event) {
+    if(event == SKKBaseEditorEventBackSpace) {
         if(okuri_.empty()) {
             context()->needs_setback = true;
         } else {

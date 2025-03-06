@@ -40,7 +40,7 @@ public:
     virtual void ReadContext();
     virtual void Input(const std::string &ascii);
     virtual void Input(const std::string &fixed, const std::string &input, char code);
-    virtual void Input(SKKBaseEditor::Event event);
+    virtual void Input(SKKBaseEditorEvent event);
     virtual void Commit(std::string &queue);
 };
 

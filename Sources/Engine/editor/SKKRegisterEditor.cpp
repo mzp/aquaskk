@@ -52,29 +52,29 @@ void SKKRegisterEditor::Input(const std::string &fixed, const std::string &, cha
     Input(fixed);
 }
 
-void SKKRegisterEditor::Input(SKKBaseEditor::Event event) {
+void SKKRegisterEditor::Input(SKKBaseEditorEvent event) {
     switch(event) {
-    case BackSpace:
+    case SKKBaseEditorEventBackSpace:
         word_->BackSpace();
         break;
 
-    case Delete:
+    case SKKBaseEditorEventDelete:
         word_->Delete();
         break;
 
-    case CursorLeft:
+    case SKKBaseEditorEventCursorLeft:
         word_->CursorLeft();
         break;
 
-    case CursorRight:
+    case SKKBaseEditorEventCursorRight:
         word_->CursorRight();
         break;
 
-    case CursorUp:
+    case SKKBaseEditorEventCursorUp:
         word_->CursorUp();
         break;
 
-    case CursorDown:
+    case SKKBaseEditorEventCursorDown:
         word_->CursorDown();
         break;
 

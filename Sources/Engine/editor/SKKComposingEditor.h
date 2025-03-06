@@ -24,10 +24,18 @@
 #define SKKComposingEditor_h
 
 #import <AquaSKKEngine/SKKBaseEditor.h>
+#import <AquaSKKBackend/SwiftObject.h>
+#import <AquaSKKEngine/SKKBaseEditor.h>
+
+namespace AquaSKKEngine {
+    class SKKComposingEditorImpl;
+}
+
 
 class SKKTextBuffer;
 
 class SKKComposingEditor : public SKKBaseEditor {
+    SwiftObject<AquaSKKEngine::SKKComposingEditorImpl> *impl_;
     SKKTextBuffer *composing_;
 
     void update();
@@ -40,7 +48,7 @@ public:
     virtual void WriteContext();
     virtual void Input(const std::string &ascii);
     virtual void Input(const std::string &fixed, const std::string &input, char code);
-    virtual void Input(Event event);
+    virtual void Input(SKKBaseEditorEvent event);
     virtual void Commit(std::string &queue);
 
     void SetEntry(const std::string &entry);

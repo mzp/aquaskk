@@ -31,7 +31,7 @@ public class SKKPrimaryEditorImpl {
         context.output.Fix(std.string(fixed))
     }
 
-    public func inputEvent(event _: SKKBaseEditor.Event) {
+    public func inputEvent(event _: SKKBaseEditorEvent) {
         context.event_handled = false
     }
 

@@ -24,7 +24,7 @@
 #define SKKUndoContext_h
 
 #include <string>
-
+#include <swift/bridging>
 class SKKFrontEnd;
 
 class SKKUndoContext {
@@ -41,6 +41,12 @@ public:
     void Clear();
     const std::string &Entry() const;
     const std::string &Candidate() const;
+    const std::string getEntry() const SWIFT_COMPUTED_PROPERTY {
+        return entry_;
+    }
+    const std::string getCandidate() const SWIFT_COMPUTED_PROPERTY {
+        return candidate_;
+    }
 };
 
 #endif

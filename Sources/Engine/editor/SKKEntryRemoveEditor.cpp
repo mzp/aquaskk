@@ -51,8 +51,8 @@ void SKKEntryRemoveEditor::Input(const std::string &fixed, const std::string &, 
     Input(fixed);
 }
 
-void SKKEntryRemoveEditor::Input(Event event) {
-    if(event == SKKBaseEditor::BackSpace && !input_.empty()) {
+void SKKEntryRemoveEditor::Input(SKKBaseEditorEvent event) {
+    if(event == SKKBaseEditorEventBackSpace && !input_.empty()) {
         input_.erase(input_.end() - 1);
     }
 }

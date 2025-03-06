@@ -44,7 +44,7 @@ void SKKPrimaryEditor::Input(const std::string &fixed, const std::string &input,
     (*impl_)->input(fixed, input, code);
 }
 
-void SKKPrimaryEditor::Input(SKKBaseEditor::Event event) {
+void SKKPrimaryEditor::Input(SKKBaseEditorEvent event) {
     (*impl_)->inputEvent(event);
 }
 
