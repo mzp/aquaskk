@@ -1,5 +1,5 @@
 //
-//  SKKOkuriEditorImpl.swift
+//  SKKOkuriEditor.swift
 //  AquaSKKEngine
 //
 //  Created by mzp on 2025/03/05.
