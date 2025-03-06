@@ -45,7 +45,7 @@ void SKKPrimaryEditor::Input(const std::string &fixed, const std::string &input,
 }
 
 void SKKPrimaryEditor::Input(SKKBaseEditorEvent event) {
-    (*impl_)->inputEvent(event);
+    (*impl_)->bridgeInputEvent(event);
 }
 
 void SKKPrimaryEditor::Commit(std::string &queue) {

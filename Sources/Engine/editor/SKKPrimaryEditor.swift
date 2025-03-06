@@ -31,7 +31,12 @@ public class SKKPrimaryEditorImpl {
         context.output.Fix(std.string(fixed))
     }
 
-    public func inputEvent(event _: SKKBaseEditorEvent) {
+    public func bridgeInputEvent(_ rawValue: UInt32) {
+        let event = SKKBaseEditorEvent(rawValue: rawValue)
+        inputEvent(event)
+    }
+
+    func inputEvent(_: SKKBaseEditorEvent) {
         context.event_handled = false
     }
 
