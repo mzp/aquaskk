@@ -22,10 +22,14 @@ public protocol SKKEditorProtocol {
     /// 入力処理(ASCII もしくはペースト用)
     func input(ascii: String)
 
-    /// 入力処理(fixed=確定文字列, input=入力文字列, code=入力文字)
+    /// 入力処理
+    /// @param fixed 確定文字列
+    /// @param input 入力文字列
+    /// @param code 入力文字
     func input(fixed: String, input: String, code: CChar)
 
-    /// 入力処理(event=イベント)
+    /// 入力処理
+    /// @param event イベント
     func inputEvent(event: SKKBaseEditorEvent)
 
     /// 確定処理
