@@ -11,8 +11,9 @@
 #include <string>
 #include <swift/bridging>
 #import <AquaSKKEngine/IntrusiveRefCounted.h>
+
 // 補完サポートクラス
-struct SKKCompleterBuddy: public IntrusiveRefCounted<SKKCompleterBuddy> {
+struct SKKCompleterBuddy : public IntrusiveRefCounted<SKKCompleterBuddy> {
     virtual ~SKKCompleterBuddy() {}
 
     // 見出し語の取得
@@ -27,6 +28,5 @@ struct SKKCompleterBuddy: public IntrusiveRefCounted<SKKCompleterBuddy> {
 
 void retainSKKCompleterBuddy(SKKCompleterBuddy *obj);
 void releaseSKKCompleterBuddy(SKKCompleterBuddy *obj);
-
 
 #endif /* SKKCompleterBuddy_h */

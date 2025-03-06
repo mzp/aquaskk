@@ -5,7 +5,8 @@
 //  Created by mzp on 2025/03/06.
 //
 
-import Foundation
+import AquaSKKBackend
+
 public class SKKCompleterImpl {
     private let buddy: SKKCompleterBuddy
     private var completions: [String]

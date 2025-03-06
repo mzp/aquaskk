@@ -21,10 +21,9 @@
 */
 
 #import <AquaSKKBackend/SKKBackEnd.h>
-#import <AquaSKKEngine/SKKCompleter.h>
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
+#import <AquaSKKEngine/SKKCompleter.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
-
 
 SKKCompleter::SKKCompleter(SKKCompleterBuddy *buddy)
     : impl_(new SwiftObject(AquaSKKEngine::SKKCompleterImpl::init(buddy))) {}

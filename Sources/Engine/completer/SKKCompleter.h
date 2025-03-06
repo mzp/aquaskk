@@ -26,15 +26,13 @@
 #import <AquaSKKBackend/SwiftObject.h>
 #import <AquaSKKEngine/SKKCompleterBuddy.h>
 
-void retainSKKCompleterBuddy(SKKCompleterBuddy *obj);
-void releaseSKKCompleterBuddy(SKKCompleterBuddy *obj);
-
 namespace AquaSKKEngine {
     class SKKCompleterImpl;
 }
 
 class SKKCompleter {
     SwiftObject<AquaSKKEngine::SKKCompleterImpl> *impl_;
+
 public:
     SKKCompleter(SKKCompleterBuddy *buddy);
 
