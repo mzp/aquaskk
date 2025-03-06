@@ -49,7 +49,7 @@ public class SKKInputQueueImpl {
                  .KatakanaInputMode:
                 // ローマ字 → かな変換
                 if let newElement = Unicode.Scalar(UInt32(character)) {
-                    queue += String(newElement)
+                    queue += String(newElement).lowercased()
                 }
                 if let result = converter.convert(queue, inputMode: inputMode) {
                     state.fixed = std.string(result.output)
