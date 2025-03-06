@@ -16,5 +16,6 @@
 #import <AquaSKKEngine/SKKInputQueueObserver.h>
 #import <AquaSKKEngine/SKKOkuriListener.h>
 #import <AquaSKKEngine/SKKSelectorBuddy.h>
+#import <AquaSKKEngine/SKKCompleter.h>
 
 #endif /* AquaSKKEngine_Preamble_h */

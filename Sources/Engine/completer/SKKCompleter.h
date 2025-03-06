@@ -23,30 +23,18 @@
 #ifndef SKKCompleter_h
 #define SKKCompleter_h
 
-#include <string>
-#include <vector>
+#import <AquaSKKBackend/SwiftObject.h>
+#import <AquaSKKEngine/SKKCompleterBuddy.h>
 
-// 補完サポートクラス
-struct SKKCompleterBuddy {
-    virtual ~SKKCompleterBuddy() {}
+void retainSKKCompleterBuddy(SKKCompleterBuddy *obj);
+void releaseSKKCompleterBuddy(SKKCompleterBuddy *obj);
 
-    // 見出し語の取得
-    virtual const std::string SKKCompleterQueryString() = 0;
-
-    // 現在の見出し語の通知
-    virtual void SKKCompleterUpdate(const std::string &entry) = 0;
-};
+namespace AquaSKKEngine {
+    class SKKCompleterImpl;
+}
 
 class SKKCompleter {
-    SKKCompleterBuddy *buddy_;
-    std::vector<std::string> completions_;
-    int pos_;
-
-    bool complete(int limit);
-    void notify();
-    int minPosition() const;
-    int maxPosition() const;
-
+    SwiftObject<AquaSKKEngine::SKKCompleterImpl> *impl_;
 public:
     SKKCompleter(SKKCompleterBuddy *buddy);
 

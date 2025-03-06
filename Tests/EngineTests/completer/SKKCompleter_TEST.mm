@@ -42,7 +42,8 @@ public:
 
     buddy.SetQuery("ほかん");
 
-    XCTAssert(completer.Execute() && buddy.Entry() == "ほかん1");
+    XCTAssert(completer.Execute());
+    XCTAssert(buddy.Entry() == "ほかん1");
 
     completer.Next();
     completer.Next();
