@@ -23,16 +23,24 @@
 #ifndef SKKPrimaryEditor_h
 #define SKKPrimaryEditor_h
 
+#import <AquaSKKBackend/SwiftObject.h>
 #import <AquaSKKEngine/SKKBaseEditor.h>
 
+namespace AquaSKKEngine {
+    class SKKPrimaryEditorImpl;
+}
+
 class SKKPrimaryEditor : public SKKBaseEditor {
+    SwiftObject<AquaSKKEngine::SKKPrimaryEditorImpl> *impl_;
+
 public:
     SKKPrimaryEditor(SKKInputContext *context);
+    ~SKKPrimaryEditor();
 
     virtual void ReadContext();
     virtual void Input(const std::string &ascii);
     virtual void Input(const std::string &fixed, const std::string &input, char code);
-    virtual void Input(SKKBaseEditor::Event event);
+    virtual void Input(SKKBaseEditorEvent event);
     virtual void Commit(std::string &queue);
 };
 

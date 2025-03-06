@@ -20,38 +20,34 @@
 
 */
 
-#import <AquaSKKEngine/SKKInputContext.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/SKKPrimaryEditor.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKPrimaryEditor::SKKPrimaryEditor(SKKInputContext *context)
-    : SKKBaseEditor(context) {}
+    : SKKBaseEditor(context),
+      impl_(new SwiftObject<AquaSKKEngine::SKKPrimaryEditorImpl>(AquaSKKEngine::SKKPrimaryEditorImpl::init(context))) {}
+
+SKKPrimaryEditor::~SKKPrimaryEditor() {
+    delete impl_;
+}
 
 void SKKPrimaryEditor::ReadContext() {
-    context()->entry = SKKEntry();
-
-    SKKRegistration &registration = context()->registration;
-
-    if(registration == SKKRegistration::Finished) {
-        context()->output.Fix(registration.Word());
-        registration.Clear();
-    }
+    (*impl_)->readContext();
 }
 
 void SKKPrimaryEditor::Input(const std::string &ascii) {
-    context()->event_handled = false;
+    (*impl_)->input(ascii);
 }
 
-void SKKPrimaryEditor::Input(const std::string &fixed, const std::string &, char) {
-    context()->output.Fix(fixed);
+void SKKPrimaryEditor::Input(const std::string &fixed, const std::string &input, char code) {
+    (*impl_)->input(fixed, input, code);
 }
 
-void SKKPrimaryEditor::Input(SKKBaseEditor::Event event) {
-    context()->event_handled = false;
+void SKKPrimaryEditor::Input(SKKBaseEditorEvent event) {
+    (*impl_)->bridgeInputEvent(event);
 }
 
 void SKKPrimaryEditor::Commit(std::string &queue) {
-    context()->output.Fix(queue);
-    queue.clear();
-
-    context()->entry = SKKEntry();
+    queue = (*impl_)->commit(queue);
 }

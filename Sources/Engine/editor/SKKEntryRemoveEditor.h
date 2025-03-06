@@ -23,15 +23,15 @@
 #ifndef SKKEntryRemoveEditor_h
 #define SKKEntryRemoveEditor_h
 
-#import <AquaSKKBackend/SKKCandidate.h>
-#import <AquaSKKBackend/SKKEntry.h>
+#import <AquaSKKBackend/SwiftObject.h>
 #import <AquaSKKEngine/SKKBaseEditor.h>
 
+namespace AquaSKKEngine {
+    class SKKEntryRemoveEditorImpl;
+}
+
 class SKKEntryRemoveEditor : public SKKBaseEditor {
-    std::string input_;
-    std::string prompt_;
-    SKKEntry entry_;
-    SKKCandidate candidate_;
+    SwiftObject<AquaSKKEngine::SKKEntryRemoveEditorImpl> *impl_;
 
 public:
     SKKEntryRemoveEditor(SKKInputContext *context);
@@ -40,7 +40,7 @@ public:
     virtual void WriteContext();
     virtual void Input(const std::string &ascii);
     virtual void Input(const std::string &fixed, const std::string &input, char code);
-    virtual void Input(Event event);
+    virtual void Input(SKKBaseEditorEvent event);
     virtual void Commit(std::string &queue);
 };
 

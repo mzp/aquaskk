@@ -25,13 +25,15 @@
 
 #import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKBackend/SKKEntry.h>
+#import <AquaSKKBackend/SwiftObject.h>
 #import <AquaSKKEngine/SKKBaseEditor.h>
 
-class SKKCandidateEditor : public SKKBaseEditor {
-    SKKEntry entry_;
-    SKKCandidate candidate_;
+namespace AquaSKKEngine {
+    class SKKCandidateEditorImpl;
+}
 
-    void update();
+class SKKCandidateEditor : public SKKBaseEditor {
+    SwiftObject<AquaSKKEngine::SKKCandidateEditorImpl> *impl_;
 
 public:
     SKKCandidateEditor(SKKInputContext *context);

@@ -21,51 +21,28 @@
 */
 
 #import <AquaSKKBackend/SKKBackEnd.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/SKKCandidateEditor.h>
 #import <AquaSKKEngine/SKKInputContext.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKCandidateEditor::SKKCandidateEditor(SKKInputContext *context)
-    : SKKBaseEditor(context) {}
+    : SKKBaseEditor(context),
+      impl_(new SwiftObject<AquaSKKEngine::SKKCandidateEditorImpl>(
+          AquaSKKEngine::SKKCandidateEditorImpl::init(context))) {}
 
 void SKKCandidateEditor::ReadContext() {
-    entry_ = context()->entry;
-
-    context()->annotation = true;
+    (*impl_)->readContext();
 }
 
 void SKKCandidateEditor::WriteContext() {
-    std::string str(candidate_.Variant());
-
-    if(entry_.IsOkuriAri()) {
-        str += entry_.OkuriString();
-    }
-
-    context()->output.SetMark();
-    context()->output.Convert("▼" + str);
-
-    update();
+    (*impl_)->writeContext();
 }
 
 void SKKCandidateEditor::Commit(std::string &queue) {
-    SKKBackEnd::theInstance().Register(entry_, candidate_);
-
-    queue = candidate_.Variant();
-    candidate_ = SKKCandidate();
-
-    if(entry_.IsOkuriAri()) {
-        queue += entry_.OkuriString();
-    }
+    queue = (*impl_)->commit(queue);
 }
 
 void SKKCandidateEditor::SetCandidate(const SKKCandidate &candidate) {
-    candidate_ = candidate;
-
-    update();
-}
-
-// ----------------------------------------------------------------------
-
-void SKKCandidateEditor::update() {
-    context()->entry = entry_;
-    context()->candidate = candidate_;
+    (*impl_)->bridgeSetCandidate(candidate.ToString());
 }

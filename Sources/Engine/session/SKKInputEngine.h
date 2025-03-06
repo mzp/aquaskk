@@ -65,7 +65,7 @@ class SKKInputEngine : public SKKInputQueueObserver,
     SKKInputMode inputMode() const;
     void initialize();
     void push(SKKBaseEditor *editor);
-    void invoke(SKKBaseEditor::Event event);
+    void invoke(SKKBaseEditorEvent event);
     void terminate();
     void study(const SKKEntry &entry, const SKKCandidate &candidate);
     void insert(const std::string &str);

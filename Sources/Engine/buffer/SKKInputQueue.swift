@@ -51,7 +51,7 @@ public class SKKInputQueueImpl {
                 if let newElement = Unicode.Scalar(UInt32(character)) {
                     queue += String(newElement).lowercased()
                 }
-                if let result = converter.convert(queue, inputMode: inputMode) {
+                if let result = converter.convert(queue, inputMode: inputMode), result.converted {
                     state.fixed = std.string(result.output)
                     state.intermediate = std.string(result.intermediate)
                     queue = result.next

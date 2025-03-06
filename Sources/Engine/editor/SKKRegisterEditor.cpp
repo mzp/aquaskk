@@ -20,72 +20,36 @@
 
 */
 
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/SKKInputContext.h>
 #import <AquaSKKEngine/SKKRegisterEditor.h>
-#import "SKKTextBuffer.h"
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKRegisterEditor::SKKRegisterEditor(SKKInputContext *context)
-    : SKKBaseEditor(context), entry_(context->entry), word_(new SKKTextBuffer()) {
-    prompt_ = "[登録：" + entry_.PromptString() + "]";
-}
+    : SKKBaseEditor(context), impl_(new SwiftObject(AquaSKKEngine::SKKRegisterEditorImpl::init(context))) {}
 
-SKKRegisterEditor::~SKKRegisterEditor() {
-    delete word_;
-}
+SKKRegisterEditor::~SKKRegisterEditor() {}
 
 void SKKRegisterEditor::ReadContext() {
-    context()->entry = SKKEntry();
-
-    Input(context()->registration.Word());
-    context()->registration.Clear();
+    (*impl_)->readContext();
 }
 
 void SKKRegisterEditor::WriteContext() {
-    context()->output.Compose(prompt_ + word_->String(), word_->CursorPosition());
+    (*impl_)->writeContext();
 }
 
 void SKKRegisterEditor::Input(const std::string &ascii) {
-    word_->Insert(ascii);
+    (*impl_)->input(ascii);
 }
 
-void SKKRegisterEditor::Input(const std::string &fixed, const std::string &, char) {
-    Input(fixed);
+void SKKRegisterEditor::Input(const std::string &fixed, const std::string &input, char code) {
+    (*impl_)->input(fixed, input, code);
 }
 
-void SKKRegisterEditor::Input(SKKBaseEditor::Event event) {
-    switch(event) {
-    case BackSpace:
-        word_->BackSpace();
-        break;
-
-    case Delete:
-        word_->Delete();
-        break;
-
-    case CursorLeft:
-        word_->CursorLeft();
-        break;
-
-    case CursorRight:
-        word_->CursorRight();
-        break;
-
-    case CursorUp:
-        word_->CursorUp();
-        break;
-
-    case CursorDown:
-        word_->CursorDown();
-        break;
-
-    default:
-        return;
-    }
+void SKKRegisterEditor::Input(SKKBaseEditorEvent event) {
+    (*impl_)->bridgeInputEvent(event);
 }
 
 void SKKRegisterEditor::Commit(std::string &queue) {
-    word_->Insert(queue);
-    queue = word_->String();
-
-    context()->entry = entry_;
+    queue = (*impl_)->commit(queue);
 }

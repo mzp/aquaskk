@@ -124,30 +124,30 @@ void SKKInputEngine::HandleChar(char code, bool direct) {
 
 void SKKInputEngine::HandleBackSpace() {
     if(inputQueue_.IsEmpty()) {
-        invoke(SKKBaseEditor::BackSpace);
+        invoke(SKKBaseEditorEventBackSpace);
     } else {
         inputQueue_.RemoveChar();
     }
 }
 
 void SKKInputEngine::HandleDelete() {
-    invoke(SKKBaseEditor::Delete);
+    invoke(SKKBaseEditorEventDelete);
 }
 
 void SKKInputEngine::HandleCursorLeft() {
-    invoke(SKKBaseEditor::CursorLeft);
+    invoke(SKKBaseEditorEventCursorLeft);
 }
 
 void SKKInputEngine::HandleCursorRight() {
-    invoke(SKKBaseEditor::CursorRight);
+    invoke(SKKBaseEditorEventCursorRight);
 }
 
 void SKKInputEngine::HandleCursorUp() {
-    invoke(SKKBaseEditor::CursorUp);
+    invoke(SKKBaseEditorEventCursorUp);
 }
 
 void SKKInputEngine::HandleCursorDown() {
-    invoke(SKKBaseEditor::CursorDown);
+    invoke(SKKBaseEditorEventCursorDown);
 }
 
 void SKKInputEngine::HandlePaste() {
@@ -261,7 +261,7 @@ void SKKInputEngine::initialize() {
     context_->dynamic_completion = false;
     context_->annotation = false;
 
-    if(context_->registration == SKKRegistration::Aborted) {
+    if(context_->registration == SKKRegistrationAborted) {
         context_->registration.Clear();
         env_->InputModeSelector()->Refresh();
     }
@@ -280,7 +280,7 @@ void SKKInputEngine::terminate() {
     }
 }
 
-void SKKInputEngine::invoke(SKKBaseEditor::Event event) {
+void SKKInputEngine::invoke(SKKBaseEditorEvent event) {
     if(!inputQueue_.IsEmpty()) {
         inputQueue_.Clear();
         context_->event_handled = false;

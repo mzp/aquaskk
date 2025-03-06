@@ -23,15 +23,15 @@
 #ifndef SKKRegisterFilter_h
 #define SKKRegisterFilter_h
 
-#import <AquaSKKBackend/SKKEntry.h>
+#import <AquaSKKBackend/SwiftObject.h>
 #import <AquaSKKEngine/SKKBaseEditor.h>
 
-class SKKTextBuffer;
+namespace AquaSKKEngine {
+    class SKKRegisterEditorImpl;
+}
 
 class SKKRegisterEditor : public SKKBaseEditor {
-    std::string prompt_;
-    SKKEntry entry_;
-    SKKTextBuffer *word_;
+    SwiftObject<AquaSKKEngine::SKKRegisterEditorImpl> *impl_;
 
     SKKRegisterEditor();
     SKKRegisterEditor(const SKKRegisterEditor &);
@@ -45,7 +45,7 @@ public:
     virtual void WriteContext();
     virtual void Input(const std::string &ascii);
     virtual void Input(const std::string &fixed, const std::string &input, char code);
-    virtual void Input(Event event);
+    virtual void Input(SKKBaseEditorEvent event);
     virtual void Commit(std::string &queue);
 };
 

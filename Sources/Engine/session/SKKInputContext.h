@@ -23,14 +23,16 @@
 #ifndef SKKInputContext_h
 #define SKKInputContext_h
 
+#import <swift/bridging>
 #import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKBackend/SKKEntry.h>
+#import <AquaSKKEngine/IntrusiveRefCounted.h>
 #import <AquaSKKEngine/SKKOutputBuffer.h>
 #import <AquaSKKEngine/SKKRegistration.h>
 #import <AquaSKKEngine/SKKUndoContext.h>
 
 // 入力コンテキスト
-class SKKInputContext {
+class SKKInputContext : public IntrusiveRefCounted<SKKInputContext> {
 public:
     SKKEntry entry;
     SKKCandidate candidate;
@@ -45,6 +47,9 @@ public:
 
     SKKInputContext(SKKFrontEnd *frontend)
         : output(frontend), undo(frontend), dynamic_completion(false) {}
-};
+} SWIFT_SHARED_REFERENCE(retainSKKInputContext, releaseSKKInputContext);
+
+void retainSKKInputContext(SKKInputContext *obj);
+void releaseSKKInputContext(SKKInputContext *obj);
 
 #endif

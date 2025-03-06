@@ -23,23 +23,16 @@
 #ifndef SKKOkuriEditor_h
 #define SKKOkuriEditor_h
 
+#import <AquaSKKBackend/SwiftObject.h>
 #import <AquaSKKEngine/SKKBaseEditor.h>
+#import <AquaSKKEngine/SKKOkuriListener.h>
 
-class SKKOkuriListener {
-public:
-    virtual ~SKKOkuriListener() {}
-
-    virtual void SKKOkuriListenerAppendEntry(const std::string &fixed) = 0;
-};
+namespace AquaSKKEngine {
+    class SKKOkuriEditorImpl;
+}
 
 class SKKOkuriEditor : public SKKBaseEditor {
-    SKKOkuriListener *listener_;
-    bool first_;
-    std::string prefix_;
-    std::string okuri_;
-    std::string input_;
-
-    void update();
+    SwiftObject<AquaSKKEngine::SKKOkuriEditorImpl> *impl_;
 
 public:
     SKKOkuriEditor(SKKInputContext *context, SKKOkuriListener *listener);
@@ -47,7 +40,7 @@ public:
     virtual void ReadContext();
     virtual void WriteContext();
     virtual void Input(const std::string &fixed, const std::string &input, char code);
-    virtual void Input(SKKBaseEditor::Event event);
+    virtual void Input(SKKBaseEditorEvent event);
     virtual void Commit(std::string &queue);
 
     bool IsOkuriComplete() const;

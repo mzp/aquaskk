@@ -25,6 +25,10 @@ FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 #import <AquaSKKEngine/SKKMessenger.h>
 #import <AquaSKKEngine/SKKWidget.h>
 
+#pragma mark - buffer
+#import <AquaSKKEngine/SKKInputQueue.h>
+#import <AquaSKKEngine/SKKInputQueueObserver.h>
+
 #pragma mark - editor
 
 #import <AquaSKKEngine/SKKBaseEditor.h>
@@ -32,12 +36,10 @@ FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 #import <AquaSKKEngine/SKKComposingEditor.h>
 #import <AquaSKKEngine/SKKEntryRemoveEditor.h>
 #import <AquaSKKEngine/SKKInputEngine.h>
-#import <AquaSKKEngine/SKKInputQueue.h>
 #import <AquaSKKEngine/SKKOkuriEditor.h>
+#import <AquaSKKEngine/SKKOkuriListener.h>
 #import <AquaSKKEngine/SKKPrimaryEditor.h>
 #import <AquaSKKEngine/SKKRegisterEditor.h>
-// #import <AquaSKKEngine/SKKTextBuffer.h>
-#import <AquaSKKEngine/SKKInputQueueObserver.h>
 
 #pragma mark - selector
 
