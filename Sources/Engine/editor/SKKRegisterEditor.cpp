@@ -20,13 +20,18 @@
 
 */
 
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/SKKInputContext.h>
 #import <AquaSKKEngine/SKKRegisterEditor.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 #import "SKKTextBuffer.h"
 
 SKKRegisterEditor::SKKRegisterEditor(SKKInputContext *context)
-    : SKKBaseEditor(context), entry_(context->entry), word_(new SKKTextBuffer()) {
-    prompt_ = "[登録：" + entry_.PromptString() + "]";
+    : SKKBaseEditor(context),
+      entry_(context->entry),
+      word_(new SKKTextBuffer()),
+      impl_(new SwiftObject(AquaSKKEngine::SKKRegisterEditorImpl::init(context))) {
+    //    prompt_ = "[登録：" + entry_.PromptString() + "]";
 }
 
 SKKRegisterEditor::~SKKRegisterEditor() {
@@ -34,58 +39,64 @@ SKKRegisterEditor::~SKKRegisterEditor() {
 }
 
 void SKKRegisterEditor::ReadContext() {
-    context()->entry = SKKEntry();
+    /*    context()->entry = SKKEntry();
 
-    Input(context()->registration.Word());
-    context()->registration.Clear();
+        Input(context()->registration.Word());
+        context()->registration.Clear();*/
+    (*impl_)->readConext();
 }
 
 void SKKRegisterEditor::WriteContext() {
-    context()->output.Compose(prompt_ + word_->String(), word_->CursorPosition());
+    (*impl_)->writeContext();
+    /*    context()->output.Compose(prompt_ + word_->String(), word_->CursorPosition());*/
 }
 
 void SKKRegisterEditor::Input(const std::string &ascii) {
-    word_->Insert(ascii);
+    (*impl_)->input(ascii);
+    //    word_->Insert(ascii);
 }
 
-void SKKRegisterEditor::Input(const std::string &fixed, const std::string &, char) {
-    Input(fixed);
+void SKKRegisterEditor::Input(const std::string &fixed, const std::string &input, char code) {
+    (*impl_)->input(fixed, input, code);
+    //    Input(fixed);
 }
 
 void SKKRegisterEditor::Input(SKKBaseEditorEvent event) {
-    switch(event) {
-    case SKKBaseEditorEventBackSpace:
-        word_->BackSpace();
-        break;
+    /*    switch(event) {
+        case SKKBaseEditorEventBackSpace:
+            word_->BackSpace();
+            break;
 
-    case SKKBaseEditorEventDelete:
-        word_->Delete();
-        break;
+        case SKKBaseEditorEventDelete:
+            word_->Delete();
+            break;
 
-    case SKKBaseEditorEventCursorLeft:
-        word_->CursorLeft();
-        break;
+        case SKKBaseEditorEventCursorLeft:
+            word_->CursorLeft();
+            break;
 
-    case SKKBaseEditorEventCursorRight:
-        word_->CursorRight();
-        break;
+        case SKKBaseEditorEventCursorRight:
+            word_->CursorRight();
+            break;
 
-    case SKKBaseEditorEventCursorUp:
-        word_->CursorUp();
-        break;
+        case SKKBaseEditorEventCursorUp:
+            word_->CursorUp();
+            break;
 
-    case SKKBaseEditorEventCursorDown:
-        word_->CursorDown();
-        break;
+        case SKKBaseEditorEventCursorDown:
+            word_->CursorDown();
+            break;
 
-    default:
-        return;
-    }
+        default:
+            return;
+        }*/
+    (*impl_)->inputEvent(event);
 }
 
 void SKKRegisterEditor::Commit(std::string &queue) {
-    word_->Insert(queue);
-    queue = word_->String();
+    queue = (*impl_)->commit(queue);
+    /*    word_->Insert(queue);
+        queue = word_->String();
 
-    context()->entry = entry_;
+        context()->entry = entry_;*/
 }

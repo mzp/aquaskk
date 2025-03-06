@@ -24,11 +24,17 @@
 #define SKKRegisterFilter_h
 
 #import <AquaSKKBackend/SKKEntry.h>
+#import <AquaSKKBackend/SwiftObject.h>
 #import <AquaSKKEngine/SKKBaseEditor.h>
+
+namespace AquaSKKEngine {
+    class SKKRegisterEditorImpl;
+}
 
 class SKKTextBuffer;
 
 class SKKRegisterEditor : public SKKBaseEditor {
+    SwiftObject<AquaSKKEngine::SKKRegisterEditorImpl> *impl_;
     std::string prompt_;
     SKKEntry entry_;
     SKKTextBuffer *word_;

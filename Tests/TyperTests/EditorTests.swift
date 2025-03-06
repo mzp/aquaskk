@@ -9,6 +9,7 @@ import Testing
 
 struct EditorTests {
     // MARK: - Primary
+
     @Test func primary() async {
         let session = Typer.Session()
         await session.run { typer in
@@ -18,6 +19,7 @@ struct EditorTests {
     }
 
     // MARK: - Composing
+
     @Test func composinc() async {
         let session = Typer.Session()
         await session.run { typer in
@@ -27,6 +29,7 @@ struct EditorTests {
     }
 
     // MARK: - Candidate
+
     @Test func candidate() async {
         let session = Typer.Session()
         await session.run { typer in
@@ -37,8 +40,8 @@ struct EditorTests {
 
     // TODO: - Okuri Editor
 
-
     // MARK: - Entry remove Editor
+
     @Test func remove() async {
         let session = Typer.Session()
         await session.run { typer in
@@ -49,4 +52,3 @@ struct EditorTests {
         }
     }
 }
-

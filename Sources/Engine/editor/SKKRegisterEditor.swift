@@ -1,0 +1,68 @@
+//
+//  SKKRegisterEditor.swift
+//  AquaSKKEngine
+//
+//  Created by mzp on 2025/03/06.
+//
+
+import AquaSKKBackend
+import AquaSKKLogging
+import Foundation
+import OSLog
+
+public class SKKRegisterEditorImpl {
+    private let context: SKKInputContext
+    private var entry: SKKEntry
+    private var word: SKKTextBufferImpl
+    private var prompt: String
+
+    public init(context: SKKInputContext) {
+        self.context = context
+        entry = context.entry
+        word = .init()
+        prompt = "[登録：\(String(entry.PromptString()))]"
+    }
+
+    public func readConext() {
+        context.entry = .init()
+        word.insert(String(context.registration.word))
+        context.registration.Clear()
+    }
+
+    public func writeContext() {
+        context.output.Compose(std.string("\(prompt)\(word.string)"), Int32(word.cursorPosition))
+    }
+
+    public func input(ascii: String) {
+        word.insert(ascii)
+    }
+
+    public func input(fixed: String, input _: String, code _: CChar) {
+        word.insert(fixed)
+    }
+
+    public func inputEvent(event: SKKBaseEditorEvent) {
+        switch event {
+        case SKKBaseEditorEventBackSpace:
+            word.backSpace()
+        case SKKBaseEditorEventDelete:
+            word.delete()
+        case SKKBaseEditorEventCursorLeft:
+            word.cursorLeft()
+        case SKKBaseEditorEventCursorRight:
+            word.cursorRight()
+        case SKKBaseEditorEventCursorUp:
+            word.cursorUp()
+        case SKKBaseEditorEventCursorDown:
+            word.cursorDown()
+        default:
+            Logger.skkEngine.warning("\(#function, privacy: .public): Unsupported event")
+        }
+    }
+
+    public func commit(queue: String) -> String {
+        word.insert(queue)
+        context.entry = entry
+        return word.string
+    }
+}
