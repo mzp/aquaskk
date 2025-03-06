@@ -62,7 +62,7 @@ public class SKKInputQueueImpl {
                 if let newElement = Unicode.Scalar(UInt32(character)) {
                     queue += String(newElement)
                 }
-                let output = queue.applyingTransform(.fullwidthToHalfwidth, reverse: true)
+                let output = queue.applyingTransform(.fullwidthToHalfwidth, reverse: true) ?? queue
                 state.fixed = std.string(output)
                 queue.removeAll()
 
