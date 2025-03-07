@@ -46,7 +46,7 @@ public class SKKComposingEditorImpl: SKKEditorProtocol {
         composing.insert(ascii)
     }
 
-    public func input(fixed: String, input _: String, code _: CChar) {
+    public func input(fixed: String, input _: String, code _: Int) {
         composing.insert(fixed)
     }
 

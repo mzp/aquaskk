@@ -75,6 +75,10 @@ public:
     //
     // queue に確定した文字列をセットする
     virtual void Commit(std::string &queue) = 0;
+
+    virtual bool IsPrimaryEditor() const {
+        return false;
+    }
 };
 
 #endif

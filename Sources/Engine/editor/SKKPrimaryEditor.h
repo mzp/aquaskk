@@ -42,6 +42,7 @@ public:
     virtual void Input(const std::string &fixed, const std::string &input, char code);
     virtual void Input(SKKBaseEditorEvent event);
     virtual void Commit(std::string &queue);
+    virtual bool IsPrimaryEditor() const;
 };
 
 #endif

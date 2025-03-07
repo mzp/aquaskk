@@ -60,6 +60,10 @@ SKKInputModeSelector::operator SKKInputMode() const {
     return mode_;
 }
 
+SKKInputMode SKKInputModeSelector::getInputMode() const SWIFT_COMPUTED_PROPERTY {
+    return mode_;
+}
+
 // ------------------------------------------------------------
 
 void SKKInputModeSelector::SKKWidgetShow() {
@@ -68,4 +72,12 @@ void SKKInputModeSelector::SKKWidgetShow() {
 
 void SKKInputModeSelector::SKKWidgetHide() {
     std::for_each(listeners_->begin(), listeners_->end(), std::mem_fn(&SKKWidget::Hide));
+}
+
+void retainSKKInputModeSelector(SKKInputModeSelector *obj) {
+    obj->retain();
+}
+
+void releaseSKKInputModeSelector(SKKInputModeSelector *obj) {
+    obj->release();
 }

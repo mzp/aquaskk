@@ -20,6 +20,7 @@
 
 */
 
+#import <AquaSKKEngine/SKKClipboard.h>
 #import <AquaSKKEngine/SKKInputEnvironment.h>
 
 SKKInputEnvironment::SKKInputEnvironment(
@@ -29,6 +30,10 @@ SKKInputEnvironment::SKKInputEnvironment(
 
 SKKConfig *SKKInputEnvironment::Config() {
     return param_->Config();
+}
+
+std::string SKKInputEnvironment::PasteString() {
+    return param_->Clipboard()->PasteString();
 }
 
 SKKInputContext *SKKInputEnvironment::InputContext() {
@@ -45,4 +50,16 @@ SKKInputModeSelector *SKKInputEnvironment::InputModeSelector() {
 
 SKKBaseEditor *SKKInputEnvironment::BaseEditor() {
     return bottom_.get();
+}
+
+bool SKKInputEnvironment::IsPrimaryEditor() const {
+    return bottom_->IsPrimaryEditor();
+}
+
+void retainSKKInputEnvironment(SKKInputEnvironment *obj) {
+    obj->retain();
+}
+
+void releaseSKKInputEnvironment(SKKInputEnvironment *obj) {
+    obj->release();
 }

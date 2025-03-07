@@ -37,7 +37,7 @@ public class SKKRegisterEditorImpl: SKKEditorProtocol {
         word.insert(ascii)
     }
 
-    public func input(fixed: String, input _: String, code _: CChar) {
+    public func input(fixed: String, input _: String, code _: Int) {
         word.insert(fixed)
     }
 

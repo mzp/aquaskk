@@ -51,3 +51,7 @@ void SKKPrimaryEditor::Input(SKKBaseEditorEvent event) {
 void SKKPrimaryEditor::Commit(std::string &queue) {
     queue = (*impl_)->commit(queue);
 }
+
+bool SKKPrimaryEditor::IsPrimaryEditor() const {
+    return true;
+}

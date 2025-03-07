@@ -33,9 +33,9 @@ public class SKKInputQueueImpl {
     }
 
     /// 文字の追加
-    public func addChar(character: CChar, direct: Bool) {
+    public func addChar(character: Int, direct: Bool) {
         let converter = RomanKanaConverterImpl.sharedInstance
-        var state = SKKInputQueueObserver.State()
+        var state = SKKInputQueueObserverState()
 
         if direct || inputMode == .AsciiInputMode {
             if let newElement = Unicode.Scalar(UInt32(character)) {
@@ -71,7 +71,7 @@ public class SKKInputQueueImpl {
             }
         }
         state.queue = std.string(queue)
-        state.code = character
+        state.code = CChar(character)
         observer.SKKInputQueueUpdate(state)
     }
 
@@ -82,7 +82,7 @@ public class SKKInputQueueImpl {
         }
         queue.removeLast()
 
-        var state = SKKInputQueueObserver.State()
+        var state = SKKInputQueueObserverState()
         state.queue = std.string(queue)
         state.code = 0
         observer.SKKInputQueueUpdate(state)
@@ -94,7 +94,7 @@ public class SKKInputQueueImpl {
             return
         }
         let converter = RomanKanaConverterImpl.sharedInstance
-        var state = SKKInputQueueObserver.State()
+        var state = SKKInputQueueObserverState()
 
         switch inputMode {
         case .HirakanaInputMode,
@@ -134,7 +134,7 @@ public class SKKInputQueueImpl {
     }
 
     /// 変換可能かどうか
-    public func canConvert(code: CChar) -> Bool {
+    public func canConvert(code: Int) -> Bool {
         let converter = RomanKanaConverterImpl.sharedInstance
 
         switch inputMode {

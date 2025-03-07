@@ -8,16 +8,16 @@
 @end
 
 class TestInputQueueObserver : public SKKInputQueueObserver {
-    State state_;
+    SKKInputQueueObserverState state_;
 
 public:
-    virtual void SKKInputQueueUpdate(const State &state) {
+    virtual void SKKInputQueueUpdate(const SKKInputQueueObserverState &state) {
         state_.fixed += state.fixed;
         state_.queue = state.queue;
     }
 
     void Clear() {
-        state_ = State();
+        state_ = SKKInputQueueObserverState();
     }
 
     bool Test(const std::string &fixed, const std::string &queue) {

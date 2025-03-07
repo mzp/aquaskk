@@ -34,7 +34,7 @@ public class SKKCandidateEditorImpl: SKKEditorProtocol {
 
     public func input(ascii _: String) {}
 
-    public func input(fixed _: String, input _: String, code _: CChar) {}
+    public func input(fixed _: String, input _: String, code _: Int) {}
 
     public func inputEvent(event _: SKKBaseEditorEvent) {}
 

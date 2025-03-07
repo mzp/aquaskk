@@ -24,12 +24,15 @@
 #define SKKInputEnvironment_h
 
 #include <memory>
+#include <string>
+#include <swift/bridging>
+#import <AquaSKKEngine/IntrusiveRefCounted.h>
 #import <AquaSKKEngine/SKKBaseEditor.h>
 #import <AquaSKKEngine/SKKInputContext.h>
 #import <AquaSKKEngine/SKKInputModeSelector.h>
 #import <AquaSKKEngine/SKKInputSessionParameter.h>
 
-class SKKInputEnvironment {
+class SKKInputEnvironment : public IntrusiveRefCounted<SKKInputEnvironment> {
     SKKInputContext *context_;
     SKKInputSessionParameter *param_;
     SKKInputModeSelector selector_;
@@ -45,6 +48,13 @@ public:
     SKKInputSessionParameter *InputSessionParameter();
     SKKInputModeSelector *InputModeSelector();
     SKKBaseEditor *BaseEditor();
-};
+
+    std::string PasteString();
+
+    bool IsPrimaryEditor() const;
+} SWIFT_SHARED_REFERENCE(retainSKKInputEnvironment, releaseSKKInputEnvironment);
+
+void retainSKKInputEnvironment(SKKInputEnvironment *obj);
+void releaseSKKInputEnvironment(SKKInputEnvironment *obj);
 
 #endif
