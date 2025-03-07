@@ -8,6 +8,10 @@
 #ifndef AquaSKKEngine_Preamble_h
 #define AquaSKKEngine_Preamble_h
 
+namespace AquaSKKEngine {
+    class SKKInputqueueImpl;
+}
+
 #import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKBackend/SKKEntry.h>
 #import <AquaSKKEngine/SKKBaseEditor.h>
