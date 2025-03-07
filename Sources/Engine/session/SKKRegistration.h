@@ -24,53 +24,32 @@
 #define SKKRegistration_h
 
 #include <string>
+#import <AquaSKKBackend/SwiftObject.h>
 
-enum SKKRegistrationState {
-    SKKRegistrationNone,
-    SKKRegistrationStarted,
-    SKKRegistrationFinished,
-    SKKRegistrationAborted
+enum class SKKRegistrationState {
+    None,
+    Started,
+    Finished,
+    Aborted
 };
+namespace AquaSKKEngine {
+class SKKRegistrationImpl;
+}
 
 class SKKRegistration {
+    SwiftObject<AquaSKKEngine::SKKRegistrationImpl> *impl_;
 public:
-    SKKRegistration()
-        : state_(SKKRegistrationNone) {}
-
-    void Start() {
-        state_ = SKKRegistrationStarted;
-    }
-
-    void Finish(const std::string &str) {
-        state_ = SKKRegistrationFinished;
-        word_ = str;
-    }
-
-    void Abort() {
-        state_ = SKKRegistrationAborted;
-        word_.clear();
-    }
-
-    void Clear() {
-        state_ = SKKRegistrationNone;
-        word_.clear();
-    }
-
+    SKKRegistration();
+    void Start();
+    void Finish(const std::string &str);
+    void Abort();
+    void Clear();
     operator SKKRegistrationState() const {
-        return state_;
+        return getState();
     }
-
-    const SKKRegistrationState getState() const SWIFT_COMPUTED_PROPERTY {
-        return state_;
-    }
-    const std::string getWord() const SWIFT_COMPUTED_PROPERTY {
-        return word_;
-    }
-
-    const std::string &Word() const {
-        return word_;
-    }
-
+    const SKKRegistrationState getState() const SWIFT_COMPUTED_PROPERTY;
+    const std::string getWord() const SWIFT_COMPUTED_PROPERTY;
+    const std::string &Word() const;
 private:
     SKKRegistrationState state_;
     std::string word_;

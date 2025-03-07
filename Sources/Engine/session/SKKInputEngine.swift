@@ -114,7 +114,7 @@ public class SKKInputEngineImpl {
         context.dynamic_completion = true
         context.annotation = false
 
-        if context.registration.state == SKKRegistrationAborted {
+        if context.registration.state == .Aborted {
             context.registration.Clear()
             env.InputModeSelector().Refresh()
         }

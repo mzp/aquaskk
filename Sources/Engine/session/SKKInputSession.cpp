@@ -119,17 +119,17 @@ void SKKInputSession::beginEvent() {
 
 void SKKInputSession::endEvent() {
     switch(context_.registration) {
-    case SKKRegistrationStarted:
+        case SKKRegistrationState::Started:
         context_.registration.Clear();
         stack_.push_back(createEditor(new SKKRegisterEditor(&context_)));
         break;
 
-    case SKKRegistrationFinished:
-    case SKKRegistrationAborted:
+        case SKKRegistrationState::Finished:
+        case SKKRegistrationState::Aborted:
         if(stack_.size() != 1) {
             popEditor();
 
-            top()->Input(SKKEvent(context_.registration == SKKRegistrationFinished ? SKK_ENTER : SKK_CANCEL, 0));
+            top()->Input(SKKEvent(context_.registration == SKKRegistrationState::Finished ? SKK_ENTER : SKK_CANCEL, 0));
         }
         break;
 
