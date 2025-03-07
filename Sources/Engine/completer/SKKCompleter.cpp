@@ -21,74 +21,25 @@
 */
 
 #import <AquaSKKBackend/SKKBackEnd.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/SKKCompleter.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKCompleter::SKKCompleter(SKKCompleterBuddy *buddy)
-    : buddy_(buddy) {}
+    : impl_(new SwiftObject(AquaSKKEngine::SKKCompleterImpl::init(buddy))) {}
 
 bool SKKCompleter::Execute(int limit) {
-    if(complete(limit)) {
-        notify();
-    }
-
-    return !completions_.empty();
+    return (*impl_)->execute(limit);
 }
 
 bool SKKCompleter::Remove() {
-    if(completions_.empty())
-        return false;
-
-    SKKBackEnd &backend = SKKBackEnd::theInstance();
-
-    backend.Remove(completions_[pos_], SKKCandidate());
-
-    SKKCandidateSuite tmp;
-
-    return !backend.Find(completions_[pos_], tmp);
+    return (*impl_)->remove();
 }
 
 void SKKCompleter::Next() {
-    if(completions_.empty())
-        return;
-
-    if(maxPosition() < ++pos_) {
-        pos_ = minPosition();
-    }
-
-    notify();
+    return (*impl_)->next();
 }
 
 void SKKCompleter::Prev() {
-    if(completions_.empty())
-        return;
-
-    if(--pos_ < minPosition()) {
-        pos_ = maxPosition();
-    }
-
-    notify();
-}
-
-bool SKKCompleter::complete(int limit) {
-    std::string query(buddy_->SKKCompleterQueryString());
-
-    pos_ = 0;
-    completions_.clear();
-
-    return SKKBackEnd::theInstance().Complete(query, completions_, limit);
-}
-
-int SKKCompleter::minPosition() const {
-    return 0;
-}
-
-int SKKCompleter::maxPosition() const {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wshorten-64-to-32"
-    return completions_.size() - 1;
-#pragma clang diagnostic pop
-}
-
-void SKKCompleter::notify() {
-    buddy_->SKKCompleterUpdate(completions_[pos_]);
+    return (*impl_)->prev();
 }
