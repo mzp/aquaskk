@@ -40,6 +40,12 @@ public class SKKInputEngineImpl {
         context.event_handled = true
     }
 
+    public func bridgedSelectInputMode(_ inputMode: Int32) {
+        if let inputMode = SKKInputMode(rawValue: inputMode) {
+            selectInputMode(inputMode: inputMode)
+        }
+    }
+
     // MARK: - 状態変更
 
     private var stack: [SKKEditorProtocol]

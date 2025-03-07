@@ -31,7 +31,7 @@ SKKInputEngine::SKKInputEngine(SKKInputEnvironment *env)
           AquaSKKEngine::SKKOkuriEditorImpl::init(env->InputContext(), this)))) {}
 
 void SKKInputEngine::SelectInputMode(SKKInputMode mode) {
-    (*impl_)->selectInputMode(mode);
+    (*impl_)->bridgedSelectInputMode(static_cast<int>(mode));
 }
 
 void SKKInputEngine::SetStatePrimary() {
