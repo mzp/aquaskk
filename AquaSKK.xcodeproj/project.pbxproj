@@ -369,6 +369,7 @@
 		138C69872C94CDE4009FE153 /* skk-jisyo.utf8 in Resources */ = {isa = PBXBuildFile; fileRef = 138C69792C94CDE4009FE153 /* skk-jisyo.utf8 */; };
 		138C69882C94CDE4009FE153 /* dict.file in Resources */ = {isa = PBXBuildFile; fileRef = 138C69732C94CDE4009FE153 /* dict.file */; };
 		138C698B2C94CDE4009FE153 /* SKK-JISYO.TEST in Resources */ = {isa = PBXBuildFile; fileRef = 138C697C2C94CDE4009FE153 /* SKK-JISYO.TEST */; };
+		138FB7062D7B491400542DF7 /* SKKFrontEnd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 138FB7052D7B491400542DF7 /* SKKFrontEnd.cpp */; };
 		1390FCF52D75575200059E87 /* SKKCandidateWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1390FCF42D75575200059E87 /* SKKCandidateWindow.swift */; };
 		1393E32C2C6B19C300F1E633 /* SKK-JISYO.S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1393E32B2C6B19C300F1E633 /* SKK-JISYO.S.txt */; };
 		1393E32E2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393E32D2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift */; };
@@ -999,6 +1000,7 @@
 		138F45102C5CA19D000B03FC /* Framework-Engine.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Engine.xcconfig"; sourceTree = "<group>"; };
 		138F45112C5CA1B6000B03FC /* Tests-Input.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Input.xcconfig"; sourceTree = "<group>"; };
 		138F45122C5CA1D7000B03FC /* Tests-App.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-App.xcconfig"; sourceTree = "<group>"; };
+		138FB7052D7B491400542DF7 /* SKKFrontEnd.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKFrontEnd.cpp; sourceTree = "<group>"; };
 		1390FCF42D75575200059E87 /* SKKCandidateWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKCandidateWindow.swift; sourceTree = "<group>"; };
 		13931D0C2C5B49C200B11EEE /* Tests-Preference.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Preference.xcconfig"; sourceTree = "<group>"; };
 		13931D0E2C5B4C6B00B11EEE /* Tests-Engine.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Engine.xcconfig"; sourceTree = "<group>"; };
@@ -1665,6 +1667,7 @@
 				1326922D2D7AA66E00043CDC /* SKKConfig.cpp */,
 				1344F4A02C5B28FC00D8C850 /* SKKDynamicCompletor.h */,
 				1344F4A12C5B28FC00D8C850 /* SKKFrontEnd.h */,
+				138FB7052D7B491400542DF7 /* SKKFrontEnd.cpp */,
 				1344F4A22C5B28FC00D8C850 /* SKKInputModeListener.h */,
 				1344F4A32C5B28FC00D8C850 /* SKKInputSessionParameter.h */,
 				1344F4A42C5B28FC00D8C850 /* SKKMessenger.h */,
@@ -3981,6 +3984,7 @@
 				1344F5DB2C5B28FC00D8C850 /* SKKEntryRemoveEditor.cpp in Sources */,
 				1344F5DC2C5B28FC00D8C850 /* SKKRegisterEditor.cpp in Sources */,
 				134D25642D7A03870014ACD5 /* SKKRegisterEditor.swift in Sources */,
+				138FB7062D7B491400542DF7 /* SKKFrontEnd.cpp in Sources */,
 				1344F5E22C5B28FC00D8C850 /* SKKRecursiveEditor.cpp in Sources */,
 				1344F5E42C5B28FC00D8C850 /* SKKComposingEditor.cpp in Sources */,
 				1344F5EC2C5B28FC00D8C850 /* SKKOkuriEditor.cpp in Sources */,

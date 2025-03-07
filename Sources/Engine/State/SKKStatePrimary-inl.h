@@ -47,10 +47,10 @@ State SKKState::Primary(const Event &event) {
     case SKK_UNDO:
         // Undo 可能なら見出し語入力に遷移する
         switch(context_->undo.Undo()) {
-        case SKKUndoContext::UndoKanaEntry:
+        case SKKUndoResult::UndoKanaEntry:
             return State::Transition(&SKKState::KanaEntry);
 
-        case SKKUndoContext::UndoAsciiEntry:
+        case SKKUndoResult::UndoAsciiEntry:
             return State::Transition(&SKKState::AsciiEntry);
 
         default:

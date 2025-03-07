@@ -24,9 +24,11 @@
 #define SKKFrontEnd_h
 
 #include <string>
+#include <swift/bridging>
+#import <AquaSKKEngine/IntrusiveRefCounted.h>
 
 // クライアントインタフェース
-class SKKFrontEnd {
+class SKKFrontEnd : public IntrusiveRefCounted<SKKFrontEnd> {
 public:
     virtual ~SKKFrontEnd() {}
 
@@ -42,6 +44,9 @@ public:
 
     // 選択中の文字列
     virtual std::string SelectedString() = 0;
-};
+} SWIFT_SHARED_REFERENCE(retainSKKFrontEnd, retainSKKFrontEnd);
+
+void retainSKKFrontEnd(SKKFrontEnd *obj);
+void releaseSKKFrontEnd(SKKFrontEnd *obj);
 
 #endif

@@ -28,7 +28,7 @@
 SKKUndoContext::SKKUndoContext(SKKFrontEnd *frontend)
     : frontend_(frontend) {}
 
-SKKUndoContext::UndoResult SKKUndoContext::Undo() {
+SKKUndoResult SKKUndoContext::Undo() {
     candidate_ = frontend_->SelectedString();
 
     // 逆引き
@@ -36,15 +36,15 @@ SKKUndoContext::UndoResult SKKUndoContext::Undo() {
 
     if(entry_.empty()) {
         candidate_.clear();
-        return UndoFailed;
+        return SKKUndoResult::UndoFailed;
     }
 
     // 表示不可能な文字が含まれるか？
     if(std::find_if(entry_.begin(), entry_.end(), std::not_fn(std::function<int(int)>(isprint))) != entry_.end()) {
-        return UndoKanaEntry;
+        return SKKUndoResult::UndoKanaEntry;
     }
 
-    return UndoAsciiEntry;
+    return SKKUndoResult::UndoAsciiEntry;
 }
 
 bool SKKUndoContext::IsActive() const {
