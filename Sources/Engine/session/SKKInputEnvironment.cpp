@@ -20,6 +20,7 @@
 
 */
 
+#import <AquaSKKEngine/SKKClipboard.h>
 #import <AquaSKKEngine/SKKInputEnvironment.h>
 
 SKKInputEnvironment::SKKInputEnvironment(
@@ -29,6 +30,10 @@ SKKInputEnvironment::SKKInputEnvironment(
 
 SKKConfig *SKKInputEnvironment::Config() {
     return param_->Config();
+}
+
+std::string SKKInputEnvironment::PasteString() {
+    return param_->Clipboard()->PasteString();
 }
 
 SKKInputContext *SKKInputEnvironment::InputContext() {

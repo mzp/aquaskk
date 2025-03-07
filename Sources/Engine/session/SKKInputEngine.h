@@ -25,6 +25,7 @@
 
 #include <vector>
 #import <AquaSKKBackend/SKKInputMode.h>
+#import <AquaSKKBackend/SwiftObject.h>
 #import <AquaSKKEngine/SKKCandidateEditor.h>
 #import <AquaSKKEngine/SKKCompleter.h>
 #import <AquaSKKEngine/SKKComposingEditor.h>
@@ -34,42 +35,48 @@
 #import <AquaSKKEngine/SKKOkuriEditor.h>
 #import <AquaSKKEngine/SKKSelector.h>
 
+namespace AquaSKKEngine {
+    class SKKInputEngineImpl;
+}
+
 class SKKInputEngine : public SKKInputQueueObserver,
                        public SKKCompleterBuddy,
                        public SKKSelectorBuddy,
                        public SKKOkuriListener {
-    class Synchronizer;
-    friend class Synchronizer;
 
-    SKKInputEnvironment *env_;
-    SKKInputSessionParameter *param_;
-    SKKInputContext *context_;
-    SKKConfig *config_;
-    std::vector<SKKBaseEditor *> stack_;
+    //    class Synchronizer;
+    //    friend class Synchronizer;
+    SwiftObject<AquaSKKEngine::SKKInputEngineImpl> *impl_;
+    /*
+        SKKInputEnvironment *env_;
+        SKKInputSessionParameter *param_;
+        SKKInputContext *context_;
+        SKKConfig *config_;
+        std::vector<SKKBaseEditor *> stack_;
 
-    SKKInputQueue inputQueue_;
-    SKKInputQueueObserverState inputState_;
+        SKKInputQueue inputQueue_;
+        SKKInputQueueObserverState inputState_;
 
-    std::string word_;
+        std::string word_;
 
-    SKKComposingEditor composingEditor_;
-    SKKOkuriEditor okuriEditor_;
-    SKKCandidateEditor candidateEditor_;
-    SKKEntryRemoveEditor entryRemoveEditor_;
+        SKKComposingEditor composingEditor_;
+        SKKOkuriEditor okuriEditor_;
+        SKKCandidateEditor candidateEditor_;
+        SKKEntryRemoveEditor entryRemoveEditor_;
 
-    SKKInputEngine();
-    SKKInputEngine(const SKKInputEngine &);
-    SKKInputEngine &operator=(const SKKInputEngine &);
+        SKKInputEngine();
+        SKKInputEngine(const SKKInputEngine &);
+        SKKInputEngine &operator=(const SKKInputEngine &);
 
-    SKKBaseEditor *top() const;
-    SKKInputMode inputMode() const;
-    void initialize();
-    void push(SKKBaseEditor *editor);
-    void invoke(SKKBaseEditorEvent event);
-    void terminate();
-    void study(const SKKEntry &entry, const SKKCandidate &candidate);
-    void insert(const std::string &str);
-
+        SKKBaseEditor *top() const;
+        SKKInputMode inputMode() const;
+        void initialize();
+        void push(SKKBaseEditor *editor);
+        void invoke(SKKBaseEditorEvent event);
+        void terminate();
+        void study(const SKKEntry &entry, const SKKCandidate &candidate);
+        void insert(const std::string &str);
+    */
     // ローマ字かな変換通知
     virtual void SKKInputQueueUpdate(const SKKInputQueueObserverState &state);
 

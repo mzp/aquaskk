@@ -15,6 +15,7 @@
 #import <AquaSKKEngine/SKKCandidateWindowBridge.h>
 #import <AquaSKKEngine/SKKCompleter.h>
 #import <AquaSKKEngine/SKKInputContext.h>
+#import <AquaSKKEngine/SKKInputEnvironment.h>
 #import <AquaSKKEngine/SKKInputQueueObserver.h>
 #import <AquaSKKEngine/SKKOkuriListener.h>
 #import <AquaSKKEngine/SKKSelectorBuddy.h>

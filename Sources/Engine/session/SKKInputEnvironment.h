@@ -24,6 +24,7 @@
 #define SKKInputEnvironment_h
 
 #include <memory>
+#include <string>
 #include <swift/bridging>
 #import <AquaSKKEngine/IntrusiveRefCounted.h>
 #import <AquaSKKEngine/SKKBaseEditor.h>
@@ -47,6 +48,8 @@ public:
     SKKInputSessionParameter *InputSessionParameter();
     SKKInputModeSelector *InputModeSelector();
     SKKBaseEditor *BaseEditor();
+
+    std::string PasteString();
 } SWIFT_SHARED_REFERENCE(retainSKKInputEnvironment, releaseSKKInputEnvironment);
 
 void retainSKKInputEnvironment(SKKInputEnvironment *obj);

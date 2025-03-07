@@ -19,7 +19,7 @@ public class SKKInputEngineImpl {
     private let entryRemoveEditor: SKKEntryRemoveEditorImpl
     private var inputState: SKKInputQueueObserverState
 
-    init(env: SKKInputEnvironment, inputQueue: SKKInputQueueImpl, okuriEditor: SKKOkuriEditorImpl) {
+    public init(env: SKKInputEnvironment, inputQueue: SKKInputQueueImpl, okuriEditor: SKKOkuriEditorImpl) {
         self.env = env
         stack = []
         composingEditor = .init(context: env.InputContext())
@@ -151,7 +151,7 @@ public class SKKInputEngineImpl {
     }
 
     public func handlePaste() {
-        // top()->Input(param_->Clipboard()->PasteString());
+        top?.input(ascii: String(env.PasteString()))
     }
 
     public func handlePing() {
@@ -310,6 +310,11 @@ public class SKKInputEngineImpl {
         let entry = context.entry.Normalize(inputMode)
         context.entry = entry
         return entry
+    }
+
+    public func bridgeSelectorQueryEntry() -> [String] {
+        let entry = selectorQueryEntry()
+        return [String(entry.EntryString()), String(entry.OkuriString())]
     }
 
     public func bridgeSelectorUpdate(candidate: String) {
