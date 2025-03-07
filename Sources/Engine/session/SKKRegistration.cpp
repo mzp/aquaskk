@@ -8,46 +8,47 @@
 #include "SKKRegistration.h"
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
+#import <AquaSKKBackend/SwiftObject.h>
+
+class SKKRegistrationContainer {
+public:
+    SwiftObject<AquaSKKEngine::SKKRegistrationImpl> *impl_;
+
+    SKKRegistrationContainer()
+    :impl_(new SwiftObject(AquaSKKEngine::SKKRegistrationImpl::init())){
+        {
+
+        }
+    }
+};
 
 SKKRegistration::SKKRegistration()
-:impl_(new SwiftObject(AquaSKKEngine::SKKRegistrationImpl::init())){
-
-}
-//    : state_(SKKRegistrationState::None) {}
+    :container_(new SKKRegistrationContainer())
+    {}
 
 void SKKRegistration::Start() {
-//    state_ = SKKRegistrationState::Started;
-    (*impl_)->start();
+    (*(container_->impl_))->start();
 }
 
 void SKKRegistration::Finish(const std::string &str) {
-//    state_ = SKKRegistrationState::Finished;
-//    word_ = str;
-    (*impl_)->finish(str);
+    (*(container_->impl_))->finish(str);
 }
 
 void SKKRegistration::Abort() {
-//    state_ = SKKRegistrationState::Aborted;
-//    word_.clear();
-    (*impl_)->abort();
+    (*(container_->impl_))->abort();
 }
 
 void SKKRegistration::Clear() {
-//    state_ = SKKRegistrationState::None;
-//    word_.clear();
-    (*impl_)->clear();
+    (*(container_->impl_))->clear();
 }
 
 const SKKRegistrationState SKKRegistration::getState() const {
-//    return state_;
-    (*impl_)->getState();
+    return (*(container_->impl_))->bridgedState();
 }
 const std::string SKKRegistration::getWord() const SWIFT_COMPUTED_PROPERTY {
-//    return word_;
-    (*impl_)->getWord();
+    return (*(container_->impl_))->bridgedWord();
 }
 
-const std::string &SKKRegistration::Word() const {
-//    return word_;
-    (*impl_)->getWord();
+const std::string SKKRegistration::Word() const {
+    return (*(container_->impl_))->bridgedWord();
 }

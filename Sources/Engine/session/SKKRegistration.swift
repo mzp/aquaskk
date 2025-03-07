@@ -8,8 +8,8 @@
 import Foundation
 
 public struct SKKRegistrationImpl {
-    public private(set) var word: String
-    public private(set) var state: SKKRegistrationState
+    public var word: String
+    public var state: SKKRegistrationState
 
     public init() {
         word = ""
@@ -34,47 +34,14 @@ public struct SKKRegistrationImpl {
         state = .None
         word = ""
     }
+
+    // MARK: - Bridge
+
+    public func bridgedWord() -> String {
+        word
+    }
+
+    public func bridgedState() -> SKKRegistrationState {
+        state
+    }
 }
-/*public:
-    SKKRegistration()
-        : state_(SKKRegistrationState::None) {}
-
-    void Start() {
-        state_ = SKKRegistrationState::Started;
-    }
-
-    void Finish(const std::string &str) {
-        state_ = SKKRegistrationState::Finished;
-        word_ = str;
-    }
-
-    void Abort() {
-        state_ = SKKRegistrationState::Aborted;
-        word_.clear();
-    }
-
-    void Clear() {
-        state_ = SKKRegistrationState::None;
-        word_.clear();
-    }
-
-    operator SKKRegistrationState() const {
-        return state_;
-    }
-
-    const SKKRegistrationState getState() const SWIFT_COMPUTED_PROPERTY {
-        return state_;
-    }
-    const std::string getWord() const SWIFT_COMPUTED_PROPERTY {
-        return word_;
-    }
-
-    const std::string &Word() const {
-        return word_;
-    }
-
-private:
-    SKKRegistrationState state_;
-    std::string word_;
-};
-*/

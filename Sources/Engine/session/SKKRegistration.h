@@ -24,7 +24,7 @@
 #define SKKRegistration_h
 
 #include <string>
-#import <AquaSKKBackend/SwiftObject.h>
+#import <swift/bridging>
 
 enum class SKKRegistrationState {
     None,
@@ -32,12 +32,11 @@ enum class SKKRegistrationState {
     Finished,
     Aborted
 };
-namespace AquaSKKEngine {
-class SKKRegistrationImpl;
-}
+
+class SKKRegistrationContainer;
 
 class SKKRegistration {
-    SwiftObject<AquaSKKEngine::SKKRegistrationImpl> *impl_;
+    SKKRegistrationContainer *container_;
 public:
     SKKRegistration();
     void Start();
@@ -49,7 +48,7 @@ public:
     }
     const SKKRegistrationState getState() const SWIFT_COMPUTED_PROPERTY;
     const std::string getWord() const SWIFT_COMPUTED_PROPERTY;
-    const std::string &Word() const;
+    const std::string Word() const;
 private:
     SKKRegistrationState state_;
     std::string word_;
