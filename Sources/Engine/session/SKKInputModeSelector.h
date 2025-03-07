@@ -24,11 +24,11 @@
 #define SKKInputModeSelector_h
 
 #include <vector>
+#include <swift/bridging>
 #import <AquaSKKBackend/SKKInputMode.h>
+#import <AquaSKKEngine/IntrusiveRefCounted.h>
 #import <AquaSKKEngine/SKKInputModeListener.h>
 #import <AquaSKKEngine/SKKWidget.h>
-#import <AquaSKKEngine/IntrusiveRefCounted.h>
-#include <swift/bridging>
 
 class SKKInputModeSelector : public SKKWidget, public IntrusiveRefCounted<SKKInputModeSelector> {
     SKKInputModeListenerCollection *listeners_;
@@ -50,6 +50,5 @@ public:
 
 void retainSKKInputModeSelector(SKKInputModeSelector *obj);
 void releaseSKKInputModeSelector(SKKInputModeSelector *obj);
-
 
 #endif

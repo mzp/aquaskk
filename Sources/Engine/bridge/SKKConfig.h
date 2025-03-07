@@ -23,10 +23,10 @@
 #ifndef SKKConfig_h
 #define SKKConfig_h
 
-#import <AquaSKKEngine/IntrusiveRefCounted.h>
 #include <swift/bridging>
+#import <AquaSKKEngine/IntrusiveRefCounted.h>
 
-class SKKConfig: public IntrusiveRefCounted<SKKConfig> {
+class SKKConfig : public IntrusiveRefCounted<SKKConfig> {
 public:
     virtual ~SKKConfig() {}
 

@@ -25,13 +25,13 @@
 
 #include <memory>
 #include <swift/bridging>
+#import <AquaSKKEngine/IntrusiveRefCounted.h>
 #import <AquaSKKEngine/SKKBaseEditor.h>
 #import <AquaSKKEngine/SKKInputContext.h>
 #import <AquaSKKEngine/SKKInputModeSelector.h>
 #import <AquaSKKEngine/SKKInputSessionParameter.h>
-#import <AquaSKKEngine/IntrusiveRefCounted.h>
 
-class SKKInputEnvironment: public IntrusiveRefCounted<SKKInputEnvironment> {
+class SKKInputEnvironment : public IntrusiveRefCounted<SKKInputEnvironment> {
     SKKInputContext *context_;
     SKKInputSessionParameter *param_;
     SKKInputModeSelector selector_;

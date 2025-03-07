@@ -10,6 +10,7 @@ public class SKKInputEngineImpl {
     private var context: SKKInputContext {
         env.InputContext()
     }
+
     private let inputQueue: SKKInputQueueImpl
     private let composingEditor: SKKComposingEditorImpl
     private var word: String
@@ -32,6 +33,7 @@ public class SKKInputEngineImpl {
     }
 
     // MARK: - 入力モード
+
     public func selectInputMode(inputMode: SKKInputMode) {
         env.InputModeSelector().Select(inputMode)
         inputQueue.selectInputMode(inputMode: inputMode)
@@ -39,20 +41,22 @@ public class SKKInputEngineImpl {
     }
 
     // MARK: - 状態変更
+
     private var stack: [SKKEditorProtocol]
 
     private var top: SKKEditorProtocol? {
         stack.last
     }
+
     private func push(editor: SKKEditorProtocol) {
         stack.append(editor)
     }
 
-    public func setStatePrimary(){
+    public func setStatePrimary() {
         run {}
     }
 
-    public func setStateComposing(){
+    public func setStateComposing() {
         run {
             push(editor: composingEditor)
             var entry = context.entry
@@ -63,24 +67,26 @@ public class SKKInputEngineImpl {
         }
     }
 
-    public func setStateOkuri(){
+    public func setStateOkuri() {
         run {
             push(editor: composingEditor)
-            push(editor: okuriEditor);
+            push(editor: okuriEditor)
         }
     }
-    
-    public func setStateSelectCandidate(){
+
+    public func setStateSelectCandidate() {
         run {
             push(editor: candidateEditor)
         }
     }
-    public func setStateEntryRemove(){
+
+    public func setStateEntryRemove() {
         run {
             push(editor: entryRemoveEditor)
         }
     }
-    public func setStateRegistration(){
+
+    public func setStateRegistration() {
         updateInputContext()
         context.registration.Start()
     }
@@ -111,40 +117,49 @@ public class SKKInputEngineImpl {
     }
 
     // MARK: - 入力
+
     public func handleChar(code: Int, direct: Bool) {
         inputQueue.addChar(character: code, direct: direct)
     }
-    public func handleBackSpace(){
+
+    public func handleBackSpace() {
         if inputQueue.isEmpty {
             invoke(event: SKKBaseEditorEventBackSpace)
         } else {
             inputQueue.removeChar()
         }
     }
-    public func handleDelete(){
+
+    public func handleDelete() {
         invoke(event: SKKBaseEditorEventDelete)
     }
-    public func handleCursorLeft(){
+
+    public func handleCursorLeft() {
         invoke(event: SKKBaseEditorEventCursorLeft)
     }
-    public func handleCursorRight(){
+
+    public func handleCursorRight() {
         invoke(event: SKKBaseEditorEventCursorRight)
     }
-    public func handleCursorUp(){
+
+    public func handleCursorUp() {
         invoke(event: SKKBaseEditorEventCursorUp)
     }
-    public func handleCursorDown(){
+
+    public func handleCursorDown() {
         invoke(event: SKKBaseEditorEventCursorDown)
     }
-    public func handlePaste(){
+
+    public func handlePaste() {
         // top()->Input(param_->Clipboard()->PasteString());
     }
-    public func handlePing(){
+
+    public func handlePing() {
         var inputModeSelector = env.InputModeSelector()
         inputModeSelector?.Show()
     }
 
-    public func handleEnter(){
+    public func handleEnter() {
         commit()
         let candidate = SKKCandidate(std.string(word), false)
         study(entry: context.entry, candidate: candidate)
@@ -155,9 +170,9 @@ public class SKKInputEngineImpl {
             context.registration.Finish(std.string(output))
         }
         context.event_handled = false
-
     }
-    public func handleCancel(){
+
+    public func handleCancel() {
         if !inputQueue.isEmpty {
             terminate()
             return
@@ -184,7 +199,8 @@ public class SKKInputEngineImpl {
     }
 
     // MARK: - 確定
-    public func commit(){
+
+    public func commit() {
         terminate()
         word.removeAll()
 
@@ -195,15 +211,18 @@ public class SKKInputEngineImpl {
     }
 
     // MARK: - リセット
+
     public func reset() {
         terminate()
         context.event_handled = false
     }
 
     // MARK: - トグル変換
+
     var inputMode: SKKInputMode? {
         env.InputModeSelector()?.inputMode
     }
+
     public func toggleKana() {
         let entry = context.entry
         study(entry: entry, candidate: .init())
@@ -249,37 +268,40 @@ public class SKKInputEngineImpl {
 
         // 非確定文字があれば挿入(ex. "ky" など)
         if env.Config().DisplayShortestMatchOfKanaConversions(), !inputState.intermediate.empty() {
-            context.output.Compose(inputState.intermediate)
+            context.output.Compose(inputState.intermediate, 0)
         } else {
-            context.output.Compose(inputState.queue)
+            context.output.Compose(inputState.queue, 0)
         }
         env.InputModeSelector().Notify()
     }
 
-    // ローマ字かな変換が発生するか？
+    /// ローマ字かな変換が発生するか？
     public func canConvert(code: Int) -> Bool {
         return inputQueue.canConvert(code: code)
     }
 
-    // 送りが完成したか？
+    /// 送りが完成したか？
     public var isOkuriComplete: Bool {
         return okuriEditor.isOkuriComplete()
     }
 
     public func inputQueueUpdate(state: SKKInputQueueObserverState) {
-        self.inputState = state
+        inputState = state
         if inputMode == .AsciiInputMode {
             top?.input(ascii: String(state.fixed))
         } else {
             top?.input(fixed: String(state.fixed), input: String(state.queue), code: Int(state.code))
         }
     }
+
     public func completerQueryString() -> String {
         return String(selectorQueryEntry().EntryString())
     }
+
     public func completerUpdate(entry: String) {
         composingEditor.setEntry(entry: entry)
     }
+
     func selectorQueryEntry() -> SKKEntry {
         terminate()
         guard let inputMode = inputMode else {
@@ -289,14 +311,16 @@ public class SKKInputEngineImpl {
         context.entry = entry
         return entry
     }
-/*    public func bridgeSelectorUpdate(candidate: String) {
+
+    public func bridgeSelectorUpdate(candidate: String) {
         selectorUpdate(candidate: SKKCandidate(std.string(candidate), true))
-    }*/
+    }
+
     func selectorUpdate(candidate: SKKCandidate) {
         candidateEditor.setCandidate(candidate: candidate)
     }
+
     public func okkuriListenerAppendEntry(fixed: String) {
         composingEditor.input(fixed: fixed, input: "", code: 0)
     }
 }
-

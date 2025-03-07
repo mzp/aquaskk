@@ -81,4 +81,3 @@ void retainSKKInputModeSelector(SKKInputModeSelector *obj) {
 void releaseSKKInputModeSelector(SKKInputModeSelector *obj) {
     obj->release();
 }
-

@@ -24,10 +24,8 @@ struct SKKInputQueueObserverState {
     char code;
 };
 
-
 class SKKInputQueueObserver : public IntrusiveRefCounted<SKKInputQueueObserver> {
 public:
-
     virtual ~SKKInputQueueObserver() {}
 
     virtual void SKKInputQueueUpdate(const SKKInputQueueObserverState &state) {}
