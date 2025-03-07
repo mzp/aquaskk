@@ -50,6 +50,8 @@ public:
     SKKBaseEditor *BaseEditor();
 
     std::string PasteString();
+
+    bool IsPrimaryEditor() const;
 } SWIFT_SHARED_REFERENCE(retainSKKInputEnvironment, releaseSKKInputEnvironment);
 
 void retainSKKInputEnvironment(SKKInputEnvironment *obj);

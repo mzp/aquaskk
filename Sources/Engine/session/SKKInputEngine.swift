@@ -11,17 +11,11 @@ public class SKKInputEngineImpl {
         env.InputContext()
     }
 
-    private let inputQueue: SKKInputQueueImpl
-    private let composingEditor: SKKComposingEditorImpl
-    private var word: String
-    private let okuriEditor: SKKOkuriEditorImpl
-    private let candidateEditor: SKKCandidateEditorImpl
-    private let entryRemoveEditor: SKKEntryRemoveEditorImpl
-    private var inputState: SKKInputQueueObserverState
-
     public init(env: SKKInputEnvironment, inputQueue: SKKInputQueueImpl, okuriEditor: SKKOkuriEditorImpl) {
         self.env = env
         stack = []
+        primaryEditor = .init(context: env.InputContext())
+        registerEditor = .init(context: env.InputContext())
         composingEditor = .init(context: env.InputContext())
         candidateEditor = .init(context: env.InputContext())
         self.okuriEditor = okuriEditor
@@ -47,6 +41,14 @@ public class SKKInputEngineImpl {
     }
 
     // MARK: - 状態変更
+
+    private let candidateEditor: SKKCandidateEditorImpl
+    private let composingEditor: SKKComposingEditorImpl
+    private let entryRemoveEditor: SKKEntryRemoveEditorImpl
+    private let okuriEditor: SKKOkuriEditorImpl
+    private let primaryEditor: SKKPrimaryEditorImpl
+    private let registerEditor: SKKRegisterEditorImpl
+    private var inputState: SKKInputQueueObserverState
 
     private var stack: [SKKEditorProtocol]
 
@@ -103,14 +105,18 @@ public class SKKInputEngineImpl {
 
         // 初期化
         stack.removeAll()
-        // stack_.push_back(env_->BaseEditor());
 
+        if env.IsPrimaryEditor() {
+            push(editor: primaryEditor)
+        } else {
+            push(editor: registerEditor)
+        }
         context.dynamic_completion = true
         context.annotation = false
 
         if context.registration.state == SKKRegistrationAborted {
             context.registration.Clear()
-            // env_->InputModeSelector()->Refresh();
+            env.InputModeSelector().Refresh()
         }
 
         perform()
@@ -123,6 +129,9 @@ public class SKKInputEngineImpl {
     }
 
     // MARK: - 入力
+
+    private let inputQueue: SKKInputQueueImpl
+    private var word: String
 
     public func handleChar(code: Int, direct: Bool) {
         inputQueue.addChar(character: code, direct: direct)

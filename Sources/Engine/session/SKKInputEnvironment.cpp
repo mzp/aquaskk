@@ -52,6 +52,10 @@ SKKBaseEditor *SKKInputEnvironment::BaseEditor() {
     return bottom_.get();
 }
 
+bool SKKInputEnvironment::IsPrimaryEditor() const {
+    return bottom_->IsPrimaryEditor();
+}
+
 void retainSKKInputEnvironment(SKKInputEnvironment *obj) {
     obj->retain();
 }
