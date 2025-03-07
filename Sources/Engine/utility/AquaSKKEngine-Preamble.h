@@ -9,8 +9,9 @@
 #define AquaSKKEngine_Preamble_h
 
 namespace AquaSKKEngine {
-    class SKKInputqueueImpl;
-}
+    class SKKInputQueueImpl;
+    class SKKOkuriEditorImpl;
+} // namespace AquaSKKEngine
 
 #import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKBackend/SKKEntry.h>
