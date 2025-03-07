@@ -12,19 +12,25 @@
 #include <swift/bridging>
 #import <AquaSKKEngine/IntrusiveRefCounted.h>
 
+/// 入力状態
+struct SKKInputQueueObserverState {
+    /// 確定した文字
+    std::string fixed;
+    /// 最小マッチした文字
+    std::string intermediate;
+    /// 入力バッファ
+    std::string queue;
+    /// 入力文字
+    char code;
+};
+
+
 class SKKInputQueueObserver : public IntrusiveRefCounted<SKKInputQueueObserver> {
 public:
-    // 入力状態
-    struct State {
-        std::string fixed;        // 確定した文字
-        std::string intermediate; // 最小マッチした文字
-        std::string queue;        // 入力バッファ
-        char code;                // 入力文字
-    };
 
     virtual ~SKKInputQueueObserver() {}
 
-    virtual void SKKInputQueueUpdate(const State &state) {}
+    virtual void SKKInputQueueUpdate(const SKKInputQueueObserverState &state) {}
 } SWIFT_SHARED_REFERENCE(retainSKKInputQueueObserver, releaseSKKInputQueueObserver);
 
 void retainSKKInputQueueObserver(SKKInputQueueObserver *obj);

@@ -29,7 +29,7 @@ public class SKKPrimaryEditorImpl: SKKEditorProtocol {
         context.event_handled = false
     }
 
-    public func input(fixed: String, input _: String, code _: CChar) {
+    public func input(fixed: String, input _: String, code _: Int) {
         context.output.Fix(std.string(fixed))
     }
 

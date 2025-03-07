@@ -23,7 +23,10 @@
 #ifndef SKKConfig_h
 #define SKKConfig_h
 
-class SKKConfig {
+#import <AquaSKKEngine/IntrusiveRefCounted.h>
+#include <swift/bridging>
+
+class SKKConfig: public IntrusiveRefCounted<SKKConfig> {
 public:
     virtual ~SKKConfig() {}
 
@@ -56,6 +59,9 @@ public:
 
     // 送りキャンセル時に送り仮名を削除(skk-delete-okuri-when-quit)
     virtual bool DeleteOkuriWhenQuit() = 0;
-};
+} SWIFT_SHARED_REFERENCE(retainSKKConfig, releaseSKKConfig);
+
+void retainSKKConfig(SKKConfig *obj);
+void releaseSKKConfig(SKKConfig *obj);
 
 #endif

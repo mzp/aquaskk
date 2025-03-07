@@ -53,6 +53,8 @@
 		132692262D7A34E000043CDC /* SKKCompleter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132692252D7A34E000043CDC /* SKKCompleter.swift */; };
 		132692292D7A486800043CDC /* SKKCompleterBuddy.h in Headers */ = {isa = PBXBuildFile; fileRef = 132692272D7A486800043CDC /* SKKCompleterBuddy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1326922A2D7A486800043CDC /* SKKCompleterBuddy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 132692282D7A486800043CDC /* SKKCompleterBuddy.cpp */; };
+		1326922C2D7A9A9B00043CDC /* SKKInputEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1326922B2D7A9A9B00043CDC /* SKKInputEngine.swift */; };
+		1326922E2D7AA66E00043CDC /* SKKConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1326922D2D7AA66E00043CDC /* SKKConfig.cpp */; };
 		132CBC032D5F95B200E4D875 /* AquaSKKLogging.docc in Sources */ = {isa = PBXBuildFile; fileRef = 132CBC002D5F95B200E4D875 /* AquaSKKLogging.docc */; };
 		132CBC072D5F966500E4D875 /* Logger+AquaSKK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132CBC062D5F966500E4D875 /* Logger+AquaSKK.swift */; };
 		132F4D312D6C07270081022E /* IntrusiveRefCounted.h in Headers */ = {isa = PBXBuildFile; fileRef = 13096C842C8C2D24009F3E6B /* IntrusiveRefCounted.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -641,6 +643,8 @@
 		132692252D7A34E000043CDC /* SKKCompleter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKCompleter.swift; sourceTree = "<group>"; };
 		132692272D7A486800043CDC /* SKKCompleterBuddy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKCompleterBuddy.h; sourceTree = "<group>"; };
 		132692282D7A486800043CDC /* SKKCompleterBuddy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKCompleterBuddy.cpp; sourceTree = "<group>"; };
+		1326922B2D7A9A9B00043CDC /* SKKInputEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKInputEngine.swift; sourceTree = "<group>"; };
+		1326922D2D7AA66E00043CDC /* SKKConfig.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKConfig.cpp; sourceTree = "<group>"; };
 		132B77782C5DB89E00EEC2A5 /* pthreadutil_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = pthreadutil_TEST.mm; sourceTree = "<group>"; };
 		132CBBF62D5F95A700E4D875 /* AquaSKKLogging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AquaSKKLogging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		132CBC002D5F95B200E4D875 /* AquaSKKLogging.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKLogging.docc; sourceTree = "<group>"; };
@@ -1658,6 +1662,7 @@
 				1390FCF42D75575200059E87 /* SKKCandidateWindow.swift */,
 				1344F49E2C5B28FC00D8C850 /* SKKClipboard.h */,
 				1344F49F2C5B28FC00D8C850 /* SKKConfig.h */,
+				1326922D2D7AA66E00043CDC /* SKKConfig.cpp */,
 				1344F4A02C5B28FC00D8C850 /* SKKDynamicCompletor.h */,
 				1344F4A12C5B28FC00D8C850 /* SKKFrontEnd.h */,
 				1344F4A22C5B28FC00D8C850 /* SKKInputModeListener.h */,
@@ -1788,6 +1793,7 @@
 				139FE4462D7768840015DFCA /* SKKInputContext.cpp */,
 				1344F4D32C5B28FC00D8C850 /* SKKInputEngine.h */,
 				1344F4D42C5B28FC00D8C850 /* SKKInputEngine.cpp */,
+				1326922B2D7A9A9B00043CDC /* SKKInputEngine.swift */,
 				1344F4F72C5B28FC00D8C850 /* SKKInputEnvironment.h */,
 				1344F4F82C5B28FC00D8C850 /* SKKInputEnvironment.cpp */,
 				1344F4FA2C5B28FC00D8C850 /* SKKInputModeSelector.h */,
@@ -3962,6 +3968,7 @@
 				1390FCF52D75575200059E87 /* SKKCandidateWindow.swift in Sources */,
 				135FB6E12C69AA7E00A6480A /* Trie.swift in Sources */,
 				1344F5CF2C5B28FC00D8C850 /* SKKInputEnvironment.cpp in Sources */,
+				1326922C2D7A9A9B00043CDC /* SKKInputEngine.swift in Sources */,
 				1344F5D12C5B28FC00D8C850 /* SKKPrimaryEditor.cpp in Sources */,
 				1344F5D22C5B28FC00D8C850 /* SKKRomanKanaConverter.mm in Sources */,
 				1326922A2D7A486800043CDC /* SKKCompleterBuddy.cpp in Sources */,
@@ -3986,6 +3993,7 @@
 				1344F5FC2C5B28FC00D8C850 /* SKKTextBuffer.cpp in Sources */,
 				1344F5FF2C5B28FC00D8C850 /* SKKInputEngine.cpp in Sources */,
 				139E88B72D73F2FA0065CFA2 /* SKKInlineSelector.swift in Sources */,
+				1326922E2D7AA66E00043CDC /* SKKConfig.cpp in Sources */,
 				1344F6022C5B28FC00D8C850 /* SKKSelector.mm in Sources */,
 				139E88C32D741CDE0065CFA2 /* SKKSelector.swift in Sources */,
 				1344F6062C5B28FC00D8C850 /* SKKState.cpp in Sources */,

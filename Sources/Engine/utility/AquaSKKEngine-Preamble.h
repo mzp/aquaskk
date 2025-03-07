@@ -9,6 +9,7 @@
 #define AquaSKKEngine_Preamble_h
 
 #import <AquaSKKBackend/SKKCandidate.h>
+#import <AquaSKKBackend/SKKEntry.h>
 #import <AquaSKKEngine/SKKBaseEditor.h>
 #import <AquaSKKEngine/SKKCandidateWindow.h>
 #import <AquaSKKEngine/SKKCandidateWindowBridge.h>

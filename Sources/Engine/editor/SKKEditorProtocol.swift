@@ -26,7 +26,7 @@ public protocol SKKEditorProtocol {
     /// @param fixed 確定文字列
     /// @param input 入力文字列
     /// @param code 入力文字
-    func input(fixed: String, input: String, code: CChar)
+    func input(fixed: String, input: String, code: Int)
 
     /// 入力処理
     /// @param event イベント

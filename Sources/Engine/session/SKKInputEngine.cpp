@@ -306,7 +306,7 @@ void SKKInputEngine::insert(const std::string &str) {
 
 // ----------------------------------------------------------------------
 
-void SKKInputEngine::SKKInputQueueUpdate(const SKKInputQueueObserver::State &state) {
+void SKKInputEngine::SKKInputQueueUpdate(const SKKInputQueueObserverState &state) {
     inputState_ = state;
 
     if(inputMode() == SKKInputMode::AsciiInputMode) {

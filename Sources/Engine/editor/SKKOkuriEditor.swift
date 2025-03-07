@@ -37,7 +37,7 @@ public class SKKOkuriEditorImpl: SKKEditorProtocol {
 
     public func input(ascii _: String) {}
 
-    public func input(fixed: String, input: String, code: CChar) {
+    public func input(fixed: String, input: String, code: Int) {
         self.input = input
         if first {
             first = false

@@ -48,7 +48,7 @@ class SKKInputEngine : public SKKInputQueueObserver,
     std::vector<SKKBaseEditor *> stack_;
 
     SKKInputQueue inputQueue_;
-    SKKInputQueueObserver::State inputState_;
+    SKKInputQueueObserverState inputState_;
 
     std::string word_;
 
@@ -71,7 +71,7 @@ class SKKInputEngine : public SKKInputQueueObserver,
     void insert(const std::string &str);
 
     // ローマ字かな変換通知
-    virtual void SKKInputQueueUpdate(const SKKInputQueueObserver::State &state);
+    virtual void SKKInputQueueUpdate(const SKKInputQueueObserverState &state);
 
     // 見出し語の取得
     virtual const std::string SKKCompleterQueryString();

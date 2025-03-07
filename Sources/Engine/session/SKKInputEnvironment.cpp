@@ -46,3 +46,11 @@ SKKInputModeSelector *SKKInputEnvironment::InputModeSelector() {
 SKKBaseEditor *SKKInputEnvironment::BaseEditor() {
     return bottom_.get();
 }
+
+void retainSKKInputEnvironment(SKKInputEnvironment *obj) {
+    obj->retain();
+}
+
+void releaseSKKInputEnvironment(SKKInputEnvironment *obj) {
+    obj->release();
+}
