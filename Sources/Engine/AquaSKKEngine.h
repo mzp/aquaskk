@@ -69,6 +69,6 @@ FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 
 #pragma mark - utility
 
-#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/IntrusiveRefCounted.h>
 #import <AquaSKKEngine/utf8util.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>

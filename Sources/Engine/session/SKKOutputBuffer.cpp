@@ -21,55 +21,48 @@
 */
 
 #import <AquaSKKEngine/SKKOutputBuffer.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 #include "SKKFrontEnd.h"
-#include "utf8util.h"
+
+struct SKKOutputBufferContainer {
+    SwiftObject<AquaSKKEngine::SKKOutputBufferImpl> *impl_;
+
+    SKKOutputBufferContainer(SKKFrontEnd *frontend)
+        : impl_(new SwiftObject(AquaSKKEngine::SKKOutputBufferImpl::init(frontend))) {}
+};
 
 SKKOutputBuffer::SKKOutputBuffer(SKKFrontEnd *frontend)
-    : frontend_(frontend) {}
+    : container_(new SKKOutputBufferContainer(frontend)) {}
 
 void SKKOutputBuffer::Fix(const std::string &str) {
-    frontend_->InsertString(str);
+    (*(container_->impl_))->fix(str);
 }
 
 void SKKOutputBuffer::Compose(const std::string &str, int cursor) {
-    utf8::push(composing_, str, cursor_);
-    cursor_ += cursor;
+    (*(container_->impl_))->compose(str, cursor);
 }
 
 void SKKOutputBuffer::Convert(const std::string &str) {
-    start_ = utf8::length(utf8::left(composing_, cursor_));
-    length_ = utf8::length(str);
-
-    Compose(str);
+    (*(container_->impl_))->convert(str);
 }
 
 void SKKOutputBuffer::SetMark() {
-    mark_ = utf8::length(composing_) + cursor_;
+    (*(container_->impl_))->setMark();
 }
 
 int SKKOutputBuffer::GetMark() const {
-    return mark_;
+    return static_cast<int>((*(container_->impl_))->getMark());
 }
 
 void SKKOutputBuffer::Clear() {
-    composing_.clear();
-    cursor_ = mark_ = start_ = length_ = 0;
+    (*(container_->impl_))->clear();
 }
 
 void SKKOutputBuffer::Output() {
-    if(composing_ == last_ && composing_.empty()) {
-        return;
-    }
-
-    if(length_) {
-        frontend_->ComposeString(composing_, start_, length_);
-    } else {
-        frontend_->ComposeString(composing_, cursor_);
-    }
-
-    last_ = composing_;
+    (*(container_->impl_))->output();
 }
 
 bool SKKOutputBuffer::IsComposing() const {
-    return !composing_.empty();
+    return (*(container_->impl_))->isComposing();
 }

@@ -21,9 +21,9 @@
 */
 
 #import <AquaSKKBackend/SKKBackEnd.h>
-#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/SKKCandidateEditor.h>
 #import <AquaSKKEngine/SKKInputContext.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKCandidateEditor::SKKCandidateEditor(SKKInputContext *context)

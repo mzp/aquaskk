@@ -21,11 +21,11 @@
 */
 
 #import <InputMethodKit/InputMethodKit.h>
-#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/SKKEvent.h>
 #import <AquaSKKInput/MacInputModeWindow.h>
 #import <AquaSKKInput/SKKLayoutManager.h>
 #import <AquaSKKService/SKKSupervisor.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 #import <AquaSKKUI/AquaSKKUI-Swift.h>

@@ -15,8 +15,10 @@ IncludeBlocks: Merge
 IncludeCategories:
   - Regex:           '<[[:alnum:]]+>'
     Priority:        1
+  - Regex:           '-Preamble.h>$'
+    Priority:        4
   - Regex:           '-Swift.h>$'
-    Priority:        4    
+    Priority:        5
   - Regex:           '<AquaSKK'
     Priority:        3
   - Regex:           '<([[:alnum:]]+)/'

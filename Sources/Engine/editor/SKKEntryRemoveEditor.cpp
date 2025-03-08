@@ -20,9 +20,9 @@
 
 */
 
-#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/SKKEntryRemoveEditor.h>
 #import <AquaSKKEngine/SKKInputContext.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKEntryRemoveEditor::SKKEntryRemoveEditor(SKKInputContext *context)

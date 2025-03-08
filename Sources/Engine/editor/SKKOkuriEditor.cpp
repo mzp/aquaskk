@@ -20,9 +20,9 @@
 
 */
 
-#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/SKKInputContext.h>
 #import <AquaSKKEngine/SKKOkuriEditor.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKOkuriEditor::SKKOkuriEditor(SKKInputContext *context, SKKOkuriListener *listener)

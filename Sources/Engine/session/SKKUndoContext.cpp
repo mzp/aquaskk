@@ -20,46 +20,41 @@
 
 */
 
-#include <functional>
-#import <AquaSKKBackend/SKKBackEnd.h>
+#import <AquaSKKBackend/SwiftObject.h>
 #import <AquaSKKEngine/SKKUndoContext.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 #include "SKKFrontEnd.h"
 
+struct SKKUndoContextContainer {
+    SwiftObject<AquaSKKEngine::SKKUndoContextImpl> *impl_;
+    SKKUndoContextContainer(SKKFrontEnd *frontend)
+        : impl_(new SwiftObject(AquaSKKEngine::SKKUndoContextImpl::init(frontend))) {
+        {
+        }
+    }
+};
+
 SKKUndoContext::SKKUndoContext(SKKFrontEnd *frontend)
-    : frontend_(frontend) {}
+    : container_(new SKKUndoContextContainer(frontend)) {}
 
-SKKUndoContext::UndoResult SKKUndoContext::Undo() {
-    candidate_ = frontend_->SelectedString();
-
-    // 逆引き
-    entry_ = SKKBackEnd::theInstance().ReverseLookup(candidate_);
-
-    if(entry_.empty()) {
-        candidate_.clear();
-        return UndoFailed;
-    }
-
-    // 表示不可能な文字が含まれるか？
-    if(std::find_if(entry_.begin(), entry_.end(), std::not_fn(std::function<int(int)>(isprint))) != entry_.end()) {
-        return UndoKanaEntry;
-    }
-
-    return UndoAsciiEntry;
+SKKUndoResult SKKUndoContext::Undo() {
+    int result = (*(container_->impl_))->bridgedUndo();
+    return SKKUndoResult(result);
 }
 
 bool SKKUndoContext::IsActive() const {
-    return !entry_.empty();
+    return (*(container_->impl_))->isActive();
 }
 
 void SKKUndoContext::Clear() {
-    entry_.clear();
-    candidate_.clear();
+    (*(container_->impl_))->clear();
 }
 
-const std::string &SKKUndoContext::Entry() const {
-    return entry_;
+const std::string SKKUndoContext::Entry() const {
+    return (*(container_->impl_))->bridgeEntry();
 }
 
-const std::string &SKKUndoContext::Candidate() const {
-    return candidate_;
+const std::string SKKUndoContext::Candidate() const {
+    return (*(container_->impl_))->bridgeCandidate();
 }

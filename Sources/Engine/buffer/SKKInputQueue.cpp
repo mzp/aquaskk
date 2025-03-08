@@ -20,8 +20,8 @@
 
 */
 
-#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/SKKInputQueue.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKInputQueue::SKKInputQueue(SKKInputQueueObserver *observer)

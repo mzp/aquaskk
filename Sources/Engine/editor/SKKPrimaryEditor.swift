@@ -17,7 +17,7 @@ public class SKKPrimaryEditorImpl: SKKEditorProtocol {
     public func readContext() {
         context.entry = SKKEntry()
         var registration = context.registration
-        if registration.state == SKKRegistrationFinished {
+        if registration.state == .Finished {
             context.output.Fix(registration.word)
             registration.Clear()
         }

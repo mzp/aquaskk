@@ -20,8 +20,8 @@
 
 */
 
-#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/SKKPrimaryEditor.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKPrimaryEditor::SKKPrimaryEditor(SKKInputContext *context)
