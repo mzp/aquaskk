@@ -41,7 +41,8 @@ void SKKRegistration::Clear() {
 }
 
 const SKKRegistrationState SKKRegistration::getState() const {
-    return (*(container_->impl_))->bridgedState();
+    int rawValue = (*(container_->impl_))->bridgedState();
+    return SKKRegistrationState(rawValue);
 }
 const std::string SKKRegistration::getWord() const SWIFT_COMPUTED_PROPERTY {
     return (*(container_->impl_))->bridgedWord();

@@ -41,7 +41,7 @@ public struct SKKRegistrationImpl {
         word
     }
 
-    public func bridgedState() -> SKKRegistrationState {
-        state
+    public func bridgedState() -> Int32 {
+        state.rawValue
     }
 }
