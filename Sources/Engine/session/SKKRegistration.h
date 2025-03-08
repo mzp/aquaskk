@@ -26,17 +26,13 @@
 #include <string>
 #import <swift/bridging>
 
-enum class SKKRegistrationState {
-    None,
-    Started,
-    Finished,
-    Aborted
-};
+enum class SKKRegistrationState { None, Started, Finished, Aborted };
 
 class SKKRegistrationContainer;
 
 class SKKRegistration {
     SKKRegistrationContainer *container_;
+
 public:
     SKKRegistration();
     void Start();
@@ -49,6 +45,7 @@ public:
     const SKKRegistrationState getState() const SWIFT_COMPUTED_PROPERTY;
     const std::string getWord() const SWIFT_COMPUTED_PROPERTY;
     const std::string Word() const;
+
 private:
     SKKRegistrationState state_;
     std::string word_;

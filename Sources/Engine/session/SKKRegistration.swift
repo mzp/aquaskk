@@ -16,11 +16,11 @@ public struct SKKRegistrationImpl {
         state = .None
     }
 
-    mutating public func start() {
+    public mutating func start() {
         state = .Started
     }
 
-    mutating public func finish(string: String) {
+    public mutating func finish(string: String) {
         state = .Finished
         word = string
     }
@@ -30,7 +30,7 @@ public struct SKKRegistrationImpl {
         word = ""
     }
 
-    public mutating func clear () {
+    public mutating func clear() {
         state = .None
         word = ""
     }

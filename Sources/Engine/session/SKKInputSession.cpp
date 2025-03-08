@@ -119,13 +119,13 @@ void SKKInputSession::beginEvent() {
 
 void SKKInputSession::endEvent() {
     switch(context_.registration) {
-        case SKKRegistrationState::Started:
+    case SKKRegistrationState::Started:
         context_.registration.Clear();
         stack_.push_back(createEditor(new SKKRegisterEditor(&context_)));
         break;
 
-        case SKKRegistrationState::Finished:
-        case SKKRegistrationState::Aborted:
+    case SKKRegistrationState::Finished:
+    case SKKRegistrationState::Aborted:
         if(stack_.size() != 1) {
             popEditor();
 

@@ -6,25 +6,23 @@
 //
 
 #include "SKKRegistration.h"
+#import <AquaSKKBackend/SwiftObject.h>
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
-#import <AquaSKKBackend/SwiftObject.h>
 
 class SKKRegistrationContainer {
 public:
     SwiftObject<AquaSKKEngine::SKKRegistrationImpl> *impl_;
 
     SKKRegistrationContainer()
-    :impl_(new SwiftObject(AquaSKKEngine::SKKRegistrationImpl::init())){
+        : impl_(new SwiftObject(AquaSKKEngine::SKKRegistrationImpl::init())) {
         {
-
         }
     }
 };
 
 SKKRegistration::SKKRegistration()
-    :container_(new SKKRegistrationContainer())
-    {}
+    : container_(new SKKRegistrationContainer()) {}
 
 void SKKRegistration::Start() {
     (*(container_->impl_))->start();
