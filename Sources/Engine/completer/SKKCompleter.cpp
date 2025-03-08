@@ -21,8 +21,8 @@
 */
 
 #import <AquaSKKBackend/SKKBackEnd.h>
-#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/SKKCompleter.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKCompleter::SKKCompleter(SKKCompleterBuddy *buddy)

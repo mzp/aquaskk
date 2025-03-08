@@ -21,8 +21,8 @@
 */
 
 #import <AquaSKKBackend/SwiftObject.h>
-#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/SKKUndoContext.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 #include "SKKFrontEnd.h"
 

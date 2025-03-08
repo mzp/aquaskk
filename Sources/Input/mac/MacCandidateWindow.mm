@@ -22,10 +22,10 @@
 
 #include <InputMethodKit/InputMethodKit.h>
 #import <AquaSKKBackend/AquaSKKBackend.h>
-#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/SKKEvent.h>
 #import <AquaSKKInput/MacCandidateWindow.h>
 #import <AquaSKKService/AquaSKKService.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 

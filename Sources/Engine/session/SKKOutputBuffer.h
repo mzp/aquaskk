@@ -26,9 +26,11 @@
 #include <string>
 
 class SKKFrontEnd;
+class SKKOutputBufferContainer;
 
 // 出力バッファ
 class SKKOutputBuffer {
+    SKKOutputBufferContainer *container_;
     SKKFrontEnd *frontend_;
     std::string composing_;
     std::string last_;

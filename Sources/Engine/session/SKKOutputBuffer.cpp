@@ -21,11 +21,20 @@
 */
 
 #import <AquaSKKEngine/SKKOutputBuffer.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 #include "SKKFrontEnd.h"
 #include "utf8util.h"
 
+struct SKKOutputBufferContainer {
+    SwiftObject<AquaSKKEngine::SKKOutputBufferImpl> *impl_;
+
+    SKKOutputBufferContainer(SKKFrontEnd *frontend)
+        : impl_(new SwiftObject(AquaSKKEngine::SKKOutputBufferImpl::init(frontend))) {}
+};
+
 SKKOutputBuffer::SKKOutputBuffer(SKKFrontEnd *frontend)
-    : frontend_(frontend) {}
+    : frontend_(frontend), container_(new SKKOutputBufferContainer(frontend)) {}
 
 void SKKOutputBuffer::Fix(const std::string &str) {
     frontend_->InsertString(str);
