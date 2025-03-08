@@ -27,9 +27,12 @@
 #include <swift/bridging>
 class SKKFrontEnd;
 
-enum SKKUndoResult { UndoFailed, UndoKanaEntry, UndoAsciiEntry };
+enum class SKKUndoResult { UndoFailed, UndoKanaEntry, UndoAsciiEntry };
+
+class SKKUndoContextContainer;
 
 class SKKUndoContext {
+    SKKUndoContextContainer *container_;
     SKKFrontEnd *frontend_;
     std::string entry_;
     std::string candidate_;
@@ -40,8 +43,8 @@ public:
     SKKUndoResult Undo();
     bool IsActive() const;
     void Clear();
-    const std::string &Entry() const;
-    const std::string &Candidate() const;
+    const std::string Entry() const;
+    const std::string Candidate() const;
     const std::string getEntry() const SWIFT_COMPUTED_PROPERTY {
         return entry_;
     }

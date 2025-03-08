@@ -44,6 +44,11 @@ public:
 
     // 選択中の文字列
     virtual std::string SelectedString() = 0;
+
+    // MARK: - Bridge
+    static std::string InvokeSelectedString(SKKFrontEnd *frontend) {
+        return frontend->SelectedString();
+    }
 } SWIFT_SHARED_REFERENCE(retainSKKFrontEnd, retainSKKFrontEnd);
 
 void retainSKKFrontEnd(SKKFrontEnd *obj);
