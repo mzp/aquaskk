@@ -39,6 +39,10 @@ public class SKKUndoContextImpl {
         return .UndoAsciiEntry
     }
 
+    public func bridgedUndo() -> Int32 {
+        undo().rawValue
+    }
+
     public var isActive: Bool {
         !entry.isEmpty
     }

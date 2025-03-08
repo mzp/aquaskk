@@ -39,7 +39,8 @@ SKKUndoContext::SKKUndoContext(SKKFrontEnd *frontend)
     : container_(new SKKUndoContextContainer(frontend)) {}
 
 SKKUndoResult SKKUndoContext::Undo() {
-    return (*(container_->impl_))->undo();
+    int result = (*(container_->impl_))->bridgedUndo();
+    return SKKUndoResult(result);
 }
 
 bool SKKUndoContext::IsActive() const {
