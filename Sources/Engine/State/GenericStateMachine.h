@@ -436,7 +436,7 @@ namespace statemachinecxx_sourceforge_jp {
             }
 
             assert(
-                   state != 0 && state.IsSuper() && "*** Initial transition must be ended by returning super state ***");
+                state != 0 && state.IsSuper() && "*** Initial transition must be ended by returning super state ***");
         }
 
         // ------------------------------------------------------------

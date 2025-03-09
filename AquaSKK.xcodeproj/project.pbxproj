@@ -22,6 +22,14 @@
 		13096C892C8CAEA1009F3E6B /* TyperConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13096C872C8CAEA1009F3E6B /* TyperConfig.cpp */; };
 		130C48442D7CB28A0052FF60 /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C48432D7CB28A0052FF60 /* StateMachine.swift */; };
 		130C48452D7CB28A0052FF60 /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C48432D7CB28A0052FF60 /* StateMachine.swift */; };
+		130C48472D7E0B0C0052FF60 /* GenericEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C48462D7E0B0C0052FF60 /* GenericEvent.swift */; };
+		130C48482D7E0B0C0052FF60 /* GenericEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C48462D7E0B0C0052FF60 /* GenericEvent.swift */; };
+		130C484A2D7E0B1C0052FF60 /* GenericState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C48492D7E0B1C0052FF60 /* GenericState.swift */; };
+		130C484B2D7E0B1C0052FF60 /* GenericState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C48492D7E0B1C0052FF60 /* GenericState.swift */; };
+		130C484D2D7E0B340052FF60 /* GenericStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C484C2D7E0B340052FF60 /* GenericStateMachine.swift */; };
+		130C484E2D7E0B340052FF60 /* GenericStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C484C2D7E0B340052FF60 /* GenericStateMachine.swift */; };
+		130C48502D7E0DF10052FF60 /* GenericStateHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C484F2D7E0DF10052FF60 /* GenericStateHistory.swift */; };
+		130C48512D7E0DF10052FF60 /* GenericStateHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C484F2D7E0DF10052FF60 /* GenericStateHistory.swift */; };
 		1310827E2C5B5BDB00C186BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1310827D2C5B5BDB00C186BE /* Images.xcassets */; };
 		131082802C5B5BEC00C186BE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1310827F2C5B5BEC00C186BE /* InfoPlist.strings */; };
 		1315FE8C2C81836F004011B7 /* MockAnnotator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1315FE822C818327004011B7 /* MockAnnotator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -610,6 +618,10 @@
 		13096C862C8CAEA1009F3E6B /* TyperConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TyperConfig.h; sourceTree = "<group>"; };
 		13096C872C8CAEA1009F3E6B /* TyperConfig.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TyperConfig.cpp; sourceTree = "<group>"; };
 		130C48432D7CB28A0052FF60 /* StateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMachine.swift; sourceTree = "<group>"; };
+		130C48462D7E0B0C0052FF60 /* GenericEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericEvent.swift; sourceTree = "<group>"; };
+		130C48492D7E0B1C0052FF60 /* GenericState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericState.swift; sourceTree = "<group>"; };
+		130C484C2D7E0B340052FF60 /* GenericStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericStateMachine.swift; sourceTree = "<group>"; };
+		130C484F2D7E0DF10052FF60 /* GenericStateHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericStateHistory.swift; sourceTree = "<group>"; };
 		1310827D2C5B5BDB00C186BE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1310827F2C5B5BEC00C186BE /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		131082812C5B5BFC00C186BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1332,6 +1344,10 @@
 			isa = PBXGroup;
 			children = (
 				130C48432D7CB28A0052FF60 /* StateMachine.swift */,
+				130C484F2D7E0DF10052FF60 /* GenericStateHistory.swift */,
+				130C484C2D7E0B340052FF60 /* GenericStateMachine.swift */,
+				130C48492D7E0B1C0052FF60 /* GenericState.swift */,
+				130C48462D7E0B0C0052FF60 /* GenericEvent.swift */,
 			);
 			path = state_machine;
 			sourceTree = "<group>";
@@ -3834,7 +3850,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				13F53D9C2C6C39CA00403F65 /* AppDelegate.swift in Sources */,
+				130C48512D7E0DF10052FF60 /* GenericStateHistory.swift in Sources */,
 				130C48452D7CB28A0052FF60 /* StateMachine.swift in Sources */,
+				130C48472D7E0B0C0052FF60 /* GenericEvent.swift in Sources */,
+				130C484E2D7E0B340052FF60 /* GenericStateMachine.swift in Sources */,
+				130C484B2D7E0B1C0052FF60 /* GenericState.swift in Sources */,
 				13A6A1392C6D6D2F004B3587 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4016,14 +4036,17 @@
 				1344F5E22C5B28FC00D8C850 /* SKKRecursiveEditor.cpp in Sources */,
 				1344F5E42C5B28FC00D8C850 /* SKKComposingEditor.cpp in Sources */,
 				1344F5EC2C5B28FC00D8C850 /* SKKOkuriEditor.cpp in Sources */,
+				130C48482D7E0B0C0052FF60 /* GenericEvent.swift in Sources */,
 				1344F5ED2C5B28FC00D8C850 /* SKKInputQueue.cpp in Sources */,
 				1344F5F42C5B28FC00D8C850 /* SKKCompleter.cpp in Sources */,
+				130C484D2D7E0B340052FF60 /* GenericStateMachine.swift in Sources */,
 				1344F5FA2C5B28FC00D8C850 /* SKKOutputBuffer.cpp in Sources */,
 				132692262D7A34E000043CDC /* SKKCompleter.swift in Sources */,
 				13A6488A2D76D82900FB52C5 /* SKKInputQueue.swift in Sources */,
 				13513C452D74BBB100C00A4E /* SKKCandidatePresenter.swift in Sources */,
 				1344F5FC2C5B28FC00D8C850 /* SKKTextBuffer.cpp in Sources */,
 				1344F5FF2C5B28FC00D8C850 /* SKKInputEngine.cpp in Sources */,
+				130C48502D7E0DF10052FF60 /* GenericStateHistory.swift in Sources */,
 				139E88B72D73F2FA0065CFA2 /* SKKInlineSelector.swift in Sources */,
 				1326922E2D7AA66E00043CDC /* SKKConfig.cpp in Sources */,
 				138FB7142D7BF42C00542DF7 /* SKKOutputBuffer.swift in Sources */,
@@ -4036,6 +4059,7 @@
 				1344F6102C5B28FC00D8C850 /* SKKCandidateEditor.cpp in Sources */,
 				138199002D793E52009C29E7 /* SKKOkuriListener.cpp in Sources */,
 				138198F62D792F15009C29E7 /* SKKCandidateEditor.swift in Sources */,
+				130C484A2D7E0B1C0052FF60 /* GenericState.swift in Sources */,
 				138198FC2D793C6E009C29E7 /* SKKOkuriEditor.swift in Sources */,
 				13513C4D2D74D00D00C00A4E /* SKKSelectorBuddy.cpp in Sources */,
 			);
