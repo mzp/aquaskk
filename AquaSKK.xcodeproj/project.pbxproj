@@ -30,6 +30,8 @@
 		130C484E2D7E0B340052FF60 /* GenericStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C484C2D7E0B340052FF60 /* GenericStateMachine.swift */; };
 		130C48502D7E0DF10052FF60 /* GenericStateHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C484F2D7E0DF10052FF60 /* GenericStateHistory.swift */; };
 		130C48512D7E0DF10052FF60 /* GenericStateHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C484F2D7E0DF10052FF60 /* GenericStateHistory.swift */; };
+		130C48532D7E10740052FF60 /* GenericDeferEventQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C48522D7E10740052FF60 /* GenericDeferEventQueue.swift */; };
+		130C48542D7E10740052FF60 /* GenericDeferEventQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C48522D7E10740052FF60 /* GenericDeferEventQueue.swift */; };
 		1310827E2C5B5BDB00C186BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1310827D2C5B5BDB00C186BE /* Images.xcassets */; };
 		131082802C5B5BEC00C186BE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1310827F2C5B5BEC00C186BE /* InfoPlist.strings */; };
 		1315FE8C2C81836F004011B7 /* MockAnnotator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1315FE822C818327004011B7 /* MockAnnotator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -622,6 +624,7 @@
 		130C48492D7E0B1C0052FF60 /* GenericState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericState.swift; sourceTree = "<group>"; };
 		130C484C2D7E0B340052FF60 /* GenericStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericStateMachine.swift; sourceTree = "<group>"; };
 		130C484F2D7E0DF10052FF60 /* GenericStateHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericStateHistory.swift; sourceTree = "<group>"; };
+		130C48522D7E10740052FF60 /* GenericDeferEventQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDeferEventQueue.swift; sourceTree = "<group>"; };
 		1310827D2C5B5BDB00C186BE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1310827F2C5B5BEC00C186BE /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		131082812C5B5BFC00C186BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1343,11 +1346,12 @@
 		130C48422D7CB2820052FF60 /* state_machine */ = {
 			isa = PBXGroup;
 			children = (
-				130C48432D7CB28A0052FF60 /* StateMachine.swift */,
+				130C48522D7E10740052FF60 /* GenericDeferEventQueue.swift */,
+				130C48462D7E0B0C0052FF60 /* GenericEvent.swift */,
+				130C48492D7E0B1C0052FF60 /* GenericState.swift */,
 				130C484F2D7E0DF10052FF60 /* GenericStateHistory.swift */,
 				130C484C2D7E0B340052FF60 /* GenericStateMachine.swift */,
-				130C48492D7E0B1C0052FF60 /* GenericState.swift */,
-				130C48462D7E0B0C0052FF60 /* GenericEvent.swift */,
+				130C48432D7CB28A0052FF60 /* StateMachine.swift */,
 			);
 			path = state_machine;
 			sourceTree = "<group>";
@@ -3850,6 +3854,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13F53D9C2C6C39CA00403F65 /* AppDelegate.swift in Sources */,
+				130C48542D7E10740052FF60 /* GenericDeferEventQueue.swift in Sources */,
 				130C48512D7E0DF10052FF60 /* GenericStateHistory.swift in Sources */,
 				130C48452D7CB28A0052FF60 /* StateMachine.swift in Sources */,
 				130C48472D7E0B0C0052FF60 /* GenericEvent.swift in Sources */,
@@ -4045,6 +4050,7 @@
 				13A6488A2D76D82900FB52C5 /* SKKInputQueue.swift in Sources */,
 				13513C452D74BBB100C00A4E /* SKKCandidatePresenter.swift in Sources */,
 				1344F5FC2C5B28FC00D8C850 /* SKKTextBuffer.cpp in Sources */,
+				130C48532D7E10740052FF60 /* GenericDeferEventQueue.swift in Sources */,
 				1344F5FF2C5B28FC00D8C850 /* SKKInputEngine.cpp in Sources */,
 				130C48502D7E0DF10052FF60 /* GenericStateHistory.swift in Sources */,
 				139E88B72D73F2FA0065CFA2 /* SKKInlineSelector.swift in Sources */,

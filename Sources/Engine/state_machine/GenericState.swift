@@ -1,10 +1,9 @@
 //
-//  StateType.swift
+//  GenericState.swift
 //  AquaSKK
 //
 //  Created by mzp on 2025/03/09.
 //
-
 
 // MARK: - State
 

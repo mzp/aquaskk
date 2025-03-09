@@ -14,7 +14,7 @@ class GenericStateMachine<Handler: HandlerProtocol, Inspector: InspectorProtocol
     var top: Handler
     var active: Handler?
 
-    var queue = GenericDeferEvent()
+    var queue = GenericDeferEventQueue<Handler>()
     var history: GenericStateHistory<Handler> = .init()
 
     // MARK: - invoke state function
@@ -220,6 +220,7 @@ class GenericStateMachine<Handler: HandlerProtocol, Inspector: InspectorProtocol
             case .forward:
                 transition(source: source!, target: next.handler)
                 initialize(target: next)
+
             default:
                 fatalError("*** Invalid state detected ***")
             }

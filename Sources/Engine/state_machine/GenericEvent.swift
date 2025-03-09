@@ -1,10 +1,9 @@
 //
-//  EventType.swift
+//  GenericEvent.swift
 //  AquaSKK
 //
 //  Created by mzp on 2025/03/09.
 //
-
 
 // MARK: - Event types
 

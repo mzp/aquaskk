@@ -13,6 +13,7 @@ struct GenericStateHistory<Handler: HandlerProtocol> {
         var shallow: Handler?
         var deep: Handler?
     }
+
     var history: [Entry]
 
     init() {
@@ -27,9 +28,11 @@ struct GenericStateHistory<Handler: HandlerProtocol> {
             history.insert(.init(key: key, shallow: shallow, deep: deep), at: 0)
         }
     }
+
     mutating func clear(key: Handler) {
         history.removeAll(where: { $0.key == key })
     }
+
     func shallow(key: Handler) -> Handler? {
         history.first(where: { $0.key == key })?.shallow
     }
