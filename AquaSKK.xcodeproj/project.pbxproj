@@ -20,6 +20,8 @@
 		1307C24E2C5B47DA00B089B6 /* SandboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1307C24D2C5B47DA00B089B6 /* SandboxTests.swift */; };
 		13096C882C8CAEA1009F3E6B /* TyperConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 13096C862C8CAEA1009F3E6B /* TyperConfig.h */; };
 		13096C892C8CAEA1009F3E6B /* TyperConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13096C872C8CAEA1009F3E6B /* TyperConfig.cpp */; };
+		130C48442D7CB28A0052FF60 /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C48432D7CB28A0052FF60 /* StateMachine.swift */; };
+		130C48452D7CB28A0052FF60 /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C48432D7CB28A0052FF60 /* StateMachine.swift */; };
 		1310827E2C5B5BDB00C186BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1310827D2C5B5BDB00C186BE /* Images.xcassets */; };
 		131082802C5B5BEC00C186BE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1310827F2C5B5BEC00C186BE /* InfoPlist.strings */; };
 		1315FE8C2C81836F004011B7 /* MockAnnotator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1315FE822C818327004011B7 /* MockAnnotator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -607,6 +609,7 @@
 		13096C842C8C2D24009F3E6B /* IntrusiveRefCounted.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntrusiveRefCounted.h; sourceTree = "<group>"; };
 		13096C862C8CAEA1009F3E6B /* TyperConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TyperConfig.h; sourceTree = "<group>"; };
 		13096C872C8CAEA1009F3E6B /* TyperConfig.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TyperConfig.cpp; sourceTree = "<group>"; };
+		130C48432D7CB28A0052FF60 /* StateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMachine.swift; sourceTree = "<group>"; };
 		1310827D2C5B5BDB00C186BE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1310827F2C5B5BEC00C186BE /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		131082812C5B5BFC00C186BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1323,6 +1326,14 @@
 				1307C24D2C5B47DA00B089B6 /* SandboxTests.swift */,
 			);
 			path = PreferenceAppTests;
+			sourceTree = "<group>";
+		};
+		130C48422D7CB2820052FF60 /* state_machine */ = {
+			isa = PBXGroup;
+			children = (
+				130C48432D7CB28A0052FF60 /* StateMachine.swift */,
+			);
+			path = state_machine;
 			sourceTree = "<group>";
 		};
 		1315FE812C8182FA004011B7 /* Session */ = {
@@ -2596,6 +2607,7 @@
 				1344F5122C5B28FC00D8C850 /* state */,
 				1344F5502C5B28FC00D8C850 /* trie */,
 				138C69542C94CBBF009FE153 /* utility */,
+				130C48422D7CB2820052FF60 /* state_machine */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -3822,6 +3834,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13F53D9C2C6C39CA00403F65 /* AppDelegate.swift in Sources */,
+				130C48452D7CB28A0052FF60 /* StateMachine.swift in Sources */,
 				13A6A1392C6D6D2F004B3587 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3998,6 +4011,7 @@
 				1344F5DB2C5B28FC00D8C850 /* SKKEntryRemoveEditor.cpp in Sources */,
 				1344F5DC2C5B28FC00D8C850 /* SKKRegisterEditor.cpp in Sources */,
 				134D25642D7A03870014ACD5 /* SKKRegisterEditor.swift in Sources */,
+				130C48442D7CB28A0052FF60 /* StateMachine.swift in Sources */,
 				138FB7062D7B491400542DF7 /* SKKFrontEnd.cpp in Sources */,
 				1344F5E22C5B28FC00D8C850 /* SKKRecursiveEditor.cpp in Sources */,
 				1344F5E42C5B28FC00D8C850 /* SKKComposingEditor.cpp in Sources */,
