@@ -24,17 +24,27 @@
 #define SKKDynamicCompletor_h
 
 #include <string>
+#include <swift/bridging>
+#import <AquaSKKEngine/IntrusiveRefCounted.h>
 #import <AquaSKKEngine/SKKWidget.h>
 
-class SKKDynamicCompletor : public SKKWidget {
+class SKKDynamicCompletor : public SKKWidget, public IntrusiveRefCounted<SKKDynamicCompletor> {
 public:
     virtual ~SKKDynamicCompletor() {}
 
-    // 更新
-    // completion="\n" で結合された見出し語候補
-    // commonPrefixLength=各見出し語候補の共通プレフィクス長
-    // cursorOffset=カーソル位置
+    /// 更新
+    /// @param completion "\n" で結合された見出し語候補
+    /// @param commonPrefixLength 各見出し語候補の共通プレフィクス長
+    /// @param cursorOffset カーソル位置
     virtual void Update(const std::string &completion, int commonPrefixLength, int cursorOffset) = 0;
-};
+
+    static void
+    InvokeUpdate(SKKDynamicCompletor *obj, const std::string &completion, int commonPrefixLength, int cursorOffset) {
+        obj->Update(completion, commonPrefixLength, cursorOffset);
+    }
+} SWIFT_SHARED_REFERENCE(retainSKKDynamicCompletor, releaseSKKDynamicCompletor);
+
+void retainSKKDynamicCompletor(SKKDynamicCompletor *obj);
+void releaseSKKDynamicCompletor(SKKDynamicCompletor *obj);
 
 #endif

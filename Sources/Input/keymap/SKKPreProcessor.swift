@@ -36,7 +36,7 @@ public class SKKPreProcessor: NSObject {
     }
 
     /// NSEvent → SKKEvent 変換
-    @objc public func execute(event: NSEvent) -> SKKEvent {
+    @objc func execute(event: NSEvent) -> SKKEvent {
         let modifierFlags = event.modifierFlags
 
         let dispstr = event.characters

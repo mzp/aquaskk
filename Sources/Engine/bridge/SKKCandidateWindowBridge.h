@@ -9,7 +9,8 @@
 #import <AquaSKKEngine/SKKCandidateWindow.h>
 
 // 純粋仮装関数を持つクラスはSwiftからは攫われないのでブリッジする。
-class SKKCandidateWindowBridge : public IntrusiveRefCounted<SKKCandidateWindowBridge>, public SKKCandidateWindow {
+// TODO: Remove this
+class SKKCandidateWindowBridge : public SKKCandidateWindow {
     SKKCandidateWindow *impl_;
 
 public:

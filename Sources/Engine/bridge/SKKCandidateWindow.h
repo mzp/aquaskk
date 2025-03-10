@@ -24,10 +24,12 @@
 #define SKKCandidateWindow_h
 
 #include <vector>
+#include <swift/bridging>
 #import <AquaSKKBackend/SKKCandidate.h>
+#import <AquaSKKEngine/IntrusiveRefCounted.h>
 #import <AquaSKKEngine/SKKWidget.h>
 
-class SKKCandidateWindow : public SKKWidget {
+class SKKCandidateWindow : public SKKWidget, public IntrusiveRefCounted<SKKCandidateWindow> {
 public:
     virtual ~SKKCandidateWindow() {}
 
@@ -45,6 +47,9 @@ public:
 
     // 候補ラベルのインデックス取得(一致しない場合には -1)
     virtual int LabelIndex(char label) = 0;
-};
+} SWIFT_SHARED_REFERENCE(retainSKKCandidateWindow, releaseSKKCandidateWindow);
+
+void retainSKKCandidateWindow(SKKCandidateWindow *obj);
+void releaseSKKCandidateWindow(SKKCandidateWindow *obj);
 
 #endif
