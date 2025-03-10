@@ -187,7 +187,7 @@ class GenericStateMachine<Handler: HandlerProtocol, Inspector: InspectorProtocol
             var next = invoke(handler: source!, event: event)!
             switch next.type {
             case .deferEvent:
-                queue.enqueue(handler: source!, event: event)
+                queue.enqueue(key: source!, event: event)
 
             case .clearHistory:
                 history.clear(key: source!)
@@ -197,7 +197,7 @@ class GenericStateMachine<Handler: HandlerProtocol, Inspector: InspectorProtocol
                 transition(source: source!, target: target)
                 initialize(target: .super_(handler: target))
 
-                for defer_ in sequence(state: queue, next: { $0.dequeeue(key: source!) }) {
+                for defer_ in sequence(state: queue, next: { $0.dequeue(key: source!) }) {
                     // recursion
                     dispatch(event: defer_)
                 }
@@ -212,7 +212,7 @@ class GenericStateMachine<Handler: HandlerProtocol, Inspector: InspectorProtocol
                 transition(source: source!, target: next.handler)
                 initialize(target: next)
 
-                for defer_ in sequence(state: queue, next: { $0.dequeeue(key: source!) }) {
+                for defer_ in sequence(state: queue, next: { $0.dequeue(key: source!) }) {
                     // recursion
                     dispatch(event: defer_)
                 }
@@ -220,7 +220,6 @@ class GenericStateMachine<Handler: HandlerProtocol, Inspector: InspectorProtocol
             case .forward:
                 transition(source: source!, target: next.handler)
                 initialize(target: next)
-
             default:
                 fatalError("*** Invalid state detected ***")
             }
