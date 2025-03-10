@@ -12,6 +12,7 @@ struct GenericDeferEventQueue<Handler: HandlerProtocol> {
         var key: Handler
         var queue: [GenericEvent]
     }
+
     var incomming: [Entry] = []
     var outgoing: [Entry] = []
 

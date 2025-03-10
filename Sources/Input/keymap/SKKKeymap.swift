@@ -97,7 +97,7 @@ public class SKKKeymapImpl {
     // MARK: - Loookup
 
     /// 検索
-    public func fetch(charCode: Int, keyCode: Int, modifiers: Int) -> SKKEvent {
+    func fetch(charCode: Int, keyCode: Int, modifiers: Int) -> SKKEvent {
         var event = SKKEvent()
         event.code = UInt8(charCode)
         event.id = Int32(find(charCode: charCode, keyCode: keyCode, modifiers: modifiers, from: events) ?? SKK_CHAR)

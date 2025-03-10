@@ -32,6 +32,7 @@
 		130C48512D7E0DF10052FF60 /* GenericStateHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C484F2D7E0DF10052FF60 /* GenericStateHistory.swift */; };
 		130C48532D7E10740052FF60 /* GenericDeferEventQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C48522D7E10740052FF60 /* GenericDeferEventQueue.swift */; };
 		130C48542D7E10740052FF60 /* GenericDeferEventQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C48522D7E10740052FF60 /* GenericDeferEventQueue.swift */; };
+		130C48642D7E88A30052FF60 /* SKKStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C48632D7E88A30052FF60 /* SKKStateMachine.swift */; };
 		1310827E2C5B5BDB00C186BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1310827D2C5B5BDB00C186BE /* Images.xcassets */; };
 		131082802C5B5BEC00C186BE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1310827F2C5B5BEC00C186BE /* InfoPlist.strings */; };
 		1315FE8C2C81836F004011B7 /* MockAnnotator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1315FE822C818327004011B7 /* MockAnnotator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -625,6 +626,7 @@
 		130C484C2D7E0B340052FF60 /* GenericStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericStateMachine.swift; sourceTree = "<group>"; };
 		130C484F2D7E0DF10052FF60 /* GenericStateHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericStateHistory.swift; sourceTree = "<group>"; };
 		130C48522D7E10740052FF60 /* GenericDeferEventQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDeferEventQueue.swift; sourceTree = "<group>"; };
+		130C48632D7E88A30052FF60 /* SKKStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStateMachine.swift; sourceTree = "<group>"; };
 		1310827D2C5B5BDB00C186BE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1310827F2C5B5BEC00C186BE /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		131082812C5B5BFC00C186BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1880,6 +1882,7 @@
 				1344F50F2C5B28FC00D8C850 /* SKKStateMachine.h */,
 				1344F5102C5B28FC00D8C850 /* SKKStatePrimary-inl.h */,
 				1344F5112C5B28FC00D8C850 /* SKKStateRecursiveRegister-inl.h */,
+				130C48632D7E88A30052FF60 /* SKKStateMachine.swift */,
 			);
 			path = state;
 			sourceTree = "<group>";
@@ -4060,6 +4063,7 @@
 				139E88C32D741CDE0065CFA2 /* SKKSelector.swift in Sources */,
 				1344F6062C5B28FC00D8C850 /* SKKState.cpp in Sources */,
 				138FB7082D7B4A5700542DF7 /* SKKRegistration.swift in Sources */,
+				130C48642D7E88A30052FF60 /* SKKStateMachine.swift in Sources */,
 				1344F6082C5B28FC00D8C850 /* SKKUndoContext.cpp in Sources */,
 				139FE4492D7768C70015DFCA /* SKKPrimaryEditor.swift in Sources */,
 				1344F6102C5B28FC00D8C850 /* SKKCandidateEditor.cpp in Sources */,

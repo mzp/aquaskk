@@ -1,9 +1,9 @@
-///
-///  StateMachine.swift
-///  AquaSKK
-///
-///  Created by mzp on 2025/03/08.
-///
+//
+//  StateMachine.swift
+//  AquaSKK
+//
+//  Created by mzp on 2025/03/08.
+//
 
 protocol InspectorProtocol {
     associatedtype Handler: HandlerProtocol

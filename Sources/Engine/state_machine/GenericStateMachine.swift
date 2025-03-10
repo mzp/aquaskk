@@ -220,6 +220,7 @@ class GenericStateMachine<Handler: HandlerProtocol, Inspector: InspectorProtocol
             case .forward:
                 transition(source: source!, target: next.handler)
                 initialize(target: next)
+
             default:
                 fatalError("*** Invalid state detected ***")
             }
