@@ -26,7 +26,8 @@ class TestRunner {
     SKKEvent getEvent(TestEntry &entry) {
         TestEvent &input = entry.input;
 
-        return map.fetch(input.code, 0, input.mods);
+        auto array = map.bridgedFetch(input.code, 0, input.mods);
+        return SKKEvent((int)array[0], (int)array[1], (int)array[2], (int)array[3]);
     }
 
     void initialize() {

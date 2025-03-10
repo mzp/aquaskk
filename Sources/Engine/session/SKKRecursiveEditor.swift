@@ -26,7 +26,7 @@ public class SKKRecursiveEditorImpl {
         selector?.Hide()
     }
 
-    func input(event _: SKKEvent) {
+    public func input(event _: SKKEvent) {
         // TODO: Implement state machine
     }
 

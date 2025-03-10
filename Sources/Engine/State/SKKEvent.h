@@ -96,6 +96,9 @@ public:
     SKKEvent(int e, unsigned char c, int a = None)
         : id(e), code(c), attribute(a), option(0) {}
 
+    SKKEvent(int id, unsigned char code, int attribute, int option)
+        : id(id), code(code), attribute(attribute), option(option) {}
+
     // SKK_CHAR 属性問い合わせ
     bool IsDirect() const {
         return attribute & Direct;

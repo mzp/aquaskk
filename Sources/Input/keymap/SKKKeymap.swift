@@ -97,7 +97,7 @@ public class SKKKeymapImpl {
     // MARK: - Loookup
 
     /// 検索
-    public func fetch(charCode: Int, keyCode: Int, modifiers: Int) -> SKKEvent {
+    func fetch(charCode: Int, keyCode: Int, modifiers: Int) -> SKKEvent {
         var event = SKKEvent()
         event.code = UInt8(charCode)
         event.id = Int32(find(charCode: charCode, keyCode: keyCode, modifiers: modifiers, from: events) ?? SKK_CHAR)
@@ -113,6 +113,18 @@ public class SKKKeymapImpl {
             event.option = Int32(option)
         }
         return event
+    }
+
+    // AquaSKKInput.frameworkでSKKEventを引数にとる関数を公開すると以下のエラーが出る。
+    //
+    // .../AquaSKKInput.framework/Headers/AquaSKKInput-Swift.h:4384:29: error: redefinition of 'isUsableInGenericContext<SKKEvent>'
+    // 4384 | inline const constexpr bool isUsableInGenericContext<SKKEvent> = true;
+    // |                             ^
+    //
+    // これを避けるために公開するのはプリミティブ型にする。
+    public func bridgedFetch(charCode: Int, keyCode: Int, modifiers: Int) -> [Int] {
+        let event = fetch(charCode: charCode, keyCode: keyCode, modifiers: modifiers)
+        return [Int(event.id), Int(event.code), Int(event.attribute), Int(event.option)]
     }
 
     func find(charCode: Int, keyCode: Int, modifiers: Int, from keymap: [SKKKeyState: Int]) -> Int? {
