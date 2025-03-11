@@ -23,15 +23,12 @@
 #ifndef SKKCompleter_h
 #define SKKCompleter_h
 
-#import <AquaSKKBackend/SwiftObject.h>
 #import <AquaSKKEngine/SKKCompleterBuddy.h>
 
-namespace AquaSKKEngine {
-    class SKKCompleterImpl;
-}
+class SKKCompleterContainer;
 
 class SKKCompleter {
-    SwiftObject<AquaSKKEngine::SKKCompleterImpl> *impl_;
+    SKKCompleterContainer *container_;
 
 public:
     SKKCompleter(SKKCompleterBuddy *buddy);

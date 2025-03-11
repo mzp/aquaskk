@@ -21,25 +21,33 @@
 */
 
 #import <AquaSKKBackend/SKKBackEnd.h>
+#import <AquaSKKBackend/SwiftObject.h>
 #import <AquaSKKEngine/SKKCompleter.h>
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
+struct SKKCompleterContainer {
+    SwiftObject<AquaSKKEngine::SKKCompleterImpl> *impl_;
+
+    SKKCompleterContainer(SKKCompleterBuddy *buddy)
+        : impl_(new SwiftObject(AquaSKKEngine::SKKCompleterImpl::init(buddy))) {}
+};
+
 SKKCompleter::SKKCompleter(SKKCompleterBuddy *buddy)
-    : impl_(new SwiftObject(AquaSKKEngine::SKKCompleterImpl::init(buddy))) {}
+    : container_(new SKKCompleterContainer(buddy)) {}
 
 bool SKKCompleter::Execute(int limit) {
-    return (*impl_)->execute(limit);
+    return (*(container_->impl_))->execute(limit);
 }
 
 bool SKKCompleter::Remove() {
-    return (*impl_)->remove();
+    return (*(container_->impl_))->remove();
 }
 
 void SKKCompleter::Next() {
-    return (*impl_)->next();
+    return (*(container_->impl_))->next();
 }
 
 void SKKCompleter::Prev() {
-    return (*impl_)->prev();
+    return (*(container_->impl_))->prev();
 }

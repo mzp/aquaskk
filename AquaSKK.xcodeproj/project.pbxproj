@@ -322,6 +322,7 @@
 		138199002D793E52009C29E7 /* SKKOkuriListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 138198FF2D793E52009C29E7 /* SKKOkuriListener.cpp */; };
 		1386297C2D69496000C7A078 /* SKKHttpDictionaryFileSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1386297B2D69496000C7A078 /* SKKHttpDictionaryFileSource.swift */; };
 		138629802D694A6600C7A078 /* SKKAutoUpdateDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1386297F2D694A6600C7A078 /* SKKAutoUpdateDictionaryTests.swift */; };
+		138ABEC42D80819D0027BFAF /* SKKStatePrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138ABEC32D80819D0027BFAF /* SKKStatePrimary.swift */; };
 		138C69102C94C865009FE153 /* AquaSKKBackendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C690F2C94C865009FE153 /* AquaSKKBackendTests.swift */; };
 		138C69112C94C865009FE153 /* AquaSKKBackend.h in Headers */ = {isa = PBXBuildFile; fileRef = 138C69032C94C864009FE153 /* AquaSKKBackend.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		138C69142C94C865009FE153 /* AquaSKKBackend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 138C69012C94C864009FE153 /* AquaSKKBackend.framework */; };
@@ -995,6 +996,7 @@
 		138198FF2D793E52009C29E7 /* SKKOkuriListener.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKOkuriListener.cpp; sourceTree = "<group>"; };
 		1386297B2D69496000C7A078 /* SKKHttpDictionaryFileSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKHttpDictionaryFileSource.swift; sourceTree = "<group>"; };
 		1386297F2D694A6600C7A078 /* SKKAutoUpdateDictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKAutoUpdateDictionaryTests.swift; sourceTree = "<group>"; };
+		138ABEC32D80819D0027BFAF /* SKKStatePrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStatePrimary.swift; sourceTree = "<group>"; };
 		138B319F2C5DD40C006424E0 /* All-Testing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "All-Testing.xcconfig"; sourceTree = "<group>"; };
 		138C69012C94C864009FE153 /* AquaSKKBackend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AquaSKKBackend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		138C69032C94C864009FE153 /* AquaSKKBackend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKBackend.h; sourceTree = "<group>"; };
@@ -1860,6 +1862,7 @@
 				1344F50E2C5B28FC00D8C850 /* SKKStateEntryRemove-inl.h */,
 				1344F50F2C5B28FC00D8C850 /* SKKStateMachine.h */,
 				1344F5102C5B28FC00D8C850 /* SKKStatePrimary-inl.h */,
+				138ABEC32D80819D0027BFAF /* SKKStatePrimary.swift */,
 				1344F5112C5B28FC00D8C850 /* SKKStateRecursiveRegister-inl.h */,
 			);
 			path = state;
@@ -4005,6 +4008,7 @@
 				1344F5D92C5B28FC00D8C850 /* SKKInputModeSelector.cpp in Sources */,
 				139E88BE2D73F6760065CFA2 /* SKKWindowSelector.swift in Sources */,
 				1376379B2D7F63C900CF332A /* SKKCandidateWindow.cpp in Sources */,
+				138ABEC42D80819D0027BFAF /* SKKStatePrimary.swift in Sources */,
 				13A648872D76881F00FB52C5 /* SKKTextBuffer.swift in Sources */,
 				138FB70A2D7B4B7800542DF7 /* SKKRegistration.cpp in Sources */,
 				13513C482D74C9B300C00A4E /* SKKCandidateWindowBridge.cpp in Sources */,
