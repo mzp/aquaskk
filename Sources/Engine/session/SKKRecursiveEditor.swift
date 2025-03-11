@@ -49,7 +49,11 @@ public class SKKRecursiveEditorImpl {
                     let result = SKKBackendImpl.shared().complete(key: key, limit: Int(range))
                     joined = result.joined(separator: "\n")
 
-                    commonPrefix = result.reduce(key) { $0.commonPrefix(with: $1) }
+                    if !result.isEmpty {
+                        commonPrefix = result.reduce(result[0]) {
+                            $0.commonPrefix(with: $1)
+                        }
+                    }
                 }
             }
             SKKDynamicCompletor.InvokeUpdate(completer, std.string(joined), Int32(commonPrefix.count), context.output.GetMark())
