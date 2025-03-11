@@ -49,7 +49,7 @@ public:
     static std::string InvokeSelectedString(SKKFrontEnd *frontend) {
         return frontend->SelectedString();
     }
-} SWIFT_SHARED_REFERENCE(retainSKKFrontEnd, retainSKKFrontEnd);
+} SWIFT_SHARED_REFERENCE(retainSKKFrontEnd, releaseSKKFrontEnd);
 
 void retainSKKFrontEnd(SKKFrontEnd *obj);
 void releaseSKKFrontEnd(SKKFrontEnd *obj);

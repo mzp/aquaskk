@@ -20,106 +20,43 @@
 
 */
 
-#import <AquaSKKBackend/SKKBackEnd.h>
-#import <AquaSKKEngine/SKKAnnotator.h>
-#import <AquaSKKEngine/SKKCandidateWindow.h>
-#import <AquaSKKEngine/SKKConfig.h>
-#import <AquaSKKEngine/SKKDynamicCompletor.h>
-#import <AquaSKKEngine/SKKInputContext.h>
 #import <AquaSKKEngine/SKKInputSessionParameter.h>
 #import <AquaSKKEngine/SKKRecursiveEditor.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 #include "utf8util.h"
 
 SKKRecursiveEditor::SKKRecursiveEditor(SKKInputEnvironment *env)
-    : env_(env),
-      context_(env->InputContext()),
-      config_(env->Config()),
-      annotator_(env->InputSessionParameter()->Annotator()),
-      completor_(env->InputSessionParameter()->DynamicCompletor()),
-      editor_(env),
-      state_(SKKState(env, &editor_)) {
-    // initialize widgets
-    widgets_.push_back(annotator_);
-    widgets_.push_back(completor_);
-    widgets_.push_back(env->InputSessionParameter()->CandidateWindow());
-    widgets_.push_back(env->InputModeSelector());
+    : editor_(env), state_(SKKState(env, &editor_)) {
+
+    SKKAnnotator *annotator = env->InputSessionParameter()->Annotator();
+    SKKDynamicCompletor *completor = env->InputSessionParameter()->DynamicCompletor();
+    SKKCandidateWindow *candidateWindow = env->InputSessionParameter()->CandidateWindow();
+    impl_ = new SwiftObject(AquaSKKEngine::SKKRecursiveEditorImpl::init(env, annotator, completor, candidateWindow));
 }
 
 SKKRecursiveEditor::~SKKRecursiveEditor() {
-    forEachWidget(&SKKWidget::Hide);
+    delete impl_;
 }
 
 void SKKRecursiveEditor::Input(const SKKEvent &event) {
+    (*impl_)->input(event);
     state_.Dispatch(SKKStateMachine::Event(event.id, event));
 }
 
 void SKKRecursiveEditor::Output() {
     editor_.UpdateInputContext();
-
-    context_->output.Output();
-
-    complete();
-    annotate();
+    (*impl_)->output();
 }
 
 void SKKRecursiveEditor::Activate() {
-    forEachWidget(&SKKWidget::Activate);
+    (*impl_)->activate();
 }
 
 void SKKRecursiveEditor::Deactivate() {
-    forEachWidget(&SKKWidget::Deactivate);
+    (*impl_)->deactivate();
 }
 
 bool SKKRecursiveEditor::IsChildOf(SKKStateMachine::Handler handler) {
     return state_.IsChildOf(handler);
-}
-
-// ----------------------------------------------------------------------
-
-void SKKRecursiveEditor::forEachWidget(WidgetMethod method) {
-    std::for_each(widgets_.begin(), widgets_.end(), std::mem_fn(method));
-}
-
-void SKKRecursiveEditor::complete() {
-    if(context_->dynamic_completion && config_->EnableDynamicCompletion()) {
-        SKKEntry entry = context_->entry;
-        std::string joined;
-        std::string common_prefix;
-
-        if(!entry.IsEmpty() && !entry.IsOkuriAri()) {
-            std::vector<std::string> result;
-            unsigned range = config_->DynamicCompletionRange();
-            std::string key = entry.EntryString();
-
-            if(range && SKKBackEnd::theInstance().Complete(key, result, range)) {
-                int limit = std::min((unsigned)result.size(), range);
-                common_prefix = result[0];
-
-                for(int i = 0; i < limit; ++i) {
-                    common_prefix = utf8::common_prefix(common_prefix, result[i]);
-
-                    joined += result[i];
-                    joined += "\n";
-                }
-
-                joined.erase(joined.size() - 1);
-            }
-        }
-
-        completor_->Update(joined, utf8::length(common_prefix), context_->output.GetMark());
-        completor_->Show();
-    } else {
-        completor_->Hide();
-    }
-}
-
-void SKKRecursiveEditor::annotate() {
-    if(context_->annotation && config_->EnableAnnotation()) {
-        SKKCandidate candidate = context_->candidate;
-
-        annotator_->Update(candidate, context_->output.GetMark());
-        annotator_->Show();
-    } else {
-        annotator_->Hide();
-    }
 }

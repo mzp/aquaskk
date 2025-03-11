@@ -23,15 +23,24 @@
 #ifndef SKKAnnotator_h
 #define SKKAnnotator_h
 
+#include <swift/bridging>
 #import <AquaSKKBackend/SKKCandidate.h>
+#import <AquaSKKEngine/IntrusiveRefCounted.h>
 #import <AquaSKKEngine/SKKWidget.h>
 
-class SKKAnnotator : public SKKWidget {
+class SKKAnnotator : public SKKWidget, public IntrusiveRefCounted<SKKAnnotator> {
 public:
     virtual ~SKKAnnotator() {}
 
     // 註釈の更新(candidate=候補, cursor=カーソル位置)
     virtual void Update(const SKKCandidate &candidate, int cursorOffset) = 0;
-};
+
+    static void InvokeUpdate(SKKAnnotator *obj, const SKKCandidate &candidate, int cursorOffset) {
+        obj->Update(candidate, cursorOffset);
+    }
+} SWIFT_SHARED_REFERENCE(retainSKKAnnotator, releaseSKKAnnotator);
+
+void retainSKKAnnotator(SKKAnnotator *obj);
+void releaseSKKAnnotator(SKKAnnotator *obj);
 
 #endif

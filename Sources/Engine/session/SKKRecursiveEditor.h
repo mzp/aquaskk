@@ -23,32 +23,19 @@
 #ifndef SKKRecursiveEditor_h
 #define SKKRecursiveEditor_h
 
-#include <memory>
+#import <AquaSKKBackend/SwiftObject.h>
 #import <AquaSKKEngine/SKKInputEngine.h>
 #import <AquaSKKEngine/SKKInputEnvironment.h>
 #import <AquaSKKEngine/SKKStateMachine.h>
 
-class SKKWidget;
-class SKKInputContext;
-class SKKConfig;
-class SKKAnnotator;
-class SKKDynamicCompletor;
+namespace AquaSKKEngine {
+    class SKKRecursiveEditorImpl;
+}
 
 class SKKRecursiveEditor {
-    std::unique_ptr<SKKInputEnvironment> env_;
-    SKKInputContext *context_;
-    SKKConfig *config_;
-    SKKAnnotator *annotator_;
-    SKKDynamicCompletor *completor_;
+    SwiftObject<AquaSKKEngine::SKKRecursiveEditorImpl> *impl_;
     SKKInputEngine editor_;
     SKKStateMachine state_;
-    std::vector<SKKWidget *> widgets_;
-
-    typedef void (SKKWidget::*WidgetMethod)();
-    void forEachWidget(WidgetMethod method);
-    void complete();
-    void annotate();
-
     SKKRecursiveEditor();
     SKKRecursiveEditor(const SKKRecursiveEditor &);
     SKKRecursiveEditor &operator=(const SKKRecursiveEditor &);
