@@ -25,11 +25,23 @@
 #import <AquaSKKEngine/SKKInputEngine.h>
 #import <AquaSKKEngine/SKKMessenger.h>
 #import <AquaSKKEngine/SKKState.h>
+#import <AquaSKKBackend/SwiftObject.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 namespace {
     typedef SKKState::Event Event;
     typedef SKKState::State State;
 } // namespace
+
+struct SKKStateContainer {
+    SwiftObject<AquaSKKEngine::SKKStatePrimary> *primaryState;
+    SKKStateContainer(SKKInputEnvironment *env,SKKInputEngine *editor, SKKInputContext *context)
+    :primaryState(new SwiftObject(AquaSKKEngine::SKKStatePrimary::init(editor, context, env->InputSessionParameter()->Messenger())))
+    {
+
+    }
+};
 
 SKKState::SKKState(SKKInputEnvironment *env, SKKInputEngine *editor)
     : context_(env->InputContext()),
@@ -38,7 +50,10 @@ SKKState::SKKState(SKKInputEnvironment *env, SKKInputEngine *editor)
       configuration_(env->InputSessionParameter()->Config()),
       editor_(editor),
       completer_(editor_),
-      selector_(editor_, window_) {}
+      selector_(editor_, window_),
+container_(new SKKStateContainer(env, editor_, context_)){
+
+    }
 
 SKKState::SKKState(const SKKState &src)
     : context_(src.context_),
@@ -47,7 +62,9 @@ SKKState::SKKState(const SKKState &src)
       configuration_(src.configuration_),
       editor_(src.editor_),
       completer_(editor_),
-      selector_(editor_, window_) {}
+      selector_(editor_, window_),
+container_(src.container_)
+{}
 
 void SKKState::ToString(const Handler handler, const Event &event, std::string &result) {
     static const char *systemEvent[] = {"PROBE", "<<ENTRY>>", "<<INIT>>", "<<EXIT>>"};

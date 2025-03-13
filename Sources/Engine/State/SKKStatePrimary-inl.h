@@ -24,6 +24,28 @@
 // level 1：直接入力
 // ======================================================================
 State SKKState::Primary(const Event &event) {
+/*    SKKStateMachineAction action =  (*(this->container_->primaryState))->dispatch(event);
+    switch (action) {
+        case SKKStateMachineAction::delegateTopState:
+            return &SKKState::TopState;
+        case SKKStateMachineAction::initializeKanaInput:
+            return State::Initial(&SKKState::KanaInput);
+        case SKKStateMachineAction::transitionAsciiEntry:
+            return State::Transition(&SKKState::AsciiEntry);
+        case SKKStateMachineAction::transitionKanaEntry:
+            return State::Transition(&SKKState::KanaEntry);
+        case SKKStateMachineAction::transitionAsciiMode:
+            return State::Transition(&SKKState::Ascii);
+        case SKKStateMachineAction::transitionHirakanaMode:
+            return State::Transition(&SKKState::Hirakana);
+        case SKKStateMachineAction::transitionKatakanaMode:
+            return State::Transition(&SKKState::Katakana);
+        case SKKStateMachineAction::transitionJisx0201KanaMode:
+            return State::Transition(&SKKState::Jisx0201Kana);
+        case SKKStateMachineAction::transitionJisx0208LatinMode:            return State::Transition(&SKKState::Jisx0208Latin);
+        case SKKStateMachineAction::handled:
+            return 0;
+    }*/
     switch(event) {
     case INIT_EVENT:
         return State::Initial(&SKKState::KanaInput);

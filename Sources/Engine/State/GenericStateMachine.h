@@ -43,12 +43,13 @@
 #include <list>
 #include <queue>
 #include <vector>
+#include <swift/bridging>
 
 namespace statemachinecxx_sourceforge_jp {
     // ======================================================================
     // event types
     // ======================================================================
-    enum EventTypes { EXIT_EVENT = -3, INIT_EVENT = -2, ENTRY_EVENT = -1, PROBE = 0, USER_EVENT = 1 };
+enum EventTypes { EXIT_EVENT = -3, INIT_EVENT = -2, ENTRY_EVENT = -1, PROBE = 0, USER_EVENT = 1 };
 
     // ======================================================================
     // event
@@ -70,10 +71,18 @@ namespace statemachinecxx_sourceforge_jp {
         void SetSignal(int signal) {
             signal_ = signal;
         }
+        int getSignal() const SWIFT_COMPUTED_PROPERTY {
+            return signal_;
+        }
 
         const ParamType &Param() const {
             return param_;
         }
+
+        const ParamType getParam() const SWIFT_COMPUTED_PROPERTY {
+            return Param();
+        }
+
         void SetParam(const ParamType &arg) {
             param_ = arg;
         }

@@ -167,6 +167,8 @@
 		1347C21A2C5E1ACE00414DE2 /* AquaSKK-Ascii@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347C2062C5E1ACE00414DE2 /* AquaSKK-Ascii@2x.png */; };
 		1347C21B2C5E1ACE00414DE2 /* AquaSKK-Hirakana@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347C2082C5E1ACE00414DE2 /* AquaSKK-Hirakana@2x.png */; };
 		1347C21C2C5E1ACE00414DE2 /* AquaSKK-Jisx0208Latin.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347C20D2C5E1ACE00414DE2 /* AquaSKK-Jisx0208Latin.png */; };
+		134C9AD32D8369FE005403A4 /* SKKBridgedState.h in Headers */ = {isa = PBXBuildFile; fileRef = 134C9AD22D8369FE005403A4 /* SKKBridgedState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		134C9AD52D836EB3005403A4 /* SKKMessenger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 134C9AD42D836EB3005403A4 /* SKKMessenger.cpp */; };
 		134D25612D7A01120014ACD5 /* EditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D25602D7A01120014ACD5 /* EditorTests.swift */; };
 		134D25642D7A03870014ACD5 /* SKKRegisterEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D25632D7A03870014ACD5 /* SKKRegisterEditor.swift */; };
 		134D25662D7A08C50014ACD5 /* SKKEditorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D25652D7A08C50014ACD5 /* SKKEditorProtocol.swift */; };
@@ -817,6 +819,8 @@
 		1347C20E2C5E1ACE00414DE2 /* AquaSKK-Jisx0208Latin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AquaSKK-Jisx0208Latin@2x.png"; sourceTree = "<group>"; };
 		1347C20F2C5E1ACE00414DE2 /* AquaSKK-Katakana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AquaSKK-Katakana.png"; sourceTree = "<group>"; };
 		1347C2102C5E1ACE00414DE2 /* AquaSKK-Katakana@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AquaSKK-Katakana@2x.png"; sourceTree = "<group>"; };
+		134C9AD22D8369FE005403A4 /* SKKBridgedState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKBridgedState.h; sourceTree = "<group>"; };
+		134C9AD42D836EB3005403A4 /* SKKMessenger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKMessenger.cpp; sourceTree = "<group>"; };
 		134D25602D7A01120014ACD5 /* EditorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorTests.swift; sourceTree = "<group>"; };
 		134D25632D7A03870014ACD5 /* SKKRegisterEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKRegisterEditor.swift; sourceTree = "<group>"; };
 		134D25652D7A08C50014ACD5 /* SKKEditorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKEditorProtocol.swift; sourceTree = "<group>"; };
@@ -1692,6 +1696,7 @@
 				1344F4A22C5B28FC00D8C850 /* SKKInputModeListener.h */,
 				1344F4A32C5B28FC00D8C850 /* SKKInputSessionParameter.h */,
 				1344F4A42C5B28FC00D8C850 /* SKKMessenger.h */,
+				134C9AD42D836EB3005403A4 /* SKKMessenger.cpp */,
 				1344F4A52C5B28FC00D8C850 /* SKKWidget.h */,
 			);
 			path = bridge;
@@ -1864,6 +1869,7 @@
 				1344F5102C5B28FC00D8C850 /* SKKStatePrimary-inl.h */,
 				138ABEC32D80819D0027BFAF /* SKKStatePrimary.swift */,
 				1344F5112C5B28FC00D8C850 /* SKKStateRecursiveRegister-inl.h */,
+				134C9AD22D8369FE005403A4 /* SKKBridgedState.h */,
 			);
 			path = state;
 			sourceTree = "<group>";
@@ -2923,6 +2929,7 @@
 				1344F5812C5B28FC00D8C850 /* SKKOkuriEditor.h in Headers */,
 				1344F5832C5B28FC00D8C850 /* SKKStateComposing-inl.h in Headers */,
 				1344F5842C5B28FC00D8C850 /* SKKState.h in Headers */,
+				134C9AD32D8369FE005403A4 /* SKKBridgedState.h in Headers */,
 				1344F5862C5B28FC00D8C850 /* SKKStateRecursiveRegister-inl.h in Headers */,
 				1344F5892C5B28FC00D8C850 /* SKKCandidateEditor.h in Headers */,
 				1344F58B2C5B28FC00D8C850 /* SKKInputSession.h in Headers */,
@@ -4037,6 +4044,7 @@
 				1344F6062C5B28FC00D8C850 /* SKKState.cpp in Sources */,
 				138FB7082D7B4A5700542DF7 /* SKKRegistration.swift in Sources */,
 				1344F6082C5B28FC00D8C850 /* SKKUndoContext.cpp in Sources */,
+				134C9AD52D836EB3005403A4 /* SKKMessenger.cpp in Sources */,
 				139FE4492D7768C70015DFCA /* SKKPrimaryEditor.swift in Sources */,
 				1344F6102C5B28FC00D8C850 /* SKKCandidateEditor.cpp in Sources */,
 				138199002D793E52009C29E7 /* SKKOkuriListener.cpp in Sources */,

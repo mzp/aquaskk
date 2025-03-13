@@ -24,8 +24,10 @@
 #define SKKMessenger_h
 
 #include <string>
+#import <AquaSKKEngine/IntrusiveRefCounted.h>
+#include <swift/bridging>
 
-class SKKMessenger {
+class SKKMessenger: public IntrusiveRefCounted<SKKMessenger> {
 public:
     virtual ~SKKMessenger() {}
 
@@ -34,6 +36,9 @@ public:
 
     // ビープの再生
     virtual void Beep() = 0;
-};
+} SWIFT_SHARED_REFERENCE(retainSKKMessenger, releaseSKKMessenger);
+
+void retainSKKMessenger(SKKMessenger *obj);
+void releaseSKKMessenger(SKKMessenger *obj);
 
 #endif

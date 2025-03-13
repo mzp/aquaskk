@@ -25,6 +25,7 @@
 
 #include <sstream>
 #import <AquaSKKEngine/GenericStateMachine.h>
+#import <swift/bridging>
 
 // キー入力イベント
 enum {
@@ -82,6 +83,8 @@ enum {
     PseudoHandled, // 処理は行うが「未処理」とする
     CapsLock       // CapsLock
 };
+
+#import <AquaSKKEngine/SKKBridgedState.h>
 
 // イベントパラメータ
 class SKKEvent {
@@ -229,6 +232,10 @@ public:
         buf << "code=0x" << std::hex << (unsigned)code << ", " << attr();
 
         return buf.str();
+    }
+
+    SKKBridgedEventID getBridgedEventID() const SWIFT_COMPUTED_PROPERTY {
+        return static_cast<SKKBridgedEventID>(id);
     }
 };
 
