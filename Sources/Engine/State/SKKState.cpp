@@ -37,12 +37,25 @@ namespace {
 struct SKKStateContainer {
     SwiftObject<AquaSKKEngine::SKKStatePrimary> *primaryState;
     SwiftObject<AquaSKKEngine::SKKStateKanaInput> *kanaInputState;
+    SwiftObject<AquaSKKEngine::SKKStateHirakana> *hirakanaState;
+    SwiftObject<AquaSKKEngine::SKKStateKatakana> *katakanaState;
+    SwiftObject<AquaSKKEngine::SKKStateJisx0201Kana> *jisx0201kana;
+    SwiftObject<AquaSKKEngine::SKKStateLatinInput> *latinInputState;
+    SwiftObject<AquaSKKEngine::SKKStateAscii> *asciiState;
+    SwiftObject<AquaSKKEngine::SKKStateJisx0208Latin> *jis0208LatinState;
 
     SKKStateContainer(SKKInputEnvironment *env, SKKInputEngine *editor, SKKInputContext *context)
         : primaryState(new SwiftObject(
               AquaSKKEngine::SKKStatePrimary::init(editor, context, env->InputSessionParameter()->Messenger()))),
-          kanaInputState(new SwiftObject(
-              AquaSKKEngine::SKKStateKanaInput::init(editor, context, env->InputSessionParameter()->Messenger()))) {}
+          kanaInputState(new SwiftObject(AquaSKKEngine::SKKStateKanaInput::init(editor))),
+          hirakanaState(new SwiftObject(AquaSKKEngine::SKKStateHirakana::init(editor))),
+          katakanaState(new SwiftObject(AquaSKKEngine::SKKStateKatakana::init(editor))),
+          jisx0201kana(new SwiftObject(AquaSKKEngine::SKKStateJisx0201Kana::init(editor))),
+          latinInputState(new SwiftObject(AquaSKKEngine::SKKStateLatinInput::init(editor))),
+          asciiState(new SwiftObject(AquaSKKEngine::SKKStateAscii::init(editor))),
+          jis0208LatinState(new SwiftObject(AquaSKKEngine::SKKStateJisx0208Latin::init(editor)))
+
+    {}
 };
 
 SKKState::SKKState(SKKInputEnvironment *env, SKKInputEngine *editor)

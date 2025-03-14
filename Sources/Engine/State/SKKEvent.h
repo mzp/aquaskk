@@ -51,10 +51,10 @@ enum {
 
 // 処理オプション
 enum {
-    Default,
-    AlwaysHandled, // 強制的に「処理済み」にする
-    PseudoHandled, // 処理は行うが「未処理」とする
-    CapsLock       // CapsLock
+    Default = 0,
+    AlwaysHandled = 1 << 0, // 強制的に「処理済み」にする
+    PseudoHandled = 1 << 1, // 処理は行うが「未処理」とする
+    CapsLock = 1 << 2       // CapsLock
 };
 
 // イベントパラメータ

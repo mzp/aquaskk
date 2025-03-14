@@ -11,7 +11,8 @@ public enum StateTransitionResult: Int {
     case topState
 }
 
-/// level 1：直接入力
+// MARK: - level 1：直接入力
+
 public class SKKStatePrimary {
     var editor: SKKInputEngine
     var context: SKKInputContext
@@ -115,16 +116,12 @@ public class SKKStatePrimary {
     }
 }
 
-// MARK: level 2 (sub of Primary)：かな入力
+// MARK: - level 2 (sub of Primary)：かな入力
 
 public class SKKStateKanaInput {
     var editor: SKKInputEngine
-    var context: SKKInputContext
-    var messenger: SKKMessenger
-    public init(editor: SKKInputEngine, context: SKKInputContext, messenger: SKKMessenger) {
+    public init(editor: SKKInputEngine) {
         self.editor = editor
-        self.context = context
-        self.messenger = messenger
     }
 
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
@@ -169,6 +166,211 @@ public class SKKStateKanaInput {
             fallthrough
 
         default:
+            return .super_
+        }
+    }
+}
+
+// MARK: - level 3 (sub of KanaInput)：ひらかな
+
+public class SKKStateHirakana {
+    var editor: SKKInputEngine
+    public init(editor: SKKInputEngine) {
+        self.editor = editor
+    }
+
+    public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
+        switch event.id {
+        case .entryEvent:
+            editor.SelectInputMode(.HirakanaInputMode)
+            return .handled
+
+        case .hirakanaMode:
+            return .handled
+
+        case .charInput:
+            let param = event.param
+            if !(param.IsInputChars() && editor.CanConvert(CChar(param.code))) {
+                // 変換する文字がない場合のみ、ToggleKana等の処理する
+                //
+                // 例: AZIKの場合
+                //
+                //   - [: ToggeKana
+                //   - x[: 鍵括弧
+                //
+                // が割り当てられている
+                if param.IsToggleKana() {
+                    return .transitionKatakanaMode
+                }
+
+                if param.IsToggleJisx0201Kana() {
+                    return .transitionJisx0201KanaMode
+                }
+            }
+            fallthrough
+
+        default:
+            return .super_
+        }
+    }
+}
+
+public class SKKStateKatakana {
+    var editor: SKKInputEngine
+    public init(editor: SKKInputEngine) {
+        self.editor = editor
+    }
+
+    public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
+        switch event.id {
+        case .entryEvent:
+            editor.SelectInputMode(.KatakanaInputMode)
+            return .handled
+
+        case .katakanaMode:
+            return .handled
+
+        default:
+            let param = event.param
+            if !(event.id == .charInput && param.IsInputChars() && editor.CanConvert(CChar(param.code))) {
+                // 変換する文字がない場合のみ、ToggleKana等の処理する
+                if event.id == .jmode || event.param.IsToggleKana() {
+                    return .transitionHirakanaMode
+                }
+                if param.IsToggleJisx0201Kana() {
+                    return .transitionJisx0201KanaMode
+                }
+            }
+            return .super_
+        }
+    }
+}
+
+// MARK: - level 3 (sub of KanaInput)：半角カタカナ
+
+public class SKKStateJisx0201Kana {
+    var editor: SKKInputEngine
+    public init(editor: SKKInputEngine) {
+        self.editor = editor
+    }
+
+    public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
+        switch event.id {
+        case .entryEvent:
+            editor.SelectInputMode(.Jisx0201KanaInputMode)
+            return .handled
+
+        case .jisx0201KanaMode:
+            return .handled
+
+        default:
+            let param = event.param
+            if !(event.id == .charInput && param.IsInputChars() && editor.CanConvert(CChar(param.code))) {
+                // 変換する文字がない場合のみ、ToggleKana等の処理する
+                if event.id == .jmode || event.param.IsToggleKana() || param.IsToggleJisx0201Kana() {
+                    return .transitionHirakanaMode
+                }
+            }
+            return .super_
+        }
+    }
+    // case ENTRY_EVENT:
+    //     editor_->SelectInputMode(SKKInputMode::Jisx0201KanaInputMode);
+    //     return 0;
+    //
+    // case SKK_JISX0201KANA_MODE:
+    //     return 0;
+    //
+    // default:
+    //     if(!(event == SKK_CHAR && param.IsInputChars() && editor_->CanConvert(param.code))) {
+    //         // 変換する文字がない場合のみ、ToggleKana等の処理する
+    //         if(event == SKK_JMODE || param.IsToggleKana() || param.IsToggleJisx0201Kana()) {
+    //             return State::Transition(&SKKState::Hirakana);
+    //         }
+    //     }
+}
+
+// MARK: - level 2 (sub of Primary)：Latin 入力
+
+public class SKKStateLatinInput {
+    var editor: SKKInputEngine
+    public init(editor: SKKInputEngine) {
+        self.editor = editor
+    }
+
+    public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
+        let param = event.param
+        switch event.id {
+        case .jmode:
+            return .transitionHirakanaMode
+
+        case .charInput:
+            if param.IsInputChars() {
+                var code = param.code
+                if (param.option & Int32(CapsLock)) != 0,
+                   let uppercased = String(UnicodeScalar(code)).uppercased().first
+                {
+                    code = uppercased.asciiValue ?? code
+                }
+                editor.HandleChar(CChar(code), param.IsDirect())
+            }
+            fallthrough
+
+        default:
+            return .super_
+        }
+    }
+}
+
+// ======================================================================
+
+// MARK: - level 2 (sub of LatinInput)：ASCII
+
+/// ======================================================================
+public class SKKStateAscii {
+    var editor: SKKInputEngine
+    public init(editor: SKKInputEngine) {
+        self.editor = editor
+    }
+
+    public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
+        switch event.id {
+        case .entryEvent:
+            editor.SelectInputMode(.AsciiInputMode)
+            return .handled
+
+        case .asciiMode:
+            return .handled
+
+        default:
+            return .super_
+        }
+    }
+}
+
+/// ======================================================================
+/// level 2 (sub of LatinInput)：全角英数
+/// ======================================================================
+public class SKKStateJisx0208Latin {
+    var editor: SKKInputEngine
+    public init(editor: SKKInputEngine) {
+        self.editor = editor
+    }
+
+    public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
+        switch event.id {
+        case .entryEvent:
+            editor.SelectInputMode(.Jisx0208LatinInputMode)
+            return .handled
+
+        case .jisx0208LatinMode:
+            return .handled
+
+        default:
+            let param = event.param
+            if event.id == .asciiMode || (!param.IsInputChars() && param.IsSwitchToAscii()) {
+                return .transitionAsciiMode
+            }
             return .super_
         }
     }
