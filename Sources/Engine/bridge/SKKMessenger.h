@@ -24,10 +24,10 @@
 #define SKKMessenger_h
 
 #include <string>
-#import <AquaSKKEngine/IntrusiveRefCounted.h>
 #include <swift/bridging>
+#import <AquaSKKEngine/IntrusiveRefCounted.h>
 
-class SKKMessenger: public IntrusiveRefCounted<SKKMessenger> {
+class SKKMessenger : public IntrusiveRefCounted<SKKMessenger> {
 public:
     virtual ~SKKMessenger() {}
 

@@ -21,11 +21,11 @@
 */
 
 #include <cctype>
+#import <AquaSKKBackend/SwiftObject.h>
 #import <AquaSKKEngine/SKKConfig.h>
 #import <AquaSKKEngine/SKKInputEngine.h>
 #import <AquaSKKEngine/SKKMessenger.h>
 #import <AquaSKKEngine/SKKState.h>
-#import <AquaSKKBackend/SwiftObject.h>
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
@@ -36,11 +36,9 @@ namespace {
 
 struct SKKStateContainer {
     SwiftObject<AquaSKKEngine::SKKStatePrimary> *primaryState;
-    SKKStateContainer(SKKInputEnvironment *env,SKKInputEngine *editor, SKKInputContext *context)
-    :primaryState(new SwiftObject(AquaSKKEngine::SKKStatePrimary::init(editor, context, env->InputSessionParameter()->Messenger())))
-    {
-
-    }
+    SKKStateContainer(SKKInputEnvironment *env, SKKInputEngine *editor, SKKInputContext *context)
+        : primaryState(new SwiftObject(
+              AquaSKKEngine::SKKStatePrimary::init(editor, context, env->InputSessionParameter()->Messenger()))) {}
 };
 
 SKKState::SKKState(SKKInputEnvironment *env, SKKInputEngine *editor)
@@ -51,9 +49,7 @@ SKKState::SKKState(SKKInputEnvironment *env, SKKInputEngine *editor)
       editor_(editor),
       completer_(editor_),
       selector_(editor_, window_),
-container_(new SKKStateContainer(env, editor_, context_)){
-
-    }
+      container_(new SKKStateContainer(env, editor_, context_)) {}
 
 SKKState::SKKState(const SKKState &src)
     : context_(src.context_),
@@ -63,8 +59,7 @@ SKKState::SKKState(const SKKState &src)
       editor_(src.editor_),
       completer_(editor_),
       selector_(editor_, window_),
-container_(src.container_)
-{}
+      container_(src.container_) {}
 
 void SKKState::ToString(const Handler handler, const Event &event, std::string &result) {
     static const char *systemEvent[] = {"PROBE", "<<ENTRY>>", "<<INIT>>", "<<EXIT>>"};
@@ -109,6 +104,31 @@ void SKKState::ToString(const Handler handler, const Event &event, std::string &
             }
             return;
         }
+    }
+}
+
+State SKKState::bridgePerform(SKKStateMachineAction action) {
+    switch(action) {
+    case SKKStateMachineAction::delegateTopState:
+        return &SKKState::TopState;
+    case SKKStateMachineAction::initializeKanaInput:
+        return State::Initial(&SKKState::KanaInput);
+    case SKKStateMachineAction::transitionAsciiEntry:
+        return State::Transition(&SKKState::AsciiEntry);
+    case SKKStateMachineAction::transitionKanaEntry:
+        return State::Transition(&SKKState::KanaEntry);
+    case SKKStateMachineAction::transitionAsciiMode:
+        return State::Transition(&SKKState::Ascii);
+    case SKKStateMachineAction::transitionHirakanaMode:
+        return State::Transition(&SKKState::Hirakana);
+    case SKKStateMachineAction::transitionKatakanaMode:
+        return State::Transition(&SKKState::Katakana);
+    case SKKStateMachineAction::transitionJisx0201KanaMode:
+        return State::Transition(&SKKState::Jisx0201Kana);
+    case SKKStateMachineAction::transitionJisx0208LatinMode:
+        return State::Transition(&SKKState::Jisx0208Latin);
+    case SKKStateMachineAction::handled:
+        return 0;
     }
 }
 

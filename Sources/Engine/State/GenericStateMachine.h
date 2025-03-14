@@ -44,13 +44,9 @@
 #include <queue>
 #include <vector>
 #include <swift/bridging>
+#include <AquaSKKEngine/SKKEventID.h>
 
 namespace statemachinecxx_sourceforge_jp {
-    // ======================================================================
-    // event types
-    // ======================================================================
-enum EventTypes { EXIT_EVENT = -3, INIT_EVENT = -2, ENTRY_EVENT = -1, PROBE = 0, USER_EVENT = 1 };
-
     // ======================================================================
     // event
     // ======================================================================
@@ -73,6 +69,9 @@ enum EventTypes { EXIT_EVENT = -3, INIT_EVENT = -2, ENTRY_EVENT = -1, PROBE = 0,
         }
         int getSignal() const SWIFT_COMPUTED_PROPERTY {
             return signal_;
+        }
+        SKKEventID getID() const SWIFT_COMPUTED_PROPERTY {
+            return static_cast<SKKEventID>(signal_);
         }
 
         const ParamType &Param() const {

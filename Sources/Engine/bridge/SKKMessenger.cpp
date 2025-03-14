@@ -13,4 +13,3 @@ void retainSKKMessenger(SKKMessenger *obj) {
 void releaseSKKMessenger(SKKMessenger *obj) {
     obj->release();
 }
-

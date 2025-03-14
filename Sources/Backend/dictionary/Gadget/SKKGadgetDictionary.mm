@@ -27,7 +27,7 @@
 #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 
 SKKGadgetDictionary::SKKGadgetDictionary()
-: impl_(new SwiftObject<AquaSKKBackend::SKKGadgetDictionaryImpl>()) {}
+    : impl_(new SwiftObject<AquaSKKBackend::SKKGadgetDictionaryImpl>()) {}
 
 SKKGadgetDictionary::~SKKGadgetDictionary() {
     delete impl_;

@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 public enum StateTransitionResult: Int {
     case topState
 }
@@ -25,21 +24,26 @@ public class SKKStatePrimary {
 
     public func hello() {}
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
-        switch event.param.bridgedEventID {
+        switch event.id {
         case .initEvent:
             return .initializeKanaInput
+
         case .entryEvent:
             editor.SetStatePrimary()
             return .handled
+
         case .jmode:
             editor.Commit()
             return .handled
+
         case .enter:
             editor.HandleEnter()
             return .handled
+
         case .cancel:
-            editor.HandleCancel();
+            editor.HandleCancel()
             return .handled
+
         case .undo:
             // Undo 可能なら見出し語入力に遷移する
             switch context.undo.Undo() {
@@ -52,47 +56,62 @@ public class SKKStatePrimary {
                 context.event_handled = true
                 return .handled
             }
+
         case .paste:
             editor.HandlePaste()
             return .handled
+
         case .ping:
             editor.HandlePing()
             return .handled
+
         case .backspace:
             editor.HandleBackSpace()
             return .handled
+
         case .delete_:
             editor.HandleDelete()
             return .handled
+
         case .left:
-            editor.HandleCursorLeft();
+            editor.HandleCursorLeft()
             return .handled
+
         case .right:
-            editor.HandleCursorRight();
+            editor.HandleCursorRight()
             return .handled
+
         case .up:
-            editor.HandleCursorUp();
+            editor.HandleCursorUp()
             return .handled
+
         case .down:
-            editor.HandleCursorDown();
+            editor.HandleCursorDown()
             return .handled
+
         case .asciiMode:
             return .transitionAsciiMode
+
         case .hirakanaMode:
             return .transitionHirakanaMode
+
         case .katakanaMode:
             return .transitionKatakanaMode
+
         case .jisx0201KanaMode:
             return .transitionJisx0201KanaMode
+
         case .jisx0208LatinMode:
             return .transitionJisx0208LatinMode
+
         default:
+            // editor で処理されなかったイベントは全て「未処理」にする
+            // SKK_TAB もここに来るため、SKK_CHAR でテストはできない
             if event.IsUser() {
                 editor.Reset()
                 return .handled
             }
         }
         return .delegateTopState
-
     }
 }

@@ -27,9 +27,9 @@
 #import <AquaSKKEngine/GenericStateMachine.h>
 #import <AquaSKKEngine/SKKCompleter.h>
 #import <AquaSKKEngine/SKKEvent.h>
+#import <AquaSKKEngine/SKKEventID.h>
 #import <AquaSKKEngine/SKKInputEnvironment.h>
 #import <AquaSKKEngine/SKKSelector.h>
-#import <AquaSKKEngine/SKKBridgedState.h>
 
 using namespace statemachinecxx_sourceforge_jp;
 
@@ -38,6 +38,21 @@ class SKKCandidateWindow;
 class SKKConfig;
 class SKKInputEngine;
 class SKKStateContainer;
+
+enum class SKKStateMachineAction {
+    handled,
+
+    initializeKanaInput,
+
+    transitionAsciiMode,
+    transitionHirakanaMode,
+    transitionKatakanaMode,
+    transitionJisx0201KanaMode,
+    transitionJisx0208LatinMode,
+    transitionKanaEntry,
+    transitionAsciiEntry,
+    delegateTopState
+};
 
 // 状態コンテナ
 class SKKState : public BaseStateContainer<SKKState, SKKEvent> {
@@ -49,6 +64,8 @@ class SKKState : public BaseStateContainer<SKKState, SKKEvent> {
     SKKCompleter completer_;
     SKKSelector selector_;
     SKKStateContainer *container_;
+
+    State bridgePerform(SKKStateMachineAction action);
 
 public:
     SKKState(SKKInputEnvironment *env, SKKInputEngine *editor);

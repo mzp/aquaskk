@@ -167,7 +167,6 @@
 		1347C21A2C5E1ACE00414DE2 /* AquaSKK-Ascii@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347C2062C5E1ACE00414DE2 /* AquaSKK-Ascii@2x.png */; };
 		1347C21B2C5E1ACE00414DE2 /* AquaSKK-Hirakana@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347C2082C5E1ACE00414DE2 /* AquaSKK-Hirakana@2x.png */; };
 		1347C21C2C5E1ACE00414DE2 /* AquaSKK-Jisx0208Latin.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347C20D2C5E1ACE00414DE2 /* AquaSKK-Jisx0208Latin.png */; };
-		134C9AD32D8369FE005403A4 /* SKKBridgedState.h in Headers */ = {isa = PBXBuildFile; fileRef = 134C9AD22D8369FE005403A4 /* SKKBridgedState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		134C9AD52D836EB3005403A4 /* SKKMessenger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 134C9AD42D836EB3005403A4 /* SKKMessenger.cpp */; };
 		134D25612D7A01120014ACD5 /* EditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D25602D7A01120014ACD5 /* EditorTests.swift */; };
 		134D25642D7A03870014ACD5 /* SKKRegisterEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D25632D7A03870014ACD5 /* SKKRegisterEditor.swift */; };
@@ -220,6 +219,7 @@
 		135FB6D92C6998E800A6480A /* RomanKanaConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135FB6D82C6998E800A6480A /* RomanKanaConverter.swift */; };
 		135FB6E12C69AA7E00A6480A /* Trie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135FB6E02C69AA7E00A6480A /* Trie.swift */; };
 		135FB6E32C69B06B00A6480A /* TriesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135FB6E22C69B06B00A6480A /* TriesTest.swift */; };
+		13615FED2D8475CF000EA020 /* SKKEventID.h in Headers */ = {isa = PBXBuildFile; fileRef = 13615FEC2D8475CF000EA020 /* SKKEventID.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13706E5A2C6C5089004EC879 /* SKK-JISYO.L in Resources */ = {isa = PBXBuildFile; fileRef = 13706E582C6C492E004EC879 /* SKK-JISYO.L */; };
 		1371A74F2C5B5D0300E06348 /* DictionarySet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74D2C5B5D0300E06348 /* DictionarySet.plist */; };
 		1371A7502C5B5D0300E06348 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74E2C5B5D0300E06348 /* UserDefaults.plist */; };
@@ -819,7 +819,6 @@
 		1347C20E2C5E1ACE00414DE2 /* AquaSKK-Jisx0208Latin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AquaSKK-Jisx0208Latin@2x.png"; sourceTree = "<group>"; };
 		1347C20F2C5E1ACE00414DE2 /* AquaSKK-Katakana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AquaSKK-Katakana.png"; sourceTree = "<group>"; };
 		1347C2102C5E1ACE00414DE2 /* AquaSKK-Katakana@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AquaSKK-Katakana@2x.png"; sourceTree = "<group>"; };
-		134C9AD22D8369FE005403A4 /* SKKBridgedState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKBridgedState.h; sourceTree = "<group>"; };
 		134C9AD42D836EB3005403A4 /* SKKMessenger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKMessenger.cpp; sourceTree = "<group>"; };
 		134D25602D7A01120014ACD5 /* EditorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorTests.swift; sourceTree = "<group>"; };
 		134D25632D7A03870014ACD5 /* SKKRegisterEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKRegisterEditor.swift; sourceTree = "<group>"; };
@@ -879,6 +878,7 @@
 		135FB6D82C6998E800A6480A /* RomanKanaConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanKanaConverter.swift; sourceTree = "<group>"; };
 		135FB6E02C69AA7E00A6480A /* Trie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trie.swift; sourceTree = "<group>"; };
 		135FB6E22C69B06B00A6480A /* TriesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriesTest.swift; sourceTree = "<group>"; };
+		13615FEC2D8475CF000EA020 /* SKKEventID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKEventID.h; sourceTree = "<group>"; };
 		13706E582C6C492E004EC879 /* SKK-JISYO.L */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 3; lineEnding = 0; path = "SKK-JISYO.L"; sourceTree = "<group>"; };
 		1371A74C2C5B5D0300E06348 /* BlacklistApps.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BlacklistApps.plist; sourceTree = "<group>"; };
 		1371A74D2C5B5D0300E06348 /* DictionarySet.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DictionarySet.plist; sourceTree = "<group>"; };
@@ -1861,15 +1861,15 @@
 			children = (
 				1344F5092C5B28FC00D8C850 /* GenericStateMachine.h */,
 				1344F50A2C5B28FC00D8C850 /* SKKEvent.h */,
+				13615FEC2D8475CF000EA020 /* SKKEventID.h */,
 				1344F50B2C5B28FC00D8C850 /* SKKState.h */,
 				1344F50C2C5B28FC00D8C850 /* SKKState.cpp */,
 				1344F50D2C5B28FC00D8C850 /* SKKStateComposing-inl.h */,
 				1344F50E2C5B28FC00D8C850 /* SKKStateEntryRemove-inl.h */,
 				1344F50F2C5B28FC00D8C850 /* SKKStateMachine.h */,
-				1344F5102C5B28FC00D8C850 /* SKKStatePrimary-inl.h */,
 				138ABEC32D80819D0027BFAF /* SKKStatePrimary.swift */,
+				1344F5102C5B28FC00D8C850 /* SKKStatePrimary-inl.h */,
 				1344F5112C5B28FC00D8C850 /* SKKStateRecursiveRegister-inl.h */,
-				134C9AD22D8369FE005403A4 /* SKKBridgedState.h */,
 			);
 			path = state;
 			sourceTree = "<group>";
@@ -2913,6 +2913,7 @@
 				1344F5682C5B28FC00D8C850 /* SKKStateMachine.h in Headers */,
 				1344F5692C5B28FC00D8C850 /* SKKPrimaryEditor.h in Headers */,
 				132692292D7A486800043CDC /* SKKCompleterBuddy.h in Headers */,
+				13615FED2D8475CF000EA020 /* SKKEventID.h in Headers */,
 				13A6488C2D76DEED00FB52C5 /* SKKInputQueueObserver.h in Headers */,
 				139E88BC2D73F44B0065CFA2 /* AquaSKKEngine-Preamble.h in Headers */,
 				1344F56A2C5B28FC00D8C850 /* SKKConfig.h in Headers */,
@@ -2929,7 +2930,6 @@
 				1344F5812C5B28FC00D8C850 /* SKKOkuriEditor.h in Headers */,
 				1344F5832C5B28FC00D8C850 /* SKKStateComposing-inl.h in Headers */,
 				1344F5842C5B28FC00D8C850 /* SKKState.h in Headers */,
-				134C9AD32D8369FE005403A4 /* SKKBridgedState.h in Headers */,
 				1344F5862C5B28FC00D8C850 /* SKKStateRecursiveRegister-inl.h in Headers */,
 				1344F5892C5B28FC00D8C850 /* SKKCandidateEditor.h in Headers */,
 				1344F58B2C5B28FC00D8C850 /* SKKInputSession.h in Headers */,
