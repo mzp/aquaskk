@@ -36,9 +36,13 @@ namespace {
 
 struct SKKStateContainer {
     SwiftObject<AquaSKKEngine::SKKStatePrimary> *primaryState;
+    SwiftObject<AquaSKKEngine::SKKStateKanaInput> *kanaInputState;
+
     SKKStateContainer(SKKInputEnvironment *env, SKKInputEngine *editor, SKKInputContext *context)
         : primaryState(new SwiftObject(
-              AquaSKKEngine::SKKStatePrimary::init(editor, context, env->InputSessionParameter()->Messenger()))) {}
+              AquaSKKEngine::SKKStatePrimary::init(editor, context, env->InputSessionParameter()->Messenger()))),
+          kanaInputState(new SwiftObject(
+              AquaSKKEngine::SKKStateKanaInput::init(editor, context, env->InputSessionParameter()->Messenger()))) {}
 };
 
 SKKState::SKKState(SKKInputEnvironment *env, SKKInputEngine *editor)
@@ -107,10 +111,8 @@ void SKKState::ToString(const Handler handler, const Event &event, std::string &
     }
 }
 
-State SKKState::bridgePerform(SKKStateMachineAction action) {
+State SKKState::bridgePerform(SKKStateMachineAction action, State super_) {
     switch(action) {
-    case SKKStateMachineAction::delegateTopState:
-        return &SKKState::TopState;
     case SKKStateMachineAction::initializeKanaInput:
         return State::Initial(&SKKState::KanaInput);
     case SKKStateMachineAction::transitionAsciiEntry:
@@ -127,6 +129,20 @@ State SKKState::bridgePerform(SKKStateMachineAction action) {
         return State::Transition(&SKKState::Jisx0201Kana);
     case SKKStateMachineAction::transitionJisx0208LatinMode:
         return State::Transition(&SKKState::Jisx0208Latin);
+    case SKKStateMachineAction::forwardKanaInput:
+        return State::Forward(&SKKState::KanaInput);
+    case SKKStateMachineAction::forwardKanaEntry:
+        return State::Forward(&SKKState::KanaEntry);
+    case SKKStateMachineAction::forwardEntryInput:
+        return State::Forward(&SKKState::EntryInput);
+    case SKKStateMachineAction::forwardOkuriInput:
+        return State::Forward(&SKKState::OkuriInput);
+    case SKKStateMachineAction::shallowHistoryHirakana:
+        return State::ShallowHistory(&SKKState::Hirakana);
+    case SKKStateMachineAction::saveHistory:
+        return State::SaveHistory();
+    case SKKStateMachineAction::super_:
+        return super_;
     case SKKStateMachineAction::handled:
         return 0;
     }

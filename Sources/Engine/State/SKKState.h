@@ -51,7 +51,16 @@ enum class SKKStateMachineAction {
     transitionJisx0208LatinMode,
     transitionKanaEntry,
     transitionAsciiEntry,
-    delegateTopState
+
+    forwardKanaInput,
+    forwardKanaEntry,
+    forwardEntryInput,
+    forwardOkuriInput,
+
+    shallowHistoryHirakana,
+    saveHistory,
+
+    super_
 };
 
 // 状態コンテナ
@@ -65,7 +74,7 @@ class SKKState : public BaseStateContainer<SKKState, SKKEvent> {
     SKKSelector selector_;
     SKKStateContainer *container_;
 
-    State bridgePerform(SKKStateMachineAction action);
+    State bridgePerform(SKKStateMachineAction action, State super_);
 
 public:
     SKKState(SKKInputEnvironment *env, SKKInputEngine *editor);

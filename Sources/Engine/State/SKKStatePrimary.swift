@@ -22,7 +22,6 @@ public class SKKStatePrimary {
         self.messenger = messenger
     }
 
-    public func hello() {}
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .initEvent:
@@ -112,6 +111,65 @@ public class SKKStatePrimary {
                 return .handled
             }
         }
-        return .delegateTopState
+        return .super_
+    }
+}
+
+// MARK: level 2 (sub of Primary)：かな入力
+
+public class SKKStateKanaInput {
+    var editor: SKKInputEngine
+    var context: SKKInputContext
+    var messenger: SKKMessenger
+    public init(editor: SKKInputEngine, context: SKKInputContext, messenger: SKKMessenger) {
+        self.editor = editor
+        self.context = context
+        self.messenger = messenger
+    }
+
+    public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
+        switch event.id {
+        case .initEvent:
+            return .shallowHistoryHirakana
+
+        case .entryEvent:
+            return .saveHistory
+
+        case .charInput:
+            let param = event.param
+            if !editor.CanConvert(CChar(param.code)) {
+                if param.IsSwitchToAscii() {
+                    return .transitionAsciiMode
+                }
+
+                if param.IsSwitchToJisx0208Latin() {
+                    return .transitionJisx0208LatinMode
+                }
+
+                if param.IsEnterAbbrev() {
+                    return .transitionAsciiEntry
+                }
+
+                if param.IsEnterJapanese() {
+                    return .transitionKanaEntry
+                }
+            }
+            if param.IsStickyKey() {
+                return .transitionKanaEntry
+            }
+            if param.IsUpperCases() {
+                return .forwardKanaEntry
+            }
+
+            // キー修飾がない場合のみローマ字かな変換を実施する
+            if param.IsInputChars() {
+                editor.HandleChar(CChar(param.code), param.IsDirect())
+                return .handled
+            }
+            fallthrough
+
+        default:
+            return .super_
+        }
     }
 }
