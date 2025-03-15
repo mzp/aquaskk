@@ -27,16 +27,26 @@
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 struct SKKSelectorContainer {
+private:
+    SKKSelectorContainer();
+
+public:
     SwiftObject<AquaSKKEngine::SKKSelectorImpl> *impl_;
 
     SKKSelectorContainer(SKKSelectorBuddy *buddy, SKKCandidateWindowBridge *bridge)
         : impl_(new SwiftObject(AquaSKKEngine::SKKSelectorImpl::createBridge(buddy, bridge))) {}
+
+    ~SKKSelectorContainer() {
+        //       delete impl_;
+    }
 };
 
 SKKSelector::SKKSelector(SKKSelectorBuddy *buddy, SKKCandidateWindow *window) {
     bridge_ = new SKKCandidateWindowBridge(window);
     container_ = new SKKSelectorContainer(buddy, bridge_);
 }
+SKKSelector::SKKSelector(SKKSelector &selector)
+    : bridge_(selector.bridge_), container_(selector.container_) {}
 
 SKKSelector::~SKKSelector() {
     delete container_;
@@ -48,7 +58,8 @@ bool SKKSelector::IsInline() const {
 }
 
 bool SKKSelector::Execute(int inlineCount) {
-    return (*(container_->impl_))->execute(inlineCount);
+    auto impl = container_->impl_;
+    return (*impl)->execute(inlineCount);
 }
 
 bool SKKSelector::Next() {
@@ -85,4 +96,11 @@ void SKKSelector::Show() {
 
 void SKKSelector::Hide() {
     (*(container_->impl_))->hide();
+}
+
+void retainSKKSelector(SKKSelector *obj) {
+    obj->retain();
+}
+void releaseSKKSelector(SKKSelector *obj) {
+    obj->release();
 }

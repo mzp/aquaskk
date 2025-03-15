@@ -51,3 +51,11 @@ void SKKCompleter::Next() {
 void SKKCompleter::Prev() {
     return (*(container_->impl_))->prev();
 }
+
+void retainSKKCompleter(SKKCompleter *obj) {
+    obj->retain();
+}
+
+void releaseSKKCompleter(SKKCompleter *obj) {
+    obj->release();
+}

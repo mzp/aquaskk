@@ -28,6 +28,8 @@ public class SKKSelectorImpl {
         windowSelector = SKKWindowSelectorImpl(presenter: presenter)
     }
 
+    deinit {}
+
     public var isInline: Bool {
         return activeSelectorType == .inline
     }

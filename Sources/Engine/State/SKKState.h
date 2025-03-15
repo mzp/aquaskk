@@ -51,6 +51,12 @@ enum class SKKStateMachineAction {
     transitionJisx0208LatinMode,
     transitionKanaEntry,
     transitionAsciiEntry,
+    transitionKanaInput,
+    transitionSelectCandidate,
+    transitionRecursiveRegister,
+    transitionEntryCompletion,
+    transitionOkuriInput,
+    transitionEntryRemove,
 
     forwardKanaInput,
     forwardKanaEntry,
@@ -59,6 +65,11 @@ enum class SKKStateMachineAction {
 
     shallowHistoryHirakana,
     saveHistory,
+
+    deepForwardEntryInput,
+    deepForwardKanaInput,
+
+    deepHistoryEntryInput,
 
     super_
 };

@@ -220,6 +220,7 @@
 		135FB6E12C69AA7E00A6480A /* Trie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135FB6E02C69AA7E00A6480A /* Trie.swift */; };
 		135FB6E32C69B06B00A6480A /* TriesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135FB6E22C69B06B00A6480A /* TriesTest.swift */; };
 		13615FED2D8475CF000EA020 /* SKKEventID.h in Headers */ = {isa = PBXBuildFile; fileRef = 13615FEC2D8475CF000EA020 /* SKKEventID.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		13615FEF2D852108000EA020 /* SKKStateComposing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13615FEE2D852108000EA020 /* SKKStateComposing.swift */; };
 		13706E5A2C6C5089004EC879 /* SKK-JISYO.L in Resources */ = {isa = PBXBuildFile; fileRef = 13706E582C6C492E004EC879 /* SKK-JISYO.L */; };
 		1371A74F2C5B5D0300E06348 /* DictionarySet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74D2C5B5D0300E06348 /* DictionarySet.plist */; };
 		1371A7502C5B5D0300E06348 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74E2C5B5D0300E06348 /* UserDefaults.plist */; };
@@ -879,6 +880,7 @@
 		135FB6E02C69AA7E00A6480A /* Trie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trie.swift; sourceTree = "<group>"; };
 		135FB6E22C69B06B00A6480A /* TriesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriesTest.swift; sourceTree = "<group>"; };
 		13615FEC2D8475CF000EA020 /* SKKEventID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKEventID.h; sourceTree = "<group>"; };
+		13615FEE2D852108000EA020 /* SKKStateComposing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStateComposing.swift; sourceTree = "<group>"; };
 		13706E582C6C492E004EC879 /* SKK-JISYO.L */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 3; lineEnding = 0; path = "SKK-JISYO.L"; sourceTree = "<group>"; };
 		1371A74C2C5B5D0300E06348 /* BlacklistApps.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BlacklistApps.plist; sourceTree = "<group>"; };
 		1371A74D2C5B5D0300E06348 /* DictionarySet.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DictionarySet.plist; sourceTree = "<group>"; };
@@ -1864,6 +1866,7 @@
 				13615FEC2D8475CF000EA020 /* SKKEventID.h */,
 				1344F50B2C5B28FC00D8C850 /* SKKState.h */,
 				1344F50C2C5B28FC00D8C850 /* SKKState.cpp */,
+				13615FEE2D852108000EA020 /* SKKStateComposing.swift */,
 				1344F50D2C5B28FC00D8C850 /* SKKStateComposing-inl.h */,
 				1344F50E2C5B28FC00D8C850 /* SKKStateEntryRemove-inl.h */,
 				1344F50F2C5B28FC00D8C850 /* SKKStateMachine.h */,
@@ -4048,6 +4051,7 @@
 				139FE4492D7768C70015DFCA /* SKKPrimaryEditor.swift in Sources */,
 				1344F6102C5B28FC00D8C850 /* SKKCandidateEditor.cpp in Sources */,
 				138199002D793E52009C29E7 /* SKKOkuriListener.cpp in Sources */,
+				13615FEF2D852108000EA020 /* SKKStateComposing.swift in Sources */,
 				138198F62D792F15009C29E7 /* SKKCandidateEditor.swift in Sources */,
 				1376379E2D7F642200CF332A /* SKKDynamicCompletor.cpp in Sources */,
 				138198FC2D793C6E009C29E7 /* SKKOkuriEditor.swift in Sources */,

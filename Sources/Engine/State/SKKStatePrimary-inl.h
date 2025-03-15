@@ -56,7 +56,7 @@ State SKKState::Katakana(const Event &event) {
 // level 3 (sub of KanaInput)：半角カタカナ
 // ======================================================================
 State SKKState::Jisx0201Kana(const Event &event) {
-    SKKStateMachineAction action = (*(this->container_->jisx0201kana))->dispatch(event);
+    SKKStateMachineAction action = (*(this->container_->jisx0201kanaState))->dispatch(event);
     return bridgePerform(action, &SKKState::KanaInput);
 }
 

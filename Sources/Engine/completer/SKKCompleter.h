@@ -23,11 +23,13 @@
 #ifndef SKKCompleter_h
 #define SKKCompleter_h
 
+#import <swift/bridging>
+#import <AquaSKKEngine/IntrusiveRefCounted.h>
 #import <AquaSKKEngine/SKKCompleterBuddy.h>
 
 class SKKCompleterContainer;
 
-class SKKCompleter {
+class SKKCompleter : public IntrusiveRefCounted<SKKCompleter> {
     SKKCompleterContainer *container_;
 
 public:
@@ -42,6 +44,9 @@ public:
     // 移動
     void Next();
     void Prev();
-};
+} SWIFT_SHARED_REFERENCE(retainSKKCompleter, releaseSKKCompleter);
+
+void retainSKKCompleter(SKKCompleter *obj);
+void releaseSKKCompleter(SKKCompleter *obj);
 
 #endif

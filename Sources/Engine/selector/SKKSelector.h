@@ -23,8 +23,10 @@
 #ifndef SKKSelector_h
 #define SKKSelector_h
 
+#import <swift/bridging>
 #import <AquaSKKBackend/SKKCandidateSuite.h>
 #import <AquaSKKBackend/SwiftObject.h>
+#import <AquaSKKEngine/IntrusiveRefCounted.h>
 #import <AquaSKKEngine/SKKSelectorBuddy.h>
 
 class SKKCandidateWindow;
@@ -33,12 +35,13 @@ class SKKCandidateWindowBridge;
 
 class SKKSelectorContainer;
 // 変換候補選択クラス
-class SKKSelector {
+class SKKSelector : public IntrusiveRefCounted<SKKSelector> {
     SKKSelectorContainer *container_;
     SKKCandidateWindowBridge *bridge_;
 
 public:
     SKKSelector(SKKSelectorBuddy *buddy, SKKCandidateWindow *window);
+    SKKSelector(SKKSelector &selector);
     ~SKKSelector();
 
     // インラインかどうか
@@ -63,6 +66,9 @@ public:
     // 候補ウィンドウの表示制御
     void Show();
     void Hide();
-};
+} SWIFT_SHARED_REFERENCE(retainSKKSelector, releaseSKKSelector);
+
+void retainSKKSelector(SKKSelector *obj);
+void releaseSKKSelector(SKKSelector *obj);
 
 #endif
