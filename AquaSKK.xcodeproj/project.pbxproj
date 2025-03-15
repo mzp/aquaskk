@@ -221,6 +221,8 @@
 		135FB6E32C69B06B00A6480A /* TriesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135FB6E22C69B06B00A6480A /* TriesTest.swift */; };
 		13615FED2D8475CF000EA020 /* SKKEventID.h in Headers */ = {isa = PBXBuildFile; fileRef = 13615FEC2D8475CF000EA020 /* SKKEventID.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13615FEF2D852108000EA020 /* SKKStateComposing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13615FEE2D852108000EA020 /* SKKStateComposing.swift */; };
+		13615FF12D8543E5000EA020 /* SKKStateEntryRemove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13615FF02D8543E5000EA020 /* SKKStateEntryRemove.swift */; };
+		13615FF32D8544CC000EA020 /* SKKStateRecursiveRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13615FF22D8544CC000EA020 /* SKKStateRecursiveRegister.swift */; };
 		13706E5A2C6C5089004EC879 /* SKK-JISYO.L in Resources */ = {isa = PBXBuildFile; fileRef = 13706E582C6C492E004EC879 /* SKK-JISYO.L */; };
 		1371A74F2C5B5D0300E06348 /* DictionarySet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74D2C5B5D0300E06348 /* DictionarySet.plist */; };
 		1371A7502C5B5D0300E06348 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1371A74E2C5B5D0300E06348 /* UserDefaults.plist */; };
@@ -881,6 +883,8 @@
 		135FB6E22C69B06B00A6480A /* TriesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriesTest.swift; sourceTree = "<group>"; };
 		13615FEC2D8475CF000EA020 /* SKKEventID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKEventID.h; sourceTree = "<group>"; };
 		13615FEE2D852108000EA020 /* SKKStateComposing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStateComposing.swift; sourceTree = "<group>"; };
+		13615FF02D8543E5000EA020 /* SKKStateEntryRemove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStateEntryRemove.swift; sourceTree = "<group>"; };
+		13615FF22D8544CC000EA020 /* SKKStateRecursiveRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStateRecursiveRegister.swift; sourceTree = "<group>"; };
 		13706E582C6C492E004EC879 /* SKK-JISYO.L */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 3; lineEnding = 0; path = "SKK-JISYO.L"; sourceTree = "<group>"; };
 		1371A74C2C5B5D0300E06348 /* BlacklistApps.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BlacklistApps.plist; sourceTree = "<group>"; };
 		1371A74D2C5B5D0300E06348 /* DictionarySet.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DictionarySet.plist; sourceTree = "<group>"; };
@@ -1869,6 +1873,8 @@
 				13615FEE2D852108000EA020 /* SKKStateComposing.swift */,
 				1344F50D2C5B28FC00D8C850 /* SKKStateComposing-inl.h */,
 				1344F50E2C5B28FC00D8C850 /* SKKStateEntryRemove-inl.h */,
+				13615FF02D8543E5000EA020 /* SKKStateEntryRemove.swift */,
+				13615FF22D8544CC000EA020 /* SKKStateRecursiveRegister.swift */,
 				1344F50F2C5B28FC00D8C850 /* SKKStateMachine.h */,
 				138ABEC32D80819D0027BFAF /* SKKStatePrimary.swift */,
 				1344F5102C5B28FC00D8C850 /* SKKStatePrimary-inl.h */,
@@ -4032,12 +4038,14 @@
 				1344F5EC2C5B28FC00D8C850 /* SKKOkuriEditor.cpp in Sources */,
 				1344F5ED2C5B28FC00D8C850 /* SKKInputQueue.cpp in Sources */,
 				1344F5F42C5B28FC00D8C850 /* SKKCompleter.cpp in Sources */,
+				13615FF12D8543E5000EA020 /* SKKStateEntryRemove.swift in Sources */,
 				1344F5FA2C5B28FC00D8C850 /* SKKOutputBuffer.cpp in Sources */,
 				137637992D7F637C00CF332A /* SKKAnnotator.cpp in Sources */,
 				132692262D7A34E000043CDC /* SKKCompleter.swift in Sources */,
 				13A6488A2D76D82900FB52C5 /* SKKInputQueue.swift in Sources */,
 				13513C452D74BBB100C00A4E /* SKKCandidatePresenter.swift in Sources */,
 				1344F5FC2C5B28FC00D8C850 /* SKKTextBuffer.cpp in Sources */,
+				13615FF32D8544CC000EA020 /* SKKStateRecursiveRegister.swift in Sources */,
 				1344F5FF2C5B28FC00D8C850 /* SKKInputEngine.cpp in Sources */,
 				139E88B72D73F2FA0065CFA2 /* SKKInlineSelector.swift in Sources */,
 				1326922E2D7AA66E00043CDC /* SKKConfig.cpp in Sources */,

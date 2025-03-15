@@ -70,6 +70,7 @@ enum class SKKStateMachineAction {
     deepForwardKanaInput,
 
     deepHistoryEntryInput,
+    deepHistoryComposing,
 
     super_
 };

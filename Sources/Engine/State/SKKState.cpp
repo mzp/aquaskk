@@ -55,6 +55,9 @@ struct SKKStateContainer {
     SwiftObject<AquaSKKEngine::SKKStateSelectCandidate> *selectCandidateState;
     SwiftObject<AquaSKKEngine::SKKStateOkuriInput> *okuriInputState;
 
+    SwiftObject<AquaSKKEngine::SKKStateEntryRemove> *entryRemoveState;
+    SwiftObject<AquaSKKEngine::SKKStateRecursiveRegister> *recursiveRegisterState;
+
     SKKStateContainer(
         SKKConfig *config, SKKInputEngine *editor, SKKInputContext *context, SKKCompleter *completer,
         SKKSelector *selector, SKKMessenger *messenger)
@@ -74,8 +77,9 @@ struct SKKStateContainer {
           entryCompletionState(
               new SwiftObject(AquaSKKEngine::SKKStateEntryCompletion::init(editor, completer, messenger))),
           selectCandidateState(new SwiftObject(AquaSKKEngine::SKKStateSelectCandidate::init(editor, config, selector))),
-          okuriInputState(new SwiftObject(AquaSKKEngine::SKKStateOkuriInput::init(editor, config, context, selector))) {
-    }
+          okuriInputState(new SwiftObject(AquaSKKEngine::SKKStateOkuriInput::init(editor, config, context, selector))),
+          entryRemoveState(new SwiftObject(AquaSKKEngine::SKKStateEntryRemove::init(editor, context, messenger))),
+          recursiveRegisterState(new SwiftObject(AquaSKKEngine::SKKStateRecursiveRegister::init(editor, messenger))) {}
 };
 
 SKKState::SKKState(SKKInputEnvironment *env, SKKInputEngine *editor)
@@ -148,6 +152,7 @@ State SKKState::bridgePerform(SKKStateMachineAction action, State super_) {
     switch(action) {
     case SKKStateMachineAction::initializeKanaInput:
         return State::Initial(&SKKState::KanaInput);
+
     case SKKStateMachineAction::transitionAsciiEntry:
         return State::Transition(&SKKState::AsciiEntry);
     case SKKStateMachineAction::transitionKanaEntry:
@@ -162,18 +167,18 @@ State SKKState::bridgePerform(SKKStateMachineAction action, State super_) {
         return State::Transition(&SKKState::Jisx0201Kana);
     case SKKStateMachineAction::transitionJisx0208LatinMode:
         return State::Transition(&SKKState::Jisx0208Latin);
-
     case SKKStateMachineAction::transitionKanaInput:
         return State::Transition(&SKKState::KanaInput);
-
     case SKKStateMachineAction::transitionSelectCandidate:
         return State::Transition(&SKKState::SelectCandidate);
-
     case SKKStateMachineAction::transitionRecursiveRegister:
         return State::Transition(&SKKState::RecursiveRegister);
-
     case SKKStateMachineAction::transitionEntryCompletion:
         return State::Transition(&SKKState::EntryCompletion);
+    case SKKStateMachineAction::transitionOkuriInput:
+        return State::Transition(&SKKState::OkuriInput);
+    case SKKStateMachineAction::transitionEntryRemove:
+        return State::Transition(&SKKState::EntryRemove);
 
     case SKKStateMachineAction::forwardKanaInput:
         return State::Forward(&SKKState::KanaInput);
@@ -183,25 +188,26 @@ State SKKState::bridgePerform(SKKStateMachineAction action, State super_) {
         return State::Forward(&SKKState::EntryInput);
     case SKKStateMachineAction::forwardOkuriInput:
         return State::Forward(&SKKState::OkuriInput);
+
     case SKKStateMachineAction::shallowHistoryHirakana:
         return State::ShallowHistory(&SKKState::Hirakana);
     case SKKStateMachineAction::saveHistory:
         return State::SaveHistory();
-    case SKKStateMachineAction::handled:
-        return 0;
-    case SKKStateMachineAction::super_:
-        return super_;
 
-    case SKKStateMachineAction::transitionOkuriInput:
-        return State::Transition(&SKKState::OkuriInput);
-    case SKKStateMachineAction::transitionEntryRemove:
-        return State::Transition(&SKKState::EntryRemove);
     case SKKStateMachineAction::deepForwardEntryInput:
         return State::DeepForward(&SKKState::EntryInput);
     case SKKStateMachineAction::deepForwardKanaInput:
         return State::DeepForward(&SKKState::KanaInput);
+
     case SKKStateMachineAction::deepHistoryEntryInput:
         return State::DeepHistory(&SKKState::EntryInput);
+    case SKKStateMachineAction::deepHistoryComposing:
+        return State::DeepHistory(&SKKState::Composing);
+
+    case SKKStateMachineAction::handled:
+        return 0;
+    case SKKStateMachineAction::super_:
+        return super_;
     }
 }
 
