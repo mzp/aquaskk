@@ -24,62 +24,62 @@
 // level 1：直接入力
 // ======================================================================
 State SKKState::Primary(const Event &event) {
-    SKKStateMachineAction action = (*(this->container_->primaryState))->bridgedDispatch(SKKStateMachineBrigdgedEvent(event));
-    return bridgePerform(action, &SKKState::TopState);
+    int action = (*(this->container_->primaryState))->bridgedDispatch(event);
+    return bridgePerform(static_cast<SKKStateMachineAction>(action), &SKKState::TopState);
 }
 
 // ======================================================================
 // level 2 (sub of Primary)：かな入力
 // ======================================================================
 State SKKState::KanaInput(const Event &event) {
-    SKKStateMachineAction action = (*(this->container_->kanaInputState))->bridgedDispatch(SKKStateMachineBrigdgedEvent(event));
-    return bridgePerform(action, &SKKState::Primary);
+    int action = (*(this->container_->kanaInputState))->bridgedDispatch(event);
+    return bridgePerform(static_cast<SKKStateMachineAction>(action), &SKKState::Primary);
 }
 
 // ======================================================================
 // level 3 (sub of KanaInput)：ひらかな
 // ======================================================================
 State SKKState::Hirakana(const Event &event) {
-    SKKStateMachineAction action = (*(this->container_->hirakanaState))->bridgedDispatch(SKKStateMachineBrigdgedEvent(event));
-    return bridgePerform(action, &SKKState::KanaInput);
+    int action = (*(this->container_->hirakanaState))->bridgedDispatch(event);
+    return bridgePerform(static_cast<SKKStateMachineAction>(action), &SKKState::KanaInput);
 }
 
 // ======================================================================
 // level 3 (sub of KanaInput)：カタカナ
 // ======================================================================
 State SKKState::Katakana(const Event &event) {
-    SKKStateMachineAction action = (*(this->container_->katakanaState))->bridgedDispatch(SKKStateMachineBrigdgedEvent(event));
-    return bridgePerform(action, &SKKState::KanaInput);
+    int action = (*(this->container_->katakanaState))->bridgedDispatch(event);
+    return bridgePerform(static_cast<SKKStateMachineAction>(action), &SKKState::KanaInput);
 }
 
 // ======================================================================
 // level 3 (sub of KanaInput)：半角カタカナ
 // ======================================================================
 State SKKState::Jisx0201Kana(const Event &event) {
-    SKKStateMachineAction action = (*(this->container_->jisx0201kanaState))->bridgedDispatch(SKKStateMachineBrigdgedEvent(event));
-    return bridgePerform(action, &SKKState::KanaInput);
+    int action = (*(this->container_->jisx0201kanaState))->bridgedDispatch(event);
+    return bridgePerform(static_cast<SKKStateMachineAction>(action), &SKKState::KanaInput);
 }
 
 // ======================================================================
 // level 2 (sub of Primary)：Latin 入力
 // ======================================================================
 State SKKState::LatinInput(const Event &event) {
-    SKKStateMachineAction action = (*(this->container_->latinInputState))->bridgedDispatch(SKKStateMachineBrigdgedEvent(event));
-    return bridgePerform(action, &SKKState::Primary);
+    int action = (*(this->container_->latinInputState))->bridgedDispatch(event);
+    return bridgePerform(static_cast<SKKStateMachineAction>(action), &SKKState::Primary);
 }
 
 // ======================================================================
 // level 2 (sub of LatinInput)：ASCII
 // ======================================================================
 State SKKState::Ascii(const Event &event) {
-    SKKStateMachineAction action = (*(this->container_->asciiState))->bridgedDispatch(SKKStateMachineBrigdgedEvent(event));
-    return bridgePerform(action, &SKKState::LatinInput);
+    int action = (*(this->container_->asciiState))->bridgedDispatch(event);
+    return bridgePerform(static_cast<SKKStateMachineAction>(action), &SKKState::LatinInput);
 }
 
 // ======================================================================
 // level 2 (sub of LatinInput)：全角英数
 // ======================================================================
 State SKKState::Jisx0208Latin(const Event &event) {
-    SKKStateMachineAction action = (*(this->container_->jis0208LatinState))->bridgedDispatch(SKKStateMachineBrigdgedEvent(event));
-    return bridgePerform(action, &SKKState::LatinInput);
+    int action = (*(this->container_->jis0208LatinState))->bridgedDispatch(event);
+    return bridgePerform(static_cast<SKKStateMachineAction>(action), &SKKState::LatinInput);
 }

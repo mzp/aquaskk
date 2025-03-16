@@ -16,9 +16,10 @@ public class SKKStateRecursiveRegister {
         self.messenger = messenger
     }
 
-    public func bridgedDispatch(event: SKKStateMachineBrigdgedEvent) -> SKKStateMachineAction {
-        return dispatch(event: event.value)
+    public func bridgedDispatch(event: SKKStateMachineEvent) -> Int32 {
+        return dispatch(event: event).rawValue
     }
+
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .entryEvent:

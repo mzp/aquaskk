@@ -23,9 +23,10 @@ public class SKKStatePrimary {
         self.messenger = messenger
     }
 
-    public func bridgedDispatch(event: SKKStateMachineBrigdgedEvent) -> SKKStateMachineAction {
-        return dispatch(event: event.value)
+    public func bridgedDispatch(event: SKKStateMachineEvent) -> Int32 {
+        return dispatch(event: event).rawValue
     }
+
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .initEvent:
@@ -127,9 +128,10 @@ public class SKKStateKanaInput {
         self.editor = editor
     }
 
-    public func bridgedDispatch(event: SKKStateMachineBrigdgedEvent) -> SKKStateMachineAction {
-        return dispatch(event: event.value)
+    public func bridgedDispatch(event: SKKStateMachineEvent) -> Int32 {
+        return dispatch(event: event).rawValue
     }
+
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .initEvent:
@@ -185,9 +187,10 @@ public class SKKStateHirakana {
         self.editor = editor
     }
 
-    public func bridgedDispatch(event: SKKStateMachineBrigdgedEvent) -> SKKStateMachineAction {
-        return dispatch(event: event.value)
+    public func bridgedDispatch(event: SKKStateMachineEvent) -> Int32 {
+        return dispatch(event: event).rawValue
     }
+
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .entryEvent:
@@ -230,9 +233,10 @@ public class SKKStateKatakana {
         self.editor = editor
     }
 
-    public func bridgedDispatch(event: SKKStateMachineBrigdgedEvent) -> SKKStateMachineAction {
-        return dispatch(event: event.value)
+    public func bridgedDispatch(event: SKKStateMachineEvent) -> Int32 {
+        return dispatch(event: event).rawValue
     }
+
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .entryEvent:
@@ -266,9 +270,10 @@ public class SKKStateJisx0201Kana {
         self.editor = editor
     }
 
-    public func bridgedDispatch(event: SKKStateMachineBrigdgedEvent) -> SKKStateMachineAction {
-        return dispatch(event: event.value)
+    public func bridgedDispatch(event: SKKStateMachineEvent) -> Int32 {
+        return dispatch(event: event).rawValue
     }
+
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .entryEvent:
@@ -313,9 +318,10 @@ public class SKKStateLatinInput {
         self.editor = editor
     }
 
-    public func bridgedDispatch(event: SKKStateMachineBrigdgedEvent) -> SKKStateMachineAction {
-        return dispatch(event: event.value)
+    public func bridgedDispatch(event: SKKStateMachineEvent) -> Int32 {
+        return dispatch(event: event).rawValue
     }
+
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         let param = event.param
         switch event.id {
@@ -351,9 +357,10 @@ public class SKKStateAscii {
         self.editor = editor
     }
 
-    public func bridgedDispatch(event: SKKStateMachineBrigdgedEvent) -> SKKStateMachineAction {
-        return dispatch(event: event.value)
+    public func bridgedDispatch(event: SKKStateMachineEvent) -> Int32 {
+        return dispatch(event: event).rawValue
     }
+
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .entryEvent:
@@ -378,9 +385,10 @@ public class SKKStateJisx0208Latin {
         self.editor = editor
     }
 
-    public func bridgedDispatch(event: SKKStateMachineBrigdgedEvent) -> SKKStateMachineAction {
-        return dispatch(event: event.value)
+    public func bridgedDispatch(event: SKKStateMachineEvent) -> Int32 {
+        return dispatch(event: event).rawValue
     }
+
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .entryEvent:

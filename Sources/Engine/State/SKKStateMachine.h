@@ -50,9 +50,4 @@ typedef GenericStateMachine<SKKState, DebugInspector> SKKStateMachine;
 
 typedef SKKStateMachine::Event SKKStateMachineEvent;
 
-struct SKKStateMachineBrigdgedEvent {
-    SKKStateMachineEvent value;
-    SKKStateMachineBrigdgedEvent(SKKStateMachineEvent value):value(value){}
-};
-
 #endif
