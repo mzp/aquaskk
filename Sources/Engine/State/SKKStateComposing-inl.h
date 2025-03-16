@@ -24,7 +24,7 @@
 // level 1：構築
 // ======================================================================
 State SKKState::Composing(const Event &event) {
-    SKKStateMachineAction action = (*(this->container_->composingState))->dispatch(event);
+    SKKStateMachineAction action = (*(this->container_->composingState))->bridgedDispatch(SKKStateMachineBrigdgedEvent(event));
     return bridgePerform(action, &SKKState::TopState);
 }
 
@@ -32,7 +32,7 @@ State SKKState::Composing(const Event &event) {
 // level 2：見出し語編集
 // ======================================================================
 State SKKState::Edit(const Event &event) {
-    SKKStateMachineAction action = (*(this->container_->editState))->dispatch(event);
+    SKKStateMachineAction action = (*(this->container_->editState))->bridgedDispatch(SKKStateMachineBrigdgedEvent(event));
     return bridgePerform(action, &SKKState::Composing);
 }
 
@@ -40,7 +40,7 @@ State SKKState::Edit(const Event &event) {
 // level 3 (sub of Edit)：見出し語入力
 // ======================================================================
 State SKKState::EntryInput(const Event &event) {
-    SKKStateMachineAction action = (*(this->container_->entryInputState))->dispatch(event);
+    SKKStateMachineAction action = (*(this->container_->entryInputState))->bridgedDispatch(SKKStateMachineBrigdgedEvent(event));
     return bridgePerform(action, &SKKState::Edit);
 }
 
@@ -49,7 +49,7 @@ State SKKState::EntryInput(const Event &event) {
 // ======================================================================
 State SKKState::KanaEntry(const Event &event) {
 
-    SKKStateMachineAction action = (*(this->container_->kanaEntryState))->dispatch(event);
+    SKKStateMachineAction action = (*(this->container_->kanaEntryState))->bridgedDispatch(SKKStateMachineBrigdgedEvent(event));
     return bridgePerform(action, &SKKState::EntryInput);
 }
 
@@ -58,7 +58,7 @@ State SKKState::KanaEntry(const Event &event) {
 // ======================================================================
 State SKKState::AsciiEntry(const Event &event) {
 
-    SKKStateMachineAction action = (*(this->container_->asciiEntryState))->dispatch(event);
+    SKKStateMachineAction action = (*(this->container_->asciiEntryState))->bridgedDispatch(SKKStateMachineBrigdgedEvent(event));
     return bridgePerform(action, &SKKState::EntryInput);
 }
 
@@ -66,8 +66,7 @@ State SKKState::AsciiEntry(const Event &event) {
 // level 3 (sub of Edit)：見出し語補完
 // ======================================================================
 State SKKState::EntryCompletion(const Event &event) {
-
-    SKKStateMachineAction action = (*(this->container_->entryCompletionState))->dispatch(event);
+    SKKStateMachineAction action = (*(this->container_->entryCompletionState))->bridgedDispatch(SKKStateMachineBrigdgedEvent(event));
     return bridgePerform(action, &SKKState::Edit);
 }
 
@@ -75,8 +74,7 @@ State SKKState::EntryCompletion(const Event &event) {
 // level 2：候補選択
 // ======================================================================
 State SKKState::SelectCandidate(const Event &event) {
-
-    SKKStateMachineAction action = (*(this->container_->selectCandidateState))->dispatch(event);
+    SKKStateMachineAction action = (*(this->container_->selectCandidateState))->bridgedDispatch(SKKStateMachineBrigdgedEvent(event));
     return bridgePerform(action, &SKKState::Composing);
 }
 
@@ -85,6 +83,6 @@ State SKKState::SelectCandidate(const Event &event) {
 // ======================================================================
 State SKKState::OkuriInput(const Event &event) {
 
-    SKKStateMachineAction action = (*(this->container_->okuriInputState))->dispatch(event);
+    SKKStateMachineAction action = (*(this->container_->okuriInputState))->bridgedDispatch(SKKStateMachineBrigdgedEvent(event));
     return bridgePerform(action, &SKKState::TopState);
 }

@@ -24,6 +24,6 @@
 // level 1：単語削除
 // ======================================================================
 State SKKState::EntryRemove(const Event &event) {
-    SKKStateMachineAction action = (*(this->container_->entryRemoveState))->dispatch(event);
+    SKKStateMachineAction action = (*(this->container_->entryRemoveState))->bridgedDispatch(SKKStateMachineBrigdgedEvent(event));
     return bridgePerform(action, &SKKState::TopState);
 }

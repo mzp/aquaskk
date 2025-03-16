@@ -15,6 +15,9 @@ public class SKKStateComposing {
         self.editor = editor
     }
 
+    public func bridgedDispatch(event: SKKStateMachineBrigdgedEvent) -> SKKStateMachineAction {
+        return dispatch(event: event.value)
+    }
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .exitEvent:
@@ -46,6 +49,9 @@ public class SKKStateEdit {
         self.selector = selector
     }
 
+    public func bridgedDispatch(event: SKKStateMachineBrigdgedEvent) -> SKKStateMachineAction {
+        return dispatch(event: event.value)
+    }
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .exitEvent:
@@ -131,6 +137,10 @@ public class SKKStateEntryInput {
         self.completer = completer
     }
 
+
+    public func bridgedDispatch(event: SKKStateMachineBrigdgedEvent) -> SKKStateMachineAction {
+        return dispatch(event: event.value)
+    }
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         // 履歴を保存するだけ
         switch event.id {
@@ -165,6 +175,9 @@ public class SKKStateKanaEntry {
         self.config = config
     }
 
+    public func bridgedDispatch(event: SKKStateMachineBrigdgedEvent) -> SKKStateMachineAction {
+        return dispatch(event: event.value)
+    }
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .entryEvent:
@@ -249,6 +262,10 @@ public class SKKStateAsciiEntry {
         self.context = context
     }
 
+    public func bridgedDispatch(event: SKKStateMachineBrigdgedEvent) -> SKKStateMachineAction {
+        return dispatch(event: event.value)
+    }
+
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .entryEvent:
@@ -287,7 +304,11 @@ public class SKKStateEntryCompletion {
         self.completer = completer
         self.messenger = messenger
     }
+    
 
+    public func bridgedDispatch(event: SKKStateMachineBrigdgedEvent) -> SKKStateMachineAction {
+        return dispatch(event: event.value)
+    }
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .entryEvent:
@@ -343,6 +364,9 @@ public class SKKStateSelectCandidate {
         self.selector = selector
     }
 
+    public func bridgedDispatch(event: SKKStateMachineBrigdgedEvent) -> SKKStateMachineAction {
+        return dispatch(event: event.value)
+    }
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .entryEvent:
@@ -447,6 +471,9 @@ public class SKKStateOkuriInput {
         self.selector = selector
     }
 
+    public func bridgedDispatch(event: SKKStateMachineBrigdgedEvent) -> SKKStateMachineAction {
+        return dispatch(event: event.value)
+    }
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .entryEvent:

@@ -24,6 +24,6 @@
 // level 1：単語登録
 // ======================================================================
 State SKKState::RecursiveRegister(const Event &event) {
-    SKKStateMachineAction action = (*(this->container_->recursiveRegisterState))->dispatch(event);
+    SKKStateMachineAction action = (*(this->container_->recursiveRegisterState))->bridgedDispatch(SKKStateMachineBrigdgedEvent(event));
     return bridgePerform(action, &SKKState::TopState);
 }
