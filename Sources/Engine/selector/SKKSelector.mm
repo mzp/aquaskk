@@ -26,56 +26,81 @@
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
+struct SKKSelectorContainer {
+private:
+    SKKSelectorContainer();
+
+public:
+    SwiftObject<AquaSKKEngine::SKKSelectorImpl> *impl_;
+
+    SKKSelectorContainer(SKKSelectorBuddy *buddy, SKKCandidateWindowBridge *bridge)
+        : impl_(new SwiftObject(AquaSKKEngine::SKKSelectorImpl::createBridge(buddy, bridge))) {}
+
+    ~SKKSelectorContainer() {
+        //       delete impl_;
+    }
+};
+
 SKKSelector::SKKSelector(SKKSelectorBuddy *buddy, SKKCandidateWindow *window) {
     bridge_ = new SKKCandidateWindowBridge(window);
-    impl_ = new SwiftObject(AquaSKKEngine::SKKSelectorImpl::createBridge(buddy, bridge_));
+    container_ = new SKKSelectorContainer(buddy, bridge_);
 }
+SKKSelector::SKKSelector(SKKSelector &selector)
+    : bridge_(selector.bridge_), container_(selector.container_) {}
 
 SKKSelector::~SKKSelector() {
-    delete impl_;
+    delete container_;
     releaseSKKCandidateWindowBridge(bridge_);
 }
 
 bool SKKSelector::IsInline() const {
-    return (*impl_)->isInline();
+    return (*(container_->impl_))->isInline();
 }
 
 bool SKKSelector::Execute(int inlineCount) {
-    return (*impl_)->execute(inlineCount);
+    auto impl = container_->impl_;
+    return (*impl)->execute(inlineCount);
 }
 
 bool SKKSelector::Next() {
-    return (*impl_)->next();
+    return (*(container_->impl_))->next();
 }
 
 bool SKKSelector::Prev() {
-    return (*impl_)->prev();
+    return (*(container_->impl_))->prev();
 }
 
 void SKKSelector::CursorLeft() {
-    (*impl_)->cursorLeft();
+    (*(container_->impl_))->cursorLeft();
 }
 
 void SKKSelector::CursorRight() {
-    (*impl_)->cursorRight();
+    (*(container_->impl_))->cursorRight();
 }
 
 void SKKSelector::CursorUp() {
-    (*impl_)->cursorUp();
+    (*(container_->impl_))->cursorUp();
 }
 
 void SKKSelector::CursorDown() {
-    (*impl_)->cursorDown();
+    (*(container_->impl_))->cursorDown();
 }
 
 bool SKKSelector::Select(char label) {
-    return (*impl_)->select(label);
+    return (*(container_->impl_))->select(label);
 }
 
 void SKKSelector::Show() {
-    (*impl_)->show();
+    (*(container_->impl_))->show();
 }
 
 void SKKSelector::Hide() {
-    (*impl_)->hide();
+    (*(container_->impl_))->hide();
+}
+
+void retainSKKSelector(SKKSelector *obj) {
+    obj->retain();
+}
+void releaseSKKSelector(SKKSelector *obj) {
+    obj->release();
 }

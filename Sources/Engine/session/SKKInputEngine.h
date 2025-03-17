@@ -24,26 +24,22 @@
 #define SKKInputEngine_h
 
 #include <vector>
+#import <swift/bridging>
 #import <AquaSKKBackend/SKKInputMode.h>
-#import <AquaSKKBackend/SwiftObject.h>
-#import <AquaSKKEngine/SKKCandidateEditor.h>
-#import <AquaSKKEngine/SKKCompleter.h>
-#import <AquaSKKEngine/SKKComposingEditor.h>
-#import <AquaSKKEngine/SKKEntryRemoveEditor.h>
+#import <AquaSKKEngine/IntrusiveRefCounted.h>
+#import <AquaSKKEngine/SKKCompleterBuddy.h>
 #import <AquaSKKEngine/SKKInputEnvironment.h>
-#import <AquaSKKEngine/SKKInputQueue.h>
-#import <AquaSKKEngine/SKKOkuriEditor.h>
-#import <AquaSKKEngine/SKKSelector.h>
+#import <AquaSKKEngine/SKKInputQueueObserver.h>
+#import <AquaSKKEngine/SKKOkuriListener.h>
+#import <AquaSKKEngine/SKKSelectorBuddy.h>
 
-namespace AquaSKKEngine {
-    class SKKInputEngineImpl;
-}
-
+class SKKInputEngineContainer;
 class SKKInputEngine : public SKKInputQueueObserver,
                        public SKKCompleterBuddy,
                        public SKKSelectorBuddy,
-                       public SKKOkuriListener {
-    SwiftObject<AquaSKKEngine::SKKInputEngineImpl> *impl_;
+                       public SKKOkuriListener,
+                       public IntrusiveRefCounted<SKKInputEngine> {
+    SKKInputEngineContainer *container_;
 
     // ローマ字かな変換通知
     virtual void SKKInputQueueUpdate(const SKKInputQueueObserverState &state);
@@ -108,6 +104,9 @@ public:
 
     // 送りが完成したか？
     bool IsOkuriComplete() const;
-};
+} SWIFT_SHARED_REFERENCE(retainSKKInputEngine, releaseSKKInputEngine);
+
+void retainSKKInputEngine(SKKInputEngine *obj);
+void releaseSKKInputEngine(SKKInputEngine *obj);
 
 #endif

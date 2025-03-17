@@ -20,139 +20,155 @@
 
 */
 
+#import <AquaSKKBackend/SwiftObject.h>
 #import <AquaSKKEngine/SKKInputContext.h>
 #import <AquaSKKEngine/SKKInputEngine.h>
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
+struct SKKInputEngineContainer {
+    SwiftObject<AquaSKKEngine::SKKInputEngineImpl> *impl_;
+
+    SKKInputEngineContainer(SKKInputEnvironment *env, SKKInputEngine *engine)
+        : impl_(new SwiftObject(AquaSKKEngine::SKKInputEngineImpl::init(
+              env, AquaSKKEngine::SKKInputQueueImpl::init(engine),
+              AquaSKKEngine::SKKOkuriEditorImpl::init(env->InputContext(), engine)))) {}
+};
+
 SKKInputEngine::SKKInputEngine(SKKInputEnvironment *env)
-    : impl_(new SwiftObject(AquaSKKEngine::SKKInputEngineImpl::init(
-          env, AquaSKKEngine::SKKInputQueueImpl::init(this),
-          AquaSKKEngine::SKKOkuriEditorImpl::init(env->InputContext(), this)))) {}
+    : container_(new SKKInputEngineContainer(env, this)) {}
 
 void SKKInputEngine::SelectInputMode(SKKInputMode mode) {
-    (*impl_)->bridgedSelectInputMode(static_cast<int>(mode));
+    (*(container_->impl_))->bridgedSelectInputMode(static_cast<int>(mode));
 }
 
 void SKKInputEngine::SetStatePrimary() {
-    (*impl_)->setStatePrimary();
+    (*(container_->impl_))->setStatePrimary();
 }
 
 void SKKInputEngine::SetStateComposing() {
-    (*impl_)->setStateComposing();
+    (*(container_->impl_))->setStateComposing();
 }
 
 void SKKInputEngine::SetStateOkuri() {
-    (*impl_)->setStateOkuri();
+    (*(container_->impl_))->setStateOkuri();
 }
 
 void SKKInputEngine::SetStateSelectCandidate() {
-    (*impl_)->setStateSelectCandidate();
+    (*(container_->impl_))->setStateSelectCandidate();
 }
 
 void SKKInputEngine::SetStateEntryRemove() {
-    (*impl_)->setStateEntryRemove();
+    (*(container_->impl_))->setStateEntryRemove();
 }
 
 void SKKInputEngine::SetStateRegistration() {
-    (*impl_)->setStateRegistration();
+    (*(container_->impl_))->setStateRegistration();
 }
 
 void SKKInputEngine::HandleChar(char code, bool direct) {
-    (*impl_)->handleChar(code, direct);
+    (*(container_->impl_))->handleChar(code, direct);
 }
 
 void SKKInputEngine::HandleBackSpace() {
-    (*impl_)->handleBackSpace();
+    (*(container_->impl_))->handleBackSpace();
 }
 
 void SKKInputEngine::HandleDelete() {
-    (*impl_)->handleDelete();
+    (*(container_->impl_))->handleDelete();
 }
 
 void SKKInputEngine::HandleCursorLeft() {
-    (*impl_)->handleCursorLeft();
+    (*(container_->impl_))->handleCursorLeft();
 }
 
 void SKKInputEngine::HandleCursorRight() {
-    (*impl_)->handleCursorRight();
+    (*(container_->impl_))->handleCursorRight();
 }
 
 void SKKInputEngine::HandleCursorUp() {
-    (*impl_)->handleCursorUp();
+    (*(container_->impl_))->handleCursorUp();
 }
 
 void SKKInputEngine::HandleCursorDown() {
-    (*impl_)->handleCursorDown();
+    (*(container_->impl_))->handleCursorDown();
 }
 
 void SKKInputEngine::HandlePaste() {
-    (*impl_)->handlePaste();
+    (*(container_->impl_))->handlePaste();
 }
 
 void SKKInputEngine::HandlePing() {
-    (*impl_)->handlePing();
+    (*(container_->impl_))->handlePing();
 }
 
 void SKKInputEngine::HandleEnter() {
-    (*impl_)->handleEnter();
+    (*(container_->impl_))->handleEnter();
 }
 
 void SKKInputEngine::HandleCancel() {
-    (*impl_)->handleCancel();
+    (*(container_->impl_))->handleCancel();
 }
 
 void SKKInputEngine::Commit() {
-    (*impl_)->commit();
+    (*(container_->impl_))->commit();
 }
 
 void SKKInputEngine::Reset() {
-    (*impl_)->reset();
+    (*(container_->impl_))->reset();
 }
 
 void SKKInputEngine::ToggleKana() {
-    (*impl_)->toggleKana();
+    (*(container_->impl_))->toggleKana();
 }
 
 void SKKInputEngine::ToggleJisx0201Kana() {
-    (*impl_)->toggleJisx0201Kana();
+    (*(container_->impl_))->toggleJisx0201Kana();
 }
 
 void SKKInputEngine::UpdateInputContext() {
-    (*impl_)->updateInputContext();
+    (*(container_->impl_))->updateInputContext();
 }
 
 bool SKKInputEngine::CanConvert(char code) const {
-    return (*impl_)->canConvert(code);
+    return (*(container_->impl_))->canConvert(code);
 }
 
 bool SKKInputEngine::IsOkuriComplete() const {
-    return (*impl_)->isOkuriComplete();
+    return (*(container_->impl_))->isOkuriComplete();
 }
 
 // MARK: callback
 
 void SKKInputEngine::SKKInputQueueUpdate(const SKKInputQueueObserverState &state) {
-    (*impl_)->inputQueueUpdate(state);
+    (*(container_->impl_))->inputQueueUpdate(state);
 }
 
 const std::string SKKInputEngine::SKKCompleterQueryString() {
-    return (*impl_)->completerQueryString();
+    return (*(container_->impl_))->completerQueryString();
 }
 
 void SKKInputEngine::SKKCompleterUpdate(const std::string &entry) {
-    (*impl_)->completerUpdate(entry);
+    (*(container_->impl_))->completerUpdate(entry);
 }
 
 const SKKEntry SKKInputEngine::SKKSelectorQueryEntry() {
-    auto array = (*impl_)->bridgeSelectorQueryEntry();
+    auto array = (*(container_->impl_))->bridgeSelectorQueryEntry();
     return SKKEntry(array[0], array[1]);
 }
 
 void SKKInputEngine::SKKSelectorUpdate(const SKKCandidate &candidate) {
-    (*impl_)->bridgeSelectorUpdate(candidate.ToString());
+    (*(container_->impl_))->bridgeSelectorUpdate(candidate.ToString());
 }
 
 void SKKInputEngine::SKKOkuriListenerAppendEntry(const std::string &fixed) {
-    (*impl_)->okkuriListenerAppendEntry(fixed);
+    (*(container_->impl_))->okkuriListenerAppendEntry(fixed);
+}
+
+void retainSKKInputEngine(SKKInputEngine *obj) {
+    obj->IntrusiveRefCounted<SKKInputEngine>::retain();
+}
+
+void releaseSKKInputEngine(SKKInputEngine *obj) {
+    obj->IntrusiveRefCounted<SKKInputEngine>::release();
 }

@@ -27,6 +27,7 @@
 #import <AquaSKKEngine/GenericStateMachine.h>
 #import <AquaSKKEngine/SKKCompleter.h>
 #import <AquaSKKEngine/SKKEvent.h>
+#import <AquaSKKEngine/SKKEventID.h>
 #import <AquaSKKEngine/SKKInputEnvironment.h>
 #import <AquaSKKEngine/SKKSelector.h>
 
@@ -36,6 +37,43 @@ class SKKMessenger;
 class SKKCandidateWindow;
 class SKKConfig;
 class SKKInputEngine;
+class SKKStateContainer;
+
+enum class SKKStateMachineAction {
+    handled,
+
+    initializeKanaInput,
+
+    transitionAsciiMode,
+    transitionHirakanaMode,
+    transitionKatakanaMode,
+    transitionJisx0201KanaMode,
+    transitionJisx0208LatinMode,
+    transitionKanaEntry,
+    transitionAsciiEntry,
+    transitionKanaInput,
+    transitionSelectCandidate,
+    transitionRecursiveRegister,
+    transitionEntryCompletion,
+    transitionOkuriInput,
+    transitionEntryRemove,
+
+    forwardKanaInput,
+    forwardKanaEntry,
+    forwardEntryInput,
+    forwardOkuriInput,
+
+    shallowHistoryHirakana,
+    saveHistory,
+
+    deepForwardEntryInput,
+    deepForwardKanaInput,
+
+    deepHistoryEntryInput,
+    deepHistoryComposing,
+
+    super_
+};
 
 // 状態コンテナ
 class SKKState : public BaseStateContainer<SKKState, SKKEvent> {
@@ -46,6 +84,9 @@ class SKKState : public BaseStateContainer<SKKState, SKKEvent> {
     SKKInputEngine *editor_;
     SKKCompleter completer_;
     SKKSelector selector_;
+    SKKStateContainer *container_;
+
+    State bridgePerform(SKKStateMachineAction action, State super_);
 
 public:
     SKKState(SKKInputEnvironment *env, SKKInputEngine *editor);

@@ -24,18 +24,6 @@
 // level 1：単語登録
 // ======================================================================
 State SKKState::RecursiveRegister(const Event &event) {
-    switch(event) {
-    case ENTRY_EVENT:
-        editor_->SetStateRegistration();
-        messenger_->Beep();
-        return 0;
-
-    case SKK_ENTER:
-        return State::Transition(&SKKState::KanaInput);
-
-    case SKK_CANCEL:
-        return State::DeepHistory(&SKKState::Composing);
-    }
-
-    return &SKKState::TopState;
+    int action = (*(this->container_->recursiveRegisterState))->bridgedDispatch(event);
+    return bridgePerform(static_cast<SKKStateMachineAction>(action), &SKKState::TopState);
 }

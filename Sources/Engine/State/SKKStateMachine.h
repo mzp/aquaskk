@@ -48,4 +48,6 @@ public:
 typedef GenericStateMachine<SKKState, DebugInspector> SKKStateMachine;
 #endif
 
+typedef SKKStateMachine::Event SKKStateMachineEvent;
+
 #endif

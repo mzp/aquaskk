@@ -20,10 +20,11 @@
 
 */
 
+#import <AquaSKKBackend/SwiftObject.h>
+#import <AquaSKKEngine/SKKFrontEnd.h>
 #import <AquaSKKEngine/SKKOutputBuffer.h>
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
-#include "SKKFrontEnd.h"
 
 struct SKKOutputBufferContainer {
     SwiftObject<AquaSKKEngine::SKKOutputBufferImpl> *impl_;
