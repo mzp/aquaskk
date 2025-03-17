@@ -18,6 +18,7 @@ jobs:
 
             # Inspect
             - run: ls /Applications
+            - run: sw_vers
 
             # Run
             - name: Set current datetime as env variable
