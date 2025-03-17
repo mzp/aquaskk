@@ -6,6 +6,22 @@ tasks:
         cmds:
             - xcrun xcodebuild -scheme All build -destination "name=My Mac" | xcbeautify
 
+    app-test:
+        cmds:
+            - set -o pipefail && xcrun xcodebuild clean test -configuration Testing -scheme All -testPlan App | xcbeautify
+
+    frameworks-test:
+        cmds:
+            - set -o pipefail && xcrun xcodebuild clean test -configuration Testing -scheme All -testPlan Frameworks | xcbeautify
+
+    integration-test:
+        cmds:
+            - set -o pipefail && xcrun xcodebuild clean test -configuration Testing -scheme All -testPlan Integration | xcbeautify
+
+    test:
+        cmds:
+            - set -o pipefail && xcrun xcodebuild clean test -configuration Testing -scheme All -testPlan All | xcbeautify
+
     format:
         - find ./Sources ./Tests \( -name '*.h' -o -name '*.m' -o -name '*.mm' -o -name '*.cpp' \) -print0 | xargs -0 clang-format -i
         - swiftformat .
@@ -26,7 +42,7 @@ tasks:
     ci-build:
         # TODO: Packaging
         cmds:
-            - xcrun xcodebuild -scheme All build -destination "platform=macOS,arch=arm64" | xcbeautify
+            - xcrun xcodebuild -scheme All build -destination "platform=macOS,arch=arm64" | xcbeautify --renderer github-actions
 
     ci-test:
         vars:
@@ -42,4 +58,4 @@ tasks:
                   -derivedDataPath ./DerivedData
                   -resultBundlePath {{.TEST_RESULTS_BUNDLE}} |
               tee xcodebuild.log |
-              xcbeautify
+              xcbeautify --renderer github-actions
