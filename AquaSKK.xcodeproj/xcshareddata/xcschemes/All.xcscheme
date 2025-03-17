@@ -117,6 +117,9 @@
             reference = "container:Tests/CI.xctestplan"
             default = "YES">
          </TestPlanReference>
+         <TestPlanReference
+            reference = "container:Tests/All.xctestplan">
+         </TestPlanReference>
       </TestPlans>
       <Testables>
          <TestableReference

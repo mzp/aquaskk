@@ -1137,6 +1137,7 @@
 		13E660602C6852B3000896F6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		13EB86632C5EA7DD00B47DCD /* SupervisorMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupervisorMonitor.swift; sourceTree = "<group>"; };
 		13EC79062D3F579900D6E623 /* MessengerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerView.swift; sourceTree = "<group>"; };
+		13EE91C32D87A58700E887FD /* All.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = All.xctestplan; sourceTree = "<group>"; };
 		13F109292D5D072D005DC315 /* SKKInputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKInputController.swift; sourceTree = "<group>"; };
 		13F1092B2D5EE22F005DC315 /* SKKInputSessionBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKInputSessionBridge.h; sourceTree = "<group>"; };
 		13F1092C2D5EE22F005DC315 /* SKKInputSessionBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKInputSessionBridge.mm; sourceTree = "<group>"; };
@@ -1662,6 +1663,7 @@
 		1344F4992C5B282200D8C850 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				13EE91C32D87A58700E887FD /* All.xctestplan */,
 				13CFD1B72C681B6C000A67E9 /* CI.xctestplan */,
 				132F4D372D6C09D20081022E /* App Tests */,
 				132F4D362D6C09A00081022E /* Frameworks Tests */,
