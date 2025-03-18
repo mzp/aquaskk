@@ -18,13 +18,55 @@ struct EditorTests {
         }
     }
 
+    @Test("toggleKana", arguments: [
+        ("com.apple.inputmethod.Japanese.Hiragana", "あいうえお", "アイウエオ"),
+        ("com.apple.inputmethod.Japanese.Katakana", "アイウエオ", "あいうえお"),
+        ("com.apple.inputmethod.Japanese.HalfWidthKana", "ｱｲｳｴｵ", "あいうえお")
+    ]) func toggleKana(identifier: String, primary: String, secondary: String) async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.setValue(identifier)
+            await typer.handle(event: .toggleKana)
+            await typer.type(text: "aiueo")
+            #expect(typer.insertedText == secondary)
+            typer.clear()
+            await typer.handle(event: .toggleKana)
+            await typer.type(text: "aiueo")
+            #expect(typer.insertedText == primary)
+        }
+    }
+
+    @Test("toggleJisx0201Kana", arguments: [
+        "com.apple.inputmethod.Japanese.Hiragana",
+        "com.apple.inputmethod.Japanese.Katakana"
+    ]) func toggleJisx0201Kana(identifier: String) async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.setValue(identifier)
+            await typer.handle(event: .toggleJisx0201Kana)
+            await typer.type(text: "aiueo")
+            #expect(typer.insertedText == "ｱｲｳｴｵ")
+            typer.clear()
+        }
+    }
+
+    @Test func abbrev() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.setValue("com.apple.inputmethod.Japanese.Hiragana")
+            await typer.type(text: "/skk")
+            #expect(typer.markedText == "▽skk")
+        }
+    }
+
     // MARK: - Composing
 
-    @Test func composinc() async {
+    @Test func composing() async {
         let session = Typer.Session()
         await session.run { typer in
             await typer.type(text: "Kyou")
             #expect(typer.markedText == "▽きょう")
+            #expect(typer.markedTextRange == .init(location: 4, length: 0))
         }
     }
 

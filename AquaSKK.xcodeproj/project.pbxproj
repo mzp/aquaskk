@@ -465,6 +465,7 @@
 		13D7561A2C5A9049006144F2 /* AquaSKKEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 13D756162C5A9049006144F2 /* AquaSKKEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13D8D3812D6D551700CF12D7 /* keymap_patch.conf in Resources */ = {isa = PBXBuildFile; fileRef = 1347784E2C5DB98F007B1DFB /* keymap_patch.conf */; };
 		13D8D3822D6D551700CF12D7 /* keymap.conf in Resources */ = {isa = PBXBuildFile; fileRef = 1347784D2C5DB98F007B1DFB /* keymap.conf */; };
+		13DB10822D88744C00F3C620 /* SystemMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DB10812D88744C00F3C620 /* SystemMenuTests.swift */; };
 		13DCD5052D6B95B2008C27A9 /* SKKBackendCompletionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DCD5042D6B95B2008C27A9 /* SKKBackendCompletionHelper.swift */; };
 		13DCD5072D6BA956008C27A9 /* SKKDictionaryKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 13DCD5062D6BA956008C27A9 /* SKKDictionaryKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13DCD5092D6BAADD008C27A9 /* SKKDictionaryConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DCD5082D6BAADD008C27A9 /* SKKDictionaryConfiguration.swift */; };
@@ -1118,6 +1119,7 @@
 		13D756172C5A9049006144F2 /* AquaSKKEngine.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKEngine.docc; sourceTree = "<group>"; };
 		13D7561B2C5A905E006144F2 /* All.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = All.xcconfig; sourceTree = "<group>"; };
 		13D7561C2C5A9113006144F2 /* All-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "All-Debug.xcconfig"; sourceTree = "<group>"; };
+		13DB10812D88744C00F3C620 /* SystemMenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMenuTests.swift; sourceTree = "<group>"; };
 		13DCD5042D6B95B2008C27A9 /* SKKBackendCompletionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKBackendCompletionHelper.swift; sourceTree = "<group>"; };
 		13DCD5062D6BA956008C27A9 /* SKKDictionaryKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKDictionaryKey.h; sourceTree = "<group>"; };
 		13DCD5082D6BAADD008C27A9 /* SKKDictionaryConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKDictionaryConfiguration.swift; sourceTree = "<group>"; };
@@ -1554,6 +1556,7 @@
 			children = (
 				135EEBA02C5EEA5100758672 /* Typer */,
 				135C3D652C5B3E9D00661AE3 /* InputTests.swift */,
+				13DB10812D88744C00F3C620 /* SystemMenuTests.swift */,
 				135F893F2D61B4040032AA24 /* GadgetTests.swift */,
 				134D25602D7A01120014ACD5 /* EditorTests.swift */,
 				1393E3302C6B201500F1E633 /* JisyoTests.swift */,
@@ -3748,6 +3751,7 @@
 			files = (
 				134D25612D7A01120014ACD5 /* EditorTests.swift in Sources */,
 				133834F22C6020CB00D73AD7 /* ModeTests.swift in Sources */,
+				13DB10822D88744C00F3C620 /* SystemMenuTests.swift in Sources */,
 				133834F32C6020CB00D73AD7 /* InputTests.swift in Sources */,
 				133E1FDE2C7951E900B1A03A /* SandboxedTests.swift in Sources */,
 				135F89402D61B4040032AA24 /* GadgetTests.swift in Sources */,

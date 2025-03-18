@@ -19,6 +19,9 @@ public extension Logger {
 
     static let skkMemory = Logger(subsystem: subsystem, category: "MemoryDebug")
 
+    static let skkTyper = Logger(subsystem: subsystem, category: "Typer")
+    static let skkIMK = Logger(subsystem: subsystem, category: "InputMethodKit")
+
     // MARK: Compatibility
 
     static let testing = skkTesting

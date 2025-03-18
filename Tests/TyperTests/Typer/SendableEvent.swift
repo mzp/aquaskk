@@ -43,3 +43,19 @@ struct SendableEvent: Sendable {
         timestapm = Date().timeIntervalSince1970
     }
 }
+
+extension SendableEvent {
+    static let skkEnter = SendableEvent(characters: "m", modifiers: .control)
+    static let skkJmode = SendableEvent(characters: "j", modifiers: .control)
+    static let skkCancel = SendableEvent(characters: "g", modifiers: .control)
+    static let skkBackspace = SendableEvent(characters: "h", modifiers: .control)
+    static let skkDelete = SendableEvent(characters: "d", modifiers: .control)
+    static let skkLeft = SendableEvent(characters: "b", modifiers: .control)
+    static let skkRight = SendableEvent(characters: "f", modifiers: .control)
+    static let skkUp = SendableEvent(characters: "a", modifiers: .control)
+    static let skkDown = SendableEvent(characters: "e", modifiers: .control)
+    static let ping = SendableEvent(characters: "l", modifiers: .control)
+
+    static let toggleJisx0201Kana = SendableEvent(characters: "q", modifiers: .control)
+    static let toggleKana = SendableEvent(characters: "q")
+}

@@ -6,8 +6,10 @@
 //
 
 internal import AquaSKKTesting
+import AquaSKKLogging
 import Foundation
 import InputMethodKit
+import OSLog
 
 class MockTextInput: NSObject {
     var text = SendableText()
@@ -29,11 +31,17 @@ extension MockTextInput: IMKTextInput {
         // TODO: Update selectedRange
         text.marked.removeAll()
         text.string.append(string as! String)
+
+        Logger.skkTyper.info("""
+        [\(#fileID, privacy: .public):\(#function, privacy: .public)] \
+        string="\(self.text.string, privacy: .private)"(length=\(self.text.string.count, privacy: .public)) \        
+        marked="\(self.text.marked, privacy: .private)"(length=\(self.text.marked.count, privacy: .public))
+        """)
     }
 
     func setMarkedText(
         _ value: Any?,
-        selectionRange _: NSRange,
+        selectionRange: NSRange,
         replacementRange _: NSRange
     ) {
         // TODO: Use replacementRange
@@ -43,6 +51,13 @@ extension MockTextInput: IMKTextInput {
         } else if let attributedString = value as? NSAttributedString {
             text.marked = attributedString.string
         }
+        text.markedTextRange = selectionRange
+
+        Logger.skkTyper.info("""
+        [\(#fileID, privacy: .public):\(#function, privacy: .public)] \
+        "\(self.text.marked, privacy: .private)"(length=\(self.text.marked.count, privacy: .public)) \
+        \(self.text.markedTextRange, privacy: .public)
+        """)
     }
 
     func attributedSubstring(from range: NSRange) -> NSAttributedString! {
@@ -70,6 +85,10 @@ extension MockTextInput: IMKTextInput {
     func overrideKeyboard(withKeyboardNamed _: String!) {}
 
     func selectMode(_ modeIdentifier: String!) {
+        Logger.skkTyper.info("""
+        [\(#fileID, privacy: .public):\(#function, privacy: .public)] \
+        \(modeIdentifier, privacy: .private)
+        """)
         text.modeIdentifier = modeIdentifier
     }
 

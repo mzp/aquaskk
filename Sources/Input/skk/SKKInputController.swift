@@ -33,6 +33,11 @@ public class SKKInputController: IMKInputController {
     }
 
     @_spi(Testing)
+    public func skkInputMenu() -> SKKInputMenu? {
+        return skkMenu
+    }
+
+    @_spi(Testing)
     public func _setClient(_ client: IMKTextInput, sessionParameter: OpaquePointer) {
         let session = SKKInputSessionBridge(parameter: sessionParameter)
         setClient(client, session: session)
@@ -93,7 +98,7 @@ public class SKKInputController: IMKInputController {
     // MARK: - IMKServerInput
 
     override public func handle(_ event: NSEvent!, client _: Any!) -> Bool {
-        Logger.skkInput.log("\(#function, privacy: .public)")
+        Logger.skkIMK.info("[\(#fileID, privacy: .public):\(#function, privacy: .public)]")
         guard !directMode else {
             return false
         }
@@ -122,14 +127,14 @@ public class SKKInputController: IMKInputController {
     }
 
     override public func commitComposition(_: Any!) {
-        Logger.skkInput.log("\(#function, privacy: .public)")
+        Logger.skkIMK.info("[\(#fileID, privacy: .public):\(#function, privacy: .public)]")
         session?.commit()
     }
 
     // MARK: - IMKStateSetting
 
     override public func activateServer(_: Any!) {
-        Logger.skkInput.log("\(#function, privacy: .public)")
+        Logger.skkIMK.info("[\(#fileID, privacy: .public):\(#function, privacy: .public)]")
         UserDefaults.resetStandardUserDefaults()
 
         guard !directMode else {
@@ -139,7 +144,7 @@ public class SKKInputController: IMKInputController {
     }
 
     override public func deactivateServer(_: Any!) {
-        Logger.skkInput.log("\(#function, privacy: .public)")
+        Logger.skkIMK.info("[\(#fileID, privacy: .public):\(#function, privacy: .public)]")
 
         guard !directMode else {
             return
@@ -148,7 +153,7 @@ public class SKKInputController: IMKInputController {
     }
 
     override public func setValue(_ value: Any!, forTag tag: Int, client _: Any!) {
-        Logger.skkInput.log("\(#function, privacy: .public) value: \(String(describing: value), privacy: .public), tag: \(tag, privacy: .public)")
+        Logger.skkIMK.log("[\(#fileID, privacy: .public):\(#function, privacy: .public)] value: \(String(describing: value), privacy: .private), tag: \(tag, privacy: .public)")
         guard !directMode else {
             return
         }
@@ -331,7 +336,8 @@ public class SKKInputController: IMKInputController {
         // 更新を停止する
         skkMenu.deactivation()
         defer { skkMenu.activation() }
-        if event.id == SKKInputMode.InvalidInputMode.rawValue {
+        if event.id != SKKInputMode.InvalidInputMode.rawValue {
+            session?.handle(&event)
             let inputMode = skkMenu.convertIDToInputMode(modeIdentifier: identifier)
             modeIcon?.getImpl().select(inputMode: inputMode)
         }
