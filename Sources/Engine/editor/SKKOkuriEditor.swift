@@ -53,8 +53,7 @@ public class SKKOkuriEditorImpl: SKKEditorProtocol {
             }
         }
         // fixed が ascii の場合には送りとはみなさない
-        // 文字種で判断したいところだが、とりあえず長さで判断
-        if fixed.count != fixed.count {
+        if !(fixed.first?.isASCII ?? true) {
             okuri += fixed
         }
 

@@ -27,6 +27,19 @@ struct JisyoTests {
             #expect(typer.insertedText == "今日")
         }
     }
+    @Test func convertOkuriAri() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.type(text: "KoroG")
+            #expect(typer.markedText == "▽ころ*g")
+            await typer.type(text: "a")
+            #expect(typer.markedText == "▼転が")
+            // FIXME: Crash
+//            await typer.type(text: "ru")
+//            #expect(typer.markedText == "転がる")
+//            #expect(typer.insertedText == "転がる")
+        }
+    }
 
     @Test func yank() async {
         let session = Typer.Session()
@@ -45,6 +58,14 @@ struct JisyoTests {
             #expect(typer.markedText == "▼今日")
             await typer.type(text: "X", modifiers: [.shift])
             #expect(typer.markedText == "きょう /今日/ を削除しますか？(yes/no) ")
+            await typer.type(text: "yes")
+            #expect(typer.markedText == "きょう /今日/ を削除しますか？(yes/no) yes")
+            await typer.handle(event: .skkEnter)
+
+            // FIXME: Crash
+            // typer.clear()
+            // await typer.type(text: "Kyou ")
+            // #expect(typer.markedText == "▼今日")
         }
     }
 

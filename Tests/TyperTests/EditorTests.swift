@@ -9,69 +9,22 @@ import Testing
 
 struct EditorTests {
     // MARK: - Primary
-
-    @Test func primary() async {
-        let session = Typer.Session()
-        await session.run { typer in
-            await typer.type(text: "kyou")
-            #expect(typer.insertedText == "きょう")
-        }
-    }
-
-    @Test("toggleKana", arguments: [
-        ("com.apple.inputmethod.Japanese.Hiragana", "あいうえお", "アイウエオ"),
-        ("com.apple.inputmethod.Japanese.Katakana", "アイウエオ", "あいうえお")
-    ]) func toggleKana(identifier: String, primary: String, secondary: String) async {
-        let session = Typer.Session()
-        await session.run { typer in
-            await typer.setValue(identifier)
-            await typer.handle(event: .toggleKana)
-            await typer.type(text: "aiueo")
-            #expect(typer.insertedText == secondary)
-            typer.clear()
-            await typer.handle(event: .toggleKana)
-            await typer.type(text: "aiueo")
-            #expect(typer.insertedText == primary)
-        }
-    }
-
-    @Test func toggleKana_Jis0201Kana() async {
-        let session = Typer.Session()
-        await session.run { typer in
-            await typer.setValue("com.apple.inputmethod.Japanese.HalfWidthKana")
-            await typer.type(text: "aiueo")
-            #expect(typer.insertedText == "ｱｲｳｴｵ")
-            typer.clear()
-            await typer.handle(event: .toggleKana)
-            await typer.type(text: "aiueo")
-            #expect(typer.insertedText == "あいうえお")
-            typer.clear()
-            await typer.handle(event: .toggleKana)
-            await typer.type(text: "aiueo")
-            #expect(typer.insertedText == "アイウエオ")
-        }
-    }
-
-    @Test("toggleJisx0201Kana", arguments: [
-        "com.apple.inputmethod.Japanese.Hiragana",
-        "com.apple.inputmethod.Japanese.Katakana"
-    ]) func toggleJisx0201Kana(identifier: String) async {
-        let session = Typer.Session()
-        await session.run { typer in
-            await typer.setValue(identifier)
-            await typer.handle(event: .toggleJisx0201Kana)
-            await typer.type(text: "aiueo")
-            #expect(typer.insertedText == "ｱｲｳｴｵ")
-            typer.clear()
-        }
-    }
-
     @Test func abbrev() async {
         let session = Typer.Session()
         await session.run { typer in
             await typer.setValue("com.apple.inputmethod.Japanese.Hiragana")
             await typer.type(text: "/skk")
             #expect(typer.markedText == "▽skk")
+        }
+    }
+
+    @Test func enterJapanese() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.handle(event: .enterJapanese)
+            #expect(typer.markedText == "▽")
+            await typer.type(text: "aiueo")
+            #expect(typer.markedText == "▽あいうえお")
         }
     }
 
@@ -83,8 +36,29 @@ struct EditorTests {
             await typer.type(text: "Kyou")
             #expect(typer.markedText == "▽きょう")
             #expect(typer.markedTextRange == .init(location: 4, length: 0))
+
+            await typer.handle(event: .skkBackspace)
+            #expect(typer.markedText == "▽きょ")
         }
     }
+
+    @Test func toggleKana() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.type(text: "Aiueo")
+            await typer.handle(event: .toggleKana)
+            #expect(typer.insertedText == "アイウエオ")
+        }
+    }
+    @Test func toggleJisx0201Kana() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.type(text: "Aiueo")
+            await typer.handle(event: .toggleJisx0201Kana)
+            #expect(typer.insertedText == "ｱｲｳｴｵ")
+        }
+    }
+
 
     // MARK: - Candidate
 

@@ -58,4 +58,6 @@ extension SendableEvent {
 
     static let toggleJisx0201Kana = SendableEvent(characters: "q", modifiers: .control)
     static let toggleKana = SendableEvent(characters: "q")
+
+    static let enterJapanese = SendableEvent(characters: "Q", modifiers: .shift)
 }
