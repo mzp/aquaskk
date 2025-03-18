@@ -9,6 +9,7 @@ import Testing
 
 struct EditorTests {
     // MARK: - Primary
+
     @Test func abbrev() async {
         let session = Typer.Session()
         await session.run { typer in
@@ -50,6 +51,7 @@ struct EditorTests {
             #expect(typer.insertedText == "アイウエオ")
         }
     }
+
     @Test func toggleJisx0201Kana() async {
         let session = Typer.Session()
         await session.run { typer in
@@ -58,7 +60,6 @@ struct EditorTests {
             #expect(typer.insertedText == "ｱｲｳｴｵ")
         }
     }
-
 
     // MARK: - Candidate
 

@@ -27,6 +27,7 @@ struct JisyoTests {
             #expect(typer.insertedText == "今日")
         }
     }
+
     @Test func convertOkuriAri() async {
         let session = Typer.Session()
         await session.run { typer in
