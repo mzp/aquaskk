@@ -72,8 +72,11 @@ public class SKKPreProcessor: NSObject {
             result.option |= Int32(CapsLock)
         }
 
-        Logger.skkInput.debug("\(#function, privacy: .public) event=\(event.description, privacy: .private)")
-        Logger.skkInput.debug("\(#function, privacy: .public) result=\(result.dump(), privacy: .private)")
+        Logger.skkInput.info("""
+        [\(#fileID, privacy: .public):\(#function, privacy: .public)] \
+        event=\(event.description, privacy: .private)") \
+        result=\(result.dump(), privacy: .private)")
+        """)
 
         return result
     }

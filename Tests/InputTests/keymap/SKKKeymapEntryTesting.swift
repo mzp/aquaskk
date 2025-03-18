@@ -21,9 +21,10 @@ struct SKKKeymapEntryTesting {
     }
 
     @Test func keyCode() throws {
-        let entry = try #require(SKKKeymapEntryImpl(key: "SKK_JMODE", value: "keycode::0x0a"))
+        let entry = try #require(SKKKeymapEntryImpl(key: "SKK_JMODE", value: "keycode::0x0a||keycode::7b"))
         let aKey = SKKKeyState.KeyCode(0x0A, 0)
-        #expect(entry.keys == [aKey])
+        let bKey = SKKKeyState.KeyCode(0x7B, 0)
+        #expect(entry.keys == [aKey, bKey])
         #expect(entry.symbol == SKK_JMODE)
     }
 

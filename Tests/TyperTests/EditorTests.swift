@@ -20,8 +20,7 @@ struct EditorTests {
 
     @Test("toggleKana", arguments: [
         ("com.apple.inputmethod.Japanese.Hiragana", "あいうえお", "アイウエオ"),
-        ("com.apple.inputmethod.Japanese.Katakana", "アイウエオ", "あいうえお"),
-        ("com.apple.inputmethod.Japanese.HalfWidthKana", "ｱｲｳｴｵ", "あいうえお")
+        ("com.apple.inputmethod.Japanese.Katakana", "アイウエオ", "あいうえお")
     ]) func toggleKana(identifier: String, primary: String, secondary: String) async {
         let session = Typer.Session()
         await session.run { typer in
@@ -33,6 +32,23 @@ struct EditorTests {
             await typer.handle(event: .toggleKana)
             await typer.type(text: "aiueo")
             #expect(typer.insertedText == primary)
+        }
+    }
+
+    @Test func toggleKana_Jis0201Kana() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.setValue("com.apple.inputmethod.Japanese.HalfWidthKana")
+            await typer.type(text: "aiueo")
+            #expect(typer.insertedText == "ｱｲｳｴｵ")
+            typer.clear()
+            await typer.handle(event: .toggleKana)
+            await typer.type(text: "aiueo")
+            #expect(typer.insertedText == "あいうえお")
+            typer.clear()
+            await typer.handle(event: .toggleKana)
+            await typer.type(text: "aiueo")
+            #expect(typer.insertedText == "アイウエオ")
         }
     }
 
