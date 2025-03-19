@@ -34,7 +34,7 @@ public class SKKOutputBufferImpl {
 
     public func compose(string: String, cursor offset: Int = 0) {
         composing.insert(contentsOf: string, at: cursor)
-        cursor = composing.index(composing.startIndex, offsetBy: composing.count + offset)
+        cursor = composing.index(cursor, offsetBy: string.count + offset)
         if !composing.isEmpty {
             Logger.skkEngine.info("""
             [\(#fileID, privacy: .public):\(#function, privacy: .public)] \

@@ -7,9 +7,10 @@
 internal import AquaSKKTesting
 
 extension TyperConfig {
-    static func defaults(annotation: Bool = true) -> TyperConfig {
-        let object = TyperConfig.newInstannce()!
-        object.SetEnableAnnotation(annotation)
-        return object
+    static func defaults(annotation: Bool = true, suppressNewlineOnCommit: Bool = true) -> TyperConfig {
+        let config = TyperConfig.newInstannce()!
+        config.SetEnableAnnotation(annotation)
+        config.SetSuppressNewlineOnCommit(suppressNewlineOnCommit)
+        return config
     }
 }

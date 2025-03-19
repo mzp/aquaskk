@@ -40,6 +40,7 @@ class Typer {
                 typerSession: typerSession,
                 client: client
             )
+            typer.clear()
             await perform(typer)
             controller.deactivateServer(nil)
         }

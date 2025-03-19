@@ -337,7 +337,7 @@ public class SKKStateEntryCompletion {
             }
             if param.IsRemoveTrigger() {
                 if completer.Remove() {
-                    messenger.SendMessage("o見出し語を削除しました")
+                    messenger.SendMessage("見出し語を削除しました")
                     return .transitionKanaInput
                 } else {
                     return .handled

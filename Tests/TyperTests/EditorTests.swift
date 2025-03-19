@@ -40,6 +40,27 @@ struct EditorTests {
 
             await typer.handle(event: .skkBackspace)
             #expect(typer.markedText == "▽きょ")
+            #expect(typer.markedTextRange == .init(location: 3, length: 0))
+
+            await typer.handle(event: .skkLeft)
+            #expect(typer.markedTextRange == .init(location: 2, length: 0))
+
+            await typer.handle(event: .skkUp)
+            #expect(typer.markedTextRange == .init(location: 1, length: 0))
+
+            // does nothing
+            await typer.handle(event: .skkLeft)
+            #expect(typer.markedTextRange == .init(location: 1, length: 0))
+
+            await typer.handle(event: .skkRight)
+            #expect(typer.markedTextRange == .init(location: 2, length: 0))
+
+            await typer.handle(event: .skkDown)
+            #expect(typer.markedTextRange == .init(location: 3, length: 0))
+
+            await typer.handle(event: .skkJmode)
+            #expect(typer.markedText == "")
+            #expect(typer.insertedText == "きょ")
         }
     }
 
@@ -68,6 +89,10 @@ struct EditorTests {
         await session.run { typer in
             await typer.type(text: "Kyou ")
             #expect(typer.markedText == "▼今日")
+
+            await typer.handle(event: .skkJmode)
+            #expect(typer.markedText == "")
+            #expect(typer.insertedText == "今日")
         }
     }
 
