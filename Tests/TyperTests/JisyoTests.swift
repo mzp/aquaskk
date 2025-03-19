@@ -85,15 +85,4 @@ struct JisyoTests {
             #expect(typer.insertedText == "")
         }
     }
-
-    @Test func annotation() async {
-        let session = Typer.Session()
-        await session.run { typer in
-            await typer.type(text: "Kyou ")
-
-            let annotation = typer.annotation
-            #expect(annotation.entry == "今日")
-            #expect(annotation.visible == true)
-        }
-    }
 }

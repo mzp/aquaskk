@@ -20,8 +20,8 @@
 #import <AquaSKKTesting/MockMessenger.h>
 #import "TyperConfig.h"
 
-TyperInputSessionParameter::TyperInputSessionParameter(id client)
-    : config_(new TyperConfig()),
+TyperInputSessionParameter::TyperInputSessionParameter(id client, TyperConfig *config)
+    : config_(new TyperConfig(*config)),
       frontend_(new MacFrontEnd(client)),
       messenger_(new MockMessenger()),
       clipboard_(new MockClipboard()),
@@ -107,8 +107,8 @@ bool TyperInputSessionParameter::IsAnnotationVisible() {
     return annotator->IsVisible();
 }
 
-TyperInputSessionParameter *TyperInputSessionParameter::Create(id client) {
-    return new TyperInputSessionParameter(client);
+TyperInputSessionParameter *TyperInputSessionParameter::Create(id client, TyperConfig *config) {
+    return new TyperInputSessionParameter(client, config);
 }
 
 SKKInputSessionParameter *TyperInputSessionParameter::Coerce(TyperInputSessionParameter *params) {

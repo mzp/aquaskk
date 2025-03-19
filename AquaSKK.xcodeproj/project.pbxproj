@@ -18,7 +18,7 @@
 		1307C23E2C5B47D800B089B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1307C23D2C5B47D800B089B6 /* ContentView.swift */; };
 		1307C2432C5B47DA00B089B6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1307C2422C5B47DA00B089B6 /* Preview Assets.xcassets */; };
 		1307C24E2C5B47DA00B089B6 /* SandboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1307C24D2C5B47DA00B089B6 /* SandboxTests.swift */; };
-		13096C882C8CAEA1009F3E6B /* TyperConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 13096C862C8CAEA1009F3E6B /* TyperConfig.h */; };
+		13096C882C8CAEA1009F3E6B /* TyperConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 13096C862C8CAEA1009F3E6B /* TyperConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13096C892C8CAEA1009F3E6B /* TyperConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13096C872C8CAEA1009F3E6B /* TyperConfig.cpp */; };
 		1310827E2C5B5BDB00C186BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1310827D2C5B5BDB00C186BE /* Images.xcassets */; };
 		131082802C5B5BEC00C186BE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1310827F2C5B5BEC00C186BE /* InfoPlist.strings */; };
@@ -55,6 +55,7 @@
 		1326922A2D7A486800043CDC /* SKKCompleterBuddy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 132692282D7A486800043CDC /* SKKCompleterBuddy.cpp */; };
 		1326922C2D7A9A9B00043CDC /* SKKInputEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1326922B2D7A9A9B00043CDC /* SKKInputEngine.swift */; };
 		1326922E2D7AA66E00043CDC /* SKKConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1326922D2D7AA66E00043CDC /* SKKConfig.cpp */; };
+		132BAEDA2D8B1DAC0097503F /* Typer+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132BAED92D8B1DAC0097503F /* Typer+Config.swift */; };
 		132CBC032D5F95B200E4D875 /* AquaSKKLogging.docc in Sources */ = {isa = PBXBuildFile; fileRef = 132CBC002D5F95B200E4D875 /* AquaSKKLogging.docc */; };
 		132CBC072D5F966500E4D875 /* Logger+AquaSKK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132CBC062D5F966500E4D875 /* Logger+AquaSKK.swift */; };
 		132F4D312D6C07270081022E /* IntrusiveRefCounted.h in Headers */ = {isa = PBXBuildFile; fileRef = 13096C842C8C2D24009F3E6B /* IntrusiveRefCounted.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -457,6 +458,7 @@
 		13B7BED32C5F5CF900F6BEF8 /* AquaSKKService.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B7BEC32C5F5CF900F6BEF8 /* AquaSKKService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13BDCB632D50396D0031BB3A /* SKKLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDCB622D50396D0031BB3A /* SKKLayoutManager.swift */; };
 		13BDCB6E2D5091840031BB3A /* SKKInputMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDCB6D2D5091840031BB3A /* SKKInputMenu.swift */; };
+		13C04FE32D8B11F600684664 /* ConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C04FE22D8B11F600684664 /* ConfigTests.swift */; };
 		13C1CD362D6189BC00455773 /* SKKCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C1CD352D6189BC00455773 /* SKKCalculator.swift */; };
 		13C1CD392D61A21700455773 /* SKKParsersBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C1CD382D61A21700455773 /* SKKParsersBase.swift */; };
 		13C672B92D5A5FC2000F4F6E /* SKKBackendBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13C672B82D5A5FC2000F4F6E /* SKKBackendBridge.mm */; };
@@ -661,6 +663,7 @@
 		1326922B2D7A9A9B00043CDC /* SKKInputEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKInputEngine.swift; sourceTree = "<group>"; };
 		1326922D2D7AA66E00043CDC /* SKKConfig.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKConfig.cpp; sourceTree = "<group>"; };
 		132B77782C5DB89E00EEC2A5 /* pthreadutil_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = pthreadutil_TEST.mm; sourceTree = "<group>"; };
+		132BAED92D8B1DAC0097503F /* Typer+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Typer+Config.swift"; sourceTree = "<group>"; };
 		132CBBF62D5F95A700E4D875 /* AquaSKKLogging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AquaSKKLogging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		132CBC002D5F95B200E4D875 /* AquaSKKLogging.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKLogging.docc; sourceTree = "<group>"; };
 		132CBC052D5F95C700E4D875 /* Framework-Logging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Logging.xcconfig"; sourceTree = "<group>"; };
@@ -1104,6 +1107,7 @@
 		13B7BEE22C5F5D2000F6BEF8 /* Tests-Service.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Service.xcconfig"; sourceTree = "<group>"; };
 		13BDCB622D50396D0031BB3A /* SKKLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKLayoutManager.swift; sourceTree = "<group>"; };
 		13BDCB6D2D5091840031BB3A /* SKKInputMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKInputMenu.swift; sourceTree = "<group>"; };
+		13C04FE22D8B11F600684664 /* ConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTests.swift; sourceTree = "<group>"; };
 		13C1CD352D6189BC00455773 /* SKKCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKCalculator.swift; sourceTree = "<group>"; };
 		13C1CD382D61A21700455773 /* SKKParsersBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKParsersBase.swift; sourceTree = "<group>"; };
 		13C672B72D5A5FC2000F4F6E /* SKKBackendBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKBackendBridge.h; sourceTree = "<group>"; };
@@ -1552,13 +1556,14 @@
 		133834E22C60203900D73AD7 /* TyperTests */ = {
 			isa = PBXGroup;
 			children = (
-				135EEBA02C5EEA5100758672 /* Typer */,
-				135C3D652C5B3E9D00661AE3 /* InputTests.swift */,
-				135F893F2D61B4040032AA24 /* GadgetTests.swift */,
+				13C04FE22D8B11F600684664 /* ConfigTests.swift */,
 				134D25602D7A01120014ACD5 /* EditorTests.swift */,
+				135F893F2D61B4040032AA24 /* GadgetTests.swift */,
+				135C3D652C5B3E9D00661AE3 /* InputTests.swift */,
 				1393E3302C6B201500F1E633 /* JisyoTests.swift */,
 				13B7BE982C5F282D00F6BEF8 /* ModeTests.swift */,
 				133E1FDD2C7951E900B1A03A /* SandboxedTests.swift */,
+				135EEBA02C5EEA5100758672 /* Typer */,
 			);
 			path = TyperTests;
 			sourceTree = "<group>";
@@ -2114,9 +2119,10 @@
 			isa = PBXGroup;
 			children = (
 				135EEB9A2C5EE6AB00758672 /* MockTextInput.swift */,
-				135EEB9D2C5EEA4900758672 /* Typer.swift */,
 				1393E3432C6B899300F1E633 /* SendableEvent.swift */,
 				1393E3452C6B89B100F1E633 /* SendableText.swift */,
+				135EEB9D2C5EEA4900758672 /* Typer.swift */,
+				132BAED92D8B1DAC0097503F /* Typer+Config.swift */,
 			);
 			path = Typer;
 			sourceTree = "<group>";
@@ -3747,8 +3753,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				134D25612D7A01120014ACD5 /* EditorTests.swift in Sources */,
+				132BAEDA2D8B1DAC0097503F /* Typer+Config.swift in Sources */,
 				133834F22C6020CB00D73AD7 /* ModeTests.swift in Sources */,
 				133834F32C6020CB00D73AD7 /* InputTests.swift in Sources */,
+				13C04FE32D8B11F600684664 /* ConfigTests.swift in Sources */,
 				133E1FDE2C7951E900B1A03A /* SandboxedTests.swift in Sources */,
 				135F89402D61B4040032AA24 /* GadgetTests.swift in Sources */,
 				133834F42C6020CB00D73AD7 /* MockTextInput.swift in Sources */,

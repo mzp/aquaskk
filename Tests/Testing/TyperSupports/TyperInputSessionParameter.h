@@ -19,6 +19,7 @@
 #import <AquaSKKEngine/SKKFrontEnd.h>
 #import <AquaSKKEngine/SKKInputSessionParameter.h>
 #import <AquaSKKEngine/SKKMessenger.h>
+class TyperConfig;
 
 class TyperInputSessionParameter : public SKKInputSessionParameter {
     std::unique_ptr<SKKConfig> config_;
@@ -30,7 +31,7 @@ class TyperInputSessionParameter : public SKKInputSessionParameter {
     std::unique_ptr<SKKDynamicCompletor> completor_;
 
 public:
-    TyperInputSessionParameter(id _Nonnull client);
+    TyperInputSessionParameter(id _Nonnull client, TyperConfig *config);
     virtual SKKConfig *_Nonnull Config();
     virtual SKKFrontEnd *_Nonnull FrontEnd();
     virtual SKKMessenger *_Nonnull Messenger();
@@ -51,7 +52,7 @@ public:
     int GetAnnotationCursor();
     bool IsAnnotationVisible();
 
-    static TyperInputSessionParameter *_Nonnull Create(id _Nonnull client);
+    static TyperInputSessionParameter *_Nonnull Create(id _Nonnull client, TyperConfig *_Nonnull config);
     static SKKInputSessionParameter *_Nonnull Coerce(TyperInputSessionParameter *_Nonnull params);
 } SWIFT_SHARED_REFERENCE(TISRetain, TISRelease);
 

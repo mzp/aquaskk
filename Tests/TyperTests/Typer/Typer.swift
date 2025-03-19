@@ -26,12 +26,11 @@ class Typer {
 
     class Session {
         private var client = MockTextInput()
-
-        @MainActor func run(perform: (Typer) async -> Void) async {
+        @MainActor func run(config: TyperConfig, perform: (Typer) async -> Void) async {
             // SKKInputControllerはMainThread以外からはさわれない
             // deinitもMainThreadで実行されるよう、このメソッドの外には出さない
             let controller = SKKInputController()
-            let typerSession = TyperInputSessionParameter.Create(client)
+            let typerSession = TyperInputSessionParameter.Create(client, config)
             let ptr = TyperInputSessionParameter.Coerce(typerSession)
             controller._setClient(client, sessionParameter: ptr)
             controller.activateServer(nil)
@@ -43,6 +42,10 @@ class Typer {
             )
             await perform(typer)
             controller.deactivateServer(nil)
+        }
+
+        @MainActor func run(perform: (Typer) async -> Void) async {
+            await run(config: TyperConfig.newInstannce(), perform: perform)
         }
     }
 
