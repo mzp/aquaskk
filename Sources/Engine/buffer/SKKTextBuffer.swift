@@ -60,7 +60,6 @@ public struct SKKTextBufferImpl {
         if index != content.startIndex {
             index = content.index(index, offsetBy: -1)
         }
-
     }
 
     public mutating func cursorRight() {

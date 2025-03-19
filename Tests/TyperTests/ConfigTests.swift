@@ -35,7 +35,7 @@ struct ConfigTests {
 
         await session.run(config: .defaults(suppressNewlineOnCommit: false)) { typer in
             await typer.type(text: "Kyou")
-           let handled =  await typer.handle(event: .skkEnter)
+            let handled = await typer.handle(event: .skkEnter)
             #expect(typer.insertedText == "きょう")
             #expect(handled == false)
         }
@@ -49,7 +49,7 @@ struct ConfigTests {
 
         await session.run(config: .defaults(suppressNewlineOnCommit: false)) { typer in
             await typer.type(text: "Kyou ")
-           let handled =  await typer.handle(event: .skkEnter)
+            let handled = await typer.handle(event: .skkEnter)
             #expect(typer.insertedText == "今日")
             #expect(handled == false)
         }

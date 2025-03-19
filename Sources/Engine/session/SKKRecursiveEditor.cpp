@@ -24,7 +24,6 @@
 #import <AquaSKKEngine/SKKRecursiveEditor.h>
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
-#include "utf8util.h"
 
 SKKRecursiveEditor::SKKRecursiveEditor(SKKInputEnvironment *env)
     : editor_(env), state_(SKKState(env, &editor_)) {
