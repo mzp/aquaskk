@@ -35,10 +35,9 @@ struct JisyoTests {
             #expect(typer.markedText == "▽ころ*g")
             await typer.type(text: "a")
             #expect(typer.markedText == "▼転が")
-            // FIXME: Crash
-//            await typer.type(text: "ru")
-//            #expect(typer.markedText == "転がる")
-//            #expect(typer.insertedText == "転がる")
+            await typer.type(text: "ru")
+            #expect(typer.markedText == "")
+            #expect(typer.insertedText == "転がる")
         }
     }
 
@@ -62,11 +61,9 @@ struct JisyoTests {
             await typer.type(text: "yes")
             #expect(typer.markedText == "きょう /今日/ を削除しますか？(yes/no) yes")
             await typer.handle(event: .skkEnter)
-
-            // FIXME: Crash
-            // typer.clear()
-            // await typer.type(text: "Kyou ")
-            // #expect(typer.markedText == "▼今日")
+            typer.clear()
+            await typer.type(text: "Kyou ")
+            #expect(typer.markedText == "▼今日")
         }
     }
 
