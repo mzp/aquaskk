@@ -5,7 +5,8 @@
 //  Created by mzp on 2025/03/07.
 //
 
-import Foundation
+import AquaSKKLogging
+import OSLog
 
 public class SKKOutputBufferImpl {
     private let frontend: SKKFrontEnd
@@ -33,7 +34,16 @@ public class SKKOutputBufferImpl {
 
     public func compose(string: String, cursor offset: Int = 0) {
         composing.insert(contentsOf: string, at: cursor)
-        cursor = composing.index(composing.startIndex, offsetBy: string.count + offset)
+        cursor = composing.index(composing.startIndex, offsetBy: composing.count + offset)
+        if !composing.isEmpty {
+            Logger.skkEngine.info("""
+            [\(#fileID, privacy: .public):\(#function, privacy: .public)] \
+            "\(self.composing, privacy: .private)"\
+            (length=\(self.composing.count, privacy: .public)) \
+            cursor=\(String(describing: self.cursor), privacy: .public) \
+            offset=\(offset, privacy: .public)
+            """)
+        }
     }
 
     public func convert(string: String) {

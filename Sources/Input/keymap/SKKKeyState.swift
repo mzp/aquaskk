@@ -9,7 +9,7 @@ extension SKKKeyState: Equatable {}
 
 extension SKKKeyState: CustomDebugStringConvertible {
     public var debugDescription: String {
-        return "<SKKKeyState: \(rawValue)>"
+        return "<SKKKeyState: keyCode=\(keyCode) charCode=\(charCode) mods=\(mods)>"
     }
 }
 

@@ -34,4 +34,21 @@ struct InputTests {
             #expect(typer.markedText == "")
         }
     }
+
+    @Test("unhandled event", arguments: [
+        SendableEvent.skkEnter,
+        .skkCancel,
+        .skkBackspace,
+        .skkDelete,
+        .skkLeft,
+        .skkRight,
+        .skkUp,
+        .skkDown
+    ]) func unhandle(event: SendableEvent) async {
+        let session = Typer.Session()
+        await session.run { typer in
+            let handled = await typer.handle(event: event)
+            #expect(handled == false)
+        }
+    }
 }

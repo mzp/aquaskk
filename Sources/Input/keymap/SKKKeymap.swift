@@ -73,6 +73,10 @@ public class SKKKeymapImpl {
                 // 明示的なイベント
                 if entry.isEvent {
                     events[key] = entry.symbol
+
+                    Logger.skkInput.info("""
+                    [\(#fileID, privacy: .public):\(#function, privacy: .public)] \(String(describing: key.rawValue)) => \(String(describing: self.events[key]))
+                    """)
                     continue
                 }
 
@@ -85,6 +89,10 @@ public class SKKKeymapImpl {
                         events[key] = SKK_CHAR
                         attributes[key] = attributes[key, default: 0] | entry.symbol
                     }
+
+                    Logger.skkInput.info("""
+                    [\(#fileID, privacy: .public):\(#function, privacy: .public)] \(String(describing: key.rawValue)) => SKK_CHAR
+                    """)
                     continue
                 }
 

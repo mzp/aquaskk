@@ -59,6 +59,18 @@ public:
         return state_;
     }
 
+    int getMods() const SWIFT_COMPUTED_PROPERTY {
+        return (state_ >> 16) & 0xFFFF;
+    }
+
+    int getKeyCode() const SWIFT_COMPUTED_PROPERTY {
+        return (state_ >> 8) & 0xFF;
+    }
+
+    int getCharCode() const SWIFT_COMPUTED_PROPERTY {
+        return state_ & 0xFF;
+    }
+
     bool operator==(const SKKKeyState &rhs) const {
         return this->state_ == (int)rhs;
     }

@@ -137,7 +137,7 @@ public class SKKStateKanaInput {
         case .initEvent:
             return .shallowHistoryHirakana
 
-        case .entryEvent:
+        case .exitEvent:
             return .saveHistory
 
         case .charInput:

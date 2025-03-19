@@ -81,9 +81,18 @@ class Typer {
         await handle(event: event)
     }
 
-    @MainActor func handle(event: SendableEvent) {
-        _ = controller.handle(event.nsEvent, client: client)
+    @discardableResult @MainActor func handle(event: SendableEvent) -> Bool {
+        let handled = controller.handle(event.nsEvent, client: client)
         text = client.text
+        return handled
+    }
+
+    @MainActor func setValue(_ value: String) {
+        controller.setValue(value, forTag: kTextServiceInputModePropertyTag, client: client)
+    }
+
+    func clear() {
+        client.text.clear()
     }
 
     // MARK: - Properties
@@ -94,6 +103,10 @@ class Typer {
 
     var markedText: String {
         text.marked
+    }
+
+    var markedTextRange: NSRange {
+        text.markedTextRange
     }
 
     var modeIdentifier: String? {
@@ -115,6 +128,10 @@ class Typer {
             cursorOffset: Int(typerSession.GetCursorOffset()),
             visible: typerSession.IsCompletionVisible()
         )
+    }
+
+    var inputMode: SKKInputMode? {
+        controller.skkInputMenu()?.currentInputMode
     }
 
     var annotation: TyperAnnotation {

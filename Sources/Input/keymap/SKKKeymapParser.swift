@@ -84,7 +84,14 @@ class SKKKeymapParser {
         let key: Int32
         // 16 進数表記？
         if labelType.contains(.hex) || labelType.contains(.keyCode) {
-            key = Int32(string.dropFirst(2 /* 0x */ ), radix: 16) ?? 0
+            var value: String
+            if string.hasPrefix("0x") {
+                value = String(string.dropFirst(2))
+            } else {
+                value = string
+            }
+
+            key = Int32(value, radix: 16) ?? 0
         } else {
             key = Int32(string.first?.asciiValue ?? 0)
         }
