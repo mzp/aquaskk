@@ -40,7 +40,7 @@ public class SKKOutputBufferImpl {
             [\(#fileID, privacy: .public):\(#function, privacy: .public)] \
             "\(self.composing, privacy: .private)"\
             (length=\(self.composing.count, privacy: .public)) \
-            cursor=\(self.cursor.debugDescription, privacy: .public) \
+            cursor=\(String(describing: self.cursor), privacy: .public) \
             offset=\(offset, privacy: .public)
             """)
         }
