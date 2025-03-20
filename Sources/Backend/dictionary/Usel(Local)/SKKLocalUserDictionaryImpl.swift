@@ -262,7 +262,7 @@ public class SKKLocalUserDictionaryImpl: SKKBaseDictionaryProtocol, SKKUserDicti
             throw error
         }
         do {
-            try FileManager.default.removeItem(atPath: path)
+            try? FileManager.default.removeItem(atPath: path)
             try FileManager.default.moveItem(atPath: tmpPath, toPath: path)
             Logger.backend.error("\(#function, privacy: .public) saved")
         } catch {

@@ -462,6 +462,7 @@
 		13C85CFA2D8B8ED7006D1872 /* TyperConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132BAED92D8B1DAC0097503F /* TyperConfig.swift */; };
 		13C85CFC2D8B8FB3006D1872 /* CandidateSelectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C85CFB2D8B8FB3006D1872 /* CandidateSelectorTests.swift */; };
 		13C85CFE2D8B9110006D1872 /* RegisterWordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C85CFD2D8B9110006D1872 /* RegisterWordTests.swift */; };
+		13C85D012D8BBB5F006D1872 /* CompletionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C85D002D8BBB5F006D1872 /* CompletionTests.swift */; };
 		13D756192C5A9049006144F2 /* AquaSKKEngine.docc in Sources */ = {isa = PBXBuildFile; fileRef = 13D756172C5A9049006144F2 /* AquaSKKEngine.docc */; };
 		13D7561A2C5A9049006144F2 /* AquaSKKEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 13D756162C5A9049006144F2 /* AquaSKKEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13D8D3812D6D551700CF12D7 /* keymap_patch.conf in Resources */ = {isa = PBXBuildFile; fileRef = 1347784E2C5DB98F007B1DFB /* keymap_patch.conf */; };
@@ -1111,6 +1112,7 @@
 		13C672BB2D5AA043000F4F6E /* SwiftFramework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SwiftFramework.xcconfig; sourceTree = "<group>"; };
 		13C85CFB2D8B8FB3006D1872 /* CandidateSelectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateSelectorTests.swift; sourceTree = "<group>"; };
 		13C85CFD2D8B9110006D1872 /* RegisterWordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWordTests.swift; sourceTree = "<group>"; };
+		13C85D002D8BBB5F006D1872 /* CompletionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionTests.swift; sourceTree = "<group>"; };
 		13CEB8292C5DC48E0052B7ED /* Cpp.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Cpp.xcconfig; sourceTree = "<group>"; };
 		13CFD1B22C6818F9000A67E9 /* Frameworks.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Frameworks.xctestplan; sourceTree = "<group>"; };
 		13CFD1B32C68198D000A67E9 /* App.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = App.xctestplan; sourceTree = "<group>"; };
@@ -1555,6 +1557,7 @@
 			children = (
 				13C04FE22D8B11F600684664 /* ConfigTests.swift */,
 				134D25602D7A01120014ACD5 /* TextComposeTests.swift */,
+				13C85D002D8BBB5F006D1872 /* CompletionTests.swift */,
 				13C85CFB2D8B8FB3006D1872 /* CandidateSelectorTests.swift */,
 				135F893F2D61B4040032AA24 /* GadgetTests.swift */,
 				135C3D652C5B3E9D00661AE3 /* TransliterateTests.swift */,
@@ -3749,6 +3752,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13C85D012D8BBB5F006D1872 /* CompletionTests.swift in Sources */,
 				134D25612D7A01120014ACD5 /* TextComposeTests.swift in Sources */,
 				13C85CFC2D8B8FB3006D1872 /* CandidateSelectorTests.swift in Sources */,
 				133834F22C6020CB00D73AD7 /* InputModeTests.swift in Sources */,

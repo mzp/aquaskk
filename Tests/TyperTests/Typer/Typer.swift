@@ -27,6 +27,8 @@ class Typer {
     class Session {
         private var client = MockTextInput()
         @MainActor func run(config: TyperConfig, perform: (Typer) async -> Void) async {
+            SKKBackendImpl.shared().privateModeEnabled = true
+
             // SKKInputControllerはMainThread以外からはさわれない
             // deinitもMainThreadで実行されるよう、このメソッドの外には出さない
             let controller = SKKInputController()
@@ -43,6 +45,9 @@ class Typer {
             typer.clear()
             await perform(typer)
             controller.deactivateServer(nil)
+
+            // 学習内容を初期化する
+            SKKBackendImpl.shared().privateModeEnabled = false
         }
 
         @MainActor func run(perform: (Typer) async -> Void) async {

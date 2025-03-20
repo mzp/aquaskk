@@ -52,6 +52,7 @@ struct ConfigTests {
         await session.run(config: .defaults(suppressNewlineOnCommit: true)) { typer in
             await typer.type(text: "Kyou ")
             let handled = await typer.handle(event: .skkEnter)
+            // FIXME: failed with all run
             #expect(typer.insertedText == "今日")
             #expect(handled == true)
         }
@@ -59,9 +60,12 @@ struct ConfigTests {
         await session.run(config: .defaults(suppressNewlineOnCommit: false)) { typer in
             await typer.type(text: "Kyou ")
             let handled = await typer.handle(event: .skkEnter)
+            // FIXME: failed with all run
             #expect(typer.insertedText == "今日")
             #expect(handled == false)
         }
+
+        
     }
 
     @Test func inlineBackSpaceImpliesCommit() async {

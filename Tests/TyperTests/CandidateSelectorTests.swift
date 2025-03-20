@@ -30,9 +30,9 @@ struct CandidateSelectorTests {
             await typer.handle(event: .skkBackspace)
             #expect(typer.markedText == "▽きょう")
             await typer.type(text: " ")
-
+            #expect(typer.markedText == "▼今日")
             await typer.handle(event: .skkRight)
-
+            #expect(typer.markedText == "▼今日")
             await typer.handle(event: .skkJmode)
             #expect(typer.markedText == "")
             #expect(typer.insertedText == "今日")
@@ -57,6 +57,23 @@ struct CandidateSelectorTests {
 
             await typer.handle(event: .skkLeft)
             #expect(typer.candidateCursor == 34)
+
+            await typer.handle(event: .skkEnter)
+            #expect(typer.insertedText == "亨")
+        }
+    }
+
+    @Test func selectByLabel() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.type(text: "Kyou      ")
+            await typer.type(text: "a")
+            #expect(typer.insertedText == "鏡")
+        }
+        await session.run { typer in
+            await typer.type(text: "Kyou      ")
+            await typer.type(text: "b")
+            #expect(typer.insertedText == "胸")
         }
     }
 }

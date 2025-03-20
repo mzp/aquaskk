@@ -27,5 +27,5 @@ void MockCandidateWindow::Update(
 }
 
 int MockCandidateWindow::LabelIndex(char label) {
-    return 0;
+    return label - 'a';
 }
