@@ -42,6 +42,8 @@ public:
 
     void SetString(std::string pasteString);
     std::vector<std::string> Candidates();
+    int GetCandidateCursor();
+    int GetCandidatePage();
 
     std::string GetCompletion();
     int GetCommonPrefixSize();

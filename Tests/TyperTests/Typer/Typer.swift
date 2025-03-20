@@ -125,6 +125,14 @@ class Typer {
         Array(typerSession.Candidates().map { String($0) })
     }
 
+    var candidateCursor: Int {
+        Int(typerSession.GetCandidateCursor())
+    }
+
+    var candidatePage: Int {
+        Int(typerSession.GetCandidatePage())
+    }
+
     var completion: TyperCompletion {
         TyperCompletion(
             completion: String(typerSession.GetCompletion()),

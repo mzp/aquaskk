@@ -23,7 +23,8 @@ TyperConfig::TyperConfig(const TyperConfig &other)
       enableAnnotation_(other.enableAnnotation_),
       suppressNewlineOnCommit_(other.suppressNewlineOnCommit_),
       maxCountOfInlineCandidates_(other.maxCountOfInlineCandidates_),
-      deleteOkuriWhenQuit_(other.deleteOkuriWhenQuit_) {}
+      deleteOkuriWhenQuit_(other.deleteOkuriWhenQuit_),
+      inlineBackSpaceImpliesCommit_(other.inlineBackSpaceImpliesCommit_) {}
 
 TyperConfig::~TyperConfig() {}
 

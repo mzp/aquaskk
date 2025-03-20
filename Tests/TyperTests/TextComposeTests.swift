@@ -1,5 +1,5 @@
 //
-//  EditorTests.swift
+//  TextComposeTests.swift
 //  BackendTests
 //
 //  Created by mzp on 2025/03/06.
@@ -7,7 +7,7 @@
 
 import Testing
 
-struct EditorTests {
+struct TextComposeTests {
     // MARK: - Primary
 
     @Test func abbrev() async {
@@ -26,6 +26,23 @@ struct EditorTests {
             #expect(typer.markedText == "▽")
             await typer.type(text: "aiueo")
             #expect(typer.markedText == "▽あいうえお")
+        }
+    }
+
+    @Test("unhandled event", arguments: [
+        SendableEvent.skkEnter,
+        .skkCancel,
+        .skkBackspace,
+        .skkDelete,
+        .skkLeft,
+        .skkRight,
+        .skkUp,
+        .skkDown
+    ]) func unhandle(event: SendableEvent) async {
+        let session = Typer.Session()
+        await session.run { typer in
+            let handled = await typer.handle(event: event)
+            #expect(handled == false)
         }
     }
 
@@ -64,49 +81,19 @@ struct EditorTests {
         }
     }
 
-    @Test func toggleKana() async {
-        let session = Typer.Session()
-        await session.run { typer in
-            await typer.type(text: "Aiueo")
-            await typer.handle(event: .toggleKana)
-            #expect(typer.insertedText == "アイウエオ")
-        }
-    }
-
-    @Test func toggleJisx0201Kana() async {
-        let session = Typer.Session()
-        await session.run { typer in
-            await typer.type(text: "Aiueo")
-            await typer.handle(event: .toggleJisx0201Kana)
-            #expect(typer.insertedText == "ｱｲｳｴｵ")
-        }
-    }
-
-    // MARK: - Candidate
-
-    @Test func candidate() async {
+    @Test func implicitConfirm() async {
         let session = Typer.Session()
         await session.run { typer in
             await typer.type(text: "Kyou ")
             #expect(typer.markedText == "▼今日")
 
-            await typer.handle(event: .skkJmode)
+            await typer.type(text: "ha")
             #expect(typer.markedText == "")
-            #expect(typer.insertedText == "今日")
+            #expect(typer.insertedText == "今日は")
         }
     }
 
     // TODO: - Okuri Editor
 
     // MARK: - Entry remove Editor
-
-    @Test func remove() async {
-        let session = Typer.Session()
-        await session.run { typer in
-            await typer.type(text: "Kyou ")
-            #expect(typer.markedText == "▼今日")
-            await typer.type(text: "X", modifiers: [.shift])
-            #expect(typer.markedText == "きょう /今日/ を削除しますか？(yes/no) ")
-        }
-    }
 }

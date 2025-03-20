@@ -1,5 +1,5 @@
 //
-//  ModeTests.swift
+//  InputModeTests.swift
 //  CoreTests
 //
 //  Created by mzp on 8/3/24.
@@ -9,18 +9,7 @@ import AppKit
 import Testing
 internal import AquaSKKBackend
 
-struct ModeTest {
-    @Test func switchByKeyCommand() async {
-        let session = Typer.Session()
-        await session.run { typer in
-            await typer.type(character: "l", keycode: 35)
-            #expect(typer.modeIdentifier == "com.apple.inputmethod.Roman")
-
-            await typer.handle(event: .skkJmode)
-            #expect(typer.modeIdentifier == "com.apple.inputmethod.Japanese.Hiragana")
-        }
-    }
-
+struct InputMenuTests {
     @Test("event", arguments: [
         ("com.apple.inputmethod.Japanese.Hiragana", SKKInputMode.HirakanaInputMode, "あいうえお"),
         ("com.apple.inputmethod.Japanese.Katakana", SKKInputMode.KatakanaInputMode, "アイウエオ"),
@@ -48,6 +37,43 @@ struct ModeTest {
             await typer.setValue("com.apple.inputmethod.Roman")
             let handled = await typer.handle(event: .init(characters: "a"))
             #expect(handled == false)
+        }
+    }
+
+    @Test func latin() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.type(character: "l", keycode: 35)
+            #expect(typer.modeIdentifier == "com.apple.inputmethod.Roman")
+        }
+    }
+
+    @Test func hiragana() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.setValue("com.apple.inputmethod.Roman")
+            await typer.handle(event: .skkJmode)
+            await typer.type(text: "aiueo")
+            #expect(typer.insertedText == "あいうえお")
+            #expect(typer.markedText == "")
+        }
+    }
+
+    @Test func katakana() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.type(text: "qaiueo")
+            #expect(typer.insertedText == "アイウエオ")
+            #expect(typer.markedText == "")
+        }
+    }
+
+    @Test func fullWidthLatinAlphabet() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.type(text: "Laiueo")
+            #expect(typer.insertedText == "ａｉｕｅｏ")
+            #expect(typer.markedText == "")
         }
     }
 

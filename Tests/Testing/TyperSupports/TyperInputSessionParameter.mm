@@ -76,6 +76,15 @@ std::vector<std::string> TyperInputSessionParameter::Candidates() {
     return result;
 }
 
+int TyperInputSessionParameter::GetCandidateCursor() {
+    MockCandidateWindow *candidateWindow = dynamic_cast<MockCandidateWindow *>(this->CandidateWindow());
+    return candidateWindow->GetCursor();
+}
+int TyperInputSessionParameter::GetCandidatePage() {
+    MockCandidateWindow *candidateWindow = dynamic_cast<MockCandidateWindow *>(this->CandidateWindow());
+    return candidateWindow->GetPagePos();
+}
+
 std::string TyperInputSessionParameter::GetCompletion() {
     MockDynamicCompletor *dynamicCompletor = dynamic_cast<MockDynamicCompletor *>(this->DynamicCompletor());
     return dynamicCompletor->GetCompletion();
