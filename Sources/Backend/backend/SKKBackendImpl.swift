@@ -131,7 +131,6 @@ public class SKKBackendImpl {
     }
 
     public func register(entry: SKKEntry, candidate: SKKCandidate) {
-
         if entry.EntryString().isEmpty {
             return
         }

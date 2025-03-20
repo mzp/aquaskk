@@ -173,6 +173,7 @@ public class SKKLocalUserDictionaryImpl: SKKBaseDictionaryProtocol, SKKUserDicti
     public func setPrivateMode(value: Bool) {
         let semaphore = DispatchSemaphore(value: 0)
         Task {
+            defer { semaphore.signal() }
             if value != privateMode {
                 if value {
                     try save(force: true)
@@ -181,7 +182,6 @@ public class SKKLocalUserDictionaryImpl: SKKBaseDictionaryProtocol, SKKUserDicti
                 }
                 privateMode = value
             }
-            semaphore.signal()
         }
         semaphore.wait()
     }
@@ -264,7 +264,7 @@ public class SKKLocalUserDictionaryImpl: SKKBaseDictionaryProtocol, SKKUserDicti
         do {
             try? FileManager.default.removeItem(atPath: path)
             try FileManager.default.moveItem(atPath: tmpPath, toPath: path)
-            Logger.backend.error("\(#function, privacy: .public) saved")
+            Logger.backend.log("[\(#fileID, privacy: .public):\(#function, privacy: .public)] saved")
         } catch {
             Logger.backend.error("\(#function, privacy: .public) rename failed due to  \(error.localizedDescription, privacy: .public)")
             throw error

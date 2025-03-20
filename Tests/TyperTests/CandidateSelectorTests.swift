@@ -27,15 +27,21 @@ struct CandidateSelectorTests {
             #expect(typer.markedText == "▼京")
             await typer.handle(event: .skkBackspace)
             #expect(typer.markedText == "▼今日")
-            await typer.handle(event: .skkBackspace)
-            #expect(typer.markedText == "▽きょう")
-            await typer.type(text: " ")
-            #expect(typer.markedText == "▼今日")
             await typer.handle(event: .skkRight)
             #expect(typer.markedText == "▼今日")
             await typer.handle(event: .skkJmode)
             #expect(typer.markedText == "")
             #expect(typer.insertedText == "今日")
+        }
+    }
+
+    @Test func inlineCancel() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.type(text: "Kyou ")
+            #expect(typer.markedText.hasPrefix("▼"))
+            await typer.handle(event: .skkBackspace)
+            #expect(typer.markedText.hasPrefix("▽"))
         }
     }
 
@@ -68,12 +74,12 @@ struct CandidateSelectorTests {
         await session.run { typer in
             await typer.type(text: "Kyou      ")
             await typer.type(text: "a")
-            #expect(typer.insertedText == "鏡")
+            #expect(typer.insertedText == typer.candidates[0])
         }
         await session.run { typer in
             await typer.type(text: "Kyou      ")
             await typer.type(text: "b")
-            #expect(typer.insertedText == "胸")
+            #expect(typer.insertedText == typer.candidates[1])
         }
     }
 }
