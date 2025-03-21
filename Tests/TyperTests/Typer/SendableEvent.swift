@@ -56,6 +56,7 @@ extension SendableEvent {
     static let skkDown = SendableEvent(characters: "e", modifiers: .control)
     static let skkTab = SendableEvent(characters: "i", modifiers: .control)
     static let ping = SendableEvent(characters: "l", modifiers: .control)
+    static let undo = SendableEvent(characters: "/", modifiers: .control)
 
     static let toggleJisx0201Kana = SendableEvent(characters: "q", modifiers: .control)
     static let toggleKana = SendableEvent(characters: "q")

@@ -33,7 +33,7 @@ public struct SKKDictionaryEntryImpl: Equatable, CustomDebugStringConvertible {
         String(data: Data(value), encoding: encoding)
     }
 
-    public var valueStdString: std.string {
+    var valueStdString: std.string {
         get {
             SKKRawString(value)
         } set {

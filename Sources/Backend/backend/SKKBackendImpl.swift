@@ -174,6 +174,7 @@ public class SKKBackendImpl {
             userDictionary.setPrivateMode(value: privateModeEnabled)
         }
     }
+
     public var minimumCompletionLength: Int
 
     // MARK: - Bridge

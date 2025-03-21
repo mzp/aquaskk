@@ -58,3 +58,11 @@ const std::string SKKUndoContext::Entry() const {
 const std::string SKKUndoContext::Candidate() const {
     return (*(container_->impl_))->bridgeCandidate();
 }
+
+const std::string SKKUndoContext::getEntry() const {
+    return (*(container_->impl_))->bridgeEntry();
+}
+
+const std::string SKKUndoContext::getCandidate() const {
+    return (*(container_->impl_))->bridgeCandidate();
+}

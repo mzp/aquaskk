@@ -23,7 +23,7 @@ public class SKKComposingEditorImpl: SKKEditorProtocol {
 
         if context.entry.IsEmpty() {
             // 直接入力モードからの遷移
-            composing.insert(String(context.undo.entry))
+            composing.insert(String(context.undo.Entry()))
         } else {
             // 変換モードからの遷移なので、見出し語を復元する
             context.entry.SetOkuri("", "")

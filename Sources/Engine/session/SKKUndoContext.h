@@ -34,8 +34,6 @@ class SKKUndoContextContainer;
 class SKKUndoContext {
     SKKUndoContextContainer *container_;
     SKKFrontEnd *frontend_;
-    std::string entry_;
-    std::string candidate_;
 
 public:
     SKKUndoContext(SKKFrontEnd *frontend);
@@ -45,12 +43,8 @@ public:
     void Clear();
     const std::string Entry() const;
     const std::string Candidate() const;
-    const std::string getEntry() const SWIFT_COMPUTED_PROPERTY {
-        return entry_;
-    }
-    const std::string getCandidate() const SWIFT_COMPUTED_PROPERTY {
-        return candidate_;
-    }
+    const std::string getEntry() const SWIFT_COMPUTED_PROPERTY;
+    const std::string getCandidate() const SWIFT_COMPUTED_PROPERTY;
 };
 
 #endif

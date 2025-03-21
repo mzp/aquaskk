@@ -8,7 +8,6 @@
 import Testing
 
 struct CompletionTests {
-    
     @Test func completion() async throws {
         let session = Typer.Session()
         await session.run { typer in
@@ -25,7 +24,7 @@ struct CompletionTests {
             #expect(typer.markedText == "▼教育")
         }
     }
-    
+
     @Test func removeCompletion() async throws {
         let session = Typer.Session()
         await session.run { typer in
@@ -40,4 +39,3 @@ struct CompletionTests {
         }
     }
 }
-

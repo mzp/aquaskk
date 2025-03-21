@@ -41,6 +41,17 @@ struct JisyoTests {
         }
     }
 
+    @Test func undo() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            typer.setText(string: "今日", range: .init(location: 0, length: 2))
+            await typer.handle(event: .undo)
+            #expect(typer.markedText == "▽きょう")
+            await typer.type(text: "to")
+            #expect(typer.markedText == "▽きょうと")
+        }
+    }
+
     @Test func annotation() async {
         let session = Typer.Session()
         await session.run { typer in

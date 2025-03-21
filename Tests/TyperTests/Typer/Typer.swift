@@ -104,6 +104,13 @@ class Typer {
         client.text.clear()
     }
 
+    // MARK: - Text Edit
+
+    func setText(string: String, range: NSRange) {
+        client.text.string = string
+        client._selectedRange = range
+    }
+
     // MARK: - Properties
 
     var insertedText: String {
