@@ -40,17 +40,6 @@ struct InputMenuTests {
         }
     }
 
-    @Test func latin() async {
-        let session = Typer.Session()
-        await session.run { typer in
-            await typer.type(character: "l", keycode: 35)
-            #expect(typer.modeIdentifier == "com.apple.inputmethod.Roman")
-
-            await typer.handle(event: .ping)
-            #expect(typer.inputMode == .AsciiInputMode)
-        }
-    }
-
     @Test func hiragana() async {
         let session = Typer.Session()
         await session.run { typer in
@@ -77,6 +66,17 @@ struct InputMenuTests {
         }
     }
 
+    @Test func latin() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.type(character: "l", keycode: 35)
+            #expect(typer.modeIdentifier == "com.apple.inputmethod.Roman")
+
+            await typer.handle(event: .ping)
+            #expect(typer.inputMode == .AsciiInputMode)
+        }
+    }
+
     @Test func fullWidthLatinAlphabet() async {
         let session = Typer.Session()
         await session.run { typer in
@@ -86,6 +86,9 @@ struct InputMenuTests {
 
             await typer.handle(event: .ping)
             #expect(typer.inputMode == .Jisx0208LatinInputMode)
+
+            await typer.handle(event: .init(characters: "a", modifiers: .capsLock))
+            #expect(typer.insertedText == "ａｉｕｅｏＡ")
         }
     }
 
@@ -134,6 +137,33 @@ struct InputMenuTests {
             await typer.type(text: "aiueo")
             #expect(typer.insertedText == "ｱｲｳｴｵ")
             typer.clear()
+        }
+    }
+
+    @Test("switch by key", arguments: [
+        ("l", SKKInputMode.AsciiInputMode),
+        ("L", SKKInputMode.Jisx0208LatinInputMode),
+        ("Q", SKKInputMode.HirakanaInputMode),
+    ]) func kanaEntry(key: String, inputMode: SKKInputMode) async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.type(text: "Kanji")
+            await typer.type(text: key)
+            #expect(typer.insertedText == "かんじ")
+            #expect(typer.inputMode == inputMode)
+        }
+    }
+
+    @Test func toggleKanaInput() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.type(text: "/abc")
+            await typer.handle(event: .toggleJisx0201Kana)
+            #expect(typer.insertedText == "ａｂｃ")
+
+            typer.clear()
+            await typer.type(text: "aiu")
+            #expect(typer.insertedText == "あいう")
         }
     }
 }

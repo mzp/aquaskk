@@ -57,7 +57,7 @@ class Typer {
 
     private let controller: SKKInputController
     private let client: MockTextInput
-    private(set) var text = SendableText()
+    private(set) var text = TyperState()
     private let typerSession: TyperInputSessionParameter
 
     init(
@@ -74,7 +74,7 @@ class Typer {
 
     func type(text: String, modifiers: NSEvent.ModifierFlags = []) async {
         for character in text {
-            let event = SendableEvent(
+            let event = TyperEvent(
                 characters: String(character),
                 modifiers: modifiers
             )
@@ -83,14 +83,14 @@ class Typer {
     }
 
     func type(character: String, keycode: UInt16) async {
-        let event = SendableEvent(
+        let event = TyperEvent(
             characters: character,
             keyCode: keycode
         )
         await handle(event: event)
     }
 
-    @discardableResult @MainActor func handle(event: SendableEvent) -> Bool {
+    @discardableResult @MainActor func handle(event: TyperEvent) -> Bool {
         let handled = controller.handle(event.nsEvent, client: client)
         text = client.text
         return handled

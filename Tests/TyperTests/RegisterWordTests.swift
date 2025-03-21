@@ -42,6 +42,7 @@ struct RegisterWordTests {
             await typer.handle(event: .skkDelete)
             #expect(typer.markedText == "[登録：hello]HEL")
             #expect(typer.markedTextRange == .init(location: 13, length: 0))
+            await typer.handle(event: .skkJmode)
         }
     }
 

@@ -1,5 +1,5 @@
 //
-//  JisyoTests.swift
+//  CommonJisyoTests.swift
 //  AppTests
 //
 //  Created by mzp on 8/13/24.
@@ -7,7 +7,7 @@
 
 import Testing
 
-struct JisyoTests {
+struct CommonJisyoTests {
     @Test func convert() async {
         let session = Typer.Session()
         await session.run { typer in

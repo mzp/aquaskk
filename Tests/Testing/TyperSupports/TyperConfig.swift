@@ -9,13 +9,15 @@ public extension TyperConfig {
         annotation: Bool = true,
         dynamicCompletion: Bool = true,
         suppressNewlineOnCommit: Bool = true,
-        inlineBackSpaceImpliesCommit: Bool = false
+        inlineBackSpaceImpliesCommit: Bool = false,
+        handleRecursiveEntryAsOkuri: Bool = false
     ) -> TyperConfig {
         let config = TyperConfig.newInstannce()!
         config.SetEnableAnnotation(annotation)
         config.SetEnableDynamicCompletion(dynamicCompletion)
         config.SetSuppressNewlineOnCommit(suppressNewlineOnCommit)
         config.SetInlineBackSpaceImpliesCommit(inlineBackSpaceImpliesCommit)
+        config.SetHandleRecursiveEntryAsOkuri(handleRecursiveEntryAsOkuri)
         return config
     }
 }

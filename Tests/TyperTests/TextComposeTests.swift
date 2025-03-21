@@ -30,7 +30,7 @@ struct TextComposeTests {
     }
 
     @Test("unhandled event", arguments: [
-        SendableEvent.skkEnter,
+        TyperEvent.skkEnter,
         .skkCancel,
         .skkBackspace,
         .skkDelete,
@@ -38,7 +38,7 @@ struct TextComposeTests {
         .skkRight,
         .skkUp,
         .skkDown
-    ]) func unhandle(event: SendableEvent) async {
+    ]) func unhandle(event: TyperEvent) async {
         let session = Typer.Session()
         await session.run { typer in
             let handled = await typer.handle(event: event)
@@ -81,6 +81,17 @@ struct TextComposeTests {
         }
     }
 
+    @Test func implicitTransition() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.type(text: "A")
+            await typer.handle(event: .skkBackspace)
+            await typer.handle(event: .skkBackspace)
+            await typer.type(text: "a")
+            #expect(typer.insertedText == "あ")
+        }
+    }
+
     @Test func implicitConfirm() async {
         let session = Typer.Session()
         await session.run { typer in
@@ -92,8 +103,4 @@ struct TextComposeTests {
             #expect(typer.insertedText == "今日は")
         }
     }
-
-    // TODO: - Okuri Editor
-
-    // MARK: - Entry remove Editor
 }

@@ -24,7 +24,8 @@ TyperConfig::TyperConfig(const TyperConfig &other)
       suppressNewlineOnCommit_(other.suppressNewlineOnCommit_),
       maxCountOfInlineCandidates_(other.maxCountOfInlineCandidates_),
       deleteOkuriWhenQuit_(other.deleteOkuriWhenQuit_),
-      inlineBackSpaceImpliesCommit_(other.inlineBackSpaceImpliesCommit_) {}
+      inlineBackSpaceImpliesCommit_(other.inlineBackSpaceImpliesCommit_),
+      handleRecursiveEntryAsOkuri_(other.handleRecursiveEntryAsOkuri_) {}
 
 TyperConfig::~TyperConfig() {}
 

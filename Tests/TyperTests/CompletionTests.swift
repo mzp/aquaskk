@@ -23,6 +23,13 @@ struct CompletionTests {
             await typer.type(text: " ")
             #expect(typer.markedText == "▼教育")
         }
+
+        await session.run { typer in
+            await typer.type(text: "Tangohokann")
+            #expect(typer.markedText == "▽たんごほかん")
+            await typer.handle(event: .skkTab)
+            #expect(typer.markedText == "▽たんごほかん")
+        }
     }
 
     @Test func removeCompletion() async throws {

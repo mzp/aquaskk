@@ -35,12 +35,23 @@ struct CandidateSelectorTests {
         }
     }
 
-    @Test func inlineCancel() async {
+    @Test func register() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.type(text: "Kanji   ")
+            #expect(typer.markedText == "[登録：かんじ]")
+        }
+    }
+
+    @Test("cancel", arguments: [
+        TyperEvent.skkBackspace,
+        TyperEvent.skkCancel
+    ]) func inlineCancel(event: TyperEvent) async {
         let session = Typer.Session()
         await session.run { typer in
             await typer.type(text: "Kyou ")
             #expect(typer.markedText.hasPrefix("▼"))
-            await typer.handle(event: .skkBackspace)
+            await typer.handle(event: event)
             #expect(typer.markedText.hasPrefix("▽"))
         }
     }

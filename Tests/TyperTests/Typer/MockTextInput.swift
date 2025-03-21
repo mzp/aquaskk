@@ -12,7 +12,7 @@ import InputMethodKit
 import OSLog
 
 class MockTextInput: NSObject {
-    var text = SendableText()
+    var text = TyperState()
     var _selectedRange: NSRange = .init(location: 0, length: 0)
     var _markedRange: NSRange = .init(location: 0, length: 0)
 }

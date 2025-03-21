@@ -75,4 +75,16 @@ struct ConfigTests {
             #expect(typer.insertedText == "今日")
         }
     }
+
+    @Test func handleRecursiveEntryAsOkuri() async {
+        let session = Typer.Session()
+        await session.run(config: .defaults(handleRecursiveEntryAsOkuri: true)) { typer in
+            await typer.type(text: "A")
+            #expect(typer.markedText == "▽あ")
+            await typer.type(text: "Q")
+            #expect(typer.markedText == "▽あ*")
+            await typer.type(text: "ri")
+            #expect(typer.markedText == "▼有り")
+        }
+    }
 }

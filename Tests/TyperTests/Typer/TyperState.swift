@@ -1,5 +1,5 @@
 //
-//  SendableText.swift
+//  TyperState.swift
 //  TyperTests
 //
 //  Created by mzp on 8/13/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SendableText: Equatable, Sendable {
+struct TyperState: Equatable, Sendable {
     var string: String = ""
     var marked: String = ""
     var markedTextRange: NSRange = .init(location: 0, length: 0)
