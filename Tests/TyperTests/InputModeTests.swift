@@ -45,6 +45,9 @@ struct InputMenuTests {
         await session.run { typer in
             await typer.type(character: "l", keycode: 35)
             #expect(typer.modeIdentifier == "com.apple.inputmethod.Roman")
+
+            await typer.handle(event: .ping)
+            #expect(typer.inputMode == .AsciiInputMode)
         }
     }
 
@@ -56,6 +59,9 @@ struct InputMenuTests {
             await typer.type(text: "aiueo")
             #expect(typer.insertedText == "あいうえお")
             #expect(typer.markedText == "")
+
+            await typer.handle(event: .ping)
+            #expect(typer.inputMode == .HirakanaInputMode)
         }
     }
 
@@ -65,6 +71,9 @@ struct InputMenuTests {
             await typer.type(text: "qaiueo")
             #expect(typer.insertedText == "アイウエオ")
             #expect(typer.markedText == "")
+
+            await typer.handle(event: .ping)
+            #expect(typer.inputMode == .KatakanaInputMode)
         }
     }
 
@@ -74,6 +83,9 @@ struct InputMenuTests {
             await typer.type(text: "Laiueo")
             #expect(typer.insertedText == "ａｉｕｅｏ")
             #expect(typer.markedText == "")
+
+            await typer.handle(event: .ping)
+            #expect(typer.inputMode == .Jisx0208LatinInputMode)
         }
     }
 
