@@ -5,18 +5,19 @@
 //  Created by mzp on 2/7/25.
 //
 
+import AppKit
 import AquaSKKUI
 
 @objc(MacDynamicCompletorImpl)
 public class MacDynamicCompletorImpl: NSObject {
-    private let layoutManager: SKKLayoutManagerImpl
+    private let layoutManager: SKKLayoutManager
     private let window: CompletionWindow
 
     private var completion: String
     private var commonPrefixLength: Int
     private var cursorOffset: Int
 
-    @objc public init(layoutManager: SKKLayoutManagerImpl) {
+    @objc public init(layoutManager: SKKLayoutManager) {
         self.layoutManager = layoutManager
         window = CompletionWindow()
         completion = ""

@@ -30,7 +30,7 @@
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 
 MacDynamicCompletor::MacDynamicCompletor(SKKLayoutManager *layout) {
-    impl_ = [[MacDynamicCompletorImpl alloc] initWithLayoutManager:layout->getImpl()];
+    impl_ = [[MacDynamicCompletorImpl alloc] initWithLayoutManager:layout];
 }
 
 MacDynamicCompletor::~MacDynamicCompletor() {

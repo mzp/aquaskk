@@ -10,10 +10,10 @@ import AquaSKKService
 import AquaSKKUI
 
 public class MacMessengerImpl: NSObject {
-    let layoutManager: SKKLayoutManagerImpl
+    let layoutManager: SKKLayoutManager
 
     @objc(initWithLayoutManager:)
-    public init(layoutManager: SKKLayoutManagerImpl) {
+    public init(layoutManager: SKKLayoutManager) {
         self.layoutManager = layoutManager
     }
 

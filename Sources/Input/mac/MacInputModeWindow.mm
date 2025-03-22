@@ -22,7 +22,6 @@
 
 #import <InputMethodKit/InputMethodKit.h>
 #import <AquaSKKInput/MacInputModeWindow.h>
-#import <AquaSKKInput/SKKLayoutManager.h>
 #import <AquaSKKService/SKKSupervisor.h>
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
@@ -34,7 +33,7 @@
 // ----------------------------------------------------------------------
 
 MacInputModeWindow::MacInputModeWindow(SKKLayoutManager *layout) {
-    impl_ = [[MacInputModeWindowImpl alloc] initWithLayoutManager:layout->getImpl()];
+    impl_ = [[MacInputModeWindowImpl alloc] initWithLayoutManager:layout];
 }
 
 MacInputModeWindow::MacInputModeWindow(const MacInputModeWindow &other) {

@@ -5,6 +5,7 @@
 //  Created by mzp on 2/7/25.
 //
 
+import AppKit
 import AquaSKKService
 import AquaSKKUI
 import OSLog
@@ -15,7 +16,7 @@ public class MacCandidateWindowImpl: NSObject, SKKCandidatePresenter {
 
     public func hide() {}
 
-    let layoutManager: SKKLayoutManagerImpl
+    let layoutManager: SKKLayoutManager
     let window: CandidateWindow
     var candidates: [String]
     var cursorIndex: Int
@@ -23,7 +24,7 @@ public class MacCandidateWindowImpl: NSObject, SKKCandidatePresenter {
     var putUpward: Bool
     var page: NSRange
 
-    @objc public init(layoutManager: SKKLayoutManagerImpl) {
+    @objc public init(layoutManager: SKKLayoutManager) {
         self.layoutManager = layoutManager
         window = .shared()
         candidates = []

@@ -1,9 +1,7 @@
 #include <cassert>
 #import <XCTest/XCTest.h>
-#import <AquaSKKBackend/SKKBackEnd.h>
-#import <AquaSKKBackend/SKKCommonDictionary.h>
-#import <AquaSKKEngine/SKKCandidateWindow.h>
-#import <AquaSKKEngine/SKKSelector.h>
+#import <AquaSKKBackend/AquaSKKBackend.h>
+#import <AquaSKKEngine/AquaSKKEngine.h>
 #import <AquaSKKTesting/MockCandidateWindow.h>
 #import <AquaSKKTesting/MockFrontEnd.h>
 #import <AquaSKKTesting/MockSelectorBuddy.h>

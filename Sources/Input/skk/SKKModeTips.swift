@@ -5,15 +5,16 @@
 //  Created by mzp on 2/6/25.
 //
 
+import AppKit
 import AquaSKKUI
 import CoreGraphics
 
 @objc public class SKKModeTipsImpl: NSObject {
     private var timer: Timer? = nil
-    private let layoutManager: SKKLayoutManagerImpl
+    private let layoutManager: SKKLayoutManager
     private let window: InputModeWindow
 
-    public init(layoutManager: SKKLayoutManagerImpl) {
+    public init(layoutManager: SKKLayoutManager) {
         self.layoutManager = layoutManager
         window = InputModeWindow.shared()
         super.init()

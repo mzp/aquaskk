@@ -24,9 +24,9 @@
 #define MacMessenger_h
 
 #import <AquaSKKEngine/SKKMessenger.h>
-#import <AquaSKKInput/SKKLayoutManager.h>
 
 @class MacMessengerImpl;
+@class SKKLayoutManager;
 
 class MacMessenger : public SKKMessenger {
     MacMessengerImpl *impl_;

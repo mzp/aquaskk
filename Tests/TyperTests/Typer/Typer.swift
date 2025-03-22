@@ -6,6 +6,8 @@
 //
 @_spi(Testing) internal import AquaSKKInput
 internal import AquaSKKTesting
+import AppKit
+import InputMethodKit
 
 class Typer {
     // MARK: - Session
