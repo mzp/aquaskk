@@ -31,8 +31,8 @@ class TyperInputSessionParameter : public SKKInputSessionParameter {
     std::unique_ptr<SKKDynamicCompletor> completor_;
 
 public:
-    TyperInputSessionParameter(id _Nonnull client, TyperConfig *config);
-    virtual SKKConfig *_Nonnull SWIFT_RETURNS_RETAINED Config();
+    TyperInputSessionParameter(id _Nonnull client, TyperConfig *_Nonnull config);
+    virtual SKKConfig *_Nonnull Config() SWIFT_RETURNS_RETAINED;
     virtual SKKFrontEnd *_Nonnull FrontEnd() SWIFT_RETURNS_RETAINED;
     virtual SKKMessenger *_Nonnull Messenger() SWIFT_RETURNS_RETAINED;
     virtual SKKClipboard *_Nonnull Clipboard();
