@@ -47,7 +47,7 @@ public:
     SKKCandidate getCurrent() const SWIFT_COMPUTED_PROPERTY {
         return candidate_;
     }
-    static SKKSelectorBuddy *_Nonnull Coerce(MockSelectorBuddy *_Nonnull buddy) {
+    static SKKSelectorBuddy *_Nonnull Coerce(MockSelectorBuddy *_Nonnull buddy)  SWIFT_RETURNS_UNRETAINED {
         return buddy;
     }
 

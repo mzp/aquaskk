@@ -54,7 +54,7 @@ public:
     int GetAnnotationCursor();
     bool IsAnnotationVisible();
 
-    static TyperInputSessionParameter *_Nonnull Create(id _Nonnull client, TyperConfig *_Nonnull config);
+    static TyperInputSessionParameter *_Nonnull Create(id _Nonnull client, TyperConfig *_Nonnull config) SWIFT_RETURNS_UNRETAINED;
     static SKKInputSessionParameter *_Nonnull Coerce(TyperInputSessionParameter *_Nonnull params);
 } SWIFT_SHARED_REFERENCE(TISRetain, TISRelease);
 
