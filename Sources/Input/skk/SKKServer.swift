@@ -26,7 +26,6 @@ func terminate(_: Int32) {
     private var configuration: ServerConfiguration? = nil
     private var userDefaults: AISUserDefaults? = nil
     private var skkserv: skkserv? = nil
-    private var connection: NSXPCConnection? = nil
 
     override public func awakeFromNib() {
         _start()
@@ -94,16 +93,13 @@ func terminate(_: Int32) {
     }
 
     private func prepareConnection() {
-        Logger.skkInput.log("\(#function, privacy: .public)")
-        // TODO: Migrate from NSConnection
-        let interface = NSXPCInterface(with: SKKSupervisor.self)
-        let connection = NSXPCConnection(machServiceName: "SKKSupervisorConnection")
-        connection.remoteObjectInterface = interface
-        connection.exportedInterface = interface
-        connection.exportedObject = self
-        connection.resume()
+        Logger.skkInput.log("[\(#fileID, privacy: .public)\(#function, privacy: .public)]")
 
-        self.connection = connection
+        let center = DistributedNotificationCenter.default()
+        center.addObserver(self, selector: #selector(reloadBlacklistApps), name: .skkSupervisorReloadBlacklistApps, object: nil)
+        center.addObserver(self, selector: #selector(reloadUserDefaults), name: .skkSupervisorReloadUserDefaults, object: nil)
+        center.addObserver(self, selector: #selector(reloadDictionarySet), name: .skkSupervisorReloadDictionarySets, object: nil)
+        center.addObserver(self, selector: #selector(reloadComponents), name: .skkSupervisorReloadComponents, object: nil)
     }
 
     private func prepareUserDefaults() {
