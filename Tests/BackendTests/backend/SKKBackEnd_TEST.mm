@@ -1,8 +1,7 @@
 #include <cassert>
 #include <iostream>
 #import <XCTest/XCTest.h>
-#import <AquaSKKBackend/SKKBackEnd.h>
-#import <AquaSKKBackend/SKKCommonDictionary.h>
+#import <AquaSKKBackend/AquaSKKBackend.h>
 
 @interface SKKBackEndTests : XCTestCase
 @end

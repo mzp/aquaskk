@@ -19,20 +19,8 @@ FOUNDATION_EXPORT const unsigned char AquaSKKBackendVersionString[];
 #pragma mark - backend
 
 #import <AquaSKKBackend/SKKBackend.h>
-#import <AquaSKKBackend/SKKBaseDictionary.h>
-#import <AquaSKKBackend/SKKDictionaryKey.h>
-
-#pragma mark - dictionary
-
-#import <AquaSKKBackend/SKKAutoUpdateDictionary.h>
-#import <AquaSKKBackend/SKKBaseDictionary.h>
-#import <AquaSKKBackend/SKKCommonDictionary.h>
 #import <AquaSKKBackend/SKKCompletionHelper.h>
-#import <AquaSKKBackend/SKKDistributedUserDictionary.h>
-#import <AquaSKKBackend/SKKGadgetDictionary.h>
-#import <AquaSKKBackend/SKKLocalUserDictionary.h>
-#import <AquaSKKBackend/SKKProxyDictionary.h>
-#import <AquaSKKBackend/SKKUserDictionary.h>
+#import <AquaSKKBackend/SKKDictionaryKey.h>
 
 #pragma mark - entry
 
@@ -49,3 +37,4 @@ FOUNDATION_EXPORT const unsigned char AquaSKKBackendVersionString[];
 #import <AquaSKKBackend/SKKCandidateBridge.h>
 #import <AquaSKKBackend/SKKEncoding.h>
 #import <AquaSKKBackend/SKKTransliterate.h>
+#import <AquaSKKBackend/SwiftObject.h>
