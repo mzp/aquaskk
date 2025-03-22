@@ -32,13 +32,13 @@ class TyperInputSessionParameter : public SKKInputSessionParameter {
 
 public:
     TyperInputSessionParameter(id _Nonnull client, TyperConfig *config);
-    virtual SKKConfig *_Nonnull Config();
-    virtual SKKFrontEnd *_Nonnull FrontEnd();
-    virtual SKKMessenger *_Nonnull Messenger();
+    virtual SKKConfig *_Nonnull SWIFT_RETURNS_RETAINED Config();
+    virtual SKKFrontEnd *_Nonnull FrontEnd() SWIFT_RETURNS_RETAINED;
+    virtual SKKMessenger *_Nonnull Messenger() SWIFT_RETURNS_RETAINED;
     virtual SKKClipboard *_Nonnull Clipboard();
-    virtual SKKCandidateWindow *_Nonnull CandidateWindow();
-    virtual SKKAnnotator *_Nonnull Annotator();
-    virtual SKKDynamicCompletor *_Nonnull DynamicCompletor();
+    virtual SKKCandidateWindow *_Nonnull CandidateWindow() SWIFT_RETURNS_RETAINED;
+    virtual SKKAnnotator *_Nonnull Annotator() SWIFT_RETURNS_RETAINED;
+    virtual SKKDynamicCompletor *_Nonnull DynamicCompletor() SWIFT_RETURNS_RETAINED;
 
     void SetString(std::string pasteString);
     std::vector<std::string> Candidates();

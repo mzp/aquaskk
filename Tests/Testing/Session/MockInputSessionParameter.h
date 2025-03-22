@@ -23,13 +23,13 @@ class MockInputSessionParameter : public SKKInputSessionParameter {
 
 public:
     MockInputSessionParameter();
-    virtual SKKConfig *Config();
-    virtual SKKFrontEnd *FrontEnd();
-    virtual SKKMessenger *Messenger();
+    virtual SKKConfig *Config() SWIFT_RETURNS_RETAINED;
+    virtual SKKFrontEnd *FrontEnd() SWIFT_RETURNS_RETAINED;
+    virtual SKKMessenger *Messenger() SWIFT_RETURNS_RETAINED;
     virtual SKKClipboard *Clipboard();
-    virtual SKKCandidateWindow *CandidateWindow();
-    virtual SKKAnnotator *Annotator();
-    virtual SKKDynamicCompletor *DynamicCompletor();
+    virtual SKKCandidateWindow *CandidateWindow() SWIFT_RETURNS_RETAINED;
+    virtual SKKAnnotator *Annotator() SWIFT_RETURNS_RETAINED;
+    virtual SKKDynamicCompletor *DynamicCompletor() SWIFT_RETURNS_RETAINED;
     SKKInputModeListener *Listener();
     TestResult &Result();
     void SetSelectedString(const std::string &str);

@@ -43,10 +43,10 @@ public:
         SKKInputContext *context, SKKInputSessionParameter *param, SKKInputModeListenerCollection *listeners,
         SKKBaseEditor *bottom);
 
-    SKKConfig *Config();
-    SKKInputContext *InputContext();
+    SKKConfig *Config() SWIFT_RETURNS_RETAINED;
+    SKKInputContext *InputContext() SWIFT_RETURNS_RETAINED;
     SKKInputSessionParameter *InputSessionParameter();
-    SKKInputModeSelector *InputModeSelector();
+    SKKInputModeSelector *InputModeSelector() SWIFT_RETURNS_RETAINED;
     SKKBaseEditor *BaseEditor();
 
     std::string PasteString();

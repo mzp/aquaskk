@@ -23,6 +23,7 @@
 #ifndef SKKInputSessionParameter_h
 #define SKKInputSessionParameter_h
 #import <AquaSKKEngine/IntrusiveRefCounted.h>
+#import <swift/bridging>
 
 class SKKConfig;
 class SKKFrontEnd;
@@ -36,13 +37,13 @@ class SKKInputSessionParameter : public IntrusiveRefCounted<SKKInputSessionParam
 public:
     virtual ~SKKInputSessionParameter() {}
 
-    virtual SKKConfig *Config() = 0;
-    virtual SKKFrontEnd *FrontEnd() = 0;
-    virtual SKKMessenger *Messenger() = 0;
+    virtual SKKConfig *Config() SWIFT_RETURNS_RETAINED = 0;
+    virtual SKKFrontEnd *FrontEnd() SWIFT_RETURNS_RETAINED = 0;
+    virtual SKKMessenger *Messenger() SWIFT_RETURNS_RETAINED = 0;
     virtual SKKClipboard *Clipboard() = 0;
-    virtual SKKCandidateWindow *CandidateWindow() = 0;
-    virtual SKKAnnotator *Annotator() = 0;
-    virtual SKKDynamicCompletor *DynamicCompletor() = 0;
+    virtual SKKCandidateWindow *CandidateWindow() SWIFT_RETURNS_RETAINED = 0;
+    virtual SKKAnnotator *Annotator() SWIFT_RETURNS_RETAINED = 0;
+    virtual SKKDynamicCompletor *DynamicCompletor() SWIFT_RETURNS_RETAINED = 0;
 };
 
 #endif
