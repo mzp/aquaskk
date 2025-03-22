@@ -213,19 +213,19 @@ func terminate(_: Int32) {
             let isLocalOnly = defaults.bool(forKey: SKKUserDefaultKeys.skkserv_localonly)
             skkserv = .init(UInt16(port), isLocalOnly)
         }
-        let backend = SKKBackEndBridge.sharedInstance()
+        let backend = SKKBackendImpl.shared()
 
         let numericConversion = defaults.bool(forKey: SKKUserDefaultKeys.use_numeric_conversion)
-        backend.setNumericConversionEnabled(numericConversion)
+        backend.numericConversionEnabled = numericConversion
 
         let extendedCompletion = defaults.bool(forKey: SKKUserDefaultKeys.enable_extended_completion)
-        backend.setExtendedCompletionEnabled(extendedCompletion)
+        backend.extendedCompletionEnabled = extendedCompletion
 
         let privateModeEnabled = defaults.bool(forKey: SKKUserDefaultKeys.enable_private_mode)
-        backend.setPrivateModeEnabled(privateModeEnabled)
+        backend.privateModeEnabled = privateModeEnabled
 
         let length = defaults.integer(forKey: SKKUserDefaultKeys.minimum_completion_length)
-        backend.setMinimumCompletionLength(length)
+        backend.minimumCompletionLength = length
     }
 
     public func reloadDictionarySet() {
@@ -238,7 +238,7 @@ func terminate(_: Int32) {
             return
         }
 
-        var keys = [[Any]]()
+        var keys = [SKKDictionaryConfiguration]()
         for entry in configuration.systemDictionaries() {
             let active = entry[SKKDictionarySetKeys.active]
             if (active as? Bool) == true {
@@ -266,14 +266,16 @@ func terminate(_: Int32) {
                 } else {
                     location = "[location was not specified]"
                 }
-                Logger.skkInput.log("\(#function, privacy: .public) loading \(type) from \(location, privacy: .private)")
-                keys.append([type, location])
+
+                if let config = SKKDictionaryConfiguration(type: type, location: location) {
+                    Logger.skkInput.log("\(#function, privacy: .public) loading \(type) from \(location, privacy: .private)")
+                    keys.append(config)
+                }
             }
         }
-        SKKBackEndBridge.sharedInstance().initialize(
-            withUserDictionaryPath: configuration.userDictionaryPath,
-            systemDictionaries: keys
-        )
+        SKKTask.perfromAndWait {
+            await SKKBackendImpl.shared().initialize(path: configuration.userDefaultsPath, configurations: keys)
+        }
     }
 
     public func reloadComponents() {

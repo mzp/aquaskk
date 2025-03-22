@@ -389,7 +389,7 @@ public class SKKInputController: IMKInputController {
     @objc func togglePrivateMode() {
         privateMode.toggle()
 
-        SKKBackEndBridge.sharedInstance().setPrivateModeEnabled(privateMode)
+        SKKBackendImpl.shared().privateModeEnabled = privateMode
     }
 
     @objc func toggleDirectMode() {
