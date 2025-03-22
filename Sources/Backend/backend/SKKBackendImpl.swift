@@ -7,7 +7,6 @@
 
 import AquaSKKLogging
 import AquaSKKService
-import Foundation
 import OSLog
 
 public func createBackendImpl() -> SKKBackendImpl {

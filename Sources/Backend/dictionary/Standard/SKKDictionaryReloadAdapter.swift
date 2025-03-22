@@ -7,7 +7,6 @@
 
 import AquaSKKLogging
 import Combine
-import Foundation
 import OSLog
 
 public class SKKDictionaryReloadAdapter: SKKBaseDictionaryProtocol {

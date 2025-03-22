@@ -6,7 +6,6 @@
 //
 
 import AquaSKKLogging
-import Foundation
 import OSLog
 
 // 標準的な SKK 辞書実装

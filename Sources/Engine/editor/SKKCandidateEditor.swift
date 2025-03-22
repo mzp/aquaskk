@@ -6,7 +6,6 @@
 //
 
 import AquaSKKBackend
-import Foundation
 
 public class SKKCandidateEditorImpl: SKKEditorProtocol {
     let context: SKKInputContext

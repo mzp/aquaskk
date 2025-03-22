@@ -6,7 +6,6 @@
 //
 
 import AquaSKKLogging
-import Foundation
 import OSLog
 
 public class SKKDictionaryFileImpl: NSObject, SKKDictionaryDataSource {

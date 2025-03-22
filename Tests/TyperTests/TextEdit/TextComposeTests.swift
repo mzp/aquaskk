@@ -7,27 +7,8 @@
 
 import Testing
 
-struct TextComposeTests {
+struct ComposingTests {
     // MARK: - Primary
-
-    @Test func abbrev() async {
-        let session = Typer.Session()
-        await session.run { typer in
-            await typer.setValue("com.apple.inputmethod.Japanese.Hiragana")
-            await typer.type(text: "/skk")
-            #expect(typer.markedText == "▽skk")
-        }
-    }
-
-    @Test func enterJapanese() async {
-        let session = Typer.Session()
-        await session.run { typer in
-            await typer.handle(event: .enterJapanese)
-            #expect(typer.markedText == "▽")
-            await typer.type(text: "aiueo")
-            #expect(typer.markedText == "▽あいうえお")
-        }
-    }
 
     @Test("unhandled event", arguments: [
         TyperEvent.skkEnter,
@@ -37,7 +18,7 @@ struct TextComposeTests {
         .skkLeft,
         .skkRight,
         .skkUp,
-        .skkDown
+        .skkDown,
     ]) func unhandle(event: TyperEvent) async {
         let session = Typer.Session()
         await session.run { typer in
@@ -78,6 +59,36 @@ struct TextComposeTests {
             await typer.handle(event: .skkJmode)
             #expect(typer.markedText == "")
             #expect(typer.insertedText == "きょ")
+        }
+    }
+
+    @Test func registerMode() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            typer.set(pasteString: "HELLO")
+            await typer.type(text: "/hello ")
+            await typer.type(text: "y", modifiers: [.control])
+            #expect(typer.markedText == "[登録：hello]HELLO")
+            #expect(typer.markedTextRange == .init(location: 15, length: 0))
+
+            await typer.handle(event: .skkLeft)
+            #expect(typer.markedTextRange == .init(location: 14, length: 0))
+            await typer.handle(event: .skkRight)
+            #expect(typer.markedTextRange == .init(location: 15, length: 0))
+            await typer.handle(event: .skkUp)
+            #expect(typer.markedTextRange == .init(location: 10, length: 0))
+            await typer.handle(event: .skkDown)
+            #expect(typer.markedTextRange == .init(location: 15, length: 0))
+
+            await typer.handle(event: .skkBackspace)
+            #expect(typer.markedText == "[登録：hello]HELL")
+            #expect(typer.markedTextRange == .init(location: 14, length: 0))
+
+            await typer.handle(event: .skkLeft)
+            await typer.handle(event: .skkDelete)
+            #expect(typer.markedText == "[登録：hello]HEL")
+            #expect(typer.markedTextRange == .init(location: 13, length: 0))
+            await typer.handle(event: .skkJmode)
         }
     }
 

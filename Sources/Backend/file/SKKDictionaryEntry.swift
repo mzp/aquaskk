@@ -5,8 +5,6 @@
 //  Created by mzp on 2/17/25.
 //
 
-import Foundation
-
 public struct SKKDictionaryEntryImpl: Equatable, CustomDebugStringConvertible {
     public var entry: [UInt8]
     public var value: [UInt8]

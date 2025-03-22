@@ -5,8 +5,6 @@
 //  Created by mzp on 2025/03/14.
 //
 
-import Foundation
-
 // MARK: - level 1：構築
 
 public class SKKStateComposing {

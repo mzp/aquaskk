@@ -5,8 +5,6 @@
 //  Created by mzp on 2/21/25.
 //
 
-import Foundation
-
 public protocol SKKBaseDictionaryProtocol {
     func initialize(path: String) async throws
     func find(entry: SKKEntry, to result: inout SKKCandidateSuite)

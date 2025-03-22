@@ -6,7 +6,6 @@
 //
 
 import AppKit
-import Foundation
 
 struct TyperEvent: Sendable {
     var characters: String

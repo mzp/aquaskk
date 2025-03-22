@@ -5,8 +5,6 @@
 //  Created by mzp on 2025/03/05.
 //
 
-import Foundation
-
 public class SKKOkuriEditorImpl: SKKEditorProtocol {
     let context: SKKInputContext
     let listener: SKKOkuriListener

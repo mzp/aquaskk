@@ -1,5 +1,5 @@
 //
-//  CommonJisyoTests.swift
+//  ConversionTests.swift
 //  AppTests
 //
 //  Created by mzp on 8/13/24.
@@ -38,7 +38,7 @@ struct ConversionTests {
             #expect(typer.markedTextRange == .init(location: 4, length: 0))
 
             // ignored
-            for event in [ TyperEvent.skkLeft, .skkDown, .skkUp, .skkRight, .skkDelete, .skkTab] {
+            for event in [TyperEvent.skkLeft, .skkDown, .skkUp, .skkRight, .skkDelete, .skkTab] {
                 await typer.handle(event: event)
                 #expect(typer.markedText == "▽ころ*")
                 #expect(typer.markedTextRange == .init(location: 4, length: 0))
@@ -51,7 +51,7 @@ struct ConversionTests {
         }
     }
 
-    @Test func undo() async {
+    @Test func reverseConversion() async {
         let session = Typer.Session()
         await session.run { typer in
             typer.setText(string: "今日", range: .init(location: 0, length: 2))
@@ -59,35 +59,6 @@ struct ConversionTests {
             #expect(typer.markedText == "▽きょう")
             await typer.type(text: "to")
             #expect(typer.markedText == "▽きょうと")
-        }
-    }
-
-    @Test func annotation() async {
-        let session = Typer.Session()
-        await session.run { typer in
-            await typer.type(text: "Kyou ")
-            let annotation = typer.annotation
-            #expect(annotation.entry == "今日")
-            #expect(annotation.visible == true)
-        }
-    }
-
-    @Test func dynamicCompletion() async {
-        let session = Typer.Session()
-        await session.run { typer in
-            await typer.type(text: "K")
-            await typer.type(text: "y")
-            await typer.type(text: "o")
-
-            let completion = typer.completion
-            #expect(completion.completion == "きょう")
-            #expect(completion.prefixSize == 3)
-            #expect(completion.cursorOffset == 0)
-            #expect(completion.visible == true)
-
-            await typer.type(text: "u")
-            #expect(typer.markedText == "▽きょう")
-            #expect(typer.insertedText == "")
         }
     }
 }

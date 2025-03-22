@@ -5,8 +5,6 @@
 //  Created by mzp on 2/16/25.
 //
 
-import Foundation
-
 public class SKKGadgetDictionaryImpl: SKKBaseDictionaryProtocol {
     // MARK: - BaseDictionary
 

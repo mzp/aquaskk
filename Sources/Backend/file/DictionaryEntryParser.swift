@@ -5,8 +5,6 @@
 //  Created by mzp on 2/17/25.
 //
 
-import Foundation
-
 let kOkuriAriMark = ";; okuri-ari entries."
 let kOkuriNasiMark = ";; okuri-nasi entries."
 

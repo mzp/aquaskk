@@ -5,8 +5,6 @@
 //  Created by mzp on 2/15/25.
 //
 
-import Foundation
-
 class SKKParsersBase {
     struct UnexpectedTokenError: Error {}
 

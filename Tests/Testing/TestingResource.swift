@@ -5,7 +5,6 @@
 //  Created by mzp on 9/15/24.
 //
 
-import Foundation
 import OSLog
 
 /// テスト用データに簡単にアクセスするためのメソッド群を提供するクラス

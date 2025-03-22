@@ -7,7 +7,6 @@
 
 internal import AquaSKKTesting
 import AquaSKKLogging
-import Foundation
 import InputMethodKit
 import OSLog
 

@@ -8,7 +8,7 @@
 import Testing
 
 struct StickyShiftTests {
-    @Test func okuriari() async {
+    @Test func stickyShift() async {
         let session = Typer.Session()
         await session.run { typer in
             await typer.type(text: ";")

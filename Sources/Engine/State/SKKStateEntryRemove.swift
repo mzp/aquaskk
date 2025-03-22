@@ -5,8 +5,6 @@
 //  Created by mzp on 2025/03/14.
 //
 
-import Foundation
-
 /// level 1：単語削除
 public class SKKStateEntryRemove {
     var editor: SKKInputEngine

@@ -5,8 +5,6 @@
 //  Created by mzp on 2025/03/06.
 //
 
-import Foundation
-
 public protocol SKKEditorProtocol {
     /// SKKInputContext の情報で初期化
     ///

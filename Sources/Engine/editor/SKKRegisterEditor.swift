@@ -7,7 +7,6 @@
 
 import AquaSKKBackend
 import AquaSKKLogging
-import Foundation
 import OSLog
 
 public class SKKRegisterEditorImpl: SKKEditorProtocol {

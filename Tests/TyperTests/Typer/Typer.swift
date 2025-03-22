@@ -6,20 +6,6 @@
 //
 @_spi(Testing) internal import AquaSKKInput
 internal import AquaSKKTesting
-import Foundation
-
-struct TyperCompletion {
-    var completion: String
-    var prefixSize: Int
-    var cursorOffset: Int
-    var visible: Bool
-}
-
-struct TyperAnnotation {
-    var entry: String
-    var cursorIndex: Int
-    var visible: Bool
-}
 
 class Typer {
     // MARK: - Session
