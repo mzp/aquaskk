@@ -5,8 +5,6 @@
 //  Created by mzp on 2025/03/02.
 //
 
-import Foundation
-
 class SKKCandidateWindowBridgeAdapter: SKKCandidatePresenter {
     let impl: SKKCandidateWindowBridge
     init(_ impl: SKKCandidateWindowBridge) {

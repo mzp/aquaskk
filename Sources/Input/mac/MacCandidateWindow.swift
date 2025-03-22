@@ -7,7 +7,6 @@
 
 import AquaSKKService
 import AquaSKKUI
-import Foundation
 import OSLog
 
 @objc(MacCandidateWindowImpl)

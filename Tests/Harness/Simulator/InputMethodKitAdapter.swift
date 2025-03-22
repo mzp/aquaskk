@@ -6,7 +6,6 @@
 //
 
 import AppKit
-import Foundation
 import InputMethodKit
 import OSLog
 

@@ -5,8 +5,6 @@
 //  Created by mzp on 2025/02/23.
 //
 
-import Foundation
-
 class SKKBackendCompletionHelper: SKKCompletionHelperProtocol {
     var entry: String
     var minimumLength: Int

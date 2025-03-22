@@ -6,7 +6,6 @@
 //
 
 import AquaSKKEngine
-import Foundation
 import OSLog
 
 @objc(SKKPreProcessor)

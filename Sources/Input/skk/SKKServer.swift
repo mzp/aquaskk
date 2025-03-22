@@ -10,7 +10,6 @@ import AquaSKKEngine
 import AquaSKKServer
 import AquaSKKService
 import AquaSKKUI
-import Foundation
 import OSLog
 
 func terminate(_: Int32) {

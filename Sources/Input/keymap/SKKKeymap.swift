@@ -7,7 +7,6 @@
 
 import AquaSKKEngine
 import AquaSKKLogging
-import Foundation
 import OSLog
 
 enum SKKTask {

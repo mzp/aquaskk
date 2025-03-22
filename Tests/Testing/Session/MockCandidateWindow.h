@@ -8,6 +8,8 @@ class MockCandidateWindow : public SKKCandidateWindow {
     virtual void SKKWidgetShow();
     virtual void SKKWidgetHide();
     std::vector<SKKCandidate> container_;
+    int page_pos_;
+    int cursor_;
 
 public:
     virtual void Setup(SKKCandidateIterator begin, SKKCandidateIterator end, std::vector<int> &pages);
@@ -15,6 +17,12 @@ public:
     virtual int LabelIndex(char label);
     std::vector<SKKCandidate> Container() const {
         return container_;
+    }
+    int GetPagePos() const {
+        return page_pos_;
+    }
+    int GetCursor() const {
+        return cursor_;
     }
 };
 

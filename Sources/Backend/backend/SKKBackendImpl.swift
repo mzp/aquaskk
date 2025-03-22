@@ -7,7 +7,6 @@
 
 import AquaSKKLogging
 import AquaSKKService
-import Foundation
 import OSLog
 
 public func createBackendImpl() -> SKKBackendImpl {
@@ -169,7 +168,12 @@ public class SKKBackendImpl {
 
     public var numericConversionEnabled: Bool
     public var extendedCompletionEnabled: Bool
-    public var privateModeEnabled: Bool
+    public var privateModeEnabled: Bool {
+        didSet {
+            userDictionary.setPrivateMode(value: privateModeEnabled)
+        }
+    }
+
     public var minimumCompletionLength: Int
 
     // MARK: - Bridge

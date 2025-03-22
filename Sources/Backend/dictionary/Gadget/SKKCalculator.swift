@@ -5,8 +5,6 @@
 //  Created by mzp on 2/15/25.
 //
 
-import Foundation
-
 @objc(SKKCalculator)
 public class SKKCalculator: NSObject {
     @objc public static let engine = SKKCalculator()

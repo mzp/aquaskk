@@ -5,8 +5,6 @@
 //  Created by mzp on 9/14/24.
 //
 
-import Foundation
-
 public class NumericConverter {
     private var params = [String.UnicodeScalarView]()
     private(set) var original: String = ""

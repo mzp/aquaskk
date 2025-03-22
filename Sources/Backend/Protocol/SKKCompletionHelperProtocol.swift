@@ -5,8 +5,6 @@
 //  Created by mzp on 9/15/24.
 //
 
-import Foundation
-
 public protocol SKKCompletionHelperProtocol {
     var entry: String { get }
     var canContinue: Bool { get }

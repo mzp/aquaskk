@@ -6,7 +6,6 @@
 //
 
 import AquaSKKLogging
-import Foundation
 import Network
 import OSLog
 

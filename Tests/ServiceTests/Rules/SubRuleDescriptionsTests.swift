@@ -5,7 +5,6 @@
 //  Created by mzp on 8/8/24.
 //
 import AquaSKKService
-import Foundation
 import Testing
 
 struct SubRuleDescriptionsTests {

@@ -5,8 +5,6 @@
 //  Created by mzp on 2025/03/14.
 //
 
-import Foundation
-
 // MARK: - level 1：構築
 
 public class SKKStateComposing {
@@ -337,7 +335,7 @@ public class SKKStateEntryCompletion {
             }
             if param.IsRemoveTrigger() {
                 if completer.Remove() {
-                    messenger.SendMessage("o見出し語を削除しました")
+                    messenger.SendMessage("見出し語を削除しました")
                     return .transitionKanaInput
                 } else {
                     return .handled

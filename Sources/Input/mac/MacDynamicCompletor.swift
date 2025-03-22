@@ -6,7 +6,6 @@
 //
 
 import AquaSKKUI
-import Foundation
 
 @objc(MacDynamicCompletorImpl)
 public class MacDynamicCompletorImpl: NSObject {

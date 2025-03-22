@@ -21,8 +21,11 @@ void MockCandidateWindow::Setup(SKKCandidateIterator begin, SKKCandidateIterator
 }
 
 void MockCandidateWindow::Update(
-    SKKCandidateIterator begin, SKKCandidateIterator end, int cursor, int page_pos, int page_max) {}
+    SKKCandidateIterator begin, SKKCandidateIterator end, int cursor, int page_pos, int page_max) {
+    cursor_ = cursor;
+    page_pos_ = page_pos;
+}
 
 int MockCandidateWindow::LabelIndex(char label) {
-    return 0;
+    return label - 'a';
 }

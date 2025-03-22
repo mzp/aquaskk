@@ -5,8 +5,6 @@
 //  Created by mzp on 2025/03/11.
 //
 
-import Foundation
-
 public enum StateTransitionResult: Int {
     case topState
 }

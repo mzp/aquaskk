@@ -7,7 +7,6 @@
 
 import AppKit
 @_spi(Testing) internal import AquaSKKInput
-import Foundation
 import InputMethodKit
 import OSLog
 import SwiftUI

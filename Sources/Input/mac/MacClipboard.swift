@@ -6,7 +6,6 @@
 //
 
 import AppKit
-import Foundation
 
 @objc(MacClipboardImpl)
 public class MacClipboardImpl: NSObject {

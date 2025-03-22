@@ -6,7 +6,6 @@
 //
 
 import AquaSKKService
-import Foundation
 import OSLog
 
 private let logger = Logger(subsystem: "com.aquaskk.inputmethod", category: "Test")

@@ -5,8 +5,6 @@
 //  Created by mzp on 2/2/25.
 //
 
-import Foundation
-
 @objc(MacAnnotatorImpl)
 public class MacAnnotatorImpl: NSObject {
     private let window: AnnotationWindow

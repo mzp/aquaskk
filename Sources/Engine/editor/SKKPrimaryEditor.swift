@@ -5,8 +5,6 @@
 //  Created by mzp on 2025/03/04.
 //
 
-import Foundation
-
 public class SKKPrimaryEditorImpl: SKKEditorProtocol {
     let context: SKKInputContext
 

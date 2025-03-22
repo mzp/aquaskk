@@ -7,7 +7,6 @@
 
 @_spi(Testing) internal import AquaSKKInput
 internal import AquaSKKTesting
-import Foundation
 import OSLog
 import SwiftUI
 

@@ -5,7 +5,8 @@
 //  Created by mzp on 2025/03/07.
 //
 
-import Foundation
+import AquaSKKLogging
+import OSLog
 
 public class SKKUndoContextImpl {
     private let frontend: SKKFrontEnd
@@ -52,11 +53,12 @@ public class SKKUndoContextImpl {
         candidate = ""
     }
 
-    public func bridgeEntry() -> String {
-        return entry
+    public func bridgeEntry() -> std.string {
+        Logger.skkEngine.info("bridgeEntry: \(self.entry, privacy: .public)")
+        return std.string(entry)
     }
 
-    public func bridgeCandidate() -> String {
-        return candidate
+    public func bridgeCandidate() -> std.string {
+        return std.string(candidate)
     }
 }

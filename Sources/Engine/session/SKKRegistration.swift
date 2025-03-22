@@ -5,8 +5,6 @@
 //  Created by mzp on 2025/03/07.
 //
 
-import Foundation
-
 public struct SKKRegistrationImpl {
     public var word: String
     public var state: SKKRegistrationState
