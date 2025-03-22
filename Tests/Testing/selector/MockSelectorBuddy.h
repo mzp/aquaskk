@@ -51,7 +51,7 @@ public:
         return buddy;
     }
 
-    static MockSelectorBuddy *_Nonnull newInstance();
+    static MockSelectorBuddy *_Nonnull newInstance() SWIFT_RETURNS_RETAINED;
 } SWIFT_SHARED_REFERENCE(retainMockSelectorBuddy, releaseMockSelectorBuddy);
 
 void retainMockSelectorBuddy(SKKSelectorBuddy *_Nonnull obj);

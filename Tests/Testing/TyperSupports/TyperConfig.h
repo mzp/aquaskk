@@ -44,7 +44,7 @@ public:
     virtual bool DeleteOkuriWhenQuit();
     void SetDeleteOkuriWhenQuit(bool value);
 
-    static TyperConfig *_Nonnull newInstannce();
+    static TyperConfig *_Nonnull newInstannce() SWIFT_RETURNS_RETAINED;
 } SWIFT_SHARED_REFERENCE(retainTyperConfig, releaseTyperConfig);
 
 void retainTyperConfig(TyperConfig *_Nonnull params);
