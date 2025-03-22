@@ -12,7 +12,7 @@ import os
 
 private let kMargin: CGFloat = 1.0
 
-@objc public class SKKLayoutManagerImpl: NSObject {
+@objc public class SKKLayoutManager: NSObject {
     var client: IMKTextInput
     @objc public init(client: IMKTextInput) {
         self.client = client

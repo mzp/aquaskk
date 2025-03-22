@@ -10,10 +10,10 @@ import AquaSKKService
 import OSLog
 
 @objc public class MacInputModeWindowImpl: NSObject {
-    private let layoutManager: SKKLayoutManagerImpl
+    private let layoutManager: SKKLayoutManager
     private let tips: SKKModeTipsImpl
 
-    @objc(initWithLayoutManager:) public init(layoutManager: SKKLayoutManagerImpl) {
+    @objc(initWithLayoutManager:) public init(layoutManager: SKKLayoutManager) {
         self.layoutManager = layoutManager
         tips = SKKModeTipsImpl(layoutManager: layoutManager)
         super.init()

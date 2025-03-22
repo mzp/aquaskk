@@ -8,14 +8,14 @@
 @objc(MacAnnotatorImpl)
 public class MacAnnotatorImpl: NSObject {
     private let window: AnnotationWindow
-    private let layoutManager: SKKLayoutManagerImpl
+    private let layoutManager: SKKLayoutManager
 
     private var definition: String
     private var optional: String
     private var candidate: SKKCandidate?
     private var cursorOffset: Int
 
-    @objc public init(layoutManager: SKKLayoutManagerImpl) {
+    @objc public init(layoutManager: SKKLayoutManager) {
         window = AnnotationWindow.shared()
         self.layoutManager = layoutManager
 

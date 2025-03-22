@@ -25,8 +25,7 @@
 
 #include <memory>
 #import <AquaSKKEngine/SKKInputSessionParameter.h>
-#import <AquaSKKInput/SKKLayoutManager.h>
-
+@class SKKLayoutManager;
 class MacInputSessionParameter : public SKKInputSessionParameter {
     std::unique_ptr<SKKConfig> config_;
     std::unique_ptr<SKKFrontEnd> frontend_;

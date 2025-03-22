@@ -32,7 +32,7 @@
 #import <AquaSKKUI/AquaSKKUI-Swift.h>
 
 MacAnnotator::MacAnnotator(SKKLayoutManager *layout) {
-    impl_ = [[MacAnnotatorImpl alloc] initWithLayoutManager:layout->getImpl()];
+    impl_ = [[MacAnnotatorImpl alloc] initWithLayoutManager:layout];
 }
 
 MacAnnotator::~MacAnnotator() {

@@ -24,10 +24,10 @@
 #define MacCandidateWindowMacOSX_h
 
 #import <AquaSKKEngine/SKKCandidateWindow.h>
-#import <AquaSKKInput/SKKLayoutManager.h>
 
 @class CandidateWindow;
 @class MacCandidateWindowImpl;
+@class SKKLayoutManager;
 
 class MacCandidateWindow : public SKKCandidateWindow {
     MacCandidateWindowImpl *impl_;

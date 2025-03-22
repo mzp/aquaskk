@@ -25,7 +25,7 @@
 
 #import <AquaSKKEngine/SKKInputModeListener.h>
 
-class SKKLayoutManager;
+@class SKKLayoutManager;
 @class MacInputModeWindowImpl;
 
 class MacInputModeWindow : public SKKInputModeListener {

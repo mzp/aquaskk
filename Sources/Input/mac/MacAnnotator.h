@@ -24,11 +24,10 @@
 #define MacAnnotator_h
 
 #import <AquaSKKEngine/SKKAnnotator.h>
-#import <AquaSKKInput/SKKLayoutManager.h>
 
 @class AnnotationWindow;
 @class MacAnnotatorImpl;
-
+@class SKKLayoutManager;
 class MacAnnotator : public SKKAnnotator {
     MacAnnotatorImpl *impl_;
     virtual void SKKWidgetShow();

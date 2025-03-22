@@ -16,7 +16,7 @@ public class SKKInputController: IMKInputController {
     private var activated: Bool = false
     private var proxy: SKKServerProxy?
     private var skkMenu: SKKInputMenu?
-    private var layoutManager: SKKLayoutManagerImpl?
+    private var layoutManager: SKKLayoutManager?
     private var modeIcon: MacInputModeWindow?
     private var inputModeMenu: MacInputModeMenu?
     private var blacklistApps: BlacklistApps?
@@ -61,13 +61,13 @@ public class SKKInputController: IMKInputController {
         if let client = client as? IMKTextInput {
             let skkMenu = SKKInputMenu(with: client)
 
-            var layoutManager = SKKLayoutManager(client)
+            let layoutManager = SKKLayoutManager(client: client)
             self.client = client
-            self.session = session ?? SKKInputSessionBridge(client: client, layoutManager: &layoutManager)
+            self.session = session ?? SKKInputSessionBridge(client: client, layoutManager: layoutManager)
             self.skkMenu = skkMenu
-            modeIcon = MacInputModeWindow(&layoutManager)
+            modeIcon = MacInputModeWindow(layoutManager)
             inputModeMenu = MacInputModeMenu(skkMenu)
-            self.layoutManager = layoutManager.getImpl()
+            self.layoutManager = layoutManager
 
             self.session?.addListener(with: &modeIcon!)
             self.session?.addListener(with: &inputModeMenu!)

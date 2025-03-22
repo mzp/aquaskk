@@ -24,10 +24,10 @@
 #define MacDynamicCompletor_h
 
 #import <AquaSKKEngine/SKKDynamicCompletor.h>
-#import <AquaSKKInput/SKKLayoutManager.h>
 
 @class CompletionWindow;
 @class MacDynamicCompletorImpl;
+@class SKKLayoutManager;
 
 class MacDynamicCompletor : public SKKDynamicCompletor {
     MacDynamicCompletorImpl *impl_;

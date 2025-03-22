@@ -30,7 +30,7 @@
 #import <AquaSKKUI/AquaSKKUI-Swift.h>
 
 MacMessenger::MacMessenger(SKKLayoutManager *layout) {
-    impl_ = [[MacMessengerImpl alloc] initWithLayoutManager:layout->getImpl()];
+    impl_ = [[MacMessengerImpl alloc] initWithLayoutManager:layout];
 }
 
 MacMessenger::~MacMessenger() {

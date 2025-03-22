@@ -192,7 +192,6 @@
 		135C3D9E2C5B3F1D00661AE3 /* MacFrontEnd.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D752C5B3F1D00661AE3 /* MacFrontEnd.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		135C3D9F2C5B3F1D00661AE3 /* MacInputSessionParameter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D7B2C5B3F1D00661AE3 /* MacInputSessionParameter.mm */; };
 		135C3DA02C5B3F1D00661AE3 /* MacMessenger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D7F2C5B3F1D00661AE3 /* MacMessenger.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		135C3DA32C5B3F1D00661AE3 /* SKKLayoutManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D892C5B3F1D00661AE3 /* SKKLayoutManager.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		135C3DA42C5B3F1D00661AE3 /* MacInputModeWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D792C5B3F1D00661AE3 /* MacInputModeWindow.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		135C3DA72C5B3F1D00661AE3 /* MacAnnotator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D6B2C5B3F1D00661AE3 /* MacAnnotator.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		135C3DA82C5B3F1D00661AE3 /* MacInputModeMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D772C5B3F1D00661AE3 /* MacInputModeMenu.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -203,7 +202,6 @@
 		135C3DB02C5B3F1D00661AE3 /* MacInputModeMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D762C5B3F1D00661AE3 /* MacInputModeMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DB32C5B3F1D00661AE3 /* MacMessenger.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D7E2C5B3F1D00661AE3 /* MacMessenger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DB42C5B3F1D00661AE3 /* MacAnnotator.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D6A2C5B3F1D00661AE3 /* MacAnnotator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		135C3DB52C5B3F1D00661AE3 /* SKKLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D882C5B3F1D00661AE3 /* SKKLayoutManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DB72C5B3F1D00661AE3 /* MacCandidateWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D6C2C5B3F1D00661AE3 /* MacCandidateWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DB92C5B3F1D00661AE3 /* MacInputModeWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D782C5B3F1D00661AE3 /* MacInputModeWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DBB2C5B3F1D00661AE3 /* MacDynamicCompletor.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D722C5B3F1D00661AE3 /* MacDynamicCompletor.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -873,8 +871,6 @@
 		135C3D7D2C5B3F1D00661AE3 /* MacKotoeriDictionary.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MacKotoeriDictionary.cpp; sourceTree = "<group>"; };
 		135C3D7E2C5B3F1D00661AE3 /* MacMessenger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacMessenger.h; sourceTree = "<group>"; };
 		135C3D7F2C5B3F1D00661AE3 /* MacMessenger.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MacMessenger.mm; sourceTree = "<group>"; };
-		135C3D882C5B3F1D00661AE3 /* SKKLayoutManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKLayoutManager.h; sourceTree = "<group>"; };
-		135C3D892C5B3F1D00661AE3 /* SKKLayoutManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKLayoutManager.mm; sourceTree = "<group>"; };
 		135C3DBF2C5B3FEC00661AE3 /* Framework-Input.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Input.xcconfig"; sourceTree = "<group>"; };
 		135DDD932D68D31B00E6FDDE /* SKKCommonDictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKCommonDictionaryTests.swift; sourceTree = "<group>"; };
 		135DDD952D68D33B00E6FDDE /* SKKDictionaryReloadAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKDictionaryReloadAdapter.swift; sourceTree = "<group>"; };
@@ -2799,8 +2795,6 @@
 				13BDCB6D2D5091840031BB3A /* SKKInputMenu.swift */,
 				13F1092B2D5EE22F005DC315 /* SKKInputSessionBridge.h */,
 				13F1092C2D5EE22F005DC315 /* SKKInputSessionBridge.mm */,
-				135C3D882C5B3F1D00661AE3 /* SKKLayoutManager.h */,
-				135C3D892C5B3F1D00661AE3 /* SKKLayoutManager.mm */,
 				13BDCB622D50396D0031BB3A /* SKKLayoutManager.swift */,
 				13F89D5B2D55DC73003177FA /* SKKModeTips.swift */,
 				13B4A9AF2D57E5C5002453BA /* SKKServer.swift */,
@@ -2888,7 +2882,6 @@
 				135C3DB32C5B3F1D00661AE3 /* MacMessenger.h in Headers */,
 				13F109312D5EE41A005DC315 /* SKKInputSessionBridge.h in Headers */,
 				135C3DB42C5B3F1D00661AE3 /* MacAnnotator.h in Headers */,
-				135C3DB52C5B3F1D00661AE3 /* SKKLayoutManager.h in Headers */,
 				135C3DB72C5B3F1D00661AE3 /* MacCandidateWindow.h in Headers */,
 				135C3DB92C5B3F1D00661AE3 /* MacInputModeWindow.h in Headers */,
 				135C3DBB2C5B3F1D00661AE3 /* MacDynamicCompletor.h in Headers */,
@@ -3878,7 +3871,6 @@
 				135C3DA02C5B3F1D00661AE3 /* MacMessenger.mm in Sources */,
 				13F1092A2D5D072D005DC315 /* SKKInputController.swift in Sources */,
 				13F89D622D55E6DE003177FA /* MacAnnotator.swift in Sources */,
-				135C3DA32C5B3F1D00661AE3 /* SKKLayoutManager.mm in Sources */,
 				13A4FDBC2D6EEBA200AA0BFF /* SKKKeymapParser.swift in Sources */,
 				13F3C9F62D6E06210085600C /* SKKKeymapEntry.swift in Sources */,
 				135C3DA42C5B3F1D00661AE3 /* MacInputModeWindow.mm in Sources */,

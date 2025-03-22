@@ -29,7 +29,7 @@
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 
 MacCandidateWindow::MacCandidateWindow(SKKLayoutManager *layout) {
-    impl_ = [[MacCandidateWindowImpl alloc] initWithLayoutManager:layout->getImpl()];
+    impl_ = [[MacCandidateWindowImpl alloc] initWithLayoutManager:layout];
 }
 
 MacCandidateWindow::~MacCandidateWindow() {
