@@ -385,7 +385,7 @@
 		1390FCF52D75575200059E87 /* SKKCandidateWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1390FCF42D75575200059E87 /* SKKCandidateWindow.swift */; };
 		1393E32C2C6B19C300F1E633 /* SKK-JISYO.S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1393E32B2C6B19C300F1E633 /* SKK-JISYO.S.txt */; };
 		1393E32E2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393E32D2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift */; };
-		1393E3312C6B201500F1E633 /* CommonJisyoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393E3302C6B201500F1E633 /* CommonJisyoTests.swift */; };
+		1393E3312C6B201500F1E633 /* ConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393E3302C6B201500F1E633 /* ConversionTests.swift */; };
 		1393E3442C6B899300F1E633 /* TyperEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393E3432C6B899300F1E633 /* TyperEvent.swift */; };
 		1393E3462C6B89B100F1E633 /* TyperState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393E3452C6B89B100F1E633 /* TyperState.swift */; };
 		1393E3532C6BAFA700F1E633 /* AISDefaultServerConfiguration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1393E3522C6BAFA700F1E633 /* AISDefaultServerConfiguration.mm */; };
@@ -461,8 +461,8 @@
 		13C672B92D5A5FC2000F4F6E /* SKKBackendBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13C672B82D5A5FC2000F4F6E /* SKKBackendBridge.mm */; };
 		13C672BA2D5A5FC2000F4F6E /* SKKBackendBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 13C672B72D5A5FC2000F4F6E /* SKKBackendBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13C85CFA2D8B8ED7006D1872 /* TyperConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132BAED92D8B1DAC0097503F /* TyperConfig.swift */; };
-		13C85CFC2D8B8FB3006D1872 /* CandidateSelectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C85CFB2D8B8FB3006D1872 /* CandidateSelectorTests.swift */; };
-		13C85CFE2D8B9110006D1872 /* RegisterWordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C85CFD2D8B9110006D1872 /* RegisterWordTests.swift */; };
+		13C85CFC2D8B8FB3006D1872 /* SelectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C85CFB2D8B8FB3006D1872 /* SelectorTests.swift */; };
+		13C85CFE2D8B9110006D1872 /* UserDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C85CFD2D8B9110006D1872 /* UserDictionaryTests.swift */; };
 		13C85D012D8BBB5F006D1872 /* CompletionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C85D002D8BBB5F006D1872 /* CompletionTests.swift */; };
 		13D756192C5A9049006144F2 /* AquaSKKEngine.docc in Sources */ = {isa = PBXBuildFile; fileRef = 13D756172C5A9049006144F2 /* AquaSKKEngine.docc */; };
 		13D7561A2C5A9049006144F2 /* AquaSKKEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 13D756162C5A9049006144F2 /* AquaSKKEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1036,7 +1036,7 @@
 		13931D0E2C5B4C6B00B11EEE /* Tests-Engine.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Engine.xcconfig"; sourceTree = "<group>"; };
 		1393E32B2C6B19C300F1E633 /* SKK-JISYO.S.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "SKK-JISYO.S.txt"; sourceTree = "<group>"; };
 		1393E32D2C6B1BC200F1E633 /* Jisyo+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Jisyo+SwiftUI.swift"; sourceTree = "<group>"; };
-		1393E3302C6B201500F1E633 /* CommonJisyoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonJisyoTests.swift; sourceTree = "<group>"; };
+		1393E3302C6B201500F1E633 /* ConversionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionTests.swift; sourceTree = "<group>"; };
 		1393E3432C6B899300F1E633 /* TyperEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyperEvent.swift; sourceTree = "<group>"; };
 		1393E3452C6B89B100F1E633 /* TyperState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyperState.swift; sourceTree = "<group>"; };
 		1393E3512C6BAFA700F1E633 /* AISDefaultServerConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AISDefaultServerConfiguration.h; sourceTree = "<group>"; };
@@ -1112,8 +1112,8 @@
 		13C672B72D5A5FC2000F4F6E /* SKKBackendBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKBackendBridge.h; sourceTree = "<group>"; };
 		13C672B82D5A5FC2000F4F6E /* SKKBackendBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKBackendBridge.mm; sourceTree = "<group>"; };
 		13C672BB2D5AA043000F4F6E /* SwiftFramework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SwiftFramework.xcconfig; sourceTree = "<group>"; };
-		13C85CFB2D8B8FB3006D1872 /* CandidateSelectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateSelectorTests.swift; sourceTree = "<group>"; };
-		13C85CFD2D8B9110006D1872 /* RegisterWordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWordTests.swift; sourceTree = "<group>"; };
+		13C85CFB2D8B8FB3006D1872 /* SelectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorTests.swift; sourceTree = "<group>"; };
+		13C85CFD2D8B9110006D1872 /* UserDictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDictionaryTests.swift; sourceTree = "<group>"; };
 		13C85D002D8BBB5F006D1872 /* CompletionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionTests.swift; sourceTree = "<group>"; };
 		13CEB8292C5DC48E0052B7ED /* Cpp.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Cpp.xcconfig; sourceTree = "<group>"; };
 		13CFD1B22C6818F9000A67E9 /* Frameworks.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Frameworks.xctestplan; sourceTree = "<group>"; };
@@ -1557,16 +1557,16 @@
 		133834E22C60203900D73AD7 /* TyperTests */ = {
 			isa = PBXGroup;
 			children = (
-				13C04FE22D8B11F600684664 /* ConfigTests.swift */,
-				134D25602D7A01120014ACD5 /* TextComposeTests.swift */,
 				13C85D002D8BBB5F006D1872 /* CompletionTests.swift */,
-				13C85CFB2D8B8FB3006D1872 /* CandidateSelectorTests.swift */,
+				13C04FE22D8B11F600684664 /* ConfigTests.swift */,
+				1393E3302C6B201500F1E633 /* ConversionTests.swift */,
 				135F893F2D61B4040032AA24 /* GadgetTests.swift */,
-				135C3D652C5B3E9D00661AE3 /* TransliterateTests.swift */,
-				1393E3302C6B201500F1E633 /* CommonJisyoTests.swift */,
-				13C85CFD2D8B9110006D1872 /* RegisterWordTests.swift */,
 				13B7BE982C5F282D00F6BEF8 /* InputModeTests.swift */,
+				13C85CFB2D8B8FB3006D1872 /* SelectorTests.swift */,
 				1356C8612D8E266600647BE0 /* StickyShiftTests.swift */,
+				134D25602D7A01120014ACD5 /* TextComposeTests.swift */,
+				135C3D652C5B3E9D00661AE3 /* TransliterateTests.swift */,
+				13C85CFD2D8B9110006D1872 /* UserDictionaryTests.swift */,
 				135EEBA02C5EEA5100758672 /* Typer */,
 			);
 			path = TyperTests;
@@ -3758,7 +3758,7 @@
 				13C85D012D8BBB5F006D1872 /* CompletionTests.swift in Sources */,
 				1356C8622D8E266600647BE0 /* StickyShiftTests.swift in Sources */,
 				134D25612D7A01120014ACD5 /* TextComposeTests.swift in Sources */,
-				13C85CFC2D8B8FB3006D1872 /* CandidateSelectorTests.swift in Sources */,
+				13C85CFC2D8B8FB3006D1872 /* SelectorTests.swift in Sources */,
 				133834F22C6020CB00D73AD7 /* InputModeTests.swift in Sources */,
 				133834F32C6020CB00D73AD7 /* TransliterateTests.swift in Sources */,
 				13C04FE32D8B11F600684664 /* ConfigTests.swift in Sources */,
@@ -3766,8 +3766,8 @@
 				133834F42C6020CB00D73AD7 /* MockTextInput.swift in Sources */,
 				1393E3462C6B89B100F1E633 /* TyperState.swift in Sources */,
 				133834F52C6020CB00D73AD7 /* Typer.swift in Sources */,
-				1393E3312C6B201500F1E633 /* CommonJisyoTests.swift in Sources */,
-				13C85CFE2D8B9110006D1872 /* RegisterWordTests.swift in Sources */,
+				1393E3312C6B201500F1E633 /* ConversionTests.swift in Sources */,
+				13C85CFE2D8B9110006D1872 /* UserDictionaryTests.swift in Sources */,
 				1393E3442C6B899300F1E633 /* TyperEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

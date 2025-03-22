@@ -1,5 +1,5 @@
 //
-//  RegisterWordTests.swift
+//  UserDictionaryTests.swift
 //  BackendTests
 //
 //  Created by mzp on 2025/03/19.
@@ -7,7 +7,7 @@
 
 import Testing
 
-struct RegisterWordTests {
+struct UserDictionaryTests {
     @Test func register() async {
         let session = Typer.Session()
         await session.run { typer in

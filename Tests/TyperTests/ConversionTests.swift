@@ -7,7 +7,7 @@
 
 import Testing
 
-struct CommonJisyoTests {
+struct ConversionTests {
     @Test func convert() async {
         let session = Typer.Session()
         await session.run { typer in
@@ -33,7 +33,17 @@ struct CommonJisyoTests {
         await session.run { typer in
             await typer.type(text: "KoroG")
             #expect(typer.markedText == "▽ころ*g")
-            await typer.type(text: "a")
+            await typer.handle(event: .skkBackspace)
+            #expect(typer.markedText == "▽ころ*")
+            #expect(typer.markedTextRange == .init(location: 4, length: 0))
+
+            // ignored
+            for event in [ TyperEvent.skkLeft, .skkDown, .skkUp, .skkRight, .skkDelete, .skkTab] {
+                await typer.handle(event: event)
+                #expect(typer.markedText == "▽ころ*")
+                #expect(typer.markedTextRange == .init(location: 4, length: 0))
+            }
+            await typer.type(text: "ga")
             #expect(typer.markedText == "▼転が")
             await typer.type(text: "ru")
             #expect(typer.markedText == "")

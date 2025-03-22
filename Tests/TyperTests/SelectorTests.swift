@@ -1,5 +1,5 @@
 //
-//  CandidateSelectorTests.swift
+//  SelectorTests.swift
 //  AquaSKK
 //
 //  Created by mzp on 2025/03/19.
@@ -7,7 +7,7 @@
 
 import Testing
 
-struct CandidateSelectorTests {
+struct SelectorTests {
     @Test func inline() async {
         let session = Typer.Session()
         await session.run { typer in
