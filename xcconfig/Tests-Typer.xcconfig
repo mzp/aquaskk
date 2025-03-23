@@ -9,6 +9,4 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 
-OTHER_LDFLAGS = $(inherited) \
-    -framework AquaSKKInput \
-    -framework AquaSKKTesting
+OTHER_LDFLAGS = $(inherited) -framework AquaSKKInput -framework AquaSKKTesting

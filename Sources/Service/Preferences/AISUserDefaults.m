@@ -51,7 +51,9 @@ static os_log_t serviceLog(void) {
 - (void)saveChanges {
     NSString *bundleIdentifier = NSBundle.mainBundle.bundleIdentifier;
     NSDictionary *preference = [self.standardDefaults persistentDomainForName:bundleIdentifier];
-    os_log(serviceLog(), "[%{public}s]Write %{private}@ to %{private}@", __PRETTY_FUNCTION__, preference, self.serverConfiguration.userDefaultsPath);
+    os_log(
+        serviceLog(), "[%{public}s]Write %{private}@ to %{private}@", __PRETTY_FUNCTION__, preference,
+        self.serverConfiguration.userDefaultsPath);
     [preference writeToFile:self.serverConfiguration.userDefaultsPath atomically:YES];
 }
 

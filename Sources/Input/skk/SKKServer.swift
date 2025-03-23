@@ -27,6 +27,11 @@ func terminate(_: Int32) {
     private var userDefaults: AISUserDefaults? = nil
     private var skkserv: skkserv? = nil
 
+    deinit {
+        skkserv?.close()
+        skkserv = nil
+    }
+
     override public func awakeFromNib() {
         _start()
         imkServer = newIMKServer()
@@ -39,6 +44,7 @@ func terminate(_: Int32) {
     @_spi(Testing) public func _start(with configuration: ServerConfiguration) {
         self.configuration = configuration
         userDefaults = .init(serverConfiguration: configuration)
+        skkserv?.close()
         skkserv = nil
 
         prepareSignalHandler()
@@ -197,6 +203,7 @@ func terminate(_: Int32) {
 
     public func reloadUserDefaults() {
         Logger.skkInput.log("\(#function, privacy: .public)")
+        skkserv?.close()
         skkserv = nil
 
         userDefaults?.reload()
@@ -205,10 +212,10 @@ func terminate(_: Int32) {
         }
 
         if defaults.bool(forKey: SKKUserDefaultKeys.enable_skkserv) {
-            Logger.skkInput.log("[\(#fileID, privacy: .public)\(#function, privacy: .public)]Launch SKKServ")
             let port = defaults.integer(forKey: SKKUserDefaultKeys.skkserv_port)
             let isLocalOnly = defaults.bool(forKey: SKKUserDefaultKeys.skkserv_localonly)
             skkserv = .init(UInt16(port), isLocalOnly)
+            Logger.skkInput.log("[\(#fileID, privacy: .public)\(#function, privacy: .public)]Launch SKKServ at \(isLocalOnly ? "127.0.0.1" : "0.0.0.0"):\(port, privacy: .private)")
         } else {
             Logger.skkInput.log("[\(#fileID, privacy: .public)\(#function, privacy: .public)]SKKServ is disabled")
         }

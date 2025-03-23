@@ -11,12 +11,5 @@
 #include "./Include/Internal.xcconfig"
 #include "./Include/SwiftFramework.xcconfig"
 
-OTHER_LDFLAGS = $(inherited) \
-    -framework AppKit \
-    -framework InputMethodKit \
-    -framework AquaSKKEngine \
-    -framework AquaSKKService \
-    -framework AquaSKKUI \
-    -framework AquaSKKBackend \
-    -framework AquaSKKServer
+OTHER_LDFLAGS = $(inherited) -framework AppKit -framework InputMethodKit -framework AquaSKKEngine -framework AquaSKKService -framework AquaSKKUI -framework AquaSKKBackend -framework AquaSKKServer
 
