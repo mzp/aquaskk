@@ -133,6 +133,17 @@
                ReferencedContainer = "container:AquaSKK.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "13B93F0A2D908A24008D80C9"
+               BuildableName = "SKKServTests.xctest"
+               BlueprintName = "SKKServTests"
+               ReferencedContainer = "container:AquaSKK.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

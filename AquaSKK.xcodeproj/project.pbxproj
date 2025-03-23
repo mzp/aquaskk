@@ -431,6 +431,7 @@
 		13B7BE832C5EFCEF00F6BEF8 /* SKKStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BE822C5EFCEF00F6BEF8 /* SKKStateStore.swift */; };
 		13B7BEC52C5F5CF900F6BEF8 /* AquaSKKService.docc in Sources */ = {isa = PBXBuildFile; fileRef = 13B7BEC42C5F5CF900F6BEF8 /* AquaSKKService.docc */; };
 		13B7BED32C5F5CF900F6BEF8 /* AquaSKKService.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B7BEC32C5F5CF900F6BEF8 /* AquaSKKService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		13B93F172D908A29008D80C9 /* SKKServTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B93F152D908A29008D80C9 /* SKKServTests.swift */; };
 		13B974352D8E3740000F18FF /* InputMethodKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B974342D8E3740000F18FF /* InputMethodKitTests.swift */; };
 		13B974382D8E38B9000F18FF /* TyperCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B974372D8E38B9000F18FF /* TyperCompletion.swift */; };
 		13B9743A2D8E38C2000F18FF /* TyperAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B974392D8E38C2000F18FF /* TyperAnnotation.swift */; };
@@ -523,6 +524,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 138C69002C94C864009FE153;
 			remoteInfo = AquaSKKBackend;
+		};
+		13B93F0F2D908A24008D80C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 13D368112C5A81290083CAE3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 137D05742C5B5A81009AC591;
+			remoteInfo = AquaSKK;
+		};
+		13B93F192D908A78008D80C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 13D368112C5A81290083CAE3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1352C9C72C5DF80D0056261D;
+			remoteInfo = Harness;
 		};
 		13CFD1B52C681B22000A67E9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1064,6 +1079,9 @@
 		13B7BEC42C5F5CF900F6BEF8 /* AquaSKKService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKService.docc; sourceTree = "<group>"; };
 		13B7BEE12C5F5D1A00F6BEF8 /* Framework-Service.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Service.xcconfig"; sourceTree = "<group>"; };
 		13B7BEE22C5F5D2000F6BEF8 /* Tests-Service.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Service.xcconfig"; sourceTree = "<group>"; };
+		13B93F0B2D908A24008D80C9 /* SKKServTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKKServTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B93F152D908A29008D80C9 /* SKKServTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKServTests.swift; sourceTree = "<group>"; };
+		13B93F182D908A36008D80C9 /* Tests-SKKServ.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-SKKServ.xcconfig"; sourceTree = "<group>"; };
 		13B974342D8E3740000F18FF /* InputMethodKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputMethodKitTests.swift; sourceTree = "<group>"; };
 		13B974372D8E38B9000F18FF /* TyperCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyperCompletion.swift; sourceTree = "<group>"; };
 		13B974392D8E38C2000F18FF /* TyperAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyperAnnotation.swift; sourceTree = "<group>"; };
@@ -1246,6 +1264,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		13B7BEC72C5F5CF900F6BEF8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13B93F082D908A24008D80C9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1504,6 +1529,7 @@
 			children = (
 				13CFD1B42C681A61000A67E9 /* Integration.xctestplan */,
 				133834E22C60203900D73AD7 /* TyperTests */,
+				13B93F162D908A29008D80C9 /* SKKServTests */,
 			);
 			name = "Integration Tests";
 			sourceTree = "<group>";
@@ -2491,6 +2517,14 @@
 			path = ServiceTests;
 			sourceTree = "<group>";
 		};
+		13B93F162D908A29008D80C9 /* SKKServTests */ = {
+			isa = PBXGroup;
+			children = (
+				13B93F152D908A29008D80C9 /* SKKServTests.swift */,
+			);
+			path = SKKServTests;
+			sourceTree = "<group>";
+		};
 		13B974312D8E36FA000F18FF /* Feature */ = {
 			isa = PBXGroup;
 			children = (
@@ -2572,6 +2606,7 @@
 				13931D0C2C5B49C200B11EEE /* Tests-Preference.xcconfig */,
 				13B7BEE22C5F5D2000F6BEF8 /* Tests-Service.xcconfig */,
 				133834EC2C60204900D73AD7 /* Tests-Typer.xcconfig */,
+				13B93F182D908A36008D80C9 /* Tests-SKKServ.xcconfig */,
 				139B7B822C60F69E00FE5263 /* Tests-UI.xcconfig */,
 			);
 			name = Tests;
@@ -2723,6 +2758,7 @@
 				138C69082C94C864009FE153 /* BackendTests.xctest */,
 				132CBBF62D5F95A700E4D875 /* AquaSKKLogging.framework */,
 				13DCD5152D6C01EE008C27A9 /* AquaSKKServer.framework */,
+				13B93F0B2D908A24008D80C9 /* SKKServTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3263,6 +3299,27 @@
 			productReference = 1373A82C2C6817BA000FE1B7 /* ServiceTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		13B93F0A2D908A24008D80C9 /* SKKServTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13B93F142D908A24008D80C9 /* Build configuration list for PBXNativeTarget "SKKServTests" */;
+			buildPhases = (
+				13B93F072D908A24008D80C9 /* Sources */,
+				13B93F082D908A24008D80C9 /* Frameworks */,
+				13B93F092D908A24008D80C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				13B93F102D908A24008D80C9 /* PBXTargetDependency */,
+				13B93F1A2D908A78008D80C9 /* PBXTargetDependency */,
+			);
+			name = SKKServTests;
+			packageProductDependencies = (
+			);
+			productName = SKKServTests;
+			productReference = 13B93F0B2D908A24008D80C9 /* SKKServTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		13D7560A2C5A9043006144F2 /* AquaSKKEngine */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13D756152C5A9043006144F2 /* Build configuration list for PBXNativeTarget "AquaSKKEngine" */;
@@ -3371,6 +3428,10 @@
 					13B7BEC92C5F5CF900F6BEF8 = {
 						CreatedOnToolsVersion = 16.0;
 					};
+					13B93F0A2D908A24008D80C9 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = 1352C9C72C5DF80D0056261D;
+					};
 					13D7560A2C5A9043006144F2 = {
 						CreatedOnToolsVersion = 16.0;
 						LastSwiftMigration = 1600;
@@ -3412,6 +3473,7 @@
 				133834E02C60203900D73AD7 /* TyperTests */,
 				1307C2482C5B47DA00B089B6 /* PreferenceAppTests */,
 				139B7B6A2C60F68100FE5263 /* UITests */,
+				13B93F0A2D908A24008D80C9 /* SKKServTests */,
 			);
 		};
 /* End PBXProject section */
@@ -3620,6 +3682,13 @@
 				1377D08F2C678E6D005F21AE /* DictionarySet.plist in Resources */,
 				1377D0902C678E6D005F21AE /* sub-rule.desc in Resources */,
 				13A835262C7988BD003BF62F /* UserDefaults.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13B93F092D908A24008D80C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3968,6 +4037,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		13B93F072D908A24008D80C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13B93F172D908A29008D80C9 /* SKKServTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		13D756072C5A9043006144F2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -4064,6 +4141,16 @@
 			isa = PBXTargetDependency;
 			target = 138C69002C94C864009FE153 /* AquaSKKBackend */;
 			targetProxy = 138C69122C94C865009FE153 /* PBXContainerItemProxy */;
+		};
+		13B93F102D908A24008D80C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 137D05742C5B5A81009AC591 /* AquaSKK */;
+			targetProxy = 13B93F0F2D908A24008D80C9 /* PBXContainerItemProxy */;
+		};
+		13B93F1A2D908A78008D80C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1352C9C72C5DF80D0056261D /* Harness */;
+			targetProxy = 13B93F192D908A78008D80C9 /* PBXContainerItemProxy */;
 		};
 		13CFD1B62C681B22000A67E9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -4275,6 +4362,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 138B319F2C5DD40C006424E0 /* All-Testing.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = VG2YYSKSHY;
 			};
 			name = Testing;
 		};
@@ -4464,10 +4552,35 @@
 			};
 			name = Release;
 		};
+		13B93F112D908A24008D80C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13B93F182D908A36008D80C9 /* Tests-SKKServ.xcconfig */;
+			buildSettings = {
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Harness.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Harness";
+			};
+			name = Debug;
+		};
+		13B93F122D908A24008D80C9 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13B93F182D908A36008D80C9 /* Tests-SKKServ.xcconfig */;
+			buildSettings = {
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Harness.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Harness";
+			};
+			name = Testing;
+		};
+		13B93F132D908A24008D80C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13B93F182D908A36008D80C9 /* Tests-SKKServ.xcconfig */;
+			buildSettings = {
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Harness.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Harness";
+			};
+			name = Release;
+		};
 		13D368152C5A81290083CAE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13D7561C2C5A9113006144F2 /* All-Debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = VG2YYSKSHY;
 			};
 			name = Debug;
 		};
@@ -4475,6 +4588,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1393E3C02C6C046400F1E633 /* All-Release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = VG2YYSKSHY;
 			};
 			name = Release;
 		};
@@ -4682,6 +4796,16 @@
 				13B7BEDC2C5F5CF900F6BEF8 /* Debug */,
 				13B7BEDD2C5F5CF900F6BEF8 /* Testing */,
 				13B7BEDE2C5F5CF900F6BEF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13B93F142D908A24008D80C9 /* Build configuration list for PBXNativeTarget "SKKServTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13B93F112D908A24008D80C9 /* Debug */,
+				13B93F122D908A24008D80C9 /* Testing */,
+				13B93F132D908A24008D80C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

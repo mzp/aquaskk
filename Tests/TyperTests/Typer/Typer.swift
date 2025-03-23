@@ -85,16 +85,6 @@ class Typer {
         return handled
     }
 
-    // MARK: - Preference
-
-    func preference(perform: (UserDefaults) -> Void) {
-        let configuration = try! BundledServerConfiguration(bundle: Bundle.main)
-        let defaults = AISUserDefaults(serverConfiguration: configuration)
-        perform(defaults.standard)
-        defaults.saveChanges()
-        controller.proxy?.reloadUserDefaults()
-    }
-
     // MARK: - Text Edit
 
     func setText(string: String, range: NSRange) {
