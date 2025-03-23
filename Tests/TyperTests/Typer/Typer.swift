@@ -7,6 +7,7 @@
 @_spi(Testing) internal import AquaSKKInput
 internal import AquaSKKTesting
 import AppKit
+import AquaSKKService
 import InputMethodKit
 
 class Typer {
@@ -84,6 +85,16 @@ class Typer {
         return handled
     }
 
+    // MARK: - Preference
+
+    func preference(perform: (UserDefaults) -> Void) {
+        let configuration = try! BundledServerConfiguration(bundle: Bundle.main)
+        let defaults = AISUserDefaults(serverConfiguration: configuration)
+        perform(defaults.standard)
+        defaults.saveChanges()
+        controller.proxy?.reloadUserDefaults()
+    }
+
     // MARK: - Text Edit
 
     func setText(string: String, range: NSRange) {
@@ -103,16 +114,6 @@ class Typer {
 
     @MainActor func setValue(_ value: String) {
         controller.setValue(value, forTag: kTextServiceInputModePropertyTag, client: client)
-    }
-
-    // MARK: - Supervisor
-
-    func reloadUserDefaults() {
-        controller.proxy?.reloadUserDefaults()
-    }
-
-    func relodComponents() {
-        controller.proxy?.reloadComponents()
     }
 
     // MARK: - Properties

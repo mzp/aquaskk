@@ -16,32 +16,42 @@ public class SKKProxyDictionary: SKKBaseDictionaryProtocol {
     public init() {}
 
     public func initialize(path: String) async throws {
-        connect?.cancel()
-
         let entry = path.split(separator: ":", maxSplits: 2)
         let host = String(entry[0])
-        let port: Int16
-
+        let port: Int
         if entry.count > 1 {
-            port = Int16(entry[1]) ?? 1178
+            port = Int(entry[1]) ?? 1178
         } else {
             port = 1178
         }
+        try await initialize(host: host, port: port)
+    }
+
+    public func initialize(host: String, port: Int) async throws {
+        connect?.cancel()
         let connect = NWConnection(host: .init(host), port: .init(port.description) ?? .any, using: .tcp)
         connect.stateUpdateHandler = { state in
             switch state {
             case .ready:
                 Logger.skkBackend.log("\(#function, privacy: .public) .ready")
+
             case .cancelled:
                 Logger.skkBackend.log("\(#function, privacy: .public) .canncelled")
+
             case let .failed(error):
-                Logger.skkUI.log("\(#function, privacy: .public) .failed: \(error.localizedDescription, privacy: .private)")
+                Logger.skkBackend.log("\(#function, privacy: .public) .failed: \(error.localizedDescription, privacy: .private)")
+
             case .preparing:
                 Logger.skkBackend.log("\(#function, privacy: .public) .preparing")
+
             case .setup:
                 Logger.skkBackend.log("\(#function, privacy: .public) setup")
+
             case let .waiting(error):
-                Logger.skkUI.log("\(#function, privacy: .public) .waiting: \(error.localizedDescription, privacy: .private)")
+                Logger.skkBackend.error("[\(#fileID, privacy: .public):\(#function, privacy: .public)] .waiting: \(error.localizedDescription, privacy: .private)")
+                self.connect?.cancel()
+                self.connect = nil
+
             @unknown default:
                 ()
             }
@@ -79,7 +89,7 @@ public class SKKProxyDictionary: SKKBaseDictionaryProtocol {
               let content = String(data: response, encoding: .japaneseEUC),
               content.first != "0"
         else {
-            Logger.skkBackend.error("\(#function, privacy: .public) Invalid response")
+            Logger.skkBackend.error("[\(#fileID, privacy: .public):\(#function, privacy: .public)]Can't send request to the server.")
             return nil
         }
         let string = String(content.dropFirst())
@@ -121,5 +131,25 @@ public class SKKProxyDictionary: SKKBaseDictionaryProtocol {
                 Logger.backend.error("\(#function, privacy: .public) can't load file: \(path, privacy: .private) due to \(error)")
             }
         }
+    }
+
+    @_spi(Testing) public func queryVersion() async -> String? {
+        guard let request = "2".data(using: .utf8),
+              let response = await send(data: request)
+        else {
+            Logger.skkBackend.error("[\(#fileID, privacy: .public):\(#function, privacy: .public)]Can't send request to the server.")
+            return nil
+        }
+        return String(data: response, encoding: .utf8)
+    }
+
+    @_spi(Testing) public func queryHost() async -> String? {
+        guard let request = "3".data(using: .utf8),
+              let response = await send(data: request)
+        else {
+            Logger.skkBackend.error("[\(#fileID, privacy: .public):\(#function, privacy: .public)]Can't send request to the server.")
+            return nil
+        }
+        return String(data: response, encoding: .utf8)
     }
 }
