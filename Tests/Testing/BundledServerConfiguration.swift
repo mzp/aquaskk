@@ -16,8 +16,7 @@ public class BundledServerConfiguration: ServerConfiguration {
     public init(bundle: Bundle) throws {
         Logger.testing.log("\(#function, privacy: .public): \(bundle, privacy: .public)")
         self.bundle = bundle
-
-        applicationSupportPath = NSTemporaryDirectory().appending("\(UUID().uuidString)/")
+        applicationSupportPath = NSTemporaryDirectory().appending("\(bundle.hash)/")
         systemResourcePath = bundle.resourcePath!
 
         try copy(files: ["DictionarySet.plist"])

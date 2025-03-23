@@ -205,9 +205,12 @@ func terminate(_: Int32) {
         }
 
         if defaults.bool(forKey: SKKUserDefaultKeys.enable_skkserv) {
+            Logger.skkInput.log("[\(#fileID, privacy: .public)\(#function, privacy: .public)]Launch SKKServ")
             let port = defaults.integer(forKey: SKKUserDefaultKeys.skkserv_port)
             let isLocalOnly = defaults.bool(forKey: SKKUserDefaultKeys.skkserv_localonly)
             skkserv = .init(UInt16(port), isLocalOnly)
+        } else {
+            Logger.skkInput.log("[\(#fileID, privacy: .public)\(#function, privacy: .public)]SKKServ is disabled")
         }
         let backend = SKKBackendImpl.shared()
 
@@ -270,7 +273,7 @@ func terminate(_: Int32) {
             }
         }
         SKKTask.perfromAndWait {
-            await SKKBackendImpl.shared().initialize(path: configuration.userDefaultsPath, configurations: keys)
+            await SKKBackendImpl.shared().initialize(path: configuration.userDictionaryPath, configurations: keys)
         }
     }
 
