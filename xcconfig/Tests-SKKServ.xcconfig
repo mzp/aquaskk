@@ -10,3 +10,5 @@
 
 
 OTHER_LDFLAGS = $(inherited)
+
+SWIFT_STRICT_CONCURRENCY = complete

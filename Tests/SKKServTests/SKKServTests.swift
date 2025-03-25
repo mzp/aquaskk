@@ -22,6 +22,8 @@ import AquaSKKService
         defaults.saveChanges()
         proxy.reloadUserDefaults()
 
+        try await Task.sleep(for: .milliseconds(100))
+
         let skkClient = SKKProxyDictionary()
         try! await skkClient.initialize(host: "localhost", port: 11178)
         var suite = try #require(await skkClient.find(entry: SKKEntry("きょう", "")))
