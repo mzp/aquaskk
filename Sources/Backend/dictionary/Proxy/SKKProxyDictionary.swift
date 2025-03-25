@@ -133,21 +133,23 @@ public class SKKProxyDictionary: SKKBaseDictionaryProtocol {
         }
     }
 
+    @_spi(Testing) public func queryClose() async {
+        _ = await query(command: "0")
+    }
+
     @_spi(Testing) public func queryVersion() async -> String? {
-        guard let request = "2".data(using: .utf8),
-              let response = await send(data: request)
-        else {
-            Logger.skkBackend.error("[\(#fileID, privacy: .public):\(#function, privacy: .public)]Can't send request to the server.")
-            return nil
-        }
-        return String(data: response, encoding: .utf8)
+        await query(command: "2")
     }
 
     @_spi(Testing) public func queryHost() async -> String? {
-        guard let request = "3".data(using: .utf8),
+        await query(command: "3")
+    }
+
+    @discardableResult @_spi(Testing) public func query(command: String) async -> String? {
+        guard let request = command.data(using: .utf8),
               let response = await send(data: request)
         else {
-            Logger.skkBackend.error("[\(#fileID, privacy: .public):\(#function, privacy: .public)]Can't send request to the server.")
+            Logger.skkBackend.error("[\(#fileID, privacy: .public):\(#function, privacy: .public)] Can't send request to the server.")
             return nil
         }
         return String(data: response, encoding: .utf8)
