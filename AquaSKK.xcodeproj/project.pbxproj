@@ -4362,7 +4362,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 138B319F2C5DD40C006424E0 /* All-Testing.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = VG2YYSKSHY;
 			};
 			name = Testing;
 		};
@@ -4580,7 +4579,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13D7561C2C5A9113006144F2 /* All-Debug.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = VG2YYSKSHY;
 			};
 			name = Debug;
 		};
@@ -4588,7 +4586,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1393E3C02C6C046400F1E633 /* All-Release.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = VG2YYSKSHY;
 			};
 			name = Release;
 		};
