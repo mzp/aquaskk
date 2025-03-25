@@ -15,7 +15,7 @@ private let dvorakLayout = "com.apple.keylayout.Dvorak"
 struct PreferenceStoreTests {
     func createStore() throws -> PreferenceStore {
         let bundle = ServiceTesting.shared.bundle
-        let configuration = try BundledServerConfiguration(bundle: bundle)
+        let configuration = try BundledServerConfiguration(bundle: bundle, label: UUID().uuidString)
         return PreferenceStore(serverConfiguration: configuration)
     }
 
