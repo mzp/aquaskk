@@ -7,6 +7,7 @@
 @_spi(Testing) internal import AquaSKKInput
 internal import AquaSKKTesting
 import AppKit
+import AquaSKKService
 import InputMethodKit
 
 class Typer {
@@ -84,19 +85,25 @@ class Typer {
         return handled
     }
 
-    @MainActor func setValue(_ value: String) {
-        controller.setValue(value, forTag: kTextServiceInputModePropertyTag, client: client)
-    }
-
-    func clear() {
-        client.text.clear()
-    }
-
     // MARK: - Text Edit
 
     func setText(string: String, range: NSRange) {
         client.text.string = string
         client._selectedRange = range
+    }
+
+    func set(pasteString: String) {
+        typerSession.SetString(std.string(pasteString))
+    }
+
+    // MARK: - Menu
+
+    var inputMode: SKKInputMode? {
+        controller.skkInputMenu()?.currentInputMode
+    }
+
+    @MainActor func setValue(_ value: String) {
+        controller.setValue(value, forTag: kTextServiceInputModePropertyTag, client: client)
     }
 
     // MARK: - Properties
@@ -117,9 +124,11 @@ class Typer {
         text.modeIdentifier
     }
 
-    func set(pasteString: String) {
-        typerSession.SetString(std.string(pasteString))
+    func clear() {
+        client.text.clear()
     }
+
+    // MARK: - Candidates
 
     var candidates: [String] {
         Array(typerSession.Candidates().map { String($0) })
@@ -133,6 +142,8 @@ class Typer {
         Int(typerSession.GetCandidatePage())
     }
 
+    // MARK: - Completion
+
     var completion: TyperCompletion {
         TyperCompletion(
             completion: String(typerSession.GetCompletion()),
@@ -142,9 +153,7 @@ class Typer {
         )
     }
 
-    var inputMode: SKKInputMode? {
-        controller.skkInputMenu()?.currentInputMode
-    }
+    // MARK: - Annotation
 
     var annotation: TyperAnnotation {
         TyperAnnotation(

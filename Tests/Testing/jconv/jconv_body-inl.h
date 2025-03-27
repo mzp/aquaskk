@@ -579,7 +579,7 @@ void utf8_to_eucj::sequence_of_3_bytes(unsigned char c) {
     reset();
 
     unsigned char *tab1 = NULL;
-    unsigned short(*tab2)[64] = NULL;
+    unsigned short (*tab2)[64] = NULL;
 
     switch(input_[0]) {
     case 0xe1: // special case : there's only 6 chars

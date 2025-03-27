@@ -15,22 +15,8 @@
     {
       "target" : {
         "containerPath" : "container:AquaSKK.xcodeproj",
-        "identifier" : "135C3D4D2C5B3E8F00661AE3",
-        "name" : "InputTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:AquaSKK.xcodeproj",
-        "identifier" : "1307C2482C5B47DA00B089B6",
-        "name" : "PreferenceAppTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:AquaSKK.xcodeproj",
-        "identifier" : "138C69072C94C864009FE153",
-        "name" : "BackendTests"
+        "identifier" : "13B7BEC92C5F5CF900F6BEF8",
+        "name" : "ServiceTests"
       }
     },
     {
@@ -50,8 +36,16 @@
     {
       "target" : {
         "containerPath" : "container:AquaSKK.xcodeproj",
-        "identifier" : "139B7B6A2C60F68100FE5263",
-        "name" : "UITests"
+        "identifier" : "135C3D4D2C5B3E8F00661AE3",
+        "name" : "InputTests"
+      }
+    },
+    {
+      "parallelizable" : false,
+      "target" : {
+        "containerPath" : "container:AquaSKK.xcodeproj",
+        "identifier" : "13B93F0A2D908A24008D80C9",
+        "name" : "SKKServTests"
       }
     },
     {
@@ -64,8 +58,22 @@
     {
       "target" : {
         "containerPath" : "container:AquaSKK.xcodeproj",
-        "identifier" : "13B7BEC92C5F5CF900F6BEF8",
-        "name" : "ServiceTests"
+        "identifier" : "139B7B6A2C60F68100FE5263",
+        "name" : "UITests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:AquaSKK.xcodeproj",
+        "identifier" : "1307C2482C5B47DA00B089B6",
+        "name" : "PreferenceAppTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:AquaSKK.xcodeproj",
+        "identifier" : "138C69072C94C864009FE153",
+        "name" : "BackendTests"
       }
     }
   ],

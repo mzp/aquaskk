@@ -50,22 +50,20 @@ static os_log_t serviceLog(void) {
 
 - (void)saveChanges {
     NSString *bundleIdentifier = NSBundle.mainBundle.bundleIdentifier;
-    os_log(serviceLog(), "%s:bundleID=%{public}@", __PRETTY_FUNCTION__, bundleIdentifier);
     NSDictionary *preference = [self.standardDefaults persistentDomainForName:bundleIdentifier];
-    os_log_info(serviceLog(), "%s:%{private}@", __PRETTY_FUNCTION__, preference);
+    os_log(
+        serviceLog(), "[%{public}s]Write %{private}@ to %{private}@", __PRETTY_FUNCTION__, preference,
+        self.serverConfiguration.userDefaultsPath);
     [preference writeToFile:self.serverConfiguration.userDefaultsPath atomically:YES];
 }
 
 - (void)reloadUserDefaults {
     NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
     NSString *path = self.serverConfiguration.userDefaultsPath;
-    os_log(
-        serviceLog(), "%s UserDefaults(path=%{public}@; bundleID=%{public}@)", __PRETTY_FUNCTION__, path,
-        bundleIdentifier);
-
     NSUserDefaults *defaults = self.standardDefaults;
     NSDictionary *prefs = [NSDictionary dictionaryWithContentsOfFile:path];
-    os_log(serviceLog(), "%s content=%{private}@", __PRETTY_FUNCTION__, prefs);
+
+    os_log(serviceLog(), "[%{public}s]Read %{private}@ from %{private}@", __PRETTY_FUNCTION__, prefs, path);
 
     // force update userdeafults
     [defaults setPersistentDomain:prefs forName:bundleIdentifier];

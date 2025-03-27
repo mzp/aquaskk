@@ -20,44 +20,43 @@
 
 */
 
+#import <AquaSKKService/AISJisyo.h>
 #import <AquaSKKService/SKKServerProxy.h>
+
+NSNotificationName const kSKKSupervisorReloadBlacklistApps = @"SKKSupervisorReloadBlacklistApps";
+NSNotificationName const kSKKSupervisorReloadUserDefaults = @"SKKSupervisorReloadUserDefaults";
+NSNotificationName const kSKKSupervisorReloadDictionarySets = @"SKKSupervisorReloadDictionarySets";
+NSNotificationName const kSKKSupervisorReloadComponents = @"SKKSupervisorReloadComponents";
 
 @implementation SKKServerProxy
 
 - (id)init {
     self = [super init];
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    proxy_ = [[NSConnection rootProxyForConnectionWithRegisteredName:SKKSupervisorConnectionName host:nil] retain];
-#pragma clang diagnostic pop
-    [proxy_ setProtocolForProxy:@protocol(SKKSupervisor)];
-
     return self;
 }
 
 - (void)dealloc {
-    [proxy_ release];
     [super dealloc];
 }
 
 - (void)reloadBlacklistApps {
-    [proxy_ reloadBlacklistApps];
+    [[NSDistributedNotificationCenter defaultCenter] postNotificationName:kSKKSupervisorReloadBlacklistApps object:nil];
 }
 
 - (void)reloadUserDefaults {
-    [proxy_ reloadUserDefaults];
+    [[NSDistributedNotificationCenter defaultCenter] postNotificationName:kSKKSupervisorReloadUserDefaults object:nil];
 }
 
 - (void)reloadDictionarySet {
-    [proxy_ reloadDictionarySet];
+    [[NSDistributedNotificationCenter defaultCenter] postNotificationName:kSKKSupervisorReloadUserDefaults object:nil];
 }
 
 - (void)reloadComponents {
-    [proxy_ reloadComponents];
+    [[NSDistributedNotificationCenter defaultCenter] postNotificationName:kSKKSupervisorReloadUserDefaults object:nil];
 }
 
 - (NSArray *)createDictionaryTypes {
-    return [proxy_ createDictionaryTypes];
+    return [AISJisyo dictionaryTypes];
 }
 
 @end

@@ -13,11 +13,10 @@ private let logger = Logger(subsystem: "com.aquaskk.inputmethod.Harness", catego
 public class BundledServerConfiguration: ServerConfiguration {
     private let bundle: Bundle
 
-    public init(bundle: Bundle) throws {
+    public init(bundle: Bundle, label: String? = nil) throws {
         Logger.testing.log("\(#function, privacy: .public): \(bundle, privacy: .public)")
         self.bundle = bundle
-
-        applicationSupportPath = NSTemporaryDirectory().appending("\(UUID().uuidString)/")
+        applicationSupportPath = NSTemporaryDirectory().appending("\(bundle.hash)-\(label ?? "default")/")
         systemResourcePath = bundle.resourcePath!
 
         try copy(files: ["DictionarySet.plist"])
@@ -77,7 +76,7 @@ public class BundledServerConfiguration: ServerConfiguration {
         try fileManager.createDirectory(atPath: applicationSupportPath, withIntermediateDirectories: true)
 
         let targetPath = applicationSupportPath
-        Logger.testing.log("Application Support = \(targetPath, privacy: .private)")
+        Logger.skkTyper.log("[\(#fileID, privacy: .public):\(#function, privacy: .public)] Application Support = \(targetPath, privacy: .private)")
 
         for file in files {
             let path = targetPath.appending("/\(file)")
@@ -85,7 +84,12 @@ public class BundledServerConfiguration: ServerConfiguration {
 
             let source = systemResourcePath.appending("/\(file)")
 
-            try fileManager.copyItem(atPath: source, toPath: path)
+            do {
+                try fileManager.copyItem(atPath: source, toPath: path)
+            } catch {
+                Logger.skkTyper.error("[\(#fileID, privacy: .public):\(#function, privacy: .public)] Can't copy \(path, privacy: .private) to \(path, privacy: .private) due to \(error, privacy: .private)")
+                throw error
+            }
         }
     }
 }

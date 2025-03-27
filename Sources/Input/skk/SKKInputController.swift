@@ -14,7 +14,7 @@ public class SKKInputController: IMKInputController {
     private var client: IMKTextInput?
     private var context: NSTextInputContext?
     private var activated: Bool = false
-    private var proxy: SKKServerProxy?
+    @_spi(Testing) public var proxy: SKKServerProxy?
     private var skkMenu: SKKInputMenu?
     private var layoutManager: SKKLayoutManager?
     private var modeIcon: MacInputModeWindow?

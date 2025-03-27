@@ -26,8 +26,12 @@
 #import <Foundation/Foundation.h>
 #import <AquaSKKService/SKKSupervisor.h>
 
+extern NSNotificationName const kSKKSupervisorReloadBlacklistApps;
+extern NSNotificationName const kSKKSupervisorReloadUserDefaults;
+extern NSNotificationName const kSKKSupervisorReloadDictionarySets;
+extern NSNotificationName const kSKKSupervisorReloadComponents;
+
 @interface SKKServerProxy : NSObject <SKKSupervisor> {
-    id proxy_;
 }
 @end
 

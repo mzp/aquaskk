@@ -26,7 +26,11 @@ func terminate(_: Int32) {
     private var configuration: ServerConfiguration? = nil
     private var userDefaults: AISUserDefaults? = nil
     private var skkserv: skkserv? = nil
-    private var connection: NSXPCConnection? = nil
+
+    deinit {
+        skkserv?.close()
+        skkserv = nil
+    }
 
     override public func awakeFromNib() {
         _start()
@@ -40,6 +44,7 @@ func terminate(_: Int32) {
     @_spi(Testing) public func _start(with configuration: ServerConfiguration) {
         self.configuration = configuration
         userDefaults = .init(serverConfiguration: configuration)
+        skkserv?.close()
         skkserv = nil
 
         prepareSignalHandler()
@@ -94,16 +99,13 @@ func terminate(_: Int32) {
     }
 
     private func prepareConnection() {
-        Logger.skkInput.log("\(#function, privacy: .public)")
-        // TODO: Migrate from NSConnection
-        let interface = NSXPCInterface(with: SKKSupervisor.self)
-        let connection = NSXPCConnection(machServiceName: "SKKSupervisorConnection")
-        connection.remoteObjectInterface = interface
-        connection.exportedInterface = interface
-        connection.exportedObject = self
-        connection.resume()
+        Logger.skkInput.log("[\(#fileID, privacy: .public)\(#function, privacy: .public)]")
 
-        self.connection = connection
+        let center = DistributedNotificationCenter.default()
+        center.addObserver(self, selector: #selector(reloadBlacklistApps), name: .skkSupervisorReloadBlacklistApps, object: nil)
+        center.addObserver(self, selector: #selector(reloadUserDefaults), name: .skkSupervisorReloadUserDefaults, object: nil)
+        center.addObserver(self, selector: #selector(reloadDictionarySet), name: .skkSupervisorReloadDictionarySets, object: nil)
+        center.addObserver(self, selector: #selector(reloadComponents), name: .skkSupervisorReloadComponents, object: nil)
     }
 
     private func prepareUserDefaults() {
@@ -201,6 +203,7 @@ func terminate(_: Int32) {
 
     public func reloadUserDefaults() {
         Logger.skkInput.log("\(#function, privacy: .public)")
+        skkserv?.close()
         skkserv = nil
 
         userDefaults?.reload()
@@ -212,6 +215,9 @@ func terminate(_: Int32) {
             let port = defaults.integer(forKey: SKKUserDefaultKeys.skkserv_port)
             let isLocalOnly = defaults.bool(forKey: SKKUserDefaultKeys.skkserv_localonly)
             skkserv = .init(UInt16(port), isLocalOnly)
+            Logger.skkInput.log("[\(#fileID, privacy: .public)\(#function, privacy: .public)]Launch SKKServ at \(isLocalOnly ? "127.0.0.1" : "0.0.0.0"):\(port, privacy: .private)")
+        } else {
+            Logger.skkInput.log("[\(#fileID, privacy: .public)\(#function, privacy: .public)]SKKServ is disabled")
         }
         let backend = SKKBackendImpl.shared()
 
@@ -274,7 +280,7 @@ func terminate(_: Int32) {
             }
         }
         SKKTask.perfromAndWait {
-            await SKKBackendImpl.shared().initialize(path: configuration.userDefaultsPath, configurations: keys)
+            await SKKBackendImpl.shared().initialize(path: configuration.userDictionaryPath, configurations: keys)
         }
     }
 

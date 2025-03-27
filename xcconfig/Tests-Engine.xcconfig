@@ -10,7 +10,4 @@
 
 #include "./Include/SwiftFramework.xcconfig"
 
-OTHER_LDFLAGS = $(inherited) \
-    -framework AquaSKKEngine \
-    -framework AquaSKKTesting \
-    -framework AquaSKKInput
+OTHER_LDFLAGS = $(inherited) -framework AquaSKKEngine -framework AquaSKKTesting -framework AquaSKKInput

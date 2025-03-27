@@ -26,6 +26,9 @@
 skkserv::skkserv(unsigned short port, bool localonly)
     : impl_(new skkserv_impl(port, localonly)) {}
 
-skkserv::~skkserv() {
+void skkserv::close() {
     delete impl_;
+    impl_ = nullptr;
 }
+
+skkserv::~skkserv() {}

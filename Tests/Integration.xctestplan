@@ -13,6 +13,14 @@
   },
   "testTargets" : [
     {
+      "parallelizable" : false,
+      "target" : {
+        "containerPath" : "container:AquaSKK.xcodeproj",
+        "identifier" : "13B93F0A2D908A24008D80C9",
+        "name" : "SKKServTests"
+      }
+    },
+    {
       "target" : {
         "containerPath" : "container:AquaSKK.xcodeproj",
         "identifier" : "133834E02C60203900D73AD7",

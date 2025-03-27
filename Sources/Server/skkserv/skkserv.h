@@ -29,4 +29,6 @@ class skkserv {
 public:
     skkserv(unsigned short port, bool localonly);
     ~skkserv();
+
+    void close();
 };
