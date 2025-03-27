@@ -10,11 +10,14 @@ public class SKKRecursiveEditorImpl {
     private var annotator: SKKAnnotator
     private var completer: SKKDynamicCompletor
     private var candidateWindow: SKKCandidateWindow
+    private var state: SKKStateMachineImpl
+
     public init(env: SKKInputEnvironment, annotator: SKKAnnotator, completer: SKKDynamicCompletor, candidateWindow: SKKCandidateWindow) {
         self.env = env
         self.annotator = annotator
         self.completer = completer
         self.candidateWindow = candidateWindow
+        self.state = SKKStateMachineImpl()
     }
 
     deinit {
@@ -26,8 +29,8 @@ public class SKKRecursiveEditorImpl {
         selector?.Hide()
     }
 
-    public func input(event _: SKKEvent) {
-        // TODO: Implement state machine
+    public func input(event: SKKEvent) {
+        self.state.dispatch(event: event)
     }
 
     public func output() {
