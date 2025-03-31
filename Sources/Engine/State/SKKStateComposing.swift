@@ -7,7 +7,9 @@
 
 // MARK: - level 1：構築
 
-public class SKKStateComposing {
+public class SKKStateComposing: HandlerProtocol {
+    var handlerID: String { NSStringFromClass(Self.self) }
+
     var editor: SKKInputEngine
     public init(editor: SKKInputEngine) {
         self.editor = editor
@@ -34,7 +36,9 @@ public class SKKStateComposing {
 
 // MARK: - level 2：見出し語編集
 
-public class SKKStateEdit {
+public class SKKStateEdit: HandlerProtocol {
+    var handlerID: String { NSStringFromClass(Self.self) as String }
+
     var editor: SKKInputEngine
     var context: SKKInputContext
     var config: SKKConfig
@@ -128,7 +132,9 @@ public class SKKStateEdit {
 
 // MARK: - level 3 (sub of Edit)：見出し語入力
 
-public class SKKStateEntryInput {
+public class SKKStateEntryInput: HandlerProtocol {
+    var handlerID: String { NSStringFromClass(Self.self) as String }
+
     var editor: SKKInputEngine
     var completer: SKKCompleter
 
@@ -165,7 +171,9 @@ public class SKKStateEntryInput {
 
 // MARK: - level 4 (sub of EntryInput)：日本語
 
-public class SKKStateKanaEntry {
+public class SKKStateKanaEntry: HandlerProtocol {
+    var handlerID: String { NSStringFromClass(Self.self) as String }
+
     var editor: SKKInputEngine
     var context: SKKInputContext
     var config: SKKConfig
@@ -255,7 +263,9 @@ public class SKKStateKanaEntry {
 
 // MARK: - level 4 (sub of EntryInput)：省略表記
 
-public class SKKStateAsciiEntry {
+public class SKKStateAsciiEntry: HandlerProtocol {
+    var handlerID: String { NSStringFromClass(Self.self) as String }
+
     var editor: SKKInputEngine
     var context: SKKInputContext
     public init(editor: SKKInputEngine, context: SKKInputContext) {
@@ -296,7 +306,8 @@ public class SKKStateAsciiEntry {
 
 // MARK: - level 3 (sub of Edit)：見出し語補完
 
-public class SKKStateEntryCompletion {
+public class SKKStateEntryCompletion: HandlerProtocol {
+    var handlerID: String { NSStringFromClass(Self.self) as String }
     var editor: SKKInputEngine
     var completer: SKKCompleter
     var messenger: SKKMessenger
@@ -355,7 +366,9 @@ public class SKKStateEntryCompletion {
 
 // MARK: - level 2：候補選択
 
-public class SKKStateSelectCandidate {
+public class SKKStateSelectCandidate: HandlerProtocol {
+    var handlerID: String { NSStringFromClass(Self.self) as String }
+
     var editor: SKKInputEngine
     var selector: SKKSelector
     var config: SKKConfig
@@ -461,7 +474,8 @@ public class SKKStateSelectCandidate {
 
 // MARK: - level 1：送り
 
-public class SKKStateOkuriInput {
+public class SKKStateOkuriInput: HandlerProtocol {
+    var handlerID: String { NSStringFromClass(Self.self) as String }
     var editor: SKKInputEngine
     var config: SKKConfig
     var context: SKKInputContext

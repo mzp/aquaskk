@@ -5,13 +5,13 @@
 //  Created by mzp on 2025/03/09.
 //
 
-class GenericStateMachine<Handler: HandlerProtocol, Inspector: InspectorProtocol> where Inspector.Handler == Handler {
-    init(top: Handler, inspector: Inspector) {
+class GenericStateMachine<Handler: HandlerProtocol> {
+    init(top: Handler, inspector: InspectorProtocol) {
         self.inspector = inspector
         self.top = top
     }
 
-    var inspector: Inspector
+    var inspector: any InspectorProtocol
     var top: Handler
     var active: Handler?
 
@@ -22,7 +22,9 @@ class GenericStateMachine<Handler: HandlerProtocol, Inspector: InspectorProtocol
 
     func invoke(handler: Handler, event: GenericEvent) -> GenericState<Handler>? {
         inspector.inspect(handler: handler, event: event)
-        return handler.invoke(event: event)
+
+        // handler.invoke(event: event)
+        return nil
     }
 
     // MARK: - system event trigger
@@ -115,7 +117,7 @@ class GenericStateMachine<Handler: HandlerProtocol, Inspector: InspectorProtocol
         path.append(target)
 
         // (a) self transition
-        if source == target {
+        if source.handlerID == target.handlerID {
             selfTransitionCount += 1
             _ = exitAction(handler: source)
             return
@@ -123,19 +125,19 @@ class GenericStateMachine<Handler: HandlerProtocol, Inspector: InspectorProtocol
 
         // (b) go into substate(one level)
         let targetSuper = getSuperState(handler: target)?.handler
-        if targetSuper == source {
+        if targetSuper?.handlerID == source.handlerID {
             return
         }
 
         // (c) balanced transition
         let sourceSuper = getSuperState(handler: source)?.handler
-        if sourceSuper == targetSuper {
+        if sourceSuper?.handlerID == targetSuper?.handlerID {
             _ = exitAction(handler: source)
             return
         }
 
         // (d) leave from substate(one level)
-        if sourceSuper == target {
+        if sourceSuper?.handlerID == target.handlerID {
             _ = exitAction(handler: source)
             path.removeAll()
             return
@@ -144,7 +146,7 @@ class GenericStateMachine<Handler: HandlerProtocol, Inspector: InspectorProtocol
         // (e) go into substate(multiple level)
         if let targetSuper = targetSuper {
             for tmp in sequence(first: targetSuper, next: { self.getSuperState(handler: $0)?.handler }) {
-                if tmp == source {
+                if tmp.handlerID == source.handlerID {
                     return
                 } else {
                     path.append(targetSuper)
@@ -155,14 +157,14 @@ class GenericStateMachine<Handler: HandlerProtocol, Inspector: InspectorProtocol
         _ = exitAction(handler: source)
 
         // (f) unbalanced transition
-        if let sourceSuper = sourceSuper, path.contains(sourceSuper) {
+        if let handlerID = sourceSuper?.handlerID, path.contains(where: { $0.handlerID == handlerID }) {
             return
         }
 
         // (g) leave from substate(multiple level)
         if let sourceSuper = sourceSuper {
             for tmp in sequence(first: sourceSuper, next: { self.getSuperState(handler: $0)?.handler }) {
-                if path.contains(tmp) {
+                if path.contains(where: { $0.handlerID == tmp.handlerID }) {
                     assertionFailure("*** Invalid state transition form detected ***")
                     break
                 }

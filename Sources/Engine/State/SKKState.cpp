@@ -150,6 +150,8 @@ void SKKState::ToString(const Handler handler, const Event &event, std::string &
 
 State SKKState::bridgePerform(SKKStateMachineAction action, State super_) {
     switch(action) {
+    case SKKStateMachineAction::initializePrimary:
+        return State::Initial(&SKKState::Primary);
     case SKKStateMachineAction::initializeKanaInput:
         return State::Initial(&SKKState::KanaInput);
 

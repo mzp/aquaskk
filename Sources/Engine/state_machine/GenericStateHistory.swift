@@ -21,7 +21,7 @@ struct GenericStateHistory<Handler: HandlerProtocol> {
     }
 
     mutating func save(key: Handler, shallow: Handler?, deep: Handler?) {
-        if var entry = history.first(where: { $0.key == key }) {
+        if var entry = history.first(where: { $0.key.handlerID == key.handlerID }) {
             entry.shallow = shallow
             entry.deep = deep
         } else {
@@ -30,14 +30,14 @@ struct GenericStateHistory<Handler: HandlerProtocol> {
     }
 
     mutating func clear(key: Handler) {
-        history.removeAll(where: { $0.key == key })
+        history.removeAll(where: { $0.key.handlerID == key.handlerID })
     }
 
     func shallow(key: Handler) -> Handler? {
-        history.first(where: { $0.key == key })?.shallow
+        history.first(where: { $0.key.handlerID == key.handlerID })?.shallow
     }
 
     func deep(key: Handler) -> Handler? {
-        history.first(where: { $0.key == key })?.deep
+        history.first(where: { $0.key.handlerID == key.handlerID })?.deep
     }
 }

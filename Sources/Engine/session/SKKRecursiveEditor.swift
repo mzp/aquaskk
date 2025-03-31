@@ -17,7 +17,7 @@ public class SKKRecursiveEditorImpl {
         self.annotator = annotator
         self.completer = completer
         self.candidateWindow = candidateWindow
-        self.state = SKKStateMachineImpl()
+        state = SKKStateMachineImpl()
     }
 
     deinit {
@@ -30,7 +30,7 @@ public class SKKRecursiveEditorImpl {
     }
 
     public func input(event: SKKEvent) {
-        self.state.dispatch(event: event)
+        state.dispatch(event: event)
     }
 
     public func output() {

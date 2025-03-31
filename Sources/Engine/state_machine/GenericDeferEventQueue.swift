@@ -17,7 +17,7 @@ struct GenericDeferEventQueue<Handler: HandlerProtocol> {
     var outgoing: [Entry] = []
 
     mutating func enqueue(key: Handler, event: GenericEvent) {
-        if let index = incomming.firstIndex(where: { $0.key == key }) {
+        if let index = incomming.firstIndex(where: { $0.key.handlerID == key.handlerID }) {
             incomming[index].queue.append(event)
         } else {
             incomming.insert(.init(key: key, queue: [event]), at: 0)
@@ -25,7 +25,7 @@ struct GenericDeferEventQueue<Handler: HandlerProtocol> {
     }
 
     mutating func dequeue(key: Handler) -> GenericEvent? {
-        guard let index = outgoing.firstIndex(where: { $0.key == key }) else {
+        guard let index = outgoing.firstIndex(where: { $0.key.handlerID == key.handlerID }) else {
             return nil
         }
         if outgoing[index].queue.isEmpty {
@@ -35,7 +35,7 @@ struct GenericDeferEventQueue<Handler: HandlerProtocol> {
     }
 
     mutating func commit(key: Handler) {
-        if let index = incomming.firstIndex(where: { $0.key == key }) {
+        if let index = incomming.firstIndex(where: { $0.key.handlerID == key.handlerID }) {
             outgoing.insert(incomming[index], at: 0)
             incomming.remove(at: index)
         }

@@ -20,7 +20,7 @@
 		1307C24E2C5B47DA00B089B6 /* SandboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1307C24D2C5B47DA00B089B6 /* SandboxTests.swift */; };
 		13096C882C8CAEA1009F3E6B /* TyperConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 13096C862C8CAEA1009F3E6B /* TyperConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13096C892C8CAEA1009F3E6B /* TyperConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13096C872C8CAEA1009F3E6B /* TyperConfig.cpp */; };
-		130C48442D7CB28A0052FF60 /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C48432D7CB28A0052FF60 /* StateMachine.swift */; };
+		130C48442D7CB28A0052FF60 /* InspectorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C48432D7CB28A0052FF60 /* InspectorProtocol.swift */; };
 		130C48482D7E0B0C0052FF60 /* GenericEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C48462D7E0B0C0052FF60 /* GenericEvent.swift */; };
 		130C484A2D7E0B1C0052FF60 /* GenericState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C48492D7E0B1C0052FF60 /* GenericState.swift */; };
 		130C484D2D7E0B340052FF60 /* GenericStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130C484C2D7E0B340052FF60 /* GenericStateMachine.swift */; };
@@ -69,6 +69,7 @@
 		133021A92D64332100BFE102 /* SKKDictionaryFileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133021A82D64332100BFE102 /* SKKDictionaryFileTests.swift */; };
 		133021AD2D646C9900BFE102 /* SKKDictionaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133021AC2D646C9900BFE102 /* SKKDictionaryEntry.swift */; };
 		133021AF2D646CB400BFE102 /* DictionaryEntryParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133021AE2D646CB400BFE102 /* DictionaryEntryParser.swift */; };
+		1332CC322D9A17660052F59F /* SKKStateTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1332CC312D9A17660052F59F /* SKKStateTop.swift */; };
 		13349BA42D6C054600F87C33 /* stringutil.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5592C5B28FC00D8C850 /* stringutil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1334F0532D6C0CE1008CC38B /* SKKKeyState.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4EC2C5B28FC00D8C850 /* SKKKeyState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1334F0542D6C0CE1008CC38B /* SKKKeyModifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B4A9C22D5937CC002453BA /* SKKKeyModifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -211,6 +212,7 @@
 		135C3DB92C5B3F1D00661AE3 /* MacInputModeWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D782C5B3F1D00661AE3 /* MacInputModeWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DBB2C5B3F1D00661AE3 /* MacDynamicCompletor.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D722C5B3F1D00661AE3 /* MacDynamicCompletor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DBD2C5B3F1D00661AE3 /* MacFrontEnd.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D742C5B3F1D00661AE3 /* MacFrontEnd.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135D5D812D9844DC006B2B99 /* HandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135D5D802D9844DC006B2B99 /* HandlerProtocol.swift */; };
 		135DDD942D68D31B00E6FDDE /* SKKCommonDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135DDD932D68D31B00E6FDDE /* SKKCommonDictionaryTests.swift */; };
 		135DDD962D68D33B00E6FDDE /* SKKDictionaryReloadAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135DDD952D68D33B00E6FDDE /* SKKDictionaryReloadAdapter.swift */; };
 		135DDD982D68D56700E6FDDE /* SKKBaseDictionaryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135DDD972D68D56700E6FDDE /* SKKBaseDictionaryProtocol.swift */; };
@@ -624,7 +626,7 @@
 		13096C842C8C2D24009F3E6B /* IntrusiveRefCounted.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntrusiveRefCounted.h; sourceTree = "<group>"; };
 		13096C862C8CAEA1009F3E6B /* TyperConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TyperConfig.h; sourceTree = "<group>"; };
 		13096C872C8CAEA1009F3E6B /* TyperConfig.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TyperConfig.cpp; sourceTree = "<group>"; };
-		130C48432D7CB28A0052FF60 /* StateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMachine.swift; sourceTree = "<group>"; };
+		130C48432D7CB28A0052FF60 /* InspectorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorProtocol.swift; sourceTree = "<group>"; };
 		130C48462D7E0B0C0052FF60 /* GenericEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericEvent.swift; sourceTree = "<group>"; };
 		130C48492D7E0B1C0052FF60 /* GenericState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericState.swift; sourceTree = "<group>"; };
 		130C484C2D7E0B340052FF60 /* GenericStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericStateMachine.swift; sourceTree = "<group>"; };
@@ -684,6 +686,7 @@
 		133021A82D64332100BFE102 /* SKKDictionaryFileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKDictionaryFileTests.swift; sourceTree = "<group>"; };
 		133021AC2D646C9900BFE102 /* SKKDictionaryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKDictionaryEntry.swift; sourceTree = "<group>"; };
 		133021AE2D646CB400BFE102 /* DictionaryEntryParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEntryParser.swift; sourceTree = "<group>"; };
+		1332CC312D9A17660052F59F /* SKKStateTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStateTop.swift; sourceTree = "<group>"; };
 		1335E36D2C9744A9002F298B /* SKKLocalUserDictionaryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKLocalUserDictionaryImpl.swift; sourceTree = "<group>"; };
 		1335E3752C97F842002F298B /* TestingResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingResource.swift; sourceTree = "<group>"; };
 		1335E3792C97FE3C002F298B /* MockCompletionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCompletionHelper.swift; sourceTree = "<group>"; };
@@ -862,6 +865,7 @@
 		135C3D7E2C5B3F1D00661AE3 /* MacMessenger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacMessenger.h; sourceTree = "<group>"; };
 		135C3D7F2C5B3F1D00661AE3 /* MacMessenger.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MacMessenger.mm; sourceTree = "<group>"; };
 		135C3DBF2C5B3FEC00661AE3 /* Framework-Input.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Input.xcconfig"; sourceTree = "<group>"; };
+		135D5D802D9844DC006B2B99 /* HandlerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlerProtocol.swift; sourceTree = "<group>"; };
 		135DDD932D68D31B00E6FDDE /* SKKCommonDictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKCommonDictionaryTests.swift; sourceTree = "<group>"; };
 		135DDD952D68D33B00E6FDDE /* SKKDictionaryReloadAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKDictionaryReloadAdapter.swift; sourceTree = "<group>"; };
 		135DDD972D68D56700E6FDDE /* SKKBaseDictionaryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKBaseDictionaryProtocol.swift; sourceTree = "<group>"; };
@@ -1363,7 +1367,8 @@
 				130C48492D7E0B1C0052FF60 /* GenericState.swift */,
 				130C484F2D7E0DF10052FF60 /* GenericStateHistory.swift */,
 				130C484C2D7E0B340052FF60 /* GenericStateMachine.swift */,
-				130C48432D7CB28A0052FF60 /* StateMachine.swift */,
+				130C48432D7CB28A0052FF60 /* InspectorProtocol.swift */,
+				135D5D802D9844DC006B2B99 /* HandlerProtocol.swift */,
 			);
 			path = state_machine;
 			sourceTree = "<group>";
@@ -1891,6 +1896,7 @@
 				13615FF22D8544CC000EA020 /* SKKStateRecursiveRegister.swift */,
 				1344F50F2C5B28FC00D8C850 /* SKKStateMachine.h */,
 				138ABEC32D80819D0027BFAF /* SKKStatePrimary.swift */,
+				1332CC312D9A17660052F59F /* SKKStateTop.swift */,
 				1344F5102C5B28FC00D8C850 /* SKKStatePrimary-inl.h */,
 				1344F5112C5B28FC00D8C850 /* SKKStateRecursiveRegister-inl.h */,
 				130C48632D7E88A30052FF60 /* SKKStateMachine.swift */,
@@ -4104,7 +4110,7 @@
 				1344F5DB2C5B28FC00D8C850 /* SKKEntryRemoveEditor.cpp in Sources */,
 				1344F5DC2C5B28FC00D8C850 /* SKKRegisterEditor.cpp in Sources */,
 				134D25642D7A03870014ACD5 /* SKKRegisterEditor.swift in Sources */,
-				130C48442D7CB28A0052FF60 /* StateMachine.swift in Sources */,
+				130C48442D7CB28A0052FF60 /* InspectorProtocol.swift in Sources */,
 				138FB7062D7B491400542DF7 /* SKKFrontEnd.cpp in Sources */,
 				1344F5E22C5B28FC00D8C850 /* SKKRecursiveEditor.cpp in Sources */,
 				1344F5E42C5B28FC00D8C850 /* SKKComposingEditor.cpp in Sources */,
@@ -4120,8 +4126,10 @@
 				13A6488A2D76D82900FB52C5 /* SKKInputQueue.swift in Sources */,
 				13513C452D74BBB100C00A4E /* SKKCandidatePresenter.swift in Sources */,
 				1344F5FC2C5B28FC00D8C850 /* SKKTextBuffer.cpp in Sources */,
+				1332CC322D9A17660052F59F /* SKKStateTop.swift in Sources */,
 				13615FF32D8544CC000EA020 /* SKKStateRecursiveRegister.swift in Sources */,
 				130C48532D7E10740052FF60 /* GenericDeferEventQueue.swift in Sources */,
+				135D5D812D9844DC006B2B99 /* HandlerProtocol.swift in Sources */,
 				1344F5FF2C5B28FC00D8C850 /* SKKInputEngine.cpp in Sources */,
 				130C48502D7E0DF10052FF60 /* GenericStateHistory.swift in Sources */,
 				139E88B72D73F2FA0065CFA2 /* SKKInlineSelector.swift in Sources */,

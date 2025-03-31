@@ -42,6 +42,7 @@ class SKKStateContainer;
 enum class SKKStateMachineAction {
     handled,
 
+    initializePrimary,
     initializeKanaInput,
 
     transitionAsciiMode,
