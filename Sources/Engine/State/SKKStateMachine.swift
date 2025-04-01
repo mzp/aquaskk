@@ -9,15 +9,112 @@ import AquaSKKLogging
 import OSLog
 
 public class SKKStateMachineImpl {
-    let machine: GenericStateMachine<SKKStateTop>
+    let primaryState: SKKStatePrimary
+    let kanaInputState: SKKStateKanaInput
+    let hirakanaInputState: SKKStateHirakana
+    let katakanaInputState: SKKStateKatakana
+    let jis0201kanaState: SKKStateJisx0201Kana
+    let latinInputState: SKKStateLatinInput
+    let asciiStateState: SKKStateAscii
+    let jis0208LatinState: SKKStateJisx0208Latin
+    let composingState: SKKStateComposing
+    let editState: SKKStateEdit
+    let entryInputState: SKKStateEntryInput
+    let kanaEntryState: SKKStateKanaEntry
+    let asciiEntryState: SKKStateAsciiEntry
+    let entryCompletionState: SKKStateEntryCompletion
+    let selectCandidateState: SKKStateSelectCandidate
+    let okuriInputState: SKKStateOkuriInput
+    let recursiveRegisterState: SKKStateRecursiveRegister
+    let entryRemoveState: SKKStateEntryRemove
 
-    public init() {
-        machine = GenericStateMachine(top: SKKStateTop(), inspector: DebugInspector())
+    var machine: GenericStateMachine?
+
+    public init(engine: SKKInputEngine, context: SKKInputContext, config: SKKConfig, completer: SKKCompleter, selector: SKKSelector, messenger: SKKMessenger) {
+        primaryState = .init(editor: engine, context: context, messenger: messenger)
+        kanaInputState = .init(editor: engine)
+        hirakanaInputState = .init(editor: engine)
+        katakanaInputState = .init(editor: engine)
+        jis0201kanaState = .init(editor: engine)
+        latinInputState = .init(editor: engine)
+        asciiStateState = .init(editor: engine)
+        jis0208LatinState = .init(editor: engine)
+        composingState = .init(editor: engine)
+        editState = .init(editor: engine, context: context, config: config, completer: completer, selector: selector)
+        entryInputState = .init(editor: engine, completer: completer)
+        kanaEntryState = .init(editor: engine, context: context, config: config)
+        asciiEntryState = .init(editor: engine, context: context)
+        entryCompletionState = .init(editor: engine, completer: completer, messenger: messenger)
+        selectCandidateState = .init(editor: engine, config: config, selector: selector)
+        okuriInputState = .init(editor: engine, config: config, context: context, selector: selector)
+        recursiveRegisterState = .init(editor: engine, messenger: messenger)
+        entryRemoveState = .init(editor: engine, context: context, messenger: messenger)
+
+        machine = GenericStateMachine(top: SKKStateTop(), inspector: DebugInspector(), bridgePerform: bridgePerform)
+    }
+
+    func bridgePerform(action: SKKStateMachineAction) -> GenericState? {
+        switch action {
+        case .initializePrimary:
+            return .initial(handler: primaryState)
+        case .initializeKanaInput:
+            return .initial(handler: kanaInputState)
+        case .transitionAsciiMode:
+            return .transition(handler: asciiStateState)
+        case .transitionHirakanaMode:
+            return .transition(handler: hirakanaInputState)
+        case .transitionKatakanaMode:
+            return .transition(handler: katakanaInputState)
+        case .transitionJisx0201KanaMode:
+            return .transition(handler: jis0201kanaState)
+        case .transitionJisx0208LatinMode:
+            return .transition(handler: jis0208LatinState)
+        case .transitionKanaEntry:
+            return .transition(handler: kanaEntryState)
+        case .transitionKanaInput:
+            return .transition(handler: kanaInputState)
+        case .transitionSelectCandidate:
+            return .transition(handler: selectCandidateState)
+        case .transitionRecursiveRegister:
+            return .transition(handler: recursiveRegisterState)
+        case .transitionEntryCompletion:
+            return .transition(handler: entryCompletionState)
+        case .transitionOkuriInput:
+            return .transition(handler: okuriInputState)
+        case .transitionEntryRemove:
+            return .transition(handler: entryRemoveState)
+        case .transitionAsciiEntry:
+            return .transition(handler: asciiEntryState)
+        case .forwardKanaInput:
+            return .forward(handler: kanaInputState)
+        case .forwardKanaEntry:
+            return .forward(handler: kanaEntryState)
+        case .forwardEntryInput:
+            return .forward(handler: entryInputState)
+        case .forwardOkuriInput:
+            return .forward(handler: okuriInputState)
+        case .shallowHistoryHirakana:
+            return .shalllowHistory(handler: hirakanaInputState)
+        case .saveHistory:
+            return .saveHistory()
+        case .deepForwardEntryInput:
+            return .deepForward(handler: entryInputState)
+        case .deepForwardKanaInput:
+            return .deepForward(handler: kanaInputState)
+        case .deepHistoryEntryInput:
+            return .deepHistory(handler: entryInputState)
+        case .deepHistoryComposing:
+            return .deepHistory(handler: composingState)
+        case .super_:
+            return nil
+        case .handled:
+            return nil
+        }
     }
 
     public func dispatch(event: SKKEvent) {
-        let genericEvent: GenericEvent = .init(signal: SKKEventID(rawValue: event.id) ?? SKKEventID.null)
-        machine.dispatch(event: genericEvent)
+        let genericEvent: GenericEvent = .init(signal: SKKEventID(rawValue: event.id) ?? SKKEventID.null, event: event)
+        machine?.dispatch(event: genericEvent)
     }
 }
 

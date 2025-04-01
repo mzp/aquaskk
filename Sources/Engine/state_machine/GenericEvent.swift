@@ -7,6 +7,7 @@
 
 struct GenericEvent {
     var signal: SKKEventID
+    var event: SKKEvent?
 
     static let exit: GenericEvent = .init(signal: SKKEventID.exitEvent)
     static let init_: GenericEvent = .init(signal: .initEvent)

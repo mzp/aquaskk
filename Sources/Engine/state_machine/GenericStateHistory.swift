@@ -7,11 +7,11 @@
 
 // MARK: - State history
 
-struct GenericStateHistory<Handler: HandlerProtocol> {
+struct GenericStateHistory {
     struct Entry {
-        var key: Handler
-        var shallow: Handler?
-        var deep: Handler?
+        var key: HandlerProtocol
+        var shallow: HandlerProtocol?
+        var deep: HandlerProtocol?
     }
 
     var history: [Entry]
@@ -20,7 +20,7 @@ struct GenericStateHistory<Handler: HandlerProtocol> {
         history = []
     }
 
-    mutating func save(key: Handler, shallow: Handler?, deep: Handler?) {
+    mutating func save(key: HandlerProtocol, shallow: HandlerProtocol?, deep: HandlerProtocol?) {
         if var entry = history.first(where: { $0.key.handlerID == key.handlerID }) {
             entry.shallow = shallow
             entry.deep = deep
@@ -29,15 +29,15 @@ struct GenericStateHistory<Handler: HandlerProtocol> {
         }
     }
 
-    mutating func clear(key: Handler) {
+    mutating func clear(key: HandlerProtocol) {
         history.removeAll(where: { $0.key.handlerID == key.handlerID })
     }
 
-    func shallow(key: Handler) -> Handler? {
+    func shallow(key: HandlerProtocol) -> HandlerProtocol? {
         history.first(where: { $0.key.handlerID == key.handlerID })?.shallow
     }
 
-    func deep(key: Handler) -> Handler? {
+    func deep(key: HandlerProtocol) -> HandlerProtocol? {
         history.first(where: { $0.key.handlerID == key.handlerID })?.deep
     }
 }

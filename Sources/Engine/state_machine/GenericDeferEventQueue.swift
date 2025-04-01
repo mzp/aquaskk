@@ -7,16 +7,16 @@
 
 // MARK: - Deferred event
 
-struct GenericDeferEventQueue<Handler: HandlerProtocol> {
+struct GenericDeferEventQueue {
     struct Entry {
-        var key: Handler
+        var key: HandlerProtocol
         var queue: [GenericEvent]
     }
 
     var incomming: [Entry] = []
     var outgoing: [Entry] = []
 
-    mutating func enqueue(key: Handler, event: GenericEvent) {
+    mutating func enqueue(key: HandlerProtocol, event: GenericEvent) {
         if let index = incomming.firstIndex(where: { $0.key.handlerID == key.handlerID }) {
             incomming[index].queue.append(event)
         } else {
@@ -24,7 +24,7 @@ struct GenericDeferEventQueue<Handler: HandlerProtocol> {
         }
     }
 
-    mutating func dequeue(key: Handler) -> GenericEvent? {
+    mutating func dequeue(key: HandlerProtocol) -> GenericEvent? {
         guard let index = outgoing.firstIndex(where: { $0.key.handlerID == key.handlerID }) else {
             return nil
         }
@@ -34,7 +34,7 @@ struct GenericDeferEventQueue<Handler: HandlerProtocol> {
         return outgoing[index].queue.removeFirst()
     }
 
-    mutating func commit(key: Handler) {
+    mutating func commit(key: HandlerProtocol) {
         if let index = incomming.firstIndex(where: { $0.key.handlerID == key.handlerID }) {
             outgoing.insert(incomming[index], at: 0)
             incomming.remove(at: index)

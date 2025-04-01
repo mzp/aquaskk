@@ -5,44 +5,51 @@
 //  Created by mzp on 2025/03/09.
 //
 
-class GenericStateMachine<Handler: HandlerProtocol> {
-    init(top: Handler, inspector: InspectorProtocol) {
+class GenericStateMachine {
+    init(top: HandlerProtocol, inspector: InspectorProtocol, bridgePerform: @escaping (SKKStateMachineAction) -> GenericState?) {
         self.inspector = inspector
         self.top = top
+        self.bridgePerform = bridgePerform
     }
 
     var inspector: any InspectorProtocol
-    var top: Handler
-    var active: Handler?
+    var top: HandlerProtocol
+    var active: HandlerProtocol?
+    var bridgePerform: (SKKStateMachineAction) -> GenericState?
 
-    var queue = GenericDeferEventQueue<Handler>()
-    var history: GenericStateHistory<Handler> = .init()
+    var queue = GenericDeferEventQueue()
+    var history: GenericStateHistory = .init()
 
     // MARK: - invoke state function
 
-    func invoke(handler: Handler, event: GenericEvent) -> GenericState<Handler>? {
+    func invoke(handler: HandlerProtocol, event: GenericEvent) -> GenericState? {
         inspector.inspect(handler: handler, event: event)
-
-        // handler.invoke(event: event)
-        return nil
+        let bridgeEvent: SKKStateMachineEvent
+        if let payload = event.event {
+            bridgeEvent = .init(event.signal.rawValue, payload)
+        } else {
+            bridgeEvent = .init(event.signal.rawValue)
+        }
+        let result = handler.dispatch(event: bridgeEvent)
+        return bridgePerform(result)
     }
 
     // MARK: - system event trigger
 
-    func getSuperState(handler: Handler) -> GenericState<Handler>? {
+    func getSuperState(handler: HandlerProtocol) -> GenericState? {
         return invoke(handler: handler, event: .probe)
     }
 
-    func entryAction(handler: Handler) -> GenericState<Handler>? {
+    func entryAction(handler: HandlerProtocol) -> GenericState? {
         return invoke(handler: handler, event: .entry)
     }
 
-    func initialTransition(handler: Handler) -> GenericState<Handler>? {
+    func initialTransition(handler: HandlerProtocol) -> GenericState? {
         return invoke(handler: handler, event: .init_)
     }
 
-    var prior: Handler?
-    func exitAction(handler: Handler) -> GenericState<Handler>? {
+    var prior: HandlerProtocol?
+    func exitAction(handler: HandlerProtocol) -> GenericState? {
         let result = invoke(handler: handler, event: .exit)
 
         if result?.type == .saveHistory {
@@ -55,10 +62,10 @@ class GenericStateMachine<Handler: HandlerProtocol> {
 
     // MARK: - initial transition trigger
 
-    func initialize(target: GenericState<Handler>) {
+    func initialize(target: GenericState) {
         var active = target.handler
 
-        for state in sequence(state: active, next: { handler -> GenericState<Handler>? in
+        for state in sequence(state: active, next: { handler -> GenericState? in
             guard let state = self.initialTransition(handler: handler) else {
                 fatalError("*** Initial transition must be ended by returning super state ***")
             }
@@ -91,7 +98,7 @@ class GenericStateMachine<Handler: HandlerProtocol> {
 
     // MARK: - transition trigger
 
-    func transition(source: Handler, target: Handler) {
+    func transition(source: HandlerProtocol, target: HandlerProtocol) {
         prior = nil
 
         guard let active = active else {
@@ -105,7 +112,7 @@ class GenericStateMachine<Handler: HandlerProtocol> {
             _ = exitAction(handler: tmp)
         }
 
-        var path = [Handler]()
+        var path = [HandlerProtocol]()
         // go into the target
         defer {
             for handler in path.reversed() {
@@ -227,6 +234,7 @@ class GenericStateMachine<Handler: HandlerProtocol> {
             default:
                 fatalError("*** Invalid state detected ***")
             }
+            source = next.handler
         }
     }
 }
