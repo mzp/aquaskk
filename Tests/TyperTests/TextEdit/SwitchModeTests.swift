@@ -10,6 +10,13 @@ import Testing
 internal import AquaSKKBackend
 
 struct SwitchModeTests {
+    @Test func ping() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.handle(event: .ping)
+        }
+    }
+
     @Test func hiragana() async {
         let session = Typer.Session()
         await session.run { typer in

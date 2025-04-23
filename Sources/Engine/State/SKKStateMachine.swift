@@ -119,7 +119,7 @@ public class SKKStateMachineImpl {
 }
 
 struct DebugInspector: InspectorProtocol {
-    func inspect(handler: any HandlerProtocol, event _: GenericEvent) {
-        Logger.skkState.debug("[\(#fileID, privacy: .public):\(#function, privacy: .public)] \(handler.handlerID, privacy: .private)")
+    func inspect(handler: any HandlerProtocol, event: GenericEvent) {
+        Logger.skkState.debug("[\(#fileID, privacy: .public):\(#function, privacy: .public)] \(handler.handlerID, privacy: .private) \(event.signal, privacy: .private)")
     }
 }
