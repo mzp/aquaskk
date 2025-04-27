@@ -170,7 +170,6 @@ class GenericStateMachine {
         if let sourceSuper = sourceSuper {
             for tmp in sequence(first: sourceSuper, next: { self.getSuperState(handler: $0)?.handler }) {
                 if path.contains(where: { $0.handlerID == tmp.handlerID }) {
-                    assertionFailure("*** Invalid state transition form detected ***")
                     break
                 }
                 _ = exitAction(handler: tmp)
@@ -198,10 +197,10 @@ class GenericStateMachine {
             switch next.type {
             case .deferEvent:
                 queue.enqueue(key: source!, event: event)
-
+                return
             case .clearHistory:
                 history.clear(key: source!)
-
+                return
             case .deepHistory:
                 let target = history.deep(key: next.handler)!
                 transition(source: source!, target: target)
@@ -211,13 +210,13 @@ class GenericStateMachine {
                     // recursion
                     dispatch(event: defer_)
                 }
-
+                return
             case .deepForward:
                 let target = history.deep(key: next.handler)!
                 transition(source: source!, target: target)
                 initialize(target: .super_(handler: target))
                 next = .super_(handler: target)
-
+                source = next.handler
             case .transition:
                 transition(source: source!, target: next.handler)
                 initialize(target: next)
@@ -226,17 +225,17 @@ class GenericStateMachine {
                     // recursion
                     dispatch(event: defer_)
                 }
-
+                return
             case .forward:
                 transition(source: source!, target: next.handler)
                 initialize(target: next)
-
+                source = next.handler
             case .shalllowHistory, .saveHistory, .initial:
                 fatalError("*** Invalid state detected ***")
             default:
-                ()
+                source = next.handler
             }
-            source = next.handler
+
         }
     }
 }

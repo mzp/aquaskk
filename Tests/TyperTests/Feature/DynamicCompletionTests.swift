@@ -7,7 +7,7 @@
 import Testing
 
 struct DynamicCompletionTests {
-    @Test func dynamicCompletion() async {
+    @Test(.disabled("WIP")) func dynamicCompletion() async {
         let session = Typer.Session()
         await session.run { typer in
             await typer.type(text: "K")

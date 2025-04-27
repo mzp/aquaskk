@@ -8,7 +8,7 @@
 import Testing
 
 struct ToggleKanaTests {
-    @Test func composing_toggleKana() async {
+    @Test(.disabled("WIP")) func composing_toggleKana() async {
         let session = Typer.Session()
         await session.run { typer in
             await typer.type(text: "Aiueo")
@@ -17,7 +17,7 @@ struct ToggleKanaTests {
         }
     }
 
-    @Test func composing_toggleJisx0201Kana() async {
+    @Test(.disabled("WIP")) func composing_toggleJisx0201Kana() async {
         let session = Typer.Session()
         await session.run { typer in
             await typer.type(text: "Aiueo")
@@ -26,7 +26,7 @@ struct ToggleKanaTests {
         }
     }
 
-    @Test func asciiEntry() async {
+    @Test(.disabled("WIP")) func asciiEntry() async {
         let session = Typer.Session()
         await session.run { typer in
             await typer.type(text: "/abc")

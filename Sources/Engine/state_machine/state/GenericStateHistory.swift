@@ -21,9 +21,9 @@ struct GenericStateHistory {
     }
 
     mutating func save(key: HandlerProtocol, shallow: HandlerProtocol?, deep: HandlerProtocol?) {
-        if var entry = history.first(where: { $0.key.handlerID == key.handlerID }) {
-            entry.shallow = shallow
-            entry.deep = deep
+        if let index = history.firstIndex(where: { $0.key.handlerID == key.handlerID }) {
+            history[index].shallow = shallow
+            history[index].deep = deep
         } else {
             history.insert(.init(key: key, shallow: shallow, deep: deep), at: 0)
         }

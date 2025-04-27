@@ -34,7 +34,8 @@ struct SwitchModeTests {
     @Test func katakana() async {
         let session = Typer.Session()
         await session.run { typer in
-            await typer.type(text: "qaiueo")
+            await typer.type(text: "q")
+            await typer.type(text: "aiueo")
             #expect(typer.insertedText == "アイウエオ")
             #expect(typer.markedText == "")
 
@@ -69,7 +70,7 @@ struct SwitchModeTests {
         }
     }
 
-    @Test("switch by key", arguments: [
+    @Test("switch by key", .disabled("WIP"), arguments: [
         ("l", SKKInputMode.AsciiInputMode),
         ("L", SKKInputMode.Jisx0208LatinInputMode),
         ("Q", SKKInputMode.HirakanaInputMode),

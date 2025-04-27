@@ -47,7 +47,7 @@ public class SKKStateMachineImpl {
         asciiStateState = .init(editor: engine)
         asciiStateState.super_ = latinInputState
         jis0208LatinState = .init(editor: engine)
-        jis0201kanaState.super_ = latinInputState
+        jis0208LatinState.super_ = latinInputState
 
         composingState = .init(editor: engine)
         editState = .init(editor: engine, context: context, config: config, completer: completer, selector: selector)
@@ -139,6 +139,8 @@ public class SKKStateMachineImpl {
 
 struct DebugInspector: InspectorProtocol {
     func inspect(handler: any HandlerProtocol, event: GenericEvent) {
-        Logger.skkState.debug("[\(#fileID, privacy: .public):\(#function, privacy: .public)] \(handler.handlerID, privacy: .private) \(event.signal, privacy: .private)")
+
+        let eventDump = event.event?.dump() ?? "<no event>"
+        Logger.skkState.debug("[\(#fileID, privacy: .public):\(#function, privacy: .public)] \(handler.handlerID, privacy: .private) \(eventDump, privacy: .private)")
     }
 }

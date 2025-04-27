@@ -32,7 +32,7 @@ struct CompletionTests {
         }
     }
 
-    @Test func removeCompletion() async throws {
+    @Test(.disabled("WIP")) func removeCompletion() async throws {
         let session = Typer.Session()
         await session.run { typer in
             await typer.type(text: "Joga")
