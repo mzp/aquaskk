@@ -92,7 +92,7 @@ struct ComposingTests {
         }
     }
 
-    @Test(.disabled("Loop")) func implicitTransition() async {
+    @Test func implicitTransition() async {
         let session = Typer.Session()
         await session.run { typer in
             await typer.type(text: "A")

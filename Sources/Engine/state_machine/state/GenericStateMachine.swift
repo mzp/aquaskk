@@ -107,6 +107,9 @@ class GenericStateMachine {
         for tmp in sequence(first: active, next: {
             self.getSuperState(handler: $0)?.handler
         }) {
+            if tmp.handlerID == source.handlerID {
+                break
+            }
             _ = exitAction(handler: tmp)
         }
 

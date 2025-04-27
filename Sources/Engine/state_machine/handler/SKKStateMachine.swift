@@ -141,6 +141,6 @@ struct DebugInspector: InspectorProtocol {
     func inspect(handler: any HandlerProtocol, event: GenericEvent) {
 
         let eventDump = event.event?.dump() ?? "<no event>"
-        Logger.skkState.debug("[\(#fileID, privacy: .public):\(#function, privacy: .public)] \(handler.handlerID, privacy: .private) \(eventDump, privacy: .private)")
+        Logger.skkState.debug("[\(#fileID, privacy: .public):\(#function, privacy: .public)] \(handler.handlerID, privacy: .private) \(event.signal, privacy: .private) \(eventDump, privacy: .private)")
     }
 }
