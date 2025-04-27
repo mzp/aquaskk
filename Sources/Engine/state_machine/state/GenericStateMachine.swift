@@ -6,7 +6,7 @@
 //
 
 class GenericStateMachine {
-    init(top: HandlerProtocol, inspector: InspectorProtocol, bridgePerform: @escaping (SKKStateMachineAction) -> GenericState?) {
+    init(top: HandlerProtocol, inspector: InspectorProtocol, bridgePerform: @escaping (SKKStateMachineAction, GenericState) -> GenericState?) {
         self.inspector = inspector
         self.top = top
         self.bridgePerform = bridgePerform
@@ -15,7 +15,7 @@ class GenericStateMachine {
     var inspector: any InspectorProtocol
     var top: HandlerProtocol
     var active: HandlerProtocol?
-    var bridgePerform: (SKKStateMachineAction) -> GenericState?
+    var bridgePerform: (SKKStateMachineAction, GenericState) -> GenericState?
 
     var queue = GenericDeferEventQueue()
     var history: GenericStateHistory = .init()
@@ -31,7 +31,7 @@ class GenericStateMachine {
             bridgeEvent = .init(event.signal.rawValue)
         }
         let result = handler.dispatch(event: bridgeEvent)
-        return bridgePerform(result)
+        return bridgePerform(result, .super_(handler: handler.super_ ?? top))
     }
 
     // MARK: - system event trigger
@@ -64,21 +64,15 @@ class GenericStateMachine {
 
     func initialize(target: GenericState) {
         var active = target.handler
+        self.active = active
 
-        for state in sequence(state: active, next: { handler -> GenericState? in
-            guard let state = self.initialTransition(handler: handler) else {
-                fatalError("*** Initial transition must be ended by returning super state ***")
-            }
-            switch state.type {
-            case .initial,
-                 .shalllowHistory:
-                return state
-            case .super_:
-                return nil
-            default:
-                fatalError("*** Initial transition must be ended by returning super state ***")
-            }
-        }) {
+        guard var state = self.initialTransition(handler: active) else {
+            return
+        }
+
+        while state.type == .initial ||
+                state.type == .shalllowHistory
+        {
             if state.type == .shalllowHistory {
                 if let shallow = history.shallow(key: active) {
                     active = shallow
@@ -90,10 +84,14 @@ class GenericStateMachine {
             } else {
                 active = state.handler
             }
+            self.active = active
             _ = entryAction(handler: active)
-        }
 
-        self.active = active
+            guard let nextState = self.initialTransition(handler: active) else {
+                return
+            }
+            state = nextState
+        }
     }
 
     // MARK: - transition trigger
@@ -194,7 +192,9 @@ class GenericStateMachine {
 
         var source = active
         while source != nil {
-            var next = invoke(handler: source!, event: event)!
+            guard var next = invoke(handler: source!, event: event) else {
+                return
+            }
             switch next.type {
             case .deferEvent:
                 queue.enqueue(key: source!, event: event)
@@ -231,8 +231,10 @@ class GenericStateMachine {
                 transition(source: source!, target: next.handler)
                 initialize(target: next)
 
-            default:
+            case .shalllowHistory, .saveHistory, .initial:
                 fatalError("*** Invalid state detected ***")
+            default:
+                ()
             }
             source = next.handler
         }

@@ -13,6 +13,7 @@ public enum StateTransitionResult: Int {
 
 public class SKKStatePrimary: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
+    var super_: HandlerProtocol? = nil
 
     var editor: SKKInputEngine
     var context: SKKInputContext
@@ -124,6 +125,7 @@ public class SKKStatePrimary: HandlerProtocol {
 
 public class SKKStateKanaInput: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
+    var super_: HandlerProtocol? = nil
 
     var editor: SKKInputEngine
     public init(editor: SKKInputEngine) {
@@ -185,6 +187,7 @@ public class SKKStateKanaInput: HandlerProtocol {
 
 public class SKKStateHirakana: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
+    var super_: HandlerProtocol? = nil
 
     var editor: SKKInputEngine
     public init(editor: SKKInputEngine) {
@@ -233,7 +236,7 @@ public class SKKStateHirakana: HandlerProtocol {
 
 public class SKKStateKatakana: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
-
+    var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngine
     public init(editor: SKKInputEngine) {
         self.editor = editor
@@ -272,7 +275,7 @@ public class SKKStateKatakana: HandlerProtocol {
 
 public class SKKStateJisx0201Kana: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
-
+    var super_: HandlerProtocol? = nil
     var editor: SKKInputEngine
     public init(editor: SKKInputEngine) {
         self.editor = editor
@@ -322,7 +325,7 @@ public class SKKStateJisx0201Kana: HandlerProtocol {
 
 public class SKKStateLatinInput: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
-
+    var super_: HandlerProtocol? = nil
     var editor: SKKInputEngine
     public init(editor: SKKInputEngine) {
         self.editor = editor
@@ -363,7 +366,7 @@ public class SKKStateLatinInput: HandlerProtocol {
 /// ======================================================================
 public class SKKStateAscii: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
-
+    var super_: HandlerProtocol? = nil
     var editor: SKKInputEngine
     public init(editor: SKKInputEngine) {
         self.editor = editor
@@ -393,7 +396,7 @@ public class SKKStateAscii: HandlerProtocol {
 /// ======================================================================
 public class SKKStateJisx0208Latin: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
-
+    var super_: HandlerProtocol? = nil
     var editor: SKKInputEngine
     public init(editor: SKKInputEngine) {
         self.editor = editor

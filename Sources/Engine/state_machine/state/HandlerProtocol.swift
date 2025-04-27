@@ -7,6 +7,7 @@
 
 protocol HandlerProtocol {
     var handlerID: String { get }
+    var super_: (any HandlerProtocol)? { get set }
 
     func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction
 }

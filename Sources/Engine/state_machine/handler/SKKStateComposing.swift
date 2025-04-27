@@ -9,7 +9,7 @@
 
 public class SKKStateComposing: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) }
-
+    var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngine
     public init(editor: SKKInputEngine) {
         self.editor = editor
@@ -38,7 +38,7 @@ public class SKKStateComposing: HandlerProtocol {
 
 public class SKKStateEdit: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
-
+    var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngine
     var context: SKKInputContext
     var config: SKKConfig
@@ -134,7 +134,7 @@ public class SKKStateEdit: HandlerProtocol {
 
 public class SKKStateEntryInput: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
-
+    var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngine
     var completer: SKKCompleter
 
@@ -173,7 +173,7 @@ public class SKKStateEntryInput: HandlerProtocol {
 
 public class SKKStateKanaEntry: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
-
+    var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngine
     var context: SKKInputContext
     var config: SKKConfig
@@ -265,7 +265,7 @@ public class SKKStateKanaEntry: HandlerProtocol {
 
 public class SKKStateAsciiEntry: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
-
+    var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngine
     var context: SKKInputContext
     public init(editor: SKKInputEngine, context: SKKInputContext) {
@@ -308,6 +308,7 @@ public class SKKStateAsciiEntry: HandlerProtocol {
 
 public class SKKStateEntryCompletion: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
+    var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngine
     var completer: SKKCompleter
     var messenger: SKKMessenger
@@ -368,7 +369,7 @@ public class SKKStateEntryCompletion: HandlerProtocol {
 
 public class SKKStateSelectCandidate: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
-
+    var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngine
     var selector: SKKSelector
     var config: SKKConfig
@@ -476,6 +477,7 @@ public class SKKStateSelectCandidate: HandlerProtocol {
 
 public class SKKStateOkuriInput: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
+    var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngine
     var config: SKKConfig
     var context: SKKInputContext

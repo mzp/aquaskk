@@ -1362,13 +1362,8 @@
 		130C48422D7CB2820052FF60 /* state_machine */ = {
 			isa = PBXGroup;
 			children = (
-				130C48522D7E10740052FF60 /* GenericDeferEventQueue.swift */,
-				130C48462D7E0B0C0052FF60 /* GenericEvent.swift */,
-				130C48492D7E0B1C0052FF60 /* GenericState.swift */,
-				130C484F2D7E0DF10052FF60 /* GenericStateHistory.swift */,
-				130C484C2D7E0B340052FF60 /* GenericStateMachine.swift */,
-				130C48432D7CB28A0052FF60 /* InspectorProtocol.swift */,
-				135D5D802D9844DC006B2B99 /* HandlerProtocol.swift */,
+				13317A742DBE973B00F8190B /* state */,
+				13317A732DBE972000F8190B /* handler */,
 			);
 			path = state_machine;
 			sourceTree = "<group>";
@@ -1574,6 +1569,33 @@
 				133021AE2D646CB400BFE102 /* DictionaryEntryParser.swift */,
 			);
 			path = file;
+			sourceTree = "<group>";
+		};
+		13317A732DBE972000F8190B /* handler */ = {
+			isa = PBXGroup;
+			children = (
+				13615FEE2D852108000EA020 /* SKKStateComposing.swift */,
+				13615FF02D8543E5000EA020 /* SKKStateEntryRemove.swift */,
+				130C48632D7E88A30052FF60 /* SKKStateMachine.swift */,
+				138ABEC32D80819D0027BFAF /* SKKStatePrimary.swift */,
+				13615FF22D8544CC000EA020 /* SKKStateRecursiveRegister.swift */,
+				1332CC312D9A17660052F59F /* SKKStateTop.swift */,
+			);
+			path = handler;
+			sourceTree = "<group>";
+		};
+		13317A742DBE973B00F8190B /* state */ = {
+			isa = PBXGroup;
+			children = (
+				130C48492D7E0B1C0052FF60 /* GenericState.swift */,
+				130C48522D7E10740052FF60 /* GenericDeferEventQueue.swift */,
+				130C48462D7E0B0C0052FF60 /* GenericEvent.swift */,
+				130C484F2D7E0DF10052FF60 /* GenericStateHistory.swift */,
+				130C484C2D7E0B340052FF60 /* GenericStateMachine.swift */,
+				135D5D802D9844DC006B2B99 /* HandlerProtocol.swift */,
+				130C48432D7CB28A0052FF60 /* InspectorProtocol.swift */,
+			);
+			path = state;
 			sourceTree = "<group>";
 		};
 		133834E22C60203900D73AD7 /* TyperTests */ = {
@@ -1889,17 +1911,11 @@
 				13615FEC2D8475CF000EA020 /* SKKEventID.h */,
 				1344F50B2C5B28FC00D8C850 /* SKKState.h */,
 				1344F50C2C5B28FC00D8C850 /* SKKState.cpp */,
-				13615FEE2D852108000EA020 /* SKKStateComposing.swift */,
 				1344F50D2C5B28FC00D8C850 /* SKKStateComposing-inl.h */,
 				1344F50E2C5B28FC00D8C850 /* SKKStateEntryRemove-inl.h */,
-				13615FF02D8543E5000EA020 /* SKKStateEntryRemove.swift */,
-				13615FF22D8544CC000EA020 /* SKKStateRecursiveRegister.swift */,
 				1344F50F2C5B28FC00D8C850 /* SKKStateMachine.h */,
-				138ABEC32D80819D0027BFAF /* SKKStatePrimary.swift */,
-				1332CC312D9A17660052F59F /* SKKStateTop.swift */,
 				1344F5102C5B28FC00D8C850 /* SKKStatePrimary-inl.h */,
 				1344F5112C5B28FC00D8C850 /* SKKStateRecursiveRegister-inl.h */,
-				130C48632D7E88A30052FF60 /* SKKStateMachine.swift */,
 			);
 			path = state;
 			sourceTree = "<group>";

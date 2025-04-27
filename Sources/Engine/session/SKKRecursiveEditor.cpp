@@ -45,7 +45,7 @@ SKKRecursiveEditor::~SKKRecursiveEditor() {
 
 void SKKRecursiveEditor::Input(const SKKEvent &event) {
     (*impl_)->input(event);
-    state_.Dispatch(SKKStateMachine::Event(event.id, event));
+//    state_.Dispatch(SKKStateMachine::Event(event.id, event));
 }
 
 void SKKRecursiveEditor::Output() {

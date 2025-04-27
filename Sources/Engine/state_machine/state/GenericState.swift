@@ -23,6 +23,7 @@ enum StateType {
 
 class EmptyHandler: HandlerProtocol {
     var handlerID: String { "EmptyHandler" }
+    var super_: HandlerProtocol? = nil
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         return .super_
     }

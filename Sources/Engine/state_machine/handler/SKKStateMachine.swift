@@ -33,19 +33,38 @@ public class SKKStateMachineImpl {
     public init(engine: SKKInputEngine, context: SKKInputContext, config: SKKConfig, completer: SKKCompleter, selector: SKKSelector, messenger: SKKMessenger) {
         primaryState = .init(editor: engine, context: context, messenger: messenger)
         kanaInputState = .init(editor: engine)
+
+
         hirakanaInputState = .init(editor: engine)
         katakanaInputState = .init(editor: engine)
+        kanaInputState.super_ = primaryState
+        hirakanaInputState.super_ = kanaInputState
+        katakanaInputState.super_ = kanaInputState
         jis0201kanaState = .init(editor: engine)
+        jis0201kanaState.super_ = kanaInputState
         latinInputState = .init(editor: engine)
+        latinInputState.super_ = primaryState
         asciiStateState = .init(editor: engine)
+        asciiStateState.super_ = latinInputState
         jis0208LatinState = .init(editor: engine)
+        jis0201kanaState.super_ = latinInputState
+
         composingState = .init(editor: engine)
         editState = .init(editor: engine, context: context, config: config, completer: completer, selector: selector)
+        editState.super_ = composingState
         entryInputState = .init(editor: engine, completer: completer)
+        entryInputState.super_ = editState
+
         kanaEntryState = .init(editor: engine, context: context, config: config)
+        kanaEntryState.super_ = entryInputState
         asciiEntryState = .init(editor: engine, context: context)
+        asciiEntryState.super_ = entryInputState
+
         entryCompletionState = .init(editor: engine, completer: completer, messenger: messenger)
+        entryCompletionState.super_ = editState
+
         selectCandidateState = .init(editor: engine, config: config, selector: selector)
+        selectCandidateState.super_ = composingState
         okuriInputState = .init(editor: engine, config: config, context: context, selector: selector)
         recursiveRegisterState = .init(editor: engine, messenger: messenger)
         entryRemoveState = .init(editor: engine, context: context, messenger: messenger)
@@ -53,7 +72,7 @@ public class SKKStateMachineImpl {
         machine = GenericStateMachine(top: SKKStateTop(), inspector: DebugInspector(), bridgePerform: bridgePerform)
     }
 
-    func bridgePerform(action: SKKStateMachineAction) -> GenericState? {
+    func bridgePerform(action: SKKStateMachineAction, super_: GenericState) -> GenericState? {
         switch action {
         case .initializePrimary:
             return .initial(handler: primaryState)
@@ -106,7 +125,7 @@ public class SKKStateMachineImpl {
         case .deepHistoryComposing:
             return .deepHistory(handler: composingState)
         case .super_:
-            return nil
+            return super_
         case .handled:
             return nil
         }

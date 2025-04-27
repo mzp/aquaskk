@@ -7,12 +7,13 @@
 
 class SKKStateTop: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
+    var super_: HandlerProtocol? = nil
     func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .initEvent:
             return .initializePrimary
         default:
-            return .super_
+            return .handled
         }
     }
 }
