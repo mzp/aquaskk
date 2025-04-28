@@ -26,7 +26,6 @@
 #include <vector>
 #import <AquaSKKEngine/SKKInputContext.h>
 #import <AquaSKKEngine/SKKInputModeListener.h>
-#import <AquaSKKEngine/SKKStateMachine.h>
 
 class SKKInputSessionParameter;
 class SKKRecursiveEditor;
@@ -66,8 +65,6 @@ public:
 
     void Activate();
     void Deactivate();
-
-    bool IsChildOf(SKKStateMachine::Handler handler);
 };
 
 #endif

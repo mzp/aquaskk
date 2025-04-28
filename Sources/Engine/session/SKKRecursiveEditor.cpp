@@ -26,7 +26,7 @@
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKRecursiveEditor::SKKRecursiveEditor(SKKInputEnvironment *env)
-    : editor_(env), state_(SKKState(env, &editor_)) {
+    : editor_(env) {
 
     SKKAnnotator *annotator = env->InputSessionParameter()->Annotator();
     SKKDynamicCompletor *dynamicCompleter = env->InputSessionParameter()->DynamicCompletor();
@@ -58,8 +58,4 @@ void SKKRecursiveEditor::Activate() {
 
 void SKKRecursiveEditor::Deactivate() {
     (*impl_)->deactivate();
-}
-
-bool SKKRecursiveEditor::IsChildOf(SKKStateMachine::Handler handler) {
-    return state_.IsChildOf(handler);
 }

@@ -26,7 +26,7 @@
 #import <AquaSKKBackend/SwiftObject.h>
 #import <AquaSKKEngine/SKKInputEngine.h>
 #import <AquaSKKEngine/SKKInputEnvironment.h>
-#import <AquaSKKEngine/SKKStateMachine.h>
+#import <AquaSKKEngine/SKKEvent.h>
 
 namespace AquaSKKEngine {
     class SKKRecursiveEditorImpl;
@@ -35,7 +35,6 @@ namespace AquaSKKEngine {
 class SKKRecursiveEditor {
     SwiftObject<AquaSKKEngine::SKKRecursiveEditorImpl> *impl_;
     SKKInputEngine editor_;
-    SKKStateMachine state_;
     SKKRecursiveEditor();
     SKKRecursiveEditor(const SKKRecursiveEditor &);
     SKKRecursiveEditor &operator=(const SKKRecursiveEditor &);
@@ -49,8 +48,6 @@ public:
 
     void Activate();
     void Deactivate();
-
-    bool IsChildOf(SKKStateMachine::Handler handler);
 };
 
 #endif
