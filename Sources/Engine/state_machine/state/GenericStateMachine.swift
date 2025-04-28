@@ -66,12 +66,12 @@ class GenericStateMachine {
         var active = target.handler
         self.active = active
 
-        guard var state = self.initialTransition(handler: active) else {
+        guard var state = initialTransition(handler: active) else {
             return
         }
 
         while state.type == .initial ||
-                state.type == .shalllowHistory
+            state.type == .shalllowHistory
         {
             if state.type == .shalllowHistory {
                 if let shallow = history.shallow(key: active) {
@@ -87,7 +87,7 @@ class GenericStateMachine {
             self.active = active
             _ = entryAction(handler: active)
 
-            guard let nextState = self.initialTransition(handler: active) else {
+            guard let nextState = initialTransition(handler: active) else {
                 return
             }
             state = nextState
@@ -205,9 +205,11 @@ class GenericStateMachine {
             case .deferEvent:
                 queue.enqueue(key: source!, event: event)
                 return
+
             case .clearHistory:
                 history.clear(key: source!)
                 return
+
             case .deepHistory:
                 let target = history.deep(key: next.handler)!
                 transition(source: source!, target: target)
@@ -218,11 +220,13 @@ class GenericStateMachine {
                     dispatch(event: defer_)
                 }
                 return
+
             case .deepForward:
                 let target = history.deep(key: next.handler)!
                 transition(source: source!, target: target)
                 initialize(target: .super_(handler: target))
                 source = target
+
             case .transition:
                 transition(source: source!, target: next.handler)
                 initialize(target: next)
@@ -232,16 +236,20 @@ class GenericStateMachine {
                     dispatch(event: defer_)
                 }
                 return
+
             case .forward:
                 transition(source: source!, target: next.handler)
                 initialize(target: next)
                 source = next.handler
-            case .shalllowHistory, .saveHistory, .initial:
+
+            case .initial,
+                 .saveHistory,
+                 .shalllowHistory:
                 fatalError("*** Invalid state detected ***")
+
             default:
                 source = next.handler
             }
-
         }
     }
 }

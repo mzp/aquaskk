@@ -8,7 +8,7 @@
 /// level 1：単語削除
 public class SKKStateEntryRemove: HandlerProtocol {
     var super_: (any HandlerProtocol)? = nil
-    
+
     var handlerID: String { NSStringFromClass(Self.self) as String }
 
     var editor: SKKInputEngine

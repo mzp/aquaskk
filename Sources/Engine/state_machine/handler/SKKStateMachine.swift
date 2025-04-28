@@ -34,7 +34,6 @@ public class SKKStateMachineImpl {
         primaryState = .init(editor: engine, context: context, messenger: messenger)
         kanaInputState = .init(editor: engine)
 
-
         hirakanaInputState = .init(editor: engine)
         katakanaInputState = .init(editor: engine)
         kanaInputState.super_ = primaryState
@@ -139,7 +138,6 @@ public class SKKStateMachineImpl {
 
 struct DebugInspector: InspectorProtocol {
     func inspect(handler: any HandlerProtocol, event: GenericEvent) {
-
         let eventDump = event.event?.dump() ?? "<no event>"
         Logger.skkState.debug("[\(#fileID, privacy: .public):\(#function, privacy: .public)] \(handler.handlerID, privacy: .private) \(event.signal, privacy: .private) \(eventDump, privacy: .private)")
     }

@@ -19,6 +19,7 @@ extension SKKEventID: CustomStringConvertible, CustomDebugStringConvertible {
     public var description: String {
         return debugDescription
     }
+
     public var debugDescription: String {
         switch self {
         case .asciiMode:
