@@ -24,9 +24,9 @@
 #define SKKRecursiveEditor_h
 
 #import <AquaSKKBackend/SwiftObject.h>
+#import <AquaSKKEngine/SKKEvent.h>
 #import <AquaSKKEngine/SKKInputEngine.h>
 #import <AquaSKKEngine/SKKInputEnvironment.h>
-#import <AquaSKKEngine/SKKEvent.h>
 
 namespace AquaSKKEngine {
     class SKKRecursiveEditorImpl;
