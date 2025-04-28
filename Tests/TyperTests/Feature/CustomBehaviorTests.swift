@@ -8,7 +8,7 @@
 import Testing
 
 struct CustomBehaviorTests {
-    @Test(.disabled("WIP")) func suppressNewlineOnCommit() async {
+    @Test func suppressNewlineOnCommit() async {
         let session = Typer.Session()
         await session.run(config: .defaults(suppressNewlineOnCommit: false)) { typer in
             await typer.type(text: "Kyou")
@@ -24,7 +24,7 @@ struct CustomBehaviorTests {
         }
     }
 
-    @Test(.disabled("WIP")) func inlineBackSpaceImpliesCommit() async {
+    @Test func inlineBackSpaceImpliesCommit() async {
         let session = Typer.Session()
         await session.run(config: .defaults(inlineBackSpaceImpliesCommit: true)) { typer in
             await typer.type(text: "Kyou ")

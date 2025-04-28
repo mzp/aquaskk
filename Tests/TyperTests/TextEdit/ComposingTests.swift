@@ -29,7 +29,7 @@ struct ComposingTests {
 
     // MARK: - Composing
 
-    @Test("Composing", .disabled("WIP")) func composing() async {
+    @Test func composing() async {
         let session = Typer.Session()
         await session.run { typer in
             await typer.type(text: "Kyou")
@@ -103,7 +103,7 @@ struct ComposingTests {
         }
     }
 
-    @Test(.disabled("Failed")) func implicitConfirm() async {
+    @Test(.disabled("regression")) func implicitConfirm() async {
         let session = Typer.Session()
         await session.run { typer in
             await typer.type(text: "Kyou ")

@@ -70,7 +70,7 @@ struct SwitchModeTests {
         }
     }
 
-    @Test("switch by key", .disabled("WIP"), arguments: [
+    @Test("switch by key", arguments: [
         ("l", SKKInputMode.AsciiInputMode),
         ("L", SKKInputMode.Jisx0208LatinInputMode),
         ("Q", SKKInputMode.HirakanaInputMode),

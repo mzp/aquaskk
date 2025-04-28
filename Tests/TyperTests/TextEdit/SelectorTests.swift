@@ -8,7 +8,7 @@
 import Testing
 
 struct SelectorTests {
-    @Test(.disabled("WIP")) func inline() async {
+    @Test func inline() async {
         let session = Typer.Session()
         await session.run { typer in
             await typer.type(text: "Kyou ")
@@ -35,7 +35,7 @@ struct SelectorTests {
         }
     }
 
-    @Test(.disabled("WIP")) func window() async {
+    @Test func window() async {
         let session = Typer.Session()
         await session.run { typer in
             await typer.type(text: "Kyou")
@@ -59,7 +59,7 @@ struct SelectorTests {
         }
     }
 
-    @Test(.disabled("WIP")) func selectByLabel() async {
+    @Test func selectByLabel() async {
         let session = Typer.Session()
         await session.run { typer in
             await typer.type(text: "Kyou      ")

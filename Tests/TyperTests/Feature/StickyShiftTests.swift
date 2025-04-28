@@ -23,7 +23,7 @@ struct StickyShiftTests {
         }
     }
 
-    @Test(.disabled("WIP")) func cancelByStickeyKey() async {
+    @Test func cancelByStickeyKey() async {
         let session = Typer.Session()
         await session.run { typer in
             await typer.type(text: ";")
@@ -34,7 +34,7 @@ struct StickyShiftTests {
         }
     }
 
-    @Test("cancel by key", .disabled("WIP"), arguments: [
+    @Test("cancel by key", arguments: [
         TyperEvent(characters: " "), // NextCandidate
         TyperEvent(characters: " ", modifiers: .shift), // CompConversion
     ]) func cancelByNextCandidate(event: TyperEvent) async {

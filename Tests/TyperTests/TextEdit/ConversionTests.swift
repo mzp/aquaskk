@@ -8,7 +8,7 @@
 import Testing
 
 struct ConversionTests {
-    @Test(.disabled("WIP")) func convert() async {
+    @Test func convert() async {
         let session = Typer.Session()
         await session.run { typer in
             await typer.type(text: "Kyou")
@@ -28,7 +28,7 @@ struct ConversionTests {
         }
     }
 
-    @Test(.disabled("WIP")) func convertOkuriAri() async {
+    @Test(.disabled("Failed")) func convertOkuriAri() async {
         let session = Typer.Session()
         await session.run { typer in
             await typer.type(text: "KoroG")
