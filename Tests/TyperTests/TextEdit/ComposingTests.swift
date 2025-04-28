@@ -103,7 +103,7 @@ struct ComposingTests {
         }
     }
 
-    @Test(.disabled("regression")) func implicitConfirm() async {
+    @Test func implicitConfirm() async {
         let session = Typer.Session()
         await session.run { typer in
             await typer.type(text: "Kyou ")

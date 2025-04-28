@@ -153,11 +153,15 @@ class GenericStateMachine {
 
         // (e) go into substate(multiple level)
         if let targetSuper = targetSuper {
-            for tmp in sequence(first: targetSuper, next: { self.getSuperState(handler: $0)?.handler }) {
-                if tmp.handlerID == source.handlerID {
-                    return
-                } else {
-                    path.append(targetSuper)
+            path.append(targetSuper)
+            var tmp = getSuperState(handler: targetSuper)
+            while tmp != nil {
+                if let tmpHandler = tmp?.handler {
+                    if tmpHandler.handlerID == source.handlerID {
+                        break
+                    }
+                    path.append(tmpHandler)
+                    tmp = getSuperState(handler: tmpHandler)
                 }
             }
         }
@@ -218,8 +222,7 @@ class GenericStateMachine {
                 let target = history.deep(key: next.handler)!
                 transition(source: source!, target: target)
                 initialize(target: .super_(handler: target))
-                next = .super_(handler: target)
-                source = next.handler
+                source = target
             case .transition:
                 transition(source: source!, target: next.handler)
                 initialize(target: next)

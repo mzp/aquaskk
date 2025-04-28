@@ -28,7 +28,7 @@ struct ConversionTests {
         }
     }
 
-    @Test(.disabled("Failed")) func convertOkuriAri() async {
+    @Test func convertOkuriAri() async {
         let session = Typer.Session()
         await session.run { typer in
             await typer.type(text: "KoroG")

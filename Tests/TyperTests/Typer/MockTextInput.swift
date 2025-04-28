@@ -25,11 +25,14 @@ extension MockTextInput: IMKTextInput {
         return _markedRange
     }
 
-    func insertText(_ string: Any, replacementRange _: NSRange) {
+    func insertText(_ any: Any, replacementRange _: NSRange) {
+        text.marked.removeAll()
+        guard let string = any as? String, !string.isEmpty else {
+            return
+        }
         // TODO: Use replacementRange
         // TODO: Update selectedRange
-        text.marked.removeAll()
-        text.string.append(string as! String)
+        text.string.append(string)
 
         Logger.skkTyper.info("""
         [\(#fileID, privacy: .public):\(#function, privacy: .public)] \
