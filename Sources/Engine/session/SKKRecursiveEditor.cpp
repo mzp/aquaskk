@@ -26,12 +26,17 @@
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKRecursiveEditor::SKKRecursiveEditor(SKKInputEnvironment *env)
-    : editor_(env), state_(SKKState(env, &editor_)) {
+    : editor_(env) {
 
     SKKAnnotator *annotator = env->InputSessionParameter()->Annotator();
-    SKKDynamicCompletor *completor = env->InputSessionParameter()->DynamicCompletor();
+    SKKDynamicCompletor *dynamicCompleter = env->InputSessionParameter()->DynamicCompletor();
+    SKKCompleter *completer = new SKKCompleter(&editor_);
     SKKCandidateWindow *candidateWindow = env->InputSessionParameter()->CandidateWindow();
-    impl_ = new SwiftObject(AquaSKKEngine::SKKRecursiveEditorImpl::init(env, annotator, completor, candidateWindow));
+    SKKSelector *selector = new SKKSelector(&editor_, candidateWindow);
+    SKKMessenger *messenger = env->InputSessionParameter()->Messenger();
+    impl_ = new SwiftObject(
+        AquaSKKEngine::SKKRecursiveEditorImpl::init(
+            env, annotator, dynamicCompleter, completer, candidateWindow, &editor_, selector, messenger));
 }
 
 SKKRecursiveEditor::~SKKRecursiveEditor() {
@@ -40,7 +45,6 @@ SKKRecursiveEditor::~SKKRecursiveEditor() {
 
 void SKKRecursiveEditor::Input(const SKKEvent &event) {
     (*impl_)->input(event);
-    state_.Dispatch(SKKStateMachine::Event(event.id, event));
 }
 
 void SKKRecursiveEditor::Output() {
@@ -54,8 +58,4 @@ void SKKRecursiveEditor::Activate() {
 
 void SKKRecursiveEditor::Deactivate() {
     (*impl_)->deactivate();
-}
-
-bool SKKRecursiveEditor::IsChildOf(SKKStateMachine::Handler handler) {
-    return state_.IsChildOf(handler);
 }

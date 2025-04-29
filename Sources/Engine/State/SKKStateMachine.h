@@ -25,29 +25,6 @@
 
 #import <AquaSKKEngine/SKKState.h>
 
-#ifndef SKK_DEBUG
-typedef GenericStateMachine<SKKState> SKKStateMachine;
-#else
-
-#include <iostream>
-
-template <typename Handler, typename Event> struct DebugInspector {
-    std::string buf_;
-
-public:
-    void operator()(const Handler handler, const Event &event) {
-        if(event == 0)
-            return;
-
-        SKKState::ToString(handler, event, buf_);
-
-        std::cout << buf_ << std::endl;
-    }
-};
-
-typedef GenericStateMachine<SKKState, DebugInspector> SKKStateMachine;
-#endif
-
-typedef SKKStateMachine::Event SKKStateMachineEvent;
+typedef statemachinecxx_sourceforge_jp::GenericEvent<SKKEvent> SKKStateMachineEvent;
 
 #endif

@@ -6,7 +6,10 @@
 //
 
 /// level 1：単語削除
-public class SKKStateRecursiveRegister {
+public class SKKStateRecursiveRegister: HandlerProtocol {
+    var super_: HandlerProtocol?
+
+    var handlerID: String { NSStringFromClass(Self.self) as String }
     var editor: SKKInputEngine
     var messenger: SKKMessenger
     public init(editor: SKKInputEngine, messenger: SKKMessenger) {

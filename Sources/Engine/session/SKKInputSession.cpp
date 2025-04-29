@@ -106,10 +106,6 @@ void SKKInputSession::Deactivate() {
     top()->Deactivate();
 }
 
-bool SKKInputSession::IsChildOf(SKKStateMachine::Handler handler) {
-    return top()->IsChildOf(handler);
-}
-
 // ----------------------------------------------------------------------
 
 void SKKInputSession::beginEvent() {

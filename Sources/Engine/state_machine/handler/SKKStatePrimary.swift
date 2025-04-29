@@ -11,7 +11,10 @@ public enum StateTransitionResult: Int {
 
 // MARK: - level 1：直接入力
 
-public class SKKStatePrimary {
+public class SKKStatePrimary: HandlerProtocol {
+    var handlerID: String { NSStringFromClass(Self.self) as String }
+    var super_: HandlerProtocol? = nil
+
     var editor: SKKInputEngine
     var context: SKKInputContext
     var messenger: SKKMessenger
@@ -120,7 +123,10 @@ public class SKKStatePrimary {
 
 // MARK: - level 2 (sub of Primary)：かな入力
 
-public class SKKStateKanaInput {
+public class SKKStateKanaInput: HandlerProtocol {
+    var handlerID: String { NSStringFromClass(Self.self) as String }
+    var super_: HandlerProtocol? = nil
+
     var editor: SKKInputEngine
     public init(editor: SKKInputEngine) {
         self.editor = editor
@@ -179,7 +185,10 @@ public class SKKStateKanaInput {
 
 // MARK: - level 3 (sub of KanaInput)：ひらかな
 
-public class SKKStateHirakana {
+public class SKKStateHirakana: HandlerProtocol {
+    var handlerID: String { NSStringFromClass(Self.self) as String }
+    var super_: HandlerProtocol? = nil
+
     var editor: SKKInputEngine
     public init(editor: SKKInputEngine) {
         self.editor = editor
@@ -225,7 +234,9 @@ public class SKKStateHirakana {
     }
 }
 
-public class SKKStateKatakana {
+public class SKKStateKatakana: HandlerProtocol {
+    var handlerID: String { NSStringFromClass(Self.self) as String }
+    var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngine
     public init(editor: SKKInputEngine) {
         self.editor = editor
@@ -262,7 +273,9 @@ public class SKKStateKatakana {
 
 // MARK: - level 3 (sub of KanaInput)：半角カタカナ
 
-public class SKKStateJisx0201Kana {
+public class SKKStateJisx0201Kana: HandlerProtocol {
+    var handlerID: String { NSStringFromClass(Self.self) as String }
+    var super_: HandlerProtocol? = nil
     var editor: SKKInputEngine
     public init(editor: SKKInputEngine) {
         self.editor = editor
@@ -310,7 +323,9 @@ public class SKKStateJisx0201Kana {
 
 // MARK: - level 2 (sub of Primary)：Latin 入力
 
-public class SKKStateLatinInput {
+public class SKKStateLatinInput: HandlerProtocol {
+    var handlerID: String { NSStringFromClass(Self.self) as String }
+    var super_: HandlerProtocol? = nil
     var editor: SKKInputEngine
     public init(editor: SKKInputEngine) {
         self.editor = editor
@@ -349,7 +364,9 @@ public class SKKStateLatinInput {
 // MARK: - level 2 (sub of LatinInput)：ASCII
 
 /// ======================================================================
-public class SKKStateAscii {
+public class SKKStateAscii: HandlerProtocol {
+    var handlerID: String { NSStringFromClass(Self.self) as String }
+    var super_: HandlerProtocol? = nil
     var editor: SKKInputEngine
     public init(editor: SKKInputEngine) {
         self.editor = editor
@@ -377,7 +394,9 @@ public class SKKStateAscii {
 /// ======================================================================
 /// level 2 (sub of LatinInput)：全角英数
 /// ======================================================================
-public class SKKStateJisx0208Latin {
+public class SKKStateJisx0208Latin: HandlerProtocol {
+    var handlerID: String { NSStringFromClass(Self.self) as String }
+    var super_: HandlerProtocol? = nil
     var editor: SKKInputEngine
     public init(editor: SKKInputEngine) {
         self.editor = editor

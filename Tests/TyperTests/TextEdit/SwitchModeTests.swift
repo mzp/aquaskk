@@ -10,6 +10,13 @@ import Testing
 internal import AquaSKKBackend
 
 struct SwitchModeTests {
+    @Test func ping() async {
+        let session = Typer.Session()
+        await session.run { typer in
+            await typer.handle(event: .ping)
+        }
+    }
+
     @Test func hiragana() async {
         let session = Typer.Session()
         await session.run { typer in
@@ -27,7 +34,8 @@ struct SwitchModeTests {
     @Test func katakana() async {
         let session = Typer.Session()
         await session.run { typer in
-            await typer.type(text: "qaiueo")
+            await typer.type(text: "q")
+            await typer.type(text: "aiueo")
             #expect(typer.insertedText == "アイウエオ")
             #expect(typer.markedText == "")
 

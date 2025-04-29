@@ -9,18 +9,29 @@ import OSLog
 
 private let subsystem = "com.aquaskk.inputmethod"
 public extension Logger {
-    static let skkTesting = Logger(subsystem: subsystem, category: "Testing")
-    static let skkBackend = Logger(subsystem: subsystem, category: "Backend")
-    static let skkInput = Logger(subsystem: subsystem, category: "Input")
-    static let skkUI = Logger(subsystem: subsystem, category: "UI")
-    static let skkEngine = Logger(subsystem: subsystem, category: "Engine")
+    // MARK: - For Backend
 
-    // MARK: Special purpose
+    static let skkBackend = Logger(subsystem: "\(subsystem).backend", category: "Default")
 
-    static let skkMemory = Logger(subsystem: subsystem, category: "MemoryDebug")
+    // MARK: - For InputMethod
 
-    static let skkTyper = Logger(subsystem: subsystem, category: "Typer")
-    static let skkIMK = Logger(subsystem: subsystem, category: "InputMethodKit")
+    static let skkInput = Logger(subsystem: "\(subsystem).input", category: "Default")
+    static let skkMemory = Logger(subsystem: "\(subsystem).input", category: "Memory")
+    static let skkIMK = Logger(subsystem: "\(subsystem).input", category: "InputMethodKit")
+
+    // MARK: - UI
+
+    static let skkUI = Logger(subsystem: "\(subsystem).ui", category: "Default")
+
+    // MARK: - Engine
+
+    static let skkEngine = Logger(subsystem: "\(subsystem).engine", category: "Default")
+    static let skkState = Logger(subsystem: "\(subsystem).engine", category: "StateMachine")
+
+    // MARK: - For Testing
+
+    static let skkTesting = Logger(subsystem: "\(subsystem).testing", category: "Testing")
+    static let skkTyper = Logger(subsystem: "\(subsystem).testing", category: "Typer")
 
     // MARK: Compatibility
 

@@ -61,6 +61,11 @@ public class SKKOutputBufferImpl {
     }
 
     public func clear() {
+        Logger.skkEngine.info("""
+        [\(#fileID, privacy: .public):\(#function, privacy: .public)] \
+        "\(self.composing, privacy: .private)"\
+        (length=\(self.composing.count, privacy: .public))
+        """)
         composing = ""
         cursor = composing.startIndex
         mark = composing.startIndex

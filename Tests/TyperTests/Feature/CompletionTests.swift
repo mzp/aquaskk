@@ -35,7 +35,9 @@ struct CompletionTests {
     @Test func removeCompletion() async throws {
         let session = Typer.Session()
         await session.run { typer in
-            await typer.type(text: "Joga")
+            await typer.type(text: "J")
+            await typer.type(text: "o")
+            await typer.type(text: "ga")
             await typer.handle(event: .skkTab)
             #expect(typer.markedText == "▽じょがい")
             await typer.type(text: "X")
