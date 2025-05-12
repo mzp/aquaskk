@@ -8,13 +8,11 @@
 #ifndef SKKKeyModifier_h
 #define SKKKeyModifier_h
 
-#include <AquaSKKInput/SKKKeyState.h>
-
 enum class SKKKeyModifier {
-    shift = SKKKeyState::SHIFT,
-    control = SKKKeyState::CTRL,
-    option = SKKKeyState::ALT,
-    command = SKKKeyState::META
+    shift = 1 << 1,
+    control = 1 << 2,
+    option = 1 << 3,
+    command = 1 << 4
 };
 
 #endif /* SKKKeyModifier_h */

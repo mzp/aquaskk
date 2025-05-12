@@ -67,7 +67,7 @@ class SKKKeymapParser {
                 let to = makeKey(String(entries[1])).rawValue
 
                 for state in from ... to {
-                    keys.append(SKKKeyState(state))
+                    keys.append(SKKKeyState(rawValue: state))
                 }
             }
         }

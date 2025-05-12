@@ -28,4 +28,3 @@ FOUNDATION_EXPORT const unsigned char AquaSKKInputVersionString[];
 #pragma mark - keymap
 
 #import <AquaSKKInput/SKKKeyModifier.h>
-#import <AquaSKKInput/SKKKeyState.h>

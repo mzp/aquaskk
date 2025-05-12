@@ -71,7 +71,6 @@
 		133021AF2D646CB400BFE102 /* DictionaryEntryParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133021AE2D646CB400BFE102 /* DictionaryEntryParser.swift */; };
 		1332CC322D9A17660052F59F /* SKKStateTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1332CC312D9A17660052F59F /* SKKStateTop.swift */; };
 		13349BA42D6C054600F87C33 /* stringutil.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5592C5B28FC00D8C850 /* stringutil.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1334F0532D6C0CE1008CC38B /* SKKKeyState.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4EC2C5B28FC00D8C850 /* SKKKeyState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1334F0542D6C0CE1008CC38B /* SKKKeyModifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B4A9C22D5937CC002453BA /* SKKKeyModifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1335E36E2C9744A9002F298B /* SKKLocalUserDictionaryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335E36D2C9744A9002F298B /* SKKLocalUserDictionaryImpl.swift */; };
 		1335E3762C97F843002F298B /* TestingResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335E3752C97F842002F298B /* TestingResource.swift */; };
@@ -496,6 +495,7 @@
 		13F91A2C2C8393A700E60D63 /* jconv_body-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 13F91A272C8393A700E60D63 /* jconv_body-inl.h */; };
 		13F91A2D2C8393A700E60D63 /* jconv_eucj2ucs-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 13F91A282C8393A700E60D63 /* jconv_eucj2ucs-inl.h */; };
 		13F91A2E2C8393A700E60D63 /* jconv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13F91A262C8393A700E60D63 /* jconv.cpp */; };
+		13FDADE52DD28B05004183FF /* SKKKeyStateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FDADE42DD28B05004183FF /* SKKKeyStateTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -746,7 +746,6 @@
 		1344F4E42C5B28FC00D8C850 /* SKKEntry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKEntry.h; sourceTree = "<group>"; };
 		1344F4E52C5B28FC00D8C850 /* SKKEntry.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKEntry.cpp; sourceTree = "<group>"; };
 		1344F4E62C5B28FC00D8C850 /* SKKOkuriHint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKOkuriHint.h; sourceTree = "<group>"; };
-		1344F4EC2C5B28FC00D8C850 /* SKKKeyState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKKeyState.h; sourceTree = "<group>"; };
 		1344F4F12C5B28FC00D8C850 /* SKKSelector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKSelector.h; sourceTree = "<group>"; };
 		1344F4F22C5B28FC00D8C850 /* SKKSelector.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKSelector.mm; sourceTree = "<group>"; };
 		1344F4F62C5B28FC00D8C850 /* SKKInputContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKInputContext.h; sourceTree = "<group>"; };
@@ -1150,6 +1149,7 @@
 		13F91A272C8393A700E60D63 /* jconv_body-inl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jconv_body-inl.h"; sourceTree = "<group>"; };
 		13F91A282C8393A700E60D63 /* jconv_eucj2ucs-inl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jconv_eucj2ucs-inl.h"; sourceTree = "<group>"; };
 		13F91A292C8393A700E60D63 /* jconv_ucs2eucj-inl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jconv_ucs2eucj-inl.h"; sourceTree = "<group>"; };
+		13FDADE42DD28B05004183FF /* SKKKeyStateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKKeyStateTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1823,13 +1823,12 @@
 		1344F4ED2C5B28FC00D8C850 /* keymap */ = {
 			isa = PBXGroup;
 			children = (
-				13B4A9C22D5937CC002453BA /* SKKKeyModifier.h */,
-				1344F4EC2C5B28FC00D8C850 /* SKKKeyState.h */,
-				13B4A9C02D593241002453BA /* SKKPreProcessor.swift */,
 				13A4FDC02D6F5DAF00AA0BFF /* SKKKeymap.swift */,
 				13F3C9F52D6E05F10085600C /* SKKKeymapEntry.swift */,
 				13A4FDBB2D6EEBA200AA0BFF /* SKKKeymapParser.swift */,
+				13B4A9C22D5937CC002453BA /* SKKKeyModifier.h */,
 				13A4FDB92D6EDACD00AA0BFF /* SKKKeyState.swift */,
+				13B4A9C02D593241002453BA /* SKKPreProcessor.swift */,
 			);
 			path = keymap;
 			sourceTree = "<group>";
@@ -2029,6 +2028,7 @@
 			isa = PBXGroup;
 			children = (
 				13A4FDBD2D6F5D0100AA0BFF /* SKKKeymapTesting.swift */,
+				13FDADE42DD28B05004183FF /* SKKKeyStateTest.swift */,
 				13F3C9F72D6ED4390085600C /* SKKKeymapEntryTesting.swift */,
 				1347784D2C5DB98F007B1DFB /* keymap.conf */,
 				1347784E2C5DB98F007B1DFB /* keymap_patch.conf */,
@@ -2889,7 +2889,6 @@
 				135C3DBB2C5B3F1D00661AE3 /* MacDynamicCompletor.h in Headers */,
 				135C3DBD2C5B3F1D00661AE3 /* MacFrontEnd.h in Headers */,
 				135C3D612C5B3E9600661AE3 /* AquaSKKInput.h in Headers */,
-				1334F0532D6C0CE1008CC38B /* SKKKeyState.h in Headers */,
 				1334F0542D6C0CE1008CC38B /* SKKKeyModifier.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3917,6 +3916,7 @@
 			files = (
 				13F3C9F82D6ED4390085600C /* SKKKeymapEntryTesting.swift in Sources */,
 				13A4FDBE2D6F5D0100AA0BFF /* SKKKeymapTesting.swift in Sources */,
+				13FDADE52DD28B05004183FF /* SKKKeyStateTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

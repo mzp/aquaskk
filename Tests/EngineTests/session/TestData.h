@@ -5,7 +5,7 @@
 
 #include <fstream>
 #include <vector>
-#import <AquaSKKInput/SKKKeyState.h>
+#import <AquaSKKInput/SKKKeyModifier.h>
 #include <AquaSKKTesting/stringutil.h>
 #include "TestEvent.h"
 #include "TestResult.h"
@@ -55,13 +55,13 @@ class TestData {
 
         while(splitter >> str) {
             if(str == "shift")
-                result.mods |= SKKKeyState::SHIFT;
+                result.mods |= (int)SKKKeyModifier::shift;
             if(str == "ctrl")
-                result.mods |= SKKKeyState::CTRL;
+                result.mods |= (int)SKKKeyModifier::control;
             if(str == "alt")
-                result.mods |= SKKKeyState::ALT;
+                result.mods |= (int)SKKKeyModifier::option;
             if(str == "meta")
-                result.mods |= SKKKeyState::META;
+                result.mods |= (int)SKKKeyModifier::command;
         }
 
         result.code = charcode(str);
