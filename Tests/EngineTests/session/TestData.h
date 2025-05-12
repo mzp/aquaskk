@@ -5,7 +5,7 @@
 
 #include <fstream>
 #include <vector>
-#import <AquaSKKInput/SKKKeyModifier.h>
+#import <AquaSKKInput/AquaSKKInput-Swift.h>
 #include <AquaSKKTesting/stringutil.h>
 #include "TestEvent.h"
 #include "TestResult.h"
@@ -52,16 +52,15 @@ class TestData {
         }
 
         splitter.split(key, "::");
-
         while(splitter >> str) {
             if(str == "shift")
-                result.mods |= (int)SKKKeyModifier::shift;
+                result.mods |= AquaSKKInput::SKKKeyModifier::getShift().getRawValue();
             if(str == "ctrl")
-                result.mods |= (int)SKKKeyModifier::control;
+                result.mods |= (int)AquaSKKInput::SKKKeyModifier::getControl().getRawValue();
             if(str == "alt")
-                result.mods |= (int)SKKKeyModifier::option;
+                result.mods |= (int)AquaSKKInput::SKKKeyModifier::getOption().getRawValue();
             if(str == "meta")
-                result.mods |= (int)SKKKeyModifier::command;
+                result.mods |= (int)AquaSKKInput::SKKKeyModifier::getCommand().getRawValue();
         }
 
         result.code = charcode(str);

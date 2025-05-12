@@ -17,7 +17,7 @@ class SKKKeymapParser {
     }
 
     var labelType: LabelType
-    var modifiers: Int32
+    var modifiers: Int
     var value: String
     init(string: String) {
         labelType = []
@@ -96,9 +96,9 @@ class SKKKeymapParser {
             key = Int32(string.first?.asciiValue ?? 0)
         }
         if labelType.contains(.keyCode) {
-            return SKKKeyState.KeyCode(key, modifiers)
+            return SKKKeyState.KeyCode(key, .init(rawValue: modifiers))
         } else {
-            return SKKKeyState.CharCode(key, modifiers)
+            return SKKKeyState.CharCode(key, .init(rawValue: modifiers))
         }
     }
 }

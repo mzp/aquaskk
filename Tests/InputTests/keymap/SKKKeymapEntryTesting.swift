@@ -15,28 +15,28 @@ struct SKKKeymapEntryTesting {
 
     @Test func charCode() throws {
         let entry = try #require(SKKKeymapEntryImpl(key: "SKK_JMODE", value: "a"))
-        let aKey = SKKKeyState.CharCode(Int32(Character("a").asciiValue!), 0)
+        let aKey = SKKKeyState.CharCode(Int32(Character("a").asciiValue!), .none)
         #expect(entry.keys == [aKey])
         #expect(entry.symbol == SKK_JMODE)
     }
 
     @Test func keyCode() throws {
         let entry = try #require(SKKKeymapEntryImpl(key: "SKK_JMODE", value: "keycode::0x0a||keycode::7b"))
-        let aKey = SKKKeyState.KeyCode(0x0A, 0)
-        let bKey = SKKKeyState.KeyCode(0x7B, 0)
+        let aKey = SKKKeyState.KeyCode(0x0A, .none)
+        let bKey = SKKKeyState.KeyCode(0x7B, .none)
         #expect(entry.keys == [aKey, bKey])
         #expect(entry.symbol == SKK_JMODE)
     }
 
     @Test func hexCode() throws {
         let entry = try #require(SKKKeymapEntryImpl(key: "SKK_ENTER", value: "hex::0x03"))
-        let aKey = SKKKeyState.CharCode(0x03, 0)
+        let aKey = SKKKeyState.CharCode(0x03, .none)
         #expect(entry.keys == [aKey])
     }
 
     @Test func modifier() throws {
         let entry = try #require(SKKKeymapEntryImpl(key: "SKK_ENTER", value: "ctrl::m"))
-        let aKey = SKKKeyState.CharCode(Int32(Character("m").asciiValue!), 1 << 2)
+        let aKey = SKKKeyState.CharCode(Int32(Character("m").asciiValue!), .control)
         #expect(entry.keys == [aKey])
     }
 
@@ -46,11 +46,11 @@ struct SKKKeymapEntryTesting {
         #expect(!entry.isEvent)
         #expect(entry.symbol == Direct)
 
-        let aKey = SKKKeyState.CharCode(Int32(Character("a").asciiValue!), 0)
-        let cKey = SKKKeyState.CharCode(Int32(Character("c").asciiValue!), 0)
-        let dKey = SKKKeyState.CharCode(Int32(Character("d").asciiValue!), 0)
-        let eKey = SKKKeyState.CharCode(Int32(Character("e").asciiValue!), 0)
-        let fKey = SKKKeyState.CharCode(Int32(Character("f").asciiValue!), 0)
+        let aKey = SKKKeyState.CharCode(Int32(Character("a").asciiValue!), .none)
+        let cKey = SKKKeyState.CharCode(Int32(Character("c").asciiValue!), .none)
+        let dKey = SKKKeyState.CharCode(Int32(Character("d").asciiValue!), .none)
+        let eKey = SKKKeyState.CharCode(Int32(Character("e").asciiValue!), .none)
+        let fKey = SKKKeyState.CharCode(Int32(Character("f").asciiValue!), .none)
         #expect(entry.keys == [
             aKey,
             cKey,
@@ -66,11 +66,11 @@ struct SKKKeymapEntryTesting {
         #expect(!entry.isEvent)
         #expect(entry.symbol == Direct)
 
-        let aKey = SKKKeyState.CharCode(Int32(Character("a").asciiValue!), 0)
-        let cKey = SKKKeyState.CharCode(Int32(Character("c").asciiValue!), 0)
-        let dKey = SKKKeyState.CharCode(Int32(Character("d").asciiValue!), 0)
-        let eKey = SKKKeyState.CharCode(Int32(Character("e").asciiValue!), 0)
-        let fKey = SKKKeyState.CharCode(Int32(Character("f").asciiValue!), 0)
+        let aKey = SKKKeyState.CharCode(Int32(Character("a").asciiValue!), .none)
+        let cKey = SKKKeyState.CharCode(Int32(Character("c").asciiValue!), .none)
+        let dKey = SKKKeyState.CharCode(Int32(Character("d").asciiValue!), .none)
+        let eKey = SKKKeyState.CharCode(Int32(Character("e").asciiValue!), .none)
+        let fKey = SKKKeyState.CharCode(Int32(Character("f").asciiValue!), .none)
         #expect(entry.keys == [
             aKey,
             cKey,

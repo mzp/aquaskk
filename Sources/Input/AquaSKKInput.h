@@ -24,7 +24,3 @@ FOUNDATION_EXPORT const unsigned char AquaSKKInputVersionString[];
 #import <AquaSKKInput/MacInputSessionParameter.h>
 #import <AquaSKKInput/MacMessenger.h>
 #import <AquaSKKInput/SKKInputSessionBridge.h>
-
-#pragma mark - keymap
-
-#import <AquaSKKInput/SKKKeyModifier.h>
