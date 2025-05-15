@@ -121,6 +121,10 @@ public:
     const SKKOkuriHintContainer &Hints() const {
         return hints_;
     }
+
+    const SKKOkuriHintContainer getHints() const SWIFT_COMPUTED_PROPERTY {
+        return hints_;
+    }
 };
 
 #endif

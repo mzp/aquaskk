@@ -30,4 +30,6 @@ typedef std::pair<std::string, SKKCandidateContainer> SKKOkuriHint;
 typedef std::deque<SKKOkuriHint> SKKOkuriHintContainer;
 typedef SKKOkuriHintContainer::iterator SKKOkuriHintIterator;
 
+SKKOkuriHint newSKKOkuriHint();
+
 #endif

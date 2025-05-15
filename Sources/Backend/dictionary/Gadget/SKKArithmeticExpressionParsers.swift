@@ -31,11 +31,11 @@ class SKKArithmeticExpressionParsers: SKKParsersBase {
         if let kind = try? oneOf("()+-*/%") {
             return .keywoard(kind: String(kind))
         } else if peek(with: { try oneOf(".0123456789") }) != nil {
-            let int = String(many { try oneOf("0123456789") })
+            let int = String(try many { try oneOf("0123456789") })
 
             let string: String
             if (try? expect(character: ".")) != nil {
-                let fraction = String(many { try oneOf("0123456789") })
+                let fraction = String(try many { try oneOf("0123456789") })
                 string = "\(int).\(fraction)"
             } else {
                 string = int
