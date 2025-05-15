@@ -9,7 +9,6 @@ import Testing
 @testable internal import AquaSKKInput
 
 struct SKKKeyStateTest {
-
     @Test func keycode() {
         let keyState = SKKKeyState.KeyCode(0x31, .shift)
         #expect(keyState.charCode == 0)
@@ -30,5 +29,5 @@ struct SKKKeyStateTest {
         #expect(keyState1 == keyState2)
         #expect(keyState1.rawValue == keyState2.rawValue)
         #expect(keyState1.hashValue == keyState2.hashValue)
-    }    
+    }
 }

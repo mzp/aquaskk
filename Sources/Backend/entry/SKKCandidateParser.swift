@@ -5,12 +5,12 @@
 //  Created by mzp on 2025/05/12.
 //
 
-import Foundation
 import AquaSKKLogging
+import Foundation
 import OSLog
 
 class SKKCandidateEntryParsers: SKKParsersBase {
-    func many<T>(separateBy separator: String, parser : () throws -> T) throws -> [T] {
+    func many<T>(separateBy separator: String, parser: () throws -> T) throws -> [T] {
         return try many {
             let value = try parser()
             _ = try oneOf(separator)
@@ -47,7 +47,6 @@ class SKKCandidateEntryParsers: SKKParsersBase {
         _ = try expect(character: "[")
         let entry = try token(head: "/[]", tail: "/")
 
-
         let candidates = try attempt {
             _ = try expect(character: "/")
             return try many(separateBy: "/") {
@@ -62,9 +61,11 @@ class SKKCandidateEntryParsers: SKKParsersBase {
         hint.first = std.string(entry)
 
         if let candidates = candidates {
-            for candidate in candidates {   guard !candidate.IsEmpty() else {
-                continue
-            }
+            for candidate in candidates {
+                guard !candidate.IsEmpty()
+                else {
+                    continue
+                }
                 hint.second.push_back(candidate)
             }
         }
@@ -79,33 +80,32 @@ class SKKCandidateEntryParsers: SKKParsersBase {
         }.filter {
             !$0.IsEmpty()
         }
-        let hints : [SKKOkuriHint] = try many(separateBy: "/") {
+        let hints: [SKKOkuriHint] = try many(separateBy: "/") {
             try hint()
         }.filter {
             $0.first.isEmpty != true ||
-            $0.second.count != 0
+                !$0.second.isEmpty
         }
 
         return (candidates, hints)
     }
 }
 
-public class SKKCandidateParser2 {
+public class SKKCandidateParser {
     public var candidates: [SKKCandidate] = []
     public var hints: [SKKOkuriHint] = []
 
-    public init() {
-    }
+    public init() {}
 
     public func parse(_ string: String) {
-        self.candidates = []
-        self.hints = []
+        candidates = []
+        hints = []
 
         let parsers = SKKCandidateEntryParsers(source: string)
 
         do {
             (candidates, hints) = try parsers.entry()
-        } catch let error {
+        } catch {
             Logger.skkBackend.error("[\(#fileID, privacy: .public):\(#function, privacy: .public)] \(error.localizedDescription, privacy: .private)")
         }
     }

@@ -46,7 +46,7 @@ public class SKKPreProcessor: NSObject {
         var charcode = charstr?.first
         let keycode = Int32(event.keyCode)
 
-        var mods: Int = 0
+        var mods = 0
         if modifierFlags.contains(.shift) {
             if dispchar?.isLetter == true {
                 charcode = dispchar

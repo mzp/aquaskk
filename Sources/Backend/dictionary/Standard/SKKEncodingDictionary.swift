@@ -76,12 +76,12 @@ class SKKEncodingDictionary: SKKBaseDictionaryProtocol {
         guard let entries = dataSource?.okuriNasi else {
             return ""
         }
-        var parser = SKKCandidateParser()
+        let parser = SKKCandidateParser()
         for entry in entries {
             guard let valueString = entry.valueString(using: encoding) else {
                 continue
             }
-            parser.Parse(std.string(valueString))
+            parser.parse(valueString)
             if parser.candidates.first(where: {
                 String($0.variant) == candidate
             }) != nil {

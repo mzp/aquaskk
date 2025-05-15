@@ -10,15 +10,16 @@ import Testing
 
 struct SKKCandidateParserTest {
     // MARK: - Candidate
+
     @Test func emptyCandiadte() {
-        let parser = SKKCandidateParser2()
+        let parser = SKKCandidateParser()
         parser.parse("//")
         #expect(parser.candidates.isEmpty)
         #expect(parser.hints.isEmpty)
     }
 
     @Test func single() throws {
-        let parser = SKKCandidateParser2()
+        let parser = SKKCandidateParser()
         parser.parse("/候補1/")
         #expect(parser.candidates.count == 1)
         let candidate = try #require(parser.candidates.first)
@@ -26,8 +27,8 @@ struct SKKCandidateParserTest {
     }
 
     @Test func annotation() {
-        let parser = SKKCandidateParser2()
-        parser.parse("/候補1/候補2;アノテーション/候補3/");
+        let parser = SKKCandidateParser()
+        parser.parse("/候補1/候補2;アノテーション/候補3/")
         #expect(parser.candidates.count == 3)
 
         if parser.candidates.count == 3 {
@@ -38,9 +39,18 @@ struct SKKCandidateParserTest {
         }
     }
 
+    @Test func bracketInAnnotation() {
+        let parser = SKKCandidateParser()
+        parser.parse("/候補;[]][アノテーション/")
+
+        #expect(parser.candidates.count == 1)
+        #expect(parser.hints.isEmpty)
+    }
+
     // MARK: - Okuri Hint
+
     @Test func okuriHint() throws {
-        let parser = SKKCandidateParser2()
+        let parser = SKKCandidateParser()
         parser.parse("/候補1/[おくり/候補1/]/")
 
         #expect(parser.candidates.count == 1)
@@ -50,19 +60,10 @@ struct SKKCandidateParserTest {
         #expect(hint.first == "おくり")
         #expect(hint.second.count == 1)
         #expect(try #require(hint.second.first) == SKKCandidate("候補1", true))
-
-    }
-
-    @Test func bracketInAnnotation() {
-        let parser = SKKCandidateParser2()
-        parser.parse("/候補;[]][アノテーション/");
-
-        #expect(parser.candidates.count == 1)
-        #expect(parser.hints.isEmpty)
     }
 
     @Test func emptyHint() throws {
-        let parser = SKKCandidateParser2()
+        let parser = SKKCandidateParser()
         parser.parse("//[]/[///]/[おくり/候補1/候補2/]//")
         #expect(parser.candidates.isEmpty)
 

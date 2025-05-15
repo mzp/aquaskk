@@ -21,10 +21,14 @@
 */
 
 #ifndef SKKCandidateSuite_h
-#define SKKCandidateSuite_h
+#define SKKCandidateSuite_
 
+#include <algorithm>
+#include <functional>
 #include <swift/bridging>
-#import <AquaSKKBackend/SKKCandidateParser.h>
+#import <AquaSKKBackend/SKKCandidate.h>
+#import <AquaSKKBackend/SKKOkuriHint.h>
+// #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 
 // 送りヒントの比較は「かな」部分のみ
 class CompareOkuriHint {
@@ -47,7 +51,7 @@ public:
 class SKKCandidateSuite {
     SKKCandidateContainer candidates_;
     SKKOkuriHintContainer hints_;
-    SKKCandidateParser parser_;
+    //    SKKCandidateParser parser_;
 
     // 重複チェック用ファンクタ
     class contains {
@@ -114,12 +118,7 @@ public:
         Parse(line);
     }
 
-    void Parse(const std::string str) {
-        parser_.Parse(str);
-
-        candidates_ = parser_.Candidates();
-        hints_ = parser_.Hints();
-    }
+    void Parse(const std::string str);
 
     void Clear() {
         candidates_.clear();

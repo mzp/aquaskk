@@ -117,7 +117,7 @@ public class SKKLocalUserDictionaryImpl: SKKBaseDictionaryProtocol, SKKUserDicti
             guard let valueString = entry.valueString(using: .utf8) else {
                 continue
             }
-            parser.Parse(std.string(valueString))
+            parser.parse(valueString)
             if parser.candidates.contains(where: { $0 == query }) {
                 return entry.entryString(using: .utf8) ?? ""
             }

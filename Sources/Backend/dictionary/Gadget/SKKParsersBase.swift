@@ -62,7 +62,7 @@ class SKKParsersBase {
                 let value = try parser()
                 result.append(value)
             }
-        } catch _ as UnexpectedTokenError  {}
+        } catch _ as UnexpectedTokenError {}
         return result
     }
 
@@ -70,8 +70,8 @@ class SKKParsersBase {
         let original = content
         do {
             return try parser()
-        } catch _ as UnexpectedTokenError  {
-            self.content = original
+        } catch _ as UnexpectedTokenError {
+            content = original
             return nil
         }
     }
