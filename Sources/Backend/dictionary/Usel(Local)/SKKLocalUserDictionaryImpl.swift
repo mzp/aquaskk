@@ -128,10 +128,10 @@ public class SKKLocalUserDictionaryImpl: SKKBaseDictionaryProtocol, SKKUserDicti
     public func register(entry: SKKEntry, candidate: SKKCandidate) -> Bool {
         if entry.IsOkuriAri() {
             var hint = SKKOkuriHint(
-                first: entry.OkuriString(),
-                second: .init()
+                okuri: String(entry.OkuriString()),
+                candidates: .init()
             )
-            hint.second.push_back(SKKCandidate(candidate.ToString(), true))
+            hint.candidates.append(SKKCandidate(candidate.ToString(), true))
 
             update(entry: entry, at: &file.okuriAri) { suite in
                 suite.update(hint: hint)

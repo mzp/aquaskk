@@ -16,7 +16,7 @@ struct SKKCandidateSuiteTests {
         var cand = SKKCandidateContainer()
         cand.push_back(SKKCandidate("ヒント1", true))
         cand.push_back(SKKCandidate("ヒント2", true))
-        suite.add(hint: SKKOkuriHint(first: "おくり", second: cand))
+        suite.add(hint: SKKOkuriHint(okuri: "おくり", candidates: Array(cand)))
 
         #expect(suite.string(excludeAvoidStudy: false) == "/候補/[おくり/ヒント1/ヒント2/]/")
 
@@ -35,11 +35,12 @@ struct SKKCandidateSuiteTests {
         cand.push_back(SKKCandidate("候補1", true))
         cand.push_back(SKKCandidate("候補2", true))
 
-        var hint = newSKKOkuriHint()
-        hint.first = "おくり"
-        hint.second = cand
+        var hint = SKKOkuriHint(
+            okuri: "おくり",
+            candidates: Array(cand)
+        )
 
-        suite.add(hint: SKKOkuriHint(first: "おくり", second: cand))
+        suite.add(hint: SKKOkuriHint(okuri: "おくり", candidates: Array(cand)))
 
         suite.update(candidate: SKKCandidate("候補2;アノテーション", true))
 
@@ -47,7 +48,7 @@ struct SKKCandidateSuiteTests {
         cand.clear()
         cand.push_back(SKKCandidate("候補1;アノテーション", true))
 
-        suite.update(hint: SKKOkuriHint(first: "おくり", second: cand))
+        suite.update(hint: SKKOkuriHint(okuri: "おくり", candidates: Array(cand)))
         #expect(suite.string() == "/候補1;アノテーション/候補2;アノテーション/[おくり/候補1;アノテーション/候補2/]/")
     }
 

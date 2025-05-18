@@ -57,8 +57,10 @@ class SKKCandidateEntryParsers: SKKParsersBase {
 
         _ = try expect(character: "]")
 
-        var hint = newSKKOkuriHint()
-        hint.first = std.string(entry)
+        var hint = SKKOkuriHint(
+            okuri: entry,
+            candidates: .init()
+        )
 
         if let candidates = candidates {
             for candidate in candidates {
@@ -66,7 +68,7 @@ class SKKCandidateEntryParsers: SKKParsersBase {
                 else {
                     continue
                 }
-                hint.second.push_back(candidate)
+                hint.candidates.append(candidate)
             }
         }
 
@@ -83,8 +85,8 @@ class SKKCandidateEntryParsers: SKKParsersBase {
         let hints: [SKKOkuriHint] = try many(separateBy: "/") {
             try hint()
         }.filter {
-            $0.first.isEmpty != true ||
-                !$0.second.isEmpty
+            $0.okuri.isEmpty != true ||
+                !$0.candidates.isEmpty
         }
 
         return (candidates, hints)

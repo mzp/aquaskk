@@ -43,15 +43,17 @@ public struct SKKCandidateSuite {
 
         var newHints = [SKKOkuriHint]()
         for hint in hints {
-            var content = Array(hint.second)
+            var content = Array(hint.candidates)
             content.removeAll(where: {
                 $0.variant == candidate.variant
             })
             if !content.isEmpty {
-                var newHint = newSKKOkuriHint()
-                newHint.first = hint.first
+                var newHint = SKKOkuriHint(
+                    okuri: hint.okuri,
+                    candidates: .init()
+                )
                 for item in content {
-                    newHint.second.push_back(item)
+                    newHint.candidates.append(item)
                 }
                 newHints.append(newHint)
             }
@@ -63,10 +65,10 @@ public struct SKKCandidateSuite {
 
     public mutating func add(hint: SKKOkuriHint) {
         if let index = hints.firstIndex(where: {
-            $0.first == hint.first
+            $0.okuri == hint.okuri
         }) {
-            for item in hint.second {
-                hints[index].second.push_back(item)
+            for item in hint.candidates {
+                hints[index].candidates.append(item)
             }
         } else {
             hints.append(hint)
@@ -81,23 +83,23 @@ public struct SKKCandidateSuite {
 
     public mutating func update(hint: SKKOkuriHint) {
         // hint.second[0]以外は見ていない？
-        guard let candidate = hint.second.first else {
+        guard let candidate = hint.candidates.first else {
             return
         }
         update(candidate: candidate)
 
         if let index = hints.firstIndex(where: {
-            $0.first == hint.first
+            $0.okuri == hint.okuri
         }) {
-            var content = Array(hints[index].second)
+            var content = Array(hints[index].candidates)
             content.removeAll(where: {
                 $0 == candidate
             })
             content.insert(candidate, at: 0)
 
-            hints[index].second.clear()
+            hints[index].candidates.removeAll()
             for item in content {
-                hints[index].second.push_back(item)
+                hints[index].candidates.append(item)
             }
         } else {
             hints.insert(hint, at: 0)
@@ -117,12 +119,12 @@ public struct SKKCandidateSuite {
 
     func findOkuriStrictly(okuri: String) -> SKKCandidateSuite? {
         guard let hint = hints.first(where: {
-            String($0.first) == okuri
+            String($0.okuri) == okuri
         }) else {
             return nil
         }
         var suite = SKKCandidateSuite()
-        for item in hint.second {
+        for item in hint.candidates {
             suite.add(candidate: item)
         }
         return suite
@@ -162,8 +164,8 @@ public struct SKKCandidateSuite {
         str += format(candidates: candidates, excludeAvoidStudy: excludeAvoidStudy)
 
         str += hints.map { hint in
-            let entry = String(hint.first)
-            let hints = format(candidates: Array(hint.second), excludeAvoidStudy: excludeAvoidStudy)
+            let entry = String(hint.okuri)
+            let hints = format(candidates: Array(hint.candidates), excludeAvoidStudy: excludeAvoidStudy)
             return "/[\(entry)/\(hints)/]"
         }.joined()
 
