@@ -28,7 +28,6 @@
 #include <swift/bridging>
 #import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKBackend/SKKOkuriHint.h>
-// #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 
 // 送りヒントの比較は「かな」部分のみ
 class CompareOkuriHint {

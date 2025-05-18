@@ -9,7 +9,7 @@ import Foundation
 
 extension SKKCandidate: Equatable {}
 
-public struct SKKCandidateSuite2 {
+public struct SKKCandidateSuiteImpl {
     var candidates: [SKKCandidate]
     var hints: [SKKOkuriHint]
 
@@ -94,13 +94,26 @@ public struct SKKCandidateSuite2 {
 
     // MARK: - Suite
 
-    public mutating func add(suite: SKKCandidateSuite2) {
+    public mutating func add(suite: SKKCandidateSuiteImpl) {
         for item in suite.candidates {
             add(candidate: item)
         }
         for item in suite.hints {
             add(hint: item)
         }
+    }
+
+    func findOkuriStrictly(okuri: String) -> SKKCandidateSuiteImpl? {
+        guard let hint = hints.first(where: {
+            String($0.first) == okuri
+        }) else {
+            return nil
+        }
+        var suite = SKKCandidateSuiteImpl()
+        for item in hint.second {
+            suite.add(candidate: item)
+        }
+        return suite
     }
 
     // MARK: - Parsing
