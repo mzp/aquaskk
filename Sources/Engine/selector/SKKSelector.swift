@@ -36,14 +36,14 @@ public class SKKSelectorImpl {
 
     public func execute(inlineCount: Int) -> Bool {
         let entry = SKKSelectorBuddy.invokeSKKSelectorQueryEntry(buddy)
-        suite.Clear()
+        suite.clear()
 
         SKKBackendImpl.shared().find(entry: entry, to: &suite)
 
         inlineSelector.setup(container: Array(suite.candidates), inlineCount: inlineCount)
         windowSelector.setup(container: Array(suite.candidates), inlineCount: inlineCount)
 
-        if !suite.IsEmpty() {
+        if !suite.isEmpty {
             if !inlineSelector.isEmpty {
                 activeSelectorType = .inline
             } else {
@@ -52,7 +52,7 @@ public class SKKSelectorImpl {
             notify()
         }
 
-        return !suite.IsEmpty()
+        return !suite.isEmpty
     }
 
     public func next() -> Bool {
@@ -141,7 +141,7 @@ public class SKKSelectorImpl {
     }
 
     private func notify() {
-        if suite.IsEmpty() {
+        if suite.isEmpty {
             return
         }
 

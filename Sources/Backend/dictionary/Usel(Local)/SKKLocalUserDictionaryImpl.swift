@@ -64,23 +64,22 @@ public class SKKLocalUserDictionaryImpl: SKKBaseDictionaryProtocol, SKKUserDicti
 
         if entry.IsOkuriAri() {
             let rawValue = fetch(entry: entry, from: file.okuriAri)
-            suite.Parse(std.string(rawValue))
+            suite.parse(string: rawValue)
 
-            var strict = SKKCandidateSuite()
-            if suite.FindOkuriStrictly(entry.OkuriString(), &strict) {
-                strict.Add(suite.hints)
+            if var strict = suite.findOkuriStrictly(okuri: String(entry.OkuriString())) {
+                strict.add(hints: suite.hints)
                 suite = strict
             }
         } else {
             let rawValue = fetch(entry: entry, from: file.okuriNasi)
-            suite.Parse(std.string(rawValue))
+            suite.parse(string: rawValue)
 
-            for var candidate in suite.getCandidates() {
+            for var candidate in suite.candidates {
                 candidate.Decode()
             }
         }
 
-        result.Add(suite)
+        result.add(suite: suite)
     }
 
     public func complete(_ helper: inout SKKCompletionHelperBridge) {
@@ -135,13 +134,13 @@ public class SKKLocalUserDictionaryImpl: SKKBaseDictionaryProtocol, SKKUserDicti
             hint.second.push_back(SKKCandidate(candidate.ToString(), true))
 
             update(entry: entry, at: &file.okuriAri) { suite in
-                suite.Update(hint)
+                suite.update(hint: hint)
             }
         } else {
             var tmp = candidate
             tmp.Encode()
             update(entry: entry, at: &file.okuriNasi) { suite in
-                suite.Update(tmp)
+                suite.update(candidate: tmp)
             }
         }
 
@@ -203,13 +202,13 @@ public class SKKLocalUserDictionaryImpl: SKKBaseDictionaryProtocol, SKKUserDicti
         }
 
         var suite = SKKCandidateSuite()
-        suite.Parse(container[index].valueStdString)
-        suite.Remove(candidate)
+        suite.parse(string: String(container[index].valueStdString))
+        suite.remove(candidate: candidate)
 
-        if suite.IsEmpty() {
+        if suite.isEmpty {
             container.remove(at: index)
         } else {
-            container[index].valueStdString = suite.ToString()
+            container[index].valueStdString = std.string(suite.string())
         }
     }
 
@@ -222,11 +221,11 @@ public class SKKLocalUserDictionaryImpl: SKKBaseDictionaryProtocol, SKKUserDicti
         let query = String(entry.EntryString())
 
         if let index = container.firstIndex(where: { $0.entryString(using: .utf8) == query }) {
-            suite.Parse(container[index].valueStdString)
+            suite.parse(string: String(container[index].valueStdString))
             container.remove(at: index)
         }
         perform(&suite)
-        container.insert(.init(entry: query, value: String(suite.ToString())), at: 0)
+        container.insert(.init(entry: query, value: suite.string()), at: 0)
     }
 
     private func save(force: Bool) throws {

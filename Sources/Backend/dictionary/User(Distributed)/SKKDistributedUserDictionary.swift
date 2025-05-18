@@ -50,8 +50,8 @@ public class SKKDistributedUserDictionary: SKKBaseDictionaryProtocol, SKKUserDic
         }
 
         if let suite = suite {
-            Logger.skkBackend.info("\(#function, privacy: .public) found: \(suite.ToString(true), privacy: .private)")
-            result.Add(suite)
+            Logger.skkBackend.info("\(#function, privacy: .public) found: \(suite.string(), privacy: .private)")
+            result.add(suite: suite)
         }
     }
 
@@ -59,7 +59,7 @@ public class SKKDistributedUserDictionary: SKKBaseDictionaryProtocol, SKKUserDic
         guard let response = await send(commands: ["GET", String(entry.EntryString()), String(entry.OkuriString())]) else {
             return nil
         }
-        return SKKCandidateSuite(std.string(response))
+        return SKKCandidateSuite(string: response)
     }
 
     public func complete(helper: inout any SKKCompletionHelperProtocol) {

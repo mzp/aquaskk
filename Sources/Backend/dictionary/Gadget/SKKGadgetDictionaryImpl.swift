@@ -35,7 +35,7 @@ public class SKKGadgetDictionaryImpl: SKKBaseDictionaryProtocol {
         }
         for candidate in candidates {
             let cand = SKKCandidate(std.string(candidate), true)
-            result.Add(cand)
+            result.add(candidate: cand)
         }
     }
 

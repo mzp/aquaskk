@@ -9,14 +9,21 @@ import Foundation
 
 extension SKKCandidate: Equatable {}
 
-public struct SKKCandidateSuiteImpl {
-    var candidates: [SKKCandidate]
-    var hints: [SKKOkuriHint]
+public struct SKKCandidateSuite {
+    public var candidates: [SKKCandidate]
+    public var hints: [SKKOkuriHint]
 
     public init() {
         candidates = []
         hints = []
     }
+
+    public init(string: String) {
+        var tmp = SKKCandidateSuite()
+        tmp.parse(string: string)
+        self = tmp
+    }
+
 
     // MARK: - Candidates
 
@@ -67,6 +74,12 @@ public struct SKKCandidateSuiteImpl {
         }
     }
 
+    public mutating func add(hints: [SKKOkuriHint]) {
+        hints.forEach {
+            self.add(hint: $0)
+        }
+    }
+
     public mutating func update(hint: SKKOkuriHint) {
         // hint.second[0]以外は見ていない？
         guard let candidate = hint.second.first else {
@@ -94,7 +107,7 @@ public struct SKKCandidateSuiteImpl {
 
     // MARK: - Suite
 
-    public mutating func add(suite: SKKCandidateSuiteImpl) {
+    public mutating func add(suite: SKKCandidateSuite) {
         for item in suite.candidates {
             add(candidate: item)
         }
@@ -103,17 +116,26 @@ public struct SKKCandidateSuiteImpl {
         }
     }
 
-    func findOkuriStrictly(okuri: String) -> SKKCandidateSuiteImpl? {
+    func findOkuriStrictly(okuri: String) -> SKKCandidateSuite? {
         guard let hint = hints.first(where: {
             String($0.first) == okuri
         }) else {
             return nil
         }
-        var suite = SKKCandidateSuiteImpl()
+        var suite = SKKCandidateSuite()
         for item in hint.second {
             suite.add(candidate: item)
         }
         return suite
+    }
+
+    public var isEmpty: Bool {
+        candidates.isEmpty
+    }
+
+    public mutating func clear() {
+        candidates.removeAll()
+        hints.removeAll()
     }
 
     // MARK: - Parsing

@@ -69,7 +69,7 @@ public class SKKProxyDictionary: SKKBaseDictionaryProtocol {
             await self.find(entry: entry)
         }
         if let suite = suite {
-            result.Add(suite)
+            result.add(suite: suite)
         }
     }
 
@@ -93,7 +93,7 @@ public class SKKProxyDictionary: SKKBaseDictionaryProtocol {
             return nil
         }
         let string = String(content.dropFirst())
-        return SKKCandidateSuite(std.string(string))
+        return SKKCandidateSuite(string: string)
     }
 
     func send(data: Data) async -> Data? {
