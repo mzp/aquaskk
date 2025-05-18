@@ -42,13 +42,6 @@ public struct SKKDictionaryEntryImpl: Equatable, CustomDebugStringConvertible {
 
     // MARK: -
 
-    func takeBridgeObject() -> SKKDictionaryEntry {
-        return .init(
-            first: SKKRawString(entry),
-            second: SKKRawString(value)
-        )
-    }
-
     public var debugDescription: String {
         """
         DictionaryEntry("\(entryString(using: .utf8) ?? "?")", "\(valueString(using: .utf8) ?? "?")")
