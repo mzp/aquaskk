@@ -21,7 +21,7 @@
 */
 
 #ifndef SKKCandidateSuite_h
-#define SKKCandidateSuite_
+#define SKKCandidateSuite_h
 
 #include <algorithm>
 #include <functional>
@@ -111,6 +111,23 @@ class SKKCandidateSuite {
         return result;
     }
 
+    template <typename Predicate> void RemoveIf(const Predicate &pred) {
+        if(!hints_.empty()) {
+            SKKCandidateContainer removed;
+
+            // pred が true の要素を remove して copy するので、not1 で反転させる
+            std::remove_copy_if(
+                candidates_.begin(), candidates_.end(), std::back_inserter(removed),
+                [pred](SKKCandidate c) { return !pred(c); });
+
+            for(unsigned index = 0; !hints_.empty() && index < removed.size(); ++index) {
+                remove_hint(removed[index]);
+            }
+        }
+
+        candidates_.erase(std::remove_if(candidates_.begin(), candidates_.end(), pred), candidates_.end());
+    }
+
 public:
     SKKCandidateSuite() {}
 
@@ -181,23 +198,6 @@ public:
 
     void Remove(const SKKCandidate &candidate) {
         RemoveIf([candidate](SKKCandidate c) { return candidate == c; });
-    }
-
-    template <typename Predicate> void RemoveIf(const Predicate &pred) {
-        if(!hints_.empty()) {
-            SKKCandidateContainer removed;
-
-            // pred が true の要素を remove して copy するので、not1 で反転させる
-            std::remove_copy_if(
-                candidates_.begin(), candidates_.end(), std::back_inserter(removed),
-                [pred](SKKCandidate c) { return !pred(c); });
-
-            for(unsigned index = 0; !hints_.empty() && index < removed.size(); ++index) {
-                remove_hint(removed[index]);
-            }
-        }
-
-        candidates_.erase(std::remove_if(candidates_.begin(), candidates_.end(), pred), candidates_.end());
     }
 
     bool FindOkuriStrictly(const std::string &okuri, SKKCandidateSuite &suite) {
