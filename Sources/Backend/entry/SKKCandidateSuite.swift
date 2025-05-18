@@ -24,7 +24,6 @@ public struct SKKCandidateSuite {
         self = tmp
     }
 
-
     // MARK: - Candidates
 
     public mutating func add(candidate: SKKCandidate) {
@@ -75,8 +74,8 @@ public struct SKKCandidateSuite {
     }
 
     public mutating func add(hints: [SKKOkuriHint]) {
-        hints.forEach {
-            self.add(hint: $0)
+        for item in hints {
+            add(hint: item)
         }
     }
 

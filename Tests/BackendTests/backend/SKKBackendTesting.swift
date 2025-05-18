@@ -33,24 +33,24 @@ struct SKKBackendTesting {
     @Test func find() {
         var suite = SKKCandidateSuite()
         backend.find(entry: SKKEntry("NOT-EXIST", "え"), to: &suite)
-        #expect(suite.IsEmpty())
+        #expect(suite.isEmpty)
 
-        suite.Clear()
+        suite.clear()
         backend.find(entry: SKKEntry("よi", "い"), to: &suite)
-        #expect(suite.ToString(false) == "/良/好/酔/善/")
+        #expect(suite.string() == "/良/好/酔/善/")
 
-        suite.Clear()
+        suite.clear()
         backend.find(entry: SKKEntry("たんごとうろく", ""), to: &suite)
-        #expect(suite.ToString(false) == "/単語登録/")
+        #expect(suite.string() == "/単語登録/")
 
         // skk-ignore-dic-word 対応
-        suite.Clear()
+        suite.clear()
         backend.find(entry: SKKEntry("おおk", "き"), to: &suite)
-        #expect(suite.ToString(false) == "/大/")
+        #expect(suite.string() == "/大/")
 
-        suite.Clear()
+        suite.clear()
         backend.find(entry: SKKEntry("むし", ""), to: &suite)
-        #expect(suite.ToString(false) == "/蒸し/虫/")
+        #expect(suite.string() == "/蒸し/虫/")
     }
 
     @Test func register() {
@@ -66,12 +66,12 @@ struct SKKBackendTesting {
         // 検索
         var suite = SKKCandidateSuite()
         backend.find(entry: SKKEntry("あr", "り"), to: &suite)
-        #expect(String(suite.ToString(false)) == "/有/[り/有/]/")
-        suite.Clear()
+        #expect(String(suite.string()) == "/有/[り/有/]/")
+        suite.clear()
 
         backend.find(entry: SKKEntry("かなめ", ""), to: &suite)
-        #expect(suite.ToString(false) == "/要/")
-        suite.Clear()
+        #expect(suite.string() == "/要/")
+        suite.clear()
 
         // 削除
         backend.remove(entry: SKKEntry("あr", "り"), candidate: SKKCandidate("有", true))
@@ -81,11 +81,11 @@ struct SKKBackendTesting {
         #expect(result[0] != "かなめ")
 
         backend.find(entry: SKKEntry("あk", "り"), to: &suite)
-        #expect(suite.IsEmpty())
-        suite.Clear()
+        #expect(suite.isEmpty)
+        suite.clear()
 
         backend.find(entry: SKKEntry("かなめ", ""), to: &suite)
-        #expect(suite.IsEmpty())
+        #expect(suite.isEmpty)
     }
 
     @Test func reverseLookup() {

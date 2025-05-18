@@ -24,7 +24,6 @@
 #define SKKSelector_h
 
 #import <swift/bridging>
-#import <AquaSKKBackend/SKKCandidateSuite.h>
 #import <AquaSKKBackend/SwiftObject.h>
 #import <AquaSKKEngine/IntrusiveRefCounted.h>
 #import <AquaSKKEngine/SKKSelectorBuddy.h>

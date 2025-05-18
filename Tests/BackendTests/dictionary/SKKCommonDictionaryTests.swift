@@ -31,7 +31,7 @@ struct SKKCommonDictionaryTests {
 
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("よi", "い"), to: &suite)
-        #expect(suite.ToString(false) == "/良/好/酔/善/")
+        #expect(suite.string() == "/良/好/酔/善/")
     }
 
     @Test("encoding", arguments: [
@@ -43,7 +43,7 @@ struct SKKCommonDictionaryTests {
 
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("かんじ", ""), to: &suite)
-        #expect(suite.ToString(false) == "/漢字/寛治/官寺/")
+        #expect(suite.string() == "/漢字/寛治/官寺/")
     }
 
     @Test("encoding", arguments: [
@@ -55,7 +55,7 @@ struct SKKCommonDictionaryTests {
 
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("NOT_EXIST", "d"), to: &suite)
-        #expect(suite.IsEmpty() == true)
+        #expect(suite.isEmpty == true)
     }
 
     @Test("encoding", arguments: [

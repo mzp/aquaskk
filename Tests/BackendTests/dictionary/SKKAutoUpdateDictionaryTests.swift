@@ -15,7 +15,7 @@ struct SKKAutoUpdateDictionaryTests {
         try await dict.refresh()
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("dummy", "d"), to: &suite)
-        #expect(suite.IsEmpty() == true)
+        #expect(suite.isEmpty == true)
         #expect(FileManager.default.fileExists(atPath: "SKK-JISYO.S1") == true)
         #expect(dict.reverseLookup(candidate: "逆") == "ぎゃく")
     }

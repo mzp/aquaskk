@@ -24,19 +24,19 @@ struct SKKLocalUserDictionaryTests {
     @Test func notFound() {
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("#", ""), to: &suite)
-        #expect(suite.IsEmpty() == true)
+        #expect(suite.isEmpty == true)
     }
 
     @Test func okuriAri() {
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("おくりあr", "り"), to: &suite)
-        #expect(suite.ToString() == "/送り有/")
+        #expect(suite.string() == "/送り有/")
     }
 
     @Test func okuriNasi() {
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("かんじ", ""), to: &suite)
-        #expect(suite.ToString() == "/漢字/")
+        #expect(suite.string() == "/漢字/")
     }
 
     @Test func registerOkuriNasi() throws {
@@ -45,13 +45,13 @@ struct SKKLocalUserDictionaryTests {
 
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("かんり", ""), to: &suite)
-        #expect(suite.ToString() == "/管理/")
+        #expect(suite.string() == "/管理/")
 
         dict.remove(entry: SKKEntry("かんり", ""), candidate: SKKCandidate("管理", true))
 
-        suite.Clear()
+        suite.clear()
         dict.find(entry: SKKEntry("かんり", ""), to: &suite)
-        #expect(suite.IsEmpty() == true)
+        #expect(suite.isEmpty == true)
     }
 
     @Test func registerOkuriAri() throws {
@@ -60,13 +60,13 @@ struct SKKLocalUserDictionaryTests {
 
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("おくりあr", "り"), to: &suite)
-        #expect(suite.ToString() == "/送りあ/[り/送りあ/]/")
+        #expect(suite.string() == "/送りあ/[り/送りあ/]/")
 
         dict.remove(entry: SKKEntry("おくりあr", "り"), candidate: SKKCandidate("送りあ", true))
 
-        suite.Clear()
+        suite.clear()
         dict.find(entry: SKKEntry("おくりあr", "り"), to: &suite)
-        #expect(suite.ToString() == "/送り有/")
+        #expect(suite.string() == "/送り有/")
     }
 
     @Test func helper() {
@@ -102,13 +102,13 @@ struct SKKLocalUserDictionaryTests {
 
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("おくりあr", "り"), to: &suite)
-        #expect(suite.ToString() == "/送りあ/[り/送りあ/]/")
+        #expect(suite.string() == "/送りあ/[り/送りあ/]/")
 
         dict.setPrivateMode(value: false)
 
-        suite.Clear()
+        suite.clear()
         dict.find(entry: SKKEntry("おくりあr", "り"), to: &suite)
-        #expect(suite.ToString() == "/送り有/")
+        #expect(suite.string() == "/送り有/")
     }
 
     @Test(arguments: [
@@ -123,7 +123,7 @@ struct SKKLocalUserDictionaryTests {
         dict.remove(entry: SKKEntry("ほかん1", ""), candidate: SKKCandidate("", true))
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("ほかん1", ""), to: &suite)
-        #expect(suite.ToString() == "/補完1/")
+        #expect(suite.string() == "/補完1/")
     }
 
     @Test func toggleCompletion() throws {
@@ -131,11 +131,11 @@ struct SKKLocalUserDictionaryTests {
         #expect(result == true)
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("とぐるほかん", ""), to: &suite)
-        #expect(suite.IsEmpty() == true)
+        #expect(suite.isEmpty == true)
 
         dict.remove(entry: SKKEntry("とぐるほかん", ""), candidate: SKKCandidate("", true))
         dict.find(entry: SKKEntry("とぐるほかん", ""), to: &suite)
-        #expect(suite.IsEmpty() == true)
+        #expect(suite.isEmpty == true)
     }
 
     @Test func comment() throws {
@@ -143,11 +143,11 @@ struct SKKLocalUserDictionaryTests {
         #expect(result == true)
         var suite: SKKCandidateSuite = .init()
         dict.find(entry: SKKEntry("encode", ""), to: &suite)
-        #expect(suite.ToString() == "/abc;def/")
+        #expect(suite.string() == "/abc;def/")
 
         dict.remove(entry: SKKEntry("encode", ""), candidate: SKKCandidate("abc;def", true))
-        suite.Clear()
+        suite.clear()
         dict.find(entry: SKKEntry("encode", ""), to: &suite)
-        #expect(suite.IsEmpty() == true)
+        #expect(suite.isEmpty == true)
     }
 }

@@ -9,6 +9,7 @@
 #import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKBackend/SKKCompletionHelper.h>
 #import <AquaSKKBackend/SKKDictionaryKey.h>
+#import <AquaSKKBackend/AquaSKKBackend-Preamble.h>
 #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 
 SKKOkuriHint newSKKOkuriHint() {

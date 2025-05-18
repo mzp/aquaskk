@@ -23,7 +23,7 @@
 #ifndef SKKBackEnd_h
 #define SKKBackEnd_h
 
-#import <AquaSKKBackend/SKKCandidateSuite.h>
+#import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKBackend/SKKDictionaryKey.h>
 #import <AquaSKKBackend/SKKEntry.h>
 
