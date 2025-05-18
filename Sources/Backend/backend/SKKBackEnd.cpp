@@ -41,10 +41,8 @@ bool SKKBackEnd::Complete(const std::string &key, std::vector<std::string> &resu
     return result.size() > 0;
 }
 
-bool SKKBackEnd::Find(const SKKEntry &entry, SKKCandidateSuite &result) {
-    result.Clear();
-    AquaSKKBackend::createBackendImpl().find(entry, result);
-    return !result.IsEmpty();
+std::string SKKBackEnd::Find(const SKKEntry &entry) {
+    return AquaSKKBackend::createBackendImpl().bridgeFind(entry);
 }
 
 std::string SKKBackEnd::ReverseLookup(const std::string &candidate) {

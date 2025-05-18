@@ -76,6 +76,12 @@ public class SKKBackendImpl {
         return dict
     }
 
+    public func bridgeFind(entry: SKKEntry) -> String {
+        var suite = SKKCandidateSuite()
+        find(entry: entry, to: &suite)
+        return String(suite.ToString(true))
+    }
+
     public func find(entry: SKKEntry, to result: inout SKKCandidateSuite) {
         for dictionary in dictionaries {
             dictionary.find(entry: entry, to: &result)

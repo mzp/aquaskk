@@ -42,7 +42,7 @@ public:
     bool Complete(const std::string &key, SKKCompletionResult &result, unsigned limit = 0);
 
     // 検索
-    bool Find(const SKKEntry &entry, SKKCandidateSuite &result);
+    std::string Find(const SKKEntry &entry);
 
     // 逆引き
     std::string ReverseLookup(const std::string &candidate);
