@@ -46,7 +46,7 @@ public class SKKPreProcessor: NSObject {
         var charcode = charstr?.first
         let keycode = Int32(event.keyCode)
 
-        var mods: Int32 = 0
+        var mods = 0
         if modifierFlags.contains(.shift) {
             if dispchar?.isLetter == true {
                 charcode = dispchar
@@ -66,7 +66,7 @@ public class SKKPreProcessor: NSObject {
         if keycode == 0x66 || keycode == 0x68 {
             charcode = nil
         }
-        var result = keymap.fetch(charCode: Int(charcode?.asciiValue ?? 0), keyCode: Int(keycode), modifiers: Int(mods))
+        var result = keymap.fetch(charCode: Int(charcode?.asciiValue ?? 0), keyCode: Int(keycode), modifiers: mods)
 
         if modifierFlags.contains(.capsLock) {
             result.option |= Int32(CapsLock)

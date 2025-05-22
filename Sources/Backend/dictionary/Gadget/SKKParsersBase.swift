@@ -47,16 +47,32 @@ class SKKParsersBase {
         }
     }
 
+    func noneOf(_ string: String) throws -> Character {
+        return try consume {
+            !string.contains($0)
+        }
+    }
+
     // MARK: - Collection
 
-    func many<T>(parser: () throws -> T) -> [T] {
+    func many<T>(parser: () throws -> T) rethrows -> [T] {
         var result = [T]()
         do {
             while true {
                 let value = try parser()
                 result.append(value)
             }
-        } catch {}
+        } catch _ as UnexpectedTokenError {}
         return result
+    }
+
+    func attempt<T>(parser: () throws -> T) rethrows -> T? {
+        let original = content
+        do {
+            return try parser()
+        } catch _ as UnexpectedTokenError {
+            content = original
+            return nil
+        }
     }
 }

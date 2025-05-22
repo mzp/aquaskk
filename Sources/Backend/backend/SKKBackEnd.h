@@ -23,7 +23,7 @@
 #ifndef SKKBackEnd_h
 #define SKKBackEnd_h
 
-#import <AquaSKKBackend/SKKCandidateSuite.h>
+#import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKBackend/SKKDictionaryKey.h>
 #import <AquaSKKBackend/SKKEntry.h>
 
@@ -42,7 +42,7 @@ public:
     bool Complete(const std::string &key, SKKCompletionResult &result, unsigned limit = 0);
 
     // 検索
-    bool Find(const SKKEntry &entry, SKKCandidateSuite &result);
+    std::string Find(const SKKEntry &entry);
 
     // 逆引き
     std::string ReverseLookup(const std::string &candidate);

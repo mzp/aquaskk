@@ -25,12 +25,8 @@ FOUNDATION_EXPORT const unsigned char AquaSKKBackendVersionString[];
 #pragma mark - entry
 
 #import <AquaSKKBackend/SKKCandidate.h>
-#import <AquaSKKBackend/SKKCandidateParser.h>
-#import <AquaSKKBackend/SKKCandidateSuite.h>
-#import <AquaSKKBackend/SKKDictionaryEntry.h>
 #import <AquaSKKBackend/SKKEntry.h>
 #import <AquaSKKBackend/SKKInputMode.h>
-#import <AquaSKKbackend/SKKOkuriHint.h>
 
 #pragma mark - utility
 
@@ -38,3 +34,4 @@ FOUNDATION_EXPORT const unsigned char AquaSKKBackendVersionString[];
 #import <AquaSKKBackend/SKKEncoding.h>
 #import <AquaSKKBackend/SKKTransliterate.h>
 #import <AquaSKKBackend/SwiftObject.h>
+#import <AquaSKKBackend/AquaSKKBackend-Preamble.h>

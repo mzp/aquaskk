@@ -45,14 +45,14 @@ import AquaSKKService
     }
 
     @Test func okuriAri() async throws {
-        var suite = try #require(await skkClient.find(entry: SKKEntry("ころg", "")))
+        let suite = try #require(await skkClient.find(entry: SKKEntry("ころg", "")))
         let candidate = try String(#require(suite.candidates.first).variant)
         #expect(candidate == "転")
     }
 
     @Test func notFound() async throws {
-        var suite = try #require(await skkClient.find(entry: SKKEntry("NOT_EXIST", "")))
-        #expect(suite.IsEmpty() == true)
+        let suite = try #require(await skkClient.find(entry: SKKEntry("NOT_EXIST", "")))
+        #expect(suite.isEmpty == true)
     }
 
     @Test func query() async throws {

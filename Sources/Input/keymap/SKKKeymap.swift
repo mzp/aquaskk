@@ -136,12 +136,12 @@ public class SKKKeymapImpl {
 
     func find(charCode: Int, keyCode: Int, modifiers: Int, from keymap: [SKKKeyState: Int]) -> Int? {
         // まずキーコードで調べる(優先度高)
-        if let value = keymap[SKKKeyState.KeyCode(Int32(keyCode), Int32(modifiers))] {
+        if let value = keymap[SKKKeyState.KeyCode(Int32(keyCode), .init(rawValue: modifiers))] {
             return value
         }
 
         // キャラクターコードを調べる
-        if let value = keymap[SKKKeyState.CharCode(Int32(charCode), Int32(modifiers))] {
+        if let value = keymap[SKKKeyState.CharCode(Int32(charCode), .init(rawValue: modifiers))] {
             return value
         }
 

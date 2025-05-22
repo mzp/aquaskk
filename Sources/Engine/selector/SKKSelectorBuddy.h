@@ -20,7 +20,7 @@
 
 */
 
-#import <AquaSKKBackend/SKKCandidateSuite.h>
+#import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKBackend/SKKEntry.h>
 #import <AquaSKKEngine/IntrusiveRefCounted.h>
 

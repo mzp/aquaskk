@@ -76,6 +76,12 @@ public class SKKBackendImpl {
         return dict
     }
 
+    public func bridgeFind(entry: SKKEntry) -> String {
+        var suite = SKKCandidateSuite()
+        find(entry: entry, to: &suite)
+        return suite.string(excludeAvoidStudy: true)
+    }
+
     public func find(entry: SKKEntry, to result: inout SKKCandidateSuite) {
         for dictionary in dictionaries {
             dictionary.find(entry: entry, to: &result)
@@ -90,12 +96,12 @@ public class SKKBackendImpl {
                 for var candidate in result.candidates {
                     converter.apply(candidate: &candidate)
                 }
-                result.Remove(SKKCandidate(std.string(converter.originalKey), true))
+                result.remove(candidate: SKKCandidate(std.string(converter.originalKey), true))
             }
         }
         for candidate in result.candidates {
             if String(candidate.word).hasPrefix("(skk-ignore-dic-word") {
-                result.Remove(candidate)
+                result.remove(candidate: candidate)
             }
         }
     }

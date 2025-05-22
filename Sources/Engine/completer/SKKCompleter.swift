@@ -36,7 +36,7 @@ public class SKKCompleterImpl {
         SKKBackendImpl.shared().remove(entry: entry, candidate: SKKCandidate())
         var tmp = SKKCandidateSuite()
         SKKBackendImpl.shared().find(entry: entry, to: &tmp)
-        return !tmp.IsEmpty()
+        return !tmp.isEmpty
     }
 
     public func next() {

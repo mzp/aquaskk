@@ -35,20 +35,19 @@ class SKKEncodingDictionary: SKKBaseDictionaryProtocol {
         let query = String(entry.EntryString())
         if entry.IsOkuriAri() {
             if let rawValue = findOkuriAri(query: query) {
-                suite.Parse(std.string(rawValue))
+                suite.parse(string: rawValue)
 
-                var strict = SKKCandidateSuite()
-                if suite.FindOkuriStrictly(entry.OkuriString(), &strict) {
-                    strict.Add(suite.hints)
+                if var strict = suite.findOkuriStrictly(okuri: String(entry.OkuriString())) {
+                    strict.add(hints: suite.hints)
                     suite = strict
                 }
             }
         } else {
             if let rawValue = findOkuriNasi(query: query) {
-                suite.Parse(std.string(rawValue))
+                suite.parse(string: rawValue)
             }
         }
-        result.Add(suite)
+        result.add(suite: suite)
     }
 
     func findOkuriAri(query: String) -> String? {
@@ -76,12 +75,12 @@ class SKKEncodingDictionary: SKKBaseDictionaryProtocol {
         guard let entries = dataSource?.okuriNasi else {
             return ""
         }
-        var parser = SKKCandidateParser()
+        let parser = SKKCandidateParser()
         for entry in entries {
             guard let valueString = entry.valueString(using: encoding) else {
                 continue
             }
-            parser.Parse(std.string(valueString))
+            parser.parse(valueString)
             if parser.candidates.first(where: {
                 String($0.variant) == candidate
             }) != nil {
