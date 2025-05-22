@@ -51,16 +51,20 @@ class TestData {
             }
         }
 
+        // public static let shift = SKKKeyModifier(rawValue: 1 << 1)
+        // public static let control = SKKKeyModifier(rawValue: 1 << 2)
+        // public static let option = SKKKeyModifier(rawValue: 1 << 3)
+        // public static let command = SKKKeyModifier(rawValue: 1 << 4)
         splitter.split(key, "::");
         while(splitter >> str) {
             if(str == "shift")
-                result.mods |= AquaSKKInput::SKKKeyModifier::getShift().getRawValue();
+                result.mods |= (1 << 1);
             if(str == "ctrl")
-                result.mods |= (int)AquaSKKInput::SKKKeyModifier::getControl().getRawValue();
+                result.mods |= (1 << 2);
             if(str == "alt")
-                result.mods |= (int)AquaSKKInput::SKKKeyModifier::getOption().getRawValue();
+                result.mods |= (1 << 3);
             if(str == "meta")
-                result.mods |= (int)AquaSKKInput::SKKKeyModifier::getCommand().getRawValue();
+                result.mods |= (1 << 4);
         }
 
         result.code = charcode(str);

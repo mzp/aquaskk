@@ -57,9 +57,9 @@ struct SKKCandidateParserTest {
         #expect(parser.hints.count == 1)
 
         let hint = try #require(parser.hints.first)
-        #expect(hint.first == "おくり")
-        #expect(hint.second.count == 1)
-        #expect(try #require(hint.second.first) == SKKCandidate("候補1", true))
+        #expect(hint.okuri == "おくり")
+        #expect(hint.candidates.count == 1)
+        #expect(try #require(hint.candidates.first) == SKKCandidate("候補1", true))
     }
 
     @Test func emptyHint() throws {
@@ -71,8 +71,8 @@ struct SKKCandidateParserTest {
 
         let hint = try #require(parser.hints.first)
 
-        #expect(hint.second.count == 2)
-        let candidate = try #require(hint.second.first)
+        #expect(hint.candidates.count == 2)
+        let candidate = try #require(hint.candidates.first)
         #expect(candidate == SKKCandidate("候補1", true))
     }
 }
