@@ -20,7 +20,6 @@
 
 */
 
-#import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKEngine/SKKCandidateEditor.h>
 #import <AquaSKKEngine/SKKInputContext.h>
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>

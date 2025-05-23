@@ -4,11 +4,12 @@
 #include <iostream>
 #import <InputMethodKit/InputMethodKit.h>
 #import <XCTest/XCTest.h>
-#import <AquaSKKBackend/SKKBackEnd.h>
+#import <AquaSKKBackend/AquaSKKBackend.h>
 #import <AquaSKKEngine/AquaSKKEngine.h>
 #import <AquaSKKService/AquaSKKService.h>
 #import <AquaSKKTesting/AquaSKKTesting.h>
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
+#import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 #include "SKKRomanKanaConverter.h"
@@ -36,7 +37,8 @@ class TestRunner {
         std::ofstream ofs(userdict.c_str(), std::ios_base::trunc);
         ofs.close();
 
-        SKKBackEnd::theInstance().Initialize(userdict, keys);
+        auto backend = AquaSKKBackend::SKKBackendImpl::shared();
+        backend.bridgeInitialize(userdict, keys);
 
         SKKRomanKanaConverter::theInstance().Initialize("kana-rule.conf");
 

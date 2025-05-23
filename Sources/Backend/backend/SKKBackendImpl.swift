@@ -184,14 +184,13 @@ public class SKKBackendImpl {
 
     // MARK: - Bridge
 
+    public func bridgeInitialize(path: String, dictionaries: SKKDictionaryKeyContainer) {
+        initialize(path: path, dictionaries: dictionaries)
+    }
+
     public func initialize(path: String, dictionaries: SKKDictionaryKeyContainer) {
         SKKTask.perfromAndWait {
             await self.initialize(path: path, configurations: dictionaries.compactMap { .init(from: $0) })
         }
-    }
-
-    public func complete_(key: String, limit: Int) -> SKKCompletionResult {
-        let result = complete(key: key, limit: limit)
-        return .init(result.map { std.string($0) })
     }
 }

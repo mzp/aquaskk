@@ -18,7 +18,6 @@ FOUNDATION_EXPORT const unsigned char AquaSKKBackendVersionString[];
 
 #pragma mark - backend
 
-#import <AquaSKKBackend/SKKBackend.h>
 #import <AquaSKKBackend/SKKCompletionHelper.h>
 #import <AquaSKKBackend/SKKDictionaryKey.h>
 
