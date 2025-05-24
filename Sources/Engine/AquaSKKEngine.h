@@ -63,10 +63,6 @@ FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 #import <AquaSKKEngine/SKKState.h>
 #import <AquaSKKEngine/SKKStateMachine.h>
 
-#pragma mark - tries
-
-#import <AquaSKKEngine/SKKRomanKanaConverter.h>
-
 #pragma mark - utility
 
 #import <AquaSKKEngine/IntrusiveRefCounted.h>

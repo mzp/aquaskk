@@ -4,9 +4,8 @@
 //
 //  Created by mzp on 8/12/24.
 //
+import AquaSKKLogging
 import OSLog
-
-private let logger = Logger(subsystem: "com.aquaskk.inputmethod.Core", category: "Romankana")
 
 struct RomanKanaRule: Equatable, Hashable {
     var hirakana: String
@@ -23,13 +22,13 @@ struct RomanKanaRule: Equatable, Hashable {
         case .Jisx0201KanaInputMode:
             return jisx0201kana
         default:
-            logger.error("invalid input mode: \(inputMode.rawValue, privacy: .public)")
+            Logger.skkEngine.error("invalid input mode: \(inputMode.rawValue, privacy: .public)")
             return ""
         }
     }
 }
 
-@objc(AICRomanKanaResult)
+@objc(SKKRomanKanaResult)
 public class RomanKanaResult: NSObject {
     @objc public var output: String = ""
     @objc public var intermediate: String = ""
@@ -37,7 +36,7 @@ public class RomanKanaResult: NSObject {
     @objc public var converted: Bool = false
 }
 
-@objc(AICRomanKanaConverter)
+@objc(SKKRomanKanaConverterImpl)
 public class RomanKanaConverterImpl: NSObject {
     var root = Trie<RomanKanaRule>()
 
@@ -52,7 +51,7 @@ public class RomanKanaConverterImpl: NSObject {
             root = Trie<RomanKanaRule>()
             try append(path: path)
         } catch {
-            logger.error("\(#function, privacy: .public) failed: \(error.localizedDescription, privacy: .public)")
+            Logger.skkEngine.error("\(#function, privacy: .public) failed: \(error.localizedDescription, privacy: .public)")
         }
     }
 
@@ -60,12 +59,12 @@ public class RomanKanaConverterImpl: NSObject {
         do {
             try append(path: path)
         } catch {
-            logger.error("\(#function, privacy: .public) failed: \(error.localizedDescription, privacy: .public)")
+            Logger.skkEngine.error("\(#function, privacy: .public) failed: \(error.localizedDescription, privacy: .public)")
         }
     }
 
     func append(path: String) throws {
-        logger.log("\(#function, privacy: .public): Load \(path, privacy: .private)")
+        Logger.skkEngine.log("\(#function, privacy: .public): Load \(path, privacy: .private)")
         let url = URL(fileURLWithPath: path)
         let data = try Data(contentsOf: url)
         guard let content = String(data: data, encoding: .japaneseEUC) else {
@@ -80,7 +79,7 @@ public class RomanKanaConverterImpl: NSObject {
             }
 
             if rows.count < 4 || rows.count > 5 {
-                logger.error("Invalid format: \(line, privacy: .private) at \(n, privacy: .private)")
+                Logger.skkEngine.error("Invalid format: \(line, privacy: .private) at \(n, privacy: .private)")
             } else {
                 let roman = rows[0]
                 let rule = RomanKanaRule(

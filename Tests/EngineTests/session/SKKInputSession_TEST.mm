@@ -8,11 +8,9 @@
 #import <AquaSKKEngine/AquaSKKEngine.h>
 #import <AquaSKKService/AquaSKKService.h>
 #import <AquaSKKTesting/AquaSKKTesting.h>
-#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
-#include "SKKRomanKanaConverter.h"
 #include "TestData.h"
 
 @interface SKKInputSessionTests : XCTestCase
@@ -40,8 +38,7 @@ class TestRunner {
         auto backend = AquaSKKBackend::SKKBackendImpl::shared();
         backend.bridgeInitialize(userdict, keys);
 
-        SKKRomanKanaConverter::theInstance().Initialize("kana-rule.conf");
-
+        [[SKKRomanKanaConverterImpl sharedInstance] initialize:@"kana-rule.conf"];
         map.initialize("keymap.conf");
 
         session.AddInputModeListener(param->Listener());
