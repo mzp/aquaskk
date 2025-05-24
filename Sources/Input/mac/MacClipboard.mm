@@ -22,12 +22,10 @@
 
 #import <AppKit/AppKit.h>
 #import <Foundation/Foundation.h>
-#import <InputMethodKit/InputMethodKit.h>
-#import <AquaSKKBackend/SKKInputMode.h>
 #import <AquaSKKInput/MacClipboard.h>
-#import <AquaSKKService/SKKSupervisor.h>
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
+#import <AquaSKKInput/AquaSKKInput-Preamble.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 
 MacClipboard::MacClipboard() {

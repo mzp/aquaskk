@@ -14,6 +14,7 @@ FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 #pragma mark - bridge
 
 #import <AquaSKKEngine/SKKAnnotator.h>
+#import <AquaSKKEngine/SKKAnnotatorBridge.h>
 #import <AquaSKKEngine/SKKCandidateWindow.h>
 #import <AquaSKKEngine/SKKCandidateWindowBridge.h>
 #import <AquaSKKEngine/SKKClipboard.h>

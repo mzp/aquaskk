@@ -79,6 +79,10 @@
 		133834F42C6020CB00D73AD7 /* MockTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135EEB9A2C5EE6AB00758672 /* MockTextInput.swift */; };
 		133834F52C6020CB00D73AD7 /* Typer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135EEB9D2C5EEA4900758672 /* Typer.swift */; };
 		133844C92DE0CB1D0050B98C /* skkserv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133844C82DE0CB1D0050B98C /* skkserv.swift */; };
+		133844D72DE25BC10050B98C /* SKKAnnotatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133844D62DE25BC10050B98C /* SKKAnnotatorProtocol.swift */; };
+		133844DA2DE25C4D0050B98C /* SKKAnnotatorBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 133844D92DE25C4D0050B98C /* SKKAnnotatorBridge.mm */; };
+		133844DB2DE25C4D0050B98C /* SKKAnnotatorBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 133844D82DE25C4D0050B98C /* SKKAnnotatorBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		133844DD2DE25FF90050B98C /* AquaSKKInput-Preamble.h in Headers */ = {isa = PBXBuildFile; fileRef = 133844DC2DE25FF90050B98C /* AquaSKKInput-Preamble.h */; };
 		133ADFF02D68E72A00DCA0DA /* SKKDictionarySourceFileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133ADFEF2D68E72A00DCA0DA /* SKKDictionarySourceFileProtocol.swift */; };
 		133ADFF22D68E74000DCA0DA /* SKKLocalDictionaryFileSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133ADFF12D68E74000DCA0DA /* SKKLocalDictionaryFileSource.swift */; };
 		133E1FE22C79528E00B1A03A /* SandboxShims.h in Headers */ = {isa = PBXBuildFile; fileRef = 133E1FE02C79528E00B1A03A /* SandboxShims.h */; };
@@ -189,14 +193,12 @@
 		135C3D9F2C5B3F1D00661AE3 /* MacInputSessionParameter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D7B2C5B3F1D00661AE3 /* MacInputSessionParameter.mm */; };
 		135C3DA02C5B3F1D00661AE3 /* MacMessenger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D7F2C5B3F1D00661AE3 /* MacMessenger.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		135C3DA42C5B3F1D00661AE3 /* MacInputModeWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D792C5B3F1D00661AE3 /* MacInputModeWindow.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		135C3DA72C5B3F1D00661AE3 /* MacAnnotator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D6B2C5B3F1D00661AE3 /* MacAnnotator.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		135C3DA82C5B3F1D00661AE3 /* MacInputModeMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135C3D772C5B3F1D00661AE3 /* MacInputModeMenu.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		135C3DA92C5B3F1D00661AE3 /* MacInputSessionParameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D7A2C5B3F1D00661AE3 /* MacInputSessionParameter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DAB2C5B3F1D00661AE3 /* MacClipboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D6E2C5B3F1D00661AE3 /* MacClipboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DAD2C5B3F1D00661AE3 /* MacConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D702C5B3F1D00661AE3 /* MacConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DB02C5B3F1D00661AE3 /* MacInputModeMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D762C5B3F1D00661AE3 /* MacInputModeMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DB32C5B3F1D00661AE3 /* MacMessenger.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D7E2C5B3F1D00661AE3 /* MacMessenger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		135C3DB42C5B3F1D00661AE3 /* MacAnnotator.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D6A2C5B3F1D00661AE3 /* MacAnnotator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DB72C5B3F1D00661AE3 /* MacCandidateWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D6C2C5B3F1D00661AE3 /* MacCandidateWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DB92C5B3F1D00661AE3 /* MacInputModeWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D782C5B3F1D00661AE3 /* MacInputModeWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		135C3DBB2C5B3F1D00661AE3 /* MacDynamicCompletor.h in Headers */ = {isa = PBXBuildFile; fileRef = 135C3D722C5B3F1D00661AE3 /* MacDynamicCompletor.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -680,6 +682,10 @@
 		1335E37C2C97FE6C002F298B /* SKKCompletionHelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKCompletionHelperProtocol.swift; sourceTree = "<group>"; };
 		133834EC2C60204900D73AD7 /* Tests-Typer.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Typer.xcconfig"; sourceTree = "<group>"; };
 		133844C82DE0CB1D0050B98C /* skkserv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = skkserv.swift; sourceTree = "<group>"; };
+		133844D62DE25BC10050B98C /* SKKAnnotatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKAnnotatorProtocol.swift; sourceTree = "<group>"; };
+		133844D82DE25C4D0050B98C /* SKKAnnotatorBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKAnnotatorBridge.h; sourceTree = "<group>"; };
+		133844D92DE25C4D0050B98C /* SKKAnnotatorBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKAnnotatorBridge.mm; sourceTree = "<group>"; };
+		133844DC2DE25FF90050B98C /* AquaSKKInput-Preamble.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AquaSKKInput-Preamble.h"; sourceTree = "<group>"; };
 		133A55152C5DA7910047E911 /* main.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = main.yml; sourceTree = "<group>"; };
 		133A55182C5DA7910047E911 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		133A55192C5DA7910047E911 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
@@ -812,8 +818,6 @@
 		135C3D5D2C5B3E9600661AE3 /* AquaSKKInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKInput.h; sourceTree = "<group>"; };
 		135C3D5E2C5B3E9600661AE3 /* AquaSKKIM.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKIM.docc; sourceTree = "<group>"; };
 		135C3D652C5B3E9D00661AE3 /* ToggleKanaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleKanaTests.swift; sourceTree = "<group>"; };
-		135C3D6A2C5B3F1D00661AE3 /* MacAnnotator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacAnnotator.h; sourceTree = "<group>"; };
-		135C3D6B2C5B3F1D00661AE3 /* MacAnnotator.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MacAnnotator.mm; sourceTree = "<group>"; };
 		135C3D6C2C5B3F1D00661AE3 /* MacCandidateWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacCandidateWindow.h; sourceTree = "<group>"; };
 		135C3D6D2C5B3F1D00661AE3 /* MacCandidateWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MacCandidateWindow.mm; sourceTree = "<group>"; };
 		135C3D6E2C5B3F1D00661AE3 /* MacClipboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacClipboard.h; sourceTree = "<group>"; };
@@ -1703,6 +1707,9 @@
 			children = (
 				1344F49C2C5B28FC00D8C850 /* SKKAnnotator.h */,
 				137637982D7F637C00CF332A /* SKKAnnotator.cpp */,
+				133844D62DE25BC10050B98C /* SKKAnnotatorProtocol.swift */,
+				133844D82DE25C4D0050B98C /* SKKAnnotatorBridge.h */,
+				133844D92DE25C4D0050B98C /* SKKAnnotatorBridge.mm */,
 				1344F49D2C5B28FC00D8C850 /* SKKCandidateWindow.h */,
 				1376379A2D7F63C900CF332A /* SKKCandidateWindow.cpp */,
 				13513C462D74C9B300C00A4E /* SKKCandidateWindowBridge.h */,
@@ -2054,6 +2061,7 @@
 			isa = PBXGroup;
 			children = (
 				135C3D5D2C5B3E9600661AE3 /* AquaSKKInput.h */,
+				133844DC2DE25FF90050B98C /* AquaSKKInput-Preamble.h */,
 				1344F4ED2C5B28FC00D8C850 /* keymap */,
 				13F89D612D55E6DE003177FA /* skk */,
 				135C3D932C5B3F1D00661AE3 /* mac */,
@@ -2074,8 +2082,6 @@
 			isa = PBXGroup;
 			children = (
 				13E637762D56F58A0040DAAC /* BlacklistApps.swift */,
-				135C3D6A2C5B3F1D00661AE3 /* MacAnnotator.h */,
-				135C3D6B2C5B3F1D00661AE3 /* MacAnnotator.mm */,
 				13F89D602D55E6DE003177FA /* MacAnnotator.swift */,
 				135C3D6C2C5B3F1D00661AE3 /* MacCandidateWindow.h */,
 				135C3D6D2C5B3F1D00661AE3 /* MacCandidateWindow.mm */,
@@ -2868,9 +2874,9 @@
 				135C3DB02C5B3F1D00661AE3 /* MacInputModeMenu.h in Headers */,
 				135C3DB32C5B3F1D00661AE3 /* MacMessenger.h in Headers */,
 				13F109312D5EE41A005DC315 /* SKKInputSessionBridge.h in Headers */,
-				135C3DB42C5B3F1D00661AE3 /* MacAnnotator.h in Headers */,
 				135C3DB72C5B3F1D00661AE3 /* MacCandidateWindow.h in Headers */,
 				135C3DB92C5B3F1D00661AE3 /* MacInputModeWindow.h in Headers */,
+				133844DD2DE25FF90050B98C /* AquaSKKInput-Preamble.h in Headers */,
 				135C3DBB2C5B3F1D00661AE3 /* MacDynamicCompletor.h in Headers */,
 				135C3DBD2C5B3F1D00661AE3 /* MacFrontEnd.h in Headers */,
 				135C3D612C5B3E9600661AE3 /* AquaSKKInput.h in Headers */,
@@ -2968,6 +2974,7 @@
 				1344F5B32C5B28FC00D8C850 /* SKKEvent.h in Headers */,
 				1344F5B72C5B28FC00D8C850 /* SKKCandidateWindow.h in Headers */,
 				1344F5BB2C5B28FC00D8C850 /* SKKInputEngine.h in Headers */,
+				133844DB2DE25C4D0050B98C /* SKKAnnotatorBridge.h in Headers */,
 				1344F5BE2C5B28FC00D8C850 /* SKKCompleter.h in Headers */,
 				138198FE2D793DBB009C29E7 /* SKKOkuriListener.h in Headers */,
 				13D7561A2C5A9049006144F2 /* AquaSKKEngine.h in Headers */,
@@ -3879,7 +3886,6 @@
 				13F89D5C2D55DC73003177FA /* SKKModeTips.swift in Sources */,
 				13BDCB6E2D5091840031BB3A /* SKKInputMenu.swift in Sources */,
 				13E6376F2D56E6620040DAAC /* MacFrontEnd.swift in Sources */,
-				135C3DA72C5B3F1D00661AE3 /* MacAnnotator.mm in Sources */,
 				135C3DA82C5B3F1D00661AE3 /* MacInputModeMenu.mm in Sources */,
 				13F109302D5EE22F005DC315 /* SKKInputSessionBridge.mm in Sources */,
 				135C3D602C5B3E9600661AE3 /* AquaSKKIM.docc in Sources */,
@@ -4080,9 +4086,11 @@
 				1344F5DB2C5B28FC00D8C850 /* SKKEntryRemoveEditor.cpp in Sources */,
 				1344F5DC2C5B28FC00D8C850 /* SKKRegisterEditor.cpp in Sources */,
 				134D25642D7A03870014ACD5 /* SKKRegisterEditor.swift in Sources */,
+				133844D72DE25BC10050B98C /* SKKAnnotatorProtocol.swift in Sources */,
 				130C48442D7CB28A0052FF60 /* InspectorProtocol.swift in Sources */,
 				138FB7062D7B491400542DF7 /* SKKFrontEnd.cpp in Sources */,
 				1344F5E22C5B28FC00D8C850 /* SKKRecursiveEditor.cpp in Sources */,
+				133844DA2DE25C4D0050B98C /* SKKAnnotatorBridge.mm in Sources */,
 				1344F5E42C5B28FC00D8C850 /* SKKComposingEditor.cpp in Sources */,
 				1344F5EC2C5B28FC00D8C850 /* SKKOkuriEditor.cpp in Sources */,
 				130C48482D7E0B0C0052FF60 /* GenericEvent.swift in Sources */,

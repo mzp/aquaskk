@@ -20,7 +20,6 @@
 
 */
 
-#import <AquaSKKInput/MacAnnotator.h>
 #import <AquaSKKInput/MacCandidateWindow.h>
 #import <AquaSKKInput/MacClipboard.h>
 #import <AquaSKKInput/MacConfig.h>
@@ -28,6 +27,10 @@
 #import <AquaSKKInput/MacFrontEnd.h>
 #import <AquaSKKInput/MacInputSessionParameter.h>
 #import <AquaSKKInput/MacMessenger.h>
+#import <AquaSKKEngine/AquaSKKEngine.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
+#import <AquaSKKInput/AquaSKKInput-Preamble.h>
+#import <AquaSKKInput/AquaSKKInput-Swift.h>
 
 MacInputSessionParameter::MacInputSessionParameter(id client, SKKLayoutManager *layout)
     : config_(new MacConfig()),
@@ -35,8 +38,9 @@ MacInputSessionParameter::MacInputSessionParameter(id client, SKKLayoutManager *
       messenger_(new MacMessenger(layout)),
       clipboard_(new MacClipboard()),
       candidateWindow_(new MacCandidateWindow(layout)),
-      annotator_(new MacAnnotator(layout)),
-      completor_(new MacDynamicCompletor(layout)) {}
+      annotator_(new SKKAnnotatorBridge([[MacAnnotatorImpl alloc] initWithLayoutManager:layout])),
+      completor_(new MacDynamicCompletor(layout)) {
+      }
 
 SKKConfig *MacInputSessionParameter::Config() {
     return config_.get();

@@ -4,9 +4,11 @@
 //
 //  Created by mzp on 2/2/25.
 //
+import AquaSKKEngine
+import AquaSKKUI
 
 @objc(MacAnnotatorImpl)
-public class MacAnnotatorImpl: NSObject {
+public class MacAnnotatorImpl: NSObject, SKKAnnotatorProtocol {
     private let window: AnnotationWindow
     private let layoutManager: SKKLayoutManager
 

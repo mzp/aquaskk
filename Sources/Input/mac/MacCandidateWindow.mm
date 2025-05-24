@@ -20,11 +20,10 @@
 
 */
 
-#include <InputMethodKit/InputMethodKit.h>
 #import <AquaSKKInput/MacCandidateWindow.h>
-#import <AquaSKKService/AquaSKKService.h>
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
+#import <AquaSKKInput/AquaSKKInput-Preamble.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 
 MacCandidateWindow::MacCandidateWindow(SKKLayoutManager *layout) {
