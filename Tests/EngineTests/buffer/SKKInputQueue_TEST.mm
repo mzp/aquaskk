@@ -1,8 +1,8 @@
 #include <cassert>
 #include <iostream>
 #import <XCTest/XCTest.h>
-#import <AquaSKKEngine/SKKInputQueue.h>
-#include "SKKRomanKanaConverter.h"
+#import <AquaSKKEngine/AquaSKKEngine.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 @interface SKKInputQueueTests : XCTestCase
 @end
@@ -32,12 +32,9 @@ public:
 @implementation SKKInputQueueTests
 
 - (void)testMain {
-    auto &converter = SKKRomanKanaConverter::theInstance();
-
+    SKKRomanKanaConverterImpl *converter = [SKKRomanKanaConverterImpl sharedInstance];
     NSBundle *bundle = [NSBundle bundleForClass:SKKInputQueueTests.class];
-    const char *path = [bundle pathForResource:@"kana-rule" ofType:@"conf"].UTF8String;
-
-    converter.Initialize(path);
+    [converter initialize:[bundle pathForResource:@"kana-rule" ofType:@"conf"]];
 
     TestInputQueueObserver observer;
     SKKInputQueue queue(&observer);

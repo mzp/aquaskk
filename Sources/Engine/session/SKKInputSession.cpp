@@ -20,7 +20,6 @@
 
 */
 
-#import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKEngine/SKKInputSession.h>
 #import <AquaSKKEngine/SKKPrimaryEditor.h>
 #import <AquaSKKEngine/SKKRecursiveEditor.h>

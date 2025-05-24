@@ -21,7 +21,6 @@
 */
 
 #include <InputMethodKit/InputMethodKit.h>
-#import <AquaSKKBackend/AquaSKKBackend.h>
 #import <AquaSKKInput/MacCandidateWindow.h>
 #import <AquaSKKService/AquaSKKService.h>
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>

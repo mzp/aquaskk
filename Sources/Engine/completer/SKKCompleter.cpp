@@ -20,7 +20,6 @@
 
 */
 
-#import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKBackend/SwiftObject.h>
 #import <AquaSKKEngine/SKKCompleter.h>
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>

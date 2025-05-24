@@ -1,7 +1,8 @@
 #include <cassert>
 #import <XCTest/XCTest.h>
-#import <AquaSKKBackend/SKKBackEnd.h>
+#import <AquaSKKBackend/AquaSKKBackend.h>
 #import <AquaSKKEngine/SKKCompleter.h>
+#import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 
 class TestBuddy : public SKKCompleterBuddy {
     std::string query_;
@@ -35,11 +36,10 @@ public:
     SKKCompleter completer(&buddy);
     SKKDictionaryKeyContainer dicts;
 
-    auto &backend = SKKBackEnd::theInstance();
+    auto backend = AquaSKKBackend::SKKBackendImpl::shared();
 
     NSBundle *bundle = [NSBundle bundleForClass:SKKCompleterTests.class];
-    backend.Initialize([bundle pathForResource:@"skk-jisyo" ofType:@"utf8"].UTF8String, dicts);
-
+    backend.bridgeInitialize([bundle pathForResource:@"skk-jisyo" ofType:@"utf8"].UTF8String, dicts);
     buddy.SetQuery("ほかん");
 
     XCTAssert(completer.Execute());
@@ -50,12 +50,12 @@ public:
 
     XCTAssert(buddy.Entry() == "ほかん3");
 
-    backend.Register(SKKEntry("とぐるほかん"), SKKCandidate());
+    backend.register_(SKKEntry("とぐるほかん"), SKKCandidate());
 
     buddy.SetQuery("とぐる");
     XCTAssert(completer.Execute() && buddy.Entry() == "とぐるほかん");
 
-    backend.Remove(SKKEntry("とぐるほかん"), SKKCandidate());
+    backend.remove(SKKEntry("とぐるほかん"), SKKCandidate());
     XCTAssert(!completer.Execute());
 }
 

@@ -1,10 +1,11 @@
 #include <cassert>
 #import <XCTest/XCTest.h>
-#import <AquaSKKBackend/AquaSKKBackend.h>
 #import <AquaSKKEngine/AquaSKKEngine.h>
 #import <AquaSKKTesting/MockCandidateWindow.h>
 #import <AquaSKKTesting/MockFrontEnd.h>
 #import <AquaSKKTesting/MockSelectorBuddy.h>
+#import <AquaSKKBackend/AquaSKKBackend-Preamble.h>
+#import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 
 @interface SKKSelectorTests : XCTestCase
 @end
@@ -23,7 +24,8 @@
     dicts.push_back(SKKDictionaryKey(0, path));
 
     path = [bundle pathForResource:@"skk-jisyo" ofType:@"utf8"].UTF8String;
-    SKKBackEnd::theInstance().Initialize(path, dicts);
+    auto backend = AquaSKKBackend::SKKBackendImpl::shared();
+    backend.bridgeInitialize(path, dicts);
 
     XCTAssert(selector.Execute(3) && buddy.Current().ToString() == "漢字");
 }

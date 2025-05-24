@@ -24,8 +24,8 @@
 #include <cctype>
 #include <iostream>
 #include <string>
-#import <AquaSKKBackend/SKKBackEnd.h>
 #import <AquaSKKBackend/SKKEncoding.h>
+#import <AquaSKKServer/AquaSKKServer-Swift.h>
 #include <unistd.h>
 
 namespace {
@@ -114,15 +114,13 @@ void *skkserv_impl::worker(void *arg) {
             session.get();
 
             std::string key = SKKEncoding::utf8_from_eucj(word);
-            SKKEntry entry;
+            std::string okuri = "";
             // 検索文字列の最後が [a-z] なら『送りあり』とする
             if(1 < key.size() && 0x7f < (unsigned)key[0] && std::isalpha(key[key.size() - 1])) {
-                entry = SKKEntry(key, "dummy");
-            } else {
-                entry = SKKEntry(key);
+                okuri = "dummy";
             }
 
-            std::string result = SKKBackEnd::theInstance().Find(entry);
+            std::string result = AquaSKKServer::SKKServ::find(key, okuri);
             std::string candidates = SKKEncoding::eucj_from_utf8(result);
             if(!candidates.empty()) {
                 session << '1' << candidates << std::endl;
