@@ -20,10 +20,10 @@
 
 */
 
-#import <AquaSKKInput/MacInputModeWindow.h>
 #import <AquaSKKEngine/AquaSKKEngine.h>
-#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
+#import <AquaSKKInput/MacInputModeWindow.h>
 #import <AquaSKKInput/AquaSKKInput-Preamble.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 #import <AquaSKKUI/AquaSKKUI-Swift.h>
 

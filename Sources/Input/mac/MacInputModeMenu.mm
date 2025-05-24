@@ -23,8 +23,8 @@
 #import <AppKit/AppKit.h>
 #import <AquaSKKInput/MacInputModeMenu.h>
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
-#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 #import <AquaSKKInput/AquaSKKInput-Preamble.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 
 MacInputModeMenu::MacInputModeMenu(SKKInputMenu *menu) {

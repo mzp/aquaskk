@@ -15,6 +15,7 @@
 
 class SKKAnnotatorBridge : public SKKAnnotator {
     id<SKKAnnotatorProtocol> impl_;
+
 public:
     SKKAnnotatorBridge(id<SKKAnnotatorProtocol> impl);
     ~SKKAnnotatorBridge();

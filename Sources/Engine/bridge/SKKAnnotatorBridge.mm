@@ -14,8 +14,7 @@ SKKAnnotatorBridge::SKKAnnotatorBridge(id<SKKAnnotatorProtocol> impl) {
     impl_ = impl;
 }
 
-SKKAnnotatorBridge::~SKKAnnotatorBridge() {
-}
+SKKAnnotatorBridge::~SKKAnnotatorBridge() {}
 
 void SKKAnnotatorBridge::Update(const SKKCandidate &candidate, int cursorOffset) {
     SKKCandidateBridge *bridge = [SKKCandidateBridge candidateFromCpp:&candidate];

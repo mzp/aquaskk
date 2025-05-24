@@ -23,8 +23,8 @@
 #import <AppKit/AppKit.h>
 #import <AquaSKKInput/MacFrontEnd.h>
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
-#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 #import <AquaSKKInput/AquaSKKInput-Preamble.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 
 MacFrontEnd::MacFrontEnd(id client) {

@@ -24,8 +24,8 @@
 #import <Foundation/Foundation.h>
 #import <AquaSKKInput/MacClipboard.h>
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
-#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 #import <AquaSKKInput/AquaSKKInput-Preamble.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 
 MacClipboard::MacClipboard() {

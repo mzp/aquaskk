@@ -22,8 +22,8 @@
 
 #import <AquaSKKInput/MacCandidateWindow.h>
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
-#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 #import <AquaSKKInput/AquaSKKInput-Preamble.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 
 MacCandidateWindow::MacCandidateWindow(SKKLayoutManager *layout) {

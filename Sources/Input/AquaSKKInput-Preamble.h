@@ -9,8 +9,8 @@
 #define AquaSKKInput_Preamble_h
 
 #import <InputMethodKit/InputMethodKit.h>
-#import <AquaSKKService/AquaSKKService.h>
 #import <AquaSKKBackend/AquaSKKBackend.h>
 #import <AquaSKKInput/MacCandidateWindow.h>
+#import <AquaSKKService/AquaSKKService.h>
 
 #endif /* AquaSKKInput_Preamble_h */

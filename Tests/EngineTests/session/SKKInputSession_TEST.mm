@@ -8,9 +8,9 @@
 #import <AquaSKKEngine/AquaSKKEngine.h>
 #import <AquaSKKService/AquaSKKService.h>
 #import <AquaSKKTesting/AquaSKKTesting.h>
+#import <AquaSKKInput/AquaSKKInput-Preamble.h>
 #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
-#import <AquaSKKInput/AquaSKKInput-Preamble.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 #include "TestData.h"
 
