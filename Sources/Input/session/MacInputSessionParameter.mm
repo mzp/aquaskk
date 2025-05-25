@@ -21,14 +21,13 @@
 */
 
 #import <AquaSKKEngine/AquaSKKEngine.h>
-#import <AquaSKKInput/MacConfig.h>
 #import <AquaSKKInput/MacInputSessionParameter.h>
 #import <AquaSKKInput/AquaSKKInput-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 
 MacInputSessionParameter::MacInputSessionParameter(id client, SKKLayoutManager *layout)
-    : config_(new MacConfig()),
+    : config_(new SKKConfigAdapter([[MacConfigImpl alloc] init])),
       frontend_(new SKKFrontEndAdapter([[MacFrontEndImpl alloc] initWithClient:client])),
       messenger_(new SKKMessengerAdapter([[MacMessengerImpl alloc] initWithLayoutManager:layout])),
       clipboard_(new SKKClipboardAdapter([[MacClipboardImpl alloc] init])),

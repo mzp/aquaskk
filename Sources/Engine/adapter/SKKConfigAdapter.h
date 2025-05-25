@@ -20,18 +20,18 @@
 
 */
 
-#ifndef MacConfig_h
-#define MacConfig_h
+#ifndef SKKConfigAdapter_h
+#define SKKConfigAdapter_h
 
 #import <Foundation/Foundation.h>
 #import <AquaSKKEngine/SKKConfig.h>
 
-class MacConfig : public SKKConfig {
-    int integerConfig(NSString *key);
-    bool boolConfig(NSString *key);
+@protocol SKKConfigProtocol;
 
+class SKKConfigAdapter : public SKKConfig {
+    id<SKKConfigProtocol> impl_;
 public:
-    MacConfig();
+    SKKConfigAdapter(id<SKKConfigProtocol> impl);
 
     virtual bool FixIntermediateConversion();
     virtual bool EnableDynamicCompletion();

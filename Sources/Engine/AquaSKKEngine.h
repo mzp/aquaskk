@@ -18,6 +18,7 @@ FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 #import <AquaSKKEngine/SKKDynamicCompletorAdapter.h>
 #import <AquaSKKEngine/SKKFrontEndAdapter.h>
 #import <AquaSKKEngine/SKKMessengerAdapter.h>
+#import <AquaSKKEngine/SKKConfigAdapter.h>
 
 #pragma mark - bridge
 
