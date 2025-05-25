@@ -24,7 +24,6 @@
 #define SKKState_h
 
 #import <AquaSKKBackend/SKKInputMode.h>
-#import <AquaSKKEngine/GenericStateMachine.h>
 #import <AquaSKKEngine/SKKCompleter.h>
 #import <AquaSKKEngine/SKKEvent.h>
 #import <AquaSKKEngine/SKKEventID.h>

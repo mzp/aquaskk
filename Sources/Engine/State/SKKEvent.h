@@ -25,7 +25,6 @@
 
 #include <sstream>
 #import <swift/bridging>
-#import <AquaSKKEngine/GenericStateMachine.h>
 #import <AquaSKKEngine/SKKEventID.h>
 
 // SKK_CHAR 属性
