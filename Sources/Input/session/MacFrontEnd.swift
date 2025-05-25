@@ -13,7 +13,7 @@ extension NSRange {
 }
 
 @objc(MacFrontEndImpl)
-public class MacFrontEndImpl: NSObject {
+public class MacFrontEndImpl: NSObject, SKKFrontEndProtocol {
     private let client: IMKTextInput
 
     @objc(initWithClient:) public init(client: IMKTextInput) {

@@ -6,9 +6,10 @@
 //
 
 import AppKit
+import AquaSKKEngine
 
 @objc(MacClipboardImpl)
-public class MacClipboardImpl: NSObject {
+public class MacClipboardImpl: NSObject, SKKClipboardProtocol {
     override public init() {
         super.init()
     }

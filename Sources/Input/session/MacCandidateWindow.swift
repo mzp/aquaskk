@@ -11,7 +11,7 @@ import AquaSKKUI
 import OSLog
 
 @objc(MacCandidateWindowImpl)
-public class MacCandidateWindowImpl: NSObject, SKKCandidatePresenter {
+public class MacCandidateWindowImpl: NSObject, SKKCandidatePresenter, SKKCandidateWindowProtocol {
     public func show() {}
 
     public func hide() {}

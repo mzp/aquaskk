@@ -20,19 +20,19 @@
 
 */
 
-#ifndef MacFrontEnd_h
-#define MacFrontEnd_h
+#ifndef SKKFrontEndAdapter_h
+#define SKKFrontEndAdapter_h
 
 #import <AquaSKKEngine/SKKFrontEnd.h>
 
-@class MacFrontEndImpl;
+@protocol SKKFrontEndProtocol;
 
-class MacFrontEnd : public SKKFrontEnd {
-    MacFrontEndImpl *impl_;
+class SKKFrontEndAdapter : public SKKFrontEnd {
+    id<SKKFrontEndProtocol> impl_;
 
 public:
-    MacFrontEnd(id client);
-    ~MacFrontEnd();
+    SKKFrontEndAdapter(id<SKKFrontEndProtocol> impl);
+    ~SKKFrontEndAdapter();
 
     virtual void InsertString(const std::string &str);
     virtual void ComposeString(const std::string &str, int cursorOffset = 0);

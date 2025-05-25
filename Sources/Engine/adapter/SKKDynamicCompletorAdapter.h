@@ -20,24 +20,23 @@
 
 */
 
-#ifndef MacAnnotator_h
-#define MacAnnotator_h
+#ifndef SKKDynamicCompletorAdapter_h
+#define SKKDynamicCompletorAdapter_h
 
-#import <AquaSKKEngine/SKKAnnotator.h>
+#import <AquaSKKEngine/SKKDynamicCompletor.h>
 
-@class AnnotationWindow;
-@class MacAnnotatorImpl;
-@class SKKLayoutManager;
-class MacAnnotator : public SKKAnnotator {
-    MacAnnotatorImpl *impl_;
+@protocol SKKDynamicCompletorProtocol;
+
+class SKKDynamicCompletorAdapter : public SKKDynamicCompletor {
+    id<SKKDynamicCompletorProtocol> impl_;
     virtual void SKKWidgetShow();
     virtual void SKKWidgetHide();
 
 public:
-    MacAnnotator(SKKLayoutManager *layout);
-    ~MacAnnotator();
+    SKKDynamicCompletorAdapter(id<SKKDynamicCompletorProtocol> impl);
+    ~SKKDynamicCompletorAdapter();
 
-    virtual void Update(const SKKCandidate &candidate, int cursorOffset);
+    virtual void Update(const std::string &completion, int commonPrefixLength, int cursorOffset);
 };
 
 #endif

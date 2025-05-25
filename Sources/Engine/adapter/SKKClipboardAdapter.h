@@ -20,25 +20,20 @@
 
 */
 
-#ifndef MacDynamicCompletor_h
-#define MacDynamicCompletor_h
+#ifndef MacClipboard_h
+#define MacClipboard_h
 
-#import <AquaSKKEngine/SKKDynamicCompletor.h>
+#import <AquaSKKEngine/SKKClipboard.h>
 
-@class CompletionWindow;
-@class MacDynamicCompletorImpl;
-@class SKKLayoutManager;
+@protocol SKKClipboardProtocol;
 
-class MacDynamicCompletor : public SKKDynamicCompletor {
-    MacDynamicCompletorImpl *impl_;
-    virtual void SKKWidgetShow();
-    virtual void SKKWidgetHide();
+class SKKClipboardAdapter : public SKKClipboard {
+    id<SKKClipboardProtocol> impl_;
 
 public:
-    MacDynamicCompletor(SKKLayoutManager *layout);
-    ~MacDynamicCompletor();
-
-    virtual void Update(const std::string &completion, int commonPrefixLength, int cursorOffset);
+    SKKClipboardAdapter(id<SKKClipboardProtocol> impl);
+    ~SKKClipboardAdapter();
+    virtual const std::string PasteString();
 };
 
 #endif

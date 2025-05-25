@@ -20,25 +20,26 @@
 
 */
 
-#import <AppKit/AppKit.h>
-#import <Foundation/Foundation.h>
-#import <InputMethodKit/InputMethodKit.h>
-#import <AquaSKKBackend/SKKInputMode.h>
-#import <AquaSKKInput/MacClipboard.h>
-#import <AquaSKKService/SKKSupervisor.h>
+#import "SKKDynamicCompletorAdapter.h"
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
-#import <AquaSKKInput/AquaSKKInput-Swift.h>
 
-MacClipboard::MacClipboard() {
-    impl_ = [[MacClipboardImpl alloc] init];
+SKKDynamicCompletorAdapter::SKKDynamicCompletorAdapter(id<SKKDynamicCompletorProtocol> impl) {
+    impl_ = impl;
 }
 
-MacClipboard::~MacClipboard() {
-    [impl_ release];
+SKKDynamicCompletorAdapter::~SKKDynamicCompletorAdapter() {}
+
+void SKKDynamicCompletorAdapter::Update(const std::string &completion, int commonPrefixLength, int cursorOffset) {
+    NSString *string = [NSString stringWithUTF8String:completion.c_str()];
+
+    [impl_ updateWithCompletion:string commonPrefixLength:commonPrefixLength cursorOffset:cursorOffset];
 }
 
-const std::string MacClipboard::PasteString() {
-    NSString *str = [impl_ pasteString];
-    return [str UTF8String];
+void SKKDynamicCompletorAdapter::SKKWidgetShow() {
+    [impl_ skkWidgetShow];
+}
+
+void SKKDynamicCompletorAdapter::SKKWidgetHide() {
+    [impl_ skkWidgetHide];
 }

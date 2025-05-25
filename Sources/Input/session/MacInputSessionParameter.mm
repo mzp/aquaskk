@@ -20,23 +20,21 @@
 
 */
 
-#import <AquaSKKInput/MacAnnotator.h>
-#import <AquaSKKInput/MacCandidateWindow.h>
-#import <AquaSKKInput/MacClipboard.h>
+#import <AquaSKKEngine/AquaSKKEngine.h>
 #import <AquaSKKInput/MacConfig.h>
-#import <AquaSKKInput/MacDynamicCompletor.h>
-#import <AquaSKKInput/MacFrontEnd.h>
 #import <AquaSKKInput/MacInputSessionParameter.h>
-#import <AquaSKKInput/MacMessenger.h>
+#import <AquaSKKInput/AquaSKKInput-Preamble.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
+#import <AquaSKKInput/AquaSKKInput-Swift.h>
 
 MacInputSessionParameter::MacInputSessionParameter(id client, SKKLayoutManager *layout)
     : config_(new MacConfig()),
-      frontend_(new MacFrontEnd(client)),
-      messenger_(new MacMessenger(layout)),
-      clipboard_(new MacClipboard()),
-      candidateWindow_(new MacCandidateWindow(layout)),
-      annotator_(new MacAnnotator(layout)),
-      completor_(new MacDynamicCompletor(layout)) {}
+      frontend_(new SKKFrontEndAdapter([[MacFrontEndImpl alloc] initWithClient:client])),
+      messenger_(new SKKMessengerAdapter([[MacMessengerImpl alloc] initWithLayoutManager:layout])),
+      clipboard_(new SKKClipboardAdapter([[MacClipboardImpl alloc] init])),
+      candidateWindow_(new SKKCandidateWindowAdapter([[MacCandidateWindowImpl alloc] initWithLayoutManager:layout])),
+      annotator_(new SKKAnnotatorAdapter([[MacAnnotatorImpl alloc] initWithLayoutManager:layout])),
+      completor_(new SKKDynamicCompletorAdapter([[MacDynamicCompletorImpl alloc] initWithLayoutManager:layout])) {}
 
 SKKConfig *MacInputSessionParameter::Config() {
     return config_.get();

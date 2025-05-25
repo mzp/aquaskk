@@ -20,35 +20,17 @@
 
 */
 
-#import <AppKit/AppKit.h>
-#import <InputMethodKit/InputMethodKit.h>
-#import <AquaSKKBackend/SKKCandidateBridge.h>
-#import <AquaSKKBackend/SKKInputMode.h>
-#import <AquaSKKInput/MacAnnotator.h>
-#import <AquaSKKService/SKKSupervisor.h>
+#import "SKKClipboardAdapter.h"
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
-#import <AquaSKKInput/AquaSKKInput-Swift.h>
-#import <AquaSKKUI/AquaSKKUI-Swift.h>
 
-MacAnnotator::MacAnnotator(SKKLayoutManager *layout) {
-    impl_ = [[MacAnnotatorImpl alloc] initWithLayoutManager:layout];
+SKKClipboardAdapter::SKKClipboardAdapter(id<SKKClipboardProtocol> impl) {
+    impl_ = impl;
 }
 
-MacAnnotator::~MacAnnotator() {
-    [impl_ release];
-}
+SKKClipboardAdapter::~SKKClipboardAdapter() {}
 
-void MacAnnotator::Update(const SKKCandidate &candidate, int cursorOffset) {
-
-    SKKCandidateBridge *bridge = [SKKCandidateBridge candidateFromCpp:&candidate];
-    [impl_ update:bridge cursorOffset:cursorOffset];
-}
-
-void MacAnnotator::SKKWidgetShow() {
-    [impl_ skkWidgetShow];
-}
-
-void MacAnnotator::SKKWidgetHide() {
-    [impl_ skkWidgetHide];
+const std::string SKKClipboardAdapter::PasteString() {
+    NSString *str = [impl_ pasteString];
+    return [str UTF8String];
 }

@@ -20,20 +20,19 @@
 
 */
 
-#ifndef MacMessenger_h
-#define MacMessenger_h
+#ifndef SKKMessengerAdapter_h
+#define SKKMessengerAdapter_h
 
 #import <AquaSKKEngine/SKKMessenger.h>
 
-@class MacMessengerImpl;
-@class SKKLayoutManager;
+@protocol SKKMessengerProtocol;
 
-class MacMessenger : public SKKMessenger {
-    MacMessengerImpl *impl_;
+class SKKMessengerAdapter : public SKKMessenger {
+    id<SKKMessengerProtocol> impl_;
 
 public:
-    MacMessenger(SKKLayoutManager *layout);
-    ~MacMessenger();
+    SKKMessengerAdapter(id<SKKMessengerProtocol> impl);
+    ~SKKMessengerAdapter();
     virtual void SendMessage(const std::string &msg);
     virtual void Beep();
 };

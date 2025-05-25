@@ -20,39 +20,32 @@
 
 */
 
-#import <AppKit/AppKit.h>
-#import <InputMethodKit/InputMethodKit.h>
-#import <AquaSKKBackend/SKKInputMode.h>
-#import <AquaSKKInput/MacFrontEnd.h>
-#import <AquaSKKService/SKKSupervisor.h>
+#import "SKKFrontEndAdapter.h"
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
-#import <AquaSKKInput/AquaSKKInput-Swift.h>
 
-MacFrontEnd::MacFrontEnd(id client) {
-    impl_ = [[MacFrontEndImpl alloc] initWithClient:client];
+SKKFrontEndAdapter::SKKFrontEndAdapter(id<SKKFrontEndProtocol> impl) {
+    impl_ = impl;
 }
 
-MacFrontEnd::~MacFrontEnd() {
-    [impl_ release];
-}
+SKKFrontEndAdapter::~SKKFrontEndAdapter() {}
 
-void MacFrontEnd::InsertString(const std::string &str) {
+void SKKFrontEndAdapter::InsertString(const std::string &str) {
     NSString *string = [NSString stringWithUTF8String:str.c_str()];
     [impl_ insertString:string];
 }
 
-void MacFrontEnd::ComposeString(const std::string &str, int cursorOffset) {
+void SKKFrontEndAdapter::ComposeString(const std::string &str, int cursorOffset) {
     NSString *string = [NSString stringWithUTF8String:str.c_str()];
     [impl_ composeString:string cursorOffset:cursorOffset];
 }
 
-void MacFrontEnd::ComposeString(const std::string &str, int candidateStart, int candidateLength) {
+void SKKFrontEndAdapter::ComposeString(const std::string &str, int candidateStart, int candidateLength) {
     NSString *string = [NSString stringWithUTF8String:str.c_str()];
     [impl_ composeString:string candidateStart:candidateStart candidateLength:candidateLength];
 }
 
-std::string MacFrontEnd::SelectedString() {
+std::string SKKFrontEndAdapter::SelectedString() {
     NSString *string = [impl_ selectedString];
     return [string UTF8String];
 }

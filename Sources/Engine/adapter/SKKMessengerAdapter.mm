@@ -20,28 +20,21 @@
 
 */
 
-#ifndef MacCandidateWindowMacOSX_h
-#define MacCandidateWindowMacOSX_h
+#import "SKKMessengerAdapter.h"
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
-#import <AquaSKKEngine/SKKCandidateWindow.h>
+SKKMessengerAdapter::SKKMessengerAdapter(id<SKKMessengerProtocol> impl) {
+    impl_ = impl;
+}
 
-@class CandidateWindow;
-@class MacCandidateWindowImpl;
-@class SKKLayoutManager;
+SKKMessengerAdapter::~SKKMessengerAdapter() {}
 
-class MacCandidateWindow : public SKKCandidateWindow {
-    MacCandidateWindowImpl *impl_;
+void SKKMessengerAdapter::SendMessage(const std::string &msg) {
+    NSString *str = [NSString stringWithUTF8String:msg.c_str()];
+    [impl_ sendWithMessage:str];
+}
 
-    virtual void SKKWidgetShow();
-    virtual void SKKWidgetHide();
-
-public:
-    MacCandidateWindow(SKKLayoutManager *layout);
-    virtual ~MacCandidateWindow();
-
-    virtual void Setup(SKKCandidateIterator begin, SKKCandidateIterator end, std::vector<int> &pages);
-    virtual void Update(SKKCandidateIterator begin, SKKCandidateIterator end, int cursor, int page_pos, int page_max);
-    virtual int LabelIndex(char label);
-};
-
-#endif
+void SKKMessengerAdapter::Beep() {
+    [impl_ beep];
+}
