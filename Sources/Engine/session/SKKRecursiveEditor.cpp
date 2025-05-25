@@ -27,16 +27,10 @@
 
 SKKRecursiveEditor::SKKRecursiveEditor(SKKInputEnvironment *env)
     : editor_(env) {
-
-    SKKAnnotator *annotator = env->InputSessionParameter()->Annotator();
-    SKKDynamicCompletor *dynamicCompleter = env->InputSessionParameter()->DynamicCompletor();
     SKKCompleter *completer = new SKKCompleter(&editor_);
     SKKCandidateWindow *candidateWindow = env->InputSessionParameter()->CandidateWindow();
     SKKSelector *selector = new SKKSelector(&editor_, candidateWindow);
-    SKKMessenger *messenger = env->InputSessionParameter()->Messenger();
-    impl_ = new SwiftObject(
-        AquaSKKEngine::SKKRecursiveEditorImpl::init(
-            env, annotator, dynamicCompleter, completer, candidateWindow, &editor_, selector, messenger));
+    impl_ = new SwiftObject(AquaSKKEngine::SKKRecursiveEditorImpl::init(env, completer, &editor_, selector));
 }
 
 SKKRecursiveEditor::~SKKRecursiveEditor() {

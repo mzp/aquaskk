@@ -43,7 +43,13 @@ public:
         SKKInputContext *context, SKKInputSessionParameter *param, SKKInputModeListenerCollection *listeners,
         SKKBaseEditor *bottom);
 
-    SKKConfig *Config();
+    SKKAnnotator *Annotator() const;
+    SKKConfig *Config() const;
+    SKKFrontEnd *FrontEnd() const;
+    SKKMessenger *Messenger() const;
+    SKKCandidateWindow *CandidateWindow() const;
+    SKKDynamicCompletor *DynamicCompletor() const;
+
     SKKInputContext *InputContext();
     SKKInputSessionParameter *InputSessionParameter();
     SKKInputModeSelector *InputModeSelector();

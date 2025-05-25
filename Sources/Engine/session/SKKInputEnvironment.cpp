@@ -28,10 +28,6 @@ SKKInputEnvironment::SKKInputEnvironment(
     SKKBaseEditor *bottom)
     : context_(context), param_(param), selector_(listeners), bottom_(bottom) {}
 
-SKKConfig *SKKInputEnvironment::Config() {
-    return param_->Config();
-}
-
 std::string SKKInputEnvironment::PasteString() {
     return param_->Clipboard()->PasteString();
 }
@@ -54,6 +50,27 @@ SKKBaseEditor *SKKInputEnvironment::BaseEditor() {
 
 bool SKKInputEnvironment::IsPrimaryEditor() const {
     return bottom_->IsPrimaryEditor();
+}
+
+SKKAnnotator *SKKInputEnvironment::Annotator() const {
+    return param_->Annotator();
+}
+
+SKKConfig *SKKInputEnvironment::Config() const {
+    return param_->Config();
+}
+
+SKKFrontEnd *SKKInputEnvironment::FrontEnd() const {
+    return param_->FrontEnd();
+}
+SKKMessenger *SKKInputEnvironment::Messenger() const {
+    return param_->Messenger();
+}
+SKKCandidateWindow *SKKInputEnvironment::CandidateWindow() const {
+    return param_->CandidateWindow();
+}
+SKKDynamicCompletor *SKKInputEnvironment::DynamicCompletor() const {
+    return param_->DynamicCompletor();
 }
 
 void retainSKKInputEnvironment(SKKInputEnvironment *obj) {
