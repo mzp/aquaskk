@@ -20,29 +20,23 @@
 
 */
 
-#import <AppKit/AppKit.h>
-#import <AquaSKKInput/MacInputModeMenu.h>
-#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
-#import <AquaSKKInput/AquaSKKInput-Preamble.h>
-#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
-#import <AquaSKKInput/AquaSKKInput-Swift.h>
+#ifndef SKKInputModeListenerAdapter_h
+#define SKKInputModeListenerAdapter_h
 
-MacInputModeMenu::MacInputModeMenu(SKKInputMenu *menu) {
-    impl_ = [[MacInputModeMenuImpl alloc] initWithMenu:menu];
-}
+#import <AquaSKKEngine/SKKInputModeListener.h>
 
-MacInputModeMenu::~MacInputModeMenu() {
-    [impl_ release];
-}
+@protocol SKKInputModeListenerProtocol;
 
-void MacInputModeMenu::SelectInputMode(SKKInputMode mode) {
-    [impl_ selectInputMode:mode];
-}
+class SKKInputModeListenerAdapter : public SKKInputModeListener {
+    id<SKKInputModeListenerProtocol> impl_;
+    virtual void SKKWidgetShow();
+    virtual void SKKWidgetHide();
 
-void MacInputModeMenu::SKKWidgetShow() {
-    [impl_ skkWidgetShow];
-}
+public:
+    SKKInputModeListenerAdapter(id<SKKInputModeListenerProtocol> impl);
+    ~SKKInputModeListenerAdapter();
 
-void MacInputModeMenu::SKKWidgetHide() {
-    [impl_ skkWidgetHide];
-}
+    virtual void SelectInputMode(SKKInputMode mode);
+};
+
+#endif

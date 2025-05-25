@@ -15,10 +15,5 @@ FOUNDATION_EXPORT const unsigned char AquaSKKInputVersionString[];
 
 #import <AquaSKKInput/AquaSKKInput-Preamble.h>
 
-// MARK: - session
-#import <AquaSKKInput/MacInputSessionParameter.h>
-
 // MARK: - skk
-#import <AquaSKKInput/MacInputModeMenu.h>
-#import <AquaSKKInput/MacInputModeWindow.h>
 #import <AquaSKKInput/SKKInputSessionBridge.h>

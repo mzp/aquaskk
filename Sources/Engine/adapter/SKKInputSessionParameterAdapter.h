@@ -20,13 +20,21 @@
 
 */
 
-#ifndef MacInputSessionParameter_h
-#define MacInputSessionParameter_h
+#ifndef SKKInputSessionParameterAdapter_h
+#define SKKInputSessionParameterAdapter_h
 
 #include <memory>
 #import <AquaSKKEngine/SKKInputSessionParameter.h>
-@class SKKLayoutManager;
-class MacInputSessionParameter : public SKKInputSessionParameter {
+@protocol SKKAnnotatorProtocol;
+@protocol SKKCandidateWindowProtocol;
+@protocol SKKClipboardProtocol;
+@protocol SKKDynamicCompletorProtocol;
+@protocol SKKFrontEndProtocol;
+@protocol SKKMessengerProtocol;
+@protocol SKKConfigProtocol;
+@protocol SKKInputSessionParameterProtocol;
+
+class SKKInputSessionParameterAdapter : public SKKInputSessionParameter {
     std::unique_ptr<SKKConfig> config_;
     std::unique_ptr<SKKFrontEnd> frontend_;
     std::unique_ptr<SKKMessenger> messenger_;
@@ -36,8 +44,7 @@ class MacInputSessionParameter : public SKKInputSessionParameter {
     std::unique_ptr<SKKDynamicCompletor> completor_;
 
 public:
-    MacInputSessionParameter(id client, SKKLayoutManager *layout);
-
+    SKKInputSessionParameterAdapter(id<SKKInputSessionParameterProtocol> impl);
     virtual SKKConfig *Config();
     virtual SKKFrontEnd *FrontEnd();
     virtual SKKMessenger *Messenger();

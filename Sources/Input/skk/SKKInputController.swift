@@ -17,8 +17,8 @@ public class SKKInputController: IMKInputController {
     @_spi(Testing) public var proxy: SKKServerProxy?
     private var skkMenu: SKKInputMenu?
     private var layoutManager: SKKLayoutManager?
-    private var modeIcon: MacInputModeWindow?
-    private var inputModeMenu: MacInputModeMenu?
+    private var modeIcon: MacInputModeWindowImpl?
+    private var inputModeMenu: MacInputModeMenuImpl?
     private var blacklistApps: BlacklistApps?
     private var preProcessor: SKKPreProcessor?
     private var session: SKKInputSessionBridge?
@@ -65,12 +65,12 @@ public class SKKInputController: IMKInputController {
             self.client = client
             self.session = session ?? SKKInputSessionBridge(client: client, layoutManager: layoutManager)
             self.skkMenu = skkMenu
-            modeIcon = MacInputModeWindow(layoutManager)
-            inputModeMenu = MacInputModeMenu(skkMenu)
+            modeIcon = MacInputModeWindowImpl(layoutManager: layoutManager)
+            inputModeMenu = MacInputModeMenuImpl(menu: skkMenu)
             self.layoutManager = layoutManager
 
-            self.session?.addListener(with: &modeIcon!)
-            self.session?.addListener(with: &inputModeMenu!)
+            self.session?.addListener(with: modeIcon!)
+            self.session?.addListener(with: inputModeMenu!)
         } else {
             self.client = nil
             self.session = nil
@@ -117,7 +117,7 @@ public class SKKInputController: IMKInputController {
             return false
         }
         var param = preProcessor.execute(event: event)
-        modeIcon?.SelectInputMode(.InvalidInputMode)
+        modeIcon?.selectInputMode(.InvalidInputMode)
         let result = session?.handle(&param)
         if inputMode != skkMenu?.currentInputMode || param.id == SKK_JMODE {
             workaroundForSpecificApplications()
@@ -183,7 +183,7 @@ public class SKKInputController: IMKInputController {
                     param.id = Int32(skkMenu.convertIDToEventID(modeIdentifier: identifier))
                     session?.handle(&param)
 
-                    modeIcon?.getImpl().select(inputMode: skkMenu.currentInputMode)
+                    modeIcon?.selectInputMode(skkMenu.currentInputMode)
                 } else {
                     let identifier = skkMenu.convertInputModeToID(inputMode: skkMenu.unifiedInputMode)
                     var param = SKKEvent()
@@ -338,7 +338,7 @@ public class SKKInputController: IMKInputController {
         if event.id != SKKInputMode.InvalidInputMode.rawValue {
             session?.handle(&event)
             let inputMode = skkMenu.convertIDToInputMode(modeIdentifier: identifier)
-            modeIcon?.getImpl().select(inputMode: inputMode)
+            modeIcon?.selectInputMode(inputMode)
         }
     }
 

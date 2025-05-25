@@ -24,7 +24,6 @@
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
-
 SKKConfigAdapter::SKKConfigAdapter(id<SKKConfigProtocol> impl) {
     impl_ = impl;
 }

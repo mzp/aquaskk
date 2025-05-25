@@ -11,17 +11,16 @@ import Foundation
     @objc func fixIntermediateConversion() -> Bool
     @objc func enableDynamicCompletion() -> Bool
 
-@objc     func dynamicCompletionRange() -> Int
+    @objc func dynamicCompletionRange() -> Int
 
-@objc     func enableAnnotation() -> Bool
-@objc    func displayShortestMatchOfKanaConversions() -> Bool
+    @objc func enableAnnotation() -> Bool
+    @objc func displayShortestMatchOfKanaConversions() -> Bool
 
-@objc     func suppressNewlineOnCommit() -> Bool
-@objc     func maxCountOfInlineCandidates() -> Int
+    @objc func suppressNewlineOnCommit() -> Bool
+    @objc func maxCountOfInlineCandidates() -> Int
 
-@objc   func handleRecursiveEntryAsOkuri() -> Bool
+    @objc func handleRecursiveEntryAsOkuri() -> Bool
 
-@objc    func inlineBackSpaceImpliesCommit() -> Bool
-@objc     func deleteOkuriWhenQuit() -> Bool
-
+    @objc func inlineBackSpaceImpliesCommit() -> Bool
+    @objc func deleteOkuriWhenQuit() -> Bool
 }

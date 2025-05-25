@@ -9,7 +9,7 @@ import AquaSKKLogging
 import AquaSKKService
 import OSLog
 
-@objc public class MacInputModeWindowImpl: NSObject {
+@objc public class MacInputModeWindowImpl: NSObject, SKKInputModeListenerProtocol {
     private let layoutManager: SKKLayoutManager
     private let tips: SKKModeTipsImpl
 
@@ -24,7 +24,7 @@ import OSLog
         Logger.skkMemory.debug("\(#function, privacy: .public))")
     }
 
-    @objc public func select(inputMode: SKKInputMode) {
+    @objc public func selectInputMode(_ inputMode: SKKInputMode) {
         tips.inputMode = inputMode
     }
 

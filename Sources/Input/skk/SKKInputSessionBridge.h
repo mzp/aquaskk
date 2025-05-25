@@ -12,8 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class SKKLayoutManager;
 class SKKInputSessionParameter;
-class MacInputModeWindow;
-class MacInputModeMenu;
+@class MacInputModeWindowImpl;
+@class MacInputModeMenuImpl;
 
 @interface SKKInputSessionBridge : NSObject
 
@@ -23,8 +23,8 @@ class MacInputModeMenu;
 - (void)activate;
 - (void)deactivate;
 - (BOOL)handle:(SKKEvent *)event;
-- (void)addListenerWithInputModeWindow:(MacInputModeWindow *)window;
-- (void)addListenerWithInputModeMenu:(MacInputModeMenu *)menu;
+- (void)addListenerWithInputModeWindowImpl:(MacInputModeWindowImpl *)window;
+- (void)addListenerWithInputModeMenuImpl:(MacInputModeMenuImpl *)menu;
 @end
 
 NS_ASSUME_NONNULL_END

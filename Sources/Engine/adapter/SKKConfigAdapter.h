@@ -30,6 +30,7 @@
 
 class SKKConfigAdapter : public SKKConfig {
     id<SKKConfigProtocol> impl_;
+
 public:
     SKKConfigAdapter(id<SKKConfigProtocol> impl);
 
