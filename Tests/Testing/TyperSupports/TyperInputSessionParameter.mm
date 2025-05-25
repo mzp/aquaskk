@@ -7,22 +7,19 @@
 
 #include "TyperInputSessionParameter.h"
 #include <vector>
-#import <AquaSKKInput/MacAnnotator.h>
-#import <AquaSKKInput/MacCandidateWindow.h>
-#import <AquaSKKInput/MacClipboard.h>
-#import <AquaSKKInput/MacDynamicCompletor.h>
-#import <AquaSKKInput/MacFrontEnd.h>
-#import <AquaSKKInput/MacMessenger.h>
+#import <AquaSKKEngine/AquaSKKEngine.h>
+#import <AquaSKKInput/AquaSKKInput.h>
 #import <AquaSKKTesting/MockAnnotator.h>
 #import <AquaSKKTesting/MockCandidateWindow.h>
 #import <AquaSKKTesting/MockClipboard.h>
 #import <AquaSKKTesting/MockDynamicCompletor.h>
 #import <AquaSKKTesting/MockMessenger.h>
+#import <AquaSKKInput/AquaSKKInput-Swift.h>
 #import "TyperConfig.h"
 
 TyperInputSessionParameter::TyperInputSessionParameter(id client, TyperConfig *config)
     : config_(new TyperConfig(*config)),
-      frontend_(new MacFrontEnd(client)),
+      frontend_(new SKKFrontEndAdapter([[MacFrontEndImpl alloc] initWithClient:client])),
       messenger_(new MockMessenger()),
       clipboard_(new MockClipboard()),
       candidateWindow_(new MockCandidateWindow()),

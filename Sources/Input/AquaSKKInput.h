@@ -13,14 +13,7 @@ FOUNDATION_EXPORT double AquaSKKInputVersionNumber;
 //! Project version string for AquaSKKServer.
 FOUNDATION_EXPORT const unsigned char AquaSKKInputVersionString[];
 
-#import <AquaSKKInput/MacAnnotator.h>
-#import <AquaSKKInput/MacCandidateWindow.h>
-#import <AquaSKKInput/MacClipboard.h>
-#import <AquaSKKInput/MacConfig.h>
-#import <AquaSKKInput/MacDynamicCompletor.h>
-#import <AquaSKKInput/MacFrontEnd.h>
-#import <AquaSKKInput/MacInputModeMenu.h>
-#import <AquaSKKInput/MacInputModeWindow.h>
-#import <AquaSKKInput/MacInputSessionParameter.h>
-#import <AquaSKKInput/MacMessenger.h>
+#import <AquaSKKInput/AquaSKKInput-Preamble.h>
+
+// MARK: - skk
 #import <AquaSKKInput/SKKInputSessionBridge.h>

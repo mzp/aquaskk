@@ -9,7 +9,7 @@ import AquaSKKLogging
 import OSLog
 
 @objc(MacInputModeMenuImpl)
-public class MacInputModeMenuImpl: NSObject {
+public class MacInputModeMenuImpl: NSObject, SKKInputModeListenerProtocol {
     private let menu: SKKInputMenu
     private var active: Bool
 
