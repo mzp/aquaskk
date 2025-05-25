@@ -43,12 +43,12 @@ public:
         SKKInputContext *context, SKKInputSessionParameter *param, SKKInputModeListenerCollection *listeners,
         SKKBaseEditor *bottom);
 
-    SKKAnnotator *Annotator() const SWIFT_RETURNS_UNRETAINED;
-    SKKConfig *Config() const SWIFT_RETURNS_UNRETAINED;
-    SKKFrontEnd *FrontEnd() const SWIFT_RETURNS_UNRETAINED;
-    SKKMessenger *Messenger() const SWIFT_RETURNS_UNRETAINED;
-    SKKCandidateWindow *CandidateWindow() const SWIFT_RETURNS_UNRETAINED;
-    SKKDynamicCompletor *DynamicCompletor() const SWIFT_RETURNS_UNRETAINED;
+    SKKAnnotator *Annotator() const;
+    SKKConfig *Config() const;
+    SKKFrontEnd *FrontEnd() const;
+    SKKMessenger *Messenger() const;
+    SKKCandidateWindow *CandidateWindow() const;
+    SKKDynamicCompletor *DynamicCompletor() const;
 
     SKKInputContext *InputContext();
     SKKInputSessionParameter *InputSessionParameter();
