@@ -5,7 +5,7 @@
 //  Created by mzp on 2025/03/06.
 //
 
-public class SKKInputEngineImpl {
+public class SKKInputEngineImpl: SKKCompleterBuddyProtcol {
     private var env: SKKInputEnvironment
     private var context: SKKInputContext {
         env.InputContext()
