@@ -49,6 +49,8 @@ class SKKInputEngine : public SKKInputQueueObserver,
 
     // 現在の見出し語の通知
     virtual void SKKCompleterUpdate(const std::string &entry);
+                           virtual id<SKKCompleterBuddyProtcol> getProtocol() override;
+
 
     // SKKSelector::Execute() 時に呼び出される
     virtual const SKKEntry SKKSelectorQueryEntry();

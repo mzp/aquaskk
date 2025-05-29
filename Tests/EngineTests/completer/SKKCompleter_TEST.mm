@@ -1,4 +1,4 @@
-#include <cassert>
+/*#include <cassert>
 #import <XCTest/XCTest.h>
 #import <AquaSKKBackend/AquaSKKBackend.h>
 #import <AquaSKKEngine/SKKCompleter.h>
@@ -60,3 +60,4 @@ public:
 }
 
 @end
+*/

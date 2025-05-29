@@ -343,4 +343,8 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol {
     public func okkuriListenerAppendEntry(fixed: String) {
         composingEditor.input(fixed: fixed, input: "", code: 0)
     }
+
+    public func getProtcol() -> SKKCompleterBuddyProtcol {
+        return self
+    }
 }

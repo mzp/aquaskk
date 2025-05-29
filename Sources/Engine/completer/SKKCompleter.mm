@@ -29,7 +29,7 @@ struct SKKCompleterContainer {
     SwiftObject<AquaSKKEngine::SKKCompleterImpl> *impl_;
 
     SKKCompleterContainer(SKKCompleterBuddy *buddy)
-        : impl_(new SwiftObject(AquaSKKEngine::SKKCompleterImpl::init(buddy))) {}
+        : impl_(new SwiftObject(AquaSKKEngine::SKKCompleterImpl::init(buddy->getProtocol()))) {}
 };
 
 SKKCompleter::SKKCompleter(SKKCompleterBuddy *buddy)
