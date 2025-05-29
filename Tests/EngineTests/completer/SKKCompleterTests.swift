@@ -37,10 +37,10 @@ struct SKKCompleterTests {
         let completer = SKKCompleterImpl(buddy: buddy)
         buddy.query = "ほかん"
         #expect(completer.execute(limit: 0) == true)
-        #expect(buddy.entry == "ほかん1");
+        #expect(buddy.entry == "ほかん1")
         completer.next()
         completer.next()
-        #expect(buddy.entry == "ほかん3");
+        #expect(buddy.entry == "ほかん3")
 
         backend.register(entry: SKKEntry("とぐるほかん", ""), candidate: SKKCandidate())
         buddy.query = "とぐる"

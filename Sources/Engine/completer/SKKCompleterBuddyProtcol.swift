@@ -6,11 +6,12 @@
 //
 
 import Foundation
-// 補完サポートクラス
+
+/// 補完サポートクラス
 @objc public protocol SKKCompleterBuddyProtcol {
-    // 見出し語の取得
+    /// 見出し語の取得
     @objc func completerQueryString() -> String
 
-    // 現在の見出し語の通知
+    /// 現在の見出し語の通知
     @objc func completerUpdate(entry: String)
 }

@@ -18,9 +18,6 @@
 struct SKKCompleterBuddy : public IntrusiveRefCounted<SKKCompleterBuddy> {
     virtual ~SKKCompleterBuddy() {}
     virtual id<SKKCompleterBuddyProtcol> getProtocol() = 0;
-
-    static std::string InvokeSKKCompleterQueryString(SKKCompleterBuddy *obj);
-    static void InvokeSKKCompleterUpdate(SKKCompleterBuddy *obj, std::string entry);
 } SWIFT_SHARED_REFERENCE(retainSKKCompleterBuddy, releaseSKKCompleterBuddy);
 
 void retainSKKCompleterBuddy(SKKCompleterBuddy *obj);
