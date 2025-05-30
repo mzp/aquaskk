@@ -31,6 +31,9 @@
 		131082802C5B5BEC00C186BE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1310827F2C5B5BEC00C186BE /* InfoPlist.strings */; };
 		1311EB172DE89E2900808F8D /* SKKCompleterBuddyProtcol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1311EB162DE89E2900808F8D /* SKKCompleterBuddyProtcol.swift */; };
 		1311EB192DE8D23600808F8D /* SKKCompleterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1311EB182DE8D23600808F8D /* SKKCompleterTests.swift */; };
+		1311EB1E2DE959EF00808F8D /* SKKWindowSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1311EB1D2DE959EF00808F8D /* SKKWindowSelector.swift */; };
+		1311EB202DE95A1F00808F8D /* SKKSelectorBuddyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1311EB1F2DE95A1F00808F8D /* SKKSelectorBuddyProtocol.swift */; };
+		1311EB222DE95D2400808F8D /* MockSelectorBuddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1311EB212DE95D2400808F8D /* MockSelectorBuddy.swift */; };
 		1315FE8C2C81836F004011B7 /* MockAnnotator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1315FE822C818327004011B7 /* MockAnnotator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1315FE8E2C818377004011B7 /* MockCompletionHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 1315FE852C818327004011B7 /* MockCompletionHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1315FE8F2C818377004011B7 /* MockFrontEnd.h in Headers */ = {isa = PBXBuildFile; fileRef = 1315FE882C818327004011B7 /* MockFrontEnd.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -173,7 +176,7 @@
 		13513C452D74BBB100C00A4E /* SKKCandidatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13513C442D74BBB100C00A4E /* SKKCandidatePresenter.swift */; };
 		13513C482D74C9B300C00A4E /* SKKCandidateWindowBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13513C472D74C9B300C00A4E /* SKKCandidateWindowBridge.cpp */; };
 		13513C492D74C9B300C00A4E /* SKKCandidateWindowBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 13513C462D74C9B300C00A4E /* SKKCandidateWindowBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		13513C4D2D74D00D00C00A4E /* SKKSelectorBuddy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13513C4B2D74D00D00C00A4E /* SKKSelectorBuddy.cpp */; };
+		13513C4D2D74D00D00C00A4E /* SKKSelectorBuddy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13513C4B2D74D00D00C00A4E /* SKKSelectorBuddy.mm */; };
 		1352C9DF2C5DF8160056261D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1352C9D82C5DF8160056261D /* Preview Assets.xcassets */; };
 		1352C9E02C5DF8160056261D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1352C9DA2C5DF8160056261D /* Assets.xcassets */; };
 		1352C9E12C5DF8160056261D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1352C9DB2C5DF8160056261D /* ContentView.swift */; };
@@ -382,7 +385,7 @@
 		139E88C52D7421300065CFA2 /* SKKSelectorTestirg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E88C42D7421300065CFA2 /* SKKSelectorTestirg.swift */; };
 		139E88C92D7423740065CFA2 /* MockSelectorBuddy.h in Headers */ = {isa = PBXBuildFile; fileRef = 139E88C82D7423740065CFA2 /* MockSelectorBuddy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		139E88CC2D7425CD0065CFA2 /* SKKSelectorBuddy.h in Headers */ = {isa = PBXBuildFile; fileRef = 139E88CB2D74257F0065CFA2 /* SKKSelectorBuddy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		139E88CF2D7426F00065CFA2 /* MockSelectorBuddy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 139E88CE2D7426F00065CFA2 /* MockSelectorBuddy.cpp */; };
+		139E88CF2D7426F00065CFA2 /* MockSelectorBuddy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 139E88CE2D7426F00065CFA2 /* MockSelectorBuddy.mm */; };
 		139FE4472D7768840015DFCA /* SKKInputContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 139FE4462D7768840015DFCA /* SKKInputContext.cpp */; };
 		139FE4492D7768C70015DFCA /* SKKPrimaryEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139FE4482D7768C70015DFCA /* SKKPrimaryEditor.swift */; };
 		13A0CF3B2D6941AD00489953 /* SKKCommonDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A0CF3A2D6941AD00489953 /* SKKCommonDictionary.swift */; };
@@ -639,6 +642,9 @@
 		131082812C5B5BFC00C186BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1311EB162DE89E2900808F8D /* SKKCompleterBuddyProtcol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKCompleterBuddyProtcol.swift; sourceTree = "<group>"; };
 		1311EB182DE8D23600808F8D /* SKKCompleterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKCompleterTests.swift; sourceTree = "<group>"; };
+		1311EB1D2DE959EF00808F8D /* SKKWindowSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKWindowSelector.swift; sourceTree = "<group>"; };
+		1311EB1F2DE95A1F00808F8D /* SKKSelectorBuddyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKSelectorBuddyProtocol.swift; sourceTree = "<group>"; };
+		1311EB212DE95D2400808F8D /* MockSelectorBuddy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSelectorBuddy.swift; sourceTree = "<group>"; };
 		1315FE822C818327004011B7 /* MockAnnotator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockAnnotator.h; sourceTree = "<group>"; };
 		1315FE832C818327004011B7 /* MockCandidateWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockCandidateWindow.h; sourceTree = "<group>"; };
 		1315FE842C818327004011B7 /* MockClipboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockClipboard.h; sourceTree = "<group>"; };
@@ -812,7 +818,7 @@
 		13513C442D74BBB100C00A4E /* SKKCandidatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKCandidatePresenter.swift; sourceTree = "<group>"; };
 		13513C462D74C9B300C00A4E /* SKKCandidateWindowBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKCandidateWindowBridge.h; sourceTree = "<group>"; };
 		13513C472D74C9B300C00A4E /* SKKCandidateWindowBridge.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKCandidateWindowBridge.cpp; sourceTree = "<group>"; };
-		13513C4B2D74D00D00C00A4E /* SKKSelectorBuddy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKSelectorBuddy.cpp; sourceTree = "<group>"; };
+		13513C4B2D74D00D00C00A4E /* SKKSelectorBuddy.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKSelectorBuddy.mm; sourceTree = "<group>"; };
 		1352B29A2C6DAE14001EF7F6 /* install.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install.sh; sourceTree = "<group>"; };
 		1352C9D82C5DF8160056261D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1352C9DA2C5DF8160056261D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1033,7 +1039,7 @@
 		139E88C42D7421300065CFA2 /* SKKSelectorTestirg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKSelectorTestirg.swift; sourceTree = "<group>"; };
 		139E88C82D7423740065CFA2 /* MockSelectorBuddy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockSelectorBuddy.h; sourceTree = "<group>"; };
 		139E88CB2D74257F0065CFA2 /* SKKSelectorBuddy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKSelectorBuddy.h; sourceTree = "<group>"; };
-		139E88CE2D7426F00065CFA2 /* MockSelectorBuddy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MockSelectorBuddy.cpp; sourceTree = "<group>"; };
+		139E88CE2D7426F00065CFA2 /* MockSelectorBuddy.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MockSelectorBuddy.mm; sourceTree = "<group>"; };
 		139FE4462D7768840015DFCA /* SKKInputContext.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKInputContext.cpp; sourceTree = "<group>"; };
 		139FE4482D7768C70015DFCA /* SKKPrimaryEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKPrimaryEditor.swift; sourceTree = "<group>"; };
 		13A0CF3A2D6941AD00489953 /* SKKCommonDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKCommonDictionary.swift; sourceTree = "<group>"; };
@@ -1825,8 +1831,10 @@
 				1344F4F22C5B28FC00D8C850 /* SKKSelector.mm */,
 				139E88C22D741CDE0065CFA2 /* SKKSelector.swift */,
 				139E88CB2D74257F0065CFA2 /* SKKSelectorBuddy.h */,
-				13513C4B2D74D00D00C00A4E /* SKKSelectorBuddy.cpp */,
+				13513C4B2D74D00D00C00A4E /* SKKSelectorBuddy.mm */,
+				1311EB1F2DE95A1F00808F8D /* SKKSelectorBuddyProtocol.swift */,
 				139E88BD2D73F6760065CFA2 /* SKKWindowSelector.swift */,
+				1311EB1D2DE959EF00808F8D /* SKKWindowSelector.swift */,
 			);
 			path = selector;
 			sourceTree = "<group>";
@@ -2458,7 +2466,8 @@
 			isa = PBXGroup;
 			children = (
 				139E88C82D7423740065CFA2 /* MockSelectorBuddy.h */,
-				139E88CE2D7426F00065CFA2 /* MockSelectorBuddy.cpp */,
+				139E88CE2D7426F00065CFA2 /* MockSelectorBuddy.mm */,
+				1311EB212DE95D2400808F8D /* MockSelectorBuddy.swift */,
 			);
 			path = selector;
 			sourceTree = "<group>";
@@ -3757,11 +3766,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				13415B362C82865500ED9D0A /* TestResult.cpp in Sources */,
+				1311EB222DE95D2400808F8D /* MockSelectorBuddy.swift in Sources */,
 				13415B342C82863400ED9D0A /* MockMessenger.cpp in Sources */,
 				13415B2C2C82855400ED9D0A /* MockConfig.cpp in Sources */,
 				13415B242C82840100ED9D0A /* MockAnnotator.cpp in Sources */,
 				1335E37A2C97FE3C002F298B /* MockCompletionHelper.swift in Sources */,
-				139E88CF2D7426F00065CFA2 /* MockSelectorBuddy.cpp in Sources */,
+				139E88CF2D7426F00065CFA2 /* MockSelectorBuddy.mm in Sources */,
 				13018B262C7696A40045FF13 /* AquaSKKTesting.docc in Sources */,
 				13018B302C769D370045FF13 /* BundledServerConfiguration.swift in Sources */,
 				13415B322C8285CB00ED9D0A /* MockInputSessionParameter.cpp in Sources */,
@@ -4120,6 +4130,7 @@
 				1344F5DC2C5B28FC00D8C850 /* SKKRegisterEditor.mm in Sources */,
 				134D25642D7A03870014ACD5 /* SKKRegisterEditor.swift in Sources */,
 				133844D72DE25BC10050B98C /* SKKAnnotatorProtocol.swift in Sources */,
+				1311EB202DE95A1F00808F8D /* SKKSelectorBuddyProtocol.swift in Sources */,
 				130C48442D7CB28A0052FF60 /* InspectorProtocol.swift in Sources */,
 				138FB7062D7B491400542DF7 /* SKKFrontEnd.cpp in Sources */,
 				13B16D332DE2EFDD0064ADCF /* SKKInputSessionParameterAdapter.mm in Sources */,
@@ -4135,6 +4146,7 @@
 				13615FF12D8543E5000EA020 /* SKKStateEntryRemove.swift in Sources */,
 				13B16D1B2DE2A5330064ADCF /* SKKDynamicCompletorAdapter.mm in Sources */,
 				130C484D2D7E0B340052FF60 /* GenericStateMachine.swift in Sources */,
+				1311EB1E2DE959EF00808F8D /* SKKWindowSelector.swift in Sources */,
 				13B16D412DE3728D0064ADCF /* SKKStateMachineEvent.swift in Sources */,
 				1344F5FA2C5B28FC00D8C850 /* SKKOutputBuffer.mm in Sources */,
 				1311EB172DE89E2900808F8D /* SKKCompleterBuddyProtcol.swift in Sources */,
@@ -4171,7 +4183,7 @@
 				1376379E2D7F642200CF332A /* SKKDynamicCompletor.cpp in Sources */,
 				130C484A2D7E0B1C0052FF60 /* GenericState.swift in Sources */,
 				138198FC2D793C6E009C29E7 /* SKKOkuriEditor.swift in Sources */,
-				13513C4D2D74D00D00C00A4E /* SKKSelectorBuddy.cpp in Sources */,
+				13513C4D2D74D00D00C00A4E /* SKKSelectorBuddy.mm in Sources */,
 				13B16D0C2DE29E770064ADCF /* SKKDynamicCompletorProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

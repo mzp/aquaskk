@@ -17,7 +17,7 @@
 // 補完サポートクラス
 struct SKKCompleterBuddy : public IntrusiveRefCounted<SKKCompleterBuddy> {
     virtual ~SKKCompleterBuddy() {}
-    virtual id<SKKCompleterBuddyProtcol> getProtocol() = 0;
+    virtual id<SKKCompleterBuddyProtcol> getCompleterBuddyProtocol() = 0;
 } SWIFT_SHARED_REFERENCE(retainSKKCompleterBuddy, releaseSKKCompleterBuddy);
 
 void retainSKKCompleterBuddy(SKKCompleterBuddy *obj);

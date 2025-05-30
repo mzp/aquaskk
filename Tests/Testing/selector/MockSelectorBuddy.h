@@ -23,6 +23,7 @@
 #ifndef MockBuddy_h
 #define MockBuddy_h
 
+#import <Foundation/Foundation.h>
 #import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKBackend/SKKEntry.h>
 #import <AquaSKKEngine/SKKSelectorBuddy.h>
@@ -36,6 +37,10 @@ class MockSelectorBuddy : public SKKSelectorBuddy {
 
     virtual void SKKSelectorUpdate(const SKKCandidate &candidate) {
         candidate_ = candidate;
+    }
+
+    id<SKKSelectorBuddyProtocol> getSelectorBuddyProtocol() override {
+        return nil;
     }
 
 public:

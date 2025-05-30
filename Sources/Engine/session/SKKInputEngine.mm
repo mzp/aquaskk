@@ -166,9 +166,16 @@ void SKKInputEngine::SKKOkuriListenerAppendEntry(const std::string &fixed) {
     (*(container_->impl_))->okkuriListenerAppendEntry(fixed);
 }
 
-id<SKKCompleterBuddyProtcol> SKKInputEngine::getProtocol() {
-    return (*(container_->impl_))->getProtcol();
+id<SKKCompleterBuddyProtcol> SKKInputEngine::getCompleterBuddyProtocol() {
+    return (*(container_->impl_))->getCompleterBuddyProtocol();
 }
+
+
+id<SKKSelectorBuddyProtocol> SKKInputEngine::getSelectorBuddyProtocol() {
+    return (*(container_->impl_))->getSelectorBuddyProtocol();
+}
+
+
 void retainSKKInputEngine(SKKInputEngine *obj) {
     obj->IntrusiveRefCounted<SKKInputEngine>::retain();
 }

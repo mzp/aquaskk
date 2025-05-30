@@ -5,7 +5,7 @@
 //  Created by mzp on 2025/03/06.
 //
 
-public class SKKInputEngineImpl: SKKCompleterBuddyProtcol {
+public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProtocol {
     private var env: SKKInputEnvironment
     private var context: SKKInputContext {
         env.InputContext()
@@ -28,13 +28,13 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol {
 
     // MARK: - 入力モード
 
-    public func selectInputMode(inputMode: SKKInputMode) {
+    @objc public func selectInputMode(inputMode: SKKInputMode) {
         env.InputModeSelector().Select(inputMode)
         inputQueue.selectInputMode(inputMode: inputMode)
         context.event_handled = true
     }
 
-    public func bridgedSelectInputMode(_ inputMode: Int32) {
+    @objc public func bridgedSelectInputMode(_ inputMode: Int32) {
         if let inputMode = SKKInputMode(rawValue: inputMode) {
             selectInputMode(inputMode: inputMode)
         }
@@ -327,12 +327,12 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol {
         return entry
     }
 
-    public func bridgeSelectorQueryEntry() -> [String] {
+    @objc public func bridgeSelectorQueryEntry() -> [String] {
         let entry = selectorQueryEntry()
         return [String(entry.EntryString()), String(entry.OkuriString())]
     }
 
-    public func bridgeSelectorUpdate(candidate: String) {
+    @objc public func bridgeSelectorUpdate(candidate: String) {
         selectorUpdate(candidate: SKKCandidate(std.string(candidate), true))
     }
 
@@ -344,7 +344,10 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol {
         composingEditor.input(fixed: fixed, input: "", code: 0)
     }
 
-    public func getProtcol() -> SKKCompleterBuddyProtcol {
+    public func getCompleterBuddyProtocol() -> SKKCompleterBuddyProtcol {
+        return self
+    }
+    public func getSelectorBuddyProtocol() -> SKKSelectorBuddyProtocol {
         return self
     }
 }

@@ -24,6 +24,8 @@
 #import <AquaSKKBackend/SKKEntry.h>
 #import <AquaSKKEngine/IntrusiveRefCounted.h>
 
+@protocol SKKSelectorBuddyProtocol;
+
 // SKKSelector の相棒クラス
 struct SKKSelectorBuddy : public IntrusiveRefCounted<SKKSelectorBuddy> {
     virtual ~SKKSelectorBuddy() {}
@@ -33,6 +35,8 @@ struct SKKSelectorBuddy : public IntrusiveRefCounted<SKKSelectorBuddy> {
 
     // SKKSelector で現在選択中の候補が変更された場合に呼び出される
     virtual void SKKSelectorUpdate(const SKKCandidate &candidate) = 0;
+
+    virtual id<SKKSelectorBuddyProtocol> getSelectorBuddyProtocol() = 0;
 
 public:
     static const SKKEntry invokeSKKSelectorQueryEntry(SKKSelectorBuddy *_Nonnull buddy) {
