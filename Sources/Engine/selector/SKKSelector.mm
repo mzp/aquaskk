@@ -34,7 +34,8 @@ public:
     SwiftObject<AquaSKKEngine::SKKSelectorImpl> *impl_;
 
     SKKSelectorContainer(SKKSelectorBuddy *buddy, SKKCandidateWindowBridge *bridge)
-        : impl_(new SwiftObject(AquaSKKEngine::SKKSelectorImpl::createBridge(buddy->getSelectorBuddyProtocol(), bridge))) {}
+        : impl_(new SwiftObject(
+              AquaSKKEngine::SKKSelectorImpl::createBridge(buddy->getSelectorBuddyProtocol(), bridge))) {}
 
     ~SKKSelectorContainer() {
         //       delete impl_;

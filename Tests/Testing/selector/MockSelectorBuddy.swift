@@ -5,8 +5,8 @@
 //  Created by mzp on 2025/05/29.
 //
 
-import Foundation
 import AquaSKKEngine
+import Foundation
 
 public class MockSelectorBuddyImpl: SKKSelectorBuddyProtocol {
     let entry: SKKEntry
@@ -14,15 +14,14 @@ public class MockSelectorBuddyImpl: SKKSelectorBuddyProtocol {
 
     public init(entry: String, okuri: String) {
         self.entry = SKKEntry(std.string(entry), std.string(okuri))
-        self.current = ""
+        current = ""
     }
 
     public func bridgeSelectorQueryEntry() -> [String] {
         return [String(entry.EntryString()), String(entry.OkuriString())]
     }
-    
+
     public func bridgeSelectorUpdate(candidate: String) {
-        self.current = candidate
+        current = candidate
     }
 }
-

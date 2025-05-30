@@ -12,11 +12,13 @@
 #include <swift/bridging>
 #include <AquaSKKEngine/IntrusiveRefCounted.h>
 
+@protocol SKKOkuriListenerProtocol;
+
 class SKKOkuriListener : public IntrusiveRefCounted<SKKOkuriListener> {
 public:
     virtual ~SKKOkuriListener() {}
 
-    virtual void SKKOkuriListenerAppendEntry(const std::string &fixed) = 0;
+    virtual id<SKKOkuriListenerProtocol> getOkuriListenerProtocol() = 0;
 } SWIFT_SHARED_REFERENCE(retainSKKOkuriListener, releaseSKKOkuriListener);
 
 void retainSKKOkuriListener(SKKOkuriListener *obj);

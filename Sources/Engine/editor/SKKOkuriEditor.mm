@@ -26,7 +26,8 @@
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKOkuriEditor::SKKOkuriEditor(SKKInputContext *context, SKKOkuriListener *listener)
-    : SKKBaseEditor(context), impl_(new SwiftObject(AquaSKKEngine::SKKOkuriEditorImpl::init(context, listener))) {}
+    : SKKBaseEditor(context),
+      impl_(new SwiftObject(AquaSKKEngine::SKKOkuriEditorImpl::init(context, listener->getOkuriListenerProtocol()))) {}
 
 void SKKOkuriEditor::ReadContext() {
     (*impl_)->readContext();

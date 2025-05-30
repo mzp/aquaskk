@@ -7,13 +7,13 @@
 
 public class SKKOkuriEditorImpl: SKKEditorProtocol {
     let context: SKKInputContext
-    let listener: SKKOkuriListener
+    let listener: SKKOkuriListenerProtocol
     var first: Bool
     var prefix: String
     var okuri: String
     var input: String
 
-    public init(context: SKKInputContext, listener: SKKOkuriListener) {
+    public init(context: SKKInputContext, listener: SKKOkuriListenerProtocol) {
         self.context = context
         self.listener = listener
         first = false
@@ -45,7 +45,7 @@ public class SKKOkuriEditorImpl: SKKEditorProtocol {
 
             // KesSi 対応
             if !fixed.isEmpty, !input.isEmpty {
-                listener.SKKOkuriListenerAppendEntry(std.string(fixed))
+                listener.okkuriListenerAppendEntry(fixed: fixed)
                 update()
                 return
             }

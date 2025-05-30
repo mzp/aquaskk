@@ -49,8 +49,6 @@ class SKKInputEngine : public SKKInputQueueObserver,
 
     // 現在の見出し語の通知
     virtual void SKKCompleterUpdate(const std::string &entry);
-   virtual id<SKKCompleterBuddyProtcol> getCompleterBuddyProtocol() override;
-   virtual id<SKKSelectorBuddyProtocol> getSelectorBuddyProtocol() override;
 
     // SKKSelector::Execute() 時に呼び出される
     virtual const SKKEntry SKKSelectorQueryEntry();
@@ -106,6 +104,11 @@ public:
 
     // 送りが完成したか？
     bool IsOkuriComplete() const;
+
+    virtual id<SKKCompleterBuddyProtcol> getCompleterBuddyProtocol() override;
+    virtual id<SKKSelectorBuddyProtocol> getSelectorBuddyProtocol() override;
+
+    virtual id<SKKOkuriListenerProtocol> getOkuriListenerProtocol() override;
 } SWIFT_SHARED_REFERENCE(retainSKKInputEngine, releaseSKKInputEngine);
 
 void retainSKKInputEngine(SKKInputEngine *obj);

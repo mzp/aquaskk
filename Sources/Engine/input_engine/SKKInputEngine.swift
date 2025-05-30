@@ -5,7 +5,7 @@
 //  Created by mzp on 2025/03/06.
 //
 
-public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProtocol {
+public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProtocol, SKKOkuriListenerProtocol {
     private var env: SKKInputEnvironment
     private var context: SKKInputContext {
         env.InputContext()
@@ -340,14 +340,19 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProto
         candidateEditor.setCandidate(candidate: candidate)
     }
 
-    public func okkuriListenerAppendEntry(fixed: String) {
+    @objc public func okkuriListenerAppendEntry(fixed: String) {
         composingEditor.input(fixed: fixed, input: "", code: 0)
     }
 
     public func getCompleterBuddyProtocol() -> SKKCompleterBuddyProtcol {
         return self
     }
+
     public func getSelectorBuddyProtocol() -> SKKSelectorBuddyProtocol {
+        return self
+    }
+
+    public func getOkuriListenerProtocol() -> SKKOkuriListenerProtocol {
         return self
     }
 }
