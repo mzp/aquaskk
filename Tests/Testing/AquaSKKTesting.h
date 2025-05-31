@@ -28,3 +28,6 @@ FOUNDATION_EXPORT const unsigned char AquaSKKTestingVersionString[];
 #import <AquaSKKTesting/jconv.h>
 #import <AquaSKKTesting/pthreadutil.h>
 #import <AquaSKKTesting/stringutil.h>
+
+// MARK: - Queue
+#import <AquaSKKTesting/TestInputQueueObserver.h>

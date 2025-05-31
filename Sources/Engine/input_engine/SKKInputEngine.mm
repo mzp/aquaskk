@@ -33,7 +33,7 @@ struct SKKInputEngineContainer {
         : impl_(new SwiftObject(
               AquaSKKEngine::SKKInputEngineImpl::init(
                   env, AquaSKKEngine::SKKInputQueueImpl::init(engine),
-                  AquaSKKEngine::SKKOkuriEditorImpl::init(env->InputContext(), engine->getOkuriListenerProtocol())))) {}
+                  AquaSKKEngine::SKKOkuriEditorImpl::init(env->InputContext(), engine)))) {}
 };
 
 SKKInputEngine::SKKInputEngine(SKKInputEnvironment *env)
@@ -177,6 +177,11 @@ id<SKKSelectorBuddyProtocol> SKKInputEngine::getSelectorBuddyProtocol() {
 id<SKKOkuriListenerProtocol> SKKInputEngine::getOkuriListenerProtocol() {
     return (*(container_->impl_))->getOkuriListenerProtocol();
 }
+
+id<SKKInputQueueObserverProtocol> SKKInputEngine::getInputQueueObserverProtocol() {
+    return (*(container_->impl_))->getInputQueueObserverProtocol();
+}
+
 void retainSKKInputEngine(SKKInputEngine *obj) {
     obj->IntrusiveRefCounted<SKKInputEngine>::retain();
 }

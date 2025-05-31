@@ -12,6 +12,8 @@
 #include <swift/bridging>
 #import <AquaSKKEngine/IntrusiveRefCounted.h>
 
+@protocol SKKInputQueueObserverProtocol;
+
 /// 入力状態
 struct SKKInputQueueObserverState {
     /// 確定した文字
@@ -28,6 +30,7 @@ class SKKInputQueueObserver : public IntrusiveRefCounted<SKKInputQueueObserver> 
 public:
     virtual ~SKKInputQueueObserver() {}
 
+    virtual id<SKKInputQueueObserverProtocol> getInputQueueObserverProtocol() = 0;
     virtual void SKKInputQueueUpdate(const SKKInputQueueObserverState &state) {}
 } SWIFT_SHARED_REFERENCE(retainSKKInputQueueObserver, releaseSKKInputQueueObserver);
 

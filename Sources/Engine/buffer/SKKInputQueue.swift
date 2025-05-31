@@ -10,12 +10,16 @@ import OSLog
 
 public class SKKInputQueueImpl {
     private var inputMode: SKKInputMode
-    private var observer: SKKInputQueueObserver
+    private var observer: SKKInputQueueObserverProtocol {
+        bridgedObserver.getInputQueueObserverProtocol()
+    }
+
+    private var bridgedObserver: SKKInputQueueObserver
     private var queue: String
 
     public init(observer: SKKInputQueueObserver) {
         inputMode = .HirakanaInputMode
-        self.observer = observer
+        bridgedObserver = observer
         queue = ""
     }
 
@@ -72,7 +76,13 @@ public class SKKInputQueueImpl {
         }
         state.queue = std.string(queue)
         state.code = CChar(character)
-        observer.SKKInputQueueUpdate(state)
+
+        observer.bridgeInputQueueUpdate(
+            fixed: String(state.fixed),
+            intermediate: String(state.intermediate),
+            queue: String(state.queue),
+            code: Int(state.code)
+        )
     }
 
     /// 文字の削除
@@ -85,7 +95,7 @@ public class SKKInputQueueImpl {
         var state = SKKInputQueueObserverState()
         state.queue = std.string(queue)
         state.code = 0
-        observer.SKKInputQueueUpdate(state)
+        observer.bridgeInputQueueUpdate(fixed: String(state.fixed), intermediate: String(state.intermediate), queue: String(state.queue), code: Int(state.code))
     }
 
     /// 中間状態を確定させる(n → ん)
@@ -117,12 +127,13 @@ public class SKKInputQueueImpl {
 
         queue.removeAll()
         state.code = 0
-        observer.SKKInputQueueUpdate(state)
+        observer.bridgeInputQueueUpdate(fixed: String(state.fixed), intermediate: String(state.intermediate), queue: String(state.queue), code: Int(state.code))
     }
 
     public func clear() {
         queue.removeAll()
-        observer.SKKInputQueueUpdate(.init())
+        let state = SKKInputQueueObserverState()
+        observer.bridgeInputQueueUpdate(fixed: String(state.fixed), intermediate: String(state.intermediate), queue: String(state.queue), code: Int(state.code))
     }
 
     public var isEmpty: Bool {

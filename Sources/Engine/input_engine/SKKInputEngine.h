@@ -109,6 +109,7 @@ public:
     virtual id<SKKSelectorBuddyProtocol> getSelectorBuddyProtocol() override;
 
     virtual id<SKKOkuriListenerProtocol> getOkuriListenerProtocol() override;
+    virtual id<SKKInputQueueObserverProtocol> getInputQueueObserverProtocol() override;
 } SWIFT_SHARED_REFERENCE(retainSKKInputEngine, releaseSKKInputEngine);
 
 void retainSKKInputEngine(SKKInputEngine *obj);

@@ -458,6 +458,13 @@
 		13C85CFC2D8B8FB3006D1872 /* SelectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C85CFB2D8B8FB3006D1872 /* SelectorTests.swift */; };
 		13C85CFE2D8B9110006D1872 /* UserDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C85CFD2D8B9110006D1872 /* UserDictionaryTests.swift */; };
 		13C85D012D8BBB5F006D1872 /* CompletionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C85D002D8BBB5F006D1872 /* CompletionTests.swift */; };
+		13D128DE2DEAAEE200B0F94D /* TestInputQueueObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 13D128DC2DEAAEE200B0F94D /* TestInputQueueObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		13D128DF2DEAAEE200B0F94D /* TestInputQueueObserver.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13D128DD2DEAAEE200B0F94D /* TestInputQueueObserver.mm */; };
+		13D128E22DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D128E12DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift */; };
+		13D128E32DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D128E12DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift */; };
+		13D128E52DEB953900B0F94D /* TestInputQueueObserverImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D128E42DEB953900B0F94D /* TestInputQueueObserverImpl.swift */; };
+		13D128E62DEB953900B0F94D /* TestInputQueueObserverImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D128E42DEB953900B0F94D /* TestInputQueueObserverImpl.swift */; };
+		13D128E82DEB97F500B0F94D /* SKKInputQueue_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13D128E72DEB97F500B0F94D /* SKKInputQueue_TEST.mm */; };
 		13D756192C5A9049006144F2 /* AquaSKKEngine.docc in Sources */ = {isa = PBXBuildFile; fileRef = 13D756172C5A9049006144F2 /* AquaSKKEngine.docc */; };
 		13D7561A2C5A9049006144F2 /* AquaSKKEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 13D756162C5A9049006144F2 /* AquaSKKEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13D8D3812D6D551700CF12D7 /* keymap_patch.conf in Resources */ = {isa = PBXBuildFile; fileRef = 1347784E2C5DB98F007B1DFB /* keymap_patch.conf */; };
@@ -484,8 +491,6 @@
 		13E637772D56F58A0040DAAC /* BlacklistApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E637762D56F58A0040DAAC /* BlacklistApps.swift */; };
 		13EB86642C5EA7DD00B47DCD /* SupervisorMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EB86632C5EA7DD00B47DCD /* SupervisorMonitor.swift */; };
 		13EC79072D3F579900D6E623 /* MessengerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EC79062D3F579900D6E623 /* MessengerView.swift */; };
-		13EDDCF12C5B395B0062A0DA /* SKKSelector_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5402C5B28FC00D8C850 /* SKKSelector_TEST.mm */; };
-		13EDDCF22C5B395B0062A0DA /* SKKInputQueue_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5392C5B28FC00D8C850 /* SKKInputQueue_TEST.mm */; };
 		13EDDCF32C5B395B0062A0DA /* SKKInputSession_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F53A2C5B28FC00D8C850 /* SKKInputSession_TEST.mm */; };
 		13F1092A2D5D072D005DC315 /* SKKInputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F109292D5D072D005DC315 /* SKKInputController.swift */; };
 		13F109302D5EE22F005DC315 /* SKKInputSessionBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13F1092C2D5EE22F005DC315 /* SKKInputSessionBridge.mm */; };
@@ -784,9 +789,7 @@
 		1344F5072C5B28FC00D8C850 /* skkserv.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = skkserv.cpp; sourceTree = "<group>"; };
 		1344F50A2C5B28FC00D8C850 /* SKKEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKEvent.h; sourceTree = "<group>"; };
 		1344F50B2C5B28FC00D8C850 /* SKKState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKState.h; sourceTree = "<group>"; };
-		1344F5392C5B28FC00D8C850 /* SKKInputQueue_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKInputQueue_TEST.mm; sourceTree = "<group>"; };
 		1344F53A2C5B28FC00D8C850 /* SKKInputSession_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKInputSession_TEST.mm; sourceTree = "<group>"; };
-		1344F5402C5B28FC00D8C850 /* SKKSelector_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKSelector_TEST.mm; sourceTree = "<group>"; };
 		1344F5442C5B28FC00D8C850 /* socketutil_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = socketutil_TEST.mm; sourceTree = "<group>"; };
 		1344F5452C5B28FC00D8C850 /* stringutil_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = stringutil_TEST.mm; sourceTree = "<group>"; };
 		1344F5472C5B28FC00D8C850 /* TestData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestData.h; sourceTree = "<group>"; };
@@ -1122,6 +1125,11 @@
 		13CFD1B32C68198D000A67E9 /* App.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = App.xctestplan; sourceTree = "<group>"; };
 		13CFD1B42C681A61000A67E9 /* Integration.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Integration.xctestplan; sourceTree = "<group>"; };
 		13CFD1B72C681B6C000A67E9 /* CI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI.xctestplan; sourceTree = "<group>"; };
+		13D128DC2DEAAEE200B0F94D /* TestInputQueueObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestInputQueueObserver.h; sourceTree = "<group>"; };
+		13D128DD2DEAAEE200B0F94D /* TestInputQueueObserver.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TestInputQueueObserver.mm; sourceTree = "<group>"; };
+		13D128E12DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKInputQueueObserverProtocol.swift; sourceTree = "<group>"; };
+		13D128E42DEB953900B0F94D /* TestInputQueueObserverImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestInputQueueObserverImpl.swift; sourceTree = "<group>"; };
+		13D128E72DEB97F500B0F94D /* SKKInputQueue_TEST.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKInputQueue_TEST.mm; sourceTree = "<group>"; };
 		13D756162C5A9049006144F2 /* AquaSKKEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKEngine.h; sourceTree = "<group>"; };
 		13D756172C5A9049006144F2 /* AquaSKKEngine.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKEngine.docc; sourceTree = "<group>"; };
 		13D7561B2C5A905E006144F2 /* All.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = All.xcconfig; sourceTree = "<group>"; };
@@ -1327,6 +1335,7 @@
 				13018B2F2C769D370045FF13 /* BundledServerConfiguration.swift */,
 				1335E3752C97F842002F298B /* TestingResource.swift */,
 				1335E3792C97FE3C002F298B /* MockCompletionHelper.swift */,
+				13D128DB2DEAAED200B0F94D /* queue */,
 				13DCD5312D6C04BA008C27A9 /* utiliity */,
 				13F91A242C83939A00E60D63 /* jconv */,
 				13415B372C82892900ED9D0A /* TyperSupports */,
@@ -1640,7 +1649,6 @@
 		133A55232C5DB85C0047E911 /* selector */ = {
 			isa = PBXGroup;
 			children = (
-				1344F5402C5B28FC00D8C850 /* SKKSelector_TEST.mm */,
 				139E88BF2D73F7360065CFA2 /* SKKWindowSelectorTesting.swift */,
 				139E88C42D7421300065CFA2 /* SKKSelectorTestirg.swift */,
 				139E88B82D73F3A60065CFA2 /* SKKInlnlineSelectorTesting.swift */,
@@ -1945,7 +1953,7 @@
 			isa = PBXGroup;
 			children = (
 				13A648842D7687C900FB52C5 /* SKKTextBufferTests.swift */,
-				1344F5392C5B28FC00D8C850 /* SKKInputQueue_TEST.mm */,
+				13D128E72DEB97F500B0F94D /* SKKInputQueue_TEST.mm */,
 			);
 			path = buffer;
 			sourceTree = "<group>";
@@ -2019,6 +2027,7 @@
 				1344F4D62C5B28FC00D8C850 /* SKKInputQueue.mm */,
 				13A648892D76D82900FB52C5 /* SKKInputQueue.swift */,
 				13A6488B2D76DEED00FB52C5 /* SKKInputQueueObserver.h */,
+				13D128E12DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift */,
 				13A648862D76881F00FB52C5 /* SKKTextBuffer.swift */,
 			);
 			path = buffer;
@@ -2689,6 +2698,16 @@
 			path = Gadget;
 			sourceTree = "<group>";
 		};
+		13D128DB2DEAAED200B0F94D /* queue */ = {
+			isa = PBXGroup;
+			children = (
+				13D128DC2DEAAEE200B0F94D /* TestInputQueueObserver.h */,
+				13D128DD2DEAAEE200B0F94D /* TestInputQueueObserver.mm */,
+				13D128E42DEB953900B0F94D /* TestInputQueueObserverImpl.swift */,
+			);
+			path = queue;
+			sourceTree = "<group>";
+		};
 		13D368102C5A81290083CAE3 = {
 			isa = PBXGroup;
 			children = (
@@ -2891,6 +2910,7 @@
 				139E88C92D7423740065CFA2 /* MockSelectorBuddy.h in Headers */,
 				1315FE912C818377004011B7 /* MockCandidateWindow.h in Headers */,
 				1315FE922C818377004011B7 /* MockDynamicCompletor.h in Headers */,
+				13D128DE2DEAAEE200B0F94D /* TestInputQueueObserver.h in Headers */,
 				1315FE932C818377004011B7 /* MockClipboard.h in Headers */,
 				13F91A2A2C8393A700E60D63 /* jconv_ucs2eucj-inl.h in Headers */,
 				13F91A2B2C8393A700E60D63 /* jconv.h in Headers */,
@@ -3768,6 +3788,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13D128E52DEB953900B0F94D /* TestInputQueueObserverImpl.swift in Sources */,
 				13415B362C82865500ED9D0A /* TestResult.cpp in Sources */,
 				1311EB222DE95D2400808F8D /* MockSelectorBuddy.swift in Sources */,
 				13415B342C82863400ED9D0A /* MockMessenger.cpp in Sources */,
@@ -3783,6 +3804,7 @@
 				13F91A2E2C8393A700E60D63 /* jconv.cpp in Sources */,
 				13415B282C82849500ED9D0A /* MockClipboard.cpp in Sources */,
 				13415B3E2C82904900ED9D0A /* TyperInputSessionParameter.mm in Sources */,
+				13D128DF2DEAAEE200B0F94D /* TestInputQueueObserver.mm in Sources */,
 				13415B2A2C8284CF00ED9D0A /* MockCompletionHelper.cpp in Sources */,
 				13415B222C82831800ED9D0A /* MockFrontEnd.cpp in Sources */,
 				13415B262C82843500ED9D0A /* MockCandidateWindow.cpp in Sources */,
@@ -3868,6 +3890,7 @@
 			files = (
 				139E88C52D7421300065CFA2 /* SKKSelectorTestirg.swift in Sources */,
 				13A685442C698312001BABA2 /* CoreTesting.swift in Sources */,
+				13D128E82DEB97F500B0F94D /* SKKInputQueue_TEST.mm in Sources */,
 				135FB6E32C69B06B00A6480A /* TriesTest.swift in Sources */,
 				13415B452C836C3B00ED9D0A /* SKKTransliterateTests.swift in Sources */,
 				139E88B92D73F3A60065CFA2 /* SKKInlnlineSelectorTesting.swift in Sources */,
@@ -3875,8 +3898,6 @@
 				13A685422C69826A001BABA2 /* RomanKanaConverterTests.swift in Sources */,
 				139E88C02D73F7360065CFA2 /* SKKWindowSelectorTesting.swift in Sources */,
 				13A648882D769C6F00FB52C5 /* SKKTextBufferTests.swift in Sources */,
-				13EDDCF12C5B395B0062A0DA /* SKKSelector_TEST.mm in Sources */,
-				13EDDCF22C5B395B0062A0DA /* SKKInputQueue_TEST.mm in Sources */,
 				13EDDCF32C5B395B0062A0DA /* SKKInputSession_TEST.mm in Sources */,
 				1311EB192DE8D23600808F8D /* SKKCompleterTests.swift in Sources */,
 			);
@@ -3951,8 +3972,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13D128E62DEB953900B0F94D /* TestInputQueueObserverImpl.swift in Sources */,
 				13F53D9C2C6C39CA00403F65 /* AppDelegate.swift in Sources */,
 				13A6A1392C6D6D2F004B3587 /* main.m in Sources */,
+				13D128E32DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4123,6 +4146,7 @@
 				138198FA2D793A56009C29E7 /* SKKEntryRemoveEditor.swift in Sources */,
 				1344F5D42C5B28FC00D8C850 /* SKKInputSession.mm in Sources */,
 				1344F5D92C5B28FC00D8C850 /* SKKInputModeSelector.cpp in Sources */,
+				13D128E22DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift in Sources */,
 				139E88BE2D73F6760065CFA2 /* SKKWindowSelector.swift in Sources */,
 				1376379B2D7F63C900CF332A /* SKKCandidateWindow.cpp in Sources */,
 				138ABEC42D80819D0027BFAF /* SKKStatePrimary.swift in Sources */,

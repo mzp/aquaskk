@@ -5,7 +5,7 @@
 //  Created by mzp on 2025/05/29.
 //
 
-import AquaSKKEngine
+internal import AquaSKKEngine
 import Foundation
 
 public class MockSelectorBuddyImpl: SKKSelectorBuddyProtocol {

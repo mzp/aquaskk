@@ -5,7 +5,7 @@
 //  Created by mzp on 2025/03/06.
 //
 
-public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProtocol, SKKOkuriListenerProtocol {
+public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProtocol, SKKOkuriListenerProtocol, SKKInputQueueObserverProtocol {
     private var env: SKKInputEnvironment
     private var context: SKKInputContext {
         env.InputContext()
@@ -300,6 +300,11 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProto
         return okuriEditor.isOkuriComplete()
     }
 
+    public func bridgeInputQueueUpdate(fixed: String, intermediate: String, queue: String, code: Int) {
+        let state = SKKInputQueueObserverState(fixed: std.string(fixed), intermediate: std.string(intermediate), queue: std.string(queue), code: CChar(code))
+        inputQueueUpdate(state: state)
+    }
+
     public func inputQueueUpdate(state: SKKInputQueueObserverState) {
         inputState = state
         if inputMode == .AsciiInputMode {
@@ -353,6 +358,10 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProto
     }
 
     public func getOkuriListenerProtocol() -> SKKOkuriListenerProtocol {
+        return self
+    }
+
+    public func getInputQueueObserverProtocol() -> SKKInputQueueObserverProtocol {
         return self
     }
 }

@@ -2,32 +2,11 @@
 #include <iostream>
 #import <XCTest/XCTest.h>
 #import <AquaSKKEngine/AquaSKKEngine.h>
+#import <AquaSKKTesting/AquaSKKTesting.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 @interface SKKInputQueueTests : XCTestCase
 @end
-
-class TestInputQueueObserver : public SKKInputQueueObserver {
-    SKKInputQueueObserverState state_;
-
-public:
-    virtual void SKKInputQueueUpdate(const SKKInputQueueObserverState &state) {
-        state_.fixed += state.fixed;
-        state_.queue = state.queue;
-    }
-
-    void Clear() {
-        state_ = SKKInputQueueObserverState();
-    }
-
-    bool Test(const std::string &fixed, const std::string &queue) {
-        return state_.fixed == fixed && state_.queue == queue;
-    }
-
-    void Dump() {
-        std::cerr << "fixed=" << state_.fixed << ", queue=" << state_.queue << std::endl;
-    }
-};
 
 @implementation SKKInputQueueTests
 
