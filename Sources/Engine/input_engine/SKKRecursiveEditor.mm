@@ -26,7 +26,7 @@
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKRecursiveEditor::SKKRecursiveEditor(SKKInputEnvironment *env)
-    : editor_(env) {
+    : editor_(SKKInputEngine(env)) {
     SKKCompleter *completer = new SKKCompleter(&editor_);
     SKKCandidateWindow *candidateWindow = env->InputSessionParameter()->CandidateWindow();
     SKKSelector *selector = new SKKSelector(&editor_, candidateWindow);

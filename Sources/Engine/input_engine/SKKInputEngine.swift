@@ -11,21 +11,21 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProto
         env.InputContext()
     }
 
-    public init(env: SKKInputEnvironment, okuriEditor: SKKOkuriEditorImpl) {
+    public init(env: SKKInputEnvironment) {
         self.env = env
         stack = []
         primaryEditor = .init(context: env.InputContext())
         registerEditor = .init(context: env.InputContext())
         composingEditor = .init(context: env.InputContext())
         candidateEditor = .init(context: env.InputContext())
-        self.okuriEditor = okuriEditor
+        okuriEditor = .init(context: env.InputContext())
         entryRemoveEditor = .init(context: env.InputContext())
         inputQueue = .init()
         word = ""
         inputState = .init()
         setStatePrimary()
 
-        self.okuriEditor.listener = self
+        okuriEditor.listener = self
         inputQueue.observer = self
     }
 

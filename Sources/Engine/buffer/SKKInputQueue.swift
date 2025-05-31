@@ -7,6 +7,7 @@
 
 import AquaSKKLogging
 import CxxStdlib
+import Foundation
 import OSLog
 
 public class SKKInputQueueImpl {

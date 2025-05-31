@@ -7,29 +7,19 @@
 
 public class SKKOkuriEditorImpl: SKKEditorProtocol {
     let context: SKKInputContext
-    let bridgedListener: SKKOkuriListener
-    var listenerProtocol: SKKOkuriListenerProtocol? = nil
-    var listener: SKKOkuriListenerProtocol? {
-        set {
-            listenerProtocol = newValue
-        }
-        get {
-            listenerProtocol ?? bridgedListener.getOkuriListenerProtocol()
-        }
-    }
-
+    weak var listener: SKKOkuriListenerProtocol?
     var first: Bool
     var prefix: String
     var okuri: String
     var input: String
 
-    public init(context: SKKInputContext, listener: SKKOkuriListener) {
+    public init(context: SKKInputContext) {
         self.context = context
-        bridgedListener = listener
         first = false
         prefix = ""
         okuri = ""
         input = ""
+        listener = nil
     }
 
     public func readContext() {
