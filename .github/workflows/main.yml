@@ -19,6 +19,7 @@ jobs:
             # Inspect
             - run: ls /Applications
             - run: sw_vers
+            - run: swiftformat --version
 
             # Run
             - name: Set current datetime as env variable
