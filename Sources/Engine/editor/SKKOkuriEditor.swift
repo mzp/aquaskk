@@ -7,9 +7,15 @@
 
 public class SKKOkuriEditorImpl: SKKEditorProtocol {
     let context: SKKInputContext
-    let listenerBase: SKKOkuriListener
-    var listener: SKKOkuriListenerProtocol {
-        listenerBase.getOkuriListenerProtocol()
+    let bridgedListener: SKKOkuriListener
+    var listenerProtocol: SKKOkuriListenerProtocol? = nil
+    var listener: SKKOkuriListenerProtocol? {
+        set {
+            listenerProtocol = newValue
+        }
+        get {
+            listenerProtocol ?? bridgedListener.getOkuriListenerProtocol()
+        }
     }
 
     var first: Bool
@@ -19,7 +25,7 @@ public class SKKOkuriEditorImpl: SKKEditorProtocol {
 
     public init(context: SKKInputContext, listener: SKKOkuriListener) {
         self.context = context
-        listenerBase = listener
+        bridgedListener = listener
         first = false
         prefix = ""
         okuri = ""
@@ -49,7 +55,7 @@ public class SKKOkuriEditorImpl: SKKEditorProtocol {
 
             // KesSi 対応
             if !fixed.isEmpty, !input.isEmpty {
-                listener.okkuriListenerAppendEntry(fixed: fixed)
+                listener?.okkuriListenerAppendEntry(fixed: fixed)
                 update()
                 return
             }

@@ -6,20 +6,16 @@
 //
 
 import AquaSKKLogging
+import CxxStdlib
 import OSLog
 
 public class SKKInputQueueImpl {
     private var inputMode: SKKInputMode
-    private var observer: SKKInputQueueObserverProtocol {
-        bridgedObserver.getInputQueueObserverProtocol()
-    }
-
-    private var bridgedObserver: SKKInputQueueObserver
+    weak var observer: SKKInputQueueObserverProtocol?
     private var queue: String
 
-    public init(observer: SKKInputQueueObserver) {
+    public init() {
         inputMode = .HirakanaInputMode
-        bridgedObserver = observer
         queue = ""
     }
 
@@ -34,6 +30,10 @@ public class SKKInputQueueImpl {
     public func selectInputMode(inputMode: SKKInputMode) {
         self.inputMode = inputMode
         clear()
+    }
+
+    public func addChar(character: Character, direct: Bool) {
+        addChar(character: Int(character.asciiValue ?? 0), direct: direct)
     }
 
     /// 文字の追加
@@ -77,7 +77,7 @@ public class SKKInputQueueImpl {
         state.queue = std.string(queue)
         state.code = CChar(character)
 
-        observer.bridgeInputQueueUpdate(
+        observer?.bridgeInputQueueUpdate(
             fixed: String(state.fixed),
             intermediate: String(state.intermediate),
             queue: String(state.queue),
@@ -95,7 +95,7 @@ public class SKKInputQueueImpl {
         var state = SKKInputQueueObserverState()
         state.queue = std.string(queue)
         state.code = 0
-        observer.bridgeInputQueueUpdate(fixed: String(state.fixed), intermediate: String(state.intermediate), queue: String(state.queue), code: Int(state.code))
+        observer?.bridgeInputQueueUpdate(fixed: String(state.fixed), intermediate: String(state.intermediate), queue: String(state.queue), code: Int(state.code))
     }
 
     /// 中間状態を確定させる(n → ん)
@@ -127,13 +127,13 @@ public class SKKInputQueueImpl {
 
         queue.removeAll()
         state.code = 0
-        observer.bridgeInputQueueUpdate(fixed: String(state.fixed), intermediate: String(state.intermediate), queue: String(state.queue), code: Int(state.code))
+        observer?.bridgeInputQueueUpdate(fixed: String(state.fixed), intermediate: String(state.intermediate), queue: String(state.queue), code: Int(state.code))
     }
 
     public func clear() {
         queue.removeAll()
         let state = SKKInputQueueObserverState()
-        observer.bridgeInputQueueUpdate(fixed: String(state.fixed), intermediate: String(state.intermediate), queue: String(state.queue), code: Int(state.code))
+        observer?.bridgeInputQueueUpdate(fixed: String(state.fixed), intermediate: String(state.intermediate), queue: String(state.queue), code: Int(state.code))
     }
 
     public var isEmpty: Bool {

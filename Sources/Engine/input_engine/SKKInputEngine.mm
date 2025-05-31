@@ -32,8 +32,7 @@ struct SKKInputEngineContainer {
     SKKInputEngineContainer(SKKInputEnvironment *env, SKKInputEngine *engine)
         : impl_(new SwiftObject(
               AquaSKKEngine::SKKInputEngineImpl::init(
-                  env, AquaSKKEngine::SKKInputQueueImpl::init(engine),
-                  AquaSKKEngine::SKKOkuriEditorImpl::init(env->InputContext(), engine)))) {}
+                  env, AquaSKKEngine::SKKOkuriEditorImpl::init(env->InputContext(), engine)))) {}
 };
 
 SKKInputEngine::SKKInputEngine(SKKInputEnvironment *env)
