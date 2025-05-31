@@ -113,7 +113,6 @@ public class SKKDistributedUserDictionary: SKKBaseDictionaryProtocol, SKKUserDic
             return nil
         }
         return await withCheckedContinuation { continuation in
-
             connect.send(content: data, completion: .contentProcessed { error in
                 if let error = error {
                     Logger.skkBackend.error("\(#function, privacy: .public) error=\(error.localizedDescription, privacy: .private)")
