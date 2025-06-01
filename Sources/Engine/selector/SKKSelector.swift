@@ -19,8 +19,8 @@ public class SKKSelectorImpl {
     private var windowSelector: SKKWindowSelectorImpl
     private var suite = SKKCandidateSuite()
 
-    public static func createBridge(buddy: SKKSelectorBuddyProtocol, window: SKKCandidateWindowBridge) -> SKKSelectorImpl {
-        .init(buddy: buddy, presenter: SKKCandidateWindowBridgeAdapter(window))
+    public static func createBridge(buddy: SKKSelectorBuddy, window: SKKCandidateWindowBridge) -> SKKSelectorImpl {
+        .init(buddy: buddy.getSelectorBuddyProtocol(), presenter: SKKCandidateWindowBridgeAdapter(window))
     }
 
     public init(buddy: SKKSelectorBuddyProtocol, presenter: SKKCandidatePresenter) {

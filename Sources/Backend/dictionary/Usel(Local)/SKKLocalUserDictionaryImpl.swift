@@ -110,7 +110,7 @@ public class SKKLocalUserDictionaryImpl: SKKBaseDictionaryProtocol, SKKUserDicti
             entry.valueString(using: .utf8)?.contains("/\(candidate)") ?? false
         }
 
-        var parser = SKKCandidateParser()
+        let parser = SKKCandidateParser()
         let query = SKKCandidate(std.string(candidate), true)
         for entry in entries {
             guard let valueString = entry.valueString(using: .utf8) else {
