@@ -340,9 +340,7 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProto
         return [String(entry.EntryString()), String(entry.OkuriString())]
     }
 
-    @objc public func bridgeSelectorUpdate(candidate: String) {
-        selectorUpdate(candidate: SKKCandidate(std.string(candidate), true))
-    }
+
 
     func selectorUpdate(candidate: SKKCandidate) {
         candidateEditor.setCandidate(candidate: candidate)
@@ -356,15 +354,20 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProto
         return self
     }
 
-    public func getSelectorBuddyProtocol() -> SKKSelectorBuddyProtocol {
-        return self
-    }
-
     public func getOkuriListenerProtocol() -> SKKOkuriListenerProtocol {
         return self
     }
 
     public func getInputQueueObserverProtocol() -> SKKInputQueueObserverProtocol {
         return self
+    }
+
+    // MARK: - SKKSelectorBuddyProtocol
+    public func getSelectorBuddyProtocol() -> SKKSelectorBuddyProtocol {
+        return self
+    }
+
+    public func bridgeSelectorUpdate(candidate: String) {
+        selectorUpdate(candidate: SKKCandidate(std.string(candidate), true))
     }
 }

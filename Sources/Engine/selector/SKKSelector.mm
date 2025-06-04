@@ -32,10 +32,10 @@ private:
 
 public:
     SwiftObject<AquaSKKEngine::SKKSelectorImpl> *impl_;
-
+    // FIXME: Xcode 16.2
     SKKSelectorContainer(SKKSelectorBuddy *buddy, SKKCandidateWindowBridge *bridge)
-        : impl_(new SwiftObject(
-              AquaSKKEngine::SKKSelectorImpl::createBridge(buddy, bridge))) {}
+        : impl_(/* new SwiftObject(
+              AquaSKKEngine::SKKSelectorImpl::createBridge(buddy, bridge)) */ nullptr) {}
 
     ~SKKSelectorContainer() {
         //       delete impl_;

@@ -28,7 +28,8 @@ TestInputQueueObserver::~TestInputQueueObserver() {
 }
 
 void TestInputQueueObserver::SKKInputQueueUpdate(const SKKInputQueueObserverState &state) {
-    container->impl_.bridgeInputQueueUpdate(state.fixed, state.intermediate, state.queue, state.code);
+    // FIXME: Xcode 16.2
+    // container->impl_.bridgeInputQueueUpdate(state.fixed, state.intermediate, state.queue, state.code);
 }
 
 void TestInputQueueObserver::Clear() {
@@ -44,5 +45,8 @@ void TestInputQueueObserver::Dump() {
 }
 
 id<SKKInputQueueObserverProtocol> TestInputQueueObserver::getInputQueueObserverProtocol() {
-    return container->impl_.getInputQueueObserverProtocol();
+    // FIXME: Xcode 16.2
+    // return container->impl_.getInputQueueObserverProtocol();
+
+    return nil;
 }

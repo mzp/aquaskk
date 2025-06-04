@@ -28,8 +28,9 @@
 struct SKKCompleterContainer {
     SwiftObject<AquaSKKEngine::SKKCompleterImpl> *impl_;
 
+    // FIXME: Xcode 16.2
     SKKCompleterContainer(SKKCompleterBuddy *buddy)
-        : impl_(new SwiftObject(AquaSKKEngine::SKKCompleterImpl::init(buddy->getCompleterBuddyProtocol()))) {}
+        : impl_(/* new SwiftObject(AquaSKKEngine::SKKCompleterImpl::init(buddy->getCompleterBuddyProtocol()))*/ nullptr) {}
 };
 
 SKKCompleter::SKKCompleter(SKKCompleterBuddy *buddy)

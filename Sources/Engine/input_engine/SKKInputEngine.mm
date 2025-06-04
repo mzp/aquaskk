@@ -37,7 +37,8 @@ SKKInputEngine::SKKInputEngine(SKKInputEnvironment *env)
     : container_(new SKKInputEngineContainer(env, this)) {}
 
 void SKKInputEngine::SelectInputMode(SKKInputMode mode) {
-    (*(container_->impl_))->bridgedSelectInputMode(static_cast<int>(mode));
+    // FIXME: Xcode 16.2
+    // (*(container_->impl_))->bridgedSelectInputMode(static_cast<int>(mode));
 }
 
 void SKKInputEngine::SetStatePrimary() {
@@ -143,40 +144,54 @@ void SKKInputEngine::SKKInputQueueUpdate(const SKKInputQueueObserverState &state
 }
 
 const std::string SKKInputEngine::SKKCompleterQueryString() {
-    return (*(container_->impl_))->completerQueryString();
+    // FIXME: Xcode 16.2
+    // return (*(container_->impl_))->completerQueryString();
+    return "";
 }
 
 void SKKInputEngine::SKKCompleterUpdate(const std::string &entry) {
-    (*(container_->impl_))->completerUpdate(entry);
+    // FIXME: Xcode 16.2
+    // (*(container_->impl_))->completerUpdate(entry);
 }
 
 const SKKEntry SKKInputEngine::SKKSelectorQueryEntry() {
-    auto array = (*(container_->impl_))->bridgeSelectorQueryEntry();
-    return SKKEntry(array[0], array[1]);
+    // FIXME: Xcode 16.2
+//    auto array = (*(container_->impl_))->bridgeSelectorQueryEntry();
+//    return SKKEntry(array[0], array[1]);
+    return SKKEntry();
 }
 
 void SKKInputEngine::SKKSelectorUpdate(const SKKCandidate &candidate) {
-    (*(container_->impl_))->bridgeSelectorUpdate(candidate.ToString());
+    // (*(container_->impl_))->bridgeSelectorUpdate(candidate.ToString());
 }
 
 void SKKInputEngine::SKKOkuriListenerAppendEntry(const std::string &fixed) {
-    (*(container_->impl_))->okkuriListenerAppendEntry(fixed);
+    // FIXME: Xcode 16.2
+//    (*(container_->impl_))->okkuriListenerAppendEntry(fixed);
 }
 
 id<SKKCompleterBuddyProtcol> SKKInputEngine::getCompleterBuddyProtocol() {
-    return (*(container_->impl_))->getCompleterBuddyProtocol();
+    // FIXME: Xcode 16.2
+    // return (*(container_->impl_))->getCompleterBuddyProtocol();
+    return nil;
 }
 
 id<SKKSelectorBuddyProtocol> SKKInputEngine::getSelectorBuddyProtocol() {
-    return (*(container_->impl_))->getSelectorBuddyProtocol();
+    // FIXME: Xcode 16.2
+    // return (*(container_->impl_))->getSelectorBuddyProtocol();
+    return nil;
 }
 
 id<SKKOkuriListenerProtocol> SKKInputEngine::getOkuriListenerProtocol() {
-    return (*(container_->impl_))->getOkuriListenerProtocol();
+    // FIXME: Xcode 16.2
+    // return (*(container_->impl_))->getOkuriListenerProtocol();
+    return nil;
 }
 
 id<SKKInputQueueObserverProtocol> SKKInputEngine::getInputQueueObserverProtocol() {
-    return (*(container_->impl_))->getInputQueueObserverProtocol();
+    // FIXME: Xcode 16.2
+    // return (*(container_->impl_))->getInputQueueObserverProtocol();
+    return nil;
 }
 
 void retainSKKInputEngine(SKKInputEngine *obj) {
