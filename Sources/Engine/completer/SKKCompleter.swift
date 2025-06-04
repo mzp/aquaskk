@@ -11,7 +11,12 @@ public class SKKCompleterImpl {
     private let buddy: SKKCompleterBuddyProtcol
     private var completions: [String]
     private var position: Int
-    public init(buddy: SKKCompleterBuddyProtcol) {
+
+    public convenience init(buddy: SKKCompleterBuddy) {
+        self.init(buddyProtocol: buddy.getCompleterBuddyProtocol())
+    }
+
+    public init(buddyProtocol buddy: SKKCompleterBuddyProtcol) {
         self.buddy = buddy
         completions = []
         position = 0

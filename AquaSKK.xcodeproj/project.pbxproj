@@ -453,8 +453,6 @@
 		13C85CFC2D8B8FB3006D1872 /* SelectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C85CFB2D8B8FB3006D1872 /* SelectorTests.swift */; };
 		13C85CFE2D8B9110006D1872 /* UserDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C85CFD2D8B9110006D1872 /* UserDictionaryTests.swift */; };
 		13C85D012D8BBB5F006D1872 /* CompletionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C85D002D8BBB5F006D1872 /* CompletionTests.swift */; };
-		13D128DE2DEAAEE200B0F94D /* TestInputQueueObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 13D128DC2DEAAEE200B0F94D /* TestInputQueueObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		13D128DF2DEAAEE200B0F94D /* TestInputQueueObserver.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13D128DD2DEAAEE200B0F94D /* TestInputQueueObserver.mm */; };
 		13D128E22DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D128E12DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift */; };
 		13D128E32DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D128E12DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift */; };
 		13D128E52DEB953900B0F94D /* TestInputQueueObserverImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D128E42DEB953900B0F94D /* TestInputQueueObserverImpl.swift */; };
@@ -1115,8 +1113,6 @@
 		13CFD1B32C68198D000A67E9 /* App.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = App.xctestplan; sourceTree = "<group>"; };
 		13CFD1B42C681A61000A67E9 /* Integration.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Integration.xctestplan; sourceTree = "<group>"; };
 		13CFD1B72C681B6C000A67E9 /* CI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI.xctestplan; sourceTree = "<group>"; };
-		13D128DC2DEAAEE200B0F94D /* TestInputQueueObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestInputQueueObserver.h; sourceTree = "<group>"; };
-		13D128DD2DEAAEE200B0F94D /* TestInputQueueObserver.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TestInputQueueObserver.mm; sourceTree = "<group>"; };
 		13D128E12DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKInputQueueObserverProtocol.swift; sourceTree = "<group>"; };
 		13D128E42DEB953900B0F94D /* TestInputQueueObserverImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestInputQueueObserverImpl.swift; sourceTree = "<group>"; };
 		13D128E92DEBA25D00B0F94D /* SKKInputQueueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKInputQueueTests.swift; sourceTree = "<group>"; };
@@ -2686,8 +2682,6 @@
 		13D128DB2DEAAED200B0F94D /* queue */ = {
 			isa = PBXGroup;
 			children = (
-				13D128DC2DEAAEE200B0F94D /* TestInputQueueObserver.h */,
-				13D128DD2DEAAEE200B0F94D /* TestInputQueueObserver.mm */,
 				13D128E42DEB953900B0F94D /* TestInputQueueObserverImpl.swift */,
 			);
 			path = queue;
@@ -2895,7 +2889,6 @@
 				139E88C92D7423740065CFA2 /* MockSelectorBuddy.h in Headers */,
 				1315FE912C818377004011B7 /* MockCandidateWindow.h in Headers */,
 				1315FE922C818377004011B7 /* MockDynamicCompletor.h in Headers */,
-				13D128DE2DEAAEE200B0F94D /* TestInputQueueObserver.h in Headers */,
 				1315FE932C818377004011B7 /* MockClipboard.h in Headers */,
 				13F91A2A2C8393A700E60D63 /* jconv_ucs2eucj-inl.h in Headers */,
 				13F91A2B2C8393A700E60D63 /* jconv.h in Headers */,
@@ -3787,7 +3780,6 @@
 				13F91A2E2C8393A700E60D63 /* jconv.cpp in Sources */,
 				13415B282C82849500ED9D0A /* MockClipboard.cpp in Sources */,
 				13415B3E2C82904900ED9D0A /* TyperInputSessionParameter.mm in Sources */,
-				13D128DF2DEAAEE200B0F94D /* TestInputQueueObserver.mm in Sources */,
 				13415B2A2C8284CF00ED9D0A /* MockCompletionHelper.cpp in Sources */,
 				13415B222C82831800ED9D0A /* MockFrontEnd.cpp in Sources */,
 				13415B262C82843500ED9D0A /* MockCandidateWindow.cpp in Sources */,

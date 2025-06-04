@@ -5,13 +5,13 @@
 //  Created by mzp on 2025/03/06.
 //
 
-public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProtocol, SKKOkuriListenerProtocol, SKKInputQueueObserverProtocol {
+@objc public class SKKInputEngineImpl: NSObject, SKKCompleterBuddyProtcol, SKKSelectorBuddyProtocol, SKKOkuriListenerProtocol, SKKInputQueueObserverProtocol {
     private var env: SKKInputEnvironment
     private var context: SKKInputContext {
         env.InputContext()
     }
 
-    public init(env: SKKInputEnvironment) {
+    @objc public init(env: SKKInputEnvironment) {
         self.env = env
         stack = []
         primaryEditor = .init(context: env.InputContext())
@@ -23,6 +23,8 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProto
         inputQueue = .init()
         word = ""
         inputState = .init()
+
+        super.init()
         setStatePrimary()
 
         okuriEditor.listener = self
@@ -63,11 +65,11 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProto
         stack.append(editor)
     }
 
-    public func setStatePrimary() {
+    @objc public func setStatePrimary() {
         run {}
     }
 
-    public func setStateComposing() {
+    @objc public func setStateComposing() {
         run {
             push(editor: composingEditor)
             var entry = context.entry
@@ -78,26 +80,26 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProto
         }
     }
 
-    public func setStateOkuri() {
+    @objc public func setStateOkuri() {
         run {
             push(editor: composingEditor)
             push(editor: okuriEditor)
         }
     }
 
-    public func setStateSelectCandidate() {
+    @objc public func setStateSelectCandidate() {
         run {
             push(editor: candidateEditor)
         }
     }
 
-    public func setStateEntryRemove() {
+    @objc public func setStateEntryRemove() {
         run {
             push(editor: entryRemoveEditor)
         }
     }
 
-    public func setStateRegistration() {
+    @objc public func setStateRegistration() {
         updateInputContext()
         context.registration.Start()
     }
@@ -136,11 +138,11 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProto
     private let inputQueue: SKKInputQueueImpl
     private var word: String
 
-    public func handleChar(code: Int, direct: Bool) {
+    @objc public func handleChar(code: Int, direct: Bool) {
         inputQueue.addChar(character: code, direct: direct)
     }
 
-    public func handleBackSpace() {
+    @objc public func handleBackSpace() {
         if inputQueue.isEmpty {
             invoke(event: SKKBaseEditorEventBackSpace)
         } else {
@@ -148,36 +150,36 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProto
         }
     }
 
-    public func handleDelete() {
+    @objc public func handleDelete() {
         invoke(event: SKKBaseEditorEventDelete)
     }
 
-    public func handleCursorLeft() {
+    @objc public func handleCursorLeft() {
         invoke(event: SKKBaseEditorEventCursorLeft)
     }
 
-    public func handleCursorRight() {
+    @objc public func handleCursorRight() {
         invoke(event: SKKBaseEditorEventCursorRight)
     }
 
-    public func handleCursorUp() {
+    @objc public func handleCursorUp() {
         invoke(event: SKKBaseEditorEventCursorUp)
     }
 
-    public func handleCursorDown() {
+    @objc public func handleCursorDown() {
         invoke(event: SKKBaseEditorEventCursorDown)
     }
 
-    public func handlePaste() {
+    @objc public func handlePaste() {
         top?.input(ascii: String(env.PasteString()))
     }
 
-    public func handlePing() {
+    @objc public func handlePing() {
         var inputModeSelector = env.InputModeSelector()
         inputModeSelector?.Show()
     }
 
-    public func handleEnter() {
+    @objc public func handleEnter() {
         commit()
         let candidate = SKKCandidate(std.string(word), false)
         study(entry: context.entry, candidate: candidate)
@@ -190,7 +192,7 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProto
         context.event_handled = false
     }
 
-    public func handleCancel() {
+    @objc public func handleCancel() {
         if !inputQueue.isEmpty {
             terminate()
             return
@@ -218,7 +220,7 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProto
 
     // MARK: - 確定
 
-    public func commit() {
+    @objc public func commit() {
         terminate()
         word.removeAll()
 
@@ -230,7 +232,7 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProto
 
     // MARK: - リセット
 
-    public func reset() {
+    @objc public func reset() {
         terminate()
         context.event_handled = false
     }
@@ -241,7 +243,7 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProto
         env.InputModeSelector()?.inputMode
     }
 
-    public func toggleKana() {
+    @objc public func toggleKana() {
         let entry = context.entry
         study(entry: entry, candidate: .init())
         if let inputMode = inputMode {
@@ -250,7 +252,7 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProto
         }
     }
 
-    public func toggleJisx0201Kana() {
+    @objc public func toggleJisx0201Kana() {
         let entry = context.entry
         study(entry: entry, candidate: .init())
         if let inputMode = inputMode {
@@ -278,7 +280,7 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProto
 
     // MAKR: - 同期
 
-    public func updateInputContext() {
+    @objc public func updateInputContext() {
         context.output.Clear()
         for editor in stack {
             editor.writeContext()
@@ -294,16 +296,16 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProto
     }
 
     /// ローマ字かな変換が発生するか？
-    public func canConvert(code: Int) -> Bool {
+    @objc public func canConvert(code: Int) -> Bool {
         return inputQueue.canConvert(code: code)
     }
 
     /// 送りが完成したか？
-    public var isOkuriComplete: Bool {
+    @objc public var isOkuriComplete: Bool {
         return okuriEditor.isOkuriComplete()
     }
 
-    public func bridgeInputQueueUpdate(fixed: String, intermediate: String, queue: String, code: Int) {
+    @objc public func bridgeInputQueueUpdate(fixed: String, intermediate: String, queue: String, code: Int) {
         let state = SKKInputQueueObserverState(fixed: std.string(fixed), intermediate: std.string(intermediate), queue: std.string(queue), code: CChar(code))
         inputQueueUpdate(state: state)
     }
@@ -317,11 +319,11 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProto
         }
     }
 
-    public func completerQueryString() -> String {
+    @objc public func completerQueryString() -> String {
         return String(selectorQueryEntry().EntryString())
     }
 
-    public func completerUpdate(entry: String) {
+    @objc public func completerUpdate(entry: String) {
         composingEditor.setEntry(entry: entry)
     }
 
@@ -340,8 +342,6 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProto
         return [String(entry.EntryString()), String(entry.OkuriString())]
     }
 
-
-
     func selectorUpdate(candidate: SKKCandidate) {
         candidateEditor.setCandidate(candidate: candidate)
     }
@@ -350,24 +350,25 @@ public class SKKInputEngineImpl: SKKCompleterBuddyProtcol, SKKSelectorBuddyProto
         composingEditor.input(fixed: fixed, input: "", code: 0)
     }
 
-    public func getCompleterBuddyProtocol() -> SKKCompleterBuddyProtcol {
+    @objc public func getCompleterBuddyProtocol() -> SKKCompleterBuddyProtcol {
         return self
     }
 
-    public func getOkuriListenerProtocol() -> SKKOkuriListenerProtocol {
+    @objc public func getOkuriListenerProtocol() -> SKKOkuriListenerProtocol {
         return self
     }
 
-    public func getInputQueueObserverProtocol() -> SKKInputQueueObserverProtocol {
+    @objc public func getInputQueueObserverProtocol() -> SKKInputQueueObserverProtocol {
         return self
     }
 
     // MARK: - SKKSelectorBuddyProtocol
-    public func getSelectorBuddyProtocol() -> SKKSelectorBuddyProtocol {
+
+    @objc public func getSelectorBuddyProtocol() -> SKKSelectorBuddyProtocol {
         return self
     }
 
-    public func bridgeSelectorUpdate(candidate: String) {
+    @objc public func bridgeSelectorUpdate(candidate: String) {
         selectorUpdate(candidate: SKKCandidate(std.string(candidate), true))
     }
 }

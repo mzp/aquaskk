@@ -26,172 +26,155 @@
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
-struct SKKInputEngineContainer {
-    SwiftObject<AquaSKKEngine::SKKInputEngineImpl> *impl_;
-
-    SKKInputEngineContainer(SKKInputEnvironment *env, SKKInputEngine *engine)
-        : impl_(new SwiftObject(AquaSKKEngine::SKKInputEngineImpl::init(env))) {}
-};
-
-SKKInputEngine::SKKInputEngine(SKKInputEnvironment *env)
-    : container_(new SKKInputEngineContainer(env, this)) {}
+SKKInputEngine::SKKInputEngine(SKKInputEnvironment *env) {
+    impl_ = [[SKKInputEngineImpl alloc] initWithEnv:env];
+}
 
 void SKKInputEngine::SelectInputMode(SKKInputMode mode) {
-    // FIXME: Xcode 16.2
-    // (*(container_->impl_))->bridgedSelectInputMode(static_cast<int>(mode));
+    [impl_ bridgedSelectInputMode:static_cast<int>(mode)];
 }
 
 void SKKInputEngine::SetStatePrimary() {
-    (*(container_->impl_))->setStatePrimary();
+    [impl_ setStatePrimary];
 }
 
 void SKKInputEngine::SetStateComposing() {
-    (*(container_->impl_))->setStateComposing();
+    [impl_ setStateComposing];
 }
 
 void SKKInputEngine::SetStateOkuri() {
-    (*(container_->impl_))->setStateOkuri();
+    [impl_ setStateOkuri];
 }
 
 void SKKInputEngine::SetStateSelectCandidate() {
-    (*(container_->impl_))->setStateSelectCandidate();
+    [impl_ setStateSelectCandidate];
 }
 
 void SKKInputEngine::SetStateEntryRemove() {
-    (*(container_->impl_))->setStateEntryRemove();
+    [impl_ setStateEntryRemove];
 }
 
 void SKKInputEngine::SetStateRegistration() {
-    (*(container_->impl_))->setStateRegistration();
+    [impl_ setStateRegistration];
 }
 
 void SKKInputEngine::HandleChar(char code, bool direct) {
-    (*(container_->impl_))->handleChar(code, direct);
+    [impl_ handleCharWithCode:code direct:direct];
 }
 
 void SKKInputEngine::HandleBackSpace() {
-    (*(container_->impl_))->handleBackSpace();
+    [impl_ handleBackSpace];
 }
 
 void SKKInputEngine::HandleDelete() {
-    (*(container_->impl_))->handleDelete();
+    [impl_ handleDelete];
 }
 
 void SKKInputEngine::HandleCursorLeft() {
-    (*(container_->impl_))->handleCursorLeft();
+    [impl_ handleCursorLeft];
 }
 
 void SKKInputEngine::HandleCursorRight() {
-    (*(container_->impl_))->handleCursorRight();
+    [impl_ handleCursorRight];
 }
 
 void SKKInputEngine::HandleCursorUp() {
-    (*(container_->impl_))->handleCursorUp();
+    [impl_ handleCursorUp];
 }
 
 void SKKInputEngine::HandleCursorDown() {
-    (*(container_->impl_))->handleCursorDown();
+    [impl_ handleCursorDown];
 }
 
 void SKKInputEngine::HandlePaste() {
-    (*(container_->impl_))->handlePaste();
+    [impl_ handlePaste];
 }
 
 void SKKInputEngine::HandlePing() {
-    (*(container_->impl_))->handlePing();
+    [impl_ handlePing];
 }
 
 void SKKInputEngine::HandleEnter() {
-    (*(container_->impl_))->handleEnter();
+    [impl_ handleEnter];
 }
 
 void SKKInputEngine::HandleCancel() {
-    (*(container_->impl_))->handleCancel();
+    [impl_ handleCancel];
 }
 
 void SKKInputEngine::Commit() {
-    (*(container_->impl_))->commit();
+    [impl_ commit];
 }
 
 void SKKInputEngine::Reset() {
-    (*(container_->impl_))->reset();
+    [impl_ reset];
 }
 
 void SKKInputEngine::ToggleKana() {
-    (*(container_->impl_))->toggleKana();
+    [impl_ toggleKana];
 }
 
 void SKKInputEngine::ToggleJisx0201Kana() {
-    (*(container_->impl_))->toggleJisx0201Kana();
+    [impl_ toggleJisx0201Kana];
 }
 
 void SKKInputEngine::UpdateInputContext() {
-    (*(container_->impl_))->updateInputContext();
+    [impl_ updateInputContext];
 }
 
 bool SKKInputEngine::CanConvert(char code) const {
-    return (*(container_->impl_))->canConvert(code);
+    return [impl_ canConvertWithCode:code];
 }
 
 bool SKKInputEngine::IsOkuriComplete() const {
-    return (*(container_->impl_))->isOkuriComplete();
+    return [impl_ isOkuriComplete];
 }
 
 // MARK: callback
 
 void SKKInputEngine::SKKInputQueueUpdate(const SKKInputQueueObserverState &state) {
-    (*(container_->impl_))->inputQueueUpdate(state);
+    [impl_ bridgeInputQueueUpdateWithFixed:[NSString stringWithUTF8String:state.fixed.c_str()]
+                              intermediate:[NSString stringWithUTF8String:state.intermediate.c_str()]
+                                     queue:[NSString stringWithUTF8String:state.queue.c_str()]
+                                      code:state.code];
 }
 
 const std::string SKKInputEngine::SKKCompleterQueryString() {
-    // FIXME: Xcode 16.2
-    // return (*(container_->impl_))->completerQueryString();
-    return "";
+    NSString *string = [impl_ completerQueryString];
+    return std::string([string UTF8String]);
 }
 
 void SKKInputEngine::SKKCompleterUpdate(const std::string &entry) {
-    // FIXME: Xcode 16.2
-    // (*(container_->impl_))->completerUpdate(entry);
+    [impl_ completerUpdateWithEntry:[NSString stringWithUTF8String:entry.c_str()]];
 }
 
 const SKKEntry SKKInputEngine::SKKSelectorQueryEntry() {
-    // FIXME: Xcode 16.2
-//    auto array = (*(container_->impl_))->bridgeSelectorQueryEntry();
-//    return SKKEntry(array[0], array[1]);
-    return SKKEntry();
+    auto array = [impl_ bridgeSelectorQueryEntry];
+    return SKKEntry(std::string(array[0].UTF8String), std::string(array[1].UTF8String));
 }
 
 void SKKInputEngine::SKKSelectorUpdate(const SKKCandidate &candidate) {
-    // (*(container_->impl_))->bridgeSelectorUpdate(candidate.ToString());
+    [impl_ bridgeSelectorUpdateWithCandidate:[NSString stringWithUTF8String:candidate.ToString().c_str()]];
 }
 
 void SKKInputEngine::SKKOkuriListenerAppendEntry(const std::string &fixed) {
-    // FIXME: Xcode 16.2
-//    (*(container_->impl_))->okkuriListenerAppendEntry(fixed);
+    [impl_ okkuriListenerAppendEntryWithFixed:[NSString stringWithUTF8String:fixed.c_str()]];
 }
 
 id<SKKCompleterBuddyProtcol> SKKInputEngine::getCompleterBuddyProtocol() {
-    // FIXME: Xcode 16.2
-    // return (*(container_->impl_))->getCompleterBuddyProtocol();
-    return nil;
+    return impl_;
 }
 
 id<SKKSelectorBuddyProtocol> SKKInputEngine::getSelectorBuddyProtocol() {
-    // FIXME: Xcode 16.2
-    // return (*(container_->impl_))->getSelectorBuddyProtocol();
-    return nil;
+    return impl_;
 }
 
 id<SKKOkuriListenerProtocol> SKKInputEngine::getOkuriListenerProtocol() {
-    // FIXME: Xcode 16.2
-    // return (*(container_->impl_))->getOkuriListenerProtocol();
-    return nil;
+    return impl_;
 }
 
 id<SKKInputQueueObserverProtocol> SKKInputEngine::getInputQueueObserverProtocol() {
-    // FIXME: Xcode 16.2
-    // return (*(container_->impl_))->getInputQueueObserverProtocol();
-    return nil;
+    return impl_;
 }
 
 void retainSKKInputEngine(SKKInputEngine *obj) {

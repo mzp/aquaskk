@@ -34,7 +34,7 @@ struct SKKCompleterTests {
         await backend.initialize(path: path, configurations: [])
 
         let buddy = TestBuddy()
-        let completer = SKKCompleterImpl(buddy: buddy)
+        let completer = SKKCompleterImpl(buddyProtocol: buddy)
         buddy.query = "ほかん"
         #expect(completer.execute(limit: 0) == true)
         #expect(buddy.entry == "ほかん1")

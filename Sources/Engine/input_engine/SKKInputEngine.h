@@ -33,13 +33,14 @@
 #import <AquaSKKEngine/SKKOkuriListener.h>
 #import <AquaSKKEngine/SKKSelectorBuddy.h>
 
-class SKKInputEngineContainer;
+@class SKKInputEngineImpl;
+
 class SKKInputEngine : public SKKInputQueueObserver,
                        public SKKCompleterBuddy,
                        public SKKSelectorBuddy,
                        public SKKOkuriListener,
                        public IntrusiveRefCounted<SKKInputEngine> {
-    SKKInputEngineContainer *container_;
+    SKKInputEngineImpl *impl_;
 
     // ローマ字かな変換通知
     virtual void SKKInputQueueUpdate(const SKKInputQueueObserverState &state);
