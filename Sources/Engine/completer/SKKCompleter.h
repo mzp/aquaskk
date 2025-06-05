@@ -29,10 +29,15 @@
 
 class SKKCompleterContainer;
 
+namespace AquaSKKEngine {
+    class SKKCompleterImpl;
+}
+
 class SKKCompleter : public IntrusiveRefCounted<SKKCompleter> {
     SKKCompleterContainer *container_;
 
 public:
+    AquaSKKEngine::SKKCompleterImpl *getImpl();
     SKKCompleter(SKKCompleterBuddy *buddy);
 
     // 見出し語の補完

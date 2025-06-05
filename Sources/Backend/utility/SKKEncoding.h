@@ -10,6 +10,7 @@
 
 #include <string>
 #include <vector>
+#import <Foundation/Foundation.h>
 
 namespace SKKEncoding {
     void convert_utf8_to_eucj(const std::string &from, std::string &to);
@@ -23,5 +24,9 @@ namespace SKKEncoding {
 // Swiftではうまく作れなかったので、C側で無理やり作る。
 std::string SKKRawString(const uint8_t array[]);
 std::vector<uint8_t> SKKRawArray(const std::string string);
+
+NS_ASSUME_NONNULL_BEGIN
+NSString *SKKUTF8String(std::string utf8);
+NS_ASSUME_NONNULL_END
 
 #endif /* SKKStringFunctions_h */

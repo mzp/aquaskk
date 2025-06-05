@@ -61,6 +61,9 @@ class SKKInputEngine : public SKKInputQueueObserver,
     virtual void SKKOkuriListenerAppendEntry(const std::string &fixed);
 
 public:
+    SKKInputEngineImpl *getImpl() {
+        return impl_;
+    }
     SKKInputEngine(SKKInputEnvironment *env);
 
     // 入力モード

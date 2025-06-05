@@ -69,6 +69,11 @@ SKKMessenger *SKKInputEnvironment::Messenger() const {
 SKKCandidateWindow *SKKInputEnvironment::CandidateWindow() const {
     return param_->CandidateWindow();
 }
+
+SKKCandidateWindowBridge *SKKInputEnvironment::CandidateWindowBridge() const {
+    return new SKKCandidateWindowBridge(CandidateWindow());
+}
+
 SKKDynamicCompletor *SKKInputEnvironment::DynamicCompletor() const {
     return param_->DynamicCompletor();
 }

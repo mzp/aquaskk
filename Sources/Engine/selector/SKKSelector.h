@@ -33,12 +33,18 @@ class SKKSelectorBuddy;
 class SKKCandidateWindowBridge;
 
 class SKKSelectorContainer;
+
+namespace AquaSKKEngine {
+    class SKKSelectorImpl;
+};
+
 // 変換候補選択クラス
 class SKKSelector : public IntrusiveRefCounted<SKKSelector> {
     SKKSelectorContainer *container_;
     SKKCandidateWindowBridge *bridge_;
 
 public:
+    AquaSKKEngine::SKKSelectorImpl *getImpl();
     SKKSelector(SKKSelectorBuddy *buddy, SKKCandidateWindow *window);
     SKKSelector(SKKSelector &selector);
     ~SKKSelector();

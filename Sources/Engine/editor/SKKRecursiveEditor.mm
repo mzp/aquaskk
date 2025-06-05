@@ -25,12 +25,8 @@
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
-SKKRecursiveEditor::SKKRecursiveEditor(SKKInputEnvironment *env)
-    : editor_(SKKInputEngine(env)) {
-    SKKCompleter *completer = new SKKCompleter(&editor_);
-    SKKCandidateWindow *candidateWindow = env->InputSessionParameter()->CandidateWindow();
-    SKKSelector *selector = new SKKSelector(&editor_, candidateWindow);
-    impl_ = new SwiftObject(AquaSKKEngine::SKKRecursiveEditorImpl::init(env, completer, &editor_, selector));
+SKKRecursiveEditor::SKKRecursiveEditor(SKKInputEnvironment *env) {
+    impl_ = new SwiftObject(AquaSKKEngine::SKKRecursiveEditorImpl::init(env));
 }
 
 SKKRecursiveEditor::~SKKRecursiveEditor() {
@@ -42,7 +38,6 @@ void SKKRecursiveEditor::Input(const SKKEvent &event) {
 }
 
 void SKKRecursiveEditor::Output() {
-    editor_.UpdateInputContext();
     (*impl_)->output();
 }
 

@@ -34,7 +34,6 @@ namespace AquaSKKEngine {
 
 class SKKRecursiveEditor {
     SwiftObject<AquaSKKEngine::SKKRecursiveEditorImpl> *impl_;
-    SKKInputEngine editor_;
     SKKRecursiveEditor();
     SKKRecursiveEditor(const SKKRecursiveEditor &);
     SKKRecursiveEditor &operator=(const SKKRecursiveEditor &);

@@ -9,8 +9,8 @@ import Testing
 @testable internal import AquaSKKEngine
 internal import AquaSKKTesting
 
-let converter: RomanKanaConverterImpl = {
-    let converter = RomanKanaConverterImpl.shared()
+let converter: SKKRomanKanaConverterImpl = {
+    let converter = SKKRomanKanaConverterImpl.shared()
     let bundle = Bundle(for: EngineBundle.self)
     let resource = TestingResource(bundle: bundle)
     let path = try! resource.path("kana-rule.conf", writable: false)

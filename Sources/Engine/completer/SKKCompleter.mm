@@ -51,6 +51,10 @@ void SKKCompleter::Prev() {
     return (*(container_->impl_))->prev();
 }
 
+AquaSKKEngine::SKKCompleterImpl *SKKCompleter::getImpl() {
+    return container_->impl_->getPointer();
+}
+
 void retainSKKCompleter(SKKCompleter *obj) {
     obj->retain();
 }
