@@ -1865,6 +1865,7 @@
 		1344F5122C5B28FC00D8C850 /* state */ = {
 			isa = PBXGroup;
 			children = (
+				13317A732DBE972000F8190B /* handler */,
 				130C48492D7E0B1C0052FF60 /* GenericState.swift */,
 				13B16D402DE3728D0064ADCF /* SKKStateMachineEvent.swift */,
 				130C48522D7E10740052FF60 /* GenericDeferEventQueue.swift */,
@@ -2655,7 +2656,6 @@
 				1344F4B42C5B28FC00D8C850 /* completer */,
 				1344F4DF2C5B28FC00D8C850 /* editor */,
 				1344F5052C5B28FC00D8C850 /* engine */,
-				13317A732DBE972000F8190B /* handler */,
 				13B16D042DE29E250064ADCF /* protocols */,
 				134D25672D7A0B1B0014ACD5 /* queue */,
 				1344F5502C5B28FC00D8C850 /* roman */,

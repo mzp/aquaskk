@@ -42,9 +42,9 @@ public class SKKStateEdit: HandlerProtocol {
     var editor: SKKInputEngine
     var context: SKKInputContext
     var config: SKKConfig
-    var completer: SKKCompleter
+    var completer: SKKCompleterImpl
     var selector: SKKSelector
-    public init(editor: SKKInputEngine, context: SKKInputContext, config: SKKConfig, completer: SKKCompleter, selector: SKKSelector) {
+    public init(editor: SKKInputEngine, context: SKKInputContext, config: SKKConfig, completer: SKKCompleterImpl, selector: SKKSelector) {
         self.editor = editor
         self.context = context
         self.config = config
@@ -111,7 +111,7 @@ public class SKKStateEdit: HandlerProtocol {
         case .charInput:
             let param = event.param
             if param.IsCompConversion() {
-                completer.Execute(1)
+                completer.execute(limit: 1)
             }
             if param.IsNextCandidate() || param.IsCompConversion() {
                 if context.entry.IsEmpty() {
@@ -136,9 +136,9 @@ public class SKKStateEntryInput: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
     var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngine
-    var completer: SKKCompleter
+    var completer: SKKCompleterImpl
 
-    public init(editor: SKKInputEngine, completer: SKKCompleter) {
+    public init(editor: SKKInputEngine, completer: SKKCompleterImpl) {
         self.editor = editor
         self.completer = completer
     }
@@ -158,7 +158,7 @@ public class SKKStateEntryInput: HandlerProtocol {
             return .saveHistory
 
         case .tab:
-            if completer.Execute() {
+            if completer.execute(limit: 0) {
                 return .transitionEntryCompletion
             }
             return .handled
@@ -310,9 +310,9 @@ public class SKKStateEntryCompletion: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
     var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngine
-    var completer: SKKCompleter
+    var completer: SKKCompleterImpl
     var messenger: SKKMessenger
-    public init(editor: SKKInputEngine, completer: SKKCompleter, messenger: SKKMessenger) {
+    public init(editor: SKKInputEngine, completer: SKKCompleterImpl, messenger: SKKMessenger) {
         self.editor = editor
         self.completer = completer
         self.messenger = messenger
@@ -329,24 +329,24 @@ public class SKKStateEntryCompletion: HandlerProtocol {
             return .handled
 
         case .tab:
-            completer.Next()
+            completer.next()
             return .handled
 
         case .charInput:
             let param = event.param
             if param.IsNextCompletion() {
-                completer.Next()
+                completer.next()
                 return .handled
             }
             if param.IsPrevCompletion() {
-                completer.Prev()
+                completer.prev()
                 return .handled
             }
             if param.IsNextCandidate() {
                 return .super_
             }
             if param.IsRemoveTrigger() {
-                if completer.Remove() {
+                if completer.remove() {
                     messenger.SendMessage("見出し語を削除しました")
                     return .transitionKanaInput
                 } else {

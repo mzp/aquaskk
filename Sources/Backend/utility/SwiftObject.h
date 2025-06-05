@@ -21,6 +21,10 @@ public:
     T *operator->() {
         return &impl_;
     }
+
+    T *getPointer() {
+        return &impl_;
+    }
 };
 
 #endif /* SwiftObject_h */
