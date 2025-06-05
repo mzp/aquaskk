@@ -12,18 +12,12 @@
 #include <swift/bridging>
 #import <AquaSKKEngine/IntrusiveRefCounted.h>
 
+@protocol SKKCompleterBuddyProtcol;
+
 // 補完サポートクラス
 struct SKKCompleterBuddy : public IntrusiveRefCounted<SKKCompleterBuddy> {
     virtual ~SKKCompleterBuddy() {}
-
-    // 見出し語の取得
-    virtual const std::string SKKCompleterQueryString() = 0;
-
-    // 現在の見出し語の通知
-    virtual void SKKCompleterUpdate(const std::string &entry) = 0;
-
-    static std::string InvokeSKKCompleterQueryString(SKKCompleterBuddy *obj);
-    static void InvokeSKKCompleterUpdate(SKKCompleterBuddy *obj, std::string entry);
+    virtual id<SKKCompleterBuddyProtcol> getCompleterBuddyProtocol() = 0;
 } SWIFT_SHARED_REFERENCE(retainSKKCompleterBuddy, releaseSKKCompleterBuddy);
 
 void retainSKKCompleterBuddy(SKKCompleterBuddy *obj);

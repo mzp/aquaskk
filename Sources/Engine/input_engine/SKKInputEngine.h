@@ -33,13 +33,14 @@
 #import <AquaSKKEngine/SKKOkuriListener.h>
 #import <AquaSKKEngine/SKKSelectorBuddy.h>
 
-class SKKInputEngineContainer;
+@class SKKInputEngineImpl;
+
 class SKKInputEngine : public SKKInputQueueObserver,
                        public SKKCompleterBuddy,
                        public SKKSelectorBuddy,
                        public SKKOkuriListener,
                        public IntrusiveRefCounted<SKKInputEngine> {
-    SKKInputEngineContainer *container_;
+    SKKInputEngineImpl *impl_;
 
     // ローマ字かな変換通知
     virtual void SKKInputQueueUpdate(const SKKInputQueueObserverState &state);
@@ -104,6 +105,12 @@ public:
 
     // 送りが完成したか？
     bool IsOkuriComplete() const;
+
+    virtual id<SKKCompleterBuddyProtcol> getCompleterBuddyProtocol() override;
+    virtual id<SKKSelectorBuddyProtocol> getSelectorBuddyProtocol() override;
+
+    virtual id<SKKOkuriListenerProtocol> getOkuriListenerProtocol() override;
+    virtual id<SKKInputQueueObserverProtocol> getInputQueueObserverProtocol() override;
 } SWIFT_SHARED_REFERENCE(retainSKKInputEngine, releaseSKKInputEngine);
 
 void retainSKKInputEngine(SKKInputEngine *obj);

@@ -6,14 +6,9 @@
 //
 
 #include "SKKCompleterBuddy.h"
-
-std::string SKKCompleterBuddy::InvokeSKKCompleterQueryString(SKKCompleterBuddy *obj) {
-    return obj->SKKCompleterQueryString();
-}
-
-void SKKCompleterBuddy::InvokeSKKCompleterUpdate(SKKCompleterBuddy *obj, std::string entry) {
-    return obj->SKKCompleterUpdate(entry);
-}
+#import <Foundation/Foundation.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 void retainSKKCompleterBuddy(SKKCompleterBuddy *obj) {
     obj->retain();

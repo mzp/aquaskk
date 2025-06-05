@@ -72,7 +72,6 @@ public class NumericConverter {
                     src.replaceSubrange(start ... found, with: param)
 
                 case "1": // 半角→全角変換
-
                     let start = src.index(before: found)
                     src.replaceSubrange(start ... found, with: Self.convertType1(param))
 

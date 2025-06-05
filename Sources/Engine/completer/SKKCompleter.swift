@@ -8,17 +8,22 @@
 import AquaSKKBackend
 
 public class SKKCompleterImpl {
-    private let buddy: SKKCompleterBuddy
+    private let buddy: SKKCompleterBuddyProtcol
     private var completions: [String]
     private var position: Int
-    public init(buddy: SKKCompleterBuddy) {
+
+    public convenience init(buddy: SKKCompleterBuddy) {
+        self.init(buddyProtocol: buddy.getCompleterBuddyProtocol())
+    }
+
+    public init(buddyProtocol buddy: SKKCompleterBuddyProtcol) {
         self.buddy = buddy
         completions = []
         position = 0
     }
 
     public func execute(limit: Int) -> Bool {
-        let query = SKKCompleterBuddy.InvokeSKKCompleterQueryString(buddy)
+        let query = buddy.completerQueryString()
         position = 0
         completions = SKKBackendImpl.shared().complete(key: String(query), limit: limit)
 
@@ -56,6 +61,6 @@ public class SKKCompleterImpl {
     }
 
     private func notify() {
-        SKKCompleterBuddy.InvokeSKKCompleterUpdate(buddy, std.string(completions[position]))
+        buddy.completerUpdate(entry: completions[position])
     }
 }

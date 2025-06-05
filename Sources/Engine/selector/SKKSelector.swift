@@ -14,16 +14,17 @@ public class SKKSelectorImpl {
     }
 
     private var activeSelectorType: SelectorType = .inline
-    private var buddy: SKKSelectorBuddy
+    private var buddy: SKKSelectorBuddyProtocol
     private var inlineSelector = SKKInlineSelectorImpl()
     private var windowSelector: SKKWindowSelectorImpl
     private var suite = SKKCandidateSuite()
 
+    // FIXME: Xcode 16.2
     public static func createBridge(buddy: SKKSelectorBuddy, window: SKKCandidateWindowBridge) -> SKKSelectorImpl {
-        .init(buddy: buddy, presenter: SKKCandidateWindowBridgeAdapter(window))
+        .init(buddy: buddy.getSelectorBuddyProtocol(), presenter: SKKCandidateWindowBridgeAdapter(window))
     }
 
-    public init(buddy: SKKSelectorBuddy, presenter: SKKCandidatePresenter) {
+    public init(buddy: SKKSelectorBuddyProtocol, presenter: SKKCandidatePresenter) {
         self.buddy = buddy
         windowSelector = SKKWindowSelectorImpl(presenter: presenter)
     }
@@ -35,7 +36,8 @@ public class SKKSelectorImpl {
     }
 
     public func execute(inlineCount: Int) -> Bool {
-        let entry = SKKSelectorBuddy.invokeSKKSelectorQueryEntry(buddy)
+        let array = buddy.bridgeSelectorQueryEntry()
+        let entry = SKKEntry(std.string(array[0]), std.string(array[1]))
         suite.clear()
 
         SKKBackendImpl.shared().find(entry: entry, to: &suite)
@@ -153,7 +155,7 @@ public class SKKSelectorImpl {
             current = windowSelector.current
         }
         if let current = current {
-            SKKSelectorBuddy.invokeSKKSelectorUpdate(buddy, current)
+            buddy.bridgeSelectorUpdate(candidate: String(current.ToString()))
         }
     }
 }

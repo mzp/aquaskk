@@ -24,10 +24,10 @@ struct SKKSelectorTestirg {
     }
 
     @Test func main() async throws {
-        let buddy = MockSelectorBuddy.newInstance()
-        let selector = SKKSelectorImpl(buddy: MockSelectorBuddy.Coerce(buddy), presenter: NullCandidateWindow())
+        let buddy = MockSelectorBuddyImpl(entry: "かんじ", okuri: "")
+        let selector = SKKSelectorImpl(buddy: buddy, presenter: NullCandidateWindow())
         #expect(selector.execute(inlineCount: 3) == true)
 
-        #expect(String(buddy.current.variant) == "漢字")
+        #expect(String(buddy.current) == "漢字")
     }
 }
