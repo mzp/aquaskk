@@ -28,6 +28,7 @@
 #include <swift/bridging>
 #import <AquaSKKEngine/IntrusiveRefCounted.h>
 #import <AquaSKKEngine/SKKBaseEditor.h>
+#import <AquaSKKEngine/SKKCandidateWindowBridge.h>
 #import <AquaSKKEngine/SKKInputContext.h>
 #import <AquaSKKEngine/SKKInputModeSelector.h>
 #import <AquaSKKEngine/SKKInputSessionParameter.h>
@@ -48,6 +49,7 @@ public:
     SKKFrontEnd *FrontEnd() const;
     SKKMessenger *Messenger() const;
     SKKCandidateWindow *CandidateWindow() const;
+    SKKCandidateWindowBridge *CandidateWindowBridge() const;
     SKKDynamicCompletor *DynamicCompletor() const;
 
     SKKInputContext *InputContext();
