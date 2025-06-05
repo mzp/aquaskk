@@ -15,10 +15,10 @@ public class SKKStatePrimary: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
     var super_: HandlerProtocol? = nil
 
-    var editor: SKKInputEngine
+    var editor: SKKInputEngineImpl
     var context: SKKInputContext
     var messenger: SKKMessenger
-    public init(editor: SKKInputEngine, context: SKKInputContext, messenger: SKKMessenger) {
+    init(editor: SKKInputEngineImpl, context: SKKInputContext, messenger: SKKMessenger) {
         self.editor = editor
         self.context = context
         self.messenger = messenger
@@ -34,19 +34,19 @@ public class SKKStatePrimary: HandlerProtocol {
             return .initializeKanaInput
 
         case .entryEvent:
-            editor.SetStatePrimary()
+            editor.setStatePrimary()
             return .handled
 
         case .jmode:
-            editor.Commit()
+            editor.commit()
             return .handled
 
         case .enter:
-            editor.HandleEnter()
+            editor.handleEnter()
             return .handled
 
         case .cancel:
-            editor.HandleCancel()
+            editor.handleCancel()
             return .handled
 
         case .undo:
@@ -63,35 +63,35 @@ public class SKKStatePrimary: HandlerProtocol {
             }
 
         case .paste:
-            editor.HandlePaste()
+            editor.handlePaste()
             return .handled
 
         case .ping:
-            editor.HandlePing()
+            editor.handlePing()
             return .handled
 
         case .backspace:
-            editor.HandleBackSpace()
+            editor.handleBackSpace()
             return .handled
 
         case .delete_:
-            editor.HandleDelete()
+            editor.handleDelete()
             return .handled
 
         case .left:
-            editor.HandleCursorLeft()
+            editor.handleCursorLeft()
             return .handled
 
         case .right:
-            editor.HandleCursorRight()
+            editor.handleCursorRight()
             return .handled
 
         case .up:
-            editor.HandleCursorUp()
+            editor.handleCursorUp()
             return .handled
 
         case .down:
-            editor.HandleCursorDown()
+            editor.handleCursorDown()
             return .handled
 
         case .asciiMode:
@@ -113,7 +113,7 @@ public class SKKStatePrimary: HandlerProtocol {
             // editor で処理されなかったイベントは全て「未処理」にする
             // SKK_TAB もここに来るため、SKK_CHAR でテストはできない
             if event.IsUser() {
-                editor.Reset()
+                editor.reset()
                 return .handled
             }
         }
@@ -127,8 +127,8 @@ public class SKKStateKanaInput: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
     var super_: HandlerProtocol? = nil
 
-    var editor: SKKInputEngine
-    public init(editor: SKKInputEngine) {
+    var editor: SKKInputEngineImpl
+    init(editor: SKKInputEngineImpl) {
         self.editor = editor
     }
 
@@ -146,7 +146,7 @@ public class SKKStateKanaInput: HandlerProtocol {
 
         case .charInput:
             let param = event.param
-            if !editor.CanConvert(CChar(param.code)) {
+            if !editor.canConvert(code: Int(param.code)) {
                 if param.IsSwitchToAscii() {
                     return .transitionAsciiMode
                 }
@@ -172,7 +172,7 @@ public class SKKStateKanaInput: HandlerProtocol {
 
             // キー修飾がない場合のみローマ字かな変換を実施する
             if param.IsInputChars() {
-                editor.HandleChar(CChar(param.code), param.IsDirect())
+                editor.handleChar(code: Int(param.code), direct: param.IsDirect())
                 return .handled
             }
             fallthrough
@@ -189,8 +189,8 @@ public class SKKStateHirakana: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
     var super_: HandlerProtocol? = nil
 
-    var editor: SKKInputEngine
-    public init(editor: SKKInputEngine) {
+    var editor: SKKInputEngineImpl
+    init(editor: SKKInputEngineImpl) {
         self.editor = editor
     }
 
@@ -201,7 +201,7 @@ public class SKKStateHirakana: HandlerProtocol {
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .entryEvent:
-            editor.SelectInputMode(.HirakanaInputMode)
+            editor.selectInputMode(inputMode: .HirakanaInputMode)
             return .handled
 
         case .hirakanaMode:
@@ -209,7 +209,7 @@ public class SKKStateHirakana: HandlerProtocol {
 
         case .charInput:
             let param = event.param
-            if !(param.IsInputChars() && editor.CanConvert(CChar(param.code))) {
+            if !(param.IsInputChars() && editor.canConvert(code: Int(param.code))) {
                 // 変換する文字がない場合のみ、ToggleKana等の処理する
                 //
                 // 例: AZIKの場合
@@ -237,8 +237,8 @@ public class SKKStateHirakana: HandlerProtocol {
 public class SKKStateKatakana: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
     var super_: (any HandlerProtocol)? = nil
-    var editor: SKKInputEngine
-    public init(editor: SKKInputEngine) {
+    var editor: SKKInputEngineImpl
+    init(editor: SKKInputEngineImpl) {
         self.editor = editor
     }
 
@@ -249,7 +249,7 @@ public class SKKStateKatakana: HandlerProtocol {
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .entryEvent:
-            editor.SelectInputMode(.KatakanaInputMode)
+            editor.selectInputMode(inputMode: .KatakanaInputMode)
             return .handled
 
         case .katakanaMode:
@@ -257,7 +257,7 @@ public class SKKStateKatakana: HandlerProtocol {
 
         default:
             let param = event.param
-            if !(event.id == .charInput && param.IsInputChars() && editor.CanConvert(CChar(param.code))) {
+            if !(event.id == .charInput && param.IsInputChars() && editor.canConvert(code: Int(param.code))) {
                 // 変換する文字がない場合のみ、ToggleKana等の処理する
                 if event.id == .jmode || event.param.IsToggleKana() {
                     return .transitionHirakanaMode
@@ -276,8 +276,8 @@ public class SKKStateKatakana: HandlerProtocol {
 public class SKKStateJisx0201Kana: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
     var super_: HandlerProtocol? = nil
-    var editor: SKKInputEngine
-    public init(editor: SKKInputEngine) {
+    var editor: SKKInputEngineImpl
+    init(editor: SKKInputEngineImpl) {
         self.editor = editor
     }
 
@@ -288,7 +288,7 @@ public class SKKStateJisx0201Kana: HandlerProtocol {
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .entryEvent:
-            editor.SelectInputMode(.Jisx0201KanaInputMode)
+            editor.selectInputMode(inputMode: .Jisx0201KanaInputMode)
             return .handled
 
         case .jisx0201KanaMode:
@@ -296,7 +296,7 @@ public class SKKStateJisx0201Kana: HandlerProtocol {
 
         default:
             let param = event.param
-            if !(event.id == .charInput && param.IsInputChars() && editor.CanConvert(CChar(param.code))) {
+            if !(event.id == .charInput && param.IsInputChars() && editor.canConvert(code: Int(param.code))) {
                 // 変換する文字がない場合のみ、ToggleKana等の処理する
                 if event.id == .jmode || event.param.IsToggleKana() || param.IsToggleJisx0201Kana() {
                     return .transitionHirakanaMode
@@ -326,8 +326,8 @@ public class SKKStateJisx0201Kana: HandlerProtocol {
 public class SKKStateLatinInput: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
     var super_: HandlerProtocol? = nil
-    var editor: SKKInputEngine
-    public init(editor: SKKInputEngine) {
+    var editor: SKKInputEngineImpl
+    init(editor: SKKInputEngineImpl) {
         self.editor = editor
     }
 
@@ -349,7 +349,7 @@ public class SKKStateLatinInput: HandlerProtocol {
                 {
                     code = uppercased.asciiValue ?? code
                 }
-                editor.HandleChar(CChar(code), param.IsDirect())
+                editor.handleChar(code: Int(code), direct: param.IsDirect())
             }
             fallthrough
 
@@ -367,8 +367,8 @@ public class SKKStateLatinInput: HandlerProtocol {
 public class SKKStateAscii: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
     var super_: HandlerProtocol? = nil
-    var editor: SKKInputEngine
-    public init(editor: SKKInputEngine) {
+    var editor: SKKInputEngineImpl
+    init(editor: SKKInputEngineImpl) {
         self.editor = editor
     }
 
@@ -379,7 +379,7 @@ public class SKKStateAscii: HandlerProtocol {
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .entryEvent:
-            editor.SelectInputMode(.AsciiInputMode)
+            editor.selectInputMode(inputMode: .AsciiInputMode)
             return .handled
 
         case .asciiMode:
@@ -397,8 +397,8 @@ public class SKKStateAscii: HandlerProtocol {
 public class SKKStateJisx0208Latin: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
     var super_: HandlerProtocol? = nil
-    var editor: SKKInputEngine
-    public init(editor: SKKInputEngine) {
+    var editor: SKKInputEngineImpl
+    init(editor: SKKInputEngineImpl) {
         self.editor = editor
     }
 
@@ -409,7 +409,7 @@ public class SKKStateJisx0208Latin: HandlerProtocol {
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .entryEvent:
-            editor.SelectInputMode(.Jisx0208LatinInputMode)
+            editor.selectInputMode(inputMode: .Jisx0208LatinInputMode)
             return .handled
 
         case .jisx0208LatinMode:

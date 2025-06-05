@@ -91,9 +91,9 @@ public class SKKInputQueueImpl {
         let code = state.code
 
         observer.bridgeInputQueueUpdate(
-            fixed: String(fixed),
-            intermediate: String(intermediate),
-            queue: String(queue),
+            fixed: SKKUTF8String(fixed),
+            intermediate: SKKUTF8String(intermediate),
+            queue: SKKUTF8String(queue),
             code: Int(code)
         )
     }

@@ -17,7 +17,7 @@ public class SKKRecursiveEditorImpl {
         annotator = env.Annotator()
         self.completer = env.DynamicCompletor()
         candidateWindow = env.CandidateWindow()
-        state = SKKStateMachineImpl(engine: editor, context: env.InputContext(), config: env.Config(), completer: completer, selector: selector, messenger: env.Messenger())
+        state = SKKStateMachineImpl(engine: editor.getImpl()!, context: env.InputContext(), config: env.Config(), completer: completer, selector: selector, messenger: env.Messenger())
     }
 
     deinit {

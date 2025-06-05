@@ -36,3 +36,6 @@ std::vector<uint8_t> SKKRawArray(const std::string string) {
     std::copy(string.begin(), string.end(), std::back_inserter(buffer));
     return buffer;
 }
+NSString *SKKUTF8String(std::string utf8) {
+    return [NSString stringWithUTF8String:utf8.c_str()];
+}

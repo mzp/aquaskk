@@ -10,9 +10,9 @@ public class SKKStateRecursiveRegister: HandlerProtocol {
     var super_: HandlerProtocol?
 
     var handlerID: String { NSStringFromClass(Self.self) as String }
-    var editor: SKKInputEngine
+    var editor: SKKInputEngineImpl
     var messenger: SKKMessenger
-    public init(editor: SKKInputEngine, messenger: SKKMessenger) {
+    init(editor: SKKInputEngineImpl, messenger: SKKMessenger) {
         self.editor = editor
         self.messenger = messenger
     }
@@ -24,7 +24,7 @@ public class SKKStateRecursiveRegister: HandlerProtocol {
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .entryEvent:
-            editor.SetStateRegistration()
+            editor.setStateRegistration()
             messenger.Beep()
             return .handled
 

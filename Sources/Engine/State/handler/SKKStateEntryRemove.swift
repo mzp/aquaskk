@@ -11,10 +11,10 @@ public class SKKStateEntryRemove: HandlerProtocol {
 
     var handlerID: String { NSStringFromClass(Self.self) as String }
 
-    var editor: SKKInputEngine
+    var editor: SKKInputEngineImpl
     var context: SKKInputContext
     var messenger: SKKMessenger
-    public init(editor: SKKInputEngine, context: SKKInputContext, messenger: SKKMessenger) {
+    init(editor: SKKInputEngineImpl, context: SKKInputContext, messenger: SKKMessenger) {
         self.editor = editor
         self.context = context
         self.messenger = messenger
@@ -27,11 +27,11 @@ public class SKKStateEntryRemove: HandlerProtocol {
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .entryEvent:
-            editor.SetStateEntryRemove()
+            editor.setStateEntryRemove()
             return .handled
 
         case .enter:
-            editor.Commit()
+            editor.commit()
             if !context.needs_setback {
                 messenger.SendMessage("単語を削除しました")
                 return .transitionKanaInput
@@ -45,7 +45,7 @@ public class SKKStateEntryRemove: HandlerProtocol {
             let param = event.param
             if param.IsInputChars() {
                 // 入力文字は ASCII で受け付ける(常に非変換)
-                editor.HandleChar(CChar(param.code), true)
+                editor.handleChar(code: Int(param.code), direct: true)
                 return .handled
             }
             return .super_
