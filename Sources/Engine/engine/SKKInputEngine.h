@@ -43,7 +43,7 @@ class SKKInputEngine : public SKKInputQueueObserver,
     SKKInputEngineImpl *impl_;
 
     // ローマ字かな変換通知
-    virtual void SKKInputQueueUpdate(const SKKInputQueueObserverState &state);
+    virtual void SKKInputQueueUpdate(const SKKInputQueueObserverState &state) override;
 
     // 見出し語の取得
     virtual const std::string SKKCompleterQueryString();
