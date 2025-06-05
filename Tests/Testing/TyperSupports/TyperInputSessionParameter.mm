@@ -14,6 +14,7 @@
 #import <AquaSKKTesting/MockClipboard.h>
 #import <AquaSKKTesting/MockDynamicCompletor.h>
 #import <AquaSKKTesting/MockMessenger.h>
+#import <AquaSKKInput/AquaSKKInput-Preamble.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
 #import "TyperConfig.h"
 

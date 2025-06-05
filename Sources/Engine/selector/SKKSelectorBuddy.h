@@ -29,7 +29,7 @@
 // SKKSelector の相棒クラス
 struct SKKSelectorBuddy : public IntrusiveRefCounted<SKKSelectorBuddy> {
     virtual ~SKKSelectorBuddy() {}
-    virtual id<SKKSelectorBuddyProtocol> getSelectorBuddyProtocol() = 0;
+    virtual id<SKKSelectorBuddyProtocol> _Nonnull getSelectorBuddyProtocol() = 0;
 } SWIFT_SHARED_REFERENCE(retainSKKSelectorBuddy, releaseSKKSelectorBuddy);
 
 void retainSKKSelectorBuddy(SKKSelectorBuddy *_Nonnull obj);

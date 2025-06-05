@@ -31,7 +31,7 @@ class TyperInputSessionParameter : public SKKInputSessionParameter {
     std::unique_ptr<SKKDynamicCompletor> completor_;
 
 public:
-    TyperInputSessionParameter(id _Nonnull client, TyperConfig *config);
+    TyperInputSessionParameter(id _Nonnull client, TyperConfig * _Nonnull config);
     virtual SKKConfig *_Nonnull Config();
     virtual SKKFrontEnd *_Nonnull FrontEnd();
     virtual SKKMessenger *_Nonnull Messenger();
