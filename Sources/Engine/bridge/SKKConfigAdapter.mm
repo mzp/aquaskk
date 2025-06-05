@@ -37,7 +37,7 @@ bool SKKConfigAdapter::EnableDynamicCompletion() {
 }
 
 int SKKConfigAdapter::DynamicCompletionRange() {
-    return [impl_ dynamicCompletionRange];
+    return static_cast<int>([impl_ dynamicCompletionRange]);
 }
 
 bool SKKConfigAdapter::EnableAnnotation() {
@@ -53,7 +53,7 @@ bool SKKConfigAdapter::SuppressNewlineOnCommit() {
 }
 
 int SKKConfigAdapter::MaxCountOfInlineCandidates() {
-    return [impl_ maxCountOfInlineCandidates];
+    return  static_cast<int>([impl_ maxCountOfInlineCandidates]);
 }
 
 bool SKKConfigAdapter::HandleRecursiveEntryAsOkuri() {
