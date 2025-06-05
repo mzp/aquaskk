@@ -11,9 +11,9 @@ import Testing
 /// MainActorで実行しないとテストが失敗する。理由は忘れた。
 @MainActor
 struct RomanKanaConverterTests {
-    func romanKana() throws -> RomanKanaConverterImpl {
+    func romanKana() throws -> SKKRomanKanaConverterImpl {
         let path = try CoreTesting.shared.path("kana-rule.conf")
-        let instance = RomanKanaConverterImpl.shared()
+        let instance = SKKRomanKanaConverterImpl.shared()
         instance.initialize(from: path)
         return instance
     }

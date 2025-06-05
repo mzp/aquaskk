@@ -308,11 +308,11 @@ func terminate(_: Int32) {
             SKKPreProcessor.shared().patch(path: subKeymap)
         }
 
-        RomanKanaConverterImpl.shared().initialize(from: kanaRule)
+        SKKRomanKanaConverterImpl.shared().initialize(from: kanaRule)
 
         for subRule in subRules ?? [] {
             Logger.skkInput.log("\(#function, privacy: .public) loading custom kana rule: \(subRule, privacy: .public)")
-            RomanKanaConverterImpl.shared().patch(from: subRule)
+            SKKRomanKanaConverterImpl.shared().patch(from: subRule)
         }
 
         initializeInputModeIcons()

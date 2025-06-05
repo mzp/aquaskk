@@ -7,7 +7,7 @@
 import AquaSKKLogging
 import OSLog
 
-struct RomanKanaRule: Equatable, Hashable {
+struct SKKRomanKanaRule: Equatable, Hashable {
     var hirakana: String
     var katakana: String
     var jisx0201kana: String
@@ -29,7 +29,7 @@ struct RomanKanaRule: Equatable, Hashable {
 }
 
 @objc(SKKRomanKanaResult)
-public class RomanKanaResult: NSObject {
+public class SKKRomanKanaResult: NSObject {
     @objc public var output: String = ""
     @objc public var intermediate: String = ""
     @objc public var next: String = ""
@@ -37,18 +37,18 @@ public class RomanKanaResult: NSObject {
 }
 
 @objc(SKKRomanKanaConverterImpl)
-public class RomanKanaConverterImpl: NSObject {
-    var root = Trie<RomanKanaRule>()
+public class SKKRomanKanaConverterImpl: NSObject {
+    var root = Trie<SKKRomanKanaRule>()
 
-    static let sharedInstance = RomanKanaConverterImpl()
+    static let sharedInstance = SKKRomanKanaConverterImpl()
 
-    @objc(sharedInstance) public static func shared() -> RomanKanaConverterImpl {
+    @objc(sharedInstance) public static func shared() -> SKKRomanKanaConverterImpl {
         return sharedInstance
     }
 
     @objc(initialize:) public func initialize(from path: String) {
         do {
-            root = Trie<RomanKanaRule>()
+            root = Trie<SKKRomanKanaRule>()
             try append(path: path)
         } catch {
             Logger.skkEngine.error("\(#function, privacy: .public) failed: \(error.localizedDescription, privacy: .public)")
@@ -82,7 +82,7 @@ public class RomanKanaConverterImpl: NSObject {
                 Logger.skkEngine.error("Invalid format: \(line, privacy: .private) at \(n, privacy: .private)")
             } else {
                 let roman = rows[0]
-                let rule = RomanKanaRule(
+                let rule = SKKRomanKanaRule(
                     hirakana: rows[1],
                     katakana: rows[2],
                     jisx0201kana: rows[3],
@@ -99,8 +99,8 @@ public class RomanKanaConverterImpl: NSObject {
     /// @param inputMode 入力モード
     /// @return 変換結果
     @objc(convert:inputMode:)
-    public func convert(_ string: String, inputMode: SKKInputMode) -> RomanKanaResult? {
-        let result = RomanKanaResult()
+    public func convert(_ string: String, inputMode: SKKInputMode) -> SKKRomanKanaResult? {
+        let result = SKKRomanKanaResult()
 
         let input = TrieInput(string)
         while !input.isEmpty {

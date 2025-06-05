@@ -39,7 +39,7 @@ public class SKKInputQueueImpl {
 
     /// 文字の追加
     public func addChar(character: Int, direct: Bool) {
-        let converter = RomanKanaConverterImpl.sharedInstance
+        let converter = SKKRomanKanaConverterImpl.sharedInstance
         var state = SKKInputQueueObserverState()
 
         if direct || inputMode == .AsciiInputMode {
@@ -116,7 +116,7 @@ public class SKKInputQueueImpl {
         guard !isEmpty else {
             return
         }
-        let converter = RomanKanaConverterImpl.sharedInstance
+        let converter = SKKRomanKanaConverterImpl.sharedInstance
         var state = SKKInputQueueObserverState()
 
         switch inputMode {
@@ -159,7 +159,7 @@ public class SKKInputQueueImpl {
 
     /// 変換可能かどうか
     public func canConvert(code: Int) -> Bool {
-        let converter = RomanKanaConverterImpl.sharedInstance
+        let converter = SKKRomanKanaConverterImpl.sharedInstance
 
         switch inputMode {
         case .HirakanaInputMode,
