@@ -30,7 +30,7 @@ public class SKKStateMachineImpl {
 
     var machine: GenericStateMachine?
 
-    public init(engine: SKKInputEngine, context: SKKInputContext, config: SKKConfig, completer: SKKCompleterImpl, selector: SKKSelector, messenger: SKKMessenger) {
+    public init(engine: SKKInputEngine, context: SKKInputContext, config: SKKConfig, completer: SKKCompleterImpl, selector: SKKSelectorImpl, messenger: SKKMessenger) {
         primaryState = .init(editor: engine, context: context, messenger: messenger)
         kanaInputState = .init(editor: engine)
 

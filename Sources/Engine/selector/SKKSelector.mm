@@ -98,6 +98,10 @@ void SKKSelector::Hide() {
     (*(container_->impl_))->hide();
 }
 
+AquaSKKEngine::SKKSelectorImpl *SKKSelector::getImpl() {
+    return container_->impl_->getPointer();
+}
+
 void retainSKKSelector(SKKSelector *obj) {
     obj->retain();
 }

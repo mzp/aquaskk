@@ -30,7 +30,7 @@
 class SKKCompleterContainer;
 
 namespace AquaSKKEngine {
-class SKKCompleterImpl;
+    class SKKCompleterImpl;
 }
 
 class SKKCompleter : public IntrusiveRefCounted<SKKCompleter> {

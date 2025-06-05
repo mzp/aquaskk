@@ -12,7 +12,7 @@ public class SKKRecursiveEditorImpl {
     private var candidateWindow: SKKCandidateWindow
     private var state: SKKStateMachineImpl
 
-    public init(env: SKKInputEnvironment, completer: SKKCompleterImpl, editor: SKKInputEngine, selector: SKKSelector) {
+    public init(env: SKKInputEnvironment, completer: SKKCompleterImpl, editor: SKKInputEngine, selector: SKKSelectorImpl) {
         self.env = env
         annotator = env.Annotator()
         self.completer = env.DynamicCompletor()
