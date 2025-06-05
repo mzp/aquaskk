@@ -98,7 +98,6 @@ public class SKKInputQueueImpl {
         )
     }
 
-
     /// 文字の削除
     public func removeChar() {
         guard !isEmpty else {

@@ -53,7 +53,7 @@ bool SKKConfigAdapter::SuppressNewlineOnCommit() {
 }
 
 int SKKConfigAdapter::MaxCountOfInlineCandidates() {
-    return  static_cast<int>([impl_ maxCountOfInlineCandidates]);
+    return static_cast<int>([impl_ maxCountOfInlineCandidates]);
 }
 
 bool SKKConfigAdapter::HandleRecursiveEntryAsOkuri() {
