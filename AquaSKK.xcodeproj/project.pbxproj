@@ -106,7 +106,6 @@
 		13415B362C82865500ED9D0A /* TestResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13415B352C82865500ED9D0A /* TestResult.cpp */; };
 		13415B3E2C82904900ED9D0A /* TyperInputSessionParameter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13415B392C82893400ED9D0A /* TyperInputSessionParameter.mm */; };
 		13415B3F2C82905000ED9D0A /* TyperInputSessionParameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 13415B382C82893400ED9D0A /* TyperInputSessionParameter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		13415B452C836C3B00ED9D0A /* SKKTransliterateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13415B442C836C3B00ED9D0A /* SKKTransliterateTests.swift */; };
 		1344F55F2C5B28FC00D8C850 /* SKKClipboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F49E2C5B28FC00D8C850 /* SKKClipboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5642C5B28FC00D8C850 /* SKKRegisterEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4DB2C5B28FC00D8C850 /* SKKRegisterEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5652C5B28FC00D8C850 /* SKKComposingEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4CF2C5B28FC00D8C850 /* SKKComposingEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -304,7 +303,6 @@
 		1386297C2D69496000C7A078 /* SKKHttpDictionaryFileSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1386297B2D69496000C7A078 /* SKKHttpDictionaryFileSource.swift */; };
 		138629802D694A6600C7A078 /* SKKAutoUpdateDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1386297F2D694A6600C7A078 /* SKKAutoUpdateDictionaryTests.swift */; };
 		138ABEC42D80819D0027BFAF /* SKKStatePrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138ABEC32D80819D0027BFAF /* SKKStatePrimary.swift */; };
-		138C69102C94C865009FE153 /* AquaSKKBackendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C690F2C94C865009FE153 /* AquaSKKBackendTests.swift */; };
 		138C69112C94C865009FE153 /* AquaSKKBackend.h in Headers */ = {isa = PBXBuildFile; fileRef = 138C69032C94C864009FE153 /* AquaSKKBackend.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		138C69142C94C865009FE153 /* AquaSKKBackend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 138C69012C94C864009FE153 /* AquaSKKBackend.framework */; };
 		138C69152C94C865009FE153 /* AquaSKKBackend.framework in Embeded Frameworks */ = {isa = PBXBuildFile; fileRef = 138C69012C94C864009FE153 /* AquaSKKBackend.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -482,6 +480,8 @@
 		13E637732D56F2C00040DAAC /* MacClipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E637722D56F2C00040DAAC /* MacClipboard.swift */; };
 		13E637752D56F40F0040DAAC /* MacCandidateWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E637742D56F40F0040DAAC /* MacCandidateWindow.swift */; };
 		13E637772D56F58A0040DAAC /* BlacklistApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E637762D56F58A0040DAAC /* BlacklistApps.swift */; };
+		13E646772DF11B9D00E44F2A /* SKKTransliterateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13415B442C836C3B00ED9D0A /* SKKTransliterateTests.swift */; };
+		13E646782DF11BA600E44F2A /* SKKEncodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F91A212C83923000E60D63 /* SKKEncodingTests.swift */; };
 		13EB86642C5EA7DD00B47DCD /* SupervisorMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EB86632C5EA7DD00B47DCD /* SupervisorMonitor.swift */; };
 		13EC79072D3F579900D6E623 /* MessengerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EC79062D3F579900D6E623 /* MessengerView.swift */; };
 		13EDDCF32C5B395B0062A0DA /* SKKInputSession_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F53A2C5B28FC00D8C850 /* SKKInputSession_TEST.mm */; };
@@ -495,7 +495,6 @@
 		13F89D5C2D55DC73003177FA /* SKKModeTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F89D5B2D55DC73003177FA /* SKKModeTips.swift */; };
 		13F89D5E2D55E3F1003177FA /* MacInputModeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F89D5D2D55E3F1003177FA /* MacInputModeWindow.swift */; };
 		13F89D622D55E6DE003177FA /* MacAnnotator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F89D602D55E6DE003177FA /* MacAnnotator.swift */; };
-		13F91A222C83923000E60D63 /* SKKEncodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F91A212C83923000E60D63 /* SKKEncodingTests.swift */; };
 		13F91A2A2C8393A700E60D63 /* jconv_ucs2eucj-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 13F91A292C8393A700E60D63 /* jconv_ucs2eucj-inl.h */; };
 		13F91A2B2C8393A700E60D63 /* jconv.h in Headers */ = {isa = PBXBuildFile; fileRef = 13F91A252C8393A700E60D63 /* jconv.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13F91A2C2C8393A700E60D63 /* jconv_body-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 13F91A272C8393A700E60D63 /* jconv_body-inl.h */; };
@@ -971,7 +970,6 @@
 		138C69012C94C864009FE153 /* AquaSKKBackend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AquaSKKBackend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		138C69032C94C864009FE153 /* AquaSKKBackend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKBackend.h; sourceTree = "<group>"; };
 		138C69082C94C864009FE153 /* BackendTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackendTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		138C690F2C94C865009FE153 /* AquaSKKBackendTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaSKKBackendTests.swift; sourceTree = "<group>"; };
 		138C691F2C94C88C009FE153 /* Tests-Backend.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Backend.xcconfig"; sourceTree = "<group>"; };
 		138C69202C94C89A009FE153 /* Framework-Backend.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Backend.xcconfig"; sourceTree = "<group>"; };
 		138C69732C94CDE4009FE153 /* dict.file */ = {isa = PBXFileReference; lastKnownFileType = text; path = dict.file; sourceTree = "<group>"; };
@@ -1442,6 +1440,8 @@
 		132B77792C5DB89E00EEC2A5 /* utility */ = {
 			isa = PBXGroup;
 			children = (
+				13415B442C836C3B00ED9D0A /* SKKTransliterateTests.swift */,
+				13F91A212C83923000E60D63 /* SKKEncodingTests.swift */,
 				1344F4932C5A92D300D8C850 /* SKKCalculatorTesting.swift */,
 				132B77782C5DB89E00EEC2A5 /* pthreadutil_TEST.mm */,
 				1344F5442C5B28FC00D8C850 /* socketutil_TEST.mm */,
@@ -1450,13 +1450,14 @@
 			path = utility;
 			sourceTree = "<group>";
 		};
-		132B777C2C5DB8C700EEC2A5 /* tries */ = {
+		132B777C2C5DB8C700EEC2A5 /* roman */ = {
 			isa = PBXGroup;
 			children = (
+				13A685432C698312001BABA2 /* CoreTesting.swift */,
 				13A685412C69826A001BABA2 /* RomanKanaConverterTests.swift */,
 				135FB6E22C69B06B00A6480A /* TriesTest.swift */,
 			);
-			path = tries;
+			path = roman;
 			sourceTree = "<group>";
 		};
 		132B777D2C5DB8EB00EEC2A5 /* entry */ = {
@@ -1469,14 +1470,14 @@
 			path = entry;
 			sourceTree = "<group>";
 		};
-		132B777E2C5DB90B00EEC2A5 /* session */ = {
+		132B777E2C5DB90B00EEC2A5 /* engine */ = {
 			isa = PBXGroup;
 			children = (
 				1344F53A2C5B28FC00D8C850 /* SKKInputSession_TEST.mm */,
 				1344F5482C5B28FC00D8C850 /* TestEvent.h */,
 				1344F5472C5B28FC00D8C850 /* TestData.h */,
 			);
-			path = session;
+			path = engine;
 			sourceTree = "<group>";
 		};
 		132CBC022D5F95B200E4D875 /* Logging */ = {
@@ -1703,24 +1704,9 @@
 		1344F4A62C5B28FC00D8C850 /* bridge */ = {
 			isa = PBXGroup;
 			children = (
-				1344F49C2C5B28FC00D8C850 /* SKKAnnotator.h */,
-				137637982D7F637C00CF332A /* SKKAnnotator.cpp */,
-				1344F49D2C5B28FC00D8C850 /* SKKCandidateWindow.h */,
-				1376379A2D7F63C900CF332A /* SKKCandidateWindow.cpp */,
-				13513C462D74C9B300C00A4E /* SKKCandidateWindowBridge.h */,
-				13513C472D74C9B300C00A4E /* SKKCandidateWindowBridge.cpp */,
-				1344F49E2C5B28FC00D8C850 /* SKKClipboard.h */,
-				1344F49F2C5B28FC00D8C850 /* SKKConfig.h */,
-				1326922D2D7AA66E00043CDC /* SKKConfig.cpp */,
-				1344F4A02C5B28FC00D8C850 /* SKKDynamicCompletor.h */,
-				1376379D2D7F642200CF332A /* SKKDynamicCompletor.cpp */,
-				1344F4A12C5B28FC00D8C850 /* SKKFrontEnd.h */,
-				138FB7052D7B491400542DF7 /* SKKFrontEnd.cpp */,
-				1344F4A22C5B28FC00D8C850 /* SKKInputModeListener.h */,
-				1344F4A32C5B28FC00D8C850 /* SKKInputSessionParameter.h */,
-				1344F4A42C5B28FC00D8C850 /* SKKMessenger.h */,
-				134C9AD42D836EB3005403A4 /* SKKMessenger.cpp */,
-				1344F4A52C5B28FC00D8C850 /* SKKWidget.h */,
+				13E646742DF11AB100E44F2A /* legacy */,
+				13E646752DF11ACF00E44F2A /* adapter */,
+				13E646762DF11AD300E44F2A /* modern */,
 			);
 			path = bridge;
 			sourceTree = "<group>";
@@ -1786,6 +1772,7 @@
 				1344F4DB2C5B28FC00D8C850 /* SKKRegisterEditor.h */,
 				1344F4DC2C5B28FC00D8C850 /* SKKRegisterEditor.mm */,
 				134D25632D7A03870014ACD5 /* SKKRegisterEditor.swift */,
+				13A648862D76881F00FB52C5 /* SKKTextBuffer.swift */,
 			);
 			path = editor;
 			sourceTree = "<group>";
@@ -1833,7 +1820,7 @@
 			path = selector;
 			sourceTree = "<group>";
 		};
-		1344F5052C5B28FC00D8C850 /* input_engine */ = {
+		1344F5052C5B28FC00D8C850 /* engine */ = {
 			isa = PBXGroup;
 			children = (
 				1344F4F62C5B28FC00D8C850 /* SKKInputContext.h */,
@@ -1860,7 +1847,7 @@
 				1344F5042C5B28FC00D8C850 /* SKKUndoContext.mm */,
 				138FB7112D7BEE3700542DF7 /* SKKUndoContext.swift */,
 			);
-			path = input_engine;
+			path = engine;
 			sourceTree = "<group>";
 		};
 		1344F5082C5B28FC00D8C850 /* skkserv */ = {
@@ -1893,13 +1880,13 @@
 			path = state;
 			sourceTree = "<group>";
 		};
-		1344F5502C5B28FC00D8C850 /* trie */ = {
+		1344F5502C5B28FC00D8C850 /* roman */ = {
 			isa = PBXGroup;
 			children = (
 				135FB6D82C6998E800A6480A /* SKKRomanKanaConverter.swift */,
 				135FB6E02C69AA7E00A6480A /* Trie.swift */,
 			);
-			path = trie;
+			path = roman;
 			sourceTree = "<group>";
 		};
 		1344F55C2C5B28FC00D8C850 /* utility */ = {
@@ -1920,25 +1907,23 @@
 		1344F6202C5B2C9C00D8C850 /* EngineTests */ = {
 			isa = PBXGroup;
 			children = (
-				13A685432C698312001BABA2 /* CoreTesting.swift */,
-				13F91A202C838FDF00E60D63 /* String */,
 				133A55202C5DB8390047E911 /* completer */,
-				1347782F2C5DB95A007B1DFB /* buffer */,
-				133A55232C5DB85C0047E911 /* selector */,
-				132B777E2C5DB90B00EEC2A5 /* session */,
-				132B777C2C5DB8C700EEC2A5 /* tries */,
+				13E646732DF11A8B00E44F2A /* editor */,
+				132B777E2C5DB90B00EEC2A5 /* engine */,
+				1347782F2C5DB95A007B1DFB /* queue */,
 				134778572C5DB98F007B1DFB /* Resources */,
+				132B777C2C5DB8C700EEC2A5 /* roman */,
+				133A55232C5DB85C0047E911 /* selector */,
 			);
 			path = EngineTests;
 			sourceTree = "<group>";
 		};
-		1347782F2C5DB95A007B1DFB /* buffer */ = {
+		1347782F2C5DB95A007B1DFB /* queue */ = {
 			isa = PBXGroup;
 			children = (
-				13A648842D7687C900FB52C5 /* SKKTextBufferTests.swift */,
 				13D128E92DEBA25D00B0F94D /* SKKInputQueueTests.swift */,
 			);
-			path = buffer;
+			path = queue;
 			sourceTree = "<group>";
 		};
 		134778572C5DB98F007B1DFB /* Resources */ = {
@@ -2003,15 +1988,14 @@
 			path = gui;
 			sourceTree = "<group>";
 		};
-		134D25672D7A0B1B0014ACD5 /* buffer */ = {
+		134D25672D7A0B1B0014ACD5 /* queue */ = {
 			isa = PBXGroup;
 			children = (
 				13A648892D76D82900FB52C5 /* SKKInputQueue.swift */,
 				13A6488B2D76DEED00FB52C5 /* SKKInputQueueObserver.h */,
 				13D128E12DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift */,
-				13A648862D76881F00FB52C5 /* SKKTextBuffer.swift */,
 			);
-			path = buffer;
+			path = queue;
 			sourceTree = "<group>";
 		};
 		134F109B2D6D543E00527967 /* keymap */ = {
@@ -2373,7 +2357,6 @@
 		138C690E2C94C865009FE153 /* BackendTests */ = {
 			isa = PBXGroup;
 			children = (
-				138C690F2C94C865009FE153 /* AquaSKKBackendTests.swift */,
 				133A55212C5DB8430047E911 /* backend */,
 				133A551F2C5DB8240047E911 /* dictionary */,
 				132B777D2C5DB8EB00EEC2A5 /* entry */,
@@ -2490,44 +2473,8 @@
 		13B16D042DE29E250064ADCF /* protocols */ = {
 			isa = PBXGroup;
 			children = (
-				133844D62DE25BC10050B98C /* SKKAnnotatorProtocol.swift */,
-				13513C442D74BBB100C00A4E /* SKKCandidatePresenter.swift */,
-				13B16D362DE2F30F0064ADCF /* SKKInputSessionParameterProtocol.swift */,
-				13B16D052DE29E370064ADCF /* SKKCandidateWindowProtocol.swift */,
-				13B16D072DE29E610064ADCF /* SKKClipboardProtocol.swift */,
-				13B16D0B2DE29E770064ADCF /* SKKDynamicCompletorProtocol.swift */,
-				13B16D0D2DE29E7F0064ADCF /* SKKFrontEndProtocol.swift */,
-				13B16D202DE2A8A00064ADCF /* SKKMessengerProtocol.swift */,
-				13B16D292DE2EDE10064ADCF /* SKKConfigProtocol.swift */,
-				13B16D392DE2F6540064ADCF /* SKKInputModeListenerProtocol.swift */,
 			);
 			path = protocols;
-			sourceTree = "<group>";
-		};
-		13B16D132DE29F2B0064ADCF /* adapter */ = {
-			isa = PBXGroup;
-			children = (
-				133844D82DE25C4D0050B98C /* SKKAnnotatorAdapter.h */,
-				133844D92DE25C4D0050B98C /* SKKAnnotatorAdapter.mm */,
-				1390FCF42D75575200059E87 /* SKKCandidateWindow.swift */,
-				13B16D0F2DE29F200064ADCF /* SKKCandidateWindowAdapter.h */,
-				13B16D102DE29F200064ADCF /* SKKCandidateWindowAdapter.mm */,
-				13B16D142DE2A2C40064ADCF /* SKKClipboardAdapter.h */,
-				13B16D152DE2A2C40064ADCF /* SKKClipboardAdapter.mm */,
-				13B16D2C2DE2EE530064ADCF /* SKKConfigAdapter.h */,
-				13B16D2D2DE2EE530064ADCF /* SKKConfigAdapter.mm */,
-				13B16D182DE2A5330064ADCF /* SKKDynamicCompletorAdapter.h */,
-				13B16D192DE2A5330064ADCF /* SKKDynamicCompletorAdapter.mm */,
-				13B16D1C2DE2A69C0064ADCF /* SKKFrontEndAdapter.h */,
-				13B16D1D2DE2A69C0064ADCF /* SKKFrontEndAdapter.mm */,
-				13B16D3C2DE2F6A30064ADCF /* SKKInputModeListenerAdapter.h */,
-				13B16D3D2DE2F6A30064ADCF /* SKKInputModeListenerAdapter.mm */,
-				13B16D302DE2EFDD0064ADCF /* SKKInputSessionParameterAdapter.h */,
-				13B16D312DE2EFDD0064ADCF /* SKKInputSessionParameterAdapter.mm */,
-				13B16D222DE2A8CD0064ADCF /* SKKMessengerAdapter.h */,
-				13B16D232DE2A8CD0064ADCF /* SKKMessengerAdapter.mm */,
-			);
-			path = adapter;
 			sourceTree = "<group>";
 		};
 		13B16D262DE2AAC20064ADCF /* session */ = {
@@ -2702,19 +2649,18 @@
 		13D756182C5A9049006144F2 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
-				13D756172C5A9049006144F2 /* AquaSKKEngine.docc */,
 				13D756162C5A9049006144F2 /* AquaSKKEngine.h */,
-				13B16D132DE29F2B0064ADCF /* adapter */,
+				13D756172C5A9049006144F2 /* AquaSKKEngine.docc */,
 				1344F4A62C5B28FC00D8C850 /* bridge */,
-				134D25672D7A0B1B0014ACD5 /* buffer */,
 				1344F4B42C5B28FC00D8C850 /* completer */,
 				1344F4DF2C5B28FC00D8C850 /* editor */,
-				13B16D042DE29E250064ADCF /* protocols */,
-				1344F4F52C5B28FC00D8C850 /* selector */,
-				1344F5052C5B28FC00D8C850 /* input_engine */,
-				1344F5122C5B28FC00D8C850 /* state */,
+				1344F5052C5B28FC00D8C850 /* engine */,
 				13317A732DBE972000F8190B /* handler */,
-				1344F5502C5B28FC00D8C850 /* trie */,
+				13B16D042DE29E250064ADCF /* protocols */,
+				134D25672D7A0B1B0014ACD5 /* queue */,
+				1344F5502C5B28FC00D8C850 /* roman */,
+				1344F4F52C5B28FC00D8C850 /* selector */,
+				1344F5122C5B28FC00D8C850 /* state */,
 				138C69542C94CBBF009FE153 /* utility */,
 			);
 			path = Engine;
@@ -2753,6 +2699,82 @@
 				133021A82D64332100BFE102 /* SKKDictionaryFileTests.swift */,
 			);
 			path = file;
+			sourceTree = "<group>";
+		};
+		13E646732DF11A8B00E44F2A /* editor */ = {
+			isa = PBXGroup;
+			children = (
+				13A648842D7687C900FB52C5 /* SKKTextBufferTests.swift */,
+			);
+			path = editor;
+			sourceTree = "<group>";
+		};
+		13E646742DF11AB100E44F2A /* legacy */ = {
+			isa = PBXGroup;
+			children = (
+				1344F49C2C5B28FC00D8C850 /* SKKAnnotator.h */,
+				137637982D7F637C00CF332A /* SKKAnnotator.cpp */,
+				1344F49D2C5B28FC00D8C850 /* SKKCandidateWindow.h */,
+				1376379A2D7F63C900CF332A /* SKKCandidateWindow.cpp */,
+				13513C462D74C9B300C00A4E /* SKKCandidateWindowBridge.h */,
+				13513C472D74C9B300C00A4E /* SKKCandidateWindowBridge.cpp */,
+				1344F49E2C5B28FC00D8C850 /* SKKClipboard.h */,
+				1344F49F2C5B28FC00D8C850 /* SKKConfig.h */,
+				1326922D2D7AA66E00043CDC /* SKKConfig.cpp */,
+				1344F4A02C5B28FC00D8C850 /* SKKDynamicCompletor.h */,
+				1376379D2D7F642200CF332A /* SKKDynamicCompletor.cpp */,
+				1344F4A12C5B28FC00D8C850 /* SKKFrontEnd.h */,
+				138FB7052D7B491400542DF7 /* SKKFrontEnd.cpp */,
+				1344F4A22C5B28FC00D8C850 /* SKKInputModeListener.h */,
+				1344F4A32C5B28FC00D8C850 /* SKKInputSessionParameter.h */,
+				1344F4A42C5B28FC00D8C850 /* SKKMessenger.h */,
+				134C9AD42D836EB3005403A4 /* SKKMessenger.cpp */,
+				1344F4A52C5B28FC00D8C850 /* SKKWidget.h */,
+			);
+			name = legacy;
+			sourceTree = "<group>";
+		};
+		13E646752DF11ACF00E44F2A /* adapter */ = {
+			isa = PBXGroup;
+			children = (
+				133844D82DE25C4D0050B98C /* SKKAnnotatorAdapter.h */,
+				133844D92DE25C4D0050B98C /* SKKAnnotatorAdapter.mm */,
+				1390FCF42D75575200059E87 /* SKKCandidateWindow.swift */,
+				13B16D0F2DE29F200064ADCF /* SKKCandidateWindowAdapter.h */,
+				13B16D102DE29F200064ADCF /* SKKCandidateWindowAdapter.mm */,
+				13B16D142DE2A2C40064ADCF /* SKKClipboardAdapter.h */,
+				13B16D152DE2A2C40064ADCF /* SKKClipboardAdapter.mm */,
+				13B16D2C2DE2EE530064ADCF /* SKKConfigAdapter.h */,
+				13B16D2D2DE2EE530064ADCF /* SKKConfigAdapter.mm */,
+				13B16D182DE2A5330064ADCF /* SKKDynamicCompletorAdapter.h */,
+				13B16D192DE2A5330064ADCF /* SKKDynamicCompletorAdapter.mm */,
+				13B16D1C2DE2A69C0064ADCF /* SKKFrontEndAdapter.h */,
+				13B16D1D2DE2A69C0064ADCF /* SKKFrontEndAdapter.mm */,
+				13B16D3C2DE2F6A30064ADCF /* SKKInputModeListenerAdapter.h */,
+				13B16D3D2DE2F6A30064ADCF /* SKKInputModeListenerAdapter.mm */,
+				13B16D302DE2EFDD0064ADCF /* SKKInputSessionParameterAdapter.h */,
+				13B16D312DE2EFDD0064ADCF /* SKKInputSessionParameterAdapter.mm */,
+				13B16D222DE2A8CD0064ADCF /* SKKMessengerAdapter.h */,
+				13B16D232DE2A8CD0064ADCF /* SKKMessengerAdapter.mm */,
+			);
+			name = adapter;
+			sourceTree = "<group>";
+		};
+		13E646762DF11AD300E44F2A /* modern */ = {
+			isa = PBXGroup;
+			children = (
+				133844D62DE25BC10050B98C /* SKKAnnotatorProtocol.swift */,
+				13513C442D74BBB100C00A4E /* SKKCandidatePresenter.swift */,
+				13B16D362DE2F30F0064ADCF /* SKKInputSessionParameterProtocol.swift */,
+				13B16D052DE29E370064ADCF /* SKKCandidateWindowProtocol.swift */,
+				13B16D072DE29E610064ADCF /* SKKClipboardProtocol.swift */,
+				13B16D0B2DE29E770064ADCF /* SKKDynamicCompletorProtocol.swift */,
+				13B16D0D2DE29E7F0064ADCF /* SKKFrontEndProtocol.swift */,
+				13B16D202DE2A8A00064ADCF /* SKKMessengerProtocol.swift */,
+				13B16D292DE2EDE10064ADCF /* SKKConfigProtocol.swift */,
+				13B16D392DE2F6540064ADCF /* SKKInputModeListenerProtocol.swift */,
+			);
+			name = modern;
 			sourceTree = "<group>";
 		};
 		13E6605D2C683494000896F6 /* .config */ = {
@@ -2841,15 +2863,6 @@
 				13B4A9AF2D57E5C5002453BA /* SKKServer.swift */,
 			);
 			path = skk;
-			sourceTree = "<group>";
-		};
-		13F91A202C838FDF00E60D63 /* String */ = {
-			isa = PBXGroup;
-			children = (
-				13415B442C836C3B00ED9D0A /* SKKTransliterateTests.swift */,
-				13F91A212C83923000E60D63 /* SKKEncodingTests.swift */,
-			);
-			path = String;
 			sourceTree = "<group>";
 		};
 		13F91A242C83939A00E60D63 /* jconv */ = {
@@ -3866,9 +3879,7 @@
 				139E88C52D7421300065CFA2 /* SKKSelectorTestirg.swift in Sources */,
 				13A685442C698312001BABA2 /* CoreTesting.swift in Sources */,
 				135FB6E32C69B06B00A6480A /* TriesTest.swift in Sources */,
-				13415B452C836C3B00ED9D0A /* SKKTransliterateTests.swift in Sources */,
 				139E88B92D73F3A60065CFA2 /* SKKInlnlineSelectorTesting.swift in Sources */,
-				13F91A222C83923000E60D63 /* SKKEncodingTests.swift in Sources */,
 				13A685422C69826A001BABA2 /* RomanKanaConverterTests.swift in Sources */,
 				139E88C02D73F7360065CFA2 /* SKKWindowSelectorTesting.swift in Sources */,
 				13A648882D769C6F00FB52C5 /* SKKTextBufferTests.swift in Sources */,
@@ -4010,6 +4021,8 @@
 				138C696B2C94CD81009FE153 /* stringutil_TEST.mm in Sources */,
 				133021A92D64332100BFE102 /* SKKDictionaryFileTests.swift in Sources */,
 				138C696E2C94CD81009FE153 /* socketutil_TEST.mm in Sources */,
+				13E646772DF11B9D00E44F2A /* SKKTransliterateTests.swift in Sources */,
+				13E646782DF11BA600E44F2A /* SKKEncodingTests.swift in Sources */,
 				138C696F2C94CD81009FE153 /* SKKCalculatorTesting.swift in Sources */,
 				138C69702C94CD81009FE153 /* pthreadutil_TEST.mm in Sources */,
 				138629802D694A6600C7A078 /* SKKAutoUpdateDictionaryTests.swift in Sources */,
@@ -4021,7 +4034,6 @@
 				13FDADEC2DD2950D004183FF /* SKKCandidateParserTest.swift in Sources */,
 				13A920122D6958F8009B9B91 /* SKKLocalUserDictionaryTests.swift in Sources */,
 				139BFFC32C95F1DB00665C1D /* NumericConverterTests.swift in Sources */,
-				138C69102C94C865009FE153 /* AquaSKKBackendTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
