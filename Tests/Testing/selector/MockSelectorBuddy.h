@@ -39,7 +39,7 @@ class MockSelectorBuddy : public SKKSelectorBuddy {
         candidate_ = candidate;
     }
 
-    id<SKKSelectorBuddyProtocol> getSelectorBuddyProtocol() override {
+    id<SKKSelectorBuddyProtocol> _Nonnull getSelectorBuddyProtocol() override {
         return nil;
     }
 

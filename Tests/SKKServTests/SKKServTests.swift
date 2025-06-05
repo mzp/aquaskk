@@ -39,7 +39,7 @@ import AquaSKKService
 
     @Test func okuriNasi() async throws {
         // query
-        var suite = try #require(await skkClient.find(entry: SKKEntry("きょう", "")))
+        let suite = try #require(await skkClient.find(entry: SKKEntry("きょう", "")))
         let candidate = try String(#require(suite.candidates.first).variant)
         #expect(candidate == "今日")
     }

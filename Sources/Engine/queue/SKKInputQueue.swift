@@ -78,11 +78,23 @@ public class SKKInputQueueImpl {
         state.queue = std.string(queue)
         state.code = CChar(character)
 
-        observer?.bridgeInputQueueUpdate(
-            fixed: String(state.fixed),
-            intermediate: String(state.intermediate),
-            queue: String(state.queue),
-            code: Int(state.code)
+        inputQueueUpdate(state: state)
+    }
+
+    func inputQueueUpdate(state: SKKInputQueueObserverState) {
+        guard let observer = observer else {
+            return
+        }
+        let fixed: std.string = state.fixed
+        let intermediate: std.string = state.intermediate
+        let queue: std.string = state.queue
+        let code = state.code
+
+        observer.bridgeInputQueueUpdate(
+            fixed: String(fixed),
+            intermediate: String(intermediate),
+            queue: String(queue),
+            code: Int(code)
         )
     }
 
@@ -96,7 +108,7 @@ public class SKKInputQueueImpl {
         var state = SKKInputQueueObserverState()
         state.queue = std.string(queue)
         state.code = 0
-        observer?.bridgeInputQueueUpdate(fixed: String(state.fixed), intermediate: String(state.intermediate), queue: String(state.queue), code: Int(state.code))
+        inputQueueUpdate(state: state)
     }
 
     /// 中間状態を確定させる(n → ん)
@@ -128,13 +140,13 @@ public class SKKInputQueueImpl {
 
         queue.removeAll()
         state.code = 0
-        observer?.bridgeInputQueueUpdate(fixed: String(state.fixed), intermediate: String(state.intermediate), queue: String(state.queue), code: Int(state.code))
+        inputQueueUpdate(state: state)
     }
 
     public func clear() {
         queue.removeAll()
         let state = SKKInputQueueObserverState()
-        observer?.bridgeInputQueueUpdate(fixed: String(state.fixed), intermediate: String(state.intermediate), queue: String(state.queue), code: Int(state.code))
+        inputQueueUpdate(state: state)
     }
 
     public var isEmpty: Bool {

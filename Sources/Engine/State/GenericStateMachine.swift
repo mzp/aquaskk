@@ -198,7 +198,7 @@ class GenericStateMachine {
 
         var source = active
         while source != nil {
-            guard var next = invoke(handler: source!, event: event) else {
+            guard let next = invoke(handler: source!, event: event) else {
                 return
             }
             switch next.type {

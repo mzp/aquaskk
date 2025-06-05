@@ -12,7 +12,7 @@ public extension TyperConfig {
         inlineBackSpaceImpliesCommit: Bool = false,
         handleRecursiveEntryAsOkuri: Bool = false
     ) -> TyperConfig {
-        let config = TyperConfig.newInstannce()!
+        let config = TyperConfig.newInstannce()
         config.SetEnableAnnotation(annotation)
         config.SetEnableDynamicCompletion(dynamicCompletion)
         config.SetSuppressNewlineOnCommit(suppressNewlineOnCommit)

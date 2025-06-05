@@ -127,6 +127,8 @@ public class SKKStateMachineImpl {
             return super_
         case .handled:
             return nil
+        @unknown default:
+            fatalError()
         }
     }
 

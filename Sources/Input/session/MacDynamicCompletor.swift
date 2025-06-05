@@ -6,9 +6,9 @@
 //
 
 import AppKit
+import AquaSKKEngine
 import AquaSKKUI
 
-@objc(MacDynamicCompletorImpl)
 public class MacDynamicCompletorImpl: NSObject, SKKDynamicCompletorProtocol {
     private let layoutManager: SKKLayoutManager
     private let window: CompletionWindow

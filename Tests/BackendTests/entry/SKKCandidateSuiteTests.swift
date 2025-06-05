@@ -35,11 +35,6 @@ struct SKKCandidateSuiteTests {
         cand.push_back(SKKCandidate("候補1", true))
         cand.push_back(SKKCandidate("候補2", true))
 
-        var hint = SKKOkuriHint(
-            okuri: "おくり",
-            candidates: Array(cand)
-        )
-
         suite.add(hint: SKKOkuriHint(okuri: "おくり", candidates: Array(cand)))
 
         suite.update(candidate: SKKCandidate("候補2;アノテーション", true))

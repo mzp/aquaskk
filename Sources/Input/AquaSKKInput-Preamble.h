@@ -8,6 +8,8 @@
 #ifndef AquaSKKInput_Preamble_h
 #define AquaSKKInput_Preamble_h
 
+@protocol SKKAnnotatorProtocol;
+
 #import <InputMethodKit/InputMethodKit.h>
 #import <AquaSKKBackend/AquaSKKBackend.h>
 #import <AquaSKKService/AquaSKKService.h>
