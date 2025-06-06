@@ -302,6 +302,15 @@
 		138199002D793E52009C29E7 /* SKKOkuriListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 138198FF2D793E52009C29E7 /* SKKOkuriListener.mm */; };
 		1386297C2D69496000C7A078 /* SKKHttpDictionaryFileSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1386297B2D69496000C7A078 /* SKKHttpDictionaryFileSource.swift */; };
 		138629802D694A6600C7A078 /* SKKAutoUpdateDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1386297F2D694A6600C7A078 /* SKKAutoUpdateDictionaryTests.swift */; };
+		13892FF22DF39F3B00EA7600 /* MockInputSessionParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13892FF12DF39F3B00EA7600 /* MockInputSessionParameter.swift */; };
+		13892FF42DF3A33400EA7600 /* MockWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13892FF32DF3A33400EA7600 /* MockWidget.swift */; };
+		13892FF62DF3A34C00EA7600 /* MockAnnotatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13892FF52DF3A34C00EA7600 /* MockAnnotatorImpl.swift */; };
+		13892FF82DF3A3D300EA7600 /* MockCandidateWindowImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13892FF72DF3A3D300EA7600 /* MockCandidateWindowImpl.swift */; };
+		13892FFA2DF3A3FE00EA7600 /* MockClipboardImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13892FF92DF3A3FE00EA7600 /* MockClipboardImpl.swift */; };
+		13892FFC2DF3A43D00EA7600 /* MockDynamicCompletorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13892FFB2DF3A43D00EA7600 /* MockDynamicCompletorImpl.swift */; };
+		13892FFE2DF3A4FD00EA7600 /* MockFrontEndImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13892FFD2DF3A4FD00EA7600 /* MockFrontEndImpl.swift */; };
+		138930002DF3A51500EA7600 /* NullMessengerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13892FFF2DF3A51500EA7600 /* NullMessengerImpl.swift */; };
+		138930022DF3A55500EA7600 /* NullConfigImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138930012DF3A55500EA7600 /* NullConfigImpl.swift */; };
 		138ABEC42D80819D0027BFAF /* SKKStatePrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138ABEC32D80819D0027BFAF /* SKKStatePrimary.swift */; };
 		138C69112C94C865009FE153 /* AquaSKKBackend.h in Headers */ = {isa = PBXBuildFile; fileRef = 138C69032C94C864009FE153 /* AquaSKKBackend.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		138C69142C94C865009FE153 /* AquaSKKBackend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 138C69012C94C864009FE153 /* AquaSKKBackend.framework */; };
@@ -965,6 +974,15 @@
 		138198FF2D793E52009C29E7 /* SKKOkuriListener.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKOkuriListener.mm; sourceTree = "<group>"; };
 		1386297B2D69496000C7A078 /* SKKHttpDictionaryFileSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKHttpDictionaryFileSource.swift; sourceTree = "<group>"; };
 		1386297F2D694A6600C7A078 /* SKKAutoUpdateDictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKAutoUpdateDictionaryTests.swift; sourceTree = "<group>"; };
+		13892FF12DF39F3B00EA7600 /* MockInputSessionParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockInputSessionParameter.swift; sourceTree = "<group>"; };
+		13892FF32DF3A33400EA7600 /* MockWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWidget.swift; sourceTree = "<group>"; };
+		13892FF52DF3A34C00EA7600 /* MockAnnotatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAnnotatorImpl.swift; sourceTree = "<group>"; };
+		13892FF72DF3A3D300EA7600 /* MockCandidateWindowImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCandidateWindowImpl.swift; sourceTree = "<group>"; };
+		13892FF92DF3A3FE00EA7600 /* MockClipboardImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClipboardImpl.swift; sourceTree = "<group>"; };
+		13892FFB2DF3A43D00EA7600 /* MockDynamicCompletorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDynamicCompletorImpl.swift; sourceTree = "<group>"; };
+		13892FFD2DF3A4FD00EA7600 /* MockFrontEndImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFrontEndImpl.swift; sourceTree = "<group>"; };
+		13892FFF2DF3A51500EA7600 /* NullMessengerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullMessengerImpl.swift; sourceTree = "<group>"; };
+		138930012DF3A55500EA7600 /* NullConfigImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullConfigImpl.swift; sourceTree = "<group>"; };
 		138ABEC32D80819D0027BFAF /* SKKStatePrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStatePrimary.swift; sourceTree = "<group>"; };
 		138B319F2C5DD40C006424E0 /* All-Testing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "All-Testing.xcconfig"; sourceTree = "<group>"; };
 		138C69012C94C864009FE153 /* AquaSKKBackend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AquaSKKBackend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1362,26 +1380,12 @@
 		1315FE812C8182FA004011B7 /* Session */ = {
 			isa = PBXGroup;
 			children = (
-				1315FE822C818327004011B7 /* MockAnnotator.h */,
-				13415B232C82840100ED9D0A /* MockAnnotator.cpp */,
-				1315FE832C818327004011B7 /* MockCandidateWindow.h */,
-				13415B252C82843500ED9D0A /* MockCandidateWindow.cpp */,
-				1315FE842C818327004011B7 /* MockClipboard.h */,
-				13415B272C82849500ED9D0A /* MockClipboard.cpp */,
-				1315FE852C818327004011B7 /* MockCompletionHelper.h */,
-				13415B292C8284CF00ED9D0A /* MockCompletionHelper.cpp */,
-				1315FE862C818327004011B7 /* MockConfig.h */,
-				13415B2B2C82855400ED9D0A /* MockConfig.cpp */,
-				1315FE872C818327004011B7 /* MockDynamicCompletor.h */,
-				13415B2E2C82859100ED9D0A /* MockDynamicCompletor.cpp */,
-				1315FE882C818327004011B7 /* MockFrontEnd.h */,
-				13415B202C82831800ED9D0A /* MockFrontEnd.cpp */,
-				1315FE892C818327004011B7 /* MockInputSessionParameter.h */,
-				13415B312C8285CB00ED9D0A /* MockInputSessionParameter.cpp */,
-				1315FE8A2C818327004011B7 /* MockMessenger.h */,
-				13415B332C82863400ED9D0A /* MockMessenger.cpp */,
 				1344F5492C5B28FC00D8C850 /* TestResult.h */,
 				13415B352C82865500ED9D0A /* TestResult.cpp */,
+				1315FE852C818327004011B7 /* MockCompletionHelper.h */,
+				13415B292C8284CF00ED9D0A /* MockCompletionHelper.cpp */,
+				138930042DF3A75800EA7600 /* legacy */,
+				138930032DF3A75200EA7600 /* modern */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -2301,6 +2305,45 @@
 				137D05892C5B5A83009AC591 /* AquaSKKTests.swift */,
 			);
 			path = AppTests;
+			sourceTree = "<group>";
+		};
+		138930032DF3A75200EA7600 /* modern */ = {
+			isa = PBXGroup;
+			children = (
+				13892FF12DF39F3B00EA7600 /* MockInputSessionParameter.swift */,
+				138930012DF3A55500EA7600 /* NullConfigImpl.swift */,
+				13892FFF2DF3A51500EA7600 /* NullMessengerImpl.swift */,
+				13892FFD2DF3A4FD00EA7600 /* MockFrontEndImpl.swift */,
+				13892FFB2DF3A43D00EA7600 /* MockDynamicCompletorImpl.swift */,
+				13892FF92DF3A3FE00EA7600 /* MockClipboardImpl.swift */,
+				13892FF72DF3A3D300EA7600 /* MockCandidateWindowImpl.swift */,
+				13892FF52DF3A34C00EA7600 /* MockAnnotatorImpl.swift */,
+				13892FF32DF3A33400EA7600 /* MockWidget.swift */,
+			);
+			name = modern;
+			sourceTree = "<group>";
+		};
+		138930042DF3A75800EA7600 /* legacy */ = {
+			isa = PBXGroup;
+			children = (
+				1315FE822C818327004011B7 /* MockAnnotator.h */,
+				13415B232C82840100ED9D0A /* MockAnnotator.cpp */,
+				1315FE832C818327004011B7 /* MockCandidateWindow.h */,
+				13415B252C82843500ED9D0A /* MockCandidateWindow.cpp */,
+				1315FE842C818327004011B7 /* MockClipboard.h */,
+				13415B272C82849500ED9D0A /* MockClipboard.cpp */,
+				1315FE862C818327004011B7 /* MockConfig.h */,
+				13415B2B2C82855400ED9D0A /* MockConfig.cpp */,
+				1315FE872C818327004011B7 /* MockDynamicCompletor.h */,
+				13415B2E2C82859100ED9D0A /* MockDynamicCompletor.cpp */,
+				1315FE882C818327004011B7 /* MockFrontEnd.h */,
+				13415B202C82831800ED9D0A /* MockFrontEnd.cpp */,
+				1315FE892C818327004011B7 /* MockInputSessionParameter.h */,
+				13415B312C8285CB00ED9D0A /* MockInputSessionParameter.cpp */,
+				1315FE8A2C818327004011B7 /* MockMessenger.h */,
+				13415B332C82863400ED9D0A /* MockMessenger.cpp */,
+			);
+			name = legacy;
 			sourceTree = "<group>";
 		};
 		138C69022C94C864009FE153 /* Backend */ = {
@@ -3769,26 +3812,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13892FF62DF3A34C00EA7600 /* MockAnnotatorImpl.swift in Sources */,
 				13D128E52DEB953900B0F94D /* TestInputQueueObserverImpl.swift in Sources */,
+				13892FFC2DF3A43D00EA7600 /* MockDynamicCompletorImpl.swift in Sources */,
 				13415B362C82865500ED9D0A /* TestResult.cpp in Sources */,
 				1311EB222DE95D2400808F8D /* MockSelectorBuddy.swift in Sources */,
 				13415B342C82863400ED9D0A /* MockMessenger.cpp in Sources */,
 				13415B2C2C82855400ED9D0A /* MockConfig.cpp in Sources */,
 				13415B242C82840100ED9D0A /* MockAnnotator.cpp in Sources */,
+				138930022DF3A55500EA7600 /* NullConfigImpl.swift in Sources */,
+				13892FF22DF39F3B00EA7600 /* MockInputSessionParameter.swift in Sources */,
 				1335E37A2C97FE3C002F298B /* MockCompletionHelper.swift in Sources */,
+				13892FF42DF3A33400EA7600 /* MockWidget.swift in Sources */,
 				139E88CF2D7426F00065CFA2 /* MockSelectorBuddy.mm in Sources */,
 				13018B262C7696A40045FF13 /* AquaSKKTesting.docc in Sources */,
 				13018B302C769D370045FF13 /* BundledServerConfiguration.swift in Sources */,
 				13415B322C8285CB00ED9D0A /* MockInputSessionParameter.cpp in Sources */,
 				13415B302C82859100ED9D0A /* MockDynamicCompletor.cpp in Sources */,
+				138930002DF3A51500EA7600 /* NullMessengerImpl.swift in Sources */,
 				1335E3762C97F843002F298B /* TestingResource.swift in Sources */,
+				13892FFE2DF3A4FD00EA7600 /* MockFrontEndImpl.swift in Sources */,
 				13F91A2E2C8393A700E60D63 /* jconv.cpp in Sources */,
 				13415B282C82849500ED9D0A /* MockClipboard.cpp in Sources */,
+				13892FFA2DF3A3FE00EA7600 /* MockClipboardImpl.swift in Sources */,
 				13415B3E2C82904900ED9D0A /* TyperInputSessionParameter.mm in Sources */,
 				13415B2A2C8284CF00ED9D0A /* MockCompletionHelper.cpp in Sources */,
 				13415B222C82831800ED9D0A /* MockFrontEnd.cpp in Sources */,
 				13415B262C82843500ED9D0A /* MockCandidateWindow.cpp in Sources */,
 				13096C892C8CAEA1009F3E6B /* TyperConfig.cpp in Sources */,
+				13892FF82DF3A3D300EA7600 /* MockCandidateWindowImpl.swift in Sources */,
 				13C85CFA2D8B8ED7006D1872 /* TyperConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
