@@ -311,6 +311,8 @@
 		13892FFE2DF3A4FD00EA7600 /* MockFrontEndImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13892FFD2DF3A4FD00EA7600 /* MockFrontEndImpl.swift */; };
 		138930002DF3A51500EA7600 /* NullMessengerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13892FFF2DF3A51500EA7600 /* NullMessengerImpl.swift */; };
 		138930022DF3A55500EA7600 /* NullConfigImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138930012DF3A55500EA7600 /* NullConfigImpl.swift */; };
+		138930062DF3AAA000EA7600 /* MockConfigImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138930052DF3AAA000EA7600 /* MockConfigImpl.swift */; };
+		138930082DF3AED900EA7600 /* TyperInputSessionParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138930072DF3AED900EA7600 /* TyperInputSessionParameter.swift */; };
 		138ABEC42D80819D0027BFAF /* SKKStatePrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138ABEC32D80819D0027BFAF /* SKKStatePrimary.swift */; };
 		138C69112C94C865009FE153 /* AquaSKKBackend.h in Headers */ = {isa = PBXBuildFile; fileRef = 138C69032C94C864009FE153 /* AquaSKKBackend.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		138C69142C94C865009FE153 /* AquaSKKBackend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 138C69012C94C864009FE153 /* AquaSKKBackend.framework */; };
@@ -983,6 +985,8 @@
 		13892FFD2DF3A4FD00EA7600 /* MockFrontEndImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFrontEndImpl.swift; sourceTree = "<group>"; };
 		13892FFF2DF3A51500EA7600 /* NullMessengerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullMessengerImpl.swift; sourceTree = "<group>"; };
 		138930012DF3A55500EA7600 /* NullConfigImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullConfigImpl.swift; sourceTree = "<group>"; };
+		138930052DF3AAA000EA7600 /* MockConfigImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConfigImpl.swift; sourceTree = "<group>"; };
+		138930072DF3AED900EA7600 /* TyperInputSessionParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyperInputSessionParameter.swift; sourceTree = "<group>"; };
 		138ABEC32D80819D0027BFAF /* SKKStatePrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStatePrimary.swift; sourceTree = "<group>"; };
 		138B319F2C5DD40C006424E0 /* All-Testing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "All-Testing.xcconfig"; sourceTree = "<group>"; };
 		138C69012C94C864009FE153 /* AquaSKKBackend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AquaSKKBackend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2311,6 +2315,8 @@
 			isa = PBXGroup;
 			children = (
 				13892FF12DF39F3B00EA7600 /* MockInputSessionParameter.swift */,
+				138930072DF3AED900EA7600 /* TyperInputSessionParameter.swift */,
+				138930052DF3AAA000EA7600 /* MockConfigImpl.swift */,
 				138930012DF3A55500EA7600 /* NullConfigImpl.swift */,
 				13892FFF2DF3A51500EA7600 /* NullMessengerImpl.swift */,
 				13892FFD2DF3A4FD00EA7600 /* MockFrontEndImpl.swift */,
@@ -3819,6 +3825,7 @@
 				1311EB222DE95D2400808F8D /* MockSelectorBuddy.swift in Sources */,
 				13415B342C82863400ED9D0A /* MockMessenger.cpp in Sources */,
 				13415B2C2C82855400ED9D0A /* MockConfig.cpp in Sources */,
+				138930082DF3AED900EA7600 /* TyperInputSessionParameter.swift in Sources */,
 				13415B242C82840100ED9D0A /* MockAnnotator.cpp in Sources */,
 				138930022DF3A55500EA7600 /* NullConfigImpl.swift in Sources */,
 				13892FF22DF39F3B00EA7600 /* MockInputSessionParameter.swift in Sources */,
@@ -3826,6 +3833,7 @@
 				13892FF42DF3A33400EA7600 /* MockWidget.swift in Sources */,
 				139E88CF2D7426F00065CFA2 /* MockSelectorBuddy.mm in Sources */,
 				13018B262C7696A40045FF13 /* AquaSKKTesting.docc in Sources */,
+				138930062DF3AAA000EA7600 /* MockConfigImpl.swift in Sources */,
 				13018B302C769D370045FF13 /* BundledServerConfiguration.swift in Sources */,
 				13415B322C8285CB00ED9D0A /* MockInputSessionParameter.cpp in Sources */,
 				13415B302C82859100ED9D0A /* MockDynamicCompletor.cpp in Sources */,

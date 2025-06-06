@@ -15,13 +15,13 @@ class Typer {
 
     class Session {
         private var client = MockTextInput()
-        @MainActor func run(config: TyperConfig, perform: (Typer) async -> Void) async {
+        @MainActor func run(config: MockConfigImpl, perform: (Typer) async -> Void) async {
             SKKBackendImpl.shared().privateModeEnabled = true
 
             // SKKInputControllerはMainThread以外からはさわれない
             // deinitもMainThreadで実行されるよう、このメソッドの外には出さない
             let controller = SKKInputController()
-            let typerSession = TyperInputSessionParameter.Create(client, config)
+            let typerSession = TyperInputSessionParameterImpl(config: config, client: client)
             let ptr = TyperInputSessionParameter.Coerce(typerSession)
             controller._setClient(client, sessionParameter: ptr)
             controller.activateServer(nil)
@@ -40,18 +40,18 @@ class Typer {
         }
 
         @MainActor func run(perform: (Typer) async -> Void) async {
-            await run(config: TyperConfig.newInstannce(), perform: perform)
+            await run(config: .defaults(), perform: perform)
         }
     }
 
     private let controller: SKKInputController
     private let client: MockTextInput
     private(set) var text = TyperState()
-    private let typerSession: TyperInputSessionParameter
+    private let typerSession: TyperInputSessionParameterImpl
 
     init(
         controller: SKKInputController,
-        typerSession: TyperInputSessionParameter,
+        typerSession: TyperInputSessionParameterImpl,
         client: MockTextInput
     ) {
         self.controller = controller
@@ -93,7 +93,7 @@ class Typer {
     }
 
     func set(pasteString: String) {
-        typerSession.SetString(std.string(pasteString))
+        typerSession.setYankString(pasteString)
     }
 
     // MARK: - Menu
@@ -131,25 +131,25 @@ class Typer {
     // MARK: - Candidates
 
     var candidates: [String] {
-        Array(typerSession.Candidates().map { String($0) })
+        typerSession.candidates
     }
 
     var candidateCursor: Int {
-        Int(typerSession.GetCandidateCursor())
+        typerSession.candidateCursor
     }
 
     var candidatePage: Int {
-        Int(typerSession.GetCandidatePage())
+        typerSession.candidatePage
     }
 
     // MARK: - Completion
 
     var completion: TyperCompletion {
         TyperCompletion(
-            completion: String(typerSession.GetCompletion()),
-            prefixSize: Int(typerSession.GetCommonPrefixSize()),
-            cursorOffset: Int(typerSession.GetCursorOffset()),
-            visible: typerSession.IsCompletionVisible()
+            completion: typerSession.completion,
+            prefixSize: typerSession.commonPrefixLength,
+            cursorOffset: typerSession.cursorOffset,
+            visible: typerSession.completionVisible
         )
     }
 
@@ -157,9 +157,9 @@ class Typer {
 
     var annotation: TyperAnnotation {
         TyperAnnotation(
-            entry: String(typerSession.GetAnnotation().ToString()),
-            cursorIndex: Int(typerSession.GetAnnotationCursor()),
-            visible: typerSession.IsAnnotationVisible()
+            entry: typerSession.annotation,
+            cursorIndex: typerSession.annotationCursor,
+            visible: typerSession.annotationVisible
         )
     }
 }

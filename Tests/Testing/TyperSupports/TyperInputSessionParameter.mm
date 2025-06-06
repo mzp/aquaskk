@@ -118,8 +118,8 @@ TyperInputSessionParameter *TyperInputSessionParameter::Create(id client, TyperC
     return new TyperInputSessionParameter(client, config);
 }
 
-SKKInputSessionParameter *TyperInputSessionParameter::Coerce(TyperInputSessionParameter *params) {
-    return params;
+SKKInputSessionParameter *TyperInputSessionParameter::Coerce(id<SKKInputSessionParameterProtocol> params) {
+    return new SKKInputSessionParameterAdapter(params);
 }
 
 void TISRetain(TyperInputSessionParameter *params) {
