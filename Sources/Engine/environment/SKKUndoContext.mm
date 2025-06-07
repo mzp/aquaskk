@@ -24,17 +24,18 @@
 #import <AquaSKKEngine/SKKUndoContext.h>
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
+#include "SKKFrontEnd.h"
 
 struct SKKUndoContextContainer {
     SwiftObject<AquaSKKEngine::SKKUndoContextImpl> *impl_;
-    SKKUndoContextContainer(id<SKKFrontEndProtocol> frontend)
+    SKKUndoContextContainer(SKKFrontEnd *frontend)
         : impl_(new SwiftObject(AquaSKKEngine::SKKUndoContextImpl::init(frontend))) {
         {
         }
     }
 };
 
-SKKUndoContext::SKKUndoContext(id<SKKFrontEndProtocol> frontend)
+SKKUndoContext::SKKUndoContext(SKKFrontEnd *frontend)
     : container_(new SKKUndoContextContainer(frontend)) {}
 
 SKKUndoResult SKKUndoContext::Undo() {

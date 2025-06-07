@@ -25,8 +25,7 @@
 
 #include <string>
 #include <swift/bridging>
-
-@protocol SKKFrontEndProtocol;
+class SKKFrontEnd;
 
 enum class SKKUndoResult { UndoFailed, UndoKanaEntry, UndoAsciiEntry };
 
@@ -34,10 +33,10 @@ class SKKUndoContextContainer;
 
 class SKKUndoContext {
     SKKUndoContextContainer *container_;
-    id<SKKFrontEndProtocol> frontend_;
+    SKKFrontEnd *frontend_;
 
 public:
-    SKKUndoContext(id<SKKFrontEndProtocol> frontend);
+    SKKUndoContext(SKKFrontEnd *frontend);
 
     SKKUndoResult Undo();
     bool IsActive() const;

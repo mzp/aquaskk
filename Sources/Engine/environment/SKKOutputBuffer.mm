@@ -29,11 +29,11 @@
 struct SKKOutputBufferContainer {
     SwiftObject<AquaSKKEngine::SKKOutputBufferImpl> *impl_;
 
-    SKKOutputBufferContainer(id<SKKFrontEndProtocol> frontend)
+    SKKOutputBufferContainer(SKKFrontEnd *frontend)
         : impl_(new SwiftObject(AquaSKKEngine::SKKOutputBufferImpl::init(frontend))) {}
 };
 
-SKKOutputBuffer::SKKOutputBuffer(id<SKKFrontEndProtocol> frontend)
+SKKOutputBuffer::SKKOutputBuffer(SKKFrontEnd *frontend)
     : container_(new SKKOutputBufferContainer(frontend)) {}
 
 void SKKOutputBuffer::Fix(const std::string &str) {

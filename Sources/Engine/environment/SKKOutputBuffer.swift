@@ -9,7 +9,7 @@ import AquaSKKLogging
 import OSLog
 
 public class SKKOutputBufferImpl {
-    private let frontend: SKKFrontEndProtocol
+    private let frontend: SKKFrontEnd
     private var composing: String
     private var cursor: String.Index
     private var mark: String.Index
@@ -18,7 +18,7 @@ public class SKKOutputBufferImpl {
     private var length: Int
 
     private var currentDisplayString: String
-    public init(frontend: SKKFrontEndProtocol) {
+    public init(frontend: SKKFrontEnd) {
         self.frontend = frontend
         composing = ""
         cursor = composing.startIndex
@@ -29,7 +29,7 @@ public class SKKOutputBufferImpl {
     }
 
     public func fix(string: String) {
-        frontend.insert(string: string)
+        frontend.InsertString(std.string(string))
     }
 
     public func compose(string: String, cursor offset: Int = 0) {
@@ -79,9 +79,9 @@ public class SKKOutputBufferImpl {
         }
         let offset = -composing.distance(from: cursor, to: composing.endIndex)
         if length > 0 {
-            frontend.composeString(composing, candidateStart: start, candidateLength: length)
+            frontend.ComposeString(std.string(composing), Int32(start), Int32(length))
         } else {
-            frontend.composeString(composing, cursorOffset: offset)
+            frontend.ComposeString(std.string(composing), Int32(offset))
         }
         currentDisplayString = composing
     }
