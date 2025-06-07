@@ -8,7 +8,7 @@ import AquaSKKEngine
 import AquaSKKUI
 
 @objc(MacAnnotatorImpl)
-public class MacAnnotatorImpl: NSObject, SKKAnnotatorProtocol {
+public class MacAnnotatorImpl: MacWidget, SKKAnnotatorProtocol {
     private let window: AnnotationWindow
     private let layoutManager: SKKLayoutManager
 
@@ -43,7 +43,7 @@ public class MacAnnotatorImpl: NSObject, SKKAnnotatorProtocol {
         optional = String(candidate.getAnnotation())
     }
 
-    @objc public func skkWidgetShow() {
+    @objc override public func skkWidgetShow() {
         window.setAnnotation(definition, optional: optional)
 
         if definition.isEmpty, optional.isEmpty {
@@ -52,7 +52,7 @@ public class MacAnnotatorImpl: NSObject, SKKAnnotatorProtocol {
         window.show(at: layoutManager.annotationWindowOrigin(mark: cursorOffset), level: layoutManager.windowLevel())
     }
 
-    @objc public func skkWidgetHide() {
+    @objc override public func skkWidgetHide() {
         window.hide()
     }
 }

@@ -115,7 +115,7 @@
 		1344F5B72C5B28FC00D8C850 /* SKKCandidateWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F49D2C5B28FC00D8C850 /* SKKCandidateWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5BB2C5B28FC00D8C850 /* SKKInputEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4D32C5B28FC00D8C850 /* SKKInputEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5BE2C5B28FC00D8C850 /* SKKCompleter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4B22C5B28FC00D8C850 /* SKKCompleter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1344F5CF2C5B28FC00D8C850 /* SKKInputEnvironment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4F82C5B28FC00D8C850 /* SKKInputEnvironment.cpp */; };
+		1344F5CF2C5B28FC00D8C850 /* SKKInputEnvironment.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4F82C5B28FC00D8C850 /* SKKInputEnvironment.mm */; };
 		1344F5D12C5B28FC00D8C850 /* SKKPrimaryEditor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4DA2C5B28FC00D8C850 /* SKKPrimaryEditor.mm */; };
 		1344F5D42C5B28FC00D8C850 /* SKKInputSession.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4FD2C5B28FC00D8C850 /* SKKInputSession.mm */; };
 		1344F5D92C5B28FC00D8C850 /* SKKInputModeSelector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4FB2C5B28FC00D8C850 /* SKKInputModeSelector.cpp */; };
@@ -295,6 +295,8 @@
 		138930082DF3AED900EA7600 /* TyperInputSessionParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138930072DF3AED900EA7600 /* TyperInputSessionParameter.swift */; };
 		1389300B2DF3B52900EA7600 /* TyperInputSessionParameter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1389300A2DF3B52900EA7600 /* TyperInputSessionParameter.mm */; };
 		1389300C2DF3B52900EA7600 /* TyperInputSessionParameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 138930092DF3B52900EA7600 /* TyperInputSessionParameter.h */; };
+		138930132DF4849000EA7600 /* SKKInputEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138930122DF4849000EA7600 /* SKKInputEnvironment.swift */; };
+		138930152DF48B1000EA7600 /* MacWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138930142DF48B1000EA7600 /* MacWidget.swift */; };
 		138ABEC42D80819D0027BFAF /* SKKStatePrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138ABEC32D80819D0027BFAF /* SKKStatePrimary.swift */; };
 		138C69112C94C865009FE153 /* AquaSKKBackend.h in Headers */ = {isa = PBXBuildFile; fileRef = 138C69032C94C864009FE153 /* AquaSKKBackend.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		138C69142C94C865009FE153 /* AquaSKKBackend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 138C69012C94C864009FE153 /* AquaSKKBackend.framework */; };
@@ -731,7 +733,7 @@
 		1344F4F22C5B28FC00D8C850 /* SKKSelector.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKSelector.mm; sourceTree = "<group>"; };
 		1344F4F62C5B28FC00D8C850 /* SKKInputContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKInputContext.h; sourceTree = "<group>"; };
 		1344F4F72C5B28FC00D8C850 /* SKKInputEnvironment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKInputEnvironment.h; sourceTree = "<group>"; };
-		1344F4F82C5B28FC00D8C850 /* SKKInputEnvironment.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKInputEnvironment.cpp; sourceTree = "<group>"; };
+		1344F4F82C5B28FC00D8C850 /* SKKInputEnvironment.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKInputEnvironment.mm; sourceTree = "<group>"; };
 		1344F4F92C5B28FC00D8C850 /* SKKInputMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKInputMode.h; sourceTree = "<group>"; };
 		1344F4FA2C5B28FC00D8C850 /* SKKInputModeSelector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKInputModeSelector.h; sourceTree = "<group>"; };
 		1344F4FB2C5B28FC00D8C850 /* SKKInputModeSelector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKInputModeSelector.cpp; sourceTree = "<group>"; };
@@ -949,6 +951,8 @@
 		138930072DF3AED900EA7600 /* TyperInputSessionParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyperInputSessionParameter.swift; sourceTree = "<group>"; };
 		138930092DF3B52900EA7600 /* TyperInputSessionParameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TyperInputSessionParameter.h; sourceTree = "<group>"; };
 		1389300A2DF3B52900EA7600 /* TyperInputSessionParameter.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TyperInputSessionParameter.mm; sourceTree = "<group>"; };
+		138930122DF4849000EA7600 /* SKKInputEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKInputEnvironment.swift; sourceTree = "<group>"; };
+		138930142DF48B1000EA7600 /* MacWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacWidget.swift; sourceTree = "<group>"; };
 		138ABEC32D80819D0027BFAF /* SKKStatePrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStatePrimary.swift; sourceTree = "<group>"; };
 		138B319F2C5DD40C006424E0 /* All-Testing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "All-Testing.xcconfig"; sourceTree = "<group>"; };
 		138C69012C94C864009FE153 /* AquaSKKBackend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AquaSKKBackend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2438,6 +2442,7 @@
 			isa = PBXGroup;
 			children = (
 				13F89D602D55E6DE003177FA /* MacAnnotator.swift */,
+				138930142DF48B1000EA7600 /* MacWidget.swift */,
 				13E637742D56F40F0040DAAC /* MacCandidateWindow.swift */,
 				13E637722D56F2C00040DAAC /* MacClipboard.swift */,
 				13B16D272DE2ECF10064ADCF /* MacConfig.swift */,
@@ -2753,7 +2758,8 @@
 			isa = PBXGroup;
 			children = (
 				1344F4F72C5B28FC00D8C850 /* SKKInputEnvironment.h */,
-				1344F4F82C5B28FC00D8C850 /* SKKInputEnvironment.cpp */,
+				138930122DF4849000EA7600 /* SKKInputEnvironment.swift */,
+				1344F4F82C5B28FC00D8C850 /* SKKInputEnvironment.mm */,
 				1344F4F62C5B28FC00D8C850 /* SKKInputContext.h */,
 				139FE4462D7768840015DFCA /* SKKInputContext.cpp */,
 				1344F4FE2C5B28FC00D8C850 /* SKKOutputBuffer.h */,
@@ -3909,6 +3915,7 @@
 				13A4FDBC2D6EEBA200AA0BFF /* SKKKeymapParser.swift in Sources */,
 				13FDADE82DD292A9004183FF /* SKKKeyModifier.swift in Sources */,
 				13B16D352DE2F2470064ADCF /* MacInputSessionParameter.swift in Sources */,
+				138930152DF48B1000EA7600 /* MacWidget.swift in Sources */,
 				13F3C9F62D6E06210085600C /* SKKKeymapEntry.swift in Sources */,
 				13B16D282DE2ECF10064ADCF /* MacConfig.swift in Sources */,
 				13E637772D56F58A0040DAAC /* BlacklistApps.swift in Sources */,
@@ -4109,7 +4116,7 @@
 				13B16D082DE29E610064ADCF /* SKKClipboardProtocol.swift in Sources */,
 				13B16D3A2DE2F6540064ADCF /* SKKInputModeListenerProtocol.swift in Sources */,
 				13B16D2A2DE2EDE10064ADCF /* SKKConfigProtocol.swift in Sources */,
-				1344F5CF2C5B28FC00D8C850 /* SKKInputEnvironment.cpp in Sources */,
+				1344F5CF2C5B28FC00D8C850 /* SKKInputEnvironment.mm in Sources */,
 				1326922C2D7A9A9B00043CDC /* SKKInputEngine.swift in Sources */,
 				13B16D212DE2A8A00064ADCF /* SKKMessengerProtocol.swift in Sources */,
 				1344F5D12C5B28FC00D8C850 /* SKKPrimaryEditor.mm in Sources */,
@@ -4176,6 +4183,7 @@
 				13615FEF2D852108000EA020 /* SKKStateComposing.swift in Sources */,
 				138198F62D792F15009C29E7 /* SKKCandidateEditor.swift in Sources */,
 				13B16D062DE29E370064ADCF /* SKKCandidateWindowProtocol.swift in Sources */,
+				138930132DF4849000EA7600 /* SKKInputEnvironment.swift in Sources */,
 				1376379E2D7F642200CF332A /* SKKDynamicCompletor.cpp in Sources */,
 				130C484A2D7E0B1C0052FF60 /* GenericState.swift in Sources */,
 				138198FC2D793C6E009C29E7 /* SKKOkuriEditor.swift in Sources */,

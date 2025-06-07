@@ -21,10 +21,10 @@
 */
 
 #import <AquaSKKEngine/SKKInputSession.h>
+#import <AquaSKKEngine/SKKInputSessionParameterAdapter.h>
 #import <AquaSKKEngine/SKKPrimaryEditor.h>
 #import <AquaSKKEngine/SKKRecursiveEditor.h>
 #import <AquaSKKEngine/SKKRegisterEditor.h>
-#import <AquaSKKEngine/SKKInputSessionParameterAdapter.h>
 #include "SKKFrontEnd.h"
 
 namespace {
@@ -44,7 +44,10 @@ namespace {
 } // namespace
 
 SKKInputSession::SKKInputSession(id<SKKInputSessionParameterProtocol> param)
-    : param_(new SKKInputSessionParameterAdapter(param)), context_(param_->FrontEnd()), inEvent_(false) {
+    : paramImpl_(param),
+      param_(new SKKInputSessionParameterAdapter(param)),
+      context_(param_->FrontEnd()),
+      inEvent_(false) {
     stack_.push_back(createEditor(new SKKPrimaryEditor(&context_)));
 }
 
@@ -157,7 +160,8 @@ SKKRecursiveEditor *SKKInputSession::top() {
 }
 
 SKKRecursiveEditor *SKKInputSession::createEditor(SKKBaseEditor *bottom) {
-    return new SKKRecursiveEditor(new SKKInputEnvironment(&context_, param_, &listeners_, bottom));
+    return new SKKRecursiveEditor(
+        new SKKInputEnvironment(&context_, paramImpl_, &listeners_, bottom->IsPrimaryEditor()));
 }
 
 void SKKInputSession::popEditor() {

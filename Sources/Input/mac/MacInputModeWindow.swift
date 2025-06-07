@@ -9,7 +9,7 @@ import AquaSKKLogging
 import AquaSKKService
 import OSLog
 
-@objc public class MacInputModeWindowImpl: NSObject, SKKInputModeListenerProtocol {
+@objc public class MacInputModeWindowImpl: MacWidget, SKKInputModeListenerProtocol {
     private let layoutManager: SKKLayoutManager
     private let tips: SKKModeTipsImpl
 
@@ -33,14 +33,14 @@ import OSLog
         return defaults.bool(forKey: SKKUserDefaultKeys.show_input_mode_icon)
     }
 
-    @objc public func skkWidgetShow() {
+    @objc override public func skkWidgetShow() {
         guard enabled else {
             return
         }
         tips.show()
     }
 
-    @objc public func skkWidgetHide() {
+    @objc override public func skkWidgetHide() {
         tips.hide()
     }
 }

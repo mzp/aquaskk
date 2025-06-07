@@ -27,7 +27,7 @@
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKInputEngine::SKKInputEngine(SKKInputEnvironment *env) {
-    impl_ = [[SKKInputEngineImpl alloc] initWithEnv:env];
+    impl_ = [[SKKInputEngineImpl alloc] initWithEnv:env->getImpl()];
 }
 
 void SKKInputEngine::SelectInputMode(SKKInputMode mode) {

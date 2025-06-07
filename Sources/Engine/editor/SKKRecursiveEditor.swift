@@ -13,7 +13,7 @@ public class SKKRecursiveEditorImpl {
     private var state: SKKStateMachineImpl
     private var editor: SKKInputEngineImpl
     public init(env: SKKInputEnvironment) {
-        let editorImpl = SKKInputEngineImpl(env: env)
+        let editorImpl = SKKInputEngineImpl(env: env.getImpl())
         let completerImpl = SKKCompleterImpl(buddyProtocol: editorImpl)
         let selectorImpl = SKKSelectorImpl(buddy: editorImpl, presenter: SKKCandidateWindowBridgeAdapter(env.CandidateWindowBridge()!))
         editor = editorImpl

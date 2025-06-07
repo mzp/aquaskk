@@ -6,20 +6,22 @@
 //
 
 @objc public class SKKInputEngineImpl: NSObject, SKKCompleterBuddyProtcol, SKKSelectorBuddyProtocol, SKKOkuriListenerProtocol, SKKInputQueueObserverProtocol {
-    private var env: SKKInputEnvironment
+    private var env: SKKInputEnvironmentImpl
     private var context: SKKInputContext {
-        env.InputContext()
+        env.context
     }
 
-    @objc public init(env: SKKInputEnvironment) {
+    @objc public init(env: SKKInputEnvironmentImpl) {
         self.env = env
         stack = []
-        primaryEditor = .init(context: env.InputContext())
-        registerEditor = .init(context: env.InputContext())
-        composingEditor = .init(context: env.InputContext())
-        candidateEditor = .init(context: env.InputContext())
-        okuriEditor = .init(context: env.InputContext())
-        entryRemoveEditor = .init(context: env.InputContext())
+
+        let context = env.context
+        primaryEditor = .init(context: context)
+        registerEditor = .init(context: context)
+        composingEditor = .init(context: context)
+        candidateEditor = .init(context: context)
+        okuriEditor = .init(context: context)
+        entryRemoveEditor = .init(context: context)
         inputQueue = .init()
         word = ""
         inputState = .init()
@@ -34,7 +36,7 @@
     // MARK: - 入力モード
 
     @objc public func selectInputMode(inputMode: SKKInputMode) {
-        env.InputModeSelector().Select(inputMode)
+        env.selector.Select(inputMode)
         inputQueue.selectInputMode(inputMode: inputMode)
         context.event_handled = true
     }
@@ -74,7 +76,7 @@
             push(editor: composingEditor)
             var entry = context.entry
 
-            if !env.Config().DeleteOkuriWhenQuit() {
+            if !env.config.deleteOkuriWhenQuit() {
                 entry.AppendEntry(entry.OkuriString())
             }
         }
@@ -111,7 +113,7 @@
         // 初期化
         stack.removeAll()
 
-        if env.IsPrimaryEditor() {
+        if env.isPrimaryEditor {
             push(editor: primaryEditor)
         } else {
             push(editor: registerEditor)
@@ -121,7 +123,7 @@
 
         if context.registration.state == .Aborted {
             context.registration.Clear()
-            env.InputModeSelector().Refresh()
+            env.selector.Refresh()
         }
 
         perform()
@@ -171,12 +173,11 @@
     }
 
     @objc public func handlePaste() {
-        top?.input(ascii: String(env.PasteString()))
+        top?.input(ascii: env.pasteString)
     }
 
     @objc public func handlePing() {
-        var inputModeSelector = env.InputModeSelector()
-        inputModeSelector?.Show()
+        env.selector.Show()
     }
 
     @objc public func handleEnter() {
@@ -202,7 +203,7 @@
     }
 
     private func terminate() {
-        if env.Config().FixIntermediateConversion() {
+        if env.config.fixIntermediateConversion() {
             inputQueue.terminate()
         } else {
             inputQueue.clear()
@@ -240,7 +241,7 @@
     // MARK: - トグル変換
 
     var inputMode: SKKInputMode? {
-        env.InputModeSelector()?.inputMode
+        env.selector.inputMode
     }
 
     @objc public func toggleKana() {
@@ -287,12 +288,12 @@
         }
 
         // 非確定文字があれば挿入(ex. "ky" など)
-        if env.Config().DisplayShortestMatchOfKanaConversions(), !inputState.intermediate.empty() {
+        if env.config.displayShortestMatchOfKanaConversions(), !inputState.intermediate.empty() {
             context.output.Compose(inputState.intermediate, 0)
         } else {
             context.output.Compose(inputState.queue, 0)
         }
-        env.InputModeSelector().Notify()
+        env.selector.Notify()
     }
 
     /// ローマ字かな変換が発生するか？

@@ -22,11 +22,17 @@
 
 #import <AquaSKKEngine/SKKClipboard.h>
 #import <AquaSKKEngine/SKKInputEnvironment.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKInputEnvironment::SKKInputEnvironment(
-    SKKInputContext *context, SKKInputSessionParameter *param, SKKInputModeListenerCollection *listeners,
-    SKKBaseEditor *bottom)
-    : context_(context), param_(param), selector_(listeners), bottom_(bottom) {}
+    SKKInputContext *context, id<SKKInputSessionParameterProtocol> param, SKKInputModeListenerCollection *listeners,
+    bool isPrimaryEditor)
+    : context_(context),
+      paramImpl_(param),
+      param_(new SKKInputSessionParameterAdapter(param)),
+      selector_(listeners),
+      isPrimaryEditor_(isPrimaryEditor) {}
 
 std::string SKKInputEnvironment::PasteString() {
     return param_->Clipboard()->PasteString();
@@ -42,10 +48,6 @@ SKKInputSessionParameter *SKKInputEnvironment::InputSessionParameter() {
 
 SKKInputModeSelector *SKKInputEnvironment::InputModeSelector() {
     return &selector_;
-}
-
-SKKBaseEditor *SKKInputEnvironment::BaseEditor() {
-    return bottom_.get();
 }
 
 bool SKKInputEnvironment::IsPrimaryEditor() const {
@@ -78,6 +80,12 @@ SKKDynamicCompletor *SKKInputEnvironment::DynamicCompletor() const {
     return param_->DynamicCompletor();
 }
 
+SKKInputEnvironmentImpl *SKKInputEnvironment::getImpl() {
+    return [[SKKInputEnvironmentImpl alloc] initWithContext:this->InputContext()
+                                                      param:paramImpl_
+                                                   selector:&selector_
+                                            isPrimaryEditor:isPrimaryEditor_];
+}
 void retainSKKInputEnvironment(SKKInputEnvironment *obj) {
     obj->retain();
 }

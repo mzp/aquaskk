@@ -87,9 +87,7 @@ public:
     MockInputSessionParameterImpl *mockParam;
 
     TestRunner(const std::string &path)
-        : param([MockInputSessionParameterImpl new]),
-          session(param),
-          map(AquaSKKInput::SKKKeymapImpl::init()) {
+        : param([MockInputSessionParameterImpl new]), session(param), map(AquaSKKInput::SKKKeymapImpl::init()) {
 
         initialize();
         test.Load(path);

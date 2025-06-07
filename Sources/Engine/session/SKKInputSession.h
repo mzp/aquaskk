@@ -35,6 +35,7 @@ class SKKEvent;
 @protocol SKKInputSessionParameterProtocol;
 
 class SKKInputSession {
+    id<SKKInputSessionParameterProtocol> paramImpl_;
     SKKInputSessionParameter *param_;
     std::vector<SKKRecursiveEditor *> stack_;
     SKKInputModeListenerCollection listeners_;

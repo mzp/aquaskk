@@ -33,16 +33,21 @@
 #import <AquaSKKEngine/SKKInputModeSelector.h>
 #import <AquaSKKEngine/SKKInputSessionParameter.h>
 
+@protocol SKKInputSessionParameterProtocol;
+@class SKKInputEnvironmentImpl;
+
 class SKKInputEnvironment : public IntrusiveRefCounted<SKKInputEnvironment> {
     SKKInputContext *context_;
+    id<SKKInputSessionParameterProtocol> paramImpl_;
     SKKInputSessionParameter *param_;
     SKKInputModeSelector selector_;
     std::unique_ptr<SKKBaseEditor> bottom_;
+    bool isPrimaryEditor_;
 
 public:
     SKKInputEnvironment(
-        SKKInputContext *context, SKKInputSessionParameter *param, SKKInputModeListenerCollection *listeners,
-        SKKBaseEditor *bottom);
+        SKKInputContext *context, id<SKKInputSessionParameterProtocol> param, SKKInputModeListenerCollection *listeners,
+        bool isPrimaryEditor);
 
     SKKAnnotator *Annotator() const;
     SKKConfig *Config() const;
@@ -55,11 +60,12 @@ public:
     SKKInputContext *InputContext();
     SKKInputSessionParameter *InputSessionParameter();
     SKKInputModeSelector *InputModeSelector();
-    SKKBaseEditor *BaseEditor();
 
     std::string PasteString();
 
     bool IsPrimaryEditor() const;
+
+    SKKInputEnvironmentImpl *getImpl();
 } SWIFT_SHARED_REFERENCE(retainSKKInputEnvironment, releaseSKKInputEnvironment);
 
 void retainSKKInputEnvironment(SKKInputEnvironment *obj);

@@ -9,7 +9,7 @@ import AppKit
 import AquaSKKEngine
 import AquaSKKUI
 
-public class MacDynamicCompletorImpl: NSObject, SKKDynamicCompletorProtocol {
+public class MacDynamicCompletorImpl: MacWidget, SKKDynamicCompletorProtocol {
     private let layoutManager: SKKLayoutManager
     private let window: CompletionWindow
 
@@ -32,7 +32,7 @@ public class MacDynamicCompletorImpl: NSObject, SKKDynamicCompletorProtocol {
         self.cursorOffset = cursorOffset
     }
 
-    @objc public func skkWidgetShow() {
+    @objc override public func skkWidgetShow() {
         if completion.isEmpty {
             skkWidgetHide()
         } else {
@@ -40,7 +40,7 @@ public class MacDynamicCompletorImpl: NSObject, SKKDynamicCompletorProtocol {
         }
     }
 
-    @objc public func skkWidgetHide() {
+    @objc override public func skkWidgetHide() {
         window.hide()
     }
 
