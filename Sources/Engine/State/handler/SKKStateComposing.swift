@@ -311,8 +311,8 @@ public class SKKStateEntryCompletion: HandlerProtocol {
     var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngineImpl
     var completer: SKKCompleterImpl
-    var messenger: SKKMessenger
-    init(editor: SKKInputEngineImpl, completer: SKKCompleterImpl, messenger: SKKMessenger) {
+    var messenger: SKKMessengerProtocol
+    init(editor: SKKInputEngineImpl, completer: SKKCompleterImpl, messenger: SKKMessengerProtocol) {
         self.editor = editor
         self.completer = completer
         self.messenger = messenger
@@ -347,7 +347,7 @@ public class SKKStateEntryCompletion: HandlerProtocol {
             }
             if param.IsRemoveTrigger() {
                 if completer.remove() {
-                    messenger.SendMessage("見出し語を削除しました")
+                    messenger.send(message: "見出し語を削除しました")
                     return .transitionKanaInput
                 } else {
                     return .handled

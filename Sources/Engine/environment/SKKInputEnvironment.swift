@@ -32,6 +32,13 @@ import Foundation
         param.annotator()
     }
 
+    var candidateWindow: SKKCandidateWindowProtocol {
+        param.candidateWindow()
+    }
+    var messenger: SKKMessengerProtocol {
+        param.messenger()
+    }
+
     var dynamicCompletor: SKKDynamicCompletorProtocol {
         param.dynamicCompletor()
     }

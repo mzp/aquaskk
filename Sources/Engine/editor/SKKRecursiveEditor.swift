@@ -9,26 +9,26 @@ public class SKKRecursiveEditorImpl {
     private let env: SKKInputEnvironmentImpl
     private var annotator: SKKAnnotatorProtocol
     private var completer: SKKDynamicCompletorProtocol
-    private var candidateWindow: SKKCandidateWindow
+    private var candidateWindow: SKKCandidateWindowProtocol
     private var state: SKKStateMachineImpl
     private var editor: SKKInputEngineImpl
     public init(env: SKKInputEnvironment) {
         let envImpl = env.getImpl()!
         let editorImpl = SKKInputEngineImpl(env: envImpl)
         let completerImpl = SKKCompleterImpl(buddyProtocol: editorImpl)
-        let selectorImpl = SKKSelectorImpl(buddy: editorImpl, presenter: SKKCandidateWindowBridgeAdapter(env.CandidateWindowBridge()!))
+        let selectorImpl = SKKSelectorImpl(buddy: editorImpl, presenter: envImpl.candidateWindow)
         editor = editorImpl
         self.env = envImpl
         annotator = envImpl.annotator
         completer = envImpl.dynamicCompletor
-        candidateWindow = env.CandidateWindow()
-        state = SKKStateMachineImpl(engine: editorImpl, context: env.InputContext(), config: env.Config(), completer: completerImpl, selector: selectorImpl, messenger: env.Messenger())
+        candidateWindow = envImpl.candidateWindow
+        state = SKKStateMachineImpl(engine: editorImpl, context: env.InputContext(), config: env.Config(), completer: completerImpl, selector: selectorImpl, messenger: envImpl.messenger)
     }
 
     deinit {
         annotator.hide()
         completer.hide()
-        candidateWindow.Hide()
+        candidateWindow.hide()
         env.selector.Hide()
     }
 
@@ -79,14 +79,14 @@ public class SKKRecursiveEditorImpl {
     public func activate() {
         annotator.activate()
         completer.activate()
-        candidateWindow.Activate()
+        candidateWindow.activate()
         env.selector.Activate()
     }
 
     public func deactivate() {
         annotator.deactivate()
         completer.deactivate()
-        candidateWindow.Deactivate()
+        candidateWindow.deactivate()
         env.selector.Deactivate()
     }
 }
