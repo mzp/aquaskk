@@ -1,5 +1,5 @@
 //
-//  SKKCandidateWindow.swift
+//  SKKCandidateWindowBridgeAdapter.swift
 //  AquaSKKEngine
 //
 //  Created by mzp on 2025/03/02.

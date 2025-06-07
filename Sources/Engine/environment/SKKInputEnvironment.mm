@@ -34,54 +34,8 @@ SKKInputEnvironment::SKKInputEnvironment(
       selector_(listeners),
       isPrimaryEditor_(isPrimaryEditor) {}
 
-std::string SKKInputEnvironment::PasteString() {
-    return param_->Clipboard()->PasteString();
-}
-
-SKKInputContext *SKKInputEnvironment::InputContext() {
-    return context_;
-}
-
-SKKInputSessionParameter *SKKInputEnvironment::InputSessionParameter() {
-    return param_;
-}
-
-SKKInputModeSelector *SKKInputEnvironment::InputModeSelector() {
-    return &selector_;
-}
-
-bool SKKInputEnvironment::IsPrimaryEditor() const {
-    return bottom_->IsPrimaryEditor();
-}
-
-SKKAnnotator *SKKInputEnvironment::Annotator() const {
-    return param_->Annotator();
-}
-
-SKKConfig *SKKInputEnvironment::Config() const {
-    return param_->Config();
-}
-
-SKKFrontEnd *SKKInputEnvironment::FrontEnd() const {
-    return param_->FrontEnd();
-}
-SKKMessenger *SKKInputEnvironment::Messenger() const {
-    return param_->Messenger();
-}
-SKKCandidateWindow *SKKInputEnvironment::CandidateWindow() const {
-    return param_->CandidateWindow();
-}
-
-SKKCandidateWindowBridge *SKKInputEnvironment::CandidateWindowBridge() const {
-    return new SKKCandidateWindowBridge(CandidateWindow());
-}
-
-SKKDynamicCompletor *SKKInputEnvironment::DynamicCompletor() const {
-    return param_->DynamicCompletor();
-}
-
 SKKInputEnvironmentImpl *SKKInputEnvironment::getImpl() {
-    return [[SKKInputEnvironmentImpl alloc] initWithContext:this->InputContext()
+    return [[SKKInputEnvironmentImpl alloc] initWithContext:context_
                                                       param:paramImpl_
                                                    selector:&selector_
                                             isPrimaryEditor:isPrimaryEditor_];

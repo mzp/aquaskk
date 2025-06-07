@@ -35,6 +35,7 @@ import Foundation
     var candidateWindow: SKKCandidateWindowProtocol {
         param.candidateWindow()
     }
+
     var messenger: SKKMessengerProtocol {
         param.messenger()
     }

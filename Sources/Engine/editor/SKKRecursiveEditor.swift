@@ -12,17 +12,22 @@ public class SKKRecursiveEditorImpl {
     private var candidateWindow: SKKCandidateWindowProtocol
     private var state: SKKStateMachineImpl
     private var editor: SKKInputEngineImpl
-    public init(env: SKKInputEnvironment) {
-        let envImpl = env.getImpl()!
-        let editorImpl = SKKInputEngineImpl(env: envImpl)
-        let completerImpl = SKKCompleterImpl(buddyProtocol: editorImpl)
-        let selectorImpl = SKKSelectorImpl(buddy: editorImpl, presenter: envImpl.candidateWindow)
+    public convenience init(env: SKKInputEnvironment) {
+        self.init(env: env.getImpl())
+    }
+
+    init(env: SKKInputEnvironmentImpl) {
+        self.env = env
+        annotator = env.annotator
+        completer = env.dynamicCompletor
+        candidateWindow = env.candidateWindow
+
+        let editorImpl = SKKInputEngineImpl(env: env)
         editor = editorImpl
-        self.env = envImpl
-        annotator = envImpl.annotator
-        completer = envImpl.dynamicCompletor
-        candidateWindow = envImpl.candidateWindow
-        state = SKKStateMachineImpl(engine: editorImpl, context: env.InputContext(), config: env.Config(), completer: completerImpl, selector: selectorImpl, messenger: envImpl.messenger)
+
+        let completerImpl = SKKCompleterImpl(buddyProtocol: editorImpl)
+        let selectorImpl = SKKSelectorImpl(buddy: editorImpl, presenter: env.candidateWindow)
+        state = SKKStateMachineImpl(engine: editorImpl, context: env.context, config: env.config, completer: completerImpl, selector: selectorImpl, messenger: env.messenger)
     }
 
     deinit {

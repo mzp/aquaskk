@@ -49,22 +49,6 @@ public:
         SKKInputContext *context, id<SKKInputSessionParameterProtocol> param, SKKInputModeListenerCollection *listeners,
         bool isPrimaryEditor);
 
-    SKKAnnotator *Annotator() const;
-    SKKConfig *Config() const;
-    SKKFrontEnd *FrontEnd() const;
-    SKKMessenger *Messenger() const;
-    SKKCandidateWindow *CandidateWindow() const;
-    SKKCandidateWindowBridge *CandidateWindowBridge() const;
-    SKKDynamicCompletor *DynamicCompletor() const;
-
-    SKKInputContext *InputContext();
-    SKKInputSessionParameter *InputSessionParameter();
-    SKKInputModeSelector *InputModeSelector();
-
-    std::string PasteString();
-
-    bool IsPrimaryEditor() const;
-
     SKKInputEnvironmentImpl *getImpl();
 } SWIFT_SHARED_REFERENCE(retainSKKInputEnvironment, releaseSKKInputEnvironment);
 
