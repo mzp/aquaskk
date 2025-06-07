@@ -7,7 +7,7 @@
 
 @objc public protocol SKKInputSessionParameterProtocol {
     func config() -> SKKConfigProtocol
-    func frontEnd() -> SKKFrontEndProtocol
+    @objc func frontEnd() -> SKKFrontEndProtocol
     func messenger() -> SKKMessengerProtocol
     func clipboard() -> SKKClipboardProtocol
     func candidateWindow() -> SKKCandidateWindowProtocol

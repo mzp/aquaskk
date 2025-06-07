@@ -25,7 +25,7 @@
 
 #include <string>
 
-class SKKFrontEnd;
+@protocol SKKFrontEndProtocol;
 class SKKOutputBufferContainer;
 
 // 出力バッファ
@@ -33,7 +33,7 @@ class SKKOutputBuffer {
     SKKOutputBufferContainer *container_;
 
 public:
-    SKKOutputBuffer(SKKFrontEnd *frontend);
+    SKKOutputBuffer(id<SKKFrontEndProtocol> frontend);
 
     void Fix(const std::string &str);
     void Compose(const std::string &str, int cursor = 0);

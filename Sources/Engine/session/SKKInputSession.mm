@@ -25,7 +25,8 @@
 #import <AquaSKKEngine/SKKPrimaryEditor.h>
 #import <AquaSKKEngine/SKKRecursiveEditor.h>
 #import <AquaSKKEngine/SKKRegisterEditor.h>
-#include "SKKFrontEnd.h"
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 namespace {
     class scoped_flag {
@@ -46,7 +47,7 @@ namespace {
 SKKInputSession::SKKInputSession(id<SKKInputSessionParameterProtocol> param)
     : paramImpl_(param),
       param_(new SKKInputSessionParameterAdapter(param)),
-      context_(param_->FrontEnd()),
+      context_([param frontEnd]),
       inEvent_(false) {
     stack_.push_back(createEditor(new SKKPrimaryEditor(&context_)));
 }
