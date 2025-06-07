@@ -14,11 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 class SKKInputSessionParameter;
 @class MacInputModeWindowImpl;
 @class MacInputModeMenuImpl;
+@protocol SKKInputSessionParameterProtocol;
 
 @interface SKKInputSessionBridge : NSObject
 
 - (instancetype)initWithClient:(id)client layoutManager:(SKKLayoutManager *)layoutManager;
-- (instancetype)initWithParameter:(SKKInputSessionParameter *)parameter;
+- (instancetype)initWithParameter:(id<SKKInputSessionParameterProtocol>)parameter;
 - (void)commit;
 - (void)activate;
 - (void)deactivate;

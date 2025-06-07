@@ -14,17 +14,10 @@ FOUNDATION_EXPORT double AquaSKKTestingVersionNumber;
 FOUNDATION_EXPORT const unsigned char AquaSKKTestingVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import
-#import <AquaSKKTesting/MockAnnotator.h>
-#import <AquaSKKTesting/MockCandidateWindow.h>
+#import <InputMethodKit/InputMethodKit.h>
 #import <AquaSKKTesting/MockCompletionHelper.h>
-#import <AquaSKKTesting/MockConfig.h>
-#import <AquaSKKTesting/MockDynamicCompletor.h>
-#import <AquaSKKTesting/MockFrontEnd.h>
-#import <AquaSKKTesting/MockInputSessionParameter.h>
-#import <AquaSKKTesting/MockMessenger.h>
 #import <AquaSKKTesting/MockSelectorBuddy.h>
-#import <AquaSKKTesting/TyperConfig.h>
-#import <AquaSKKTesting/TyperInputSessionParameter.h>
+#import <AquaSKKTesting/TestResult.h>
 #import <AquaSKKTesting/jconv.h>
 #import <AquaSKKTesting/pthreadutil.h>
 #import <AquaSKKTesting/stringutil.h>

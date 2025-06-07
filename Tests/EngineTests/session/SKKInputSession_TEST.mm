@@ -12,13 +12,14 @@
 #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 #import <AquaSKKInput/AquaSKKInput-Swift.h>
+#import <AquaSKKTesting/AquaSKKTesting-Swift.h>
 #include "TestData.h"
 
 @interface SKKInputSessionTests : XCTestCase
 @end
 
 class TestRunner {
-    MockInputSessionParameter *param;
+    MockInputSessionParameterImpl *param;
     SKKInputSession session;
     AquaSKKInput::SKKKeymapImpl map;
     TestData test;
@@ -42,7 +43,7 @@ class TestRunner {
         [[SKKRomanKanaConverterImpl sharedInstance] initialize:@"kana-rule.conf"];
         map.initialize("keymap.conf");
 
-        session.AddInputModeListener(param->Listener());
+        session.AddInputModeListener(new SKKInputModeListenerAdapter([param listener]));
     }
 
     void execute() {
@@ -52,12 +53,15 @@ class TestRunner {
 
         while(test >> entry) {
             ++total;
-            TestResult &actual = param->Result();
-
+            TestResult actual;
+            actual.fixed = std::string(param.resultFixed.UTF8String);
+            actual.marked = std::string(param.resultMarked.UTF8String);
+            actual.mode = param.resultMode;
+            actual.pos = static_cast<int>(param.resultPos);
             actual.Clear();
 
-            param->SetSelectedString(entry.input.selection);
-            param->SetYankString(entry.input.yank);
+            [param setSelectedString:SKKUTF8String(entry.input.selection)];
+            [param setYankString:SKKUTF8String(entry.input.yank)];
 
             SKKEvent event = getEvent(entry);
 
@@ -80,8 +84,13 @@ class TestRunner {
     }
 
 public:
+    MockInputSessionParameterImpl *mockParam;
+
     TestRunner(const std::string &path)
-        : param(new MockInputSessionParameter()), session(param), map(AquaSKKInput::SKKKeymapImpl::init()) {
+        : param([MockInputSessionParameterImpl new]),
+          session(param),
+          map(AquaSKKInput::SKKKeymapImpl::init()) {
+
         initialize();
         test.Load(path);
     }
