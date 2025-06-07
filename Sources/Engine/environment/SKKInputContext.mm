@@ -16,6 +16,6 @@ void releaseSKKInputContext(SKKInputContext *obj) {
     obj->release();
 }
 
-SKKCandidateBridge* SKKInputContext::getCandidateBridge() const {
+SKKCandidateBridge *SKKInputContext::getCandidateBridge() const {
     return [SKKCandidateBridge candidateFromCpp:&this->candidate];
 }

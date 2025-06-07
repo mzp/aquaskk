@@ -19,14 +19,18 @@ public class MacWidget: NSObject {
 
     @objc public func hide() {
         visible = false
-        skkWidgetShow()
+        skkWidgetHide()
     }
 
     @objc public func activate() {
-        skkWidgetShow()
+        if visible {
+            skkWidgetShow()
+        }
     }
 
     @objc public func deactivate() {
-        skkWidgetHide()
+        if visible {
+            skkWidgetHide()
+        }
     }
 }

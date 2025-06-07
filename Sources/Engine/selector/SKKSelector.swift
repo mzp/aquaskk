@@ -24,7 +24,7 @@ public class SKKSelectorImpl {
         .init(buddy: buddy.getSelectorBuddyProtocol(), presenter: SKKCandidateWindowBridgeAdapter(window))
     }
 
-    public init(buddy: SKKSelectorBuddyProtocol, presenter: SKKCandidatePresenter) {
+    public init(buddy: SKKSelectorBuddyProtocol, presenter: SKKCandidateWindowProtocol) {
         self.buddy = buddy
         windowSelector = SKKWindowSelectorImpl(presenter: presenter)
     }

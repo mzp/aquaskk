@@ -5,7 +5,7 @@
 //  Created by mzp on 2025/03/02.
 //
 
-class SKKCandidateWindowBridgeAdapter: SKKCandidatePresenter {
+class SKKCandidateWindowBridgeAdapter: SKKCandidateWindowProtocol {
     let impl: SKKCandidateWindowBridge
     init(_ impl: SKKCandidateWindowBridge) {
         self.impl = impl
@@ -31,11 +31,34 @@ class SKKCandidateWindowBridgeAdapter: SKKCandidatePresenter {
         impl.Update(container, Int32(cursor), Int32(position), Int32(max))
     }
 
-    public func show() {
+    func skkWidgetShow() {
         impl.Show()
     }
 
-    public func hide() {
+    func skkWidgetHide() {
         impl.Hide()
+    }
+
+    var visible = false
+    @objc public func show() {
+        visible = true
+        skkWidgetShow()
+    }
+
+    @objc public func hide() {
+        visible = false
+        skkWidgetHide()
+    }
+
+    @objc public func activate() {
+        if visible {
+            skkWidgetShow()
+        }
+    }
+
+    @objc public func deactivate() {
+        if visible {
+            skkWidgetHide()
+        }
     }
 }

@@ -6,9 +6,9 @@
 //
 
 public class SKKRecursiveEditorImpl {
-    private let env: SKKInputEnvironment
+    private let env: SKKInputEnvironmentImpl
     private var annotator: SKKAnnotatorProtocol
-    private var completer: SKKDynamicCompletor
+    private var completer: SKKDynamicCompletorProtocol
     private var candidateWindow: SKKCandidateWindow
     private var state: SKKStateMachineImpl
     private var editor: SKKInputEngineImpl
@@ -18,20 +18,18 @@ public class SKKRecursiveEditorImpl {
         let completerImpl = SKKCompleterImpl(buddyProtocol: editorImpl)
         let selectorImpl = SKKSelectorImpl(buddy: editorImpl, presenter: SKKCandidateWindowBridgeAdapter(env.CandidateWindowBridge()!))
         editor = editorImpl
-        self.env = env
+        self.env = envImpl
         annotator = envImpl.annotator
-        completer = env.DynamicCompletor()
+        completer = envImpl.dynamicCompletor
         candidateWindow = env.CandidateWindow()
         state = SKKStateMachineImpl(engine: editorImpl, context: env.InputContext(), config: env.Config(), completer: completerImpl, selector: selectorImpl, messenger: env.Messenger())
     }
 
     deinit {
         annotator.hide()
-        completer.Hide()
+        completer.hide()
         candidateWindow.Hide()
-
-        var selector = env.InputModeSelector()
-        selector?.Hide()
+        env.selector.Hide()
     }
 
     public func input(event: SKKEvent) {
@@ -40,18 +38,14 @@ public class SKKRecursiveEditorImpl {
 
     public func output() {
         editor.updateInputContext()
-        guard let context = env.InputContext() else {
-            return
-        }
+        env.context.output.Output()
 
-        context.output.Output()
-
-        if context.dynamic_completion, env.Config().EnableDynamicCompletion() {
-            let entry = context.entry
+        if env.context.dynamic_completion, env.config.enableDynamicCompletion() {
+            let entry = env.context.entry
             var joined = ""
             var commonPrefix = ""
             if !entry.IsEmpty(), !entry.IsOkuriAri() {
-                let range = env.Config().DynamicCompletionRange()
+                let range = env.config.dynamicCompletionRange()
                 let key = String(entry.EntryString())
 
                 if range > 0 {
@@ -65,16 +59,17 @@ public class SKKRecursiveEditorImpl {
                     }
                 }
             }
-            SKKDynamicCompletor.InvokeUpdate(completer, std.string(joined), Int32(commonPrefix.count), context.output.GetMark())
-            completer.Show()
+
+            completer.update(completion: joined, commonPrefixLength: commonPrefix.count, cursorOffset: Int(env.context.output.GetMark()))
+            completer.show()
         } else {
-            completer.Hide()
+            completer.hide()
         }
 
-        if context.annotation, env.Config().EnableAnnotation() {
-            let candidate = context.candidateBridge
+        if env.context.annotation, env.config.enableAnnotation() {
+            let candidate = env.context.candidateBridge
 
-            annotator.update(candidateBridge: candidate!, cursorOffset: Int(context.output.GetMark()))
+            annotator.update(candidateBridge: candidate!, cursorOffset: Int(env.context.output.GetMark()))
             annotator.show()
         } else {
             annotator.hide()
@@ -83,17 +78,15 @@ public class SKKRecursiveEditorImpl {
 
     public func activate() {
         annotator.activate()
-        completer.Activate()
+        completer.activate()
         candidateWindow.Activate()
-        var selector = env.InputModeSelector()
-        selector?.Activate()
+        env.selector.Activate()
     }
 
     public func deactivate() {
         annotator.deactivate()
-        completer.Deactivate()
+        completer.deactivate()
         candidateWindow.Deactivate()
-        var selector = env.InputModeSelector()
-        selector?.Deactivate()
+        env.selector.Deactivate()
     }
 }
