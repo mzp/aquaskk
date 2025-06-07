@@ -6,6 +6,7 @@
 //
 
 #include "SKKInputContext.h"
+#import <AquaSKKBackend/AquaSKKBackend.h>
 
 void retainSKKInputContext(SKKInputContext *obj) {
     obj->retain();
@@ -13,4 +14,8 @@ void retainSKKInputContext(SKKInputContext *obj) {
 
 void releaseSKKInputContext(SKKInputContext *obj) {
     obj->release();
+}
+
+SKKCandidateBridge* SKKInputContext::getCandidateBridge() const {
+    return [SKKCandidateBridge candidateFromCpp:&this->candidate];
 }

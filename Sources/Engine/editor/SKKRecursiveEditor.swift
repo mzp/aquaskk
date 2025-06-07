@@ -7,25 +7,26 @@
 
 public class SKKRecursiveEditorImpl {
     private let env: SKKInputEnvironment
-    private var annotator: SKKAnnotator
+    private var annotator: SKKAnnotatorProtocol
     private var completer: SKKDynamicCompletor
     private var candidateWindow: SKKCandidateWindow
     private var state: SKKStateMachineImpl
     private var editor: SKKInputEngineImpl
     public init(env: SKKInputEnvironment) {
-        let editorImpl = SKKInputEngineImpl(env: env.getImpl())
+        let envImpl = env.getImpl()!
+        let editorImpl = SKKInputEngineImpl(env: envImpl)
         let completerImpl = SKKCompleterImpl(buddyProtocol: editorImpl)
         let selectorImpl = SKKSelectorImpl(buddy: editorImpl, presenter: SKKCandidateWindowBridgeAdapter(env.CandidateWindowBridge()!))
         editor = editorImpl
         self.env = env
-        annotator = env.Annotator()
+        annotator = envImpl.annotator
         completer = env.DynamicCompletor()
         candidateWindow = env.CandidateWindow()
         state = SKKStateMachineImpl(engine: editorImpl, context: env.InputContext(), config: env.Config(), completer: completerImpl, selector: selectorImpl, messenger: env.Messenger())
     }
 
     deinit {
-        annotator.Hide()
+        annotator.hide()
         completer.Hide()
         candidateWindow.Hide()
 
@@ -71,16 +72,17 @@ public class SKKRecursiveEditorImpl {
         }
 
         if context.annotation, env.Config().EnableAnnotation() {
-            let candidate = context.candidate
-            SKKAnnotator.InvokeUpdate(annotator, candidate, context.output.GetMark())
-            annotator.Show()
+            let candidate = context.candidateBridge
+
+            annotator.update(candidateBridge: candidate!, cursorOffset: Int(context.output.GetMark()))
+            annotator.show()
         } else {
-            annotator.Hide()
+            annotator.hide()
         }
     }
 
     public func activate() {
-        annotator.Activate()
+        annotator.activate()
         completer.Activate()
         candidateWindow.Activate()
         var selector = env.InputModeSelector()
@@ -88,7 +90,7 @@ public class SKKRecursiveEditorImpl {
     }
 
     public func deactivate() {
-        annotator.Deactivate()
+        annotator.deactivate()
         completer.Deactivate()
         candidateWindow.Deactivate()
         var selector = env.InputModeSelector()

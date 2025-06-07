@@ -375,7 +375,7 @@
 		139E88C92D7423740065CFA2 /* MockSelectorBuddy.h in Headers */ = {isa = PBXBuildFile; fileRef = 139E88C82D7423740065CFA2 /* MockSelectorBuddy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		139E88CC2D7425CD0065CFA2 /* SKKSelectorBuddy.h in Headers */ = {isa = PBXBuildFile; fileRef = 139E88CB2D74257F0065CFA2 /* SKKSelectorBuddy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		139E88CF2D7426F00065CFA2 /* MockSelectorBuddy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 139E88CE2D7426F00065CFA2 /* MockSelectorBuddy.mm */; };
-		139FE4472D7768840015DFCA /* SKKInputContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 139FE4462D7768840015DFCA /* SKKInputContext.cpp */; };
+		139FE4472D7768840015DFCA /* SKKInputContext.mm in Sources */ = {isa = PBXBuildFile; fileRef = 139FE4462D7768840015DFCA /* SKKInputContext.mm */; };
 		139FE4492D7768C70015DFCA /* SKKPrimaryEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139FE4482D7768C70015DFCA /* SKKPrimaryEditor.swift */; };
 		13A0CF3B2D6941AD00489953 /* SKKCommonDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A0CF3A2D6941AD00489953 /* SKKCommonDictionary.swift */; };
 		13A4FDBA2D6EDACD00AA0BFF /* SKKKeyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A4FDB92D6EDACD00AA0BFF /* SKKKeyState.swift */; };
@@ -1019,7 +1019,7 @@
 		139E88C82D7423740065CFA2 /* MockSelectorBuddy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockSelectorBuddy.h; sourceTree = "<group>"; };
 		139E88CB2D74257F0065CFA2 /* SKKSelectorBuddy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKSelectorBuddy.h; sourceTree = "<group>"; };
 		139E88CE2D7426F00065CFA2 /* MockSelectorBuddy.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MockSelectorBuddy.mm; sourceTree = "<group>"; };
-		139FE4462D7768840015DFCA /* SKKInputContext.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKInputContext.cpp; sourceTree = "<group>"; };
+		139FE4462D7768840015DFCA /* SKKInputContext.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKInputContext.mm; sourceTree = "<group>"; };
 		139FE4482D7768C70015DFCA /* SKKPrimaryEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKPrimaryEditor.swift; sourceTree = "<group>"; };
 		13A0CF3A2D6941AD00489953 /* SKKCommonDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKCommonDictionary.swift; sourceTree = "<group>"; };
 		13A4FDB92D6EDACD00AA0BFF /* SKKKeyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKKeyState.swift; sourceTree = "<group>"; };
@@ -2761,7 +2761,7 @@
 				138930122DF4849000EA7600 /* SKKInputEnvironment.swift */,
 				1344F4F82C5B28FC00D8C850 /* SKKInputEnvironment.mm */,
 				1344F4F62C5B28FC00D8C850 /* SKKInputContext.h */,
-				139FE4462D7768840015DFCA /* SKKInputContext.cpp */,
+				139FE4462D7768840015DFCA /* SKKInputContext.mm */,
 				1344F4FE2C5B28FC00D8C850 /* SKKOutputBuffer.h */,
 				1344F4FF2C5B28FC00D8C850 /* SKKOutputBuffer.mm */,
 				138FB7132D7BF42C00542DF7 /* SKKOutputBuffer.swift */,
@@ -4107,7 +4107,7 @@
 				1311EB252DE962ED00808F8D /* SKKOkuriListenerProtocol.swift in Sources */,
 				13B16D372DE2F30F0064ADCF /* SKKInputSessionParameterProtocol.swift in Sources */,
 				135FB6D92C6998E800A6480A /* SKKRomanKanaConverter.swift in Sources */,
-				139FE4472D7768840015DFCA /* SKKInputContext.cpp in Sources */,
+				139FE4472D7768840015DFCA /* SKKInputContext.mm in Sources */,
 				138198F82D79340C009C29E7 /* SKKComposingEditor.swift in Sources */,
 				134D25662D7A08C50014ACD5 /* SKKEditorProtocol.swift in Sources */,
 				1390FCF52D75575200059E87 /* SKKCandidateWindow.swift in Sources */,

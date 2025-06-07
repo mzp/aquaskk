@@ -31,6 +31,8 @@
 #import <AquaSKKEngine/SKKRegistration.h>
 #import <AquaSKKEngine/SKKUndoContext.h>
 
+@class SKKCandidateBridge;
+
 // 入力コンテキスト
 class SKKInputContext : public IntrusiveRefCounted<SKKInputContext> {
 public:
@@ -47,6 +49,8 @@ public:
 
     SKKInputContext(SKKFrontEnd *frontend)
         : output(frontend), undo(frontend), dynamic_completion(false) {}
+
+    SKKCandidateBridge* getCandidateBridge() const SWIFT_COMPUTED_PROPERTY;
 } SWIFT_SHARED_REFERENCE(retainSKKInputContext, releaseSKKInputContext);
 
 void retainSKKInputContext(SKKInputContext *obj);

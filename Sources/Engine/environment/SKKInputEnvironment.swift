@@ -31,4 +31,8 @@ import Foundation
     var annotator: SKKAnnotatorProtocol {
         param.annotator()
     }
+
+    var dynamicCompletor: SKKDynamicCompletorProtocol {
+        param.dynamicCompletor()
+    }
 }
