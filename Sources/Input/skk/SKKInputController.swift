@@ -37,7 +37,7 @@ public class SKKInputController: IMKInputController {
     }
 
     @_spi(Testing)
-    public func _setClient(_ client: IMKTextInput, sessionParameter: OpaquePointer) {
+    public func _setClient(_ client: IMKTextInput, sessionParameter: AquaSKKEngine.SKKInputSessionParameterProtocol) {
         let session = SKKInputSessionBridge(parameter: sessionParameter)
         setClient(client, session: session)
     }

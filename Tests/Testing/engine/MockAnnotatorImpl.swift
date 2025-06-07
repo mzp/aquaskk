@@ -9,15 +9,11 @@ internal import AquaSKKEngine
 internal import AquaSKKBackend
 
 class MockAnnotatorImpl: MockWidget, SKKAnnotatorProtocol {
-    var candidateBridge: SKKCandidateBridge?
-    var candidate: SKKCandidate? {
-        candidateBridge?.rawValue.pointee
-    }
-
+    var candidate: String?
     var cursorOffset: Int = 0
 
     func update(candidateBridge bridge: SKKCandidateBridge, cursorOffset: Int) {
-        candidateBridge = bridge
+        candidate = String(bridge.rawValue.pointee.ToString())
         self.cursorOffset = cursorOffset
     }
 }

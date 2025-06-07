@@ -86,10 +86,7 @@ public class TyperInputSessionParameterImpl: AquaSKKEngine.SKKInputSessionParame
     }
 
     public var annotation: String {
-        guard let candidate = annotatorImpl.candidate else {
-            return ""
-        }
-        return String(candidate.ToString())
+        annotatorImpl.candidate ?? ""
     }
 
     public var annotationCursor: Int {

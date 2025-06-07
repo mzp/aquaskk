@@ -88,7 +88,7 @@ public:
 
     TestRunner(const std::string &path)
         : param([MockInputSessionParameterImpl new]),
-          session(new SKKInputSessionParameterAdapter(param)),
+          session(param),
           map(AquaSKKInput::SKKKeymapImpl::init()) {
 
         initialize();

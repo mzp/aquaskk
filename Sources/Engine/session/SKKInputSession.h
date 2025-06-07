@@ -32,6 +32,7 @@ class SKKRecursiveEditor;
 class SKKBaseEditor;
 class SKKConfig;
 class SKKEvent;
+@protocol SKKInputSessionParameterProtocol;
 
 class SKKInputSession {
     SKKInputSessionParameter *param_;
@@ -54,7 +55,7 @@ class SKKInputSession {
     SKKInputSession &operator=(const SKKInputSession &);
 
 public:
-    SKKInputSession(SKKInputSessionParameter *param);
+    SKKInputSession(id<SKKInputSessionParameterProtocol> param);
     ~SKKInputSession();
 
     void AddInputModeListener(SKKInputModeListener *listener);

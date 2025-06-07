@@ -24,6 +24,7 @@
 #import <AquaSKKEngine/SKKPrimaryEditor.h>
 #import <AquaSKKEngine/SKKRecursiveEditor.h>
 #import <AquaSKKEngine/SKKRegisterEditor.h>
+#import <AquaSKKEngine/SKKInputSessionParameterAdapter.h>
 #include "SKKFrontEnd.h"
 
 namespace {
@@ -42,8 +43,8 @@ namespace {
     };
 } // namespace
 
-SKKInputSession::SKKInputSession(SKKInputSessionParameter *param)
-    : param_(param), context_(param_->FrontEnd()), inEvent_(false) {
+SKKInputSession::SKKInputSession(id<SKKInputSessionParameterProtocol> param)
+    : param_(new SKKInputSessionParameterAdapter(param)), context_(param_->FrontEnd()), inEvent_(false) {
     stack_.push_back(createEditor(new SKKPrimaryEditor(&context_)));
 }
 

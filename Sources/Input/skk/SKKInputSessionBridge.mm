@@ -21,10 +21,10 @@
 {
     MacInputSessionParameterImpl *parameter = [[MacInputSessionParameterImpl alloc] initWithClient:client
                                                                                      layoutManager:layoutManager];
-    return [self initWithParameter:new SKKInputSessionParameterAdapter(parameter)];
+    return [self initWithParameter:parameter];
 }
 
-- (instancetype)initWithParameter:(SKKInputSessionParameter *)parameter {
+- (instancetype)initWithParameter:(id<SKKInputSessionParameterProtocol>)parameter {
     self = [super init];
     if(self) {
         impl = new SKKInputSession(parameter);
