@@ -32,7 +32,7 @@
 #import <AquaSKKEngine/SKKUndoContext.h>
 
 @class SKKCandidateBridge;
-
+@protocol SKKFrontEndProtocol;
 // 入力コンテキスト
 class SKKInputContext : public IntrusiveRefCounted<SKKInputContext> {
 public:
@@ -47,7 +47,7 @@ public:
     bool dynamic_completion;
     bool annotation;
 
-    SKKInputContext(SKKFrontEnd *frontend)
+    SKKInputContext(id<SKKFrontEndProtocol> frontend)
         : output(frontend), undo(frontend), dynamic_completion(false) {}
 
     SKKCandidateBridge *getCandidateBridge() const SWIFT_COMPUTED_PROPERTY;

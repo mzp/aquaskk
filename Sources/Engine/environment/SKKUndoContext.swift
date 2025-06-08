@@ -9,17 +9,17 @@ import AquaSKKLogging
 import OSLog
 
 public class SKKUndoContextImpl {
-    private let frontend: SKKFrontEnd
+    private let frontend: SKKFrontEndProtocol
     private var entry: String
     private var candidate: String
-    public init(frontend: SKKFrontEnd) {
+    public init(frontend: SKKFrontEndProtocol) {
         self.frontend = frontend
         entry = ""
         candidate = ""
     }
 
     public func undo() -> SKKUndoResult {
-        candidate = String(frontend.SelectedString())
+        candidate = frontend.selectedString()
 
         // 逆引き
         entry = SKKBackendImpl.shared().reverseLookup(candidate: candidate)
