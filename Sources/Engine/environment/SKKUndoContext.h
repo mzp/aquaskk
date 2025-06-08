@@ -27,13 +27,14 @@
 #include <swift/bridging>
 
 @protocol SKKFrontEndProtocol;
+@class SKKUndoContextImpl;
 
 enum class SKKUndoResult { UndoFailed, UndoKanaEntry, UndoAsciiEntry };
 
 class SKKUndoContextContainer;
 
 class SKKUndoContext {
-    SKKUndoContextContainer *container_;
+    SKKUndoContextImpl *impl_;
     id<SKKFrontEndProtocol> frontend_;
 
 public:

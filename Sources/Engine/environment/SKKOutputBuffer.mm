@@ -19,51 +19,42 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 */
-
-#import <AquaSKKBackend/SwiftObject.h>
-#import <AquaSKKEngine/SKKFrontEnd.h>
-#import <AquaSKKEngine/SKKOutputBuffer.h>
+#import "SKKOutputBuffer.h"
+#import <AquaSKKBackend/AquaSKKBackend.h>
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
-struct SKKOutputBufferContainer {
-    SwiftObject<AquaSKKEngine::SKKOutputBufferImpl> *impl_;
-
-    SKKOutputBufferContainer(id<SKKFrontEndProtocol> frontend)
-        : impl_(new SwiftObject(AquaSKKEngine::SKKOutputBufferImpl::init(frontend))) {}
-};
-
 SKKOutputBuffer::SKKOutputBuffer(id<SKKFrontEndProtocol> frontend)
-    : container_(new SKKOutputBufferContainer(frontend)) {}
+    : impl_([[SKKOutputBufferImpl alloc] initWithFrontend:frontend]) {}
 
 void SKKOutputBuffer::Fix(const std::string &str) {
-    (*(container_->impl_))->fix(str);
+    [impl_ fixWithString:SKKUTF8String(str)];
 }
 
 void SKKOutputBuffer::Compose(const std::string &str, int cursor) {
-    (*(container_->impl_))->compose(str, cursor);
+    [impl_ composeWithString:SKKUTF8String(str) cursor:cursor];
 }
 
 void SKKOutputBuffer::Convert(const std::string &str) {
-    (*(container_->impl_))->convert(str);
+    [impl_ convertWithString:SKKUTF8String(str)];
 }
 
 void SKKOutputBuffer::SetMark() {
-    (*(container_->impl_))->setMark();
+    [impl_ setMark];
 }
 
 int SKKOutputBuffer::GetMark() const {
-    return static_cast<int>((*(container_->impl_))->getMark());
+    return static_cast<int>([impl_ getMark]);
 }
 
 void SKKOutputBuffer::Clear() {
-    (*(container_->impl_))->clear();
+    [impl_ clear];
 }
 
 void SKKOutputBuffer::Output() {
-    (*(container_->impl_))->output();
+    [impl_ output];
 }
 
 bool SKKOutputBuffer::IsComposing() const {
-    return (*(container_->impl_))->isComposing();
+    return [impl_ isComposing];
 }

@@ -8,7 +8,7 @@
 import AquaSKKLogging
 import OSLog
 
-public class SKKOutputBufferImpl {
+@objc public class SKKOutputBufferImpl: NSObject {
     private let frontend: SKKFrontEndProtocol
     private var composing: String
     private var cursor: String.Index
@@ -18,7 +18,7 @@ public class SKKOutputBufferImpl {
     private var length: Int
 
     private var currentDisplayString: String
-    public init(frontend: SKKFrontEndProtocol) {
+    @objc public init(frontend: SKKFrontEndProtocol) {
         self.frontend = frontend
         composing = ""
         cursor = composing.startIndex
@@ -28,11 +28,11 @@ public class SKKOutputBufferImpl {
         currentDisplayString = ""
     }
 
-    public func fix(string: String) {
+    @objc public func fix(string: String) {
         frontend.insert(string: string)
     }
 
-    public func compose(string: String, cursor offset: Int = 0) {
+    @objc public func compose(string: String, cursor offset: Int = 0) {
         composing.insert(contentsOf: string, at: cursor)
         cursor = composing.index(cursor, offsetBy: string.count + offset)
         if !composing.isEmpty {
@@ -46,21 +46,21 @@ public class SKKOutputBufferImpl {
         }
     }
 
-    public func convert(string: String) {
+    @objc public func convert(string: String) {
         start = composing[composing.startIndex ..< cursor].count
         length = string.count
         compose(string: string, cursor: 0)
     }
 
-    public func setMark() {
+    @objc public func setMark() {
         mark = cursor
     }
 
-    public func getMark() -> Int {
+    @objc public func getMark() -> Int {
         mark.utf16Offset(in: composing)
     }
 
-    public func clear() {
+    @objc public func clear() {
         Logger.skkEngine.info("""
         [\(#fileID, privacy: .public):\(#function, privacy: .public)] \
         "\(self.composing, privacy: .private)"\
@@ -73,7 +73,7 @@ public class SKKOutputBufferImpl {
         length = 0
     }
 
-    public func output() {
+    @objc public func output() {
         if composing == currentDisplayString, composing.isEmpty {
             return
         }
@@ -86,7 +86,7 @@ public class SKKOutputBufferImpl {
         currentDisplayString = composing
     }
 
-    public var isComposing: Bool {
+    @objc public var isComposing: Bool {
         !composing.isEmpty
     }
 }

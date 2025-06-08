@@ -27,10 +27,11 @@
 
 @protocol SKKFrontEndProtocol;
 class SKKOutputBufferContainer;
+@class SKKOutputBufferImpl;
 
 // 出力バッファ
 class SKKOutputBuffer {
-    SKKOutputBufferContainer *container_;
+    SKKOutputBufferImpl *impl_;
 
 public:
     SKKOutputBuffer(id<SKKFrontEndProtocol> frontend);

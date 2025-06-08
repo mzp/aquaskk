@@ -20,48 +20,37 @@
 
 */
 
-#import <AquaSKKBackend/SwiftObject.h>
-#import <AquaSKKEngine/SKKUndoContext.h>
+#import "SKKUndoContext.h"
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
-struct SKKUndoContextContainer {
-    SwiftObject<AquaSKKEngine::SKKUndoContextImpl> *impl_;
-    SKKUndoContextContainer(id<SKKFrontEndProtocol> frontend)
-        : impl_(new SwiftObject(AquaSKKEngine::SKKUndoContextImpl::init(frontend))) {
-        {
-        }
-    }
-};
-
 SKKUndoContext::SKKUndoContext(id<SKKFrontEndProtocol> frontend)
-    : container_(new SKKUndoContextContainer(frontend)) {}
+    : frontend_(frontend), impl_([[SKKUndoContextImpl alloc] initWithFrontend:frontend]) {}
 
 SKKUndoResult SKKUndoContext::Undo() {
-    int result = (*(container_->impl_))->bridgedUndo();
-    return SKKUndoResult(result);
+    return [impl_ undo];
 }
 
 bool SKKUndoContext::IsActive() const {
-    return (*(container_->impl_))->isActive();
+    return [impl_ isActive];
 }
 
 void SKKUndoContext::Clear() {
-    (*(container_->impl_))->clear();
+    [impl_ clear];
 }
 
 const std::string SKKUndoContext::Entry() const {
-    return (*(container_->impl_))->bridgeEntry();
+    return std::string(impl_.entry.UTF8String);
 }
 
 const std::string SKKUndoContext::Candidate() const {
-    return (*(container_->impl_))->bridgeCandidate();
+    return std::string(impl_.candidate.UTF8String);
 }
 
 const std::string SKKUndoContext::getEntry() const {
-    return (*(container_->impl_))->bridgeEntry();
+    return std::string(impl_.entry.UTF8String);
 }
 
 const std::string SKKUndoContext::getCandidate() const {
-    return (*(container_->impl_))->bridgeCandidate();
+    return std::string(impl_.entry.UTF8String);
 }
