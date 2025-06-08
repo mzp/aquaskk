@@ -22,7 +22,7 @@ public class SKKComposingEditorImpl: SKKEditorProtocol {
 
         if context.entry.IsEmpty() {
             // 直接入力モードからの遷移
-            composing.insert(String(context.undo.Entry()))
+            composing.insert(context.undo.entry)
         } else {
             // 変換モードからの遷移なので、見出し語を復元する
             context.entry.SetOkuri("", "")
@@ -32,8 +32,8 @@ public class SKKComposingEditorImpl: SKKEditorProtocol {
     }
 
     public func writeContext() {
-        context.output.SetMark()
-        context.output.Compose(std.string("▽\(composing.string)"), Int32(composing.cursorPosition))
+        context.output.setMark()
+        context.output.compose(string: "▽\(composing.string)", cursor: composing.cursorPosition)
         update()
     }
 

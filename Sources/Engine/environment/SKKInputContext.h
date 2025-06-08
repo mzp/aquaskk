@@ -27,19 +27,20 @@
 #import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKBackend/SKKEntry.h>
 #import <AquaSKKEngine/IntrusiveRefCounted.h>
-#import <AquaSKKEngine/SKKOutputBuffer.h>
 #import <AquaSKKEngine/SKKRegistration.h>
 #import <AquaSKKEngine/SKKUndoContext.h>
 
 @class SKKCandidateBridge;
+@class SKKOutputBufferImpl;
+@class SKKUndoContextImpl;
 @protocol SKKFrontEndProtocol;
 // 入力コンテキスト
 class SKKInputContext : public IntrusiveRefCounted<SKKInputContext> {
 public:
     SKKEntry entry;
     SKKCandidate candidate;
-    SKKOutputBuffer output;
-    SKKUndoContext undo;
+    SKKOutputBufferImpl *output;
+    SKKUndoContextImpl *undo;
     SKKRegistration registration;
 
     bool event_handled;
@@ -47,8 +48,7 @@ public:
     bool dynamic_completion;
     bool annotation;
 
-    SKKInputContext(id<SKKFrontEndProtocol> frontend)
-        : output(frontend), undo(frontend), dynamic_completion(false) {}
+    SKKInputContext(id<SKKFrontEndProtocol> frontend);
 
     SKKCandidateBridge *getCandidateBridge() const SWIFT_COMPUTED_PROPERTY;
 } SWIFT_SHARED_REFERENCE(retainSKKInputContext, releaseSKKInputContext);

@@ -59,7 +59,7 @@ public class SKKStateEdit: HandlerProtocol {
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .exitEvent:
-            context.undo.Clear()
+            context.undo.clear()
             return .saveHistory
 
         case .enter:
@@ -75,9 +75,9 @@ public class SKKStateEdit: HandlerProtocol {
             return .transitionKanaInput
 
         case .cancel:
-            if context.undo.IsActive() {
-                let candidate = context.undo.Candidate()
-                context.output.Fix(candidate)
+            if context.undo.isActive {
+                let candidate = context.undo.candidate
+                context.output.fix(string: candidate)
             }
             return .transitionKanaInput
 

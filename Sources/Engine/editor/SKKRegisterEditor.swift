@@ -29,7 +29,7 @@ public class SKKRegisterEditorImpl: SKKEditorProtocol {
     }
 
     public func writeContext() {
-        context.output.Compose(std.string("\(prompt)\(word.string)"), Int32(word.cursorPosition))
+        context.output.compose(string: "\(prompt)\(word.string)", cursor: word.cursorPosition)
     }
 
     public func input(ascii: String) {

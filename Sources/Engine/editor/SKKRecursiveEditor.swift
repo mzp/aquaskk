@@ -43,7 +43,7 @@ public class SKKRecursiveEditorImpl {
 
     public func output() {
         editor.updateInputContext()
-        env.context.output.Output()
+        env.context.output.output()
 
         if env.context.dynamic_completion, env.config.enableDynamicCompletion() {
             let entry = env.context.entry
@@ -65,7 +65,7 @@ public class SKKRecursiveEditorImpl {
                 }
             }
 
-            completer.update(completion: joined, commonPrefixLength: commonPrefix.count, cursorOffset: Int(env.context.output.GetMark()))
+            completer.update(completion: joined, commonPrefixLength: commonPrefix.count, cursorOffset: Int(env.context.output.getMark()))
             completer.show()
         } else {
             completer.hide()
@@ -74,7 +74,7 @@ public class SKKRecursiveEditorImpl {
         if env.context.annotation, env.config.enableAnnotation() {
             let candidate = env.context.candidateBridge
 
-            annotator.update(candidateBridge: candidate!, cursorOffset: Int(env.context.output.GetMark()))
+            annotator.update(candidateBridge: candidate!, cursorOffset: Int(env.context.output.getMark()))
             annotator.show()
         } else {
             annotator.hide()

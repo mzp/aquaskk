@@ -282,16 +282,16 @@
     // MAKR: - 同期
 
     @objc public func updateInputContext() {
-        context.output.Clear()
+        context.output.clear()
         for editor in stack {
             editor.writeContext()
         }
 
         // 非確定文字があれば挿入(ex. "ky" など)
         if env.config.displayShortestMatchOfKanaConversions(), !inputState.intermediate.empty() {
-            context.output.Compose(inputState.intermediate, 0)
+            context.output.compose(string: SKKUTF8String(inputState.intermediate), cursor: 0)
         } else {
-            context.output.Compose(inputState.queue, 0)
+            context.output.compose(string: SKKUTF8String(inputState.queue), cursor: 0)
         }
         env.selector.Notify()
     }

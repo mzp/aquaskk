@@ -16,7 +16,7 @@ public class SKKPrimaryEditorImpl: SKKEditorProtocol {
         context.entry = SKKEntry()
         var registration = context.registration
         if registration.state == .Finished {
-            context.output.Fix(registration.word)
+            context.output.fix(string: SKKUTF8String(registration.word))
             registration.Clear()
         }
     }
@@ -28,7 +28,7 @@ public class SKKPrimaryEditorImpl: SKKEditorProtocol {
     }
 
     public func input(fixed: String, input _: String, code _: Int) {
-        context.output.Fix(std.string(fixed))
+        context.output.fix(string: fixed)
     }
 
     public func bridgeInputEvent(_ rawValue: UInt32) {
@@ -41,7 +41,7 @@ public class SKKPrimaryEditorImpl: SKKEditorProtocol {
     }
 
     public func commit(queue: String) -> String {
-        context.output.Fix(std.string(queue))
+        context.output.fix(string: queue)
         context.entry = SKKEntry()
         return ""
     }

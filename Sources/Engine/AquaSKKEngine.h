@@ -60,7 +60,6 @@ FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 #import <AquaSKKEngine/SKKInputEnvironment.h>
 #import <AquaSKKEngine/SKKInputModeSelector.h>
 #import <AquaSKKEngine/SKKInputSession.h>
-#import <AquaSKKEngine/SKKOutputBuffer.h>
 #import <AquaSKKEngine/SKKRecursiveEditor.h>
 #import <AquaSKKEngine/SKKRegistration.h>
 #import <AquaSKKEngine/SKKUndoContext.h>

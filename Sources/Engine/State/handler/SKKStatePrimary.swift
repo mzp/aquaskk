@@ -51,7 +51,7 @@ public class SKKStatePrimary: HandlerProtocol {
 
         case .undo:
             // Undo 可能なら見出し語入力に遷移する
-            switch context.undo.Undo() {
+            switch context.undo.undo() {
             case .UndoKanaEntry:
                 return .transitionKanaEntry
             case .UndoAsciiEntry:

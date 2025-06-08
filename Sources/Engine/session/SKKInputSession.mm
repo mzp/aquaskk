@@ -82,7 +82,7 @@ bool SKKInputSession::HandleEvent(const SKKEvent &event) {
 void SKKInputSession::Commit() {
     HandleEvent(SKKEvent(SKK_ENTER, 0));
 
-    if(context_.output.IsComposing()) {
+    if(context_.output.isComposing) {
         Clear();
     }
 }
@@ -140,7 +140,7 @@ void SKKInputSession::endEvent() {
 
 bool SKKInputSession::result(const SKKEvent &event) {
     // 単語登録中か、未確定状態なら常に処理済み
-    if(stack_.size() != 1 || context_.output.IsComposing()) {
+    if(stack_.size() != 1 || context_.output.isComposing) {
         return true;
     }
 
