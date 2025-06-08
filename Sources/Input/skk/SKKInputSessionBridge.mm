@@ -53,11 +53,11 @@
 }
 
 - (void)addListenerWithInputModeMenuImpl:(MacInputModeMenuImpl *)menu {
-    impl->AddInputModeListener(new SKKInputModeListenerAdapter(menu));
+    impl->AddInputModeListener(menu);
 }
 
 - (void)addListenerWithInputModeWindowImpl:(MacInputModeWindowImpl *)window {
     [window skkWidgetShow];
-    impl->AddInputModeListener(new SKKInputModeListenerAdapter(window));
+    impl->AddInputModeListener(window);
 }
 @end

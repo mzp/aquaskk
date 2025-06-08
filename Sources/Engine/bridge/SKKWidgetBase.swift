@@ -6,11 +6,15 @@
 //
 import Foundation
 
-public class MacWidget: NSObject {
-    private var visible: Bool = false
-    public func skkWidgetShow() {}
+open class SKKWidgetBase: NSObject {
+    private var visible: Bool
+    public init(visible: Bool = false) {
+        self.visible = visible
+    }
 
-    public func skkWidgetHide() {}
+    open func skkWidgetShow() {}
+
+    open func skkWidgetHide() {}
 
     @objc public func show() {
         visible = true

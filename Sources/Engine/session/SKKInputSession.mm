@@ -49,6 +49,7 @@ SKKInputSession::SKKInputSession(id<SKKInputSessionParameterProtocol> param)
       param_(new SKKInputSessionParameterAdapter(param)),
       context_([param frontEnd]),
       inEvent_(false) {
+    listeners_ = [NSMutableArray array];
     stack_.push_back(createEditor(new SKKPrimaryEditor(&context_)));
 }
 
@@ -58,8 +59,8 @@ SKKInputSession::~SKKInputSession() {
     }
 }
 
-void SKKInputSession::AddInputModeListener(SKKInputModeListener *listener) {
-    listeners_.push_back(listener);
+void SKKInputSession::AddInputModeListener(id<SKKInputModeListenerProtocol> listener) {
+    [listeners_ addObject:listener];
 }
 
 bool SKKInputSession::HandleEvent(const SKKEvent &event) {
@@ -162,7 +163,7 @@ SKKRecursiveEditor *SKKInputSession::top() {
 
 SKKRecursiveEditor *SKKInputSession::createEditor(SKKBaseEditor *bottom) {
     return new SKKRecursiveEditor(
-        new SKKInputEnvironment(&context_, paramImpl_, &listeners_, bottom->IsPrimaryEditor()));
+        new SKKInputEnvironment(&context_, paramImpl_, listeners_, bottom->IsPrimaryEditor()));
 }
 
 void SKKInputSession::popEditor() {

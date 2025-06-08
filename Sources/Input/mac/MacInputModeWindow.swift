@@ -9,7 +9,7 @@ import AquaSKKLogging
 import AquaSKKService
 import OSLog
 
-@objc public class MacInputModeWindowImpl: MacWidget, SKKInputModeListenerProtocol {
+@objc public class MacInputModeWindowImpl: SKKWidgetBase, SKKInputModeListenerProtocol {
     private let layoutManager: SKKLayoutManager
     private let tips: SKKModeTipsImpl
 

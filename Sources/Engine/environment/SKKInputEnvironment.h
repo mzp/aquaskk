@@ -46,8 +46,8 @@ class SKKInputEnvironment : public IntrusiveRefCounted<SKKInputEnvironment> {
 
 public:
     SKKInputEnvironment(
-        SKKInputContext *context, id<SKKInputSessionParameterProtocol> param, SKKInputModeListenerCollection *listeners,
-        bool isPrimaryEditor);
+        SKKInputContext *context, id<SKKInputSessionParameterProtocol> param,
+        NSArray<id<SKKInputModeListenerProtocol>> *listeners, bool isPrimaryEditor);
 
     SKKInputEnvironmentImpl *getImpl();
 } SWIFT_SHARED_REFERENCE(retainSKKInputEnvironment, releaseSKKInputEnvironment);

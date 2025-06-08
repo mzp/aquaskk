@@ -8,7 +8,7 @@ import AquaSKKEngine
 import AquaSKKUI
 
 @objc(MacAnnotatorImpl)
-public class MacAnnotatorImpl: MacWidget, SKKAnnotatorProtocol {
+public class MacAnnotatorImpl: SKKWidgetBase, SKKAnnotatorProtocol {
     private let window: AnnotationWindow
     private let layoutManager: SKKLayoutManager
 
@@ -25,6 +25,8 @@ public class MacAnnotatorImpl: MacWidget, SKKAnnotatorProtocol {
         optional = ""
         candidate = nil
         cursorOffset = 0
+
+        super.init()
     }
 
     @objc(update:cursorOffset:)

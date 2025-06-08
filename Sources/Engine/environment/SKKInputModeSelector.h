@@ -24,14 +24,17 @@
 #define SKKInputModeSelector_h
 
 #include <vector>
+#import <Foundation/Foundation.h>
 #include <swift/bridging>
 #import <AquaSKKBackend/SKKInputMode.h>
 #import <AquaSKKEngine/IntrusiveRefCounted.h>
 #import <AquaSKKEngine/SKKInputModeListener.h>
 #import <AquaSKKEngine/SKKWidget.h>
 
+@protocol SKKInputModeListenerProtocol;
+
 class SKKInputModeSelector : public SKKWidget, public IntrusiveRefCounted<SKKInputModeSelector> {
-    SKKInputModeListenerCollection *listeners_;
+    NSArray<id<SKKInputModeListenerProtocol>> *listeners_;
     SKKInputMode mode_;
     bool needsUpdate_;
 
@@ -39,7 +42,7 @@ class SKKInputModeSelector : public SKKWidget, public IntrusiveRefCounted<SKKInp
     virtual void SKKWidgetHide();
 
 public:
-    SKKInputModeSelector(SKKInputModeListenerCollection *listeners);
+    SKKInputModeSelector(NSArray<id<SKKInputModeListenerProtocol>> *listeners);
 
     void Select(SKKInputMode mode);
     void Notify();

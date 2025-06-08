@@ -11,7 +11,7 @@ import AquaSKKUI
 import OSLog
 
 @objc(MacCandidateWindowImpl)
-public class MacCandidateWindowImpl: MacWidget, SKKCandidateWindowProtocol {
+public class MacCandidateWindowImpl: SKKWidgetBase, SKKCandidateWindowProtocol {
     let layoutManager: SKKLayoutManager
     let window: CandidateWindow
     var candidates: [String]

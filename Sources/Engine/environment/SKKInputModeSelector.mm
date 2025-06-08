@@ -23,8 +23,10 @@
 #include <algorithm>
 #include <functional>
 #import <AquaSKKEngine/SKKInputModeSelector.h>
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
-SKKInputModeSelector::SKKInputModeSelector(SKKInputModeListenerCollection *listeners)
+SKKInputModeSelector::SKKInputModeSelector(NSArray<id<SKKInputModeListenerProtocol>> *listeners)
     : SKKWidget(true), listeners_(listeners), mode_(SKKInputMode::InvalidInputMode) {
     Select(SKKInputMode::HirakanaInputMode);
 }
@@ -34,14 +36,9 @@ void SKKInputModeSelector::Select(SKKInputMode mode) {
     needsUpdate_ = mode_ != mode;
     mode_ = mode;
 
-    for(SKKInputModeListenerCollection::iterator it = listeners_->begin(); it != listeners_->end(); it++) {
-        SKKInputModeListener *listener = *it;
-        listener->SelectInputMode(mode_);
+    for(id<SKKInputModeListenerProtocol> listener in listeners_) {
+        [listener selectInputMode:mode_];
     }
-
-    /*    std::for_each(
-            listeners_->begin(), listeners_->end(),
-            std::bind(std::mem_fn(&SKKInputModeListener::SelectInputMode), _1, mode_));*/
 }
 
 void SKKInputModeSelector::Notify() {
@@ -67,11 +64,15 @@ SKKInputMode SKKInputModeSelector::getInputMode() const SWIFT_COMPUTED_PROPERTY 
 // ------------------------------------------------------------
 
 void SKKInputModeSelector::SKKWidgetShow() {
-    std::for_each(listeners_->begin(), listeners_->end(), std::mem_fn(&SKKWidget::Show));
+    for(id<SKKInputModeListenerProtocol> listener in listeners_) {
+        [listener show];
+    }
 }
 
 void SKKInputModeSelector::SKKWidgetHide() {
-    std::for_each(listeners_->begin(), listeners_->end(), std::mem_fn(&SKKWidget::Hide));
+    for(id<SKKInputModeListenerProtocol> listener in listeners_) {
+        [listener hide];
+    }
 }
 
 void retainSKKInputModeSelector(SKKInputModeSelector *obj) {

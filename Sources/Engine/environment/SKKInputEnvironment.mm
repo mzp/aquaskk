@@ -26,8 +26,8 @@
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKInputEnvironment::SKKInputEnvironment(
-    SKKInputContext *context, id<SKKInputSessionParameterProtocol> param, SKKInputModeListenerCollection *listeners,
-    bool isPrimaryEditor)
+    SKKInputContext *context, id<SKKInputSessionParameterProtocol> param,
+    NSArray<id<SKKInputModeListenerProtocol>> *listeners, bool isPrimaryEditor)
     : context_(context),
       paramImpl_(param),
       param_(new SKKInputSessionParameterAdapter(param)),

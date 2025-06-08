@@ -13,5 +13,6 @@
 #import <InputMethodKit/InputMethodKit.h>
 #import <AquaSKKBackend/AquaSKKBackend.h>
 #import <AquaSKKService/AquaSKKService.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 #endif /* AquaSKKInput_Preamble_h */
