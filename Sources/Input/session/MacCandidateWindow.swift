@@ -11,11 +11,7 @@ import AquaSKKUI
 import OSLog
 
 @objc(MacCandidateWindowImpl)
-public class MacCandidateWindowImpl: NSObject, SKKCandidatePresenter, SKKCandidateWindowProtocol {
-    public func show() {}
-
-    public func hide() {}
-
+public class MacCandidateWindowImpl: SKKWidgetBase, SKKCandidateWindowProtocol {
     let layoutManager: SKKLayoutManager
     let window: CandidateWindow
     var candidates: [String]
@@ -108,13 +104,13 @@ public class MacCandidateWindowImpl: NSObject, SKKCandidatePresenter, SKKCandida
         window.prepare(with: font, labels: labels as NSString)
     }
 
-    @objc public func skkWidgetShow() {
+    @objc override public func skkWidgetShow() {
         window.setCandidates(candidates, selectedIndex: cursorIndex)
         window.setPage(page)
         window.show(at: layoutManager.candidateWindowOrigin(), level: layoutManager.windowLevel())
     }
 
-    @objc public func skkWidgetHide() {
+    @objc override public func skkWidgetHide() {
         window.hide()
     }
 }

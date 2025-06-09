@@ -17,8 +17,8 @@ public class SKKStatePrimary: HandlerProtocol {
 
     var editor: SKKInputEngineImpl
     var context: SKKInputContext
-    var messenger: SKKMessenger
-    init(editor: SKKInputEngineImpl, context: SKKInputContext, messenger: SKKMessenger) {
+    var messenger: SKKMessengerProtocol
+    init(editor: SKKInputEngineImpl, context: SKKInputContext, messenger: SKKMessengerProtocol) {
         self.editor = editor
         self.context = context
         self.messenger = messenger
@@ -51,13 +51,13 @@ public class SKKStatePrimary: HandlerProtocol {
 
         case .undo:
             // Undo 可能なら見出し語入力に遷移する
-            switch context.undo.Undo() {
+            switch context.undo.undo() {
             case .UndoKanaEntry:
                 return .transitionKanaEntry
             case .UndoAsciiEntry:
                 return .transitionAsciiEntry
             default:
-                messenger.SendMessage("Undo できませんでした")
+                messenger.send(message: "Undo できませんでした")
                 context.event_handled = true
                 return .handled
             }

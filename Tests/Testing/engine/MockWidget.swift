@@ -8,6 +8,22 @@
 internal import AquaSKKEngine
 
 class MockWidget: SKKWidgetProtocol {
+    func show() {
+        skkWidgetShow()
+    }
+
+    func hide() {
+        skkWidgetHide()
+    }
+
+    func activate() {
+        skkWidgetShow()
+    }
+
+    func deactivate() {
+        skkWidgetHide()
+    }
+
     var visible: Bool = false
     func skkWidgetShow() {
         visible = true

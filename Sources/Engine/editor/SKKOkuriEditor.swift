@@ -29,7 +29,7 @@ public class SKKOkuriEditorImpl: SKKEditorProtocol {
     }
 
     public func writeContext() {
-        context.output.Compose(std.string("*\(okuri)"), 0)
+        context.output.compose(string: "*\(okuri)", cursor: 0)
         update()
     }
 

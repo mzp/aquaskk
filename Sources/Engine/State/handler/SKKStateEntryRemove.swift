@@ -13,8 +13,8 @@ public class SKKStateEntryRemove: HandlerProtocol {
 
     var editor: SKKInputEngineImpl
     var context: SKKInputContext
-    var messenger: SKKMessenger
-    init(editor: SKKInputEngineImpl, context: SKKInputContext, messenger: SKKMessenger) {
+    var messenger: SKKMessengerProtocol
+    init(editor: SKKInputEngineImpl, context: SKKInputContext, messenger: SKKMessengerProtocol) {
         self.editor = editor
         self.context = context
         self.messenger = messenger
@@ -33,7 +33,7 @@ public class SKKStateEntryRemove: HandlerProtocol {
         case .enter:
             editor.commit()
             if !context.needs_setback {
-                messenger.SendMessage("単語を削除しました")
+                messenger.send(message: "単語を削除しました")
                 return .transitionKanaInput
             }
             return .transitionSelectCandidate

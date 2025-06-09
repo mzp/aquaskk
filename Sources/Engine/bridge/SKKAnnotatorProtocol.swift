@@ -8,12 +8,6 @@
 import AquaSKKBackend
 
 @objc
-public protocol SKKWidgetProtocol {
-    @objc func skkWidgetShow()
-    @objc func skkWidgetHide()
-}
-
-@objc
 public protocol SKKAnnotatorProtocol: SKKWidgetProtocol {
     @objc(update:cursorOffset:)
     func update(candidateBridge bridge: SKKCandidateBridge, cursorOffset: Int)

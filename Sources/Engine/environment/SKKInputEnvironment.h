@@ -25,41 +25,36 @@
 
 #include <memory>
 #include <string>
+#import <Foundation/Foundation.h>
 #include <swift/bridging>
 #import <AquaSKKEngine/IntrusiveRefCounted.h>
-#import <AquaSKKEngine/SKKBaseEditor.h>
 #import <AquaSKKEngine/SKKCandidateWindowBridge.h>
 #import <AquaSKKEngine/SKKInputContext.h>
-#import <AquaSKKEngine/SKKInputModeSelector.h>
 #import <AquaSKKEngine/SKKInputSessionParameter.h>
+
+@protocol SKKInputSessionParameterProtocol;
+@protocol SKKInputModeSelectorDataSourceProtocol;
+@class SKKInputEnvironmentImpl;
+@class SKKInputModeSelectorImpl;
+@protocol SKKInputModeListenerProtocol;
+@class SKKInputModeSelectorImpl;
+@protocol SKKInputModeSelectorDataSourceProtocol;
 
 class SKKInputEnvironment : public IntrusiveRefCounted<SKKInputEnvironment> {
     SKKInputContext *context_;
+    id<SKKInputSessionParameterProtocol> paramImpl_;
+
+    id<SKKInputModeSelectorDataSourceProtocol> dataSource_;
     SKKInputSessionParameter *param_;
-    SKKInputModeSelector selector_;
-    std::unique_ptr<SKKBaseEditor> bottom_;
+    SKKInputModeSelectorImpl *selectorImpl_;
+    bool isPrimaryEditor_;
 
 public:
     SKKInputEnvironment(
-        SKKInputContext *context, SKKInputSessionParameter *param, SKKInputModeListenerCollection *listeners,
-        SKKBaseEditor *bottom);
+        SKKInputContext *context, id<SKKInputSessionParameterProtocol> param,
+        NSArray<id<SKKInputModeListenerProtocol>> *listeners, bool isPrimaryEditor);
 
-    SKKAnnotator *Annotator() const;
-    SKKConfig *Config() const;
-    SKKFrontEnd *FrontEnd() const;
-    SKKMessenger *Messenger() const;
-    SKKCandidateWindow *CandidateWindow() const;
-    SKKCandidateWindowBridge *CandidateWindowBridge() const;
-    SKKDynamicCompletor *DynamicCompletor() const;
-
-    SKKInputContext *InputContext();
-    SKKInputSessionParameter *InputSessionParameter();
-    SKKInputModeSelector *InputModeSelector();
-    SKKBaseEditor *BaseEditor();
-
-    std::string PasteString();
-
-    bool IsPrimaryEditor() const;
+    SKKInputEnvironmentImpl *getImpl();
 } SWIFT_SHARED_REFERENCE(retainSKKInputEnvironment, releaseSKKInputEnvironment);
 
 void retainSKKInputEnvironment(SKKInputEnvironment *obj);

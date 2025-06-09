@@ -41,10 +41,10 @@ public class SKKStateEdit: HandlerProtocol {
     var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngineImpl
     var context: SKKInputContext
-    var config: SKKConfig
+    var config: SKKConfigProtocol
     var completer: SKKCompleterImpl
     var selector: SKKSelectorImpl
-    init(editor: SKKInputEngineImpl, context: SKKInputContext, config: SKKConfig, completer: SKKCompleterImpl, selector: SKKSelectorImpl) {
+    init(editor: SKKInputEngineImpl, context: SKKInputContext, config: SKKConfigProtocol, completer: SKKCompleterImpl, selector: SKKSelectorImpl) {
         self.editor = editor
         self.context = context
         self.config = config
@@ -59,12 +59,12 @@ public class SKKStateEdit: HandlerProtocol {
     public func dispatch(event: SKKStateMachineEvent) -> SKKStateMachineAction {
         switch event.id {
         case .exitEvent:
-            context.undo.Clear()
+            context.undo.clear()
             return .saveHistory
 
         case .enter:
             editor.commit()
-            if config.SuppressNewlineOnCommit() {
+            if config.suppressNewlineOnCommit() {
                 return .transitionKanaInput
             } else {
                 return .forwardKanaInput
@@ -75,9 +75,9 @@ public class SKKStateEdit: HandlerProtocol {
             return .transitionKanaInput
 
         case .cancel:
-            if context.undo.IsActive() {
-                let candidate = context.undo.Candidate()
-                context.output.Fix(candidate)
+            if context.undo.isActive {
+                let candidate = context.undo.candidate
+                context.output.fix(string: candidate)
             }
             return .transitionKanaInput
 
@@ -117,7 +117,7 @@ public class SKKStateEdit: HandlerProtocol {
                 if context.entry.IsEmpty() {
                     return .transitionKanaInput
                 }
-                if selector.execute(inlineCount: Int(config.MaxCountOfInlineCandidates())) {
+                if selector.execute(inlineCount: config.maxCountOfInlineCandidates()) {
                     return .transitionSelectCandidate
                 }
                 return .transitionRecursiveRegister
@@ -176,8 +176,8 @@ public class SKKStateKanaEntry: HandlerProtocol {
     var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngineImpl
     var context: SKKInputContext
-    var config: SKKConfig
-    init(editor: SKKInputEngineImpl, context: SKKInputContext, config: SKKConfig) {
+    var config: SKKConfigProtocol
+    init(editor: SKKInputEngineImpl, context: SKKInputContext, config: SKKConfigProtocol) {
         self.editor = editor
         self.context = context
         self.config = config
@@ -242,7 +242,7 @@ public class SKKStateKanaEntry: HandlerProtocol {
                 }
 
                 if param.IsEnterJapanese() {
-                    if config.HandleRecursiveEntryAsOkuri(), !context.entry.IsEmpty() {
+                    if config.handleRecursiveEntryAsOkuri(), !context.entry.IsEmpty() {
                         return .transitionOkuriInput
                     }
                     editor.commit()
@@ -311,8 +311,8 @@ public class SKKStateEntryCompletion: HandlerProtocol {
     var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngineImpl
     var completer: SKKCompleterImpl
-    var messenger: SKKMessenger
-    init(editor: SKKInputEngineImpl, completer: SKKCompleterImpl, messenger: SKKMessenger) {
+    var messenger: SKKMessengerProtocol
+    init(editor: SKKInputEngineImpl, completer: SKKCompleterImpl, messenger: SKKMessengerProtocol) {
         self.editor = editor
         self.completer = completer
         self.messenger = messenger
@@ -347,7 +347,7 @@ public class SKKStateEntryCompletion: HandlerProtocol {
             }
             if param.IsRemoveTrigger() {
                 if completer.remove() {
-                    messenger.SendMessage("見出し語を削除しました")
+                    messenger.send(message: "見出し語を削除しました")
                     return .transitionKanaInput
                 } else {
                     return .handled
@@ -372,8 +372,8 @@ public class SKKStateSelectCandidate: HandlerProtocol {
     var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngineImpl
     var selector: SKKSelectorImpl
-    var config: SKKConfig
-    init(editor: SKKInputEngineImpl, config: SKKConfig, selector: SKKSelectorImpl) {
+    var config: SKKConfigProtocol
+    init(editor: SKKInputEngineImpl, config: SKKConfigProtocol, selector: SKKSelectorImpl) {
         self.editor = editor
         self.config = config
         self.selector = selector
@@ -400,7 +400,7 @@ public class SKKStateSelectCandidate: HandlerProtocol {
 
         case .enter:
             editor.commit()
-            if !config.SuppressNewlineOnCommit() {
+            if !config.suppressNewlineOnCommit() {
                 return .forwardKanaInput
             }
             return .transitionKanaInput
@@ -425,7 +425,7 @@ public class SKKStateSelectCandidate: HandlerProtocol {
             return .handled
 
         case .backspace:
-            if selector.isInline, config.InlineBackSpaceImpliesCommit() {
+            if selector.isInline, config.inlineBackSpaceImpliesCommit() {
                 editor.commit()
                 return .forwardKanaInput
             }
@@ -479,10 +479,10 @@ public class SKKStateOkuriInput: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
     var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngineImpl
-    var config: SKKConfig
+    var config: SKKConfigProtocol
     var context: SKKInputContext
     var selector: SKKSelectorImpl
-    init(editor: SKKInputEngineImpl, config: SKKConfig, context: SKKInputContext, selector: SKKSelectorImpl) {
+    init(editor: SKKInputEngineImpl, config: SKKConfigProtocol, context: SKKInputContext, selector: SKKSelectorImpl) {
         self.editor = editor
         self.config = config
         self.context = context
@@ -502,7 +502,7 @@ public class SKKStateOkuriInput: HandlerProtocol {
         case .enter:
             editor.commit()
             // 改行するかどうか？(egg-like-new-line)
-            if !config.SuppressNewlineOnCommit() {
+            if !config.suppressNewlineOnCommit() {
                 return .forwardKanaInput
             }
             return .transitionKanaInput
@@ -536,7 +536,7 @@ public class SKKStateOkuriInput: HandlerProtocol {
                 editor.handleChar(code: Int(param.code), direct: param.IsDirect())
             }
             if param.IsNextCandidate() || editor.isOkuriComplete {
-                if selector.execute(inlineCount: Int(config.MaxCountOfInlineCandidates())) {
+                if selector.execute(inlineCount: config.maxCountOfInlineCandidates()) {
                     return .transitionSelectCandidate
                 } else {
                     return .transitionRecursiveRegister

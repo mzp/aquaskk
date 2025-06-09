@@ -30,8 +30,8 @@ public class SKKEntryRemoveEditorImpl: SKKEditorProtocol {
     }
 
     public func writeContext() {
-        context.output.Clear()
-        context.output.Compose(std.string(prompt + input))
+        context.output.clear()
+        context.output.compose(string: prompt + input)
         context.entry = entry
     }
 

@@ -27,8 +27,8 @@ public class SKKCandidateEditorImpl: SKKEditorProtocol {
         if entry.IsOkuriAri() {
             str += String(entry.OkuriString())
         }
-        context.output.SetMark()
-        context.output.Convert(std.string("▼\(str)"))
+        context.output.setMark()
+        context.output.convert(string: "▼\(str)")
     }
 
     public func input(ascii _: String) {}

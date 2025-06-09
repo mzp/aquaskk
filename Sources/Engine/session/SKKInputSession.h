@@ -24,6 +24,7 @@
 #define SKKInputSession_h
 
 #include <vector>
+#import <Foundation/Foundation.h>
 #import <AquaSKKEngine/SKKInputContext.h>
 #import <AquaSKKEngine/SKKInputModeListener.h>
 
@@ -33,11 +34,13 @@ class SKKBaseEditor;
 class SKKConfig;
 class SKKEvent;
 @protocol SKKInputSessionParameterProtocol;
+@protocol SKKInputModeListenerProtocol;
 
 class SKKInputSession {
+    id<SKKInputSessionParameterProtocol> paramImpl_;
     SKKInputSessionParameter *param_;
     std::vector<SKKRecursiveEditor *> stack_;
-    SKKInputModeListenerCollection listeners_;
+    NSMutableArray<id<SKKInputModeListenerProtocol>> *listeners_;
     SKKInputContext context_;
     bool inEvent_;
     int eventId_;
@@ -58,7 +61,7 @@ public:
     SKKInputSession(id<SKKInputSessionParameterProtocol> param);
     ~SKKInputSession();
 
-    void AddInputModeListener(SKKInputModeListener *listener);
+    void AddInputModeListener(id<SKKInputModeListenerProtocol> listener);
 
     bool HandleEvent(const SKKEvent &event);
     void Commit();

@@ -43,7 +43,7 @@ class TestRunner {
         [[SKKRomanKanaConverterImpl sharedInstance] initialize:@"kana-rule.conf"];
         map.initialize("keymap.conf");
 
-        session.AddInputModeListener(new SKKInputModeListenerAdapter([param listener]));
+        session.AddInputModeListener([param listener]);
     }
 
     void execute() {
@@ -87,9 +87,7 @@ public:
     MockInputSessionParameterImpl *mockParam;
 
     TestRunner(const std::string &path)
-        : param([MockInputSessionParameterImpl new]),
-          session(param),
-          map(AquaSKKInput::SKKKeymapImpl::init()) {
+        : param([MockInputSessionParameterImpl new]), session(param), map(AquaSKKInput::SKKKeymapImpl::init()) {
 
         initialize();
         test.Load(path);

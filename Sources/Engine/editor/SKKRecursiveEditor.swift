@@ -6,31 +6,35 @@
 //
 
 public class SKKRecursiveEditorImpl {
-    private let env: SKKInputEnvironment
-    private var annotator: SKKAnnotator
-    private var completer: SKKDynamicCompletor
-    private var candidateWindow: SKKCandidateWindow
+    private let env: SKKInputEnvironmentImpl
+    private var annotator: SKKAnnotatorProtocol
+    private var completer: SKKDynamicCompletorProtocol
+    private var candidateWindow: SKKCandidateWindowProtocol
     private var state: SKKStateMachineImpl
     private var editor: SKKInputEngineImpl
-    public init(env: SKKInputEnvironment) {
-        let editorImpl = SKKInputEngineImpl(env: env)
-        let completerImpl = SKKCompleterImpl(buddyProtocol: editorImpl)
-        let selectorImpl = SKKSelectorImpl(buddy: editorImpl, presenter: SKKCandidateWindowBridgeAdapter(env.CandidateWindowBridge()!))
-        editor = editorImpl
+    public convenience init(env: SKKInputEnvironment) {
+        self.init(env: env.getImpl())
+    }
+
+    init(env: SKKInputEnvironmentImpl) {
         self.env = env
-        annotator = env.Annotator()
-        completer = env.DynamicCompletor()
-        candidateWindow = env.CandidateWindow()
-        state = SKKStateMachineImpl(engine: editorImpl, context: env.InputContext(), config: env.Config(), completer: completerImpl, selector: selectorImpl, messenger: env.Messenger())
+        annotator = env.annotator
+        completer = env.dynamicCompletor
+        candidateWindow = env.candidateWindow
+
+        let editorImpl = SKKInputEngineImpl(env: env)
+        editor = editorImpl
+
+        let completerImpl = SKKCompleterImpl(buddyProtocol: editorImpl)
+        let selectorImpl = SKKSelectorImpl(buddy: editorImpl, presenter: env.candidateWindow)
+        state = SKKStateMachineImpl(engine: editorImpl, context: env.context, config: env.config, completer: completerImpl, selector: selectorImpl, messenger: env.messenger)
     }
 
     deinit {
-        annotator.Hide()
-        completer.Hide()
-        candidateWindow.Hide()
-
-        var selector = env.InputModeSelector()
-        selector?.Hide()
+        annotator.hide()
+        completer.hide()
+        candidateWindow.hide()
+        env.selector.hide()
     }
 
     public func input(event: SKKEvent) {
@@ -39,18 +43,14 @@ public class SKKRecursiveEditorImpl {
 
     public func output() {
         editor.updateInputContext()
-        guard let context = env.InputContext() else {
-            return
-        }
+        env.context.output.output()
 
-        context.output.Output()
-
-        if context.dynamic_completion, env.Config().EnableDynamicCompletion() {
-            let entry = context.entry
+        if env.context.dynamic_completion, env.config.enableDynamicCompletion() {
+            let entry = env.context.entry
             var joined = ""
             var commonPrefix = ""
             if !entry.IsEmpty(), !entry.IsOkuriAri() {
-                let range = env.Config().DynamicCompletionRange()
+                let range = env.config.dynamicCompletionRange()
                 let key = String(entry.EntryString())
 
                 if range > 0 {
@@ -64,34 +64,34 @@ public class SKKRecursiveEditorImpl {
                     }
                 }
             }
-            SKKDynamicCompletor.InvokeUpdate(completer, std.string(joined), Int32(commonPrefix.count), context.output.GetMark())
-            completer.Show()
+
+            completer.update(completion: joined, commonPrefixLength: commonPrefix.count, cursorOffset: Int(env.context.output.getMark()))
+            completer.show()
         } else {
-            completer.Hide()
+            completer.hide()
         }
 
-        if context.annotation, env.Config().EnableAnnotation() {
-            let candidate = context.candidate
-            SKKAnnotator.InvokeUpdate(annotator, candidate, context.output.GetMark())
-            annotator.Show()
+        if env.context.annotation, env.config.enableAnnotation() {
+            let candidate = env.context.candidateBridge
+
+            annotator.update(candidateBridge: candidate!, cursorOffset: Int(env.context.output.getMark()))
+            annotator.show()
         } else {
-            annotator.Hide()
+            annotator.hide()
         }
     }
 
     public func activate() {
-        annotator.Activate()
-        completer.Activate()
-        candidateWindow.Activate()
-        var selector = env.InputModeSelector()
-        selector?.Activate()
+        annotator.activate()
+        completer.activate()
+        candidateWindow.activate()
+        env.selector.activate()
     }
 
     public func deactivate() {
-        annotator.Deactivate()
-        completer.Deactivate()
-        candidateWindow.Deactivate()
-        var selector = env.InputModeSelector()
-        selector?.Deactivate()
+        annotator.deactivate()
+        completer.deactivate()
+        candidateWindow.deactivate()
+        env.selector.deactivate()
     }
 }

@@ -8,18 +8,18 @@
 import AquaSKKLogging
 import OSLog
 
-public class SKKUndoContextImpl {
-    private let frontend: SKKFrontEnd
-    private var entry: String
-    private var candidate: String
-    public init(frontend: SKKFrontEnd) {
+@objc public class SKKUndoContextImpl: NSObject {
+    private let frontend: SKKFrontEndProtocol
+    @objc public private(set) var entry: String
+    @objc public private(set) var candidate: String
+    @objc public init(frontend: SKKFrontEndProtocol) {
         self.frontend = frontend
         entry = ""
         candidate = ""
     }
 
-    public func undo() -> SKKUndoResult {
-        candidate = String(frontend.SelectedString())
+    @objc public func undo() -> SKKUndoResult {
+        candidate = frontend.selectedString()
 
         // 逆引き
         entry = SKKBackendImpl.shared().reverseLookup(candidate: candidate)
@@ -40,15 +40,15 @@ public class SKKUndoContextImpl {
         return .UndoAsciiEntry
     }
 
-    public func bridgedUndo() -> Int32 {
+    @objc public func bridgedUndo() -> Int32 {
         undo().rawValue
     }
 
-    public var isActive: Bool {
+    @objc public var isActive: Bool {
         !entry.isEmpty
     }
 
-    public func clear() {
+    @objc public func clear() {
         entry = ""
         candidate = ""
     }

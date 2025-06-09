@@ -21,11 +21,12 @@
 */
 
 #import <AquaSKKEngine/SKKInputSession.h>
+#import <AquaSKKEngine/SKKInputSessionParameterAdapter.h>
 #import <AquaSKKEngine/SKKPrimaryEditor.h>
 #import <AquaSKKEngine/SKKRecursiveEditor.h>
 #import <AquaSKKEngine/SKKRegisterEditor.h>
-#import <AquaSKKEngine/SKKInputSessionParameterAdapter.h>
-#include "SKKFrontEnd.h"
+#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
+#import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 namespace {
     class scoped_flag {
@@ -44,7 +45,11 @@ namespace {
 } // namespace
 
 SKKInputSession::SKKInputSession(id<SKKInputSessionParameterProtocol> param)
-    : param_(new SKKInputSessionParameterAdapter(param)), context_(param_->FrontEnd()), inEvent_(false) {
+    : paramImpl_(param),
+      param_(new SKKInputSessionParameterAdapter(param)),
+      context_([param frontEnd]),
+      inEvent_(false) {
+    listeners_ = [NSMutableArray array];
     stack_.push_back(createEditor(new SKKPrimaryEditor(&context_)));
 }
 
@@ -54,8 +59,8 @@ SKKInputSession::~SKKInputSession() {
     }
 }
 
-void SKKInputSession::AddInputModeListener(SKKInputModeListener *listener) {
-    listeners_.push_back(listener);
+void SKKInputSession::AddInputModeListener(id<SKKInputModeListenerProtocol> listener) {
+    [listeners_ addObject:listener];
 }
 
 bool SKKInputSession::HandleEvent(const SKKEvent &event) {
@@ -78,7 +83,7 @@ bool SKKInputSession::HandleEvent(const SKKEvent &event) {
 void SKKInputSession::Commit() {
     HandleEvent(SKKEvent(SKK_ENTER, 0));
 
-    if(context_.output.IsComposing()) {
+    if(context_.output.isComposing) {
         Clear();
     }
 }
@@ -136,7 +141,7 @@ void SKKInputSession::endEvent() {
 
 bool SKKInputSession::result(const SKKEvent &event) {
     // 単語登録中か、未確定状態なら常に処理済み
-    if(stack_.size() != 1 || context_.output.IsComposing()) {
+    if(stack_.size() != 1 || context_.output.isComposing) {
         return true;
     }
 
@@ -157,7 +162,8 @@ SKKRecursiveEditor *SKKInputSession::top() {
 }
 
 SKKRecursiveEditor *SKKInputSession::createEditor(SKKBaseEditor *bottom) {
-    return new SKKRecursiveEditor(new SKKInputEnvironment(&context_, param_, &listeners_, bottom));
+    return new SKKRecursiveEditor(
+        new SKKInputEnvironment(&context_, paramImpl_, listeners_, bottom->IsPrimaryEditor()));
 }
 
 void SKKInputSession::popEditor() {
