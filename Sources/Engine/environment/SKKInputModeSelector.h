@@ -56,6 +56,8 @@ public:
     virtual void Hide();
     virtual void Activate();
     virtual void Deactivate();
+
+    SKKInputModeSelectorImpl *getImpl() const { return impl_; }
 } SWIFT_SHARED_REFERENCE(retainSKKInputModeSelector, releaseSKKInputModeSelector);
 
 void retainSKKInputModeSelector(SKKInputModeSelector *obj);

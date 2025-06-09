@@ -34,7 +34,7 @@ public class SKKRecursiveEditorImpl {
         annotator.hide()
         completer.hide()
         candidateWindow.hide()
-        env.selector.Hide()
+        env.selector.getImpl().hide()
     }
 
     public func input(event: SKKEvent) {
@@ -85,13 +85,13 @@ public class SKKRecursiveEditorImpl {
         annotator.activate()
         completer.activate()
         candidateWindow.activate()
-        env.selector.Activate()
+        env.selector.getImpl().activate()
     }
 
     public func deactivate() {
         annotator.deactivate()
         completer.deactivate()
         candidateWindow.deactivate()
-        env.selector.Deactivate()
+        env.selector.getImpl().deactivate()
     }
 }

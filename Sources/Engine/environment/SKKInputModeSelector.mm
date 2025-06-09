@@ -20,9 +20,7 @@
 
 */
 
-#include <algorithm>
-#include <functional>
-#import <AquaSKKEngine/SKKInputModeSelector.h>
+#import "SKKInputModeSelector.h"
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
