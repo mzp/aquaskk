@@ -32,11 +32,13 @@
 #import <AquaSKKEngine/SKKWidget.h>
 
 @protocol SKKInputModeListenerProtocol;
+@class SKKInputModeSelectorImpl;
+@protocol SKKInputModeSelectorDataSource;
 
 class SKKInputModeSelector : public SKKWidget, public IntrusiveRefCounted<SKKInputModeSelector> {
     NSArray<id<SKKInputModeListenerProtocol>> *listeners_;
-    SKKInputMode mode_;
-    bool needsUpdate_;
+    id<SKKInputModeSelectorDataSource> dataSource_;
+    SKKInputModeSelectorImpl *impl_;
 
     virtual void SKKWidgetShow();
     virtual void SKKWidgetHide();
@@ -49,6 +51,11 @@ public:
     void Refresh();
     SKKInputMode getInputMode() const SWIFT_COMPUTED_PROPERTY;
     operator SKKInputMode() const;
+
+    virtual void Show();
+    virtual void Hide();
+    virtual void Activate();
+    virtual void Deactivate();
 } SWIFT_SHARED_REFERENCE(retainSKKInputModeSelector, releaseSKKInputModeSelector);
 
 void retainSKKInputModeSelector(SKKInputModeSelector *obj);

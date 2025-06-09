@@ -7,26 +7,25 @@
 
 import Foundation
 
+@objc public protocol SKKInputModeSelectorDataSource {
+    @objc var listeners: [SKKInputModeListenerProtocol] { get }
+}
+
 @objc public class SKKInputModeSelectorImpl: SKKWidgetBase, SKKWidgetProtocol {
     @objc public private(set) var inputMode: SKKInputMode
 
-    private let listeners: [SKKInputModeListenerProtocol]
+    @objc public weak var dataSource: SKKInputModeSelectorDataSource?
     private var needsUpdate: Bool
-    @objc public init(listeners: [SKKInputModeListenerProtocol]) {
+    @objc public init() {
         inputMode = .InvalidInputMode
-        self.listeners = listeners
         needsUpdate = false
         super.init(visible: true)
 
         select(inputMode: .HirakanaInputMode)
     }
 
-    override public func skkWidgetShow() {
-        listeners.forEach { $0.show() }
-    }
-
-    override public func skkWidgetHide() {
-        listeners.forEach { $0.hide() }
+    private var listeners: [SKKInputModeListenerProtocol] {
+        dataSource?.listeners ?? []
     }
 
     @objc public func select(inputMode: SKKInputMode) {
@@ -47,5 +46,15 @@ import Foundation
     @objc public func refresh() {
         select(inputMode: inputMode)
         needsUpdate = true
+    }
+
+    // MARK: - Widget
+
+    override public func skkWidgetShow() {
+        listeners.forEach { $0.show() }
+    }
+
+    override public func skkWidgetHide() {
+        listeners.forEach { $0.hide() }
     }
 }

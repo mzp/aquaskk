@@ -26,53 +26,73 @@
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
+@interface InputModeSelectorAdapter : NSObject <SKKInputModeSelectorDataSource> {
+@public
+    NSArray<id<SKKInputModeListenerProtocol>> *array_;
+}
+@end
+
+@implementation InputModeSelectorAdapter
+
+- (NSArray<id<SKKInputModeListenerProtocol>> *)listeners {
+    return array_;
+}
+@end
+
 SKKInputModeSelector::SKKInputModeSelector(NSArray<id<SKKInputModeListenerProtocol>> *listeners)
-    : SKKWidget(true), listeners_(listeners), mode_(SKKInputMode::InvalidInputMode) {
-    Select(SKKInputMode::HirakanaInputMode);
+    : SKKWidget(true) {
+    InputModeSelectorAdapter *dataSource = [[InputModeSelectorAdapter alloc] init];
+    dataSource->array_ = listeners;
+    dataSource_ = dataSource;
+    listeners_ = listeners;
+    impl_ = [[SKKInputModeSelectorImpl alloc] init];
+    impl_.dataSource = dataSource_;
 }
 
 void SKKInputModeSelector::Select(SKKInputMode mode) {
-    using namespace std::placeholders;
-    needsUpdate_ = mode_ != mode;
-    mode_ = mode;
-
-    for(id<SKKInputModeListenerProtocol> listener in listeners_) {
-        [listener selectInputMode:mode_];
-    }
+    [impl_ selectWithInputMode:mode];
 }
 
 void SKKInputModeSelector::Notify() {
-    if(needsUpdate_) {
-        needsUpdate_ = false;
-        SKKWidgetShow();
-    }
+    [impl_ notify];
 }
 
 void SKKInputModeSelector::Refresh() {
-    Select(mode_);
-    needsUpdate_ = true;
+    [impl_ refresh];
 }
 
 SKKInputModeSelector::operator SKKInputMode() const {
-    return mode_;
+    return getInputMode();
 }
 
 SKKInputMode SKKInputModeSelector::getInputMode() const SWIFT_COMPUTED_PROPERTY {
-    return mode_;
+    return [impl_ inputMode];
 }
 
 // ------------------------------------------------------------
 
 void SKKInputModeSelector::SKKWidgetShow() {
-    for(id<SKKInputModeListenerProtocol> listener in listeners_) {
-        [listener show];
-    }
+    [impl_ skkWidgetShow];
 }
 
 void SKKInputModeSelector::SKKWidgetHide() {
-    for(id<SKKInputModeListenerProtocol> listener in listeners_) {
-        [listener hide];
-    }
+    [impl_ skkWidgetHide];
+}
+
+void SKKInputModeSelector::Show() {
+    [impl_ show];
+}
+
+void SKKInputModeSelector::Hide() {
+    [impl_ hide];
+}
+
+void SKKInputModeSelector::Activate() {
+    [impl_ activate];
+}
+
+void SKKInputModeSelector::Deactivate() {
+    [impl_ deactivate];
 }
 
 void retainSKKInputModeSelector(SKKInputModeSelector *obj) {

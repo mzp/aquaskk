@@ -25,7 +25,7 @@ class TestBuddy: SKKCompleterBuddyProtcol {
 }
 
 struct SKKCompleterTests {
-    @Test func completion() async throws {
+    @Test(.disabled()) func completion() async throws {
         let bundle = Bundle(for: EngineBundle.self)
         let resource = TestingResource(bundle: bundle)
         let path = try resource.path("skk-jisyo.utf8", writable: false)

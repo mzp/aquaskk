@@ -43,7 +43,7 @@ class TestRunner {
         [[SKKRomanKanaConverterImpl sharedInstance] initialize:@"kana-rule.conf"];
         map.initialize("keymap.conf");
 
-        session.AddInputModeListener(new SKKInputModeListenerAdapter([param listener]));
+        session.AddInputModeListener([param listener]);
     }
 
     void execute() {
