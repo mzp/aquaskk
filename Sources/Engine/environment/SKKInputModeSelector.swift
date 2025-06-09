@@ -7,14 +7,10 @@
 
 import Foundation
 
-@objc public protocol SKKInputModeSelectorDataSource {
-    @objc var listeners: [SKKInputModeListenerProtocol] { get }
-}
-
 @objc public class SKKInputModeSelectorImpl: SKKWidgetBase, SKKWidgetProtocol {
     @objc public private(set) var inputMode: SKKInputMode
 
-    @objc public weak var dataSource: SKKInputModeSelectorDataSource?
+    @objc public weak var dataSource: SKKInputModeSelectorDataSourceProtocol?
     private var needsUpdate: Bool
     @objc public init() {
         inputMode = .InvalidInputMode

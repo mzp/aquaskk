@@ -11,9 +11,9 @@ import Foundation
     let context: SKKInputContext
     let isPrimaryEditor: Bool
     let param: SKKInputSessionParameterProtocol
-    var selector: SKKInputModeSelector
+    let selector: SKKInputModeSelectorImpl
 
-    @objc public init(context: SKKInputContext, param: SKKInputSessionParameterProtocol, selector: SKKInputModeSelector, isPrimaryEditor: Bool) {
+    @objc public init(context: SKKInputContext, param: SKKInputSessionParameterProtocol, selector: SKKInputModeSelectorImpl, isPrimaryEditor: Bool) {
         self.context = context
         self.param = param
         self.selector = selector

@@ -36,7 +36,7 @@
     // MARK: - 入力モード
 
     @objc public func selectInputMode(inputMode: SKKInputMode) {
-        env.selector.getImpl().select(inputMode: inputMode)
+        env.selector.select(inputMode: inputMode)
         inputQueue.selectInputMode(inputMode: inputMode)
         context.event_handled = true
     }
@@ -123,7 +123,7 @@
 
         if context.registration.state == .Aborted {
             context.registration.Clear()
-            env.selector.getImpl().refresh()
+            env.selector.refresh()
         }
 
         perform()
@@ -177,7 +177,7 @@
     }
 
     @objc public func handlePing() {
-        env.selector.getImpl().show()
+        env.selector.show()
     }
 
     @objc public func handleEnter() {
@@ -241,7 +241,7 @@
     // MARK: - トグル変換
 
     var inputMode: SKKInputMode? {
-        env.selector.getImpl().inputMode
+        env.selector.inputMode
     }
 
     @objc public func toggleKana() {
@@ -293,7 +293,7 @@
         } else {
             context.output.compose(string: SKKUTF8String(inputState.queue), cursor: 0)
         }
-        env.selector.getImpl().notify()
+        env.selector.notify()
     }
 
     /// ローマ字かな変換が発生するか？

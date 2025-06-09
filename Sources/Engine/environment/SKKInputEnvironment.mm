@@ -20,10 +20,22 @@
 
 */
 
-#import <AquaSKKEngine/SKKClipboard.h>
-#import <AquaSKKEngine/SKKInputEnvironment.h>
+#import "SKKInputEnvironment.h"
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
+
+@interface SKKInputEnvironmentDataSource : NSObject <SKKInputModeSelectorDataSourceProtocol> {
+@public
+    NSArray<id<SKKInputModeListenerProtocol>> *array_;
+}
+@end
+
+@implementation SKKInputEnvironmentDataSource
+
+- (NSArray<id<SKKInputModeListenerProtocol>> *)listeners {
+    return array_;
+}
+@end
 
 SKKInputEnvironment::SKKInputEnvironment(
     SKKInputContext *context, id<SKKInputSessionParameterProtocol> param,
@@ -31,13 +43,18 @@ SKKInputEnvironment::SKKInputEnvironment(
     : context_(context),
       paramImpl_(param),
       param_(new SKKInputSessionParameterAdapter(param)),
-      selector_(listeners),
-      isPrimaryEditor_(isPrimaryEditor) {}
+      isPrimaryEditor_(isPrimaryEditor) {
+    SKKInputEnvironmentDataSource *dataSource = [[SKKInputEnvironmentDataSource alloc] init];
+    dataSource->array_ = listeners;
+    dataSource_ = dataSource;
+    selectorImpl_ = [[SKKInputModeSelectorImpl alloc] init];
+    selectorImpl_.dataSource = dataSource;
+}
 
 SKKInputEnvironmentImpl *SKKInputEnvironment::getImpl() {
     return [[SKKInputEnvironmentImpl alloc] initWithContext:context_
                                                       param:paramImpl_
-                                                   selector:&selector_
+                                                   selector:selectorImpl_
                                             isPrimaryEditor:isPrimaryEditor_];
 }
 void retainSKKInputEnvironment(SKKInputEnvironment *obj) {
