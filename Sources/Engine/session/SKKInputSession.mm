@@ -25,7 +25,7 @@
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
 SKKInputSession::SKKInputSession(id<SKKInputSessionParameterProtocol> param) {
-        impl_ = [[SKKInputSessionImpl alloc] initWithParam:param];
+    impl_ = [[SKKInputSessionImpl alloc] initWithParam:param];
 }
 
 SKKInputSession::~SKKInputSession() {}

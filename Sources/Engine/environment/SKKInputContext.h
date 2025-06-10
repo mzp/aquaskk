@@ -50,7 +50,7 @@ public:
 
     SKKInputContext(id<SKKFrontEndProtocol> frontend);
     static SKKInputContext *createInstance(id<SKKFrontEndProtocol> frontend) {
-       return new SKKInputContext(frontend);
+        return new SKKInputContext(frontend);
     }
     SKKCandidateBridge *getCandidateBridge() const SWIFT_COMPUTED_PROPERTY;
 

@@ -5,8 +5,8 @@
 //  Created by mzp on 2025/05/24.
 //
 
-import Foundation
 import AquaSKKEngine
+import Foundation
 
 @objc public class MacInputSessionParameterImpl: NSObject, SKKInputSessionParameterProtocol {
     private let annotatorImpl: MacAnnotatorImpl

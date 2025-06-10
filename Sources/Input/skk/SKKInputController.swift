@@ -67,7 +67,7 @@ public class SKKInputController: IMKInputController {
             if let session = session {
                 self.session = session
             } else {
-                let param = MacInputSessionParameterImpl.init(client: client, layoutManager: layoutManager)
+                let param = MacInputSessionParameterImpl(client: client, layoutManager: layoutManager)
                 self.session = SKKInputSessionImpl(param: param)
             }
             self.skkMenu = skkMenu

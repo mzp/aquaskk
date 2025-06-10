@@ -15,7 +15,7 @@ import Foundation
 
     @objc public init(param: SKKInputSessionParameterProtocol) {
         self.param = param
-        self.context = SKKInputContext.createInstance(param.frontEnd())
+        context = SKKInputContext.createInstance(param.frontEnd())
         inEvent = false
         stacks = []
         selector = SKKInputModeSelectorImpl()
