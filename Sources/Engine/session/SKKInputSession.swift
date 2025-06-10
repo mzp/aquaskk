@@ -33,6 +33,7 @@ import Foundation
     }
 
     // MARK: - SKKInputModeSelectorDataSourceProtocol
+
     public private(set) var listeners: [SKKInputModeListenerProtocol] = []
 
     @objc public func addInputModeListener(_ listener: SKKInputModeListenerProtocol) {

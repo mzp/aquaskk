@@ -39,21 +39,7 @@ class SKKEvent;
 
 class SKKInputSession {
     SKKInputSessionImpl *impl_;
-    id<SKKInputSessionParameterProtocol> paramImpl_;
-    SKKInputSessionParameter *param_;
-    std::vector<SKKRecursiveEditor *> stack_;
-    NSMutableArray<id<SKKInputModeListenerProtocol>> *listeners_;
     SKKInputContext context_;
-    bool inEvent_;
-    int eventId_;
-
-    void beginEvent();
-    void endEvent();
-    bool result(const SKKEvent &event);
-
-    SKKRecursiveEditor *top();
-    SKKRecursiveEditor *createEditor(SKKBaseEditor *bottom);
-    void popEditor();
 
     SKKInputSession();
     SKKInputSession(const SKKInputSession &);
