@@ -473,6 +473,7 @@
 		13E646772DF11B9D00E44F2A /* SKKTransliterateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13415B442C836C3B00ED9D0A /* SKKTransliterateTests.swift */; };
 		13E646782DF11BA600E44F2A /* SKKEncodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F91A212C83923000E60D63 /* SKKEncodingTests.swift */; };
 		13E6467A2DF154CC00E44F2A /* skkserv_impl.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13E646792DF154CC00E44F2A /* skkserv_impl.mm */; };
+		13E646832DF1DFD400E44F2A /* SKKInputSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E646822DF1DFD400E44F2A /* SKKInputSession.swift */; };
 		13EB86642C5EA7DD00B47DCD /* SupervisorMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EB86632C5EA7DD00B47DCD /* SupervisorMonitor.swift */; };
 		13EC79072D3F579900D6E623 /* MessengerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EC79062D3F579900D6E623 /* MessengerView.swift */; };
 		13EDDCF32C5B395B0062A0DA /* SKKInputSession_TEST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F53A2C5B28FC00D8C850 /* SKKInputSession_TEST.mm */; };
@@ -1114,6 +1115,7 @@
 		13E637742D56F40F0040DAAC /* MacCandidateWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacCandidateWindow.swift; sourceTree = "<group>"; };
 		13E637762D56F58A0040DAAC /* BlacklistApps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlacklistApps.swift; sourceTree = "<group>"; };
 		13E646792DF154CC00E44F2A /* skkserv_impl.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = skkserv_impl.mm; sourceTree = "<group>"; };
+		13E646822DF1DFD400E44F2A /* SKKInputSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKInputSession.swift; sourceTree = "<group>"; };
 		13E6605E2C6834BA000896F6 /* Taskfile.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = Taskfile.yml; sourceTree = "<group>"; };
 		13E6605F2C6852B3000896F6 /* .clang-format */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".clang-format"; sourceTree = "<group>"; };
 		13E660602C6852B3000896F6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -2742,6 +2744,7 @@
 				1326922B2D7A9A9B00043CDC /* SKKInputEngine.swift */,
 				1344F4FC2C5B28FC00D8C850 /* SKKInputSession.h */,
 				1344F4FD2C5B28FC00D8C850 /* SKKInputSession.mm */,
+				13E646822DF1DFD400E44F2A /* SKKInputSession.swift */,
 			);
 			path = session;
 			sourceTree = "<group>";
@@ -4161,6 +4164,7 @@
 				138FB7082D7B4A5700542DF7 /* SKKRegistration.swift in Sources */,
 				13B16D3F2DE2F6A30064ADCF /* SKKInputModeListenerAdapter.mm in Sources */,
 				130C48642D7E88A30052FF60 /* SKKStateMachine.swift in Sources */,
+				13E646832DF1DFD400E44F2A /* SKKInputSession.swift in Sources */,
 				13B16D2F2DE2EE530064ADCF /* SKKConfigAdapter.mm in Sources */,
 				134C9AD52D836EB3005403A4 /* SKKMessenger.cpp in Sources */,
 				139FE4492D7768C70015DFCA /* SKKPrimaryEditor.swift in Sources */,

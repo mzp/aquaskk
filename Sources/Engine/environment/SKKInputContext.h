@@ -51,6 +51,7 @@ public:
     SKKInputContext(id<SKKFrontEndProtocol> frontend);
 
     SKKCandidateBridge *getCandidateBridge() const SWIFT_COMPUTED_PROPERTY;
+
 } SWIFT_SHARED_REFERENCE(retainSKKInputContext, releaseSKKInputContext);
 
 void retainSKKInputContext(SKKInputContext *obj);

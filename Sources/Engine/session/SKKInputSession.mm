@@ -20,7 +20,7 @@
 
 */
 
-#import <AquaSKKEngine/SKKInputSession.h>
+#import "SKKInputSession.h"
 #import <AquaSKKEngine/SKKInputSessionParameterAdapter.h>
 #import <AquaSKKEngine/SKKPrimaryEditor.h>
 #import <AquaSKKEngine/SKKRecursiveEditor.h>
@@ -49,22 +49,27 @@ SKKInputSession::SKKInputSession(id<SKKInputSessionParameterProtocol> param)
       param_(new SKKInputSessionParameterAdapter(param)),
       context_([param frontEnd]),
       inEvent_(false) {
-    listeners_ = [NSMutableArray array];
-    stack_.push_back(createEditor(new SKKPrimaryEditor(&context_)));
+
+        impl_ = [[SKKInputSessionImpl alloc] initWithParam:param context:&context_];
+
+//    listeners_ = [NSMutableArray array];
+//    stack_.push_back(createEditor(new SKKPrimaryEditor(&context_)));
 }
 
 SKKInputSession::~SKKInputSession() {
-    while(!stack_.empty()) {
+/*    while(!stack_.empty()) {
         popEditor();
-    }
+    }*/
 }
 
 void SKKInputSession::AddInputModeListener(id<SKKInputModeListenerProtocol> listener) {
-    [listeners_ addObject:listener];
+    [impl_ addInputModeListener:listener];
+//    [listeners_ addObject:listener];
 }
 
 bool SKKInputSession::HandleEvent(const SKKEvent &event) {
-    if(inEvent_)
+    return [impl_ handleWithEvent:event];
+/*    if(inEvent_)
         return false;
 
     scoped_flag on(inEvent_);
@@ -77,19 +82,23 @@ bool SKKInputSession::HandleEvent(const SKKEvent &event) {
 
     top()->Output();
 
-    return result(event);
+    return result(event);*/
 }
 
 void SKKInputSession::Commit() {
-    HandleEvent(SKKEvent(SKK_ENTER, 0));
+    [impl_ commit];
+
+/*    HandleEvent(SKKEvent(SKK_ENTER, 0));
 
     if(context_.output.isComposing) {
         Clear();
-    }
+    }*/
 }
 
 void SKKInputSession::Clear() {
-    if(inEvent_)
+    [impl_ clear];
+
+/*    if(inEvent_)
         return;
 
     scoped_flag on(inEvent_);
@@ -100,15 +109,17 @@ void SKKInputSession::Clear() {
 
     stack_.push_back(createEditor(new SKKPrimaryEditor(&context_)));
 
-    top()->Output();
+    top()->Output();*/
 }
 
 void SKKInputSession::Activate() {
-    top()->Activate();
+    [impl_ activate];
+//    top()->Activate();
 }
 
 void SKKInputSession::Deactivate() {
-    top()->Deactivate();
+    [impl_ deactivate];
+//    top()->Deactivate();
 }
 
 // ----------------------------------------------------------------------

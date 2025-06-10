@@ -33,6 +33,9 @@ class SKKInputModeListenerAdapter : public SKKInputModeListener {
     virtual void SKKWidgetHide();
 
 public:
+    id<SKKInputModeListenerProtocol> getImpl() const {
+        return impl_;
+    }
     SKKInputModeListenerAdapter(id<SKKInputModeListenerProtocol> impl);
     ~SKKInputModeListenerAdapter();
 

@@ -45,4 +45,8 @@ public class SKKPrimaryEditorImpl: SKKEditorProtocol {
         context.entry = SKKEntry()
         return ""
     }
+
+    public var isPrimaryEditor: Bool {
+        return true
+    }
 }

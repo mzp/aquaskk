@@ -34,4 +34,10 @@ public protocol SKKEditorProtocol {
     ///
     /// queue に確定した文字列をセットする
     func commit(queue: String) -> String
+
+    var isPrimaryEditor: Bool { get }
+}
+
+public extension SKKEditorProtocol {
+    var isPrimaryEditor: Bool { false }
 }
