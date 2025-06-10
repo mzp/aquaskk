@@ -84,7 +84,7 @@ import Foundation
     func endEvent() {
         switch context.registration.state {
         case .Started:
-            context.registration.Clear()
+            context.registration.clear()
 
             stacks.append(
                 createEditor(editor: SKKRegisterEditorImpl(context: context))

@@ -5,30 +5,31 @@
 //  Created by mzp on 2025/03/07.
 //
 
-public struct SKKRegistrationImpl {
+@objc public class SKKRegistrationImpl: NSObject {
     public var word: String
     public var state: SKKRegistrationState
 
-    public init() {
+    @objc public override init() {
         word = ""
         state = .None
+        super.init()
     }
 
-    public mutating func start() {
+    @objc public func start() {
         state = .Started
     }
 
-    public mutating func finish(string: String) {
+    @objc public func finish(string: String) {
         state = .Finished
         word = string
     }
 
-    public mutating func abort() {
+    @objc public func abort() {
         state = .Aborted
         word = ""
     }
 
-    public mutating func clear() {
+    @objc public func clear() {
         state = .None
         word = ""
     }

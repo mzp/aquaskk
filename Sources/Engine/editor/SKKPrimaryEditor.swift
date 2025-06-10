@@ -14,10 +14,10 @@ public class SKKPrimaryEditorImpl: SKKEditorProtocol {
 
     public func readContext() {
         context.entry = SKKEntry()
-        var registration = context.registration
-        if registration.state == .Finished {
-            context.output.fix(string: SKKUTF8String(registration.word))
-            registration.Clear()
+        if let registration = context.registration,
+             registration.state == .Finished {
+            context.output.fix(string: registration.word)
+            registration.clear()
         }
     }
 

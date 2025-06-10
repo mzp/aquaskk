@@ -103,7 +103,7 @@
 
     @objc public func setStateRegistration() {
         updateInputContext()
-        context.registration.Start()
+        context.registration.start()
     }
 
     func run(perform: () -> Void) {
@@ -122,7 +122,7 @@
         context.annotation = false
 
         if context.registration.state == .Aborted {
-            context.registration.Clear()
+            context.registration.clear()
             env.selector.refresh()
         }
 
@@ -185,10 +185,10 @@
         let candidate = SKKCandidate(std.string(word), false)
         study(entry: context.entry, candidate: candidate)
         if word.isEmpty {
-            context.registration.Abort()
+            context.registration.abort()
         } else {
             let output = "\(word)\(String(context.entry.OkuriString()))"
-            context.registration.Finish(std.string(output))
+            context.registration.finish(string: output)
         }
         context.event_handled = false
     }
@@ -198,7 +198,7 @@
             terminate()
             return
         }
-        context.registration.Abort()
+        context.registration.abort()
         context.event_handled = false
     }
 
