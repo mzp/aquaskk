@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AquaSKKEngine
 
 @objc public class MacInputSessionParameterImpl: NSObject, SKKInputSessionParameterProtocol {
     private let annotatorImpl: MacAnnotatorImpl
@@ -26,7 +27,7 @@ import Foundation
         messengerImpl = .init(layoutManager: layoutManager)
     }
 
-    public func config() -> any SKKConfigProtocol {
+    public func config() -> any AquaSKKEngine.SKKConfigProtocol {
         configImpl
     }
 

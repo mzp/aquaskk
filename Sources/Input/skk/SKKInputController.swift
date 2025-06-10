@@ -21,7 +21,7 @@ public class SKKInputController: IMKInputController {
     private var inputModeMenu: MacInputModeMenuImpl?
     private var blacklistApps: BlacklistApps?
     private var preProcessor: SKKPreProcessor?
-    private var session: SKKInputSessionBridge?
+    private var session: SKKInputSessionImpl?
 
     override public init() {
         super.init()
@@ -38,7 +38,7 @@ public class SKKInputController: IMKInputController {
 
     @_spi(Testing)
     public func _setClient(_ client: IMKTextInput, sessionParameter: AquaSKKEngine.SKKInputSessionParameterProtocol) {
-        let session = SKKInputSessionBridge(parameter: sessionParameter)
+        let session = SKKInputSessionImpl(param: sessionParameter)
         setClient(client, session: session)
     }
 
@@ -50,7 +50,7 @@ public class SKKInputController: IMKInputController {
         setClient(client, session: nil)
     }
 
-    private func setClient(_ client: Any, session: SKKInputSessionBridge?) {
+    private func setClient(_ client: Any, session: SKKInputSessionImpl?) {
         if let client = client as? NSTextInputClient {
             context = NSTextInputContext(client: client)
         } else {
@@ -63,14 +63,21 @@ public class SKKInputController: IMKInputController {
 
             let layoutManager = SKKLayoutManager(client: client)
             self.client = client
-            self.session = session ?? SKKInputSessionBridge(client: client, layoutManager: layoutManager)
+
+            if let session = session {
+                self.session = session
+            } else {
+                let param = MacInputSessionParameterImpl.init(client: client, layoutManager: layoutManager)
+                self.session = SKKInputSessionImpl(param: param)
+            }
             self.skkMenu = skkMenu
             modeIcon = MacInputModeWindowImpl(layoutManager: layoutManager)
             inputModeMenu = MacInputModeMenuImpl(menu: skkMenu)
             self.layoutManager = layoutManager
 
-            self.session?.addListener(with: modeIcon!)
-            self.session?.addListener(with: inputModeMenu!)
+            modeIcon?.skkWidgetShow()
+            self.session?.addInputModeListener(modeIcon!)
+            self.session?.addInputModeListener(inputModeMenu!)
         } else {
             self.client = nil
             self.session = nil
@@ -116,9 +123,9 @@ public class SKKInputController: IMKInputController {
             Logger.skkInput.error("\(#function, privacy: .public) SKKPreProcessor isn't initialized.")
             return false
         }
-        var param = preProcessor.execute(event: event)
+        let param = preProcessor.execute(event: event)
         modeIcon?.selectInputMode(.InvalidInputMode)
-        let result = session?.handle(&param)
+        let result = session?.handle(event: param)
         if inputMode != skkMenu?.currentInputMode || param.id == SKK_JMODE {
             workaroundForSpecificApplications()
         }
@@ -181,14 +188,14 @@ public class SKKInputController: IMKInputController {
                     let identifier = skkMenu.convertInputModeToID(inputMode: skkMenu.currentInputMode)
                     var param = SKKEvent()
                     param.id = Int32(skkMenu.convertIDToEventID(modeIdentifier: identifier))
-                    session?.handle(&param)
+                    _ = session?.handle(event: param)
 
                     modeIcon?.selectInputMode(skkMenu.currentInputMode)
                 } else {
                     let identifier = skkMenu.convertInputModeToID(inputMode: skkMenu.unifiedInputMode)
                     var param = SKKEvent()
                     param.id = Int32(skkMenu.convertIDToEventID(modeIdentifier: identifier))
-                    session?.handle(&param)
+                    _ = session?.handle(event: param)
                 }
             }
         } else {
@@ -336,7 +343,7 @@ public class SKKInputController: IMKInputController {
         skkMenu.deactivation()
         defer { skkMenu.activation() }
         if event.id != SKKInputMode.InvalidInputMode.rawValue {
-            session?.handle(&event)
+            _ = session?.handle(event: event)
             let inputMode = skkMenu.convertIDToInputMode(modeIdentifier: identifier)
             modeIcon?.selectInputMode(inputMode)
         }
