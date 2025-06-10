@@ -24,9 +24,8 @@
 #import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
 
-SKKInputSession::SKKInputSession(id<SKKInputSessionParameterProtocol> param)
-    : context_([param frontEnd]) {
-    impl_ = [[SKKInputSessionImpl alloc] initWithParam:param context:&context_];
+SKKInputSession::SKKInputSession(id<SKKInputSessionParameterProtocol> param) {
+        impl_ = [[SKKInputSessionImpl alloc] initWithParam:param];
 }
 
 SKKInputSession::~SKKInputSession() {}

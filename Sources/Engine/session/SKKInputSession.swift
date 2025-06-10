@@ -13,9 +13,9 @@ import Foundation
     var stacks: [SKKRecursiveEditorImpl]
     let selector: SKKInputModeSelectorImpl
 
-    @objc public init(param: SKKInputSessionParameterProtocol, context: SKKInputContext) {
+    @objc public init(param: SKKInputSessionParameterProtocol) {
         self.param = param
-        self.context = context
+        self.context = SKKInputContext.createInstance(param.frontEnd())
         inEvent = false
         stacks = []
         selector = SKKInputModeSelectorImpl()

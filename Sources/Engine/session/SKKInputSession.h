@@ -39,7 +39,6 @@ class SKKEvent;
 
 class SKKInputSession {
     SKKInputSessionImpl *impl_;
-    SKKInputContext context_;
 
     SKKInputSession();
     SKKInputSession(const SKKInputSession &);

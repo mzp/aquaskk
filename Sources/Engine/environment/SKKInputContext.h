@@ -49,7 +49,9 @@ public:
     bool annotation;
 
     SKKInputContext(id<SKKFrontEndProtocol> frontend);
-
+    static SKKInputContext *createInstance(id<SKKFrontEndProtocol> frontend) {
+       return new SKKInputContext(frontend);
+    }
     SKKCandidateBridge *getCandidateBridge() const SWIFT_COMPUTED_PROPERTY;
 
 } SWIFT_SHARED_REFERENCE(retainSKKInputContext, releaseSKKInputContext);
