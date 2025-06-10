@@ -12,7 +12,7 @@ internal import AquaSKKTesting
 
 class EngineBundle {}
 
-struct SKKSelectorTestirg {
+@Suite(.serialized) struct SKKSelectorTestirg {
     init() async throws {
         let bundle = Bundle(for: EngineBundle.self)
         let resource = TestingResource(bundle: bundle)
