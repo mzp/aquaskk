@@ -14,6 +14,3 @@ FOUNDATION_EXPORT double AquaSKKInputVersionNumber;
 FOUNDATION_EXPORT const unsigned char AquaSKKInputVersionString[];
 
 #import <AquaSKKInput/AquaSKKInput-Preamble.h>
-
-// MARK: - skk
-#import <AquaSKKInput/SKKInputSessionBridge.h>
