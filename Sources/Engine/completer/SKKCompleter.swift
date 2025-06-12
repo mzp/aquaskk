@@ -12,10 +12,6 @@ public class SKKCompleterImpl {
     private var completions: [String]
     private var position: Int
 
-    public convenience init(buddy: SKKCompleterBuddy) {
-        self.init(buddyProtocol: buddy.getCompleterBuddyProtocol())
-    }
-
     public init(buddyProtocol buddy: SKKCompleterBuddyProtcol) {
         self.buddy = buddy
         completions = []
