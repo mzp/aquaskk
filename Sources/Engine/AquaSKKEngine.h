@@ -37,7 +37,7 @@ FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 #import <AquaSKKEngine/SKKWidget.h>
 
 #pragma mark - buffer
-#import <AquaSKKEngine/SKKInputQueueObserver.h>
+#import <AquaSKKEngine/SKKInputQueueObserverState.h>
 
 #pragma mark - editor
 
