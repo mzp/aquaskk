@@ -42,7 +42,6 @@ FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 #pragma mark - editor
 
 #import <AquaSKKEngine/SKKBaseEditor.h>
-#import <AquaSKKEngine/SKKOkuriListener.h>
 
 #pragma mark - selector
 
@@ -52,7 +51,6 @@ FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 
 #import <AquaSKKEngine/SKKInputContext.h>
 #import <AquaSKKEngine/SKKInputEnvironment.h>
-#import <AquaSKKEngine/SKKRecursiveEditor.h>
 #import <AquaSKKEngine/SKKRegistration.h>
 #import <AquaSKKEngine/SKKUndoContext.h>
 

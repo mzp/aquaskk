@@ -23,7 +23,6 @@ namespace AquaSKKEngine {
 #import <AquaSKKEngine/SKKInputContext.h>
 #import <AquaSKKEngine/SKKInputEnvironment.h>
 #import <AquaSKKEngine/SKKInputQueueObserver.h>
-#import <AquaSKKEngine/SKKOkuriListener.h>
 #import <AquaSKKEngine/SKKSelectorBuddy.h>
 #import <AquaSKKEngine/SKKState.h>
 

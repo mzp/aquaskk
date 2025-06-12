@@ -9,7 +9,7 @@
     public var word: String
     public var state: SKKRegistrationState
 
-    @objc public override init() {
+    @objc override public init() {
         word = ""
         state = .None
         super.init()

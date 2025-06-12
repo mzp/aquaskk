@@ -36,5 +36,4 @@ enum SKKBaseEditorEvent {
     SKKBaseEditorEventCursorDown
 };
 
-
 #endif
