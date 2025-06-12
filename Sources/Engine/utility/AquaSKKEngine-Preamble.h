@@ -16,15 +16,9 @@ namespace AquaSKKEngine {
 #import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKBackend/SKKEntry.h>
 #import <AquaSKKEngine/SKKBaseEditor.h>
-#import <AquaSKKEngine/SKKCandidateWindow.h>
-#import <AquaSKKEngine/SKKCandidateWindowBridge.h>
-#import <AquaSKKEngine/SKKCompleter.h>
 #import <AquaSKKEngine/SKKEvent.h>
 #import <AquaSKKEngine/SKKInputContext.h>
-#import <AquaSKKEngine/SKKInputEnvironment.h>
-#import <AquaSKKEngine/SKKInputQueueObserver.h>
-#import <AquaSKKEngine/SKKOkuriListener.h>
-#import <AquaSKKEngine/SKKSelectorBuddy.h>
+#import <AquaSKKEngine/SKKInputQueueObserverState.h>
 #import <AquaSKKEngine/SKKState.h>
 
 #endif /* AquaSKKEngine_Preamble_h */

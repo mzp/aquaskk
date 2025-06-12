@@ -36,49 +36,4 @@ enum SKKBaseEditorEvent {
     SKKBaseEditorEventCursorDown
 };
 
-// 基底エディタクラス
-class SKKBaseEditor {
-    SKKInputContext *context_;
-
-protected:
-    SKKBaseEditor(SKKInputContext *context)
-        : context_(context) {}
-
-    SKKInputContext *context() const {
-        return context_;
-    }
-
-public:
-    virtual ~SKKBaseEditor() {}
-
-    // SKKInputContext の情報で初期化
-    //
-    // 具象エディタは SKKInputContext の情報で初期化されることを期待される
-    // SKKInputContext への書き込みも許可
-    virtual void ReadContext() {}
-
-    // SKKInputContext に書き出し
-    //
-    // 出力文字列や、状態設定等を行う
-    virtual void WriteContext() {}
-
-    // 入力処理(ASCII もしくはペースト用)
-    virtual void Input(const std::string &ascii) {}
-
-    // 入力処理(fixed=確定文字列, input=入力文字列, code=入力文字)
-    virtual void Input(const std::string &fixed, const std::string &input, char code) {}
-
-    // 入力処理(event=イベント)
-    virtual void Input(SKKBaseEditorEvent event) {}
-
-    // 確定処理
-    //
-    // queue に確定した文字列をセットする
-    virtual void Commit(std::string &queue) = 0;
-
-    virtual bool IsPrimaryEditor() const {
-        return false;
-    }
-};
-
 #endif

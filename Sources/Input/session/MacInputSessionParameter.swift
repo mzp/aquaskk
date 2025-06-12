@@ -5,6 +5,7 @@
 //  Created by mzp on 2025/05/24.
 //
 
+import AquaSKKEngine
 import Foundation
 
 @objc public class MacInputSessionParameterImpl: NSObject, SKKInputSessionParameterProtocol {
@@ -26,7 +27,7 @@ import Foundation
         messengerImpl = .init(layoutManager: layoutManager)
     }
 
-    public func config() -> any SKKConfigProtocol {
+    public func config() -> any AquaSKKEngine.SKKConfigProtocol {
         configImpl
     }
 

@@ -12,9 +12,6 @@ public class SKKRecursiveEditorImpl {
     private var candidateWindow: SKKCandidateWindowProtocol
     private var state: SKKStateMachineImpl
     private var editor: SKKInputEngineImpl
-    public convenience init(env: SKKInputEnvironment) {
-        self.init(env: env.getImpl())
-    }
 
     init(env: SKKInputEnvironmentImpl) {
         self.env = env

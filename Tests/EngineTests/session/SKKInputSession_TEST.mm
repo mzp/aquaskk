@@ -20,7 +20,7 @@
 
 class TestRunner {
     MockInputSessionParameterImpl *param;
-    SKKInputSession session;
+    SKKInputSessionImpl *session;
     AquaSKKInput::SKKKeymapImpl map;
     TestData test;
 
@@ -43,7 +43,7 @@ class TestRunner {
         [[SKKRomanKanaConverterImpl sharedInstance] initialize:@"kana-rule.conf"];
         map.initialize("keymap.conf");
 
-        session.AddInputModeListener([param listener]);
+        [session addInputModeListener:param.listener];
     }
 
     void execute() {
@@ -65,7 +65,7 @@ class TestRunner {
 
             SKKEvent event = getEvent(entry);
 
-            actual.ret = session.HandleEvent(event);
+            actual.ret = [session handleWithEvent:event];
 
             if(actual != entry.expected) {
                 std::cerr << std::endl;
@@ -87,8 +87,8 @@ public:
     MockInputSessionParameterImpl *mockParam;
 
     TestRunner(const std::string &path)
-        : param([MockInputSessionParameterImpl new]), session(param), map(AquaSKKInput::SKKKeymapImpl::init()) {
-
+        : param([MockInputSessionParameterImpl new]), map(AquaSKKInput::SKKKeymapImpl::init()) {
+        session = [[SKKInputSessionImpl alloc] initWithParam:param];
         initialize();
         test.Load(path);
     }

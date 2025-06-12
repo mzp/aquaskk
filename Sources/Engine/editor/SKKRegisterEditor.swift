@@ -25,7 +25,7 @@ public class SKKRegisterEditorImpl: SKKEditorProtocol {
     public func readContext() {
         context.entry = .init()
         word.insert(String(context.registration.word))
-        context.registration.Clear()
+        context.registration.clear()
     }
 
     public func writeContext() {

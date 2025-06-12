@@ -19,11 +19,6 @@ public class SKKSelectorImpl {
     private var windowSelector: SKKWindowSelectorImpl
     private var suite = SKKCandidateSuite()
 
-    // FIXME: Xcode 16.2
-    public static func createBridge(buddy: SKKSelectorBuddy, window: SKKCandidateWindowBridge) -> SKKSelectorImpl {
-        .init(buddy: buddy.getSelectorBuddyProtocol(), presenter: SKKCandidateWindowBridgeAdapter(window))
-    }
-
     public init(buddy: SKKSelectorBuddyProtocol, presenter: SKKCandidateWindowProtocol) {
         self.buddy = buddy
         windowSelector = SKKWindowSelectorImpl(presenter: presenter)
