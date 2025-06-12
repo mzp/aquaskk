@@ -11,20 +11,6 @@ FOUNDATION_EXPORT double AquaSKKEngineVersionNumber;
 
 FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 
-#pragma mark - bridge
-
-#import <AquaSKKEngine/SKKAnnotator.h>
-#import <AquaSKKEngine/SKKCandidateWindow.h>
-#import <AquaSKKEngine/SKKCandidateWindowBridge.h>
-#import <AquaSKKEngine/SKKClipboard.h>
-#import <AquaSKKEngine/SKKConfig.h>
-#import <AquaSKKEngine/SKKDynamicCompletor.h>
-#import <AquaSKKEngine/SKKFrontEnd.h>
-#import <AquaSKKEngine/SKKInputModeListener.h>
-#import <AquaSKKEngine/SKKInputSessionParameter.h>
-#import <AquaSKKEngine/SKKMessenger.h>
-#import <AquaSKKEngine/SKKWidget.h>
-
 #pragma mark - buffer
 #import <AquaSKKEngine/SKKInputQueueObserverState.h>
 
