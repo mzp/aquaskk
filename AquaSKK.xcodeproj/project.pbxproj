@@ -109,7 +109,6 @@
 		1344F5B02C5B28FC00D8C850 /* SKKInputEnvironment.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4F72C5B28FC00D8C850 /* SKKInputEnvironment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5B32C5B28FC00D8C850 /* SKKEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F50A2C5B28FC00D8C850 /* SKKEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5B72C5B28FC00D8C850 /* SKKCandidateWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F49D2C5B28FC00D8C850 /* SKKCandidateWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1344F5BB2C5B28FC00D8C850 /* SKKInputEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4D32C5B28FC00D8C850 /* SKKInputEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5BE2C5B28FC00D8C850 /* SKKCompleter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4B22C5B28FC00D8C850 /* SKKCompleter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5CF2C5B28FC00D8C850 /* SKKInputEnvironment.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4F82C5B28FC00D8C850 /* SKKInputEnvironment.mm */; };
 		1344F5D12C5B28FC00D8C850 /* SKKPrimaryEditor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4DA2C5B28FC00D8C850 /* SKKPrimaryEditor.mm */; };
@@ -118,7 +117,6 @@
 		1344F5E22C5B28FC00D8C850 /* SKKRecursiveEditor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F5012C5B28FC00D8C850 /* SKKRecursiveEditor.mm */; };
 		1344F5E42C5B28FC00D8C850 /* SKKComposingEditor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4D02C5B28FC00D8C850 /* SKKComposingEditor.mm */; };
 		1344F5F42C5B28FC00D8C850 /* SKKCompleter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4B32C5B28FC00D8C850 /* SKKCompleter.mm */; };
-		1344F5FF2C5B28FC00D8C850 /* SKKInputEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4D42C5B28FC00D8C850 /* SKKInputEngine.mm */; };
 		1344F6022C5B28FC00D8C850 /* SKKSelector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4F22C5B28FC00D8C850 /* SKKSelector.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1344F6102C5B28FC00D8C850 /* SKKCandidateEditor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1344F4CE2C5B28FC00D8C850 /* SKKCandidateEditor.mm */; };
 		134778592C5DB98F007B1DFB /* period.rule in Resources */ = {isa = PBXBuildFile; fileRef = 1347784F2C5DB98F007B1DFB /* period.rule */; };
@@ -710,8 +708,6 @@
 		1344F4D02C5B28FC00D8C850 /* SKKComposingEditor.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKComposingEditor.mm; sourceTree = "<group>"; };
 		1344F4D12C5B28FC00D8C850 /* SKKEntryRemoveEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKEntryRemoveEditor.h; sourceTree = "<group>"; };
 		1344F4D22C5B28FC00D8C850 /* SKKEntryRemoveEditor.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKEntryRemoveEditor.mm; sourceTree = "<group>"; };
-		1344F4D32C5B28FC00D8C850 /* SKKInputEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKInputEngine.h; sourceTree = "<group>"; };
-		1344F4D42C5B28FC00D8C850 /* SKKInputEngine.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKInputEngine.mm; sourceTree = "<group>"; };
 		1344F4D92C5B28FC00D8C850 /* SKKPrimaryEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKPrimaryEditor.h; sourceTree = "<group>"; };
 		1344F4DA2C5B28FC00D8C850 /* SKKPrimaryEditor.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKPrimaryEditor.mm; sourceTree = "<group>"; };
 		1344F4DB2C5B28FC00D8C850 /* SKKRegisterEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKRegisterEditor.h; sourceTree = "<group>"; };
@@ -2727,8 +2723,6 @@
 				13A648892D76D82900FB52C5 /* SKKInputQueue.swift */,
 				13A6488B2D76DEED00FB52C5 /* SKKInputQueueObserver.h */,
 				13D128E12DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift */,
-				1344F4D32C5B28FC00D8C850 /* SKKInputEngine.h */,
-				1344F4D42C5B28FC00D8C850 /* SKKInputEngine.mm */,
 				1326922B2D7A9A9B00043CDC /* SKKInputEngine.swift */,
 				13E646822DF1DFD400E44F2A /* SKKInputSession.swift */,
 			);
@@ -2988,7 +2982,6 @@
 				1344F5B02C5B28FC00D8C850 /* SKKInputEnvironment.h in Headers */,
 				1344F5B32C5B28FC00D8C850 /* SKKEvent.h in Headers */,
 				1344F5B72C5B28FC00D8C850 /* SKKCandidateWindow.h in Headers */,
-				1344F5BB2C5B28FC00D8C850 /* SKKInputEngine.h in Headers */,
 				133844DB2DE25C4D0050B98C /* SKKAnnotatorAdapter.h in Headers */,
 				1344F5BE2C5B28FC00D8C850 /* SKKCompleter.h in Headers */,
 				138198FE2D793DBB009C29E7 /* SKKOkuriListener.h in Headers */,
@@ -4130,7 +4123,6 @@
 				130C48532D7E10740052FF60 /* GenericDeferEventQueue.swift in Sources */,
 				13B16D0E2DE29E7F0064ADCF /* SKKFrontEndProtocol.swift in Sources */,
 				135D5D812D9844DC006B2B99 /* HandlerProtocol.swift in Sources */,
-				1344F5FF2C5B28FC00D8C850 /* SKKInputEngine.mm in Sources */,
 				130C48502D7E0DF10052FF60 /* GenericStateHistory.swift in Sources */,
 				139E88B72D73F2FA0065CFA2 /* SKKInlineSelector.swift in Sources */,
 				1326922E2D7AA66E00043CDC /* SKKConfig.cpp in Sources */,

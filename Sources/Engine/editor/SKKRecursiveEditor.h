@@ -25,7 +25,6 @@
 
 #import <AquaSKKBackend/SwiftObject.h>
 #import <AquaSKKEngine/SKKEvent.h>
-#import <AquaSKKEngine/SKKInputEngine.h>
 #import <AquaSKKEngine/SKKInputEnvironment.h>
 
 namespace AquaSKKEngine {

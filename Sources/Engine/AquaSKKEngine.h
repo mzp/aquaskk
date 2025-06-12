@@ -45,7 +45,6 @@ FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 #import <AquaSKKEngine/SKKCandidateEditor.h>
 #import <AquaSKKEngine/SKKComposingEditor.h>
 #import <AquaSKKEngine/SKKEntryRemoveEditor.h>
-#import <AquaSKKEngine/SKKInputEngine.h>
 #import <AquaSKKEngine/SKKOkuriListener.h>
 #import <AquaSKKEngine/SKKPrimaryEditor.h>
 #import <AquaSKKEngine/SKKRegisterEditor.h>
