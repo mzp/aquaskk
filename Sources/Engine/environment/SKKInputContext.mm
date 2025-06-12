@@ -7,8 +7,8 @@
 
 #include "SKKInputContext.h"
 #import <AquaSKKBackend/AquaSKKBackend.h>
-#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>
 #import <AquaSKKEngine/AquaSKKEngine-Swift.h>
+#import "AquaSKKEngine-Preamble.h"
 
 SKKInputContext::SKKInputContext(id<SKKFrontEndProtocol> frontend)
     : output([[SKKOutputBufferImpl alloc] initWithFrontend:frontend]),

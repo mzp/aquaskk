@@ -7,6 +7,7 @@
 
 import AquaSKKEngine
 import Foundation
+import InputMethodKit
 
 @objc public class MacInputSessionParameterImpl: NSObject, SKKInputSessionParameterProtocol {
     private let annotatorImpl: MacAnnotatorImpl

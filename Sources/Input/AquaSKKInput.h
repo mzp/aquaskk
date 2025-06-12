@@ -12,5 +12,3 @@ FOUNDATION_EXPORT double AquaSKKInputVersionNumber;
 
 //! Project version string for AquaSKKServer.
 FOUNDATION_EXPORT const unsigned char AquaSKKInputVersionString[];
-
-#import <AquaSKKInput/AquaSKKInput-Preamble.h>

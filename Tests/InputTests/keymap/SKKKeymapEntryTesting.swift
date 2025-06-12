@@ -6,6 +6,7 @@
 //
 
 import Testing
+internal import AquaSKKEngine
 @testable internal import AquaSKKInput
 
 struct SKKKeymapEntryTesting {

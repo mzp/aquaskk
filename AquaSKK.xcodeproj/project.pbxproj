@@ -73,7 +73,7 @@
 		133834F52C6020CB00D73AD7 /* Typer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135EEB9D2C5EEA4900758672 /* Typer.swift */; };
 		133844C92DE0CB1D0050B98C /* skkserv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133844C82DE0CB1D0050B98C /* skkserv.swift */; };
 		133844D72DE25BC10050B98C /* SKKAnnotatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133844D62DE25BC10050B98C /* SKKAnnotatorProtocol.swift */; };
-		133844DD2DE25FF90050B98C /* AquaSKKInput-Preamble.h in Headers */ = {isa = PBXBuildFile; fileRef = 133844DC2DE25FF90050B98C /* AquaSKKInput-Preamble.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		133844DD2DE25FF90050B98C /* AquaSKKInput-Preamble.h in Headers */ = {isa = PBXBuildFile; fileRef = 133844DC2DE25FF90050B98C /* AquaSKKInput-Preamble.h */; };
 		133ADFF02D68E72A00DCA0DA /* SKKDictionarySourceFileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133ADFEF2D68E72A00DCA0DA /* SKKDictionarySourceFileProtocol.swift */; };
 		133ADFF22D68E74000DCA0DA /* SKKLocalDictionaryFileSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133ADFF12D68E74000DCA0DA /* SKKLocalDictionaryFileSource.swift */; };
 		133E1FE22C79528E00B1A03A /* SandboxShims.h in Headers */ = {isa = PBXBuildFile; fileRef = 133E1FE02C79528E00B1A03A /* SandboxShims.h */; };
@@ -313,7 +313,7 @@
 		139C423A2DDA568B007F7FAA /* SKKOkuriHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C42392DDA568B007F7FAA /* SKKOkuriHint.swift */; };
 		139E88B72D73F2FA0065CFA2 /* SKKInlineSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E88B62D73F2FA0065CFA2 /* SKKInlineSelector.swift */; };
 		139E88B92D73F3A60065CFA2 /* SKKInlnlineSelectorTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E88B82D73F3A60065CFA2 /* SKKInlnlineSelectorTesting.swift */; };
-		139E88BC2D73F44B0065CFA2 /* AquaSKKEngine-Preamble.h in Headers */ = {isa = PBXBuildFile; fileRef = 139E88BB2D73F44B0065CFA2 /* AquaSKKEngine-Preamble.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		139E88BC2D73F44B0065CFA2 /* AquaSKKEngine-Preamble.h in Headers */ = {isa = PBXBuildFile; fileRef = 139E88BB2D73F44B0065CFA2 /* AquaSKKEngine-Preamble.h */; };
 		139E88C02D73F7360065CFA2 /* SKKWindowSelectorTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E88BF2D73F7360065CFA2 /* SKKWindowSelectorTesting.swift */; };
 		139E88C32D741CDE0065CFA2 /* SKKSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E88C22D741CDE0065CFA2 /* SKKSelector.swift */; };
 		139E88C52D7421300065CFA2 /* SKKSelectorTestirg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E88C42D7421300065CFA2 /* SKKSelectorTestirg.swift */; };
@@ -346,7 +346,6 @@
 		13B16D372DE2F30F0064ADCF /* SKKInputSessionParameterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B16D362DE2F30F0064ADCF /* SKKInputSessionParameterProtocol.swift */; };
 		13B16D3A2DE2F6540064ADCF /* SKKInputModeListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B16D392DE2F6540064ADCF /* SKKInputModeListenerProtocol.swift */; };
 		13B16D412DE3728D0064ADCF /* SKKStateMachineEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B16D402DE3728D0064ADCF /* SKKStateMachineEvent.swift */; };
-		13B16D422DE3728D0064ADCF /* SKKStateMachineEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B16D402DE3728D0064ADCF /* SKKStateMachineEvent.swift */; };
 		13B4A9B02D57E5C5002453BA /* SKKServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B4A9AF2D57E5C5002453BA /* SKKServer.swift */; };
 		13B4A9BB2D583EC2002453BA /* SKKCandidateBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B4A9B82D583D30002453BA /* SKKCandidateBridge.mm */; };
 		13B4A9BC2D583EC8002453BA /* SKKCandidateBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B4A9B72D583D30002453BA /* SKKCandidateBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -3629,7 +3628,6 @@
 				13F3C9F62D6E06210085600C /* SKKKeymapEntry.swift in Sources */,
 				13B16D282DE2ECF10064ADCF /* MacConfig.swift in Sources */,
 				13E637772D56F58A0040DAAC /* BlacklistApps.swift in Sources */,
-				13B16D422DE3728D0064ADCF /* SKKStateMachineEvent.swift in Sources */,
 				13B4A9C12D593241002453BA /* SKKPreProcessor.swift in Sources */,
 				13F89D5C2D55DC73003177FA /* SKKModeTips.swift in Sources */,
 				13BDCB6E2D5091840031BB3A /* SKKInputMenu.swift in Sources */,

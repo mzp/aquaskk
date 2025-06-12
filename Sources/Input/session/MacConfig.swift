@@ -6,6 +6,7 @@
 //
 
 import AquaSKKEngine
+import AquaSKKService
 import Foundation
 
 @objc public class MacConfigImpl: NSObject, SKKConfigProtocol {

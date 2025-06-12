@@ -6,6 +6,7 @@
 //
 
 import AppKit
+import AquaSKKEngine
 import AquaSKKUI
 import CoreGraphics
 
