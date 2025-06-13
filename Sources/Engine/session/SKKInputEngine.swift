@@ -5,6 +5,8 @@
 //  Created by mzp on 2025/03/06.
 //
 
+import AquaSKKBackend
+
 @objc public class SKKInputEngineImpl: NSObject, SKKCompleterBuddyProtcol, SKKSelectorBuddyProtocol, SKKOkuriListenerProtocol, SKKInputQueueObserverProtocol {
     private var env: SKKInputEnvironmentImpl
     private var context: SKKInputContextImpl {

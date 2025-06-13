@@ -5,6 +5,8 @@
 //  Created by mzp on 2025/03/04.
 //
 
+import AquaSKKBackend
+
 public class SKKPrimaryEditorImpl: SKKEditorProtocol {
     let context: SKKInputContextImpl
 

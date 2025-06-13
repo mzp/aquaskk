@@ -4,6 +4,7 @@
 //
 //  Created by mzp on 2025/03/14.
 //
+import AquaSKKBackend
 
 // MARK: - level 1：構築
 

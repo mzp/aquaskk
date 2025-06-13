@@ -4,7 +4,7 @@
 //
 //  Created by mzp on 2025/06/13.
 //
-
+import AquaSKKBackend
 
 public class SKKInputContextImpl {
     var entry: SKKEntry
@@ -12,7 +12,6 @@ public class SKKInputContextImpl {
     let output: SKKOutputBufferImpl
     let undo: SKKUndoContextImpl
     let registration: SKKRegistrationImpl
-
 
     var event_handled = false
     var needs_setback = false

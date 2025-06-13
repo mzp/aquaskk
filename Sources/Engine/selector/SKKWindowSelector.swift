@@ -4,6 +4,7 @@
 //
 //  Created by mzp on 2025/03/01.
 //
+import AquaSKKBackend
 
 class SKKWindowSelectorImpl {
     private var presenter: SKKCandidateWindowProtocol

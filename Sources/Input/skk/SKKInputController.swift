@@ -5,6 +5,7 @@
 //  Created by mzp on 2/12/25.
 //
 
+import AquaSKKBackend
 import AquaSKKEngine
 import AquaSKKService
 import InputMethodKit
