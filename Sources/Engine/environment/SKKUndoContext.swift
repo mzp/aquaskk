@@ -41,7 +41,7 @@ import OSLog
     }
 
     @objc public func bridgedUndo() -> Int32 {
-        undo().rawValue
+        Int32(undo().rawValue)
     }
 
     @objc public var isActive: Bool {

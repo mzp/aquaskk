@@ -146,30 +146,30 @@
 
     @objc public func handleBackSpace() {
         if inputQueue.isEmpty {
-            invoke(event: SKKBaseEditorEventBackSpace)
+            invoke(event: .SKKBaseEditorEventBackSpace)
         } else {
             inputQueue.removeChar()
         }
     }
 
     @objc public func handleDelete() {
-        invoke(event: SKKBaseEditorEventDelete)
+        invoke(event: .SKKBaseEditorEventDelete)
     }
 
     @objc public func handleCursorLeft() {
-        invoke(event: SKKBaseEditorEventCursorLeft)
+        invoke(event: .SKKBaseEditorEventCursorLeft)
     }
 
     @objc public func handleCursorRight() {
-        invoke(event: SKKBaseEditorEventCursorRight)
+        invoke(event: .SKKBaseEditorEventCursorRight)
     }
 
     @objc public func handleCursorUp() {
-        invoke(event: SKKBaseEditorEventCursorUp)
+        invoke(event: .SKKBaseEditorEventCursorUp)
     }
 
     @objc public func handleCursorDown() {
-        invoke(event: SKKBaseEditorEventCursorDown)
+        invoke(event: .SKKBaseEditorEventCursorDown)
     }
 
     @objc public func handlePaste() {

@@ -15,7 +15,6 @@ namespace AquaSKKEngine {
 
 #import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKBackend/SKKEntry.h>
-#import <AquaSKKEngine/SKKBaseEditor.h>
 #import <AquaSKKEngine/SKKEvent.h>
 #import <AquaSKKEngine/SKKInputContext.h>
 #import <AquaSKKEngine/SKKInputQueueObserverState.h>

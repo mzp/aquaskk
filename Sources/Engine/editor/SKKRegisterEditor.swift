@@ -41,23 +41,23 @@ public class SKKRegisterEditorImpl: SKKEditorProtocol {
     }
 
     public func bridgeInputEvent(_ rawValue: UInt32) {
-        let event = SKKBaseEditorEvent(rawValue: rawValue)
+        let event = SKKBaseEditorEvent(rawValue: rawValue)!
         inputEvent(event: event)
     }
 
     public func inputEvent(event: SKKBaseEditorEvent) {
         switch event {
-        case SKKBaseEditorEventBackSpace:
+        case .SKKBaseEditorEventBackSpace:
             word.backSpace()
-        case SKKBaseEditorEventDelete:
+        case .SKKBaseEditorEventDelete:
             word.delete()
-        case SKKBaseEditorEventCursorLeft:
+        case .SKKBaseEditorEventCursorLeft:
             word.cursorLeft()
-        case SKKBaseEditorEventCursorRight:
+        case .SKKBaseEditorEventCursorRight:
             word.cursorRight()
-        case SKKBaseEditorEventCursorUp:
+        case .SKKBaseEditorEventCursorUp:
             word.cursorUp()
-        case SKKBaseEditorEventCursorDown:
+        case .SKKBaseEditorEventCursorDown:
             word.cursorDown()
         default:
             Logger.skkEngine.warning("\(#function, privacy: .public): Unsupported event")
