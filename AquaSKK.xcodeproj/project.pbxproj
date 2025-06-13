@@ -52,6 +52,7 @@
 		131FC67F2C7EDCFE00C261CC /* AppKitCandidateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131FC67E2C7EDCFE00C261CC /* AppKitCandidateView.swift */; };
 		132114A02DFBC26400F69F68 /* SKKBaseEditorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1321149F2DFBC26400F69F68 /* SKKBaseEditorEvent.swift */; };
 		132114A42DFBC34800F69F68 /* AquaSKKEngine-Preamble.h in Headers */ = {isa = PBXBuildFile; fileRef = 132114A32DFBC34800F69F68 /* AquaSKKEngine-Preamble.h */; };
+		132114A62DFBC37200F69F68 /* SKKUndoResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132114A52DFBC37200F69F68 /* SKKUndoResult.swift */; };
 		1321D6D22C7A22BD004768B2 /* FormType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1321D6D12C7A22BD004768B2 /* FormType.swift */; };
 		1323659D2CA87EDD00BF11CC /* SwiftObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 1323659C2CA87EDD00BF11CC /* SwiftObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		132692262D7A34E000043CDC /* SKKCompleter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132692252D7A34E000043CDC /* SKKCompleter.swift */; };
@@ -85,7 +86,6 @@
 		13415B362C82865500ED9D0A /* TestResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13415B352C82865500ED9D0A /* TestResult.cpp */; };
 		1344F5802C5B28FC00D8C850 /* SKKInputContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F4F62C5B28FC00D8C850 /* SKKInputContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5842C5B28FC00D8C850 /* SKKState.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F50B2C5B28FC00D8C850 /* SKKState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1344F58F2C5B28FC00D8C850 /* SKKUndoContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F5032C5B28FC00D8C850 /* SKKUndoContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1344F5B32C5B28FC00D8C850 /* SKKEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 1344F50A2C5B28FC00D8C850 /* SKKEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		134778592C5DB98F007B1DFB /* period.rule in Resources */ = {isa = PBXBuildFile; fileRef = 1347784F2C5DB98F007B1DFB /* period.rule */; };
 		1347785B2C5DB98F007B1DFB /* kana-rule.conf in Resources */ = {isa = PBXBuildFile; fileRef = 1347784C2C5DB98F007B1DFB /* kana-rule.conf */; };
@@ -584,6 +584,7 @@
 		131FC67E2C7EDCFE00C261CC /* AppKitCandidateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKitCandidateView.swift; sourceTree = "<group>"; };
 		1321149F2DFBC26400F69F68 /* SKKBaseEditorEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKBaseEditorEvent.swift; sourceTree = "<group>"; };
 		132114A32DFBC34800F69F68 /* AquaSKKEngine-Preamble.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AquaSKKEngine-Preamble.h"; sourceTree = "<group>"; };
+		132114A52DFBC37200F69F68 /* SKKUndoResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKUndoResult.swift; sourceTree = "<group>"; };
 		1321D6D02C7A225D004768B2 /* PreferenceApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PreferenceApp.entitlements; sourceTree = "<group>"; };
 		1321D6D12C7A22BD004768B2 /* FormType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormType.swift; sourceTree = "<group>"; };
 		1323659C2CA87EDD00BF11CC /* SwiftObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftObject.h; sourceTree = "<group>"; };
@@ -626,7 +627,6 @@
 		1344F4E52C5B28FC00D8C850 /* SKKEntry.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SKKEntry.cpp; sourceTree = "<group>"; };
 		1344F4F62C5B28FC00D8C850 /* SKKInputContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKInputContext.h; sourceTree = "<group>"; };
 		1344F4F92C5B28FC00D8C850 /* SKKInputMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKInputMode.h; sourceTree = "<group>"; };
-		1344F5032C5B28FC00D8C850 /* SKKUndoContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKUndoContext.h; sourceTree = "<group>"; };
 		1344F5062C5B28FC00D8C850 /* skkserv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = skkserv.h; sourceTree = "<group>"; };
 		1344F5072C5B28FC00D8C850 /* skkserv.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = skkserv.cpp; sourceTree = "<group>"; };
 		1344F50A2C5B28FC00D8C850 /* SKKEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKEvent.h; sourceTree = "<group>"; };
@@ -2521,7 +2521,7 @@
 				1387F4ED2DF7772A00ECAC71 /* SKKInputModeSelectorDataSourceProtocol.swift */,
 				138FB7132D7BF42C00542DF7 /* SKKOutputBuffer.swift */,
 				138FB7072D7B4A5700542DF7 /* SKKRegistration.swift */,
-				1344F5032C5B28FC00D8C850 /* SKKUndoContext.h */,
+				132114A52DFBC37200F69F68 /* SKKUndoResult.swift */,
 				138FB7112D7BEE3700542DF7 /* SKKUndoContext.swift */,
 				13C82AE42DF86F5400A637A4 /* SKKRegistration.h */,
 			);
@@ -2727,7 +2727,6 @@
 				1344F5802C5B28FC00D8C850 /* SKKInputContext.h in Headers */,
 				1344F5842C5B28FC00D8C850 /* SKKState.h in Headers */,
 				132114A42DFBC34800F69F68 /* AquaSKKEngine-Preamble.h in Headers */,
-				1344F58F2C5B28FC00D8C850 /* SKKUndoContext.h in Headers */,
 				13C82AE72DF86F5400A637A4 /* SKKRegistration.h in Headers */,
 				1344F5B32C5B28FC00D8C850 /* SKKEvent.h in Headers */,
 				13D7561A2C5A9049006144F2 /* AquaSKKEngine.h in Headers */,
@@ -3848,6 +3847,7 @@
 				13B16D0E2DE29E7F0064ADCF /* SKKFrontEndProtocol.swift in Sources */,
 				135D5D812D9844DC006B2B99 /* HandlerProtocol.swift in Sources */,
 				130C48502D7E0DF10052FF60 /* GenericStateHistory.swift in Sources */,
+				132114A62DFBC37200F69F68 /* SKKUndoResult.swift in Sources */,
 				139E88B72D73F2FA0065CFA2 /* SKKInlineSelector.swift in Sources */,
 				138FB7142D7BF42C00542DF7 /* SKKOutputBuffer.swift in Sources */,
 				139E88C32D741CDE0065CFA2 /* SKKSelector.swift in Sources */,

@@ -21,7 +21,6 @@ FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 
 #import <AquaSKKEngine/SKKInputContext.h>
 #import <AquaSKKEngine/SKKRegistration.h>
-#import <AquaSKKEngine/SKKUndoContext.h>
 
 #pragma mark - state
 

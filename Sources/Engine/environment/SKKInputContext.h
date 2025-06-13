@@ -27,7 +27,6 @@
 #import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKBackend/SKKEntry.h>
 #import <AquaSKKEngine/IntrusiveRefCounted.h>
-#import <AquaSKKEngine/SKKUndoContext.h>
 
 @class SKKCandidateBridge;
 @class SKKOutputBufferImpl;
