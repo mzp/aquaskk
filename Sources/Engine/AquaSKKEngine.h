@@ -13,9 +13,7 @@ FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 
 #pragma mark - buffer
 
-
 #pragma mark - editor
-
 
 #pragma mark - session
 

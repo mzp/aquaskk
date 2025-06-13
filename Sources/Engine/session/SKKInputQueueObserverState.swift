@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 /// 入力状態
 public struct SKKInputQueueObserverState {
     /// 確定した文字

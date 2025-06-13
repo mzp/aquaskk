@@ -40,4 +40,4 @@ public enum SKKStateMachineAction: Int32 {
     case deepHistoryComposing
 
     case super_
-};
+}
