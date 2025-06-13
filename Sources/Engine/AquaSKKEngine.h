@@ -24,7 +24,6 @@ FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 #pragma mark - state
 
 #import <AquaSKKEngine/SKKEvent.h>
-#import <AquaSKKEngine/SKKState.h>
 
 #pragma mark - utility
 

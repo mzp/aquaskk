@@ -17,6 +17,5 @@ namespace AquaSKKEngine {
 #import <AquaSKKBackend/SKKEntry.h>
 #import <AquaSKKEngine/SKKEvent.h>
 #import <AquaSKKEngine/SKKInputContext.h>
-#import <AquaSKKEngine/SKKState.h>
 
 #endif /* AquaSKKEngine_Preamble_h */
