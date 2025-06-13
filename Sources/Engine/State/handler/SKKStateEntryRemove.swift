@@ -12,9 +12,9 @@ public class SKKStateEntryRemove: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
 
     var editor: SKKInputEngineImpl
-    var context: SKKInputContext
+    var context: SKKInputContextImpl
     var messenger: SKKMessengerProtocol
-    init(editor: SKKInputEngineImpl, context: SKKInputContext, messenger: SKKMessengerProtocol) {
+    init(editor: SKKInputEngineImpl, context: SKKInputContextImpl, messenger: SKKMessengerProtocol) {
         self.editor = editor
         self.context = context
         self.messenger = messenger

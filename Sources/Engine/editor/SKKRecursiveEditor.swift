@@ -70,8 +70,7 @@ public class SKKRecursiveEditorImpl {
 
         if env.context.annotation, env.config.enableAnnotation() {
             let candidate = env.context.candidateBridge
-
-            annotator.update(candidateBridge: candidate!, cursorOffset: Int(env.context.output.getMark()))
+            annotator.update(candidateBridge: candidate, cursorOffset: Int(env.context.output.getMark()))
             annotator.show()
         } else {
             annotator.hide()

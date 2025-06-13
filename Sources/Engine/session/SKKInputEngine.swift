@@ -7,7 +7,7 @@
 
 @objc public class SKKInputEngineImpl: NSObject, SKKCompleterBuddyProtcol, SKKSelectorBuddyProtocol, SKKOkuriListenerProtocol, SKKInputQueueObserverProtocol {
     private var env: SKKInputEnvironmentImpl
-    private var context: SKKInputContext {
+    private var context: SKKInputContextImpl {
         env.context
     }
 

@@ -56,6 +56,7 @@
 		132114A82DFBC52200F69F68 /* SKKRegistrationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132114A72DFBC52200F69F68 /* SKKRegistrationState.swift */; };
 		132114AA2DFBC5BB00F69F68 /* SKKInputQueueObserverState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132114A92DFBC5BB00F69F68 /* SKKInputQueueObserverState.swift */; };
 		132114AC2DFBC75B00F69F68 /* SKKStateMachineAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132114AB2DFBC75B00F69F68 /* SKKStateMachineAction.swift */; };
+		132114AE2DFC78BB00F69F68 /* SKKInputContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132114AD2DFC78BB00F69F68 /* SKKInputContext.swift */; };
 		1321D6D22C7A22BD004768B2 /* FormType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1321D6D12C7A22BD004768B2 /* FormType.swift */; };
 		1323659D2CA87EDD00BF11CC /* SwiftObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 1323659C2CA87EDD00BF11CC /* SwiftObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		132692262D7A34E000043CDC /* SKKCompleter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132692252D7A34E000043CDC /* SKKCompleter.swift */; };
@@ -588,6 +589,7 @@
 		132114A72DFBC52200F69F68 /* SKKRegistrationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKRegistrationState.swift; sourceTree = "<group>"; };
 		132114A92DFBC5BB00F69F68 /* SKKInputQueueObserverState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKInputQueueObserverState.swift; sourceTree = "<group>"; };
 		132114AB2DFBC75B00F69F68 /* SKKStateMachineAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStateMachineAction.swift; sourceTree = "<group>"; };
+		132114AD2DFC78BB00F69F68 /* SKKInputContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKInputContext.swift; sourceTree = "<group>"; };
 		1321D6D02C7A225D004768B2 /* PreferenceApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PreferenceApp.entitlements; sourceTree = "<group>"; };
 		1321D6D12C7A22BD004768B2 /* FormType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormType.swift; sourceTree = "<group>"; };
 		1323659C2CA87EDD00BF11CC /* SwiftObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftObject.h; sourceTree = "<group>"; };
@@ -2515,6 +2517,7 @@
 			isa = PBXGroup;
 			children = (
 				1344F4F62C5B28FC00D8C850 /* SKKInputContext.h */,
+				132114AD2DFC78BB00F69F68 /* SKKInputContext.swift */,
 				139FE4462D7768840015DFCA /* SKKInputContext.mm */,
 				138930122DF4849000EA7600 /* SKKInputEnvironment.swift */,
 				1363DAC32DF6040900E779CE /* SKKInputModeSelector.swift */,
@@ -3862,6 +3865,7 @@
 				138930132DF4849000EA7600 /* SKKInputEnvironment.swift in Sources */,
 				130C484A2D7E0B1C0052FF60 /* GenericState.swift in Sources */,
 				138198FC2D793C6E009C29E7 /* SKKOkuriEditor.swift in Sources */,
+				132114AE2DFC78BB00F69F68 /* SKKInputContext.swift in Sources */,
 				13B16D0C2DE29E770064ADCF /* SKKDynamicCompletorProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

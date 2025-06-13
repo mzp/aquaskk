@@ -10,12 +10,12 @@ import AquaSKKLogging
 import OSLog
 
 public class SKKRegisterEditorImpl: SKKEditorProtocol {
-    private let context: SKKInputContext
+    private let context: SKKInputContextImpl
     private var entry: SKKEntry
     private var word: SKKTextBufferImpl
     private var prompt: String
 
-    public init(context: SKKInputContext) {
+    public init(context: SKKInputContextImpl) {
         self.context = context
         entry = context.entry
         word = .init()

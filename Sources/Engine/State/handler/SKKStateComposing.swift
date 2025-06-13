@@ -40,11 +40,11 @@ public class SKKStateEdit: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
     var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngineImpl
-    var context: SKKInputContext
+    var context: SKKInputContextImpl
     var config: SKKConfigProtocol
     var completer: SKKCompleterImpl
     var selector: SKKSelectorImpl
-    init(editor: SKKInputEngineImpl, context: SKKInputContext, config: SKKConfigProtocol, completer: SKKCompleterImpl, selector: SKKSelectorImpl) {
+    init(editor: SKKInputEngineImpl, context: SKKInputContextImpl, config: SKKConfigProtocol, completer: SKKCompleterImpl, selector: SKKSelectorImpl) {
         self.editor = editor
         self.context = context
         self.config = config
@@ -175,9 +175,9 @@ public class SKKStateKanaEntry: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
     var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngineImpl
-    var context: SKKInputContext
+    var context: SKKInputContextImpl
     var config: SKKConfigProtocol
-    init(editor: SKKInputEngineImpl, context: SKKInputContext, config: SKKConfigProtocol) {
+    init(editor: SKKInputEngineImpl, context: SKKInputContextImpl, config: SKKConfigProtocol) {
         self.editor = editor
         self.context = context
         self.config = config
@@ -267,8 +267,8 @@ public class SKKStateAsciiEntry: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
     var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngineImpl
-    var context: SKKInputContext
-    init(editor: SKKInputEngineImpl, context: SKKInputContext) {
+    var context: SKKInputContextImpl
+    init(editor: SKKInputEngineImpl, context: SKKInputContextImpl) {
         self.editor = editor
         self.context = context
     }
@@ -480,9 +480,9 @@ public class SKKStateOkuriInput: HandlerProtocol {
     var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngineImpl
     var config: SKKConfigProtocol
-    var context: SKKInputContext
+    var context: SKKInputContextImpl
     var selector: SKKSelectorImpl
-    init(editor: SKKInputEngineImpl, config: SKKConfigProtocol, context: SKKInputContext, selector: SKKSelectorImpl) {
+    init(editor: SKKInputEngineImpl, config: SKKConfigProtocol, context: SKKInputContextImpl, selector: SKKSelectorImpl) {
         self.editor = editor
         self.config = config
         self.context = context
