@@ -16,7 +16,6 @@ FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 
 #pragma mark - editor
 
-#import <AquaSKKEngine/SKKBaseEditor.h>
 
 #pragma mark - session
 
