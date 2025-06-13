@@ -146,30 +146,30 @@
 
     @objc public func handleBackSpace() {
         if inputQueue.isEmpty {
-            invoke(event: SKKBaseEditorEventBackSpace)
+            invoke(event: .SKKBaseEditorEventBackSpace)
         } else {
             inputQueue.removeChar()
         }
     }
 
     @objc public func handleDelete() {
-        invoke(event: SKKBaseEditorEventDelete)
+        invoke(event: .SKKBaseEditorEventDelete)
     }
 
     @objc public func handleCursorLeft() {
-        invoke(event: SKKBaseEditorEventCursorLeft)
+        invoke(event: .SKKBaseEditorEventCursorLeft)
     }
 
     @objc public func handleCursorRight() {
-        invoke(event: SKKBaseEditorEventCursorRight)
+        invoke(event: .SKKBaseEditorEventCursorRight)
     }
 
     @objc public func handleCursorUp() {
-        invoke(event: SKKBaseEditorEventCursorUp)
+        invoke(event: .SKKBaseEditorEventCursorUp)
     }
 
     @objc public func handleCursorDown() {
-        invoke(event: SKKBaseEditorEventCursorDown)
+        invoke(event: .SKKBaseEditorEventCursorDown)
     }
 
     @objc public func handlePaste() {
@@ -288,10 +288,10 @@
         }
 
         // 非確定文字があれば挿入(ex. "ky" など)
-        if env.config.displayShortestMatchOfKanaConversions(), !inputState.intermediate.empty() {
-            context.output.compose(string: SKKUTF8String(inputState.intermediate), cursor: 0)
+        if env.config.displayShortestMatchOfKanaConversions(), !inputState.intermediate.isEmpty {
+            context.output.compose(string: inputState.intermediate, cursor: 0)
         } else {
-            context.output.compose(string: SKKUTF8String(inputState.queue), cursor: 0)
+            context.output.compose(string: inputState.queue, cursor: 0)
         }
         env.selector.notify()
     }
@@ -307,7 +307,7 @@
     }
 
     @objc public func bridgeInputQueueUpdate(fixed: String, intermediate: String, queue: String, code: Int) {
-        let state = SKKInputQueueObserverState(fixed: std.string(fixed), intermediate: std.string(intermediate), queue: std.string(queue), code: CChar(code))
+        let state = SKKInputQueueObserverState(fixed: fixed, intermediate: intermediate, queue: queue, code: code)
         inputQueueUpdate(state: state)
     }
 

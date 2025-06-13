@@ -12,24 +12,17 @@ FOUNDATION_EXPORT double AquaSKKEngineVersionNumber;
 FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 
 #pragma mark - buffer
-#import <AquaSKKEngine/SKKInputQueueObserverState.h>
 
 #pragma mark - editor
-
-#import <AquaSKKEngine/SKKBaseEditor.h>
 
 #pragma mark - session
 
 #import <AquaSKKEngine/SKKInputContext.h>
-#import <AquaSKKEngine/SKKRegistration.h>
-#import <AquaSKKEngine/SKKUndoContext.h>
 
 #pragma mark - state
 
 #import <AquaSKKEngine/SKKEvent.h>
-#import <AquaSKKEngine/SKKState.h>
 
 #pragma mark - utility
 
 #import <AquaSKKEngine/IntrusiveRefCounted.h>
-#import <AquaSKKEngine/AquaSKKEngine-Preamble.h>

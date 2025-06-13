@@ -44,12 +44,12 @@ public class SKKEntryRemoveEditorImpl: SKKEditorProtocol {
     }
 
     public func bridgeInputEvent(_ rawValue: UInt32) {
-        let event = SKKBaseEditorEvent(rawValue: rawValue)
+        let event = SKKBaseEditorEvent(rawValue: rawValue)!
         inputEvent(event: event)
     }
 
     public func inputEvent(event: SKKBaseEditorEvent) {
-        if event == SKKBaseEditorEventBackSpace, !input.isEmpty {
+        if event == .SKKBaseEditorEventBackSpace, !input.isEmpty {
             input.removeLast()
         }
     }

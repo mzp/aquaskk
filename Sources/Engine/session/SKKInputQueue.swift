@@ -44,7 +44,7 @@ public class SKKInputQueueImpl {
 
         if direct || inputMode == .AsciiInputMode {
             if let newElement = Unicode.Scalar(UInt32(character)) {
-                state.fixed = std.string(String(newElement))
+                state.fixed = String(newElement)
             }
 
         } else {
@@ -57,8 +57,8 @@ public class SKKInputQueueImpl {
                     queue += String(newElement).lowercased()
                 }
                 if let result = converter.convert(queue, inputMode: inputMode), result.converted {
-                    state.fixed = std.string(result.output)
-                    state.intermediate = std.string(result.intermediate)
+                    state.fixed = result.output
+                    state.intermediate = result.intermediate
                     queue = result.next
                 }
 
@@ -68,15 +68,15 @@ public class SKKInputQueueImpl {
                     queue += String(newElement)
                 }
                 let output = queue.applyingTransform(.fullwidthToHalfwidth, reverse: true) ?? queue
-                state.fixed = std.string(output)
+                state.fixed = output
                 queue.removeAll()
 
             default:
                 ()
             }
         }
-        state.queue = std.string(queue)
-        state.code = CChar(character)
+        state.queue = queue
+        state.code = character
 
         inputQueueUpdate(state: state)
     }
@@ -85,16 +85,16 @@ public class SKKInputQueueImpl {
         guard let observer = observer else {
             return
         }
-        let fixed: std.string = state.fixed
-        let intermediate: std.string = state.intermediate
-        let queue: std.string = state.queue
+        let fixed = state.fixed
+        let intermediate = state.intermediate
+        let queue = state.queue
         let code = state.code
 
         observer.bridgeInputQueueUpdate(
-            fixed: SKKUTF8String(fixed),
-            intermediate: SKKUTF8String(intermediate),
-            queue: SKKUTF8String(queue),
-            code: Int(code)
+            fixed: fixed,
+            intermediate: intermediate,
+            queue: queue,
+            code: code
         )
     }
 
@@ -106,7 +106,7 @@ public class SKKInputQueueImpl {
         queue.removeLast()
 
         var state = SKKInputQueueObserverState()
-        state.queue = std.string(queue)
+        state.queue = queue
         state.code = 0
         inputQueueUpdate(state: state)
     }
@@ -124,7 +124,7 @@ public class SKKInputQueueImpl {
              .Jisx0201KanaInputMode,
              .KatakanaInputMode:
             if let result = converter.convert(queue, inputMode: inputMode) {
-                state.fixed = std.string(result.output + result.intermediate)
+                state.fixed = result.output + result.intermediate
             }
 
         case .AsciiInputMode,

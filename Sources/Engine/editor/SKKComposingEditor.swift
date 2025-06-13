@@ -50,31 +50,31 @@ public class SKKComposingEditorImpl: SKKEditorProtocol {
     }
 
     public func bridgeInputEvent(_ rawValue: UInt32) {
-        let event = SKKBaseEditorEvent(rawValue: rawValue)
+        let event = SKKBaseEditorEvent(rawValue: rawValue)!
         inputEvent(event: event)
     }
 
     public func inputEvent(event: SKKBaseEditorEvent) {
         switch event {
-        case SKKBaseEditorEventBackSpace:
+        case .SKKBaseEditorEventBackSpace:
             if composing.isEmpty {
                 context.needs_setback = true
             }
             composing.backSpace()
 
-        case SKKBaseEditorEventDelete:
+        case .SKKBaseEditorEventDelete:
             composing.delete()
 
-        case SKKBaseEditorEventCursorLeft:
+        case .SKKBaseEditorEventCursorLeft:
             composing.cursorLeft()
 
-        case SKKBaseEditorEventCursorRight:
+        case .SKKBaseEditorEventCursorRight:
             composing.cursorRight()
 
-        case SKKBaseEditorEventCursorUp:
+        case .SKKBaseEditorEventCursorUp:
             composing.cursorUp()
 
-        case SKKBaseEditorEventCursorDown:
+        case .SKKBaseEditorEventCursorDown:
             composing.cursorDown()
 
         default:

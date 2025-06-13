@@ -78,12 +78,12 @@ public class SKKOkuriEditorImpl: SKKEditorProtocol {
     }
 
     public func bridgeInputEvent(_ rawValue: UInt32) {
-        let event = SKKBaseEditorEvent(rawValue: rawValue)
+        let event = SKKBaseEditorEvent(rawValue: rawValue)!
         inputEvent(event: event)
     }
 
     public func inputEvent(event: SKKBaseEditorEvent) {
-        if event == SKKBaseEditorEventBackSpace {
+        if event == .SKKBaseEditorEventBackSpace {
             if okuri.isEmpty {
                 context.needs_setback = true
             } else {
