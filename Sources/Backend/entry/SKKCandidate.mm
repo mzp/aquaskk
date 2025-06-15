@@ -21,22 +21,8 @@
 */
 
 #import "SKKCandidate.h"
-#import <AquaSKKBackend/SKKEncoding.h>
 #import "AquaSKKBackend-Preamble.h"
 #import <AquaSKKBackend/AquaSKKBackend-Swift.h>
-
-SKKCandidate::SKKCandidate()
-    : avoid_study_(false), impl_([[SKKCandidateImpl alloc] init]) {}
-
-SKKCandidate::SKKCandidate(const std::string &candidate, bool auto_parse)
-    : avoid_study_(false) {
-    impl_ = [[SKKCandidateImpl alloc] initWithCandidate:SKKUTF8String(candidate) autoParse:auto_parse];
-    if(auto_parse) {
-        parse(candidate);
-    } else {
-        word_ = candidate;
-    }
-}
 
 static std::string org_table[] = {"[", "/", ";", ""};
 static std::string enc_table[] = {"[5b]", "[2f]", "[3b]", ""};
@@ -54,66 +40,6 @@ static std::string translate(const std::string &str, const std::string *from, co
     return result;
 }
 
-bool SKKCandidate::IsEmpty() const {
-    return word_.empty();
-}
-
-const std::string &SKKCandidate::Word() const {
-    return word_;
-}
-
-const std::string &SKKCandidate::Annotation() const {
-    return annotation_;
-}
-
-const std::string &SKKCandidate::Variant() const {
-    return (variant_.empty() ? Word() : variant_);
-}
-
-const std::string SKKCandidate::getAnnotation() const {
-    return Annotation();
-}
-
-const std::string SKKCandidate::getVariant() const {
-    return Variant();
-}
-
-const std::string SKKCandidate::getWord() const {
-    return Word();
-}
-
-bool SKKCandidate::AvoidStudy() const {
-    return avoid_study_;
-}
-
-void SKKCandidate::SetVariant(const std::string str) {
-    variant_ = str;
-}
-
-void SKKCandidate::SetAvoidStudy() {
-    avoid_study_ = true;
-}
-
-std::string SKKCandidate::ToString() const {
-    return word_ + (annotation_.empty() ? "" : (";" + annotation_));
-}
-
-bool SKKCandidate::operator==(const SKKCandidate &rhs) const {
-    return Variant() == rhs.Variant(); // 注釈は比較しない
-}
-
-bool SKKCandidate::operator!=(const SKKCandidate &rhs) const {
-    return !this->operator==(rhs);
-}
-
-void SKKCandidate::Encode() {
-    word_ = Encode(word_);
-}
-
-void SKKCandidate::Decode() {
-    word_ = Decode(word_);
-}
-
 std::string SKKCandidate::Encode(const std::string &src) {
     return translate(src, org_table, enc_table);
 }
@@ -121,3 +47,11 @@ std::string SKKCandidate::Encode(const std::string &src) {
 std::string SKKCandidate::Decode(const std::string &src) {
     return translate(src, enc_table, org_table);
 }
+
+void retainSKKCandidate(SKKCandidate *obj) {
+//    obj->retain();
+}
+void releaseSKKCandidate(SKKCandidate *obj) {
+//    obj->release();
+}
+

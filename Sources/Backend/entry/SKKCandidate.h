@@ -26,6 +26,9 @@
 #include <deque>
 #include <string>
 #include <swift/bridging>
+#import <AquaSKKBackend/IntrusiveRefCounted.h>
+
+@class SKKCandidateImpl;
 
 // 単一の変換候補
 class SKKCandidate {
@@ -121,6 +124,10 @@ public:
         word_ = Decode(word_);
     }
 };
+
+void retainSKKCandidate(SKKCandidate *obj);
+void releaseSKKCandidate(SKKCandidate *obj);
+
 
 typedef std::deque<SKKCandidate> SKKCandidateContainer;
 typedef SKKCandidateContainer::iterator SKKCandidateIterator;

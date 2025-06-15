@@ -9,6 +9,7 @@
 #define AquaSKKBackend_Preamble_h
 
 #import <AquaSKKBackend/SKKCandidate.h>
+#import <AquaSKKBackend/SKKEntry.h>
 #import <AquaSKKBackend/SKKCompletionHelper.h>
 #import <AquaSKKBackend/SKKDictionaryKey.h>
 
