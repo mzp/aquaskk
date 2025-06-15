@@ -4,7 +4,7 @@
 //
 //  Created by mzp on 2025/06/06.
 //
-internal import AquaSKKEngine
+import AquaSKKEngine
 
 class NullConfigImpl: SKKConfigProtocol {
     func fixIntermediateConversion() -> Bool {

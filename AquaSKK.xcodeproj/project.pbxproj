@@ -33,6 +33,8 @@
 		1311EB202DE95A1F00808F8D /* SKKSelectorBuddyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1311EB1F2DE95A1F00808F8D /* SKKSelectorBuddyProtocol.swift */; };
 		1311EB222DE95D2400808F8D /* MockSelectorBuddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1311EB212DE95D2400808F8D /* MockSelectorBuddy.swift */; };
 		1311EB252DE962ED00808F8D /* SKKOkuriListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1311EB242DE962ED00808F8D /* SKKOkuriListenerProtocol.swift */; };
+		131489B72DFF4F8700390C43 /* SKKCandidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131489B62DFF4F8700390C43 /* SKKCandidate.swift */; };
+		131489B82DFF64EC00390C43 /* IntrusiveRefCounted.h in Headers */ = {isa = PBXBuildFile; fileRef = 13096C842C8C2D24009F3E6B /* IntrusiveRefCounted.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1315FE8E2C818377004011B7 /* MockCompletionHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 1315FE852C818327004011B7 /* MockCompletionHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13185CC22C5B57DF001CF24D /* SubRuleDescriptions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13185CC02C5B57DF001CF24D /* SubRuleDescriptions.cpp */; };
 		13185CC32C5B57DF001CF24D /* BlacklistApps.m in Sources */ = {isa = PBXBuildFile; fileRef = 13185CB52C5B57DF001CF24D /* BlacklistApps.m */; };
@@ -62,7 +64,6 @@
 		1326922C2D7A9A9B00043CDC /* SKKInputEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1326922B2D7A9A9B00043CDC /* SKKInputEngine.swift */; };
 		132CBC032D5F95B200E4D875 /* AquaSKKLogging.docc in Sources */ = {isa = PBXBuildFile; fileRef = 132CBC002D5F95B200E4D875 /* AquaSKKLogging.docc */; };
 		132CBC072D5F966500E4D875 /* Logger+AquaSKK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132CBC062D5F966500E4D875 /* Logger+AquaSKK.swift */; };
-		132F4D312D6C07270081022E /* IntrusiveRefCounted.h in Headers */ = {isa = PBXBuildFile; fileRef = 13096C842C8C2D24009F3E6B /* IntrusiveRefCounted.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		133021A72D64308100BFE102 /* SKKDictionaryFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133021A62D64308100BFE102 /* SKKDictionaryFile.swift */; };
 		133021A92D64332100BFE102 /* SKKDictionaryFileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133021A82D64332100BFE102 /* SKKDictionaryFileTests.swift */; };
 		133021AD2D646C9900BFE102 /* SKKDictionaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133021AC2D646C9900BFE102 /* SKKDictionaryEntry.swift */; };
@@ -310,7 +311,7 @@
 		139BFFC12C95ECCE00665C1D /* NumericConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139BFFC02C95ECCE00665C1D /* NumericConverter.swift */; };
 		139BFFC32C95F1DB00665C1D /* NumericConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139BFFC22C95F1DB00665C1D /* NumericConverterTests.swift */; };
 		139BFFC42C95F1DB00665C1D /* NumericConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139BFFC22C95F1DB00665C1D /* NumericConverterTests.swift */; };
-		139C42302DD5DEA9007F7FAA /* AquaSKKBackend-Preamble.h in Headers */ = {isa = PBXBuildFile; fileRef = 139C422F2DD5DEA9007F7FAA /* AquaSKKBackend-Preamble.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		139C42302DD5DEA9007F7FAA /* AquaSKKBackend-Preamble.h in Headers */ = {isa = PBXBuildFile; fileRef = 139C422F2DD5DEA9007F7FAA /* AquaSKKBackend-Preamble.h */; };
 		139C42342DD692F9007F7FAA /* SKKCandidateSuiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C42332DD692F9007F7FAA /* SKKCandidateSuiteTests.swift */; };
 		139C42362DD99419007F7FAA /* SKKCandidateSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C42352DD99419007F7FAA /* SKKCandidateSuite.swift */; };
 		139C423A2DDA568B007F7FAA /* SKKOkuriHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C42392DDA568B007F7FAA /* SKKOkuriHint.swift */; };
@@ -372,7 +373,6 @@
 		13D128E22DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D128E12DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift */; };
 		13D128E32DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D128E12DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift */; };
 		13D128E52DEB953900B0F94D /* TestInputQueueObserverImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D128E42DEB953900B0F94D /* TestInputQueueObserverImpl.swift */; };
-		13D128E62DEB953900B0F94D /* TestInputQueueObserverImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D128E42DEB953900B0F94D /* TestInputQueueObserverImpl.swift */; };
 		13D128EA2DEBA25D00B0F94D /* SKKInputQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D128E92DEBA25D00B0F94D /* SKKInputQueueTests.swift */; };
 		13D756192C5A9049006144F2 /* AquaSKKEngine.docc in Sources */ = {isa = PBXBuildFile; fileRef = 13D756172C5A9049006144F2 /* AquaSKKEngine.docc */; };
 		13D7561A2C5A9049006144F2 /* AquaSKKEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 13D756162C5A9049006144F2 /* AquaSKKEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -559,6 +559,7 @@
 		1311EB1F2DE95A1F00808F8D /* SKKSelectorBuddyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKSelectorBuddyProtocol.swift; sourceTree = "<group>"; };
 		1311EB212DE95D2400808F8D /* MockSelectorBuddy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSelectorBuddy.swift; sourceTree = "<group>"; };
 		1311EB242DE962ED00808F8D /* SKKOkuriListenerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKOkuriListenerProtocol.swift; sourceTree = "<group>"; };
+		131489B62DFF4F8700390C43 /* SKKCandidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKCandidate.swift; sourceTree = "<group>"; };
 		1315FE852C818327004011B7 /* MockCompletionHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockCompletionHelper.h; sourceTree = "<group>"; };
 		13185CB42C5B57DF001CF24D /* BlacklistApps.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlacklistApps.h; sourceTree = "<group>"; };
 		13185CB52C5B57DF001CF24D /* BlacklistApps.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlacklistApps.m; sourceTree = "<group>"; };
@@ -1582,6 +1583,7 @@
 			children = (
 				1344F4E02C5B28FC00D8C850 /* SKKCandidate.h */,
 				1344F4E12C5B28FC00D8C850 /* SKKCandidate.cpp */,
+				131489B62DFF4F8700390C43 /* SKKCandidate.swift */,
 				13FDADED2DD297A1004183FF /* SKKCandidateParser.swift */,
 				139C42352DD99419007F7FAA /* SKKCandidateSuite.swift */,
 				1344F4E42C5B28FC00D8C850 /* SKKEntry.h */,
@@ -1659,6 +1661,7 @@
 		1344F55C2C5B28FC00D8C850 /* utility */ = {
 			isa = PBXGroup;
 			children = (
+				13096C842C8C2D24009F3E6B /* IntrusiveRefCounted.h */,
 				13B4A9B72D583D30002453BA /* SKKCandidateBridge.h */,
 				13B4A9B82D583D30002453BA /* SKKCandidateBridge.mm */,
 				1323659C2CA87EDD00BF11CC /* SwiftObject.h */,
@@ -2168,14 +2171,6 @@
 			path = BackendTests;
 			sourceTree = "<group>";
 		};
-		138C69542C94CBBF009FE153 /* utility */ = {
-			isa = PBXGroup;
-			children = (
-				13096C842C8C2D24009F3E6B /* IntrusiveRefCounted.h */,
-			);
-			path = utility;
-			sourceTree = "<group>";
-		};
 		138C697F2C94CDE4009FE153 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -2451,7 +2446,6 @@
 				1344F4F52C5B28FC00D8C850 /* selector */,
 				13E6467B2DF15ABF00E44F2A /* session */,
 				1344F5122C5B28FC00D8C850 /* state */,
-				138C69542C94CBBF009FE153 /* utility */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -2676,6 +2670,7 @@
 				138C69112C94C865009FE153 /* AquaSKKBackend.h in Headers */,
 				138C694C2C94C9A6009FE153 /* SKKInputMode.h in Headers */,
 				138C692D2C94C93E009FE153 /* SKKCompletionHelper.h in Headers */,
+				131489B82DFF64EC00390C43 /* IntrusiveRefCounted.h in Headers */,
 				138C69482C94C96E009FE153 /* SKKTransliterate.h in Headers */,
 				138C69492C94C96E009FE153 /* SKKEncoding.h in Headers */,
 				13B4A9BC2D583EC8002453BA /* SKKCandidateBridge.h in Headers */,
@@ -2721,7 +2716,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				132F4D312D6C07270081022E /* IntrusiveRefCounted.h in Headers */,
 				13615FED2D8475CF000EA020 /* SKKEventID.h in Headers */,
 				1344F5802C5B28FC00D8C850 /* SKKInputContext.h in Headers */,
 				132114A42DFBC34800F69F68 /* AquaSKKEngine-Preamble.h in Headers */,
@@ -3649,7 +3643,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13D128E62DEB953900B0F94D /* TestInputQueueObserverImpl.swift in Sources */,
 				13F53D9C2C6C39CA00403F65 /* AppDelegate.swift in Sources */,
 				13A6A1392C6D6D2F004B3587 /* main.m in Sources */,
 				13D128E32DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift in Sources */,
@@ -3677,6 +3670,7 @@
 				13B4A9BB2D583EC2002453BA /* SKKCandidateBridge.mm in Sources */,
 				13FDADEE2DD297A1004183FF /* SKKCandidateParser.swift in Sources */,
 				133021AD2D646C9900BFE102 /* SKKDictionaryEntry.swift in Sources */,
+				131489B72DFF4F8700390C43 /* SKKCandidate.swift in Sources */,
 				133021AF2D646CB400BFE102 /* DictionaryEntryParser.swift in Sources */,
 				135DDD962D68D33B00E6FDDE /* SKKDictionaryReloadAdapter.swift in Sources */,
 				131F47A22D6B69CA001187BF /* SKKBackendImpl.swift in Sources */,

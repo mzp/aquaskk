@@ -61,15 +61,15 @@ public:
         return word_.empty();
     }
 
-    const std::string &Word() const {
+    const std::string Word() const {
         return word_;
     }
 
-    const std::string &Annotation() const {
+    const std::string Annotation() const {
         return annotation_;
     }
 
-    const std::string &Variant() const {
+    const std::string Variant() const {
         return (variant_.empty() ? Word() : variant_);
     }
 

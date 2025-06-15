@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal import AquaSKKEngine
+import AquaSKKEngine
 
 public class MockConfigImpl: SKKConfigProtocol {
     var fixIntermediateConversionValue: Bool = true

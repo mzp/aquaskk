@@ -26,7 +26,7 @@
 #import <swift/bridging>
 #import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKBackend/SKKEntry.h>
-#import <AquaSKKEngine/IntrusiveRefCounted.h>
+#import <AquaSKKBackend/IntrusiveRefCounted.h>
 
 @class SKKCandidateBridge;
 @class SKKOutputBufferImpl;

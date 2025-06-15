@@ -6,7 +6,7 @@
 //
 
 import Foundation
-internal import AquaSKKEngine
+import AquaSKKEngine
 
 public class TestInputQueueObserverImpl: SKKInputQueueObserverProtocol {
     var fixed: String = ""
