@@ -1211,9 +1211,9 @@
 		131489BA2DFF91CE00390C43 /* event */ = {
 			isa = PBXGroup;
 			children = (
+				130C48462D7E0B0C0052FF60 /* GenericEvent.swift */,
 				1344F50A2C5B28FC00D8C850 /* SKKEvent.h */,
 				13615FEC2D8475CF000EA020 /* SKKEventID.h */,
-				130C48462D7E0B0C0052FF60 /* GenericEvent.swift */,
 				13B16D402DE3728D0064ADCF /* SKKStateMachineEvent.swift */,
 			);
 			name = event;
@@ -1231,9 +1231,9 @@
 		131489BC2DFF91F300390C43 /* state_machine */ = {
 			isa = PBXGroup;
 			children = (
-				130C484C2D7E0B340052FF60 /* GenericStateMachine.swift */,
 				130C48522D7E10740052FF60 /* GenericDeferEventQueue.swift */,
 				130C484F2D7E0DF10052FF60 /* GenericStateHistory.swift */,
+				130C484C2D7E0B340052FF60 /* GenericStateMachine.swift */,
 				135D5D802D9844DC006B2B99 /* HandlerProtocol.swift */,
 				130C48432D7CB28A0052FF60 /* InspectorProtocol.swift */,
 			);

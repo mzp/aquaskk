@@ -63,7 +63,7 @@
     static let table = [
         ("[", "[5b]"),
         ("/", "[2f]"),
-        (";", "[3b]")
+        (";", "[3b]"),
     ]
 
     @objc public func encode() {
@@ -200,4 +200,4 @@
 //     return translate(src, enc_table, org_table);
 // }
 //
-// 
+//

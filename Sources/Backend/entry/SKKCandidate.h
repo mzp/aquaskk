@@ -128,7 +128,6 @@ public:
 void retainSKKCandidate(SKKCandidate *obj);
 void releaseSKKCandidate(SKKCandidate *obj);
 
-
 typedef std::deque<SKKCandidate> SKKCandidateContainer;
 typedef SKKCandidateContainer::iterator SKKCandidateIterator;
 

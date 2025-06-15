@@ -5,8 +5,8 @@
 //  Created by mzp on 2025/05/31.
 //
 
-import Foundation
 import AquaSKKEngine
+import Foundation
 
 public class TestInputQueueObserverImpl: SKKInputQueueObserverProtocol {
     var fixed: String = ""
