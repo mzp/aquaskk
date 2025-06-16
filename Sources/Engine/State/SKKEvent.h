@@ -25,7 +25,6 @@
 
 #include <sstream>
 #import <swift/bridging>
-#import <AquaSKKEngine/SKKEventID.h>
 
 // SKK_CHAR 属性
 enum {
@@ -46,14 +45,6 @@ enum {
     InputChars = (1 << 13),
     CompConversion = (1 << 14),
     StickyKey = (1 << 15)
-};
-
-// 処理オプション
-enum {
-    Default = 0,
-    AlwaysHandled = 1 << 0, // 強制的に「処理済み」にする
-    PseudoHandled = 1 << 1, // 処理は行うが「未処理」とする
-    CapsLock = 1 << 2       // CapsLock
 };
 
 // イベントパラメータ

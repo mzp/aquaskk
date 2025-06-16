@@ -69,7 +69,7 @@ public class SKKPreProcessor: NSObject {
         var result = keymap.fetch(charCode: Int(charcode?.asciiValue ?? 0), keyCode: Int(keycode), modifiers: mods)
 
         if modifierFlags.contains(.capsLock) {
-            result.option |= Int32(CapsLock)
+            result.option |= Int32(SKKHandleOption.capsLock.rawValue)
         }
 
         Logger.skkInput.info("""

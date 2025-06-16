@@ -11,16 +11,5 @@ FOUNDATION_EXPORT double AquaSKKEngineVersionNumber;
 
 FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 
-#pragma mark - buffer
-
-#pragma mark - editor
-
-#pragma mark - session
-
-#import <AquaSKKEngine/SKKInputContext.h>
-
-#pragma mark - state
-
 #import <AquaSKKEngine/SKKEvent.h>
-
-#pragma mark - utility
+#import <AquaSKKEngine/SKKInputContext.h>

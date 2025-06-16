@@ -37,6 +37,7 @@
 		131489B82DFF64EC00390C43 /* IntrusiveRefCounted.h in Headers */ = {isa = PBXBuildFile; fileRef = 13096C842C8C2D24009F3E6B /* IntrusiveRefCounted.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		131489BE2DFF929C00390C43 /* SKKEventID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131489BD2DFF929C00390C43 /* SKKEventID.swift */; };
 		131489C22DFF94C400390C43 /* SKKEvent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 131489C12DFF94C400390C43 /* SKKEvent.mm */; };
+		131489C62DFF9D9200390C43 /* SKKHandleOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131489C52DFF9D9200390C43 /* SKKHandleOption.swift */; };
 		1315FE8E2C818377004011B7 /* MockCompletionHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 1315FE852C818327004011B7 /* MockCompletionHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13185CC22C5B57DF001CF24D /* SubRuleDescriptions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13185CC02C5B57DF001CF24D /* SubRuleDescriptions.cpp */; };
 		13185CC32C5B57DF001CF24D /* BlacklistApps.m in Sources */ = {isa = PBXBuildFile; fileRef = 13185CB52C5B57DF001CF24D /* BlacklistApps.m */; };
@@ -133,7 +134,6 @@
 		135FB6D92C6998E800A6480A /* SKKRomanKanaConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135FB6D82C6998E800A6480A /* SKKRomanKanaConverter.swift */; };
 		135FB6E12C69AA7E00A6480A /* Trie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135FB6E02C69AA7E00A6480A /* Trie.swift */; };
 		135FB6E32C69B06B00A6480A /* TriesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135FB6E22C69B06B00A6480A /* TriesTest.swift */; };
-		13615FED2D8475CF000EA020 /* SKKEventID.h in Headers */ = {isa = PBXBuildFile; fileRef = 13615FEC2D8475CF000EA020 /* SKKEventID.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13615FEF2D852108000EA020 /* SKKStateComposing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13615FEE2D852108000EA020 /* SKKStateComposing.swift */; };
 		13615FF12D8543E5000EA020 /* SKKStateEntryRemove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13615FF02D8543E5000EA020 /* SKKStateEntryRemove.swift */; };
 		13615FF32D8544CC000EA020 /* SKKStateRecursiveRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13615FF22D8544CC000EA020 /* SKKStateRecursiveRegister.swift */; };
@@ -564,6 +564,7 @@
 		131489B62DFF4F8700390C43 /* SKKCandidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKCandidate.swift; sourceTree = "<group>"; };
 		131489BD2DFF929C00390C43 /* SKKEventID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKEventID.swift; sourceTree = "<group>"; };
 		131489C12DFF94C400390C43 /* SKKEvent.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKEvent.mm; sourceTree = "<group>"; };
+		131489C52DFF9D9200390C43 /* SKKHandleOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKHandleOption.swift; sourceTree = "<group>"; };
 		1315FE852C818327004011B7 /* MockCompletionHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockCompletionHelper.h; sourceTree = "<group>"; };
 		13185CB42C5B57DF001CF24D /* BlacklistApps.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlacklistApps.h; sourceTree = "<group>"; };
 		13185CB52C5B57DF001CF24D /* BlacklistApps.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlacklistApps.m; sourceTree = "<group>"; };
@@ -697,7 +698,6 @@
 		135FB6D82C6998E800A6480A /* SKKRomanKanaConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKRomanKanaConverter.swift; sourceTree = "<group>"; };
 		135FB6E02C69AA7E00A6480A /* Trie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trie.swift; sourceTree = "<group>"; };
 		135FB6E22C69B06B00A6480A /* TriesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriesTest.swift; sourceTree = "<group>"; };
-		13615FEC2D8475CF000EA020 /* SKKEventID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKEventID.h; sourceTree = "<group>"; };
 		13615FEE2D852108000EA020 /* SKKStateComposing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStateComposing.swift; sourceTree = "<group>"; };
 		13615FF02D8543E5000EA020 /* SKKStateEntryRemove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStateEntryRemove.swift; sourceTree = "<group>"; };
 		13615FF22D8544CC000EA020 /* SKKStateRecursiveRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStateRecursiveRegister.swift; sourceTree = "<group>"; };
@@ -1217,9 +1217,9 @@
 			children = (
 				130C48462D7E0B0C0052FF60 /* GenericEvent.swift */,
 				1344F50A2C5B28FC00D8C850 /* SKKEvent.h */,
-				13615FEC2D8475CF000EA020 /* SKKEventID.h */,
 				131489C12DFF94C400390C43 /* SKKEvent.mm */,
 				131489BD2DFF929C00390C43 /* SKKEventID.swift */,
+				131489C52DFF9D9200390C43 /* SKKHandleOption.swift */,
 				13B16D402DE3728D0064ADCF /* SKKStateMachineEvent.swift */,
 			);
 			name = event;
@@ -2746,7 +2746,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13615FED2D8475CF000EA020 /* SKKEventID.h in Headers */,
 				1344F5802C5B28FC00D8C850 /* SKKInputContext.h in Headers */,
 				132114A42DFBC34800F69F68 /* AquaSKKEngine-Preamble.h in Headers */,
 				1344F5B32C5B28FC00D8C850 /* SKKEvent.h in Headers */,
@@ -3872,6 +3871,7 @@
 				13B16D0E2DE29E7F0064ADCF /* SKKFrontEndProtocol.swift in Sources */,
 				135D5D812D9844DC006B2B99 /* HandlerProtocol.swift in Sources */,
 				130C48502D7E0DF10052FF60 /* GenericStateHistory.swift in Sources */,
+				131489C62DFF9D9200390C43 /* SKKHandleOption.swift in Sources */,
 				132114A62DFBC37200F69F68 /* SKKUndoResult.swift in Sources */,
 				139E88B72D73F2FA0065CFA2 /* SKKInlineSelector.swift in Sources */,
 				138FB7142D7BF42C00542DF7 /* SKKOutputBuffer.swift in Sources */,

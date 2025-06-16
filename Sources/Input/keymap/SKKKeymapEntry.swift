@@ -93,7 +93,7 @@ struct SKKKeymapEntryImpl {
         "CompConversion": .init(symbol: CompConversion, type: .attribute),
         "StickyKey": .init(symbol: StickyKey, type: .attribute),
 
-        "AlwaysHandled": .init(symbol: AlwaysHandled, type: .handleOption),
-        "PseudoHandled": .init(symbol: PseudoHandled, type: .handleOption),
+        "AlwaysHandled": .init(symbol: SKKHandleOption.alwaysHandled.rawValue, type: .handleOption),
+        "PseudoHandled": .init(symbol: SKKHandleOption.pseudoHandled.rawValue, type: .handleOption),
     ]
 }

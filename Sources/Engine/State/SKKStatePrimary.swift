@@ -344,7 +344,7 @@ public class SKKStateLatinInput: HandlerProtocol {
         case .charInput:
             if param.IsInputChars() {
                 var code = param.code
-                if (param.option & Int32(CapsLock)) != 0,
+                if (param.option & Int32(SKKHandleOption.capsLock.rawValue)) != 0,
                    let uppercased = String(UnicodeScalar(code)).uppercased().first
                 {
                     code = uppercased.asciiValue ?? code

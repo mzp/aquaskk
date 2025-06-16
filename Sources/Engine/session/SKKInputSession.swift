@@ -114,11 +114,11 @@ import Foundation
         if stacks.count != 1 || context.output.isComposing {
             return true
         }
-        switch Int(event.option) {
-        case AlwaysHandled:
+        switch SKKHandleOption(rawValue: Int(event.option)) {
+        case .alwaysHandled:
             // 常に処理済み
             return true
-        case PseudoHandled:
+        case .pseudoHandled:
             // 未処理
             return false
         default:
