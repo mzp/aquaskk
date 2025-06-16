@@ -85,7 +85,7 @@ public class SKKKeymapImpl {
                     if entry.isNot {
                         attributes[key] = attributes[key, default: 0] & ~entry.symbol
                     } else {
-                        events[key] = SKK_CHAR
+                        events[key] = Int(SKKEventID.charInput.rawValue)
                         attributes[key] = attributes[key, default: 0] | entry.symbol
                     }
 
@@ -107,10 +107,10 @@ public class SKKKeymapImpl {
     func fetch(charCode: Int, keyCode: Int, modifiers: Int) -> SKKEvent {
         var event = SKKEvent()
         event.code = UInt8(charCode)
-        event.id = Int32(find(charCode: charCode, keyCode: keyCode, modifiers: modifiers, from: events) ?? SKK_CHAR)
+        event.id = Int32(find(charCode: charCode, keyCode: keyCode, modifiers: modifiers, from: events) ?? Int(SKKEventID.charInput.rawValue))
 
         // SKK_CHAR イベントなら属性も調べる
-        if event.id == SKK_CHAR {
+        if event.id == Int(SKKEventID.charInput.rawValue) {
             if let attribute = find(charCode: charCode, keyCode: keyCode, modifiers: modifiers, from: attributes) {
                 event.attribute = Int32(attribute)
             }

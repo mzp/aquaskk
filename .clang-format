@@ -15,7 +15,7 @@ IncludeBlocks: Merge
 IncludeCategories:
   - Regex:           '<[[:alnum:]]+>'
     Priority:        1
-  - Regex:           '-Preamble.h>$'
+  - Regex:           '-Preamble.h"$'
     Priority:        4
   - Regex:           '-Swift.h>$'
     Priority:        5

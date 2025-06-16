@@ -35,6 +35,8 @@
 		1311EB252DE962ED00808F8D /* SKKOkuriListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1311EB242DE962ED00808F8D /* SKKOkuriListenerProtocol.swift */; };
 		131489B72DFF4F8700390C43 /* SKKCandidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131489B62DFF4F8700390C43 /* SKKCandidate.swift */; };
 		131489B82DFF64EC00390C43 /* IntrusiveRefCounted.h in Headers */ = {isa = PBXBuildFile; fileRef = 13096C842C8C2D24009F3E6B /* IntrusiveRefCounted.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		131489BE2DFF929C00390C43 /* SKKEventID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131489BD2DFF929C00390C43 /* SKKEventID.swift */; };
+		131489C22DFF94C400390C43 /* SKKEvent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 131489C12DFF94C400390C43 /* SKKEvent.mm */; };
 		1315FE8E2C818377004011B7 /* MockCompletionHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 1315FE852C818327004011B7 /* MockCompletionHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13185CC22C5B57DF001CF24D /* SubRuleDescriptions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13185CC02C5B57DF001CF24D /* SubRuleDescriptions.cpp */; };
 		13185CC32C5B57DF001CF24D /* BlacklistApps.m in Sources */ = {isa = PBXBuildFile; fileRef = 13185CB52C5B57DF001CF24D /* BlacklistApps.m */; };
@@ -560,6 +562,8 @@
 		1311EB212DE95D2400808F8D /* MockSelectorBuddy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSelectorBuddy.swift; sourceTree = "<group>"; };
 		1311EB242DE962ED00808F8D /* SKKOkuriListenerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKOkuriListenerProtocol.swift; sourceTree = "<group>"; };
 		131489B62DFF4F8700390C43 /* SKKCandidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKCandidate.swift; sourceTree = "<group>"; };
+		131489BD2DFF929C00390C43 /* SKKEventID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKEventID.swift; sourceTree = "<group>"; };
+		131489C12DFF94C400390C43 /* SKKEvent.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKEvent.mm; sourceTree = "<group>"; };
 		1315FE852C818327004011B7 /* MockCompletionHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockCompletionHelper.h; sourceTree = "<group>"; };
 		13185CB42C5B57DF001CF24D /* BlacklistApps.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlacklistApps.h; sourceTree = "<group>"; };
 		13185CB52C5B57DF001CF24D /* BlacklistApps.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlacklistApps.m; sourceTree = "<group>"; };
@@ -1214,6 +1218,8 @@
 				130C48462D7E0B0C0052FF60 /* GenericEvent.swift */,
 				1344F50A2C5B28FC00D8C850 /* SKKEvent.h */,
 				13615FEC2D8475CF000EA020 /* SKKEventID.h */,
+				131489C12DFF94C400390C43 /* SKKEvent.mm */,
+				131489BD2DFF929C00390C43 /* SKKEventID.swift */,
 				13B16D402DE3728D0064ADCF /* SKKStateMachineEvent.swift */,
 			);
 			name = event;
@@ -3860,6 +3866,7 @@
 				132692262D7A34E000043CDC /* SKKCompleter.swift in Sources */,
 				13A6488A2D76D82900FB52C5 /* SKKInputQueue.swift in Sources */,
 				1332CC322D9A17660052F59F /* SKKStateTop.swift in Sources */,
+				131489BE2DFF929C00390C43 /* SKKEventID.swift in Sources */,
 				13615FF32D8544CC000EA020 /* SKKStateRecursiveRegister.swift in Sources */,
 				130C48532D7E10740052FF60 /* GenericDeferEventQueue.swift in Sources */,
 				13B16D0E2DE29E7F0064ADCF /* SKKFrontEndProtocol.swift in Sources */,
@@ -3872,6 +3879,7 @@
 				138FB7082D7B4A5700542DF7 /* SKKRegistration.swift in Sources */,
 				130C48642D7E88A30052FF60 /* SKKStateMachine.swift in Sources */,
 				13E646832DF1DFD400E44F2A /* SKKInputSession.swift in Sources */,
+				131489C22DFF94C400390C43 /* SKKEvent.mm in Sources */,
 				139FE4492D7768C70015DFCA /* SKKPrimaryEditor.swift in Sources */,
 				132114A02DFBC26400F69F68 /* SKKBaseEditorEvent.swift in Sources */,
 				13615FEF2D852108000EA020 /* SKKStateComposing.swift in Sources */,

@@ -64,145 +64,31 @@ public:
     int attribute;      // SKK_CHAR 属性
     int option;         // 処理オプション
 
-    SKKEvent()
-        : id(0), code(0), attribute(0), option(0) {}
-    SKKEvent(int e, unsigned char c, int a = None)
-        : id(e), code(c), attribute(a), option(0) {}
-
-    SKKEvent(int id, unsigned char code, int attribute, int option)
-        : id(id), code(code), attribute(attribute), option(option) {}
+    SKKEvent();
+    SKKEvent(int e, unsigned char c, int a = None);
+    SKKEvent(int id, unsigned char code, int attribute, int option);
 
     // SKK_CHAR 属性問い合わせ
-    bool IsDirect() const {
-        return attribute & Direct;
-    }
-    bool IsUpperCases() const {
-        return attribute & UpperCases;
-    }
-    bool IsToggleKana() const {
-        return attribute & ToggleKana;
-    }
-    bool IsToggleJisx0201Kana() const {
-        return attribute & ToggleJisx0201Kana;
-    }
-    bool IsSwitchToAscii() const {
-        return attribute & SwitchToAscii;
-    }
-    bool IsSwitchToJisx0208Latin() const {
-        return attribute & SwitchToJisx0208Latin;
-    }
-    bool IsEnterJapanese() const {
-        return attribute & EnterJapanese;
-    }
-    bool IsEnterAbbrev() const {
-        return attribute & EnterAbbrev;
-    }
-    bool IsNextCompletion() const {
-        return attribute & NextCompletion;
-    }
-    bool IsPrevCompletion() const {
-        return attribute & PrevCompletion;
-    }
-    bool IsNextCandidate() const {
-        return attribute & NextCandidate;
-    }
-    bool IsPrevCandidate() const {
-        return attribute & PrevCandidate;
-    }
-    bool IsRemoveTrigger() const {
-        return attribute & RemoveTrigger;
-    }
-    bool IsInputChars() const {
-        return attribute & InputChars;
-    }
-    bool IsCompConversion() const {
-        return attribute & CompConversion;
-    }
-    bool IsStickyKey() const {
-        return attribute & StickyKey;
-    }
-
-    const static SKKEvent &Null() {
-        static SKKEvent obj(SKK_NULL, 0, 0);
-        return obj;
-    }
-
-    bool operator==(const SKKEvent &rhs) const {
-        return (id == rhs.id && code == rhs.code && attribute == rhs.attribute);
-    }
-
-    std::string attr() const {
-        std::string result;
-
-#define TEST_attribute(attr)                                                                                           \
-    if(Is##attr())                                                                                                     \
-    result += "," #attr
-
-        TEST_attribute(Direct);
-        TEST_attribute(UpperCases);
-        TEST_attribute(ToggleKana);
-        TEST_attribute(ToggleJisx0201Kana);
-        TEST_attribute(SwitchToAscii);
-        TEST_attribute(SwitchToJisx0208Latin);
-        TEST_attribute(EnterJapanese);
-        TEST_attribute(EnterAbbrev);
-        TEST_attribute(NextCompletion);
-        TEST_attribute(PrevCompletion);
-        TEST_attribute(NextCandidate);
-        TEST_attribute(PrevCandidate);
-        TEST_attribute(RemoveTrigger);
-        TEST_attribute(InputChars);
-        TEST_attribute(CompConversion);
-
-#undef TEST_attribute
-
-        if(result.empty()) {
-            result = "attr=none";
-        } else {
-            result = "attr=" + result.substr(1);
-        }
-
-        return result;
-    }
-
-    std::string dump() const {
-        const char *eventName[] = {
-            "SKK_NULL",
-            "SKK_JMODE",
-            "SKK_ENTER",
-            "SKK_CANCEL",
-            "SKK_BACKSPACE",
-            "SKK_DELETE",
-            "SKK_TAB",
-            "SKK_PASTE",
-            "SKK_LEFT",
-            "SKK_RIGHT",
-            "SKK_UP",
-            "SKK_DOWN",
-            "SKK_CHAR",
-            "SKK_PING",
-            "SKK_UNDO",
-            "SKK_ASCII_MODE",
-            "SKK_HIRAKANA_MODE",
-            "SKK_KATAKANA_MODE",
-            "SKK_JISX0201KANA_MODE",
-            "SKK_JISX0208LATIN_MODE",
-            "SKK_YES",
-            "SKK_NO",
-            "SKK_ON",
-            "SKK_OFF"};
-
-        std::ostringstream buf;
-        if(0 <= id - SKK_NULL) {
-            buf << "event=" << eventName[id - SKK_NULL] << ", ";
-        } else {
-            buf << "event=" << id << "(UNKNOWN), ";
-        }
-
-        buf << "code=0x" << std::hex << (unsigned)code << ", " << attr();
-
-        return buf.str();
-    }
+    bool IsDirect() const;
+    bool IsUpperCases() const;
+    bool IsToggleKana() const;
+    bool IsToggleJisx0201Kana() const;
+    bool IsSwitchToAscii() const;
+    bool IsSwitchToJisx0208Latin() const;
+    bool IsEnterJapanese() const;
+    bool IsEnterAbbrev() const;
+    bool IsNextCompletion() const;
+    bool IsPrevCompletion() const;
+    bool IsNextCandidate() const;
+    bool IsPrevCandidate() const;
+    bool IsRemoveTrigger() const;
+    bool IsInputChars() const;
+    bool IsCompConversion() const;
+    bool IsStickyKey() const;
+    const static SKKEvent &Null();
+    bool operator==(const SKKEvent &rhs) const;
+    std::string attr() const;
+    std::string dump() const;
 };
 
 #endif

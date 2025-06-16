@@ -21,8 +21,8 @@
 */
 
 #import "SKKCandidate.h"
-#import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 #import "AquaSKKBackend-Preamble.h"
+#import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 
 static std::string org_table[] = {"[", "/", ";", ""};
 static std::string enc_table[] = {"[5b]", "[2f]", "[3b]", ""};
