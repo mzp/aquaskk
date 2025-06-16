@@ -18,7 +18,7 @@ struct SKKKeymapEntryTesting {
         let entry = try #require(SKKKeymapEntryImpl(key: "SKK_JMODE", value: "a"))
         let aKey = SKKKeyState.CharCode(Int32(Character("a").asciiValue!), .none)
         #expect(entry.keys == [aKey])
-        #expect(entry.symbol == SKK_JMODE)
+        #expect(entry.symbol == SKKEventID.jmode.rawValue)
     }
 
     @Test func keyCode() throws {
@@ -26,7 +26,7 @@ struct SKKKeymapEntryTesting {
         let aKey = SKKKeyState.KeyCode(0x0A, .none)
         let bKey = SKKKeyState.KeyCode(0x7B, .none)
         #expect(entry.keys == [aKey, bKey])
-        #expect(entry.symbol == SKK_JMODE)
+        #expect(entry.symbol == SKKEventID.jmode.rawValue)
     }
 
     @Test func hexCode() throws {

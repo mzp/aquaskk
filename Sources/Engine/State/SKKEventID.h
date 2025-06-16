@@ -16,7 +16,7 @@ namespace statemachinecxx_sourceforge_jp {
 }; // namespace statemachinecxx_sourceforge_jp
 
 // キー入力イベント
-enum {
+/*enum {
     SKK_NULL = statemachinecxx_sourceforge_jp::USER_EVENT, // 無効なイベント
     SKK_JMODE,                                             // Ctrl-J
     SKK_ENTER,                                             // Ctrl-M
@@ -41,6 +41,6 @@ enum {
     SKK_NO,                                                // 仮想イベント
     SKK_ON,                                                // 仮想イベント
     SKK_OFF                                                // 仮想イベント
-};
+};*/
 
 #endif /* SKKEventID_h */
