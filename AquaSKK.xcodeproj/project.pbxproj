@@ -38,6 +38,7 @@
 		131489BE2DFF929C00390C43 /* SKKEventID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131489BD2DFF929C00390C43 /* SKKEventID.swift */; };
 		131489C22DFF94C400390C43 /* SKKEvent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 131489C12DFF94C400390C43 /* SKKEvent.mm */; };
 		131489C62DFF9D9200390C43 /* SKKHandleOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131489C52DFF9D9200390C43 /* SKKHandleOption.swift */; };
+		131489C82DFF9FF300390C43 /* SKKAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131489C72DFF9FF300390C43 /* SKKAttribute.swift */; };
 		1315FE8E2C818377004011B7 /* MockCompletionHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 1315FE852C818327004011B7 /* MockCompletionHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13185CC22C5B57DF001CF24D /* SubRuleDescriptions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13185CC02C5B57DF001CF24D /* SubRuleDescriptions.cpp */; };
 		13185CC32C5B57DF001CF24D /* BlacklistApps.m in Sources */ = {isa = PBXBuildFile; fileRef = 13185CB52C5B57DF001CF24D /* BlacklistApps.m */; };
@@ -565,6 +566,7 @@
 		131489BD2DFF929C00390C43 /* SKKEventID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKEventID.swift; sourceTree = "<group>"; };
 		131489C12DFF94C400390C43 /* SKKEvent.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKEvent.mm; sourceTree = "<group>"; };
 		131489C52DFF9D9200390C43 /* SKKHandleOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKHandleOption.swift; sourceTree = "<group>"; };
+		131489C72DFF9FF300390C43 /* SKKAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKAttribute.swift; sourceTree = "<group>"; };
 		1315FE852C818327004011B7 /* MockCompletionHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockCompletionHelper.h; sourceTree = "<group>"; };
 		13185CB42C5B57DF001CF24D /* BlacklistApps.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlacklistApps.h; sourceTree = "<group>"; };
 		13185CB52C5B57DF001CF24D /* BlacklistApps.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlacklistApps.m; sourceTree = "<group>"; };
@@ -1219,6 +1221,7 @@
 				1344F50A2C5B28FC00D8C850 /* SKKEvent.h */,
 				131489C12DFF94C400390C43 /* SKKEvent.mm */,
 				131489BD2DFF929C00390C43 /* SKKEventID.swift */,
+				131489C72DFF9FF300390C43 /* SKKAttribute.swift */,
 				131489C52DFF9D9200390C43 /* SKKHandleOption.swift */,
 				13B16D402DE3728D0064ADCF /* SKKStateMachineEvent.swift */,
 			);
@@ -3836,6 +3839,7 @@
 				138198F82D79340C009C29E7 /* SKKComposingEditor.swift in Sources */,
 				134D25662D7A08C50014ACD5 /* SKKEditorProtocol.swift in Sources */,
 				1363DAC42DF6040900E779CE /* SKKInputModeSelector.swift in Sources */,
+				131489C82DFF9FF300390C43 /* SKKAttribute.swift in Sources */,
 				135FB6E12C69AA7E00A6480A /* Trie.swift in Sources */,
 				137637972D7F3A9900CF332A /* SKKRecursiveEditor.swift in Sources */,
 				132114A82DFBC52200F69F68 /* SKKRegistrationState.swift in Sources */,

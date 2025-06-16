@@ -8,7 +8,7 @@
 /// 処理オプション
 public struct SKKHandleOption: OptionSet {
     public let rawValue: Int
-    public static let defalut = SKKHandleOption(rawValue: 0)
+    public static let defalutOption = SKKHandleOption(rawValue: 0)
 
     /// 強制的に「処理済み」にする
     public static let alwaysHandled = SKKHandleOption(rawValue: 1 << 0)

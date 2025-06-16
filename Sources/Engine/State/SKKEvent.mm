@@ -18,52 +18,52 @@ SKKEvent::SKKEvent(int id, unsigned char code, int attribute, int option)
     : id(id), code(code), attribute(attribute), option(option) {}
 
 bool SKKEvent::IsDirect() const {
-    return attribute & Direct;
+    return attribute & AquaSKKEngine::SKKAttribute::getDirect().getRawValue();
 }
 bool SKKEvent::IsUpperCases() const {
-    return attribute & UpperCases;
+    return attribute & AquaSKKEngine::SKKAttribute::getUpperCases().getRawValue();
 }
 bool SKKEvent::IsToggleKana() const {
-    return attribute & ToggleKana;
+    return attribute & AquaSKKEngine::SKKAttribute::getToggleKana().getRawValue();
 }
 bool SKKEvent::IsToggleJisx0201Kana() const {
-    return attribute & ToggleJisx0201Kana;
+    return attribute & AquaSKKEngine::SKKAttribute::getToggleJisx0201Kana().getRawValue();
 }
 bool SKKEvent::IsSwitchToAscii() const {
-    return attribute & SwitchToAscii;
+    return attribute & AquaSKKEngine::SKKAttribute::getSwitchToAscii().getRawValue();
 }
 bool SKKEvent::IsSwitchToJisx0208Latin() const {
-    return attribute & SwitchToJisx0208Latin;
+    return attribute & AquaSKKEngine::SKKAttribute::getSwitchToJisx0208Latin().getRawValue();
 }
 bool SKKEvent::IsEnterJapanese() const {
-    return attribute & EnterJapanese;
+    return attribute & AquaSKKEngine::SKKAttribute::getEnterJapanese().getRawValue();
 }
 bool SKKEvent::IsEnterAbbrev() const {
-    return attribute & EnterAbbrev;
+    return attribute & AquaSKKEngine::SKKAttribute::getEnterAbbrev().getRawValue();
 }
 bool SKKEvent::IsNextCompletion() const {
-    return attribute & NextCompletion;
+    return attribute & AquaSKKEngine::SKKAttribute::getNextCompletion().getRawValue();
 }
 bool SKKEvent::IsPrevCompletion() const {
-    return attribute & PrevCompletion;
+    return attribute & AquaSKKEngine::SKKAttribute::getPrevCompletion().getRawValue();
 }
 bool SKKEvent::IsNextCandidate() const {
-    return attribute & NextCandidate;
+    return attribute & AquaSKKEngine::SKKAttribute::getNextCandidate().getRawValue();
 }
 bool SKKEvent::IsPrevCandidate() const {
-    return attribute & PrevCandidate;
+    return attribute & AquaSKKEngine::SKKAttribute::getPrevCandidate().getRawValue();
 }
 bool SKKEvent::IsRemoveTrigger() const {
-    return attribute & RemoveTrigger;
+    return attribute & AquaSKKEngine::SKKAttribute::getRemoveTrigger().getRawValue();
 }
 bool SKKEvent::IsInputChars() const {
-    return attribute & InputChars;
+    return attribute & AquaSKKEngine::SKKAttribute::getInputChars().getRawValue();
 }
 bool SKKEvent::IsCompConversion() const {
-    return attribute & CompConversion;
+    return attribute & AquaSKKEngine::SKKAttribute::getCompConversion().getRawValue();
 }
 bool SKKEvent::IsStickyKey() const {
-    return attribute & StickyKey;
+    return attribute & AquaSKKEngine::SKKAttribute::getStickyKey().getRawValue();
 }
 
 const SKKEvent &SKKEvent::Null() {
