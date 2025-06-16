@@ -37,12 +37,12 @@ struct SKKKeymapTesting {
     }
 
     @Test func attribute() {
-        #expect(keymap.fetch(charCode: charCode("b"), keyCode: 0, modifiers: 0).attribute == Int32(InputChars))
-        #expect(keymap.fetch(charCode: charCode("q"), keyCode: 0, modifiers: 0).attribute == Int32(ToggleKana | InputChars))
-        #expect(keymap.fetch(charCode: charCode("q"), keyCode: 0, modifiers: kCtrl).attribute == Int32(ToggleJisx0201Kana))
+        #expect(keymap.fetch(charCode: charCode("b"), keyCode: 0, modifiers: 0).attribute == Int32(SKKAttribute.inputChars.rawValue))
+        #expect(keymap.fetch(charCode: charCode("q"), keyCode: 0, modifiers: 0).attribute == Int32(SKKAttribute([.toggleKana, .inputChars]).rawValue))
+        #expect(keymap.fetch(charCode: charCode("q"), keyCode: 0, modifiers: kCtrl).attribute == Int32(SKKAttribute.toggleJisx0201Kana.rawValue))
 
-        #expect(keymap.fetch(charCode: charCode("A"), keyCode: 0, modifiers: 0).attribute == Int32(UpperCases | InputChars))
-        #expect(keymap.fetch(charCode: charCode("1"), keyCode: 0x51, modifiers: 0).attribute == Int32(Direct))
+        #expect(keymap.fetch(charCode: charCode("A"), keyCode: 0, modifiers: 0).attribute == Int32(SKKAttribute([.upperCases, .inputChars]).rawValue))
+        #expect(keymap.fetch(charCode: charCode("1"), keyCode: 0x51, modifiers: 0).attribute == Int32(SKKAttribute.direct.rawValue))
     }
 
     @Test func modifiers() {
@@ -52,7 +52,7 @@ struct SKKKeymapTesting {
 
         #expect(keymap.fetch(charCode: charCode("f"), keyCode: 0, modifiers: kCtrl) == SKKEvent(SKKEventID.right.rawValue, UInt8(charCode("f")), 0))
 
-        #expect(keymap.fetch(charCode: 0x20, keyCode: 0, modifiers: kShift) == SKKEvent(SKKEventID.charInput.rawValue, 0x20, Int32(PrevCandidate | CompConversion)))
+        #expect(keymap.fetch(charCode: 0x20, keyCode: 0, modifiers: kShift) == SKKEvent(SKKEventID.charInput.rawValue, 0x20, Int32(SKKAttribute([.prevCandidate, .compConversion]).rawValue)))
 
         #expect(keymap.fetch(charCode: charCode("v"), keyCode: 0, modifiers: kMeta) == SKKEvent(SKKEventID.paste.rawValue, UInt8(charCode("v")), 0))
     }
@@ -64,10 +64,10 @@ struct SKKKeymapTesting {
         keymap.patch(path: path)
 
         // not changed
-        #expect(keymap.fetch(charCode: charCode("b"), keyCode: 0, modifiers: 0) == SKKEvent(SKKEventID.charInput.rawValue, UInt8(charCode("b")), Int32(InputChars)))
+        #expect(keymap.fetch(charCode: charCode("b"), keyCode: 0, modifiers: 0) == SKKEvent(SKKEventID.charInput.rawValue, UInt8(charCode("b")), Int32(SKKAttribute.inputChars.rawValue)))
 
         // remove attributes
-        #expect(keymap.fetch(charCode: charCode("q"), keyCode: 0, modifiers: 0) == SKKEvent(SKKEventID.charInput.rawValue, UInt8(charCode("q")), Int32(InputChars)))
-        #expect(keymap.fetch(charCode: charCode("\""), keyCode: 0, modifiers: 0) == SKKEvent(SKKEventID.charInput.rawValue, UInt8(charCode("\"")), Int32(UpperCases | InputChars)))
+        #expect(keymap.fetch(charCode: charCode("q"), keyCode: 0, modifiers: 0) == SKKEvent(SKKEventID.charInput.rawValue, UInt8(charCode("q")), Int32(SKKAttribute.inputChars.rawValue)))
+        #expect(keymap.fetch(charCode: charCode("\""), keyCode: 0, modifiers: 0) == SKKEvent(SKKEventID.charInput.rawValue, UInt8(charCode("\"")), Int32(SKKAttribute([.upperCases, .inputChars]).rawValue)))
     }
 }

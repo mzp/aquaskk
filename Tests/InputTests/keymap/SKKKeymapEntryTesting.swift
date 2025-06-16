@@ -45,7 +45,7 @@ struct SKKKeymapEntryTesting {
         let entry = try #require(SKKKeymapEntryImpl(key: "Direct", value: "group::a,c,d-f"))
         #expect(!entry.isNot)
         #expect(!entry.isEvent)
-        #expect(entry.symbol == Direct)
+        #expect(entry.symbol == SKKAttribute.direct.rawValue)
 
         let aKey = SKKKeyState.CharCode(Int32(Character("a").asciiValue!), .none)
         let cKey = SKKKeyState.CharCode(Int32(Character("c").asciiValue!), .none)
@@ -65,7 +65,7 @@ struct SKKKeymapEntryTesting {
         let entry = try #require(SKKKeymapEntryImpl(key: "NotDirect", value: "group::a,c,d-f"))
         #expect(entry.isNot)
         #expect(!entry.isEvent)
-        #expect(entry.symbol == Direct)
+        #expect(entry.symbol == SKKAttribute.direct.rawValue)
 
         let aKey = SKKKeyState.CharCode(Int32(Character("a").asciiValue!), .none)
         let cKey = SKKKeyState.CharCode(Int32(Character("c").asciiValue!), .none)

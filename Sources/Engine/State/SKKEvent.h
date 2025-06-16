@@ -26,27 +26,6 @@
 #include <sstream>
 #import <swift/bridging>
 
-// SKK_CHAR 属性
-enum {
-    None,
-    Direct = (1 << 0),
-    UpperCases = (1 << 1),
-    ToggleKana = (1 << 2),
-    ToggleJisx0201Kana = (1 << 3),
-    SwitchToAscii = (1 << 4),
-    SwitchToJisx0208Latin = (1 << 5),
-    EnterJapanese = (1 << 6),
-    EnterAbbrev = (1 << 7),
-    NextCompletion = (1 << 8),
-    PrevCompletion = (1 << 9),
-    NextCandidate = (1 << 10),
-    PrevCandidate = (1 << 11),
-    RemoveTrigger = (1 << 12),
-    InputChars = (1 << 13),
-    CompConversion = (1 << 14),
-    StickyKey = (1 << 15)
-};
-
 // イベントパラメータ
 class SKKEvent {
 public:
@@ -56,7 +35,7 @@ public:
     int option;         // 処理オプション
 
     SKKEvent();
-    SKKEvent(int e, unsigned char c, int a = None);
+    SKKEvent(int e, unsigned char c, int a = 0);
     SKKEvent(int id, unsigned char code, int attribute, int option);
 
     // SKK_CHAR 属性問い合わせ
