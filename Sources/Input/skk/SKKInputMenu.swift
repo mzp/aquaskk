@@ -10,17 +10,17 @@ import InputMethodKit
 import os
 
 private let kInputModeTable: [(Int, SKKInputMode, String)] = [
-    (SKK_HIRAKANA_MODE, SKKInputMode.HirakanaInputMode, "com.apple.inputmethod.Japanese.Hiragana"),
-    (SKK_KATAKANA_MODE, SKKInputMode.KatakanaInputMode, "com.apple.inputmethod.Japanese.Katakana"),
-    (SKK_JISX0201KANA_MODE, SKKInputMode.Jisx0201KanaInputMode, "com.apple.inputmethod.Japanese.HalfWidthKana"),
-    (SKK_JISX0208LATIN_MODE, SKKInputMode.Jisx0208LatinInputMode, "com.apple.inputmethod.Japanese.FullWidthRoman"),
-    (SKK_ASCII_MODE, SKKInputMode.AsciiInputMode, "com.apple.inputmethod.Roman"),
+    (Int(SKKEventID.hirakanaMode.rawValue), SKKInputMode.HirakanaInputMode, "com.apple.inputmethod.Japanese.Hiragana"),
+    (Int(SKKEventID.katakanaMode.rawValue), SKKInputMode.KatakanaInputMode, "com.apple.inputmethod.Japanese.Katakana"),
+    (Int(SKKEventID.jisx0201KanaMode.rawValue), SKKInputMode.Jisx0201KanaInputMode, "com.apple.inputmethod.Japanese.HalfWidthKana"),
+    (Int(SKKEventID.jisx0208LatinMode.rawValue), SKKInputMode.Jisx0208LatinInputMode, "com.apple.inputmethod.Japanese.FullWidthRoman"),
+    (Int(SKKEventID.asciiMode.rawValue), SKKInputMode.AsciiInputMode, "com.apple.inputmethod.Roman"),
     // InputSource
-    (SKK_HIRAKANA_MODE, SKKInputMode.HirakanaInputMode, "jp.sourceforge.inputmethod.aquaskk.Hiragana"),
-    (SKK_KATAKANA_MODE, SKKInputMode.KatakanaInputMode, "jp.sourceforge.inputmethod.aquaskk.Katakana"),
-    (SKK_JISX0201KANA_MODE, SKKInputMode.Jisx0201KanaInputMode, "jp.sourceforge.inputmethod.aquaskk.HalfWidthKana"),
-    (SKK_JISX0208LATIN_MODE, SKKInputMode.Jisx0208LatinInputMode, "jp.sourceforge.inputmethod.aquaskk.FullWidthRoman"),
-    (SKK_ASCII_MODE, SKKInputMode.AsciiInputMode, "jp.sourceforge.inputmethod.aquaskk.Ascii"),
+    (Int(SKKEventID.hirakanaMode.rawValue), SKKInputMode.HirakanaInputMode, "jp.sourceforge.inputmethod.aquaskk.Hiragana"),
+    (Int(SKKEventID.katakanaMode.rawValue), SKKInputMode.KatakanaInputMode, "jp.sourceforge.inputmethod.aquaskk.Katakana"),
+    (Int(SKKEventID.jisx0201KanaMode.rawValue), SKKInputMode.Jisx0201KanaInputMode, "jp.sourceforge.inputmethod.aquaskk.HalfWidthKana"),
+    (Int(SKKEventID.jisx0208LatinMode.rawValue), SKKInputMode.Jisx0208LatinInputMode, "jp.sourceforge.inputmethod.aquaskk.FullWidthRoman"),
+    (Int(SKKEventID.asciiMode.rawValue), SKKInputMode.AsciiInputMode, "jp.sourceforge.inputmethod.aquaskk.Ascii"),
 ]
 
 @objc(SKKInputMenu) public class SKKInputMenu: NSObject {
