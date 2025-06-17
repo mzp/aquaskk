@@ -5,9 +5,8 @@
 //  Created by mzp on 2025/06/06.
 //
 
+import AquaSKKEngine
 import Foundation
-
-internal import AquaSKKEngine
 
 public class MockConfigImpl: SKKConfigProtocol {
     var fixIntermediateConversionValue: Bool = true

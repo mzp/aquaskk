@@ -94,14 +94,14 @@ import Foundation
             if stacks.count != 1 {
                 popEditor()
 
-                top?.input(event: SKKEvent(Int32(SKK_ENTER), 0, 0, 0))
+                top?.input(event: SKKEvent(SKKEventID.enter.rawValue, 0, 0, 0))
             }
 
         case .Aborted:
             if stacks.count != 1 {
                 popEditor()
 
-                top?.input(event: SKKEvent(Int32(SKK_CANCEL), 0, 0, 0))
+                top?.input(event: SKKEvent(SKKEventID.cancel.rawValue, 0, 0, 0))
             }
 
         default:
@@ -114,11 +114,11 @@ import Foundation
         if stacks.count != 1 || context.output.isComposing {
             return true
         }
-        switch Int(event.option) {
-        case AlwaysHandled:
+        switch SKKHandleOption(rawValue: Int(event.option)) {
+        case .alwaysHandled:
             // 常に処理済み
             return true
-        case PseudoHandled:
+        case .pseudoHandled:
             // 未処理
             return false
         default:
@@ -129,7 +129,7 @@ import Foundation
     // MARK: - Operation
 
     @objc public func commit() {
-        let enter = SKKEvent(Int32(SKK_ENTER), 0, 0, 0)
+        let enter = SKKEvent(SKKEventID.enter.rawValue, 0, 0, 0)
         _ = handle(event: enter)
 
         if context.output.isComposing {

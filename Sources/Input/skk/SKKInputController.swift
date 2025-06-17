@@ -126,7 +126,7 @@ public class SKKInputController: IMKInputController {
         let param = preProcessor.execute(event: event)
         modeIcon?.selectInputMode(.InvalidInputMode)
         let result = session?.handle(event: param)
-        if inputMode != skkMenu?.currentInputMode || param.id == SKK_JMODE {
+        if inputMode != skkMenu?.currentInputMode || param.id == Int(SKKEventID.jmode.rawValue) {
             workaroundForSpecificApplications()
         }
         return result ?? false
@@ -176,7 +176,7 @@ public class SKKInputController: IMKInputController {
         }
 
         // 「AquaSKK 統合」の場合
-        if skkMenu.convertIDToEventID(modeIdentifier: value) == SKK_NULL {
+        if skkMenu.convertIDToEventID(modeIdentifier: value) == Int(SKKEventID.null.rawValue) {
             let indivisual = UserDefaults.standard.bool(forKey: SKKUserDefaultKeys.use_individual_input_mode)
 
             // SelectInputMode → setValue の無限ループが発生するため、

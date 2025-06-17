@@ -5,8 +5,8 @@
 
 #include <vector>
 #include <swift/bridging>
+#import <AquaSKKBackend/IntrusiveRefCounted.h>
 #import <AquaSKKBackend/SKKCompletionHelper.h>
-#import <AquaSKKEngine/IntrusiveRefCounted.h>
 
 class MockCompletionHelper : public SKKCompletionHelper, public IntrusiveRefCounted<MockCompletionHelper> {
     std::vector<std::string> result_;

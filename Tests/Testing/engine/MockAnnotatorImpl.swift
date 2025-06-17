@@ -5,7 +5,7 @@
 //  Created by mzp on 2025/06/06.
 //
 
-internal import AquaSKKEngine
+import AquaSKKEngine
 internal import AquaSKKBackend
 
 class MockAnnotatorImpl: MockWidget, SKKAnnotatorProtocol {

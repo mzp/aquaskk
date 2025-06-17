@@ -6,8 +6,8 @@
 #include <fstream>
 #include <vector>
 #include <AquaSKKTesting/stringutil.h>
-#import <AquaSKKInput/AquaSKKInput-Swift.h>
 #import "AquaSKKInput-Preamble.h"
+#import <AquaSKKInput/AquaSKKInput-Swift.h>
 #include "TestEvent.h"
 #include "TestResult.h"
 

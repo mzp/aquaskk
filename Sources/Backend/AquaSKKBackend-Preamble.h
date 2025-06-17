@@ -11,5 +11,6 @@
 #import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKBackend/SKKCompletionHelper.h>
 #import <AquaSKKBackend/SKKDictionaryKey.h>
+#import <AquaSKKBackend/SKKEntry.h>
 
 #endif /* AquaSKKBackend_Preamble_h */

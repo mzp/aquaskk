@@ -24,9 +24,9 @@
 #define SKKInputContext_h
 
 #import <swift/bridging>
+#import <AquaSKKBackend/IntrusiveRefCounted.h>
 #import <AquaSKKBackend/SKKCandidate.h>
 #import <AquaSKKBackend/SKKEntry.h>
-#import <AquaSKKEngine/IntrusiveRefCounted.h>
 #import <AquaSKKEngine/SKKUndoContext.h>
 
 @class SKKCandidateBridge;

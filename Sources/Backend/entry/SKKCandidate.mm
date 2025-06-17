@@ -21,6 +21,8 @@
 */
 
 #import "SKKCandidate.h"
+#import "AquaSKKBackend-Preamble.h"
+#import <AquaSKKBackend/AquaSKKBackend-Swift.h>
 
 static std::string org_table[] = {"[", "/", ";", ""};
 static std::string enc_table[] = {"[5b]", "[2f]", "[3b]", ""};
@@ -44,4 +46,11 @@ std::string SKKCandidate::Encode(const std::string &src) {
 
 std::string SKKCandidate::Decode(const std::string &src) {
     return translate(src, enc_table, org_table);
+}
+
+void retainSKKCandidate(SKKCandidate *obj) {
+    //    obj->retain();
+}
+void releaseSKKCandidate(SKKCandidate *obj) {
+    //    obj->release();
 }

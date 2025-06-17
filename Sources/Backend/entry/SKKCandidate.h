@@ -26,6 +26,9 @@
 #include <deque>
 #include <string>
 #include <swift/bridging>
+#import <AquaSKKBackend/IntrusiveRefCounted.h>
+
+@class SKKCandidateImpl;
 
 // 単一の変換候補
 class SKKCandidate {
@@ -61,15 +64,15 @@ public:
         return word_.empty();
     }
 
-    const std::string &Word() const {
+    const std::string Word() const {
         return word_;
     }
 
-    const std::string &Annotation() const {
+    const std::string Annotation() const {
         return annotation_;
     }
 
-    const std::string &Variant() const {
+    const std::string Variant() const {
         return (variant_.empty() ? Word() : variant_);
     }
 
@@ -121,6 +124,9 @@ public:
         word_ = Decode(word_);
     }
 };
+
+void retainSKKCandidate(SKKCandidate *obj);
+void releaseSKKCandidate(SKKCandidate *obj);
 
 typedef std::deque<SKKCandidate> SKKCandidateContainer;
 typedef SKKCandidateContainer::iterator SKKCandidateIterator;
