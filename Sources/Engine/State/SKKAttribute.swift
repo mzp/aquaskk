@@ -34,22 +34,22 @@ public struct SKKAttribute: OptionSet {
     }
 }
 
-public class SKKAttributeValue {
-    public static let noneAttribute = SKKAttribute.noneAttribute.rawValue
-    public static let direct = SKKAttribute.direct.rawValue
-    public static let upperCases = SKKAttribute.upperCases.rawValue
-    public static let toggleKana = SKKAttribute.toggleKana.rawValue
-    public static let toggleJisx0201Kana = SKKAttribute.toggleJisx0201Kana.rawValue
-    public static let switchToAscii = SKKAttribute.switchToAscii.rawValue
-    public static let switchToJisx0208Latin = SKKAttribute.switchToJisx0208Latin.rawValue
-    public static let enterJapanese = SKKAttribute.enterJapanese.rawValue
-    public static let enterAbbrev = SKKAttribute.enterAbbrev.rawValue
-    public static let nextCompletion = SKKAttribute.nextCompletion.rawValue
-    public static let prevCompletion = SKKAttribute.prevCompletion.rawValue
-    public static let nextCandidate = SKKAttribute.nextCandidate.rawValue
-    public static let prevCandidate = SKKAttribute.prevCandidate.rawValue
-    public static let removeTrigger = SKKAttribute.removeTrigger.rawValue
-    public static let inputChars = SKKAttribute.inputChars.rawValue
-    public static let compConversion = SKKAttribute.compConversion.rawValue
-    public static let stickyKey = SKKAttribute.stickyKey.rawValue
+@objc public class SKKAttributeValue: NSObject {
+    @objc public static let noneAttribute = SKKAttribute.noneAttribute.rawValue
+    @objc public static let direct = SKKAttribute.direct.rawValue
+    @objc public static let upperCases = SKKAttribute.upperCases.rawValue
+    @objc public static let toggleKana = SKKAttribute.toggleKana.rawValue
+    @objc public static let toggleJisx0201Kana = SKKAttribute.toggleJisx0201Kana.rawValue
+    @objc public static let switchToAscii = SKKAttribute.switchToAscii.rawValue
+    @objc public static let switchToJisx0208Latin = SKKAttribute.switchToJisx0208Latin.rawValue
+    @objc public static let enterJapanese = SKKAttribute.enterJapanese.rawValue
+    @objc public static let enterAbbrev = SKKAttribute.enterAbbrev.rawValue
+    @objc public static let nextCompletion = SKKAttribute.nextCompletion.rawValue
+    @objc public static let prevCompletion = SKKAttribute.prevCompletion.rawValue
+    @objc public static let nextCandidate = SKKAttribute.nextCandidate.rawValue
+    @objc public static let prevCandidate = SKKAttribute.prevCandidate.rawValue
+    @objc public static let removeTrigger = SKKAttribute.removeTrigger.rawValue
+    @objc public static let inputChars = SKKAttribute.inputChars.rawValue
+    @objc public static let compConversion = SKKAttribute.compConversion.rawValue
+    @objc public static let stickyKey = SKKAttribute.stickyKey.rawValue
 }

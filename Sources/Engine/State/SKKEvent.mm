@@ -18,52 +18,52 @@ SKKEvent::SKKEvent(int id, unsigned char code, int attribute, int option)
     : id(id), code(code), attribute(attribute), option(option) {}
 
 bool SKKEvent::IsDirect() const {
-    return attribute & AquaSKKEngine::SKKAttributeValue::getDirect();
+    return attribute & [SKKAttributeValue direct];
 }
 bool SKKEvent::IsUpperCases() const {
-    return attribute & AquaSKKEngine::SKKAttributeValue::getUpperCases();
+    return attribute & [SKKAttributeValue upperCases];
 }
 bool SKKEvent::IsToggleKana() const {
-    return attribute & AquaSKKEngine::SKKAttributeValue::getToggleKana();
+    return attribute & [SKKAttributeValue toggleKana];
 }
 bool SKKEvent::IsToggleJisx0201Kana() const {
-    return attribute & AquaSKKEngine::SKKAttributeValue::getToggleJisx0201Kana();
+    return attribute & [SKKAttributeValue toggleJisx0201Kana];
 }
 bool SKKEvent::IsSwitchToAscii() const {
-    return attribute & AquaSKKEngine::SKKAttributeValue::getSwitchToAscii();
+    return attribute & [SKKAttributeValue switchToAscii];
 }
 bool SKKEvent::IsSwitchToJisx0208Latin() const {
-    return attribute & AquaSKKEngine::SKKAttributeValue::getSwitchToJisx0208Latin();
+    return attribute & [SKKAttributeValue switchToJisx0208Latin];
 }
 bool SKKEvent::IsEnterJapanese() const {
-    return attribute & AquaSKKEngine::SKKAttributeValue::getEnterJapanese();
+    return attribute & [SKKAttributeValue enterJapanese];
 }
 bool SKKEvent::IsEnterAbbrev() const {
-    return attribute & AquaSKKEngine::SKKAttributeValue::getEnterAbbrev();
+    return attribute & [SKKAttributeValue enterAbbrev];
 }
 bool SKKEvent::IsNextCompletion() const {
-    return attribute & AquaSKKEngine::SKKAttributeValue::getNextCompletion();
+    return attribute & [SKKAttributeValue nextCompletion];
 }
 bool SKKEvent::IsPrevCompletion() const {
-    return attribute & AquaSKKEngine::SKKAttributeValue::getPrevCompletion();
+    return attribute & [SKKAttributeValue prevCompletion];
 }
 bool SKKEvent::IsNextCandidate() const {
-    return attribute & AquaSKKEngine::SKKAttributeValue::getNextCandidate();
+    return attribute & [SKKAttributeValue nextCandidate];
 }
 bool SKKEvent::IsPrevCandidate() const {
-    return attribute & AquaSKKEngine::SKKAttributeValue::getPrevCandidate();
+    return attribute & [SKKAttributeValue prevCandidate];
 }
 bool SKKEvent::IsRemoveTrigger() const {
-    return attribute & AquaSKKEngine::SKKAttributeValue::getRemoveTrigger();
+    return attribute & [SKKAttributeValue removeTrigger];
 }
 bool SKKEvent::IsInputChars() const {
-    return attribute & AquaSKKEngine::SKKAttributeValue::getInputChars();
+    return attribute & [SKKAttributeValue inputChars];
 }
 bool SKKEvent::IsCompConversion() const {
-    return attribute & AquaSKKEngine::SKKAttributeValue::getCompConversion();
+    return attribute & [SKKAttributeValue compConversion];
 }
 bool SKKEvent::IsStickyKey() const {
-    return attribute & AquaSKKEngine::SKKAttributeValue::getStickyKey();
+    return attribute & [SKKAttributeValue stickyKey];
 }
 
 const SKKEvent &SKKEvent::Null() {
