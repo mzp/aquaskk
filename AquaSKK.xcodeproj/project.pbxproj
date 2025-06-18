@@ -39,6 +39,8 @@
 		131489C22DFF94C400390C43 /* SKKEvent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 131489C12DFF94C400390C43 /* SKKEvent.mm */; };
 		131489C62DFF9D9200390C43 /* SKKHandleOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131489C52DFF9D9200390C43 /* SKKHandleOption.swift */; };
 		131489C82DFF9FF300390C43 /* SKKAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131489C72DFF9FF300390C43 /* SKKAttribute.swift */; };
+		131489CE2E02622900390C43 /* SKKEntryBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 131489CC2E02622900390C43 /* SKKEntryBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		131489CF2E02622900390C43 /* SKKEntryBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 131489CD2E02622900390C43 /* SKKEntryBridge.mm */; };
 		1315FE8E2C818377004011B7 /* MockCompletionHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 1315FE852C818327004011B7 /* MockCompletionHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13185CC22C5B57DF001CF24D /* SubRuleDescriptions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13185CC02C5B57DF001CF24D /* SubRuleDescriptions.cpp */; };
 		13185CC32C5B57DF001CF24D /* BlacklistApps.m in Sources */ = {isa = PBXBuildFile; fileRef = 13185CB52C5B57DF001CF24D /* BlacklistApps.m */; };
@@ -567,6 +569,8 @@
 		131489C12DFF94C400390C43 /* SKKEvent.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKEvent.mm; sourceTree = "<group>"; };
 		131489C52DFF9D9200390C43 /* SKKHandleOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKHandleOption.swift; sourceTree = "<group>"; };
 		131489C72DFF9FF300390C43 /* SKKAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKAttribute.swift; sourceTree = "<group>"; };
+		131489CC2E02622900390C43 /* SKKEntryBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKKEntryBridge.h; sourceTree = "<group>"; };
+		131489CD2E02622900390C43 /* SKKEntryBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKEntryBridge.mm; sourceTree = "<group>"; };
 		1315FE852C818327004011B7 /* MockCompletionHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockCompletionHelper.h; sourceTree = "<group>"; };
 		13185CB42C5B57DF001CF24D /* BlacklistApps.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlacklistApps.h; sourceTree = "<group>"; };
 		13185CB52C5B57DF001CF24D /* BlacklistApps.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlacklistApps.m; sourceTree = "<group>"; };
@@ -1622,15 +1626,17 @@
 		1344F4E72C5B28FC00D8C850 /* entry */ = {
 			isa = PBXGroup;
 			children = (
-				13B4A9B72D583D30002453BA /* SKKCandidateBridge.h */,
-				13B4A9B82D583D30002453BA /* SKKCandidateBridge.mm */,
 				1344F4E02C5B28FC00D8C850 /* SKKCandidate.h */,
 				1344F4E12C5B28FC00D8C850 /* SKKCandidate.mm */,
 				131489B62DFF4F8700390C43 /* SKKCandidate.swift */,
+				13B4A9B72D583D30002453BA /* SKKCandidateBridge.h */,
+				13B4A9B82D583D30002453BA /* SKKCandidateBridge.mm */,
 				13FDADED2DD297A1004183FF /* SKKCandidateParser.swift */,
 				139C42352DD99419007F7FAA /* SKKCandidateSuite.swift */,
 				1344F4E42C5B28FC00D8C850 /* SKKEntry.h */,
 				1344F4E52C5B28FC00D8C850 /* SKKEntry.cpp */,
+				131489CC2E02622900390C43 /* SKKEntryBridge.h */,
+				131489CD2E02622900390C43 /* SKKEntryBridge.mm */,
 				1344F4F92C5B28FC00D8C850 /* SKKInputMode.h */,
 				139C42392DDA568B007F7FAA /* SKKOkuriHint.swift */,
 			);
@@ -2711,6 +2717,7 @@
 				139C42302DD5DEA9007F7FAA /* AquaSKKBackend-Preamble.h in Headers */,
 				138C69422C94C948009FE153 /* SKKCandidate.h in Headers */,
 				138C69442C94C948009FE153 /* SKKEntry.h in Headers */,
+				131489CE2E02622900390C43 /* SKKEntryBridge.h in Headers */,
 				13DCD5072D6BA956008C27A9 /* SKKDictionaryKey.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3727,6 +3734,7 @@
 				138C69462C94C948009FE153 /* SKKEntry.cpp in Sources */,
 				137E6C072D69454C001176C3 /* SKKTask.swift in Sources */,
 				138C69472C94C948009FE153 /* SKKCandidate.mm in Sources */,
+				131489CF2E02622900390C43 /* SKKEntryBridge.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
