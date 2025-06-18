@@ -4,6 +4,7 @@
 //
 //  Created by mzp on 2025/03/10.
 //
+import AquaSKKBackend
 
 public class SKKRecursiveEditorImpl {
     private let env: SKKInputEnvironmentImpl

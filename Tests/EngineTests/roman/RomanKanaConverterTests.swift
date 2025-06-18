@@ -6,6 +6,7 @@
 //
 
 @testable internal import AquaSKKEngine
+internal import AquaSKKBackend
 import Testing
 
 /// MainActorで実行しないとテストが失敗する。理由は忘れた。

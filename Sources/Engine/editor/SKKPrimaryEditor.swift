@@ -4,6 +4,7 @@
 //
 //  Created by mzp on 2025/03/04.
 //
+import AquaSKKBackend
 
 public class SKKPrimaryEditorImpl: SKKEditorProtocol {
     let context: SKKInputContextImpl
@@ -15,8 +16,7 @@ public class SKKPrimaryEditorImpl: SKKEditorProtocol {
     public func readContext() {
         context.entry = SKKEntryBridge()
         let registration = context.registration
-        if registration.state == .Finished
-        {
+        if registration.state == .Finished {
             context.output.fix(string: registration.word)
             registration.clear()
         }

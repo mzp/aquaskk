@@ -5,6 +5,8 @@
 //  Created by mzp on 2025/03/01.
 //
 
+import AquaSKKBackend
+
 class SKKInlineSelectorImpl {
     private var range: [SKKCandidate] = []
     private var pos: Int = 0

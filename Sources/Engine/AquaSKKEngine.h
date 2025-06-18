@@ -12,4 +12,3 @@ FOUNDATION_EXPORT double AquaSKKEngineVersionNumber;
 FOUNDATION_EXPORT const unsigned char AquaSKKEngineVersionString[];
 
 #import <AquaSKKEngine/SKKEvent.h>
-#import <AquaSKKEngine/SKKInputContext.h>
