@@ -16,9 +16,10 @@ public class SKKStatePrimary: HandlerProtocol {
     var super_: HandlerProtocol? = nil
 
     var editor: SKKInputEngineImpl
-    var context: SKKInputContext
+    var context: SKKInputContextImpl
+
     var messenger: SKKMessengerProtocol
-    init(editor: SKKInputEngineImpl, context: SKKInputContext, messenger: SKKMessengerProtocol) {
+    init(editor: SKKInputEngineImpl, context: SKKInputContextImpl, messenger: SKKMessengerProtocol) {
         self.editor = editor
         self.context = context
         self.messenger = messenger

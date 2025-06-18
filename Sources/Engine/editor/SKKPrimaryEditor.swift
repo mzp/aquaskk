@@ -6,16 +6,16 @@
 //
 
 public class SKKPrimaryEditorImpl: SKKEditorProtocol {
-    let context: SKKInputContext
+    let context: SKKInputContextImpl
 
-    public init(context: SKKInputContext) {
+    public init(context: SKKInputContextImpl) {
         self.context = context
     }
 
     public func readContext() {
         context.entry = SKKEntryBridge()
-        if let registration = context.registration,
-           registration.state == .Finished
+        let registration = context.registration
+        if registration.state == .Finished
         {
             context.output.fix(string: registration.word)
             registration.clear()

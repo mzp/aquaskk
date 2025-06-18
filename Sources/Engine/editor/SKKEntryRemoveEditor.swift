@@ -8,13 +8,13 @@
 import AquaSKKBackend
 
 public class SKKEntryRemoveEditorImpl: SKKEditorProtocol {
-    let context: SKKInputContext
+    let context: SKKInputContextImpl
     var input: String
     var prompt: String
     var entry: SKKEntryBridge
     var candidate: SKKCandidateBridge
 
-    public init(context: SKKInputContext) {
+    public init(context: SKKInputContextImpl) {
         self.context = context
         input = ""
         prompt = ""

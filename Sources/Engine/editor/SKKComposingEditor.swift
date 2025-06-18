@@ -9,10 +9,10 @@ import AquaSKKLogging
 import OSLog
 
 public class SKKComposingEditorImpl: SKKEditorProtocol {
-    let context: SKKInputContext
+    let context: SKKInputContextImpl
     var composing: SKKTextBufferImpl
 
-    public init(context: SKKInputContext) {
+    public init(context: SKKInputContextImpl) {
         self.context = context
         composing = SKKTextBufferImpl()
     }

@@ -8,12 +8,12 @@
 import Foundation
 
 @objc public class SKKInputEnvironmentImpl: NSObject {
-    let context: SKKInputContext
+    let context: SKKInputContextImpl
     let isPrimaryEditor: Bool
     let param: SKKInputSessionParameterProtocol
     let selector: SKKInputModeSelectorImpl
 
-    @objc public init(context: SKKInputContext, param: SKKInputSessionParameterProtocol, selector: SKKInputModeSelectorImpl, isPrimaryEditor: Bool) {
+    public init(context: SKKInputContextImpl, param: SKKInputSessionParameterProtocol, selector: SKKInputModeSelectorImpl, isPrimaryEditor: Bool) {
         self.context = context
         self.param = param
         self.selector = selector

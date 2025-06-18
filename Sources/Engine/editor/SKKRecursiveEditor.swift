@@ -43,7 +43,7 @@ public class SKKRecursiveEditorImpl {
         env.context.output.output()
 
         if env.context.dynamic_completion, env.config.enableDynamicCompletion() {
-            let entry = env.context.entry!
+            let entry = env.context.entry
             var joined = ""
             var commonPrefix = ""
             if !entry.isEmpty, !entry.isOkuriAri {
@@ -71,7 +71,7 @@ public class SKKRecursiveEditorImpl {
         if env.context.annotation, env.config.enableAnnotation() {
             let candidate = env.context.candidateBridge
 
-            annotator.update(candidateBridge: candidate!, cursorOffset: Int(env.context.output.getMark()))
+            annotator.update(candidateBridge: candidate, cursorOffset: Int(env.context.output.getMark()))
             annotator.show()
         } else {
             annotator.hide()

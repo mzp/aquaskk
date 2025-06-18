@@ -7,7 +7,7 @@
 
 @objc public class SKKInputEngineImpl: NSObject, SKKCompleterBuddyProtcol, SKKSelectorBuddyProtocol, SKKOkuriListenerProtocol, SKKInputQueueObserverProtocol {
     private var env: SKKInputEnvironmentImpl
-    private var context: SKKInputContext {
+    private var context: SKKInputContextImpl {
         env.context
     }
 
@@ -74,7 +74,7 @@
     @objc public func setStateComposing() {
         run {
             push(editor: composingEditor)
-            var entry = context.entry!
+            var entry = context.entry
 
             if !env.config.deleteOkuriWhenQuit() {
                 entry.appendEntry(entry.okuriString)
@@ -183,7 +183,7 @@
     @objc public func handleEnter() {
         commit()
         let candidate = SKKCandidate(std.string(word), false)
-        study(entry: context.entry!, candidate: candidate)
+        study(entry: context.entry, candidate: candidate)
         if word.isEmpty {
             context.registration.abort()
         } else {
@@ -245,7 +245,7 @@
     }
 
     @objc public func toggleKana() {
-        let entry = context.entry!
+        let entry = context.entry
         study(entry: entry, candidate: .init())
         if let inputMode = inputMode {
             let string = entry.toggleKana(inputMode)
@@ -254,7 +254,7 @@
     }
 
     @objc public func toggleJisx0201Kana() {
-        let entry = context.entry!
+        let entry = context.entry
         study(entry: entry, candidate: .init())
         if let inputMode = inputMode {
             let string = entry.toggleJisx0201Kana(inputMode)

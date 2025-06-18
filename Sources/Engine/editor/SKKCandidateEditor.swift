@@ -8,10 +8,10 @@
 import AquaSKKBackend
 
 public class SKKCandidateEditorImpl: SKKEditorProtocol {
-    let context: SKKInputContext
+    let context: SKKInputContextImpl
     private var entry: SKKEntryBridge
     private var candidate: SKKCandidateBridge
-    public init(context: SKKInputContext) {
+    public init(context: SKKInputContextImpl) {
         self.context = context
         entry = .init()
         candidate = .init(string: "", autoParse: true)
