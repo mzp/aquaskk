@@ -343,7 +343,7 @@
         return [String(entry.EntryString()), String(entry.OkuriString())]
     }
 
-    func selectorUpdate(candidate: SKKCandidate) {
+    func selectorUpdate(candidate: SKKCandidateBridge) {
         candidateEditor.setCandidate(candidate: candidate)
     }
 
@@ -370,6 +370,6 @@
     }
 
     @objc public func bridgeSelectorUpdate(candidate: String) {
-        selectorUpdate(candidate: SKKCandidate(std.string(candidate), true))
+        selectorUpdate(candidate: SKKCandidateBridge(string: candidate, autoParse: true))
     }
 }

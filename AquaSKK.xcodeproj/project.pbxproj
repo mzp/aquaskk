@@ -923,8 +923,8 @@
 		13B16D402DE3728D0064ADCF /* SKKStateMachineEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStateMachineEvent.swift; sourceTree = "<group>"; };
 		13B4A9AF2D57E5C5002453BA /* SKKServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKServer.swift; sourceTree = "<group>"; };
 		13B4A9B12D57E909002453BA /* skkserv_impl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = skkserv_impl.h; sourceTree = "<group>"; };
-		13B4A9B72D583D30002453BA /* SKKCandidateBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SKKCandidateBridge.h; path = Sources/Backend/utility/SKKCandidateBridge.h; sourceTree = SOURCE_ROOT; };
-		13B4A9B82D583D30002453BA /* SKKCandidateBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = SKKCandidateBridge.mm; path = Sources/Backend/utility/SKKCandidateBridge.mm; sourceTree = SOURCE_ROOT; };
+		13B4A9B72D583D30002453BA /* SKKCandidateBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SKKCandidateBridge.h; path = Sources/Backend/entry/SKKCandidateBridge.h; sourceTree = SOURCE_ROOT; };
+		13B4A9B82D583D30002453BA /* SKKCandidateBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = SKKCandidateBridge.mm; path = Sources/Backend/entry/SKKCandidateBridge.mm; sourceTree = SOURCE_ROOT; };
 		13B4A9C02D593241002453BA /* SKKPreProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKPreProcessor.swift; sourceTree = "<group>"; };
 		13B7BE822C5EFCEF00F6BEF8 /* SKKStateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStateStore.swift; sourceTree = "<group>"; };
 		13B7BE982C5F282D00F6BEF8 /* SwitchModeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchModeTests.swift; sourceTree = "<group>"; };
@@ -1622,6 +1622,8 @@
 		1344F4E72C5B28FC00D8C850 /* entry */ = {
 			isa = PBXGroup;
 			children = (
+				13B4A9B72D583D30002453BA /* SKKCandidateBridge.h */,
+				13B4A9B82D583D30002453BA /* SKKCandidateBridge.mm */,
 				1344F4E02C5B28FC00D8C850 /* SKKCandidate.h */,
 				1344F4E12C5B28FC00D8C850 /* SKKCandidate.mm */,
 				131489B62DFF4F8700390C43 /* SKKCandidate.swift */,
@@ -1695,8 +1697,6 @@
 			isa = PBXGroup;
 			children = (
 				13096C842C8C2D24009F3E6B /* IntrusiveRefCounted.h */,
-				13B4A9B72D583D30002453BA /* SKKCandidateBridge.h */,
-				13B4A9B82D583D30002453BA /* SKKCandidateBridge.mm */,
 				1323659C2CA87EDD00BF11CC /* SwiftObject.h */,
 				13F91A172C838D5B00E60D63 /* SKKEncoding.h */,
 				13F91A182C838D5B00E60D63 /* SKKEncoding.mm */,

@@ -37,7 +37,7 @@
 class SKKInputContext : public IntrusiveRefCounted<SKKInputContext> {
 public:
     SKKEntry entry;
-    SKKCandidate candidate;
+    SKKCandidateBridge *candidate;
     SKKOutputBufferImpl *output;
     SKKUndoContextImpl *undo;
     SKKRegistrationImpl *registration;

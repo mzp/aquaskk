@@ -10,11 +10,11 @@ import AquaSKKBackend
 public class SKKCandidateEditorImpl: SKKEditorProtocol {
     let context: SKKInputContext
     private var entry: SKKEntry
-    private var candidate: SKKCandidate
+    private var candidate: SKKCandidateBridge
     public init(context: SKKInputContext) {
         self.context = context
         entry = .init()
-        candidate = .init("", true)
+        candidate = .init(string: "", autoParse: true)
     }
 
     public func readContext() {
@@ -38,7 +38,7 @@ public class SKKCandidateEditorImpl: SKKEditorProtocol {
     public func inputEvent(event _: SKKBaseEditorEvent) {}
 
     public func commit(queue _: String) -> String {
-        SKKBackendImpl.shared().register(entry: entry, candidate: candidate)
+        SKKBackendImpl.shared().register(entry: entry, candidate: candidate.copy())
         var queue = String(candidate.variant)
         if entry.IsOkuriAri() {
             queue += String(entry.OkuriString())
@@ -47,11 +47,11 @@ public class SKKCandidateEditorImpl: SKKEditorProtocol {
     }
 
     public func bridgeSetCandidate(candidateString: String) {
-        let candidate = SKKCandidate(std.string(candidateString), true)
+        let candidate = SKKCandidateBridge(string: candidateString, autoParse: true)
         setCandidate(candidate: candidate)
     }
 
-    func setCandidate(candidate: SKKCandidate) {
+    func setCandidate(candidate: SKKCandidateBridge) {
         self.candidate = candidate
         update()
     }
