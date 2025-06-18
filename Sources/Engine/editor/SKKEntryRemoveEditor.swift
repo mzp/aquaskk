@@ -11,14 +11,14 @@ public class SKKEntryRemoveEditorImpl: SKKEditorProtocol {
     let context: SKKInputContext
     var input: String
     var prompt: String
-    var entry: SKKEntry
+    var entry: SKKEntryBridge
     var candidate: SKKCandidateBridge
 
     public init(context: SKKInputContext) {
         self.context = context
         input = ""
         prompt = ""
-        entry = SKKEntry()
+        entry = SKKEntryBridge()
         candidate = .init()
     }
 
@@ -26,7 +26,7 @@ public class SKKEntryRemoveEditorImpl: SKKEditorProtocol {
         entry = context.entry
         candidate = context.candidate
         input.removeAll()
-        prompt = "\(entry.EntryString()) /\(candidate.stringValue)/ を削除しますか？(yes/no) "
+        prompt = "\(entry.entryString) /\(candidate.stringValue)/ を削除しますか？(yes/no) "
     }
 
     public func writeContext() {
@@ -58,7 +58,7 @@ public class SKKEntryRemoveEditorImpl: SKKEditorProtocol {
         if input == "yes" {
             context.needs_setback = true
         } else {
-            SKKBackendImpl.shared().remove(entry: entry, candidate: candidate.copy())
+            SKKBackendImpl.shared().remove(entry: entry.copy(), candidate: candidate.copy())
         }
         return ""
     }

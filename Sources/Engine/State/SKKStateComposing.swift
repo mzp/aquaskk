@@ -114,7 +114,7 @@ public class SKKStateEdit: HandlerProtocol {
                 completer.execute(limit: 1)
             }
             if param.IsNextCandidate() || param.IsCompConversion() {
-                if context.entry.IsEmpty() {
+                if context.entry.isEmpty {
                     return .transitionKanaInput
                 }
                 if selector.execute(inlineCount: config.maxCountOfInlineCandidates()) {
@@ -214,7 +214,7 @@ public class SKKStateKanaEntry: HandlerProtocol {
 
             // Sticky key
             if param.IsStickyKey() {
-                if context.entry.IsEmpty() {
+                if context.entry.isEmpty {
                     if param.IsInputChars() {
                         editor.handleChar(code: Int(param.code), direct: param.IsDirect())
                     }
@@ -226,7 +226,7 @@ public class SKKStateKanaEntry: HandlerProtocol {
             }
 
             // 送りあり
-            if param.IsUpperCases(), !context.entry.IsEmpty() {
+            if param.IsUpperCases(), !context.entry.isEmpty {
                 return .forwardOkuriInput
             }
 
@@ -242,7 +242,7 @@ public class SKKStateKanaEntry: HandlerProtocol {
                 }
 
                 if param.IsEnterJapanese() {
-                    if config.handleRecursiveEntryAsOkuri(), !context.entry.IsEmpty() {
+                    if config.handleRecursiveEntryAsOkuri(), !context.entry.isEmpty {
                         return .transitionOkuriInput
                     }
                     editor.commit()
@@ -288,7 +288,7 @@ public class SKKStateAsciiEntry: HandlerProtocol {
             if param.IsNextCandidate() {
                 return .super_
             }
-            if param.IsToggleJisx0201Kana(), !context.entry.IsEmpty() {
+            if param.IsToggleJisx0201Kana(), !context.entry.isEmpty {
                 editor.toggleJisx0201Kana()
                 return .transitionKanaInput
             }

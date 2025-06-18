@@ -104,6 +104,6 @@ public class SKKOkuriEditorImpl: SKKEditorProtocol {
     }
 
     private func update() {
-        context.entry.SetOkuri(std.string(prefix), std.string(okuri))
+        context.entry.setOkuri(prefix, kana: okuri)
     }
 }

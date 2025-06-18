@@ -13,7 +13,7 @@ public class SKKPrimaryEditorImpl: SKKEditorProtocol {
     }
 
     public func readContext() {
-        context.entry = SKKEntry()
+        context.entry = SKKEntryBridge()
         if let registration = context.registration,
            registration.state == .Finished
         {
@@ -43,7 +43,7 @@ public class SKKPrimaryEditorImpl: SKKEditorProtocol {
 
     public func commit(queue: String) -> String {
         context.output.fix(string: queue)
-        context.entry = SKKEntry()
+        context.entry = SKKEntryBridge()
         return ""
     }
 

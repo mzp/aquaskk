@@ -43,12 +43,12 @@ public class SKKRecursiveEditorImpl {
         env.context.output.output()
 
         if env.context.dynamic_completion, env.config.enableDynamicCompletion() {
-            let entry = env.context.entry
+            let entry = env.context.entry!
             var joined = ""
             var commonPrefix = ""
-            if !entry.IsEmpty(), !entry.IsOkuriAri() {
+            if !entry.isEmpty, !entry.isOkuriAri {
                 let range = env.config.dynamicCompletionRange()
-                let key = String(entry.EntryString())
+                let key = entry.entryString
 
                 if range > 0 {
                     let result = SKKBackendImpl.shared().complete(key: key, limit: Int(range))

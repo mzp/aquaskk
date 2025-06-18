@@ -32,11 +32,12 @@
 @class SKKOutputBufferImpl;
 @class SKKUndoContextImpl;
 @class SKKRegistrationImpl;
+@class SKKEntryBridge;
 @protocol SKKFrontEndProtocol;
 // 入力コンテキスト
 class SKKInputContext : public IntrusiveRefCounted<SKKInputContext> {
 public:
-    SKKEntry entry;
+    SKKEntryBridge *entry;
     SKKCandidateBridge *candidate;
     SKKOutputBufferImpl *output;
     SKKUndoContextImpl *undo;

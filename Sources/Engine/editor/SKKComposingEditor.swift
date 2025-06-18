@@ -20,13 +20,13 @@ public class SKKComposingEditorImpl: SKKEditorProtocol {
     public func readContext() {
         composing.clear()
 
-        if context.entry.IsEmpty() {
+        if context.entry.isEmpty {
             // 直接入力モードからの遷移
             composing.insert(context.undo.entry)
         } else {
             // 変換モードからの遷移なので、見出し語を復元する
-            context.entry.SetOkuri("", "")
-            composing.insert(String(context.entry.EntryString()))
+            context.entry.setOkuri("", kana: "")
+            composing.insert(context.entry.entryString)
         }
         context.dynamic_completion = true
     }
@@ -38,7 +38,7 @@ public class SKKComposingEditorImpl: SKKEditorProtocol {
     }
 
     private func update() {
-        context.entry = SKKEntry(std.string(composing.leftString), "")
+        context.entry = SKKEntryBridge(entry: composing.leftString, okuri: "")
     }
 
     public func input(ascii: String) {

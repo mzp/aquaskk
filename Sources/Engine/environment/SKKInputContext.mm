@@ -14,6 +14,8 @@ SKKInputContext::SKKInputContext(id<SKKFrontEndProtocol> frontend)
     : output([[SKKOutputBufferImpl alloc] initWithFrontend:frontend]),
       undo([[SKKUndoContextImpl alloc] initWithFrontend:frontend]),
       registration([[SKKRegistrationImpl alloc] init]),
+      candidate([[SKKCandidateBridge alloc] initWithString:@"" autoParse:NO]),
+      entry([[SKKEntryBridge alloc] init]),
       dynamic_completion(false) {}
 
 void retainSKKInputContext(SKKInputContext *obj) {

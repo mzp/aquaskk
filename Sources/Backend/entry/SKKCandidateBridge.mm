@@ -29,31 +29,26 @@
     return [[SKKCandidateBridge alloc] initWithCandidate:candidate];
 }
 
-- (instancetype)initWithString:(NSString *)string autoParse:(BOOL)autoParse
-{
-    if (self = [super init]) {
+- (instancetype)initWithString:(NSString *)string autoParse:(BOOL)autoParse {
+    if(self = [super init]) {
         _rawValue = new SKKCandidate(string.UTF8String, autoParse);
     }
     return self;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     delete _rawValue;
 }
 
-- (NSString *)stringValue
-{
+- (NSString *)stringValue {
     return SKKUTF8String(_rawValue->ToString());
 }
 
-- (NSString *)variant
-{
+- (NSString *)variant {
     return SKKUTF8String(_rawValue->Variant());
 }
 
-- (SKKCandidate)copy
-{
+- (SKKCandidate)copy {
     return *_rawValue;
 }
 

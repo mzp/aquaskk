@@ -74,10 +74,10 @@
     @objc public func setStateComposing() {
         run {
             push(editor: composingEditor)
-            var entry = context.entry
+            var entry = context.entry!
 
             if !env.config.deleteOkuriWhenQuit() {
-                entry.AppendEntry(entry.OkuriString())
+                entry.appendEntry(entry.okuriString)
             }
         }
     }
@@ -183,11 +183,11 @@
     @objc public func handleEnter() {
         commit()
         let candidate = SKKCandidate(std.string(word), false)
-        study(entry: context.entry, candidate: candidate)
+        study(entry: context.entry!, candidate: candidate)
         if word.isEmpty {
             context.registration.abort()
         } else {
-            let output = "\(word)\(String(context.entry.OkuriString()))"
+            let output = "\(word)\(context.entry.okuriString)"
             context.registration.finish(string: output)
         }
         context.event_handled = false
@@ -245,34 +245,34 @@
     }
 
     @objc public func toggleKana() {
-        let entry = context.entry
+        let entry = context.entry!
         study(entry: entry, candidate: .init())
         if let inputMode = inputMode {
-            let string = entry.ToggleKana(inputMode)
+            let string = entry.toggleKana(inputMode)
             insert(string: String(string))
         }
     }
 
     @objc public func toggleJisx0201Kana() {
-        let entry = context.entry
+        let entry = context.entry!
         study(entry: entry, candidate: .init())
         if let inputMode = inputMode {
-            let string = entry.ToggleJisx0201Kana(inputMode)
+            let string = entry.toggleJisx0201Kana(inputMode)
             insert(string: String(string))
         }
     }
 
-    private func study(entry: SKKEntry, candidate: SKKCandidate) {
-        if entry.IsEmpty() {
+    private func study(entry: SKKEntryBridge, candidate: SKKCandidate) {
+        if entry.isEmpty {
             return
         }
-        if entry.IsOkuriAri(), entry.OkuriString().empty() {
+        if entry.isOkuriAri, entry.okuriString.isEmpty {
             return
         }
-        if entry.IsOkuriAri(), candidate.IsEmpty() {
+        if entry.isOkuriAri, candidate.IsEmpty() {
             return
         }
-        SKKBackendImpl.shared().register(entry: entry, candidate: candidate)
+        SKKBackendImpl.shared().register(entry: entry.copy(), candidate: candidate)
     }
 
     private func insert(string: String) {
@@ -321,26 +321,26 @@
     }
 
     @objc public func completerQueryString() -> String {
-        return String(selectorQueryEntry().EntryString())
+        return selectorQueryEntry().entryString
     }
 
     @objc public func completerUpdate(entry: String) {
         composingEditor.setEntry(entry: entry)
     }
 
-    func selectorQueryEntry() -> SKKEntry {
+    func selectorQueryEntry() -> SKKEntryBridge {
         terminate()
         guard let inputMode = inputMode else {
             return .init()
         }
-        let entry = context.entry.Normalize(inputMode)
+        let entry = context.entry.normalize(inputMode)
         context.entry = entry
         return entry
     }
 
     @objc public func bridgeSelectorQueryEntry() -> [String] {
         let entry = selectorQueryEntry()
-        return [String(entry.EntryString()), String(entry.OkuriString())]
+        return [entry.entryString, entry.okuriString]
     }
 
     func selectorUpdate(candidate: SKKCandidateBridge) {
