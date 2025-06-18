@@ -927,8 +927,8 @@
 		13B16D402DE3728D0064ADCF /* SKKStateMachineEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStateMachineEvent.swift; sourceTree = "<group>"; };
 		13B4A9AF2D57E5C5002453BA /* SKKServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKServer.swift; sourceTree = "<group>"; };
 		13B4A9B12D57E909002453BA /* skkserv_impl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = skkserv_impl.h; sourceTree = "<group>"; };
-		13B4A9B72D583D30002453BA /* SKKCandidateBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SKKCandidateBridge.h; path = Sources/Backend/entry/SKKCandidateBridge.h; sourceTree = SOURCE_ROOT; };
-		13B4A9B82D583D30002453BA /* SKKCandidateBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = SKKCandidateBridge.mm; path = Sources/Backend/entry/SKKCandidateBridge.mm; sourceTree = SOURCE_ROOT; };
+		13B4A9B72D583D30002453BA /* SKKCandidateBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SKKCandidateBridge.h; path = Sources/Backend/candidate/SKKCandidateBridge.h; sourceTree = SOURCE_ROOT; };
+		13B4A9B82D583D30002453BA /* SKKCandidateBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = SKKCandidateBridge.mm; path = Sources/Backend/candidate/SKKCandidateBridge.mm; sourceTree = SOURCE_ROOT; };
 		13B4A9C02D593241002453BA /* SKKPreProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKPreProcessor.swift; sourceTree = "<group>"; };
 		13B7BE822C5EFCEF00F6BEF8 /* SKKStateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKStateStore.swift; sourceTree = "<group>"; };
 		13B7BE982C5F282D00F6BEF8 /* SwitchModeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchModeTests.swift; sourceTree = "<group>"; };
@@ -1253,6 +1253,21 @@
 			name = state_machine;
 			sourceTree = "<group>";
 		};
+		131489D02E026A7700390C43 /* candidate */ = {
+			isa = PBXGroup;
+			children = (
+				1344F4E02C5B28FC00D8C850 /* SKKCandidate.h */,
+				1344F4E12C5B28FC00D8C850 /* SKKCandidate.mm */,
+				131489B62DFF4F8700390C43 /* SKKCandidate.swift */,
+				13B4A9B72D583D30002453BA /* SKKCandidateBridge.h */,
+				13B4A9B82D583D30002453BA /* SKKCandidateBridge.mm */,
+				13FDADED2DD297A1004183FF /* SKKCandidateParser.swift */,
+				139C42352DD99419007F7FAA /* SKKCandidateSuite.swift */,
+				139C42392DDA568B007F7FAA /* SKKOkuriHint.swift */,
+			);
+			path = candidate;
+			sourceTree = "<group>";
+		};
 		1315FE812C8182FA004011B7 /* engine */ = {
 			isa = PBXGroup;
 			children = (
@@ -1338,14 +1353,14 @@
 			path = roman;
 			sourceTree = "<group>";
 		};
-		132B777D2C5DB8EB00EEC2A5 /* entry */ = {
+		132B777D2C5DB8EB00EEC2A5 /* candidate */ = {
 			isa = PBXGroup;
 			children = (
 				13FDADEB2DD2950D004183FF /* SKKCandidateParserTest.swift */,
 				139C42332DD692F9007F7FAA /* SKKCandidateSuiteTests.swift */,
 				13FDADE92DD29355004183FF /* SKKCandidateTest.swift */,
 			);
-			path = entry;
+			path = candidate;
 			sourceTree = "<group>";
 		};
 		132B777E2C5DB90B00EEC2A5 /* session */ = {
@@ -1626,19 +1641,11 @@
 		1344F4E72C5B28FC00D8C850 /* entry */ = {
 			isa = PBXGroup;
 			children = (
-				1344F4E02C5B28FC00D8C850 /* SKKCandidate.h */,
-				1344F4E12C5B28FC00D8C850 /* SKKCandidate.mm */,
-				131489B62DFF4F8700390C43 /* SKKCandidate.swift */,
-				13B4A9B72D583D30002453BA /* SKKCandidateBridge.h */,
-				13B4A9B82D583D30002453BA /* SKKCandidateBridge.mm */,
-				13FDADED2DD297A1004183FF /* SKKCandidateParser.swift */,
-				139C42352DD99419007F7FAA /* SKKCandidateSuite.swift */,
 				1344F4E42C5B28FC00D8C850 /* SKKEntry.h */,
 				1344F4E52C5B28FC00D8C850 /* SKKEntry.cpp */,
 				131489CC2E02622900390C43 /* SKKEntryBridge.h */,
 				131489CD2E02622900390C43 /* SKKEntryBridge.mm */,
 				1344F4F92C5B28FC00D8C850 /* SKKInputMode.h */,
-				139C42392DDA568B007F7FAA /* SKKOkuriHint.swift */,
 			);
 			path = entry;
 			sourceTree = "<group>";
@@ -2188,6 +2195,7 @@
 				138C69032C94C864009FE153 /* AquaSKKBackend.h */,
 				139C422F2DD5DEA9007F7FAA /* AquaSKKBackend-Preamble.h */,
 				1344F4B12C5B28FC00D8C850 /* backend */,
+				131489D02E026A7700390C43 /* candidate */,
 				1344F4CB2C5B28FC00D8C850 /* dictionary */,
 				1344F4E72C5B28FC00D8C850 /* entry */,
 				133021AB2D646C6700BFE102 /* file */,
@@ -2202,7 +2210,7 @@
 			children = (
 				133A55212C5DB8430047E911 /* backend */,
 				133A551F2C5DB8240047E911 /* dictionary */,
-				132B777D2C5DB8EB00EEC2A5 /* entry */,
+				132B777D2C5DB8EB00EEC2A5 /* candidate */,
 				13E338952D67763F009FABC2 /* file */,
 				138C697F2C94CDE4009FE153 /* Resources */,
 				132B77792C5DB89E00EEC2A5 /* utility */,
