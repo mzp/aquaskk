@@ -4,6 +4,7 @@
 //
 //  Created by mzp on 2025/03/10.
 //
+import AquaSKKBackend
 
 public class SKKRecursiveEditorImpl {
     private let env: SKKInputEnvironmentImpl
@@ -46,9 +47,9 @@ public class SKKRecursiveEditorImpl {
             let entry = env.context.entry
             var joined = ""
             var commonPrefix = ""
-            if !entry.IsEmpty(), !entry.IsOkuriAri() {
+            if !entry.isEmpty, !entry.isOkuriAri {
                 let range = env.config.dynamicCompletionRange()
-                let key = String(entry.EntryString())
+                let key = entry.entryString
 
                 if range > 0 {
                     let result = SKKBackendImpl.shared().complete(key: key, limit: Int(range))
@@ -71,7 +72,7 @@ public class SKKRecursiveEditorImpl {
         if env.context.annotation, env.config.enableAnnotation() {
             let candidate = env.context.candidateBridge
 
-            annotator.update(candidateBridge: candidate!, cursorOffset: Int(env.context.output.getMark()))
+            annotator.update(candidateBridge: candidate, cursorOffset: Int(env.context.output.getMark()))
             annotator.show()
         } else {
             annotator.hide()

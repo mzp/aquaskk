@@ -40,11 +40,11 @@ public class SKKStateEdit: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
     var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngineImpl
-    var context: SKKInputContext
+    var context: SKKInputContextImpl
     var config: SKKConfigProtocol
     var completer: SKKCompleterImpl
     var selector: SKKSelectorImpl
-    init(editor: SKKInputEngineImpl, context: SKKInputContext, config: SKKConfigProtocol, completer: SKKCompleterImpl, selector: SKKSelectorImpl) {
+    init(editor: SKKInputEngineImpl, context: SKKInputContextImpl, config: SKKConfigProtocol, completer: SKKCompleterImpl, selector: SKKSelectorImpl) {
         self.editor = editor
         self.context = context
         self.config = config
@@ -114,7 +114,7 @@ public class SKKStateEdit: HandlerProtocol {
                 completer.execute(limit: 1)
             }
             if param.IsNextCandidate() || param.IsCompConversion() {
-                if context.entry.IsEmpty() {
+                if context.entry.isEmpty {
                     return .transitionKanaInput
                 }
                 if selector.execute(inlineCount: config.maxCountOfInlineCandidates()) {
@@ -175,9 +175,9 @@ public class SKKStateKanaEntry: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
     var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngineImpl
-    var context: SKKInputContext
+    var context: SKKInputContextImpl
     var config: SKKConfigProtocol
-    init(editor: SKKInputEngineImpl, context: SKKInputContext, config: SKKConfigProtocol) {
+    init(editor: SKKInputEngineImpl, context: SKKInputContextImpl, config: SKKConfigProtocol) {
         self.editor = editor
         self.context = context
         self.config = config
@@ -214,7 +214,7 @@ public class SKKStateKanaEntry: HandlerProtocol {
 
             // Sticky key
             if param.IsStickyKey() {
-                if context.entry.IsEmpty() {
+                if context.entry.isEmpty {
                     if param.IsInputChars() {
                         editor.handleChar(code: Int(param.code), direct: param.IsDirect())
                     }
@@ -226,7 +226,7 @@ public class SKKStateKanaEntry: HandlerProtocol {
             }
 
             // 送りあり
-            if param.IsUpperCases(), !context.entry.IsEmpty() {
+            if param.IsUpperCases(), !context.entry.isEmpty {
                 return .forwardOkuriInput
             }
 
@@ -242,7 +242,7 @@ public class SKKStateKanaEntry: HandlerProtocol {
                 }
 
                 if param.IsEnterJapanese() {
-                    if config.handleRecursiveEntryAsOkuri(), !context.entry.IsEmpty() {
+                    if config.handleRecursiveEntryAsOkuri(), !context.entry.isEmpty {
                         return .transitionOkuriInput
                     }
                     editor.commit()
@@ -267,8 +267,8 @@ public class SKKStateAsciiEntry: HandlerProtocol {
     var handlerID: String { NSStringFromClass(Self.self) as String }
     var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngineImpl
-    var context: SKKInputContext
-    init(editor: SKKInputEngineImpl, context: SKKInputContext) {
+    var context: SKKInputContextImpl
+    init(editor: SKKInputEngineImpl, context: SKKInputContextImpl) {
         self.editor = editor
         self.context = context
     }
@@ -288,7 +288,7 @@ public class SKKStateAsciiEntry: HandlerProtocol {
             if param.IsNextCandidate() {
                 return .super_
             }
-            if param.IsToggleJisx0201Kana(), !context.entry.IsEmpty() {
+            if param.IsToggleJisx0201Kana(), !context.entry.isEmpty {
                 editor.toggleJisx0201Kana()
                 return .transitionKanaInput
             }
@@ -480,9 +480,9 @@ public class SKKStateOkuriInput: HandlerProtocol {
     var super_: (any HandlerProtocol)? = nil
     var editor: SKKInputEngineImpl
     var config: SKKConfigProtocol
-    var context: SKKInputContext
+    var context: SKKInputContextImpl
     var selector: SKKSelectorImpl
-    init(editor: SKKInputEngineImpl, config: SKKConfigProtocol, context: SKKInputContext, selector: SKKSelectorImpl) {
+    init(editor: SKKInputEngineImpl, config: SKKConfigProtocol, context: SKKInputContextImpl, selector: SKKSelectorImpl) {
         self.editor = editor
         self.config = config
         self.context = context

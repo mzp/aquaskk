@@ -5,7 +5,7 @@
 //  Created by mzp on 2025/06/08.
 //
 
-import Foundation
+import AquaSKKBackend
 
 @objc public class SKKInputModeSelectorImpl: SKKWidgetBase, SKKWidgetProtocol {
     @objc public private(set) var inputMode: SKKInputMode

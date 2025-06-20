@@ -4,19 +4,19 @@
 //
 //  Created by mzp on 2025/03/04.
 //
+import AquaSKKBackend
 
 public class SKKPrimaryEditorImpl: SKKEditorProtocol {
-    let context: SKKInputContext
+    let context: SKKInputContextImpl
 
-    public init(context: SKKInputContext) {
+    init(context: SKKInputContextImpl) {
         self.context = context
     }
 
     public func readContext() {
-        context.entry = SKKEntry()
-        if let registration = context.registration,
-           registration.state == .Finished
-        {
+        context.entry = SKKEntryBridge()
+        let registration = context.registration
+        if registration.state == .Finished {
             context.output.fix(string: registration.word)
             registration.clear()
         }
@@ -43,7 +43,7 @@ public class SKKPrimaryEditorImpl: SKKEditorProtocol {
 
     public func commit(queue: String) -> String {
         context.output.fix(string: queue)
-        context.entry = SKKEntry()
+        context.entry = SKKEntryBridge()
         return ""
     }
 

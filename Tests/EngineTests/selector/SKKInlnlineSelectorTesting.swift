@@ -6,6 +6,7 @@
 //
 
 import Testing
+internal import AquaSKKBackend
 @testable internal import AquaSKKEngine
 
 struct SKKInlnlineSelectorTesting {

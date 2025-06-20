@@ -8,25 +8,25 @@
 import AquaSKKBackend
 
 public class SKKEntryRemoveEditorImpl: SKKEditorProtocol {
-    let context: SKKInputContext
+    let context: SKKInputContextImpl
     var input: String
     var prompt: String
-    var entry: SKKEntry
-    var candidate: SKKCandidate
+    var entry: SKKEntryBridge
+    var candidate: SKKCandidateBridge
 
-    public init(context: SKKInputContext) {
+    init(context: SKKInputContextImpl) {
         self.context = context
         input = ""
         prompt = ""
-        entry = SKKEntry()
-        candidate = SKKCandidate()
+        entry = SKKEntryBridge()
+        candidate = .init()
     }
 
     public func readContext() {
         entry = context.entry
         candidate = context.candidate
         input.removeAll()
-        prompt = "\(entry.EntryString()) /\(candidate.ToString())/ を削除しますか？(yes/no) "
+        prompt = "\(entry.entryString) /\(candidate.stringValue)/ を削除しますか？(yes/no) "
     }
 
     public func writeContext() {
@@ -58,7 +58,7 @@ public class SKKEntryRemoveEditorImpl: SKKEditorProtocol {
         if input == "yes" {
             context.needs_setback = true
         } else {
-            SKKBackendImpl.shared().remove(entry: entry, candidate: candidate)
+            SKKBackendImpl.shared().remove(entry: entry.copy(), candidate: candidate.copy())
         }
         return ""
     }

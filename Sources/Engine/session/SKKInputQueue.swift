@@ -5,6 +5,7 @@
 //  Created by mzp on 2025/03/03.
 //
 
+import AquaSKKBackend
 import AquaSKKLogging
 import CxxStdlib
 import Foundation

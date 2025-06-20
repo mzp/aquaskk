@@ -6,14 +6,14 @@
 //
 
 public class SKKOkuriEditorImpl: SKKEditorProtocol {
-    let context: SKKInputContext
+    let context: SKKInputContextImpl
     weak var listener: SKKOkuriListenerProtocol?
     var first: Bool
     var prefix: String
     var okuri: String
     var input: String
 
-    public init(context: SKKInputContext) {
+    init(context: SKKInputContextImpl) {
         self.context = context
         first = false
         prefix = ""
@@ -104,6 +104,6 @@ public class SKKOkuriEditorImpl: SKKEditorProtocol {
     }
 
     private func update() {
-        context.entry.SetOkuri(std.string(prefix), std.string(okuri))
+        context.entry.setOkuri(prefix, kana: okuri)
     }
 }

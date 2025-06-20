@@ -8,13 +8,13 @@
 import AquaSKKBackend
 
 public class SKKCandidateEditorImpl: SKKEditorProtocol {
-    let context: SKKInputContext
-    private var entry: SKKEntry
-    private var candidate: SKKCandidate
-    public init(context: SKKInputContext) {
+    let context: SKKInputContextImpl
+    private var entry: SKKEntryBridge
+    private var candidate: SKKCandidateBridge
+    init(context: SKKInputContextImpl) {
         self.context = context
         entry = .init()
-        candidate = .init("", true)
+        candidate = .init(string: "", autoParse: true)
     }
 
     public func readContext() {
@@ -24,8 +24,8 @@ public class SKKCandidateEditorImpl: SKKEditorProtocol {
 
     public func writeContext() {
         var str = String(candidate.variant)
-        if entry.IsOkuriAri() {
-            str += String(entry.OkuriString())
+        if entry.isOkuriAri {
+            str += entry.okuriString
         }
         context.output.setMark()
         context.output.convert(string: "▼\(str)")
@@ -38,20 +38,20 @@ public class SKKCandidateEditorImpl: SKKEditorProtocol {
     public func inputEvent(event _: SKKBaseEditorEvent) {}
 
     public func commit(queue _: String) -> String {
-        SKKBackendImpl.shared().register(entry: entry, candidate: candidate)
+        SKKBackendImpl.shared().register(entry: entry.copy(), candidate: candidate.copy())
         var queue = String(candidate.variant)
-        if entry.IsOkuriAri() {
-            queue += String(entry.OkuriString())
+        if entry.isOkuriAri {
+            queue += entry.okuriString
         }
         return queue
     }
 
     public func bridgeSetCandidate(candidateString: String) {
-        let candidate = SKKCandidate(std.string(candidateString), true)
+        let candidate = SKKCandidateBridge(string: candidateString, autoParse: true)
         setCandidate(candidate: candidate)
     }
 
-    func setCandidate(candidate: SKKCandidate) {
+    func setCandidate(candidate: SKKCandidateBridge) {
         self.candidate = candidate
         update()
     }
