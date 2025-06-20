@@ -15,7 +15,7 @@ public class SKKRegisterEditorImpl: SKKEditorProtocol {
     private var word: SKKTextBufferImpl
     private var prompt: String
 
-    public init(context: SKKInputContextImpl) {
+    init(context: SKKInputContextImpl) {
         self.context = context
         entry = context.entry
         word = .init()

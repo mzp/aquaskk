@@ -14,7 +14,7 @@ public class SKKEntryRemoveEditorImpl: SKKEditorProtocol {
     var entry: SKKEntryBridge
     var candidate: SKKCandidateBridge
 
-    public init(context: SKKInputContextImpl) {
+    init(context: SKKInputContextImpl) {
         self.context = context
         input = ""
         prompt = ""

@@ -11,7 +11,7 @@ public class SKKCandidateEditorImpl: SKKEditorProtocol {
     let context: SKKInputContextImpl
     private var entry: SKKEntryBridge
     private var candidate: SKKCandidateBridge
-    public init(context: SKKInputContextImpl) {
+    init(context: SKKInputContextImpl) {
         self.context = context
         entry = .init()
         candidate = .init(string: "", autoParse: true)

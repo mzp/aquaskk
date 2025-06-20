@@ -13,7 +13,7 @@ public class SKKOkuriEditorImpl: SKKEditorProtocol {
     var okuri: String
     var input: String
 
-    public init(context: SKKInputContextImpl) {
+    init(context: SKKInputContextImpl) {
         self.context = context
         first = false
         prefix = ""

@@ -9,7 +9,7 @@ import AquaSKKBackend
 public class SKKPrimaryEditorImpl: SKKEditorProtocol {
     let context: SKKInputContextImpl
 
-    public init(context: SKKInputContextImpl) {
+    init(context: SKKInputContextImpl) {
         self.context = context
     }
 

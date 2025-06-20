@@ -13,7 +13,7 @@ public class SKKComposingEditorImpl: SKKEditorProtocol {
     let context: SKKInputContextImpl
     var composing: SKKTextBufferImpl
 
-    public init(context: SKKInputContextImpl) {
+    init(context: SKKInputContextImpl) {
         self.context = context
         composing = SKKTextBufferImpl()
     }
