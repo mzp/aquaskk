@@ -132,15 +132,15 @@ public class SKKStateMachineImpl {
         }
     }
 
-    public func dispatch(event: SKKEvent) {
-        let genericEvent: GenericEvent = .init(signal: SKKEventID(rawValue: event.id) ?? SKKEventID.null, event: event)
+    func dispatch(event: SKKEventImpl) {
+        let genericEvent: GenericEvent = .init(signal: event.id, event: event)
         machine?.dispatch(event: genericEvent)
     }
 }
 
 struct DebugInspector: InspectorProtocol {
     func inspect(handler: any HandlerProtocol, event: GenericEvent) {
-        let eventDump = event.event?.dump() ?? "<no event>"
+        let eventDump = event.event?.description ?? "<no event>"
         Logger.skkState.debug("[\(#fileID, privacy: .public):\(#function, privacy: .public)] \(handler.handlerID, privacy: .private) \(event.signal, privacy: .private) \(eventDump, privacy: .private)")
     }
 }

@@ -148,32 +148,32 @@ public class SKKStateKanaInput: HandlerProtocol {
         case .charInput:
             let param = event.param
             if !editor.canConvert(code: Int(param.code)) {
-                if param.IsSwitchToAscii() {
+                if param.isSwitchToAscii {
                     return .transitionAsciiMode
                 }
 
-                if param.IsSwitchToJisx0208Latin() {
+                if param.isSwitchToJisx0208Latin {
                     return .transitionJisx0208LatinMode
                 }
 
-                if param.IsEnterAbbrev() {
+                if param.isEnterAbbrev {
                     return .transitionAsciiEntry
                 }
 
-                if param.IsEnterJapanese() {
+                if param.isEnterJapanese {
                     return .transitionKanaEntry
                 }
             }
-            if param.IsStickyKey() {
+            if param.isStickyKey {
                 return .transitionKanaEntry
             }
-            if param.IsUpperCases() {
+            if param.isUpperCases {
                 return .forwardKanaEntry
             }
 
             // キー修飾がない場合のみローマ字かな変換を実施する
-            if param.IsInputChars() {
-                editor.handleChar(code: Int(param.code), direct: param.IsDirect())
+            if param.isInputChars {
+                editor.handleChar(code: Int(param.code), direct: param.isDirect)
                 return .handled
             }
             fallthrough
@@ -210,7 +210,7 @@ public class SKKStateHirakana: HandlerProtocol {
 
         case .charInput:
             let param = event.param
-            if !(param.IsInputChars() && editor.canConvert(code: Int(param.code))) {
+            if !(param.isInputChars && editor.canConvert(code: Int(param.code))) {
                 // 変換する文字がない場合のみ、ToggleKana等の処理する
                 //
                 // 例: AZIKの場合
@@ -219,11 +219,11 @@ public class SKKStateHirakana: HandlerProtocol {
                 //   - x[: 鍵括弧
                 //
                 // が割り当てられている
-                if param.IsToggleKana() {
+                if param.isToggleKana {
                     return .transitionKatakanaMode
                 }
 
-                if param.IsToggleJisx0201Kana() {
+                if param.isToggleJisx0201Kana {
                     return .transitionJisx0201KanaMode
                 }
             }
@@ -258,12 +258,12 @@ public class SKKStateKatakana: HandlerProtocol {
 
         default:
             let param = event.param
-            if !(event.id == .charInput && param.IsInputChars() && editor.canConvert(code: Int(param.code))) {
+            if !(event.id == .charInput && param.isInputChars && editor.canConvert(code: Int(param.code))) {
                 // 変換する文字がない場合のみ、ToggleKana等の処理する
-                if event.id == .jmode || event.param.IsToggleKana() {
+                if event.id == .jmode || event.param.isToggleKana {
                     return .transitionHirakanaMode
                 }
-                if param.IsToggleJisx0201Kana() {
+                if param.isToggleJisx0201Kana {
                     return .transitionJisx0201KanaMode
                 }
             }
@@ -297,9 +297,9 @@ public class SKKStateJisx0201Kana: HandlerProtocol {
 
         default:
             let param = event.param
-            if !(event.id == .charInput && param.IsInputChars() && editor.canConvert(code: Int(param.code))) {
+            if !(event.id == .charInput && param.isInputChars && editor.canConvert(code: Int(param.code))) {
                 // 変換する文字がない場合のみ、ToggleKana等の処理する
-                if event.id == .jmode || event.param.IsToggleKana() || param.IsToggleJisx0201Kana() {
+                if event.id == .jmode || event.param.isToggleKana || param.isToggleJisx0201Kana {
                     return .transitionHirakanaMode
                 }
             }
@@ -343,14 +343,14 @@ public class SKKStateLatinInput: HandlerProtocol {
             return .transitionHirakanaMode
 
         case .charInput:
-            if param.IsInputChars() {
-                var code = param.code
-                if (param.option & Int32(SKKHandleOption.capsLock.rawValue)) != 0,
+            if param.isInputChars {
+                var code = UInt8(param.code)
+                if param.option.contains(.capsLock),
                    let uppercased = String(UnicodeScalar(code)).uppercased().first
                 {
                     code = uppercased.asciiValue ?? code
                 }
-                editor.handleChar(code: Int(code), direct: param.IsDirect())
+                editor.handleChar(code: Int(code), direct: param.isDirect)
             }
             fallthrough
 
@@ -418,7 +418,7 @@ public class SKKStateJisx0208Latin: HandlerProtocol {
 
         default:
             let param = event.param
-            if event.id == .asciiMode || (!param.IsInputChars() && param.IsSwitchToAscii()) {
+            if event.id == .asciiMode || (!param.isInputChars && param.isSwitchToAscii) {
                 return .transitionAsciiMode
             }
             return .super_

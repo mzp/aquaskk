@@ -43,7 +43,7 @@ public class SKKStateEntryRemove: HandlerProtocol {
 
         case .charInput:
             let param = event.param
-            if param.IsInputChars() {
+            if param.isInputChars {
                 // 入力文字は ASCII で受け付ける(常に非変換)
                 editor.handleChar(code: Int(param.code), direct: true)
                 return .handled

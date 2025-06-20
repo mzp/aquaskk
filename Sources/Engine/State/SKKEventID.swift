@@ -5,7 +5,7 @@
 //  Created by mzp on 2025/06/15.
 //
 
-public enum SKKEventID: Int32 {
+public enum SKKEventID: Int32, Equatable {
     case exitEvent = -3
     case initEvent = -2
     case entryEvent = -1

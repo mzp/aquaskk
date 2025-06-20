@@ -104,20 +104,26 @@ public class SKKKeymapImpl {
     // MARK: - Loookup
 
     /// 検索
-    func fetch(charCode: Int, keyCode: Int, modifiers: Int) -> SKKEvent {
-        var event = SKKEvent()
-        event.code = UInt8(charCode)
-        event.id = Int32(find(charCode: charCode, keyCode: keyCode, modifiers: modifiers, from: events) ?? Int(SKKEventID.charInput.rawValue))
+    func fetch(charCode: Int, keyCode: Int, modifiers: Int) -> SKKEventImpl {
+        var event = SKKEventImpl()
+        event.code = charCode
+
+        if let id = find(charCode: charCode, keyCode: keyCode, modifiers: modifiers, from: events) {
+            event.id = SKKEventID(rawValue: Int32(id)) ?? .charInput
+        } else {
+            event.id = .charInput
+        }
+
 
         // SKK_CHAR イベントなら属性も調べる
-        if event.id == Int(SKKEventID.charInput.rawValue) {
+        if event.id == .charInput {
             if let attribute = find(charCode: charCode, keyCode: keyCode, modifiers: modifiers, from: attributes) {
-                event.attribute = Int32(attribute)
+                event.attribute = .init(rawValue: attribute)
             }
         }
 
         if let option = find(charCode: charCode, keyCode: keyCode, modifiers: modifiers, from: option) {
-            event.option = Int32(option)
+            event.option = .init(rawValue: option)
         }
         return event
     }
@@ -131,7 +137,7 @@ public class SKKKeymapImpl {
     // これを避けるために公開するのはプリミティブ型にする。
     public func bridgedFetch(charCode: Int, keyCode: Int, modifiers: Int) -> [Int] {
         let event = fetch(charCode: charCode, keyCode: keyCode, modifiers: modifiers)
-        return [Int(event.id), Int(event.code), Int(event.attribute), Int(event.option)]
+        return [Int(event.id.rawValue), Int(event.code), Int(event.attribute.rawValue), Int(event.option.rawValue)]
     }
 
     func find(charCode: Int, keyCode: Int, modifiers: Int, from keymap: [SKKKeyState: Int]) -> Int? {

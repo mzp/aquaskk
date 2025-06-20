@@ -378,6 +378,7 @@
 		13D128E32DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D128E12DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift */; };
 		13D128E52DEB953900B0F94D /* TestInputQueueObserverImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D128E42DEB953900B0F94D /* TestInputQueueObserverImpl.swift */; };
 		13D128EA2DEBA25D00B0F94D /* SKKInputQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D128E92DEBA25D00B0F94D /* SKKInputQueueTests.swift */; };
+		13D2865D2E060DBA00C5653A /* SKKEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D2865C2E060DA000C5653A /* SKKEvent.swift */; };
 		13D756192C5A9049006144F2 /* AquaSKKEngine.docc in Sources */ = {isa = PBXBuildFile; fileRef = 13D756172C5A9049006144F2 /* AquaSKKEngine.docc */; };
 		13D7561A2C5A9049006144F2 /* AquaSKKEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 13D756162C5A9049006144F2 /* AquaSKKEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13D8D3812D6D551700CF12D7 /* keymap_patch.conf in Resources */ = {isa = PBXBuildFile; fileRef = 1347784E2C5DB98F007B1DFB /* keymap_patch.conf */; };
@@ -960,6 +961,7 @@
 		13D128E12DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKInputQueueObserverProtocol.swift; sourceTree = "<group>"; };
 		13D128E42DEB953900B0F94D /* TestInputQueueObserverImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestInputQueueObserverImpl.swift; sourceTree = "<group>"; };
 		13D128E92DEBA25D00B0F94D /* SKKInputQueueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKInputQueueTests.swift; sourceTree = "<group>"; };
+		13D2865C2E060DA000C5653A /* SKKEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKKEvent.swift; sourceTree = "<group>"; };
 		13D756162C5A9049006144F2 /* AquaSKKEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AquaSKKEngine.h; sourceTree = "<group>"; };
 		13D756172C5A9049006144F2 /* AquaSKKEngine.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AquaSKKEngine.docc; sourceTree = "<group>"; };
 		13D7561B2C5A905E006144F2 /* All.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = All.xcconfig; sourceTree = "<group>"; };
@@ -1220,6 +1222,7 @@
 			isa = PBXGroup;
 			children = (
 				130C48462D7E0B0C0052FF60 /* GenericEvent.swift */,
+				13D2865C2E060DA000C5653A /* SKKEvent.swift */,
 				1344F50A2C5B28FC00D8C850 /* SKKEvent.h */,
 				131489C12DFF94C400390C43 /* SKKEvent.mm */,
 				131489BD2DFF929C00390C43 /* SKKEventID.swift */,
@@ -3863,6 +3866,7 @@
 				138198FA2D793A56009C29E7 /* SKKEntryRemoveEditor.swift in Sources */,
 				13D128E22DEB454800B0F94D /* SKKInputQueueObserverProtocol.swift in Sources */,
 				138ABEC42D80819D0027BFAF /* SKKStatePrimary.swift in Sources */,
+				13D2865D2E060DBA00C5653A /* SKKEvent.swift in Sources */,
 				13A648872D76881F00FB52C5 /* SKKTextBuffer.swift in Sources */,
 				138FB7122D7BEE3700542DF7 /* SKKUndoContext.swift in Sources */,
 				134D25642D7A03870014ACD5 /* SKKRegisterEditor.swift in Sources */,

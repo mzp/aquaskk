@@ -35,7 +35,7 @@ public class SKKRecursiveEditorImpl {
         env.selector.hide()
     }
 
-    public func input(event: SKKEvent) {
+    public func input(event: SKKEventImpl) {
         state.dispatch(event: event)
     }
 

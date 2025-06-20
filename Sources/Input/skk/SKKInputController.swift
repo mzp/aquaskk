@@ -127,7 +127,7 @@ public class SKKInputController: IMKInputController {
         let param = preProcessor.execute(event: event)
         modeIcon?.selectInputMode(.InvalidInputMode)
         let result = session?.handle(event: param)
-        if inputMode != skkMenu?.currentInputMode || param.id == Int(SKKEventID.jmode.rawValue) {
+        if inputMode != skkMenu?.currentInputMode || param.id == .jmode {
             workaroundForSpecificApplications()
         }
         return result ?? false
@@ -187,15 +187,15 @@ public class SKKInputController: IMKInputController {
 
                 if indivisual {
                     let identifier = skkMenu.convertInputModeToID(inputMode: skkMenu.currentInputMode)
-                    var param = SKKEvent()
-                    param.id = Int32(skkMenu.convertIDToEventID(modeIdentifier: identifier))
+                    var param = SKKEventImpl()
+                    param.id = .init(rawValue: Int32(skkMenu.convertIDToEventID(modeIdentifier: identifier))) ?? .hirakanaMode
                     _ = session?.handle(event: param)
 
                     modeIcon?.selectInputMode(skkMenu.currentInputMode)
                 } else {
                     let identifier = skkMenu.convertInputModeToID(inputMode: skkMenu.unifiedInputMode)
-                    var param = SKKEvent()
-                    param.id = Int32(skkMenu.convertIDToEventID(modeIdentifier: identifier))
+                    var param = SKKEventImpl()
+                    param.id = .init(rawValue: Int32(skkMenu.convertIDToEventID(modeIdentifier: identifier))) ?? .hirakanaMode
                     _ = session?.handle(event: param)
                 }
             }
@@ -334,20 +334,18 @@ public class SKKInputController: IMKInputController {
             Logger.skkInput.error("\(#function, privacy: .public): skkMenu is nil")
             return
         }
-        var event = SKKEvent()
+        var event = SKKEventImpl()
 
         // ex) "com.apple.inputmethod.Roman" => SKK_ASCII_MODE
-        event.id = Int32(skkMenu.convertIDToEventID(modeIdentifier: identifier))
+        event.id = SKKEventID(rawValue:  Int32(skkMenu.convertIDToEventID(modeIdentifier: identifier))) ?? .asciiMode
 
         // setValue内でメニューの更新があると、 selectInputMode -> setValueの無限ループが発生するため、
         // 更新を停止する
         skkMenu.deactivation()
         defer { skkMenu.activation() }
-        if event.id != SKKInputMode.InvalidInputMode.rawValue {
-            _ = session?.handle(event: event)
-            let inputMode = skkMenu.convertIDToInputMode(modeIdentifier: identifier)
-            modeIcon?.selectInputMode(inputMode)
-        }
+        _ = session?.handle(event: event)
+        let inputMode = skkMenu.convertIDToInputMode(modeIdentifier: identifier)
+        modeIcon?.selectInputMode(inputMode)
     }
 
     func isBlacklisted() -> Bool {

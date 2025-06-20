@@ -61,8 +61,7 @@ import Foundation
     }
 
     // MARK: - Event Handle
-
-    @objc public func handle(event: SKKEvent) -> Bool {
+    public func handle(event: SKKEventImpl) -> Bool {
         return handleEventIfNecessary(perform: {
             beginEvent()
 
@@ -94,14 +93,13 @@ import Foundation
             if stacks.count != 1 {
                 popEditor()
 
-                top?.input(event: SKKEvent(SKKEventID.enter.rawValue, 0, 0, 0))
+                top?.input(event: .init(id: .enter, code: 0, attribute: [], option: .defalutOption))
             }
 
         case .Aborted:
             if stacks.count != 1 {
                 popEditor()
-
-                top?.input(event: SKKEvent(SKKEventID.cancel.rawValue, 0, 0, 0))
+                top?.input(event: .init(id: .cancel, code: 0, attribute: [], option: .defalutOption))
             }
 
         default:
@@ -109,12 +107,12 @@ import Foundation
         }
     }
 
-    func result(of event: SKKEvent) -> Bool {
+    func result(of event: SKKEventImpl) -> Bool {
         // 単語登録中か、未確定状態なら常に処理済み
         if stacks.count != 1 || context.output.isComposing {
             return true
         }
-        switch SKKHandleOption(rawValue: Int(event.option)) {
+        switch event.option {
         case .alwaysHandled:
             // 常に処理済み
             return true
@@ -129,9 +127,7 @@ import Foundation
     // MARK: - Operation
 
     @objc public func commit() {
-        let enter = SKKEvent(SKKEventID.enter.rawValue, 0, 0, 0)
-        _ = handle(event: enter)
-
+        _ = handle(event: .init(id: .enter, code: 0, attribute: [], option: .defalutOption))
         if context.output.isComposing {
             clear()
         }

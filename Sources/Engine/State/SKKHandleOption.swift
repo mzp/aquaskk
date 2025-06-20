@@ -6,7 +6,7 @@
 //
 
 /// 処理オプション
-public struct SKKHandleOption: OptionSet {
+public struct SKKHandleOption: OptionSet, Equatable {
     public let rawValue: Int
     public static let defalutOption = SKKHandleOption(rawValue: 0)
 

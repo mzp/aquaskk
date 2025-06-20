@@ -36,7 +36,7 @@ public class SKKPreProcessor: NSObject {
     }
 
     /// NSEvent → SKKEvent 変換
-    @objc func execute(event: NSEvent) -> SKKEvent {
+    func execute(event: NSEvent) -> SKKEventImpl {
         let modifierFlags = event.modifierFlags
 
         let dispstr = event.characters
@@ -69,13 +69,13 @@ public class SKKPreProcessor: NSObject {
         var result = keymap.fetch(charCode: Int(charcode?.asciiValue ?? 0), keyCode: Int(keycode), modifiers: mods)
 
         if modifierFlags.contains(.capsLock) {
-            result.option |= Int32(SKKHandleOption.capsLock.rawValue)
+            result.option.insert(.capsLock)
         }
 
         Logger.skkInput.info("""
         [\(#fileID, privacy: .public):\(#function, privacy: .public)] \
         event=\(event.description, privacy: .private)") \
-        result=\(result.dump(), privacy: .private)")
+        result=\(result.description, privacy: .private)")
         """)
 
         return result

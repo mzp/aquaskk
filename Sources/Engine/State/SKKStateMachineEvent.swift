@@ -7,19 +7,19 @@
 
 public struct SKKStateMachineEvent {
     var id: SKKEventID
-    var param: SKKEvent
+    var param: SKKEventImpl
 
     init(_ rawValue: Int32) {
         id = .init(rawValue: rawValue)!
         param = .init()
     }
 
-    init(_ rawValue: Int32, _ payload: SKKEvent) {
+    init(_ rawValue: Int32, _ payload: SKKEventImpl) {
         id = .init(rawValue: rawValue)!
         param = payload
     }
 
-    init(id: SKKEventID, param: SKKEvent) {
+    init(id: SKKEventID, param: SKKEventImpl) {
         self.id = id
         self.param = param
     }

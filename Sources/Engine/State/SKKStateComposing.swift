@@ -110,10 +110,10 @@ public class SKKStateEdit: HandlerProtocol {
 
         case .charInput:
             let param = event.param
-            if param.IsCompConversion() {
+            if param.isCompConversion {
                 completer.execute(limit: 1)
             }
-            if param.IsNextCandidate() || param.IsCompConversion() {
+            if param.isNextCandidate || param.isCompConversion {
                 if context.entry.isEmpty {
                     return .transitionKanaInput
                 }
@@ -197,26 +197,26 @@ public class SKKStateKanaEntry: HandlerProtocol {
         case .charInput:
             let param = event.param
             // 変換
-            if param.IsNextCandidate() {
+            if param.isNextCandidate {
                 return .super_
             }
             // トグル変換 #1
-            if param.IsToggleKana() {
+            if param.isToggleKana {
                 editor.toggleKana()
                 return .transitionKanaInput
             }
 
             // トグル変換 #2
-            if param.IsToggleJisx0201Kana() {
+            if param.isToggleJisx0201Kana {
                 editor.toggleJisx0201Kana()
                 return .transitionKanaInput
             }
 
             // Sticky key
-            if param.IsStickyKey() {
+            if param.isStickyKey {
                 if context.entry.isEmpty {
-                    if param.IsInputChars() {
-                        editor.handleChar(code: Int(param.code), direct: param.IsDirect())
+                    if param.isInputChars {
+                        editor.handleChar(code: Int(param.code), direct: param.isDirect)
                     }
                     editor.commit()
                     return .transitionKanaInput
@@ -226,22 +226,22 @@ public class SKKStateKanaEntry: HandlerProtocol {
             }
 
             // 送りあり
-            if param.IsUpperCases(), !context.entry.isEmpty {
+            if param.isUpperCases, !context.entry.isEmpty {
                 return .forwardOkuriInput
             }
 
             if !editor.canConvert(code: Int(param.code)) {
-                if param.IsSwitchToAscii() {
+                if param.isSwitchToAscii {
                     editor.commit()
                     return .transitionAsciiMode
                 }
 
-                if param.IsSwitchToJisx0208Latin() {
+                if param.isSwitchToJisx0208Latin {
                     editor.commit()
                     return .transitionJisx0208LatinMode
                 }
 
-                if param.IsEnterJapanese() {
+                if param.isEnterJapanese {
                     if config.handleRecursiveEntryAsOkuri(), !context.entry.isEmpty {
                         return .transitionOkuriInput
                     }
@@ -249,8 +249,8 @@ public class SKKStateKanaEntry: HandlerProtocol {
                     return .forwardKanaInput
                 }
             }
-            if param.IsInputChars() {
-                editor.handleChar(code: Int(param.code), direct: param.IsDirect())
+            if param.isInputChars {
+                editor.handleChar(code: Int(param.code), direct: param.isDirect)
                 return .handled
             }
             fallthrough
@@ -285,15 +285,15 @@ public class SKKStateAsciiEntry: HandlerProtocol {
 
         case .charInput:
             let param = event.param
-            if param.IsNextCandidate() {
+            if param.isNextCandidate {
                 return .super_
             }
-            if param.IsToggleJisx0201Kana(), !context.entry.isEmpty {
+            if param.isToggleJisx0201Kana, !context.entry.isEmpty {
                 editor.toggleJisx0201Kana()
                 return .transitionKanaInput
             }
-            if param.IsInputChars() {
-                editor.handleChar(code: Int(param.code), direct: param.IsDirect())
+            if param.isInputChars {
+                editor.handleChar(code: Int(param.code), direct: param.isDirect)
                 return .handled
             }
             return .super_
@@ -334,18 +334,18 @@ public class SKKStateEntryCompletion: HandlerProtocol {
 
         case .charInput:
             let param = event.param
-            if param.IsNextCompletion() {
+            if param.isNextCompletion {
                 completer.next()
                 return .handled
             }
-            if param.IsPrevCompletion() {
+            if param.isPrevCompletion {
                 completer.prev()
                 return .handled
             }
-            if param.IsNextCandidate() {
+            if param.isNextCandidate {
                 return .super_
             }
-            if param.IsRemoveTrigger() {
+            if param.isRemoveTrigger {
                 if completer.remove() {
                     messenger.send(message: "見出し語を削除しました")
                     return .transitionKanaInput
@@ -437,7 +437,7 @@ public class SKKStateSelectCandidate: HandlerProtocol {
 
         case .charInput:
             let param = event.param
-            if param.IsPrevCandidate() {
+            if param.isPrevCandidate {
                 if selector.prev() {
                     return .handled
                 } else {
@@ -445,17 +445,17 @@ public class SKKStateSelectCandidate: HandlerProtocol {
                 }
             }
 
-            if param.IsNextCandidate() {
+            if param.isNextCandidate {
                 if selector.next() {
                     return .handled
                 } else {
                     return .transitionRecursiveRegister
                 }
             }
-            if param.IsRemoveTrigger() {
+            if param.isRemoveTrigger {
                 return .transitionEntryRemove
             }
-            if param.IsInputChars() || param.IsToggleJisx0201Kana() {
+            if param.isInputChars || param.isToggleJisx0201Kana {
                 if selector.isInline {
                     editor.commit()
                     return .deepForwardKanaInput
@@ -532,10 +532,10 @@ public class SKKStateOkuriInput: HandlerProtocol {
 
         case .charInput:
             let param = event.param
-            if param.IsInputChars() {
-                editor.handleChar(code: Int(param.code), direct: param.IsDirect())
+            if param.isInputChars {
+                editor.handleChar(code: Int(param.code), direct: param.isDirect)
             }
-            if param.IsNextCandidate() || editor.isOkuriComplete {
+            if param.isNextCandidate || editor.isOkuriComplete {
                 if selector.execute(inlineCount: config.maxCountOfInlineCandidates()) {
                     return .transitionSelectCandidate
                 } else {

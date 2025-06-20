@@ -8,7 +8,7 @@
 import Foundation
 
 /// SKK_CHAR 属性
-public struct SKKAttribute: OptionSet {
+public struct SKKAttribute: OptionSet, Equatable {
     public let rawValue: Int
 
     public static let noneAttribute = SKKAttribute(rawValue: 0)
