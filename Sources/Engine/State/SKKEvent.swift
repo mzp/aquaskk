@@ -18,7 +18,7 @@ public struct SKKEventImpl: Equatable {
         code = 0
     }
 
-    init(id: SKKEventID, code: Int, attribute: SKKAttribute, option: SKKHandleOption)
+    public init(id: SKKEventID, code: Int, attribute: SKKAttribute = [], option: SKKHandleOption = .defalutOption)
     {
         self.id = id
         self.code = code

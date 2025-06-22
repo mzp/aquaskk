@@ -61,6 +61,14 @@ import Foundation
     }
 
     // MARK: - Event Handle
+    @objc public func handle(event: SKKEvent) -> Bool {
+        var eventImpl = SKKEventImpl()
+        eventImpl.id = .init(rawValue: event.id)!
+        eventImpl.code = Int(event.code)
+        eventImpl.attribute = .init(rawValue: Int(event.attribute))
+        eventImpl.option = .init(rawValue: Int(event.option))
+        return handle(event: eventImpl)
+    }
     public func handle(event: SKKEventImpl) -> Bool {
         return handleEventIfNecessary(perform: {
             beginEvent()
